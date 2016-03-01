@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.Accessor
+namespace gAyPI.StardewValley.Accessor
 {
     public interface CharacterAccessor
     {

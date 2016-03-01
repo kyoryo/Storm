@@ -20,6 +20,9 @@ namespace gAyPI.Manipulation
 
         public CecilInjectorFactory(string path) : base(path) { }
 
+        public AssemblyDefinition Self { get { return self; } }
+        public AssemblyDefinition CecilAssembly { get { return cecilAssembly; } }
+
         private void CheckSelf()
         {
             if (self == null)
@@ -33,31 +36,31 @@ namespace gAyPI.Manipulation
             this.cecilAssembly = AssemblyDefinition.ReadAssembly(path);
         }
 
-        protected override Injector CreateInterfaceInjector(InterfaceInjectorParams @params)
+        public override Injector CreateInterfaceInjector(InterfaceInjectorParams @params)
         {
             CheckSelf();
             return new CecilInterfaceInjector(self, cecilAssembly, @params);
         }
 
-        protected override Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params)
+        public override Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params)
         {
             CheckSelf();
             return new CecilFieldDetourInjector(self, cecilAssembly, @params);
         }
 
-        protected override Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params)
+        public override Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params)
         {
             CheckSelf();
             return new CecilFieldAccessorInjector(self, cecilAssembly, @params);
         }
 
-        protected override Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params)
+        public override Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params)
         {
             CheckSelf();
             return new CecilAbsoluteCallInjector(self, cecilAssembly, @params);
         }
 
-        protected override Assembly ToConcrete()
+        public override Assembly ToConcrete()
         {
             using (var strum = new MemoryStream())
             {

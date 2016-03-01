@@ -20,15 +20,15 @@ namespace gAyPI.Manipulation
 
         protected abstract void UpdatePath(string path);
 
-        protected abstract Injector CreateInterfaceInjector(InterfaceInjectorParams @params);
+        public abstract Injector CreateInterfaceInjector(InterfaceInjectorParams @params);
 
-        protected abstract Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params);
+        public abstract Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params);
 
-        protected abstract Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params);
+        public abstract Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params);
 
-        protected abstract Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params);
+        public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params);
 
-        protected abstract Assembly ToConcrete();
+        public abstract Assembly ToConcrete();
 
         public InjectionFactoryContext ParseOfType(DataFormat format, Stream @in)
         {
@@ -54,52 +54,64 @@ namespace gAyPI.Manipulation
             var list = new List<Injector>();
             var container = JsonConvert.DeserializeObject<JsonInjectorContainer>(json);
 
-            foreach (var injector in container.InterfaceInjectors)
+            if (container.InterfaceInjectors != null)
             {
-                list.Add(CreateInterfaceInjector(new InterfaceInjectorParams
+                foreach (var injector in container.InterfaceInjectors)
                 {
-                    OwnerType = injector.OwnerType,
-                    InterfaceType = injector.InterfaceType,
-                }));
+                    list.Add(CreateInterfaceInjector(new InterfaceInjectorParams
+                    {
+                        OwnerType = injector.OwnerType,
+                        InterfaceType = injector.InterfaceType,
+                    }));
+                }
             }
 
-            foreach (var injector in container.FieldDetourInjectors)
+            if (container.FieldDetourInjectors != null)
             {
-                list.Add(CreateFieldDetourInjector(new FieldDetourInjectorParams
+                foreach (var injector in container.FieldDetourInjectors)
                 {
-                    OwnerType = injector.OwnerType,
-                    OwnerFieldName = injector.OwnerFieldName,
-                    OwnerFieldType = injector.OwnerFieldType,
-                    DetourType = injector.DetourType,
-                    DetourMethodName = injector.DetourMethodName,
-                    DetourMethodDesc = injector.DetourMethodDesc
-                }));
+                    list.Add(CreateFieldDetourInjector(new FieldDetourInjectorParams
+                    {
+                        OwnerType = injector.OwnerType,
+                        OwnerFieldName = injector.OwnerFieldName,
+                        OwnerFieldType = injector.OwnerFieldType,
+                        DetourType = injector.DetourType,
+                        DetourMethodName = injector.DetourMethodName,
+                        DetourMethodDesc = injector.DetourMethodDesc
+                    }));
+                }
             }
 
-            foreach (var injector in container.FieldAccessorInjectors)
+            if (container.FieldAccessorInjectors != null)
             {
-                list.Add(CreateFieldAccessorInjector(new FieldAccessorInjectorParams
+                foreach (var injector in container.FieldAccessorInjectors)
                 {
-                    OwnerType = injector.OwnerType,
-                    OwnerFieldName = injector.OwnerFieldName,
-                    OwnerFieldType = injector.OwnerFieldType,
-                    MethodName = injector.MethodName,
-                    IsStatic = injector.IsStatic,
-                }));
+                    list.Add(CreateFieldAccessorInjector(new FieldAccessorInjectorParams
+                    {
+                        OwnerType = injector.OwnerType,
+                        OwnerFieldName = injector.OwnerFieldName,
+                        OwnerFieldType = injector.OwnerFieldType,
+                        MethodName = injector.MethodName,
+                        ReturnType = injector.ReturnType,
+                        IsStatic = injector.IsStatic,
+                    }));
+                }
             }
-
-            foreach (var injector in container.AbsoluteCallInjectors)
+            if (container.AbsoluteCallInjectors != null)
             {
-                list.Add(CreateAbsoluteCallInjector(new AbsoluteCallInjectorParams
+                foreach (var injector in container.AbsoluteCallInjectors)
                 {
-                    OwnerType = injector.OwnerType,
-                    OwnerMethodName = injector.OwnerMethodName,
-                    OwnerMethodDesc = injector.OwnerMethodDesc,
-                    DetourType = injector.DetourType,
-                    DetourMethodName = injector.DetourMethodName,
-                    DetourMethodDesc = injector.DetourMethodDesc,
-                    InsertionIndex = injector.InsertionIndex
-                }));
+                    list.Add(CreateAbsoluteCallInjector(new AbsoluteCallInjectorParams
+                    {
+                        OwnerType = injector.OwnerType,
+                        OwnerMethodName = injector.OwnerMethodName,
+                        OwnerMethodDesc = injector.OwnerMethodDesc,
+                        DetourType = injector.DetourType,
+                        DetourMethodName = injector.DetourMethodName,
+                        DetourMethodDesc = injector.DetourMethodDesc,
+                        InsertionIndex = injector.InsertionIndex
+                    }));
+                }
             }
 
             return list;

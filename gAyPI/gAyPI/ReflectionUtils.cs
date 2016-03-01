@@ -28,5 +28,10 @@ namespace gAyPI
             sb.Append(md.ReturnType.FullName);
             return sb.ToString();
         }
+
+        public static Type DynamicResolve(string name)
+        {
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).First(t => t.FullName.Equals(name));
+        }
     }
 }

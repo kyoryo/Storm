@@ -1,4 +1,5 @@
-﻿using Mono.Cecil;
+﻿using Microsoft.Xna.Framework;
+using Mono.Cecil;
 using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
@@ -24,29 +25,35 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            foreach (var module in def.Modules)
+            var module = def.MainModule;
+
+            TypeReference returnType = module.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ReturnType));
+            if (returnType == null)
             {
-                foreach (var type in module.Types)
+                returnType = module.Import(ReflectionUtils.DynamicResolve(@params.ReturnType));
+            }
+
+            var ownerType = module.Types.Single(t => t.FullName.Equals(@params.OwnerType));
+            if (ownerType != null)
+            {
+                var field = ownerType.Fields.FirstOrDefault(f =>
+                    f.Name.Equals(@params.OwnerFieldName) &&
+                    f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType)
+                );
+
+                if (field != null)
                 {
-                    if (type.FullName.Equals(@params.OwnerType))
+                    var import = module.Import(returnType);
+                    var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Final | MethodAttributes.Virtual, import);
+                    var instructions = method.Body.Instructions;
+                    var processor = method.Body.GetILProcessor();
+                    if (!@params.IsStatic)
                     {
-                        foreach (var field in type.Fields)
-                        {
-                            if (field.Name.Equals(@params.OwnerFieldName) &&
-                                field.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType))
-                            {
-                                var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Final | MethodAttributes.Virtual, field.FieldType.Resolve());
-                                var instructions = method.Body.Instructions;
-                                var processor = method.Body.GetILProcessor();
-                                if (!@params.IsStatic) {
-                                    instructions.Add(processor.Create(OpCodes.Ldarg_0));
-                                }
-                                instructions.Add(processor.Create(OpCodes.Ldfld, field));
-                                instructions.Add(processor.Create(OpCodes.Ret));
-                                type.Methods.Add(method);
-                            }
-                        }
+                        instructions.Add(processor.Create(OpCodes.Ldarg_0));
                     }
+                    instructions.Add(processor.Create(OpCodes.Ldfld, field));
+                    instructions.Add(processor.Create(OpCodes.Ret));
+                    ownerType.Methods.Add(method);
                 }
             }
         }

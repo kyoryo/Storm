@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.Manipulation
+namespace gAyPI.StardewValley
 {
-    public enum GameLauncherType : byte
+    public struct RewriteEntryInjectorParams
     {
-        StardewValleyModBootstrap,
     }
 }

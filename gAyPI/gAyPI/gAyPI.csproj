@@ -37,6 +37,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Graphics\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Graphics.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.dll</HintPath>
       <Private>True</Private>
@@ -68,14 +72,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accessor\BootsAccessor.cs" />
-    <Compile Include="Accessor\CharacterAccessor.cs" />
-    <Compile Include="Accessor\EventAccessor.cs" />
-    <Compile Include="Accessor\FarmerAccessor.cs" />
-    <Compile Include="Accessor\Item.cs" />
-    <Compile Include="Accessor\GameAccessor.cs" />
-    <Compile Include="Accessor\ProgramAccessor.cs" />
-    <Compile Include="CallbackTest.cs" />
+    <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\GameAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
+    <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
+    <Compile Include="StardewValley\StaticGameContext.cs" />
     <Compile Include="CecilUtils.cs" />
     <Compile Include="DataFormat.cs" />
     <Compile Include="Logging.cs" />
@@ -88,9 +93,6 @@
     <Compile Include="Manipulation\CecilRetCallInjector.cs" />
     <Compile Include="Manipulation\FieldAccessorInjectorParams.cs" />
     <Compile Include="Manipulation\FieldDetourInjectorParams.cs" />
-    <Compile Include="Manipulation\GameLauncher.cs" />
-    <Compile Include="Manipulation\GameLauncherFactory.cs" />
-    <Compile Include="Manipulation\GameLauncherType.cs" />
     <Compile Include="Manipulation\InjectionFactoryContext.cs" />
     <Compile Include="Manipulation\Injector.cs" />
     <Compile Include="Manipulation\InjectorFactories.cs" />
@@ -103,7 +105,8 @@
     <Compile Include="Manipulation\JsonInjectorContainer.cs" />
     <Compile Include="Manipulation\JsonInterfaceInjector.cs" />
     <Compile Include="Manipulation\RetCallInjectorParams.cs" />
-    <Compile Include="Manipulation\StardewValleyGameLauncher.cs" />
+    <Compile Include="StardewValley\CecilRewriteEntryInjector.cs" />
+    <Compile Include="StardewValley\RewriteEntryInjectorParams.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
@@ -112,6 +115,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
