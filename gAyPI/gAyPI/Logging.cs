@@ -12,6 +12,7 @@ namespace gAyPI
 
         public delegate void Logger(string msg);
 
-        public static Logger Log = null;
+        public static Logger Log = (s) => { };
+        public static Logger DebugLog = (s) => { };
     }
 }

@@ -42,16 +42,11 @@ namespace gAyPI.Manipulation
                                 instructions.Add(processor.Create(OpCodes.Ldfld, field));
                                 instructions.Add(processor.Create(OpCodes.Ret));
                                 type.Methods.Add(method);
-                                Logging.Log("Injected");
                             }
                         }
                     }
                 }
             }
-
-            var fs = new FileStream("bleh.exe", FileMode.Create);
-            def.Write(fs);
-            fs.Close();
         }
     }
 }
