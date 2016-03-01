@@ -21,7 +21,7 @@ namespace gAyPI
                 var ctx = factory.ParseOfType(DataFormat.Json, stream);
                 ctx.Injectors.ForEach(injector => injector.Inject());
 
-                var launcher = GameLauncherFactory.Create(GameLauncherType.StardewValley, ctx.GetConcreteAssembly());
+                var launcher = GameLauncherFactory.Create(GameLauncherType.StardewValleyModBootstrap, ctx.GetConcreteAssembly());
                 launcher.Launch();
             }
             Console.ReadKey();

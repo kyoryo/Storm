@@ -15,7 +15,7 @@ namespace gAyPI.Manipulation
         {
             switch (type)
             {
-                case GameLauncherType.StardewValley:
+                case GameLauncherType.StardewValleyModBootstrap:
                     return new StardewValleyGameLauncher(assembly);
             }
             throw new NotSupportedException(string.Format("Unsupported type {0}", type));

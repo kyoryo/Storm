@@ -8,6 +8,6 @@ namespace gAyPI.Manipulation
 {
     public enum GameLauncherType : byte
     {
-        StardewValley,
+        StardewValleyModBootstrap,
     }
 }
