@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gAyPI.Accessor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,7 @@ namespace gAyPI.Manipulation
 
         public void Launch()
         {
+            CallbackTest.entry = (ProgramAccessor) assembly.EntryPoint.GetType().GetConstructors()[0].Invoke(new object[0]);
             assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
         }
     }

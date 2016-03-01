@@ -6,8 +6,40 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Accessor
 {
-    public interface FarmerAccessor
+    public interface FarmerAccessor : CharacterAccessor
     {
-        int GetTestx();
+        int GetHouseUpgradeLevel();
+
+        bool CanMove();
+
+        bool CanOnlyWalk();
+
+        bool CanReleaseTool();
+
+        int GetCombatLevel();
+
+        int GetHealth();
+
+        int GetMaxHealth();
+
+        int GetImmunity();
+
+        bool IsCrafting();
+
+        bool IsMale();
+
+        int GetMaxItems();
+
+        float GetRotation();
+
+        bool IsRunning();
+
+        float GetStamina();
+
+        bool UsingTool();
+
+        float GetOffsetX();
+
+        float GetOffsetY();
     }
 }

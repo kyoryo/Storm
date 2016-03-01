@@ -17,7 +17,7 @@ namespace gAyPI
             sb.Append('(');
             foreach (var param in md.GetParameters())
             {
-                sb.Append(param.ParameterType.Name);
+                sb.Append(param.ParameterType.FullName);
                 sb.Append(',');
             }
             if (md.GetParameters().Length > 0)
@@ -25,7 +25,7 @@ namespace gAyPI
                 sb.Length -= 1;
             }
             sb.Append(')');
-            sb.Append(md.ReturnType.Name);
+            sb.Append(md.ReturnType.FullName);
             return sb.ToString();
         }
     }

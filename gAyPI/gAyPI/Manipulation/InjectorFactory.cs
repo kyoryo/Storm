@@ -26,6 +26,8 @@ namespace gAyPI.Manipulation
 
         protected abstract Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params);
 
+        protected abstract Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params);
+
         protected abstract Assembly ToConcrete();
 
         public InjectionFactoryContext ParseOfType(DataFormat format, Stream @in)
@@ -82,8 +84,24 @@ namespace gAyPI.Manipulation
                     OwnerFieldName = injector.OwnerFieldName,
                     OwnerFieldType = injector.OwnerFieldType,
                     MethodName = injector.MethodName,
+                    IsStatic = injector.IsStatic,
                 }));
             }
+
+            foreach (var injector in container.AbsoluteCallInjectors)
+            {
+                list.Add(CreateAbsoluteCallInjector(new AbsoluteCallInjectorParams
+                {
+                    OwnerType = injector.OwnerType,
+                    OwnerMethodName = injector.OwnerMethodName,
+                    OwnerMethodDesc = injector.OwnerMethodDesc,
+                    DetourType = injector.DetourType,
+                    DetourMethodName = injector.DetourMethodName,
+                    DetourMethodDesc = injector.DetourMethodDesc,
+                    InsertionIndex = injector.InsertionIndex
+                }));
+            }
+
             return list;
         }
     }

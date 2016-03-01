@@ -12,5 +12,6 @@ namespace gAyPI.Manipulation
         public string OwnerFieldType { get; set; }
         public string OwnerFieldName { get; set; }
         public string MethodName { get; set; }
+        public bool IsStatic { get; set; }
     }
 }

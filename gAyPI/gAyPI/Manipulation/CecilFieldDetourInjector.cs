@@ -73,7 +73,7 @@ namespace gAyPI.Manipulation
                 {
                     foreach (var method in type.Methods)
                     {
-                        if (method.IsAbstract || method.Body == null) continue;
+                        if (!method.HasBody) continue;
 
                         var processor = method.Body.GetILProcessor();
                         var instructions = method.Body.Instructions;

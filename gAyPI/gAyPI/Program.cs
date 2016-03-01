@@ -24,6 +24,7 @@ namespace gAyPI
                 var launcher = GameLauncherFactory.Create(GameLauncherType.StardewValley, ctx.GetConcreteAssembly());
                 launcher.Launch();
             }
+            Console.ReadKey();
         }
     }
 }

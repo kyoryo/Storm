@@ -51,6 +51,12 @@ namespace gAyPI.Manipulation
             return new CecilFieldAccessorInjector(self, cecilAssembly, @params);
         }
 
+        protected override Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params)
+        {
+            CheckSelf();
+            return new CecilAbsoluteCallInjector(self, cecilAssembly, @params);
+        }
+
         protected override Assembly ToConcrete()
         {
             using (var strum = new MemoryStream())

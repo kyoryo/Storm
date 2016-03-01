@@ -38,7 +38,9 @@ namespace gAyPI.Manipulation
                                 var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Final | MethodAttributes.Virtual, field.FieldType.Resolve());
                                 var instructions = method.Body.Instructions;
                                 var processor = method.Body.GetILProcessor();
-                                instructions.Add(processor.Create(OpCodes.Ldarg_0));
+                                if (!@params.IsStatic) {
+                                    instructions.Add(processor.Create(OpCodes.Ldarg_0));
+                                }
                                 instructions.Add(processor.Create(OpCodes.Ldfld, field));
                                 instructions.Add(processor.Create(OpCodes.Ret));
                                 type.Methods.Add(method);
