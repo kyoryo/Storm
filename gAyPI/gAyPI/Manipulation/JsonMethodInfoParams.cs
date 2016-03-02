@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public class JsonMethodInfoInjector
+    public class JsonMethodInfoParams
     {
-        public string OwnerType { get; set; }
+        public string OwnerAccessorType { get; set; }
         public string MethodName { get; set; }
         public string MethodDesc { get; set; }
-        public string OwnerAccessorType { get; set; }
         public string RefactoredName { get; set; }
     }
 }

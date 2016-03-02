@@ -1,23 +1,20 @@
-﻿using Microsoft.Xna.Framework;
-using Mono.Cecil;
+﻿using Mono.Cecil;
 using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public class CecilFieldAccessorInjector : Injector
+    public class CecilFieldMutatorInjector : Injector
     {
         private AssemblyDefinition self;
         private AssemblyDefinition def;
-        private FieldAccessorParams @params;
+        private FieldMutatorParams @params;
 
-        public CecilFieldAccessorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldAccessorParams @params)
+        public CecilFieldMutatorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldMutatorParams @params)
         {
             this.self = self;
             this.def = def;
@@ -27,10 +24,10 @@ namespace gAyPI.Manipulation
         public void Inject()
         {
             var gameModule = def.MainModule;
-            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ReturnType));
+            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ParamType));
             if (returnType == null)
             {
-                returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ReturnType));
+                returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ParamType));
             }
 
             var field = gameModule.Types.
@@ -38,14 +35,17 @@ namespace gAyPI.Manipulation
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
             
-            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(returnType));
+            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(typeof(void)));
+            method.Parameters.Add(new ParameterDefinition(gameModule.Import(returnType)));
+
             var instructions = method.Body.Instructions;
             var processor = method.Body.GetILProcessor();
             if (!@params.IsStatic)
             {
                 instructions.Add(processor.Create(OpCodes.Ldarg_0));
             }
-            instructions.Add(processor.Create(OpCodes.Ldfld, field));
+            instructions.Add(processor.Create(OpCodes.Stfld, field));
+            instructions.Add(processor.Create(@params.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
             instructions.Add(processor.Create(OpCodes.Ret));
             field.DeclaringType.Methods.Add(method);
         }

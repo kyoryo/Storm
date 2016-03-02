@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public struct RetCallInjectorParams
+    public struct AbsoluteCallParams
     {
         public string OwnerType { get; set; }
         public string OwnerMethodName { get; set; }
@@ -14,5 +14,6 @@ namespace gAyPI.Manipulation
         public string DetourType { get; set; }
         public string DetourMethodName { get; set; }
         public string DetourMethodDesc { get; set; }
+        public int InsertionIndex { get; set; }
     }
 }

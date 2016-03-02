@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public class JsonInterfaceInjector
+    public struct InterfaceParams
     {
         public string OwnerType { get; set; }
         public string InterfaceType { get; set; }

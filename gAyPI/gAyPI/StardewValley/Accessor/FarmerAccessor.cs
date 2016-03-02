@@ -43,6 +43,6 @@ namespace gAyPI.StardewValley.Accessor
 
         float GetOffsetY();*/
 
-        IList GetItems();
+        IList _GetItems();
     }
 }

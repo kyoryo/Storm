@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,7 +34,6 @@ namespace gAyPI.StardewValley
             tmp = typeof(SpriteBatch);
 
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
-
             var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
             if (factory is CecilInjectorFactory)
             {
@@ -46,10 +46,7 @@ namespace gAyPI.StardewValley
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
             var constructor = entryType.GetConstructor(new Type[0]);
-            // we're using the entry point class as our static accessor stub, so get ourselves an instance here
-            //
-            // also important to note that by default, the entry type is a static class, with no constructor
-            // it's up to whatever is handling the injection to modify that class!
+
             StaticGameContext.Assembly = assembly;
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);

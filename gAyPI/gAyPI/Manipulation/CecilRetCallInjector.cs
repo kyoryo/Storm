@@ -12,9 +12,9 @@ namespace gAyPI.Manipulation
     {
         private AssemblyDefinition self;
         private AssemblyDefinition def;
-        private RetCallInjectorParams @params;
+        private RetCallParams @params;
 
-        public CecilRetCallInjector(AssemblyDefinition self, AssemblyDefinition def, RetCallInjectorParams @params)
+        public CecilRetCallInjector(AssemblyDefinition self, AssemblyDefinition def, RetCallParams @params)
         {
             this.self = self;
             this.def = def;

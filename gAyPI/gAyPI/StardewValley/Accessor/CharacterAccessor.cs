@@ -9,22 +9,22 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface CharacterAccessor
     {
-        bool IsEmoteFading();
+        bool _IsEmoteFading();
 
-        float GetEmoteInterval();
+        float _GetEmoteInterval();
 
-        Vector2 GetLastClick();
+        Vector2 _GetLastClick();
 
-        string GetName();
+        string _GetName();
 
-        Vector2 GetPosition();
+        Vector2 _GetPosition();
 
-        float GetVelocityX();
+        float _GetVelocityX();
 
-        float GetVelocityY();
+        float _GetVelocityY();
 
-        float GetScale();
+        float _GetScale();
 
-        int GetSpeed();
+        int _GetSpeed();
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public class JsonFieldDetourInjector
+    public class JsonFieldDetourParams
     {
-        public string OwnerType { get; set; }
+        public string OwnerAccessorType { get; set; }
         public string OwnerFieldType { get; set; }
         public string OwnerFieldName { get; set; }
         public string DetourType { get; set; }

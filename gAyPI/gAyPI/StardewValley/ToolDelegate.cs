@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.StardewValley.Accessor
+namespace gAyPI.StardewValley
 {
-    public interface ProgramAccessor
+    public interface ToolDelegate
     {
-        GameAccessor _GetGame();
+        string GetName();
     }
 }

@@ -8,14 +8,14 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface BootsAccessor : ItemAccessor
     {
-        int GetDefenseBonus();
+        int _GetDefenseBonus();
 
-        string GetDescription();
+        string _GetDescription();
 
-        int GetImmunityBonus();
+        int _GetImmunityBonus();
 
-        string GetName();
+        string _GetName();
 
-        int GetPrice();
+        int _GetPrice();
     }
 }

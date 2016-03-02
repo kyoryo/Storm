@@ -8,6 +8,6 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface ToolAccessor : ItemAccessor
     {
-        string GetName();
+        string _GetName();
     }
 }

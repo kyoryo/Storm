@@ -13,9 +13,9 @@ namespace gAyPI.Manipulation
     {
         private AssemblyDefinition self;
         private AssemblyDefinition def;
-        private FieldDetourInjectorParams @params;
+        private FieldDetourParams @params;
 
-        public CecilFieldDetourInjector(AssemblyDefinition self, AssemblyDefinition def, FieldDetourInjectorParams @params)
+        public CecilFieldDetourInjector(AssemblyDefinition self, AssemblyDefinition def, FieldDetourParams @params)
         {
             this.self = self;
             this.def = def;

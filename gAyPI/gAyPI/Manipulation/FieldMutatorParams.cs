@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public struct FieldAccessorInjectorParams
+    public struct FieldMutatorParams
     {
         public string OwnerType { get; set; }
         public string OwnerFieldType { get; set; }
         public string OwnerFieldName { get; set; }
         public string MethodName { get; set; }
-        public string ReturnType { get; set; }
+        public string ParamType { get; set; }
         public bool IsStatic { get; set; }
         public string OwnerAccessorType { get; set; }
     }

@@ -36,25 +36,31 @@ namespace gAyPI.Manipulation
             this.gameAssembly = AssemblyDefinition.ReadAssembly(path);
         }
 
-        public override Injector CreateInterfaceInjector(InterfaceInjectorParams @params)
+        public override Injector CreateInterfaceInjector(InterfaceParams @params)
         {
             CheckSelf();
             return new CecilInterfaceInjector(selfAssembly, gameAssembly, @params);
         }
 
-        public override Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params)
+        public override Injector CreateFieldDetourInjector(FieldDetourParams @params)
         {
             CheckSelf();
             return new CecilFieldDetourInjector(selfAssembly, gameAssembly, @params);
         }
 
-        public override Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params)
+        public override Injector CreateFieldAccessorInjector(FieldAccessorParams @params)
         {
             CheckSelf();
             return new CecilFieldAccessorInjector(selfAssembly, gameAssembly, @params);
         }
 
-        public override Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params)
+        public override Injector CreateFieldMutatorInjector(FieldMutatorParams @params)
+        {
+            CheckSelf();
+            return new CecilFieldMutatorInjector(selfAssembly, gameAssembly, @params);
+        }
+
+        public override Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
         {
             CheckSelf();
             return new CecilAbsoluteCallInjector(selfAssembly, gameAssembly, @params);

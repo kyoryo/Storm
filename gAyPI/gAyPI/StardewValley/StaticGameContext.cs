@@ -40,11 +40,15 @@ namespace gAyPI.StardewValley
 
         public static void DrawLastCallback()
         {
+            var batch = root._GetGame()._GetSpriteBatch();
+            var font = root._GetGame()._GetSmoothFont();
+            batch.DrawString(font, "gAyPI", new Vector2(16, 16), Color.Red);
+
             var down = Keyboard.GetState().IsKeyDown(Keys.X);
             if (down && !downLast)
             {
                 var tool = ProxyTool(new TestToolDelegate());
-                root.GetGame().GetPlayer().GetItems()[1] = tool;
+                root._GetGame()._GetPlayer()._GetItems()[1] = tool;
                 downLast = true;
             }
             else if (!down)

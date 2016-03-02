@@ -16,9 +16,9 @@ namespace gAyPI.Manipulation
             foreach (var injector in list)
             {
                 var @params = injector.GetParams();
-                if (@params is InterfaceInjectorParams)
+                if (@params is InterfaceParams)
                 {
-                    var casted =  (InterfaceInjectorParams)@params;
+                    var casted =  (InterfaceParams)@params;
                     if (casted.InterfaceType == typeof(T).FullName)
                     {
                         return casted.OwnerType;

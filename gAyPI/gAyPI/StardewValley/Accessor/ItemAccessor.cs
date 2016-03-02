@@ -8,12 +8,12 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface ItemAccessor
     {
-        int GetCategory();
+        int _GetCategory();
 
-        bool HasBeenInInventory();
+        bool _HasBeenInInventory();
 
-        bool IsSpecialItem();
+        bool _IsSpecialItem();
 
-        int GetSpecialVariable();
+        int _GetSpecialVariable();
     }
 }

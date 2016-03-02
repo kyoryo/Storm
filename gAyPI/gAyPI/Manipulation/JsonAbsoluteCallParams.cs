@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public struct AbsoluteCallInjectorParams
+    public class JsonAbsoluteCallParams
     {
-        public string OwnerType { get; set; }
+        public string OwnerAccessorType { get; set; }
         public string OwnerMethodName { get; set; }
         public string OwnerMethodDesc { get; set; }
         public string DetourType { get; set; }

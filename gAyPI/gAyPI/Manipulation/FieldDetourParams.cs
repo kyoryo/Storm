@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public struct FieldDetourInjectorParams
+    public struct FieldDetourParams
     {
         public string OwnerType { get; set; }
         public string OwnerFieldType { get; set;  }

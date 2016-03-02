@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -20,13 +21,15 @@ namespace gAyPI.Manipulation
 
         protected abstract void UpdatePath(string path);
 
-        public abstract Injector CreateInterfaceInjector(InterfaceInjectorParams @params);
+        public abstract Injector CreateInterfaceInjector(InterfaceParams @params);
 
-        public abstract Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params);
+        public abstract Injector CreateFieldDetourInjector(FieldDetourParams @params);
 
-        public abstract Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params);
+        public abstract Injector CreateFieldAccessorInjector(FieldAccessorParams @params);
 
-        public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params);
+        public abstract Injector CreateFieldMutatorInjector(FieldMutatorParams @params);
+
+        public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
 
         public virtual Injector CreateFieldInfoInjector(FieldInfoParams @params)
         {
@@ -56,6 +59,32 @@ namespace gAyPI.Manipulation
             return ctx;
         }
 
+        private string FilterTags(Dictionary<string, string> map, string s)
+        {
+            while (s.IndexOf("@") != -1)
+            {
+                int start = s.IndexOf('@');
+                int end = -1;
+                if (s[start + 1] == '(')
+                {
+                    end = s.IndexOf(')', start);
+                    if (end == -1) end = s.Length;
+                    else end += 1;
+                    string key = s.Substring(start + 2, end - start - 3);
+                    s = s.Replace(s.Substring(start, end - start), map[key]);
+                }
+                else
+                {
+                    end = s.IndexOf(' ', start);
+                    if (end == -1) end = s.Length;
+                    else end += 1;
+                    string key = s.Substring(start + 1, end - start - 1);
+                    s = s.Replace(s.Substring(start, end - start), map[key]);
+                }
+            }
+            return s;
+        }
+
         private List<Injector> ParseJson(Stream @in)
         {
             var reader = new StreamReader(@in);
@@ -64,30 +93,32 @@ namespace gAyPI.Manipulation
             var list = new List<Injector>();
             var container = JsonConvert.DeserializeObject<JsonInjectorContainer>(json);
 
+            var nameMap = new Dictionary<string, string>();
             var accessorMap = new Dictionary<string, string>();
 
-            if (container.InterfaceInjectors != null)
+            if (container.InterfaceParams != null)
             {
-                foreach (var injector in container.InterfaceInjectors)
+                foreach (var injector in container.InterfaceParams)
                 {
-                    list.Add(CreateInterfaceInjector(new InterfaceInjectorParams
+                    list.Add(CreateInterfaceInjector(new InterfaceParams
                     {
                         OwnerType = injector.OwnerType,
                         InterfaceType = injector.InterfaceType,
                     }));
+                    nameMap.Add(injector.SimpleName, injector.OwnerType);
                     accessorMap.Add(injector.InterfaceType, injector.OwnerType);
                 }
             }
 
-            if (container.FieldDetourInjectors != null)
+            if (container.FieldDetourParams != null)
             {
-                foreach (var injector in container.FieldDetourInjectors)
+                foreach (var injector in container.FieldDetourParams)
                 {
-                    list.Add(CreateFieldDetourInjector(new FieldDetourInjectorParams
+                    list.Add(CreateFieldDetourInjector(new FieldDetourParams
                     {
-                        OwnerType = accessorMap[injector.OwnerType],
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         OwnerFieldName = injector.OwnerFieldName,
-                        OwnerFieldType = injector.OwnerFieldType,
+                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
                         DetourType = injector.DetourType,
                         DetourMethodName = injector.DetourMethodName,
                         DetourMethodDesc = injector.DetourMethodDesc
@@ -95,65 +126,82 @@ namespace gAyPI.Manipulation
                 }
             }
 
-            if (container.FieldAccessorInjectors != null)
+            if (container.FieldAccessorParams != null)
             {
-                foreach (var injector in container.FieldAccessorInjectors)
+                foreach (var injector in container.FieldAccessorParams)
                 {
-                    list.Add(CreateFieldAccessorInjector(new FieldAccessorInjectorParams
+                    list.Add(CreateFieldAccessorInjector(new FieldAccessorParams
                     {
-                        OwnerType = accessorMap[injector.OwnerType],
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         OwnerFieldName = injector.OwnerFieldName,
                         OwnerFieldType = injector.OwnerFieldType,
                         MethodName = injector.MethodName,
                         ReturnType = injector.ReturnType,
                         IsStatic = injector.IsStatic,
-                        OwnerAccessorType = injector.OwnerType,
+                        OwnerAccessorType = injector.OwnerAccessorType,
                     }));
                 }
             }
 
-            if (container.AbsoluteCallInjectors != null)
+            if (container.FieldMutatorParams != null)
             {
-                foreach (var injector in container.AbsoluteCallInjectors)
+                foreach (var injector in container.FieldMutatorParams)
                 {
-                    list.Add(CreateAbsoluteCallInjector(new AbsoluteCallInjectorParams
+                    list.Add(CreateFieldMutatorInjector(new FieldMutatorParams
                     {
-                        OwnerType = accessorMap[injector.OwnerType],
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                        OwnerFieldName = injector.OwnerFieldName,
+                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
+                        MethodName = injector.MethodName,
+                        ParamType = FilterTags(nameMap, injector.ParamType),
+                        IsStatic = injector.IsStatic,
+                        OwnerAccessorType = injector.OwnerAccessorType,
+                    }));
+                }
+            }
+
+            if (container.AbsoluteCallParams != null)
+            {
+                foreach (var injector in container.AbsoluteCallParams)
+                {
+                    list.Add(CreateAbsoluteCallInjector(new AbsoluteCallParams
+                    {
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         OwnerMethodName = injector.OwnerMethodName,
-                        OwnerMethodDesc = injector.OwnerMethodDesc,
+                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
                         DetourType = injector.DetourType,
                         DetourMethodName = injector.DetourMethodName,
-                        DetourMethodDesc = injector.DetourMethodDesc,
+                        DetourMethodDesc = FilterTags(nameMap, injector.DetourMethodDesc),
                         InsertionIndex = injector.InsertionIndex
                     }));
                 }
             }
 
-            if (container.FieldInfoInjectors != null)
+            if (container.FieldInfoParams != null)
             {
-                foreach (var injector in container.FieldInfoInjectors)
+                foreach (var injector in container.FieldInfoParams)
                 {
                     list.Add(CreateFieldInfoInjector(new FieldInfoParams
                     {
-                        OwnerType = accessorMap[injector.OwnerType],
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         FieldName = injector.FieldName,
-                        FieldType = injector.FieldType,
-                        OwnerAccessorType = injector.OwnerType,
+                        FieldType = FilterTags(nameMap, injector.FieldType),
+                        OwnerAccessorType = injector.OwnerAccessorType,
                         RefactoredName = injector.RefactoredName,
                     }));
                 }
             }
 
-            if (container.MethodInfoInjectors != null)
+            if (container.MethodInfoParams != null)
             {
-                foreach (var injector in container.MethodInfoInjectors)
+                foreach (var injector in container.MethodInfoParams)
                 {
                     list.Add(CreateMethodInfoInjector(new MethodInfoParams
                     {
-                        OwnerType = accessorMap[injector.OwnerType],
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         MethodName = injector.MethodName,
-                        MethodDesc = injector.MethodDesc,
-                        OwnerAccessorType = injector.OwnerType,
+                        MethodDesc = FilterTags(nameMap, injector.MethodDesc),
+                        OwnerAccessorType = injector.OwnerAccessorType,
                         RefactoredName = injector.RefactoredName,
                     }));
                 }

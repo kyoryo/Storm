@@ -9,10 +9,10 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface GameAccessor
     {
-        SpriteBatch GetSpriteBatch();
+        SpriteBatch _GetSpriteBatch();
 
-        SpriteFont GetSmoothFont();
+        SpriteFont _GetSmoothFont();
 
-        FarmerAccessor GetPlayer();
+        FarmerAccessor _GetPlayer();
     }
 }

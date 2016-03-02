@@ -8,11 +8,12 @@ namespace gAyPI.Manipulation
 {
     public class JsonInjectorContainer
     {
-        public JsonInterfaceInjector[] InterfaceInjectors { get; set; }
-        public JsonFieldDetourInjector[] FieldDetourInjectors { get; set; }
-        public JsonFieldAccessorInjector[] FieldAccessorInjectors { get; set; }
-        public JsonAbsoluteCallInjector[] AbsoluteCallInjectors { get; set; }
-        public JsonFieldInfoInjector[] FieldInfoInjectors { get; set; }
-        public JsonMethodInfoInjector[] MethodInfoInjectors { get; set; }
+        public JsonInterfaceParams[] InterfaceParams { get; set; }
+        public JsonFieldDetourParams[] FieldDetourParams { get; set; }
+        public JsonFieldAccessorParams[] FieldAccessorParams { get; set; }
+        public JsonFieldMutatorParams[] FieldMutatorParams { get; set; }
+        public JsonAbsoluteCallParams[] AbsoluteCallParams { get; set; }
+        public JsonFieldInfoParams[] FieldInfoParams { get; set; }
+        public JsonMethodInfoParams[] MethodInfoParams { get; set; }
     }
 }

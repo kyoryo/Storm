@@ -11,9 +11,9 @@ namespace gAyPI.Manipulation
     {
         private AssemblyDefinition self;
         private AssemblyDefinition def;
-        private InterfaceInjectorParams @params;
+        private InterfaceParams @params;
 
-        public CecilInterfaceInjector(AssemblyDefinition self, AssemblyDefinition def, InterfaceInjectorParams @params)
+        public CecilInterfaceInjector(AssemblyDefinition self, AssemblyDefinition def, InterfaceParams @params)
         {
             this.self = self;
             this.def = def;

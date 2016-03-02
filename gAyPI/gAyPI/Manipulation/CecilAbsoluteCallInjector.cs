@@ -12,9 +12,9 @@ namespace gAyPI.Manipulation
     {
         private AssemblyDefinition self;
         private AssemblyDefinition def;
-        private AbsoluteCallInjectorParams @params;
+        private AbsoluteCallParams @params;
 
-        public CecilAbsoluteCallInjector(AssemblyDefinition self, AssemblyDefinition def, AbsoluteCallInjectorParams @params)
+        public CecilAbsoluteCallInjector(AssemblyDefinition self, AssemblyDefinition def, AbsoluteCallParams @params)
         {
             this.self = self;
             this.def = def;
