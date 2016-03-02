@@ -23,54 +23,27 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            // find the method call to insert before every return
-            MethodDefinition callingDefinition = null;
-            foreach (var module in self.Modules)
-            {
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.DetourType))
-                    {
-                        foreach (var method in type.Methods)
-                        {
-                            if (method.Name.Equals(@params.DetourMethodName) &&
-                                CecilUtils.DescriptionOf(method).Equals(@params.DetourMethodDesc))
-                            {
-                                callingDefinition = method;
-                            }
-                        }
-                    }
-                }
-            }
+            var callingDefinition = self.Modules.
+               SelectMany(m => m.Types).
+               Where(t => t.FullName.Equals(@params.DetourType)).
+               SelectMany(t => t.Methods).
+               FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
 
-            // insert the calls before every return
-            foreach (var module in def.Modules)
-            {
-                var import = module.Import(callingDefinition.Resolve());
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.OwnerType))
-                    {
-                        foreach (var method in type.Methods)
-                        {
-                            if (!method.HasBody) continue;
+            var injectee = def.Modules.
+               SelectMany(m => m.Types).
+               Where(t => t.FullName.Equals(@params.OwnerType)).
+               SelectMany(t => t.Methods).
+               FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
 
-                            if (method.Name.Equals(@params.OwnerMethodName) &&
-                                CecilUtils.DescriptionOf(method).Equals(@params.OwnerMethodDesc))
-                            {
-                                var processor = method.Body.GetILProcessor();
-                                var instructions = method.Body.Instructions;
-                                for (int i = 0; i < instructions.Count; i++)
-                                {
-                                    var ins = instructions[i];
-                                    if (ins.OpCode == OpCodes.Ret)
-                                    {
-                                        processor.InsertBefore(ins, processor.Create(OpCodes.Call, import));
-                                    }
-                                }
-                            }
-                        }
-                    }
+            var import = injectee.Module.Import(callingDefinition);
+            var processor = injectee.Body.GetILProcessor();
+            var instructions = injectee.Body.Instructions;
+            for (int i = 0; i < instructions.Count; i++)
+            {
+                var ins = instructions[i];
+                if (ins.OpCode == OpCodes.Ret)
+                {
+                    processor.InsertBefore(ins, processor.Create(OpCodes.Call, import));
                 }
             }
         }

@@ -24,47 +24,18 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            // find the method call to replace field refs with
-            MethodDefinition callingDefinition = null;
-            foreach (var module in self.Modules)
-            {
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.DetourType))
-                    {
-                        foreach (var method in type.Methods)
-                        {
-                            if (method.Name.Equals(@params.DetourMethodName) &&
-                                CecilUtils.DescriptionOf(method).Equals(@params.DetourMethodDesc))
-                            {
-                                callingDefinition = method;
-                            }
-                        }
-                    }
-                }
-            }
+            var callingDefinition = self.Modules.
+                SelectMany(m => m.Types).
+                Where(t => t.FullName.Equals(@params.DetourType)).
+                SelectMany(t => t.Methods).
+                FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) &&  CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
 
-            // find the field, to replace with the method call
-            FieldDefinition fieldRef = null;
-            foreach (var module in def.Modules)
-            {
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.OwnerType))
-                    {
-                        foreach (var field in type.Fields)
-                        {
-                            if (field.Name.Equals(@params.OwnerFieldName) &&
-                                field.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType))
-                            {
-                                fieldRef = field;
-                            }
-                        }
-                    }
-                }
-            }
+            var fieldRef = def.Modules.
+                SelectMany(m => m.Types).
+                Where(t => t.FullName.Equals(@params.DetourType)).
+                SelectMany(t => t.Fields).
+                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
 
-            // now replace any references to the field
             var resolved = fieldRef.Resolve();
             foreach (var module in def.Modules)
             {

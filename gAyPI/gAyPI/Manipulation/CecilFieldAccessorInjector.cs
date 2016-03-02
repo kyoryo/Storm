@@ -25,42 +25,29 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            var module = def.MainModule;
-
-            TypeReference returnType = module.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ReturnType));
+            var gameModule = def.MainModule;
+            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ReturnType));
             if (returnType == null)
             {
-                returnType = module.Import(ReflectionUtils.DynamicResolve(@params.ReturnType));
+                returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ReturnType));
             }
 
-            var ownerType = module.Types.Single(t => t.FullName.Equals(@params.OwnerType));
-            if (ownerType != null)
+            var field = gameModule.Types.
+                Where(t => t.FullName.Equals(@params.OwnerType)).
+                SelectMany(t => t.Fields).
+                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+
+            var import = gameModule.Import(returnType);
+            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, import);
+            var instructions = method.Body.Instructions;
+            var processor = method.Body.GetILProcessor();
+            if (!@params.IsStatic)
             {
-                var field = ownerType.Fields.FirstOrDefault(f =>
-                    f.Name.Equals(@params.OwnerFieldName) &&
-                    f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType)
-                );
-
-                if (field != null)
-                {
-                    var import = module.Import(returnType);
-                    var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, import);
-                    var instructions = method.Body.Instructions;
-                    var processor = method.Body.GetILProcessor();
-                    if (!@params.IsStatic)
-                    {
-                        instructions.Add(processor.Create(OpCodes.Ldarg_0));
-                    }
-                    instructions.Add(processor.Create(OpCodes.Ldfld, field));
-                    instructions.Add(processor.Create(OpCodes.Ret));
-                    ownerType.Methods.Add(method);
-                }
-                else
-                {
-                    Logging.Log("null " + @params.OwnerFieldName + " ");
-                    Array.ForEach(ownerType.Fields.ToArray(), f => Logging.Log(f.Name + " " + @params.OwnerFieldType + " " + f.FieldType.Resolve().FullName));
-                }
+                instructions.Add(processor.Create(OpCodes.Ldarg_0));
             }
+            instructions.Add(processor.Create(OpCodes.Ldfld, field));
+            instructions.Add(processor.Create(OpCodes.Ret));
+            field.DeclaringType.Methods.Add(method);
         }
 
         public object GetParams()

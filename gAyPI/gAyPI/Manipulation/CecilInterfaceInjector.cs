@@ -22,29 +22,9 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            TypeReference implementingInterface = null;
-            foreach (var module in self.Modules)
-            {
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.InterfaceType))
-                    {
-                        implementingInterface = type;
-                    }
-                }
-            }
-
-            foreach (var module in def.Modules)
-            {
-                var import = module.Import(implementingInterface);
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.OwnerType))
-                    {
-                        type.Interfaces.Add(import);
-                    }
-                }
-            }
+            var implementingInterface = self.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.InterfaceType));
+            var implementer = def.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.OwnerType));
+            implementer.Interfaces.Add(implementer.Module.Import(implementingInterface));
         }
 
         public object GetParams()

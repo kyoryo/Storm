@@ -23,49 +23,22 @@ namespace gAyPI.Manipulation
 
         public void Inject()
         {
-            // find the method call to insert
-            MethodDefinition callingDefinition = null;
-            foreach (var module in self.Modules)
-            {
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.DetourType))
-                    {
-                        foreach (var method in type.Methods)
-                        {
-                            if (method.Name.Equals(@params.DetourMethodName) &&
-                                CecilUtils.DescriptionOf(method).Equals(@params.DetourMethodDesc))
-                            {
-                                callingDefinition = method;
-                            }
-                        }
-                    }
-                }
-            }
+            var callingDefinition = self.Modules.
+                SelectMany(m => m.Types).
+                Where(t => t.FullName.Equals(@params.DetourType)).
+                SelectMany(t => t.Methods).
+                FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
 
-            // insert the method call
-            foreach (var module in def.Modules)
-            {
-                var import = module.Import(callingDefinition.Resolve());
-                foreach (var type in module.Types)
-                {
-                    if (type.FullName.Equals(@params.OwnerType))
-                    {
-                        foreach (var method in type.Methods)
-                        {
-                            if (!method.HasBody) continue;
-                            
-                            if (method.Name.Equals(@params.OwnerMethodName) &&
-                                CecilUtils.DescriptionOf(method).Equals(@params.OwnerMethodDesc))
-                            {
-                                var processor = method.Body.GetILProcessor();
-                                var instructions = method.Body.Instructions;
-                                processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
-                            }
-                        }
-                    }
-                }
-            }
+            var injectee = def.Modules.
+                SelectMany(m => m.Types).
+                Where(t => t.FullName.Equals(@params.OwnerType)).
+                SelectMany(t => t.Methods).
+                FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+
+            var import = injectee.Module.Import(callingDefinition);
+            var processor = injectee.Body.GetILProcessor();
+            var instructions = injectee.Body.Instructions;
+            processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
         }
 
         public object GetParams()
