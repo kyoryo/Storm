@@ -17,15 +17,16 @@ namespace gAyPI
         {
             var sb = new StringBuilder();
             sb.Append('(');
+
+            var set = false;
             foreach (var param in md.Parameters)
             {
                 sb.Append(param.ParameterType.Resolve().FullName);
                 sb.Append(',');
+                set = true;
             }
-            if (md.Parameters.Count > 0)
-            {
-                sb.Length -= 1;
-            }
+            if (set) sb.Length -= 1;
+
             sb.Append(')');
             sb.Append(md.ReturnType.Resolve().FullName);
             return sb.ToString();

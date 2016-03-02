@@ -15,15 +15,16 @@ namespace gAyPI
         {
             var sb = new StringBuilder();
             sb.Append('(');
+
+            var set = false;
             foreach (var param in md.GetParameters())
             {
                 sb.Append(param.ParameterType.FullName);
                 sb.Append(',');
+                set = true;
             }
-            if (md.GetParameters().Length > 0)
-            {
-                sb.Length -= 1;
-            }
+            if (set) sb.Length -= 1;
+
             sb.Append(')');
             sb.Append(md.ReturnType.FullName);
             return sb.ToString();
@@ -31,7 +32,7 @@ namespace gAyPI
 
         public static Type DynamicResolve(string name)
         {
-            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).First(t => t.FullName.Equals(name));
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).FirstOrDefault(t => t.FullName.Equals(name));
         }
     }
 }
