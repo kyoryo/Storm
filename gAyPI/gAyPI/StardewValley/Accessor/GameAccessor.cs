@@ -12,5 +12,7 @@ namespace gAyPI.StardewValley.Accessor
         SpriteBatch GetSpriteBatch();
 
         SpriteFont GetSmoothFont();
+
+        FarmerAccessor GetPlayer();
     }
 }

@@ -53,5 +53,10 @@ namespace gAyPI.StardewValley
                 entry.Methods.Add(method);
             }
         }
+
+        public object GetParams()
+        {
+            return @params;
+        }
     }
 }

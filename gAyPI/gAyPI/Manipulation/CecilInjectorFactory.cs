@@ -12,59 +12,59 @@ namespace gAyPI.Manipulation
 {
     public class CecilInjectorFactory : InjectorFactory
     {
-        private AssemblyDefinition self = null;
-        private AssemblyDefinition cecilAssembly = null;
+        private AssemblyDefinition selfAssembly = null;
+        private AssemblyDefinition gameAssembly = null;
         private Assembly refAssembly = null;
 
         public CecilInjectorFactory() { }
 
         public CecilInjectorFactory(string path) : base(path) { }
 
-        public AssemblyDefinition Self { get { return self; } }
-        public AssemblyDefinition CecilAssembly { get { return cecilAssembly; } }
+        public AssemblyDefinition SelfAssembly { get { return selfAssembly; } }
+        public AssemblyDefinition GameAssembly { get { return gameAssembly; } }
 
         private void CheckSelf()
         {
-            if (self == null)
+            if (selfAssembly == null)
             {
-                self = AssemblyDefinition.ReadAssembly("gAyPI.exe");
+                selfAssembly = AssemblyDefinition.ReadAssembly("gAyPI.exe");
             }
         }
 
         protected override void UpdatePath(string path)
         {
-            this.cecilAssembly = AssemblyDefinition.ReadAssembly(path);
+            this.gameAssembly = AssemblyDefinition.ReadAssembly(path);
         }
 
         public override Injector CreateInterfaceInjector(InterfaceInjectorParams @params)
         {
             CheckSelf();
-            return new CecilInterfaceInjector(self, cecilAssembly, @params);
+            return new CecilInterfaceInjector(selfAssembly, gameAssembly, @params);
         }
 
         public override Injector CreateFieldDetourInjector(FieldDetourInjectorParams @params)
         {
             CheckSelf();
-            return new CecilFieldDetourInjector(self, cecilAssembly, @params);
+            return new CecilFieldDetourInjector(selfAssembly, gameAssembly, @params);
         }
 
         public override Injector CreateFieldAccessorInjector(FieldAccessorInjectorParams @params)
         {
             CheckSelf();
-            return new CecilFieldAccessorInjector(self, cecilAssembly, @params);
+            return new CecilFieldAccessorInjector(selfAssembly, gameAssembly, @params);
         }
 
         public override Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params)
         {
             CheckSelf();
-            return new CecilAbsoluteCallInjector(self, cecilAssembly, @params);
+            return new CecilAbsoluteCallInjector(selfAssembly, gameAssembly, @params);
         }
 
         public override Assembly ToConcrete()
         {
             using (var strum = new MemoryStream())
             {
-                cecilAssembly.Write(strum);
+                gameAssembly.Write(strum);
                 refAssembly = Assembly.Load(strum.GetBuffer());
             }
             return refAssembly;

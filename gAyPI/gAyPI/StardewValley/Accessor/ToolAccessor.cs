@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.Manipulation
+namespace gAyPI.StardewValley.Accessor
 {
-    public interface Injector
+    public interface ToolAccessor : ItemAccessor
     {
-        void Inject();
-
-        object GetParams();
+        string GetName();
     }
 }

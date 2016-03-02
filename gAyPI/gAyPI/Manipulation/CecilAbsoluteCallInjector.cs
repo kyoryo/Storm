@@ -67,5 +67,10 @@ namespace gAyPI.Manipulation
                 }
             }
         }
+
+        public object GetParams()
+        {
+            return @params;
+        }
     }
 }

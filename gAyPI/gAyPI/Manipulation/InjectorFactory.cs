@@ -28,6 +28,16 @@ namespace gAyPI.Manipulation
 
         public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallInjectorParams @params);
 
+        public virtual Injector CreateFieldInfoInjector(FieldInfoParams @params)
+        {
+            return new FieldInfoInjector(@params);
+        }
+
+        public virtual Injector CreateMethodInfoInjector(MethodInfoParams @params)
+        {
+            return new MethodInfoInjector(@params);
+        }
+
         public abstract Assembly ToConcrete();
 
         public InjectionFactoryContext ParseOfType(DataFormat format, Stream @in)
@@ -54,6 +64,8 @@ namespace gAyPI.Manipulation
             var list = new List<Injector>();
             var container = JsonConvert.DeserializeObject<JsonInjectorContainer>(json);
 
+            var accessorMap = new Dictionary<string, string>();
+
             if (container.InterfaceInjectors != null)
             {
                 foreach (var injector in container.InterfaceInjectors)
@@ -63,6 +75,7 @@ namespace gAyPI.Manipulation
                         OwnerType = injector.OwnerType,
                         InterfaceType = injector.InterfaceType,
                     }));
+                    accessorMap.Add(injector.InterfaceType, injector.OwnerType);
                 }
             }
 
@@ -72,7 +85,7 @@ namespace gAyPI.Manipulation
                 {
                     list.Add(CreateFieldDetourInjector(new FieldDetourInjectorParams
                     {
-                        OwnerType = injector.OwnerType,
+                        OwnerType = accessorMap[injector.OwnerType],
                         OwnerFieldName = injector.OwnerFieldName,
                         OwnerFieldType = injector.OwnerFieldType,
                         DetourType = injector.DetourType,
@@ -88,22 +101,24 @@ namespace gAyPI.Manipulation
                 {
                     list.Add(CreateFieldAccessorInjector(new FieldAccessorInjectorParams
                     {
-                        OwnerType = injector.OwnerType,
+                        OwnerType = accessorMap[injector.OwnerType],
                         OwnerFieldName = injector.OwnerFieldName,
                         OwnerFieldType = injector.OwnerFieldType,
                         MethodName = injector.MethodName,
                         ReturnType = injector.ReturnType,
                         IsStatic = injector.IsStatic,
+                        OwnerAccessorType = injector.OwnerType,
                     }));
                 }
             }
+
             if (container.AbsoluteCallInjectors != null)
             {
                 foreach (var injector in container.AbsoluteCallInjectors)
                 {
                     list.Add(CreateAbsoluteCallInjector(new AbsoluteCallInjectorParams
                     {
-                        OwnerType = injector.OwnerType,
+                        OwnerType = accessorMap[injector.OwnerType],
                         OwnerMethodName = injector.OwnerMethodName,
                         OwnerMethodDesc = injector.OwnerMethodDesc,
                         DetourType = injector.DetourType,
@@ -114,6 +129,35 @@ namespace gAyPI.Manipulation
                 }
             }
 
+            if (container.FieldInfoInjectors != null)
+            {
+                foreach (var injector in container.FieldInfoInjectors)
+                {
+                    list.Add(CreateFieldInfoInjector(new FieldInfoParams
+                    {
+                        OwnerType = accessorMap[injector.OwnerType],
+                        FieldName = injector.FieldName,
+                        FieldType = injector.FieldType,
+                        OwnerAccessorType = injector.OwnerType,
+                        RefactoredName = injector.RefactoredName,
+                    }));
+                }
+            }
+
+            if (container.MethodInfoInjectors != null)
+            {
+                foreach (var injector in container.MethodInfoInjectors)
+                {
+                    list.Add(CreateMethodInfoInjector(new MethodInfoParams
+                    {
+                        OwnerType = accessorMap[injector.OwnerType],
+                        MethodName = injector.MethodName,
+                        MethodDesc = injector.MethodDesc,
+                        OwnerAccessorType = injector.OwnerType,
+                        RefactoredName = injector.RefactoredName,
+                    }));
+                }
+            }
             return list;
         }
     }

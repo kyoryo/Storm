@@ -44,7 +44,7 @@ namespace gAyPI.Manipulation
                 if (field != null)
                 {
                     var import = module.Import(returnType);
-                    var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Final | MethodAttributes.Virtual, import);
+                    var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, import);
                     var instructions = method.Body.Instructions;
                     var processor = method.Body.GetILProcessor();
                     if (!@params.IsStatic)
@@ -55,7 +55,17 @@ namespace gAyPI.Manipulation
                     instructions.Add(processor.Create(OpCodes.Ret));
                     ownerType.Methods.Add(method);
                 }
+                else
+                {
+                    Logging.Log("null " + @params.OwnerFieldName + " ");
+                    Array.ForEach(ownerType.Fields.ToArray(), f => Logging.Log(f.Name + " " + @params.OwnerFieldType + " " + f.FieldType.Resolve().FullName));
+                }
             }
+        }
+
+        public object GetParams()
+        {
+            return @params;
         }
     }
 }

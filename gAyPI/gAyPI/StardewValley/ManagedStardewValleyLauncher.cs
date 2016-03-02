@@ -1,12 +1,15 @@
-﻿using gAyPI.Manipulation;
+﻿using Castle.DynamicProxy;
+using gAyPI.Manipulation;
 using gAyPI.StardewValley.Accessor;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace gAyPI.StardewValley
@@ -35,7 +38,7 @@ namespace gAyPI.StardewValley
             if (factory is CecilInjectorFactory)
             {
                 var casted = factory as CecilInjectorFactory;
-                ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.Self, casted.CecilAssembly, new RewriteEntryInjectorParams()));
+                ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
             }
             ctx.Injectors.ForEach(injector => injector.Inject());
 
@@ -47,9 +50,12 @@ namespace gAyPI.StardewValley
             //
             // also important to note that by default, the entry type is a static class, with no constructor
             // it's up to whatever is handling the injection to modify that class!
+            StaticGameContext.Assembly = assembly;
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
+            StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
+            StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
 
-            entry.Invoke(null, new object[] { new string[] { } });
+            new Thread(() => entry.Invoke(null, new object[] { new string[] { } })).Start();
         }
     }
 }

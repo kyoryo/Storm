@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public struct FieldAccessorInjectorParams
+    public class JsonMethodInfoInjector
     {
         public string OwnerType { get; set; }
-        public string OwnerFieldType { get; set; }
-        public string OwnerFieldName { get; set; }
         public string MethodName { get; set; }
-        public string ReturnType { get; set; }
-        public bool IsStatic { get; set; }
+        public string MethodDesc { get; set; }
         public string OwnerAccessorType { get; set; }
+        public string RefactoredName { get; set; }
     }
 }

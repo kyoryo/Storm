@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace gAyPI.StardewValley.Accessor
 {
     public interface FarmerAccessor : CharacterAccessor
     {
-        int GetHouseUpgradeLevel();
+        /*int GetHouseUpgradeLevel();
 
         bool CanMove();
 
@@ -40,6 +41,8 @@ namespace gAyPI.StardewValley.Accessor
 
         float GetOffsetX();
 
-        float GetOffsetY();
+        float GetOffsetY();*/
+
+        IList GetItems();
     }
 }

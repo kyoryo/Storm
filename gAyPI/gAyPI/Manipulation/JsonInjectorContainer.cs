@@ -12,5 +12,7 @@ namespace gAyPI.Manipulation
         public JsonFieldDetourInjector[] FieldDetourInjectors { get; set; }
         public JsonFieldAccessorInjector[] FieldAccessorInjectors { get; set; }
         public JsonAbsoluteCallInjector[] AbsoluteCallInjectors { get; set; }
+        public JsonFieldInfoInjector[] FieldInfoInjectors { get; set; }
+        public JsonMethodInfoInjector[] MethodInfoInjectors { get; set; }
     }
 }
