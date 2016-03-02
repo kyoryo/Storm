@@ -91,7 +91,7 @@ namespace gAyPI.Manipulation
             var json = reader.ReadToEnd();
 
             var list = new List<Injector>();
-            var container = JsonConvert.DeserializeObject<JsonInjectorContainer>(json);
+            var container = JsonConvert.DeserializeObject<JsonParamContainer>(json);
 
             var nameMap = new Dictionary<string, string>();
             var accessorMap = new Dictionary<string, string>();
@@ -134,9 +134,9 @@ namespace gAyPI.Manipulation
                     {
                         OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         OwnerFieldName = injector.OwnerFieldName,
-                        OwnerFieldType = injector.OwnerFieldType,
+                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
                         MethodName = injector.MethodName,
-                        ReturnType = injector.ReturnType,
+                        ReturnType = FilterTags(nameMap, injector.ReturnType),
                         IsStatic = injector.IsStatic,
                         OwnerAccessorType = injector.OwnerAccessorType,
                     }));

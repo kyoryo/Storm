@@ -36,7 +36,9 @@ namespace gAyPI.Manipulation
             var field = gameModule.Types.
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
-                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+                FirstOrDefault(f => {
+                    Debug.WriteLine(@params.OwnerType + " " + @params.OwnerFieldType + " " + f.FieldType.Resolve().FullName); return f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType);
+                    });
             
             var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(returnType));
             var instructions = method.Body.Instructions;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace gAyPI.Manipulation
 {
-    public class JsonInjectorContainer
+    public class JsonParamContainer
     {
         public JsonInterfaceParams[] InterfaceParams { get; set; }
         public JsonFieldDetourParams[] FieldDetourParams { get; set; }

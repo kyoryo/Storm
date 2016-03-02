@@ -30,8 +30,9 @@ namespace gAyPI.StardewValley
         {
             // force the loading of XNA libraries so we can resolve injection types...
             Type tmp = null;
-            tmp = typeof(Vector2);
-            tmp = typeof(SpriteBatch);
+            tmp = typeof(Microsoft.Xna.Framework.Vector2);
+            tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
+            tmp = typeof(xTile.Dimensions.Rectangle);
 
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
             var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);

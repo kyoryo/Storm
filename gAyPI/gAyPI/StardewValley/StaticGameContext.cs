@@ -14,14 +14,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace gAyPI.StardewValley
 {
-    class TestToolDelegate : ToolDelegate
-    {
-        public string GetName()
-        {
-            return "that's prettty goood";
-        }
-    }
-
     public sealed class StaticGameContext
     {
         private StaticGameContext() { }
@@ -36,25 +28,37 @@ namespace gAyPI.StardewValley
         public static Type ToolType { set { toolType = value; } }
         public static ToolInterceptorDelegateFactory ToolFactory { set { toolFactory = value; } }
 
-        private static bool downLast = false;
-
         public static void DrawLastCallback()
         {
-            var batch = root._GetGame()._GetSpriteBatch();
-            var font = root._GetGame()._GetSmoothFont();
-            batch.DrawString(font, "gAyPI", new Vector2(16, 16), Color.Red);
+            var game = root._GetGame();
+            var batch = game._GetSpriteBatch();
+            var font = game._GetSmoothFont();
+            batch.DrawString(font, "Ayyy", new Vector2(16, 16), Color.Red);
+            /*var tileSize = game._GetTileSize();
+            var viewport = game._GetViewport();
+            var player = root._GetGame()._GetPlayer();
+            var pos = player._GetPosition();
+            var loc = game._GetCurrentLocation();
+            if (loc != null)
+            {
+                var objects = loc._GetObjects();
+                for (int x = 0; x < 64; x++)
+                {
+                    for (int y = 0; y < 64; y++)
+                    {
+                        var key = new Vector2(x, y);
+                        if (objects.Contains(key))
+                        {
+                            batch.DrawString(font, String.Format("{0}", (objects[key] as ObjectAccessor)._GetName()), new Vector2(x * tileSize - viewport.X, y * tileSize - viewport.Y), Color.Red);
+                        }
+                    }
+                }
+            }*/
 
-            var down = Keyboard.GetState().IsKeyDown(Keys.X);
-            if (down && !downLast)
+            /* (Keyboard.GetState().IsKeyDown(Keys.X))
             {
-                var tool = ProxyTool(new TestToolDelegate());
-                root._GetGame()._GetPlayer()._GetItems()[1] = tool;
-                downLast = true;
-            }
-            else if (!down)
-            {
-                downLast = false;
-            }
+                player._SetPosition(new Vector2(pos.X + 5, pos.Y));
+            }*/
         }
 
         public static ToolAccessor ProxyTool(ToolDelegate @delegate)

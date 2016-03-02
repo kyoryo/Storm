@@ -74,6 +74,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="xTile, Version=2.0.4.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\IGG-Stardew.Valley.v1.02\IGG-Stardew.Valley.v1.02\xTile.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Manipulation\CecilFieldMutatorInjector.cs" />
@@ -90,8 +94,10 @@
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\GameLocationAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\GameAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
     <Compile Include="StardewValley\InterceptorDelegateFactory.cs" />

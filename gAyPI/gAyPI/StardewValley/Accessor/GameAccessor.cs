@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xTile.Dimensions;
 
 namespace gAyPI.StardewValley.Accessor
 {
@@ -13,6 +14,12 @@ namespace gAyPI.StardewValley.Accessor
 
         SpriteFont _GetSmoothFont();
 
+        int _GetTileSize();
+
+        Rectangle _GetViewport();
+
         FarmerAccessor _GetPlayer();
+
+        GameLocationAccessor _GetCurrentLocation();
     }
 }

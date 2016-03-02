@@ -33,8 +33,7 @@ namespace gAyPI.StardewValley
                 TypeAttributes.Public | 
                 TypeAttributes.AnsiClass;
 
-            var hasConstructor = entry.Methods.Count(m => m.Name.Equals(".ctor")) > 0;
-            var imported = entry.Module.Import(typeof(object).GetConstructor(new Type[0]));
+            var hasConstructor = entry.Methods.SingleOrDefault(m => m.Name.Equals(".ctor")) != null;
             if (!hasConstructor)
             {
                 var method = new MethodDefinition(".ctor", 
@@ -48,7 +47,7 @@ namespace gAyPI.StardewValley
 
                 var processor = method.Body.GetILProcessor();
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
-                processor.Append(processor.Create(OpCodes.Call, imported));
+                processor.Append(processor.Create(OpCodes.Call, entry.Module.Import(typeof(object).GetConstructor(new Type[0]))));
                 processor.Append(processor.Create(OpCodes.Ret));
                 entry.Methods.Add(method);
             }

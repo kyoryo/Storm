@@ -19,6 +19,8 @@ namespace gAyPI.StardewValley.Accessor
 
         Vector2 _GetPosition();
 
+        void _SetPosition(Vector2 pos);
+
         float _GetVelocityX();
 
         float _GetVelocityY();

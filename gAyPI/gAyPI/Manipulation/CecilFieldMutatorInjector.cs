@@ -44,8 +44,8 @@ namespace gAyPI.Manipulation
             {
                 instructions.Add(processor.Create(OpCodes.Ldarg_0));
             }
-            instructions.Add(processor.Create(OpCodes.Stfld, field));
             instructions.Add(processor.Create(@params.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
+            instructions.Add(processor.Create(OpCodes.Stfld, field));
             instructions.Add(processor.Create(OpCodes.Ret));
             field.DeclaringType.Methods.Add(method);
         }
