@@ -93,6 +93,18 @@ namespace Storm.StardewValley
             EventBus.Fire<PostRenderEvent>(@event);
         }
 
+        public static void SeasonChangeCallback()
+        {
+            var @event = new OnSeasonChangeEvent();
+            EventBus.Fire<OnSeasonChangeEvent>(@event);
+        }
+
+        public static void NewDayCallback()
+        {
+            var @event = new OnNewDayEvent();
+            EventBus.Fire<OnNewDayEvent>(@event);
+        }
+
         public static DetourEvent PerformClockUpdateCallback(StaticContextAccessor source)
         {
             var @event = new PerformClockUpdateEvent();

@@ -120,6 +120,8 @@
     <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
+    <Compile Include="StardewValley\Event\OnNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\OnSeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\InitializeEvent.cs" />
     <Compile Include="StardewValley\Event\PerformClockUpdateEvent.cs" />

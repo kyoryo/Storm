@@ -96,8 +96,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation GetCurrentLocation()
         {
             var location = accessor._GetCurrentLocation();
-            if (location == null) return null;
-            return new GameLocation(location);
+            return location == null ? null : new GameLocation(location);
         }
 
         public void UnlockSteamAchievement(string name)

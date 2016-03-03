@@ -348,6 +348,25 @@
 	  "DetourMethodName": "DrawLastCallback",
 	  "DetourMethodDesc": "()System.Void",
 	  "InsertionIndex": 2626
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "newSeason",
+	  "OwnerMethodDesc": "()System.Void",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
+	  "DetourMethodName": "SeasonChangeCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionIndex": 0
+	}
+	,
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "newDayAfterFade",
+	  "OwnerMethodDesc": "()System.Void",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
+	  "DetourMethodName": "NewDayCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionIndex": 0
 	}
   ],
   "EventCallbackParams": [
