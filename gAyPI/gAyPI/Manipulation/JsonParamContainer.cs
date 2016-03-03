@@ -14,6 +14,7 @@ namespace gAyPI.Manipulation
         public JsonFieldMutatorParams[] FieldMutatorParams { get; set; }
         public JsonAbsoluteCallParams[] AbsoluteCallParams { get; set; }
         public JsonFieldInfoParams[] FieldInfoParams { get; set; }
+        public JsonInvokerParams[] InvokerParams { get; set; }
         public JsonMethodInfoParams[] MethodInfoParams { get; set; }
     }
 }

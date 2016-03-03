@@ -60,6 +60,12 @@ namespace gAyPI.Manipulation
             return new CecilFieldMutatorInjector(selfAssembly, gameAssembly, @params);
         }
 
+        public override Injector CreateInvokerInjector(InvokerParams @params)
+        {
+            CheckSelf();
+            return new CecilInvokerInjector(selfAssembly, gameAssembly, @params);
+        }
+
         public override Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
         {
             CheckSelf();

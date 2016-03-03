@@ -24,10 +24,10 @@ namespace gAyPI.Manipulation
         public void Inject()
         {
             var gameModule = def.MainModule;
-            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ParamType));
-            if (returnType == null)
+            TypeReference paramType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ParamType));
+            if (paramType == null)
             {
-                returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ParamType));
+                paramType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ParamType));
             }
 
             var field = gameModule.Types.
@@ -36,7 +36,7 @@ namespace gAyPI.Manipulation
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
             
             var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(typeof(void)));
-            method.Parameters.Add(new ParameterDefinition(gameModule.Import(returnType)));
+            method.Parameters.Add(new ParameterDefinition(gameModule.Import(paramType)));
 
             var instructions = method.Body.Instructions;
             var processor = method.Body.GetILProcessor();

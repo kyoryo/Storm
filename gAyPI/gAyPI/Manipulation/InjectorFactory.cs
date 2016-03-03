@@ -29,6 +29,8 @@ namespace gAyPI.Manipulation
 
         public abstract Injector CreateFieldMutatorInjector(FieldMutatorParams @params);
 
+        public abstract Injector CreateInvokerInjector(InvokerParams @params);
+
         public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
 
         public virtual Injector CreateFieldInfoInjector(FieldInfoParams @params)
@@ -156,6 +158,23 @@ namespace gAyPI.Manipulation
                         ParamType = FilterTags(nameMap, injector.ParamType),
                         IsStatic = injector.IsStatic,
                         OwnerAccessorType = injector.OwnerAccessorType,
+                    }));
+                }
+            }
+
+            if (container.InvokerParams != null)
+            {
+                foreach (var injector in container.InvokerParams)
+                {
+                    list.Add(CreateInvokerInjector(new InvokerParams
+                    {
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                        OwnerMethodName = injector.OwnerMethodName,
+                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                        InvokerName = injector.InvokerName,
+                        InvokerReturnParams = injector.InvokerReturnParams,
+                        InvokerReturnType = injector.InvokerReturnType,
+                        IsStatic = injector.IsStatic,
                     }));
                 }
             }
