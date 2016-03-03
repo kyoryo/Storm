@@ -1,0 +1,365 @@
+{
+  "InterfaceParams": [
+    {
+	  "SimpleName": "Program",
+	  "OwnerType": "StardewValley.Program",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.ProgramAccessor"
+	},
+	{
+	  "SimpleName": "StaticContext",
+	  "OwnerType": "StardewValley.Game1",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.StaticContextAccessor"
+	},
+	{
+	  "SimpleName": "GameLocation",
+	  "OwnerType": "StardewValley.GameLocation",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.GameLocationAccessor"
+	},
+	{
+	  "SimpleName": "Character",
+	  "OwnerType": "StardewValley.Character",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.CharacterAccessor"
+	},
+	{
+	  "SimpleName": "Farmer",
+	  "OwnerType": "StardewValley.Farmer",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.FarmerAccessor"
+	},
+	{
+	  "SimpleName": "Item",
+	  "OwnerType": "StardewValley.Item",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.ItemAccessor"
+	},
+	{
+	  "SimpleName": "Tool",
+	  "OwnerType": "StardewValley.Tool",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.ToolAccessor"
+	},
+	{
+	  "SimpleName": "Object",
+	  "OwnerType": "StardewValley.Object",
+	  "InterfaceType": "gAyPI.StardewValley.Accessor.ObjectAccessor"
+	},
+  ],
+  "FieldDetourParams": [
+    
+  ],
+  "FieldAccessorParams": [
+    {
+	  "OwnerAccessorType": "@Program",
+	  "OwnerFieldName": "gamePtr",
+	  "OwnerFieldType": "@StaticContext",
+	  "MethodName": "_GetGame",
+	  "ReturnType": "gAyPI.StardewValley.Accessor.StaticContextAccessor"
+	},
+	
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "spriteBatch",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteBatch",
+	  "MethodName": "_GetSpriteBatch",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteBatch"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "smoothFont",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+	  "MethodName": "_GetSmoothFont",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "graphics",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.GraphicsDeviceManager",
+	  "MethodName": "_GetGraphicsDeviceManager",
+	  "ReturnType": "Microsoft.Xna.Framework.GraphicsDeviceManager"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "tileSize",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetTileSize",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "viewport",
+	  "OwnerFieldType": "xTile.Dimensions.Rectangle",
+	  "MethodName": "_GetViewport",
+	  "ReturnType": "xTile.Dimensions.Rectangle"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "player",
+	  "OwnerFieldType": "@Farmer",
+	  "MethodName": "_GetPlayer",
+	  "ReturnType": "gAyPI.StardewValley.Accessor.FarmerAccessor"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "currentLocation",
+	  "OwnerFieldType": "@GameLocation",
+	  "MethodName": "_GetCurrentLocation",
+	  "ReturnType": "gAyPI.StardewValley.Accessor.GameLocationAccessor"
+	},
+	
+	{
+	  "OwnerAccessorType": "@GameLocation",
+	  "OwnerFieldName": "objects",
+	  "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+	  "MethodName": "_GetObjects",
+	  "ReturnType": "System.Collections.IDictionary"
+	},
+	{
+	  "OwnerAccessorType": "@GameLocation",
+	  "OwnerFieldName": "isOutdoors",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "_IsOutdoors",
+	  "ReturnType": "System.Boolean"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "emoteFading",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "_IsEmoteFading",
+	  "ReturnType": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "emoteInterval",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_GetEmoteInterval",
+	  "ReturnType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "lastClick",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+	  "MethodName": "_GetLastClick",
+	  "ReturnType": "Microsoft.Xna.Framework.Vector2"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_GetName",
+	  "ReturnType": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "position",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+	  "MethodName": "_GetPosition",
+	  "ReturnType": "Microsoft.Xna.Framework.Vector2"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "scale",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_GetScale",
+	  "ReturnType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "speed",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpeed",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "xVelocity",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_GetVelocityX",
+	  "ReturnType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "yVelocity",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_GetVelocityY",
+	  "ReturnType": "System.Single"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Farmer",
+	  "OwnerFieldName": "items",
+	  "OwnerFieldType": "System.Collections.Generic.List`1",
+	  "MethodName": "_GetItems",
+	  "ReturnType": "System.Collections.IList"
+	},
+	{
+	  "OwnerAccessorType": "@Farmer",
+	  "OwnerFieldName": "money",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetMoney",
+	  "ReturnType": "System.Int32"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Item",
+	  "OwnerFieldName": "category",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetCategory",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Item",
+	  "OwnerFieldName": "hasBeenInInventory",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "_HasBeenInInventory",
+	  "ReturnType": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Item",
+	  "OwnerFieldName": "specialItem",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "_IsSpecialItem",
+	  "ReturnType": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Item",
+	  "OwnerFieldName": "specialVariable",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpecialVariable",
+	  "ReturnType": "System.Int32"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_GetName",
+	  "ReturnType": "System.String"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_GetName",
+	  "ReturnType": "System.String"
+	},
+  ],
+  "FieldMutatorParams": [
+    {
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_SetName",
+	  "ParamType": "System.String"
+	},
+    {
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "position",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+	  "MethodName": "_SetPosition",
+	  "ParamType": "Microsoft.Xna.Framework.Vector2"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "speed",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_SetSpeed",
+	  "ParamType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "xVelocity",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_SetVelocityX",
+	  "ParamType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "scale",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_SetScale",
+	  "ParamType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "xVelocity",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_SetVelocityX",
+	  "ParamType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "yVelocity",
+	  "OwnerFieldType": "System.Single",
+	  "MethodName": "_SetVelocityY",
+	  "ParamType": "System.Single"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Farmer",
+	  "OwnerFieldName": "money",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_SetMoney",
+	  "ParamType": "System.Int32"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_SetName",
+	  "ParamType": "System.String"
+	}
+  ],
+  "MethodInfoParams": [
+    {
+	  "OwnerAccessorType": "@Tool",
+	  "MethodName": "get_Name",
+	  "MethodDesc": "System.String",
+	  "RefactoredName": "GetName"
+	}
+  ],
+  "InvokerParams": [
+    {
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "getSteamAchievement",
+	  "OwnerMethodDesc": "(System.String)System.Void",
+	  "InvokerName": "_UnlockSteamAchievement",
+	  "InvokerReturnParams": [
+	    "System.String"
+	  ],
+	  "InvokerReturnType": "System.Void",
+	  "IsStatic": "true"
+	}
+  ],
+  "AbsoluteCallParams": [
+    {
+      "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Initialize",
+	  "OwnerMethodDesc": "()System.Void",
+	  "DetourType": "gAyPI.StardewValley.StaticGameContext",
+	  "DetourMethodName": "InitializeCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionIndex": 0
+	},
+    {
+      "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Draw",
+	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+	  "DetourType": "gAyPI.StardewValley.StaticGameContext",
+	  "DetourMethodName": "DrawLastCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionIndex": 2626
+	}
+  ],
+  "EventCallbackParams": [
+    {
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "performTenMinuteClockUpdate",
+	  "OwnerMethodDesc": "()System.Void",
+	  "CallbackType": "gAyPI.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "PerformClockUpdateCallback",
+	  "InstanceCallbackDesc": "(gAyPI.StardewValley.Accessor.StaticContextAccessor)gAyPI.Manipulation.DetourEvent",
+	  "StaticCallbackName": "PerformClockUpdateCallback",
+	  "StaticCallbackDesc": "()gAyPI.Manipulation.DetourEvent",
+	}
+  ]
+}
