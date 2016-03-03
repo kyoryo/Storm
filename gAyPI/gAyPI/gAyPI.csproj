@@ -41,6 +41,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Game\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Game.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_32\Microsoft.Xna.Framework.Graphics\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Graphics.dll</HintPath>
@@ -80,9 +84,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Manipulation\CecilEventCallbackInjector.cs" />
-    <Compile Include="Manipulation\CecilFieldMutatorInjector.cs" />
-    <Compile Include="Manipulation\CecilInvokerInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
     <Compile Include="Manipulation\DetourEvent.cs" />
     <Compile Include="Manipulation\EventCallbackParams.cs" />
     <Compile Include="Manipulation\FieldInfoInjector.cs" />
@@ -90,44 +94,47 @@
     <Compile Include="Manipulation\FieldMutatorParams.cs" />
     <Compile Include="Manipulation\InjectorMetaData.cs" />
     <Compile Include="Manipulation\InvokerParams.cs" />
-    <Compile Include="Manipulation\JsonEventCallbackParams.cs" />
-    <Compile Include="Manipulation\JsonFieldInfoParams.cs" />
-    <Compile Include="Manipulation\JsonFieldMutatorParams.cs" />
-    <Compile Include="Manipulation\JsonInvokerParams.cs" />
-    <Compile Include="Manipulation\JsonMethodInfoParams.cs" />
+    <Compile Include="Manipulation\Json\JsonEventCallbackParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldInfoParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldMutatorParams.cs" />
+    <Compile Include="Manipulation\Json\JsonInvokerParams.cs" />
+    <Compile Include="Manipulation\Json\JsonMethodInfoParams.cs" />
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
     <Compile Include="Manipulation\MethodInfoParams.cs" />
-    <Compile Include="ModLoader\EventBus.cs" />
-    <Compile Include="ModLoader\IModLoader.cs" />
-    <Compile Include="ModLoader\LocalModLoader.cs" />
+    <Compile Include="ExternalEvent\EventBus.cs" />
+    <Compile Include="ExternalEvent\IModLoader.cs" />
+    <Compile Include="ExternalEvent\LoadedMod.cs" />
+    <Compile Include="ExternalEvent\LocalModLoader.cs" />
+    <Compile Include="ExternalEvent\Mod.cs" />
+    <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />
     <Compile Include="StardewValley\Accessor\GameLocationAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\GameAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
-    <Compile Include="StardewValley\EventHandler.cs" />
+    <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
+    <Compile Include="StardewValley\Event\InitializeEvent.cs" />
     <Compile Include="StardewValley\Event\PerformClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\PostRenderEvent.cs" />
     <Compile Include="StardewValley\InterceptorDelegateFactory.cs" />
-    <Compile Include="StardewValley\LoadedMod.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
-    <Compile Include="StardewValley\Mod.cs" />
     <Compile Include="StardewValley\StaticGameContext.cs" />
     <Compile Include="CecilUtils.cs" />
     <Compile Include="DataFormat.cs" />
     <Compile Include="Logging.cs" />
     <Compile Include="Manipulation\AbsoluteCallParams.cs" />
-    <Compile Include="Manipulation\CecilAbsoluteCallInjector.cs" />
-    <Compile Include="Manipulation\CecilFieldAccessorInjector.cs" />
-    <Compile Include="Manipulation\CecilFieldDetourInjector.cs" />
-    <Compile Include="Manipulation\CecilInjectorFactory.cs" />
-    <Compile Include="Manipulation\CecilInterfaceInjector.cs" />
-    <Compile Include="Manipulation\CecilRetCallInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilAbsoluteCallInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldAccessorInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldDetourInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInjectorFactory.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInterfaceInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilRetCallInjector.cs" />
     <Compile Include="Manipulation\FieldAccessorParams.cs" />
     <Compile Include="Manipulation\FieldDetourParams.cs" />
     <Compile Include="Manipulation\InjectionFactoryContext.cs" />
@@ -136,20 +143,24 @@
     <Compile Include="Manipulation\InjectorFactory.cs" />
     <Compile Include="Manipulation\InjectorFactoryType.cs" />
     <Compile Include="Manipulation\InterfaceParams.cs" />
-    <Compile Include="Manipulation\JsonAbsoluteCallParams.cs" />
-    <Compile Include="Manipulation\JsonFieldAccessorParams.cs" />
-    <Compile Include="Manipulation\JsonFieldDetourParams.cs" />
-    <Compile Include="Manipulation\JsonParamContainer.cs" />
-    <Compile Include="Manipulation\JsonInterfaceParams.cs" />
+    <Compile Include="Manipulation\Json\JsonAbsoluteCallParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldAccessorParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldDetourParams.cs" />
+    <Compile Include="Manipulation\Json\JsonParamContainer.cs" />
+    <Compile Include="Manipulation\Json\JsonInterfaceParams.cs" />
     <Compile Include="Manipulation\RetCallParams.cs" />
-    <Compile Include="StardewValley\CecilRewriteEntryInjector.cs" />
-    <Compile Include="StardewValley\RewriteEntryInjectorParams.cs" />
+    <Compile Include="Manipulation\Cecil\CecilRewriteEntryInjector.cs" />
+    <Compile Include="Manipulation\RewriteEntryInjectorParams.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\ToolDelegate.cs" />
     <Compile Include="StardewValley\ToolInterceptor.cs" />
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\Wrapper\Character.cs" />
+    <Compile Include="StardewValley\Wrapper\Farmer.cs" />
+    <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
+    <Compile Include="StardewValley\Wrapper\GameLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

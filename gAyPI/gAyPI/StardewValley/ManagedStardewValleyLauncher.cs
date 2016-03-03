@@ -1,6 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using gAyPI.Manipulation;
-using gAyPI.ModLoader;
+using gAyPI.ExternalEvent;
 using gAyPI.StardewValley.Accessor;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using gAyPI.Manipulation.Cecil;
 
 namespace gAyPI.StardewValley
 {
@@ -29,10 +30,11 @@ namespace gAyPI.StardewValley
 
         public void Launch()
         {
-            // force the loading of XNA libraries so we can resolve injection types...
+            // force the loading of dependencies so we can resolve injection types...
             Type tmp = null;
             tmp = typeof(Microsoft.Xna.Framework.Vector2);
             tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
+            tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
             tmp = typeof(xTile.Dimensions.Rectangle);
 
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);

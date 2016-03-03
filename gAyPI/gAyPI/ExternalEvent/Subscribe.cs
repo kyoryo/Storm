@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.StardewValley.Accessor
+namespace gAyPI.ExternalEvent
 {
-    public interface ProgramAccessor
+    [AttributeUsage(AttributeTargets.Method)]
+    public class Subscribe : Attribute
     {
-        StaticContextAccessor _GetGame();
     }
 }

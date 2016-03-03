@@ -13,8 +13,9 @@ using Castle.DynamicProxy;
 using Microsoft.Xna.Framework.Input;
 using gAyPI.Manipulation;
 using System.Diagnostics;
-using gAyPI.ModLoader;
+using gAyPI.ExternalEvent;
 using gAyPI.StardewValley.Event;
+using gAyPI.StardewValley.Wrapper;
 
 namespace gAyPI.StardewValley
 {
@@ -22,49 +23,63 @@ namespace gAyPI.StardewValley
     {
         private StaticGameContext() { }
 
-        private static Assembly assembly = null;
-        private static ProgramAccessor root = null;
-        private static Type toolType = null;
-        private static ToolInterceptorDelegateFactory toolFactory = null;
-        private static ModEventBus eventBus = null;
+        public static Assembly Assembly
+        {
+            get; set;
+        }
+        public static ProgramAccessor Root
+        {
+            get; set;
+        }
+        public static Type ToolType
+        {
+            get; set;
+        }
+        public static ToolInterceptorDelegateFactory ToolFactory
+        {
+            get; set;
+        }
+        public static ModEventBus EventBus
+        {
+            get; set;
+        }
 
-        public static Assembly Assembly { set { assembly = value; } }
-        public static ProgramAccessor Root  { set { root = value; } }
-        public static Type ToolType { set { toolType = value; } }
-        public static ToolInterceptorDelegateFactory ToolFactory { set { toolFactory = value; } }
-        public static ModEventBus EventBus { set { eventBus = value; } }
+        public static StaticContext WrappedGame
+        {
+            get { return new StaticContext(Root._GetGame());  }
+        }
+
+        public static void InitializeCallback()
+        {
+            Debug.WriteLine("?!??!@");
+            var @event = new InitializeEvent();
+            EventBus.Fire<InitializeEvent>(@event);
+        }
 
         public static void DrawLastCallback()
         {
-            var game = root._GetGame();
-            var batch = game._GetSpriteBatch();
-            var font = game._GetSmoothFont();
-            batch.DrawString(font, "Ayyy ", new Vector2(16, 16), Color.Red);
+            var @event = new PostRenderEvent();
+            EventBus.Fire<PostRenderEvent>(@event);
         }
 
-        public static int TestCast(object o)
-        {
-            return (int)o;
-        }
-
-        public static DetourEvent PerformClockUpdateCallback(GameAccessor source)
+        public static DetourEvent PerformClockUpdateCallback(StaticContextAccessor source)
         {
             var @event = new PerformClockUpdateEvent();
-            eventBus.Fire<PerformClockUpdateEvent>(@event);
+            EventBus.Fire<PerformClockUpdateEvent>(@event);
             return @event;
         }
 
         public static DetourEvent PerformClockUpdateCallback()
         {
             var @event = new PerformClockUpdateEvent();
-            eventBus.Fire<PerformClockUpdateEvent>(@event);
+            EventBus.Fire<PerformClockUpdateEvent>(@event);
             return @event;
         }
 
         public static ToolAccessor ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            return (ToolAccessor)generator.CreateClassProxy(toolType, toolFactory.CreateInterceptor(@delegate));
+            return (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
         }
     }
 }

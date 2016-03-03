@@ -14,10 +14,7 @@ namespace gAyPI.Manipulation
         public bool ReturnEarly { get; set; }
         public object ReturnValue
         {
-            get
-            {
-                return returnValue;
-            }
+            get { return returnValue; }
             set
             {
                 returnValue = value;

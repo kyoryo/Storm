@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using gAyPI.Manipulation.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -93,6 +94,7 @@ namespace gAyPI.Manipulation
         {
             var reader = new StreamReader(@in);
             var json = reader.ReadToEnd();
+            reader.Close();
 
             var list = new List<Injector>();
             var container = JsonConvert.DeserializeObject<JsonParamContainer>(json);
@@ -100,151 +102,102 @@ namespace gAyPI.Manipulation
             var nameMap = new Dictionary<string, string>();
             var accessorMap = new Dictionary<string, string>();
 
-            if (container.InterfaceParams != null)
+            foreach (var injector in container.InterfaceParams)
             {
-                foreach (var injector in container.InterfaceParams)
+                list.Add(CreateInterfaceInjector(new InterfaceParams
                 {
-                    list.Add(CreateInterfaceInjector(new InterfaceParams
-                    {
-                        OwnerType = injector.OwnerType,
-                        InterfaceType = injector.InterfaceType,
-                    }));
-                    nameMap.Add(injector.SimpleName, injector.OwnerType);
-                    accessorMap.Add(injector.InterfaceType, injector.OwnerType);
-                }
+                    OwnerType = injector.OwnerType,
+                    InterfaceType = injector.InterfaceType,
+                }));
+                nameMap.Add(injector.SimpleName, injector.OwnerType);
+                accessorMap.Add(injector.InterfaceType, injector.OwnerType);
             }
 
-            if (container.FieldDetourParams != null)
+            // FIXME - There has got to be a better way to do everything under this
+            list.AddRange(container.FieldDetourParams.Select(injector => CreateFieldDetourInjector(new FieldDetourParams
             {
-                foreach (var injector in container.FieldDetourParams)
-                {
-                    list.Add(CreateFieldDetourInjector(new FieldDetourParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerFieldName = injector.OwnerFieldName,
-                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
-                        DetourType = FilterTags(nameMap, injector.DetourType),
-                        DetourMethodName = injector.DetourMethodName,
-                        DetourMethodDesc = injector.DetourMethodDesc
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
+                DetourType = FilterTags(nameMap, injector.DetourType),
+                DetourMethodName = injector.DetourMethodName,
+                DetourMethodDesc = injector.DetourMethodDesc
+            })));
 
-            if (container.FieldAccessorParams != null)
+            list.AddRange(container.FieldAccessorParams.Select(injector => CreateFieldAccessorInjector(new FieldAccessorParams
             {
-                foreach (var injector in container.FieldAccessorParams)
-                {
-                    list.Add(CreateFieldAccessorInjector(new FieldAccessorParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerFieldName = injector.OwnerFieldName,
-                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
-                        MethodName = injector.MethodName,
-                        ReturnType = FilterTags(nameMap, injector.ReturnType),
-                        IsStatic = injector.IsStatic,
-                        OwnerAccessorType = injector.OwnerAccessorType,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
+                MethodName = injector.MethodName,
+                ReturnType = FilterTags(nameMap, injector.ReturnType),
+                IsStatic = injector.IsStatic,
+                OwnerAccessorType = injector.OwnerAccessorType,
+            })));
 
-            if (container.FieldMutatorParams != null)
+            list.AddRange(container.FieldMutatorParams.Select(injector => CreateFieldMutatorInjector(new FieldMutatorParams
             {
-                foreach (var injector in container.FieldMutatorParams)
-                {
-                    list.Add(CreateFieldMutatorInjector(new FieldMutatorParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerFieldName = injector.OwnerFieldName,
-                        OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
-                        MethodName = injector.MethodName,
-                        ParamType = FilterTags(nameMap, injector.ParamType),
-                        IsStatic = injector.IsStatic,
-                        OwnerAccessorType = injector.OwnerAccessorType,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
+                MethodName = injector.MethodName,
+                ParamType = FilterTags(nameMap, injector.ParamType),
+                IsStatic = injector.IsStatic,
+                OwnerAccessorType = injector.OwnerAccessorType,
+            })));
 
-            if (container.InvokerParams != null)
+            list.AddRange(container.InvokerParams.Select(injector => CreateInvokerInjector(new InvokerParams
             {
-                foreach (var injector in container.InvokerParams)
-                {
-                    list.Add(CreateInvokerInjector(new InvokerParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerMethodName = injector.OwnerMethodName,
-                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
-                        InvokerName = injector.InvokerName,
-                        InvokerReturnParams = injector.InvokerReturnParams,
-                        InvokerReturnType = injector.InvokerReturnType,
-                        IsStatic = injector.IsStatic,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerMethodName = injector.OwnerMethodName,
+                OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                InvokerName = injector.InvokerName,
+                InvokerReturnParams = injector.InvokerReturnParams,
+                InvokerReturnType = injector.InvokerReturnType,
+                IsStatic = injector.IsStatic,
+            })));
 
-            if (container.AbsoluteCallParams != null)
+            list.AddRange(container.AbsoluteCallParams.Select(injector => CreateAbsoluteCallInjector(new AbsoluteCallParams
             {
-                foreach (var injector in container.AbsoluteCallParams)
-                {
-                    list.Add(CreateAbsoluteCallInjector(new AbsoluteCallParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerMethodName = injector.OwnerMethodName,
-                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
-                        DetourType = injector.DetourType,
-                        DetourMethodName = injector.DetourMethodName,
-                        DetourMethodDesc = FilterTags(nameMap, injector.DetourMethodDesc),
-                        InsertionIndex = injector.InsertionIndex
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerMethodName = injector.OwnerMethodName,
+                OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                DetourType = injector.DetourType,
+                DetourMethodName = injector.DetourMethodName,
+                DetourMethodDesc = FilterTags(nameMap, injector.DetourMethodDesc),
+                InsertionIndex = injector.InsertionIndex,
+            })));
 
-            if (container.FieldInfoParams != null)
+            list.AddRange(container.FieldInfoParams.Select(injector => CreateFieldInfoInjector(new FieldInfoParams
             {
-                foreach (var injector in container.FieldInfoParams)
-                {
-                    list.Add(CreateFieldInfoInjector(new FieldInfoParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        FieldName = injector.FieldName,
-                        FieldType = FilterTags(nameMap, injector.FieldType),
-                        OwnerAccessorType = injector.OwnerAccessorType,
-                        RefactoredName = injector.RefactoredName,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                FieldName = injector.FieldName,
+                FieldType = FilterTags(nameMap, injector.FieldType),
+                OwnerAccessorType = injector.OwnerAccessorType,
+                RefactoredName = injector.RefactoredName,
+            })));
 
-            if (container.MethodInfoParams != null)
+            list.AddRange(container.MethodInfoParams.Select(injector => CreateMethodInfoInjector(new MethodInfoParams
             {
-                foreach (var injector in container.MethodInfoParams)
-                {
-                    list.Add(CreateMethodInfoInjector(new MethodInfoParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        MethodName = injector.MethodName,
-                        MethodDesc = FilterTags(nameMap, injector.MethodDesc),
-                        OwnerAccessorType = injector.OwnerAccessorType,
-                        RefactoredName = injector.RefactoredName,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                MethodName = injector.MethodName,
+                MethodDesc = FilterTags(nameMap, injector.MethodDesc),
+                OwnerAccessorType = injector.OwnerAccessorType,
+                RefactoredName = injector.RefactoredName,
+            })));
 
-            if (container.EventCallbackParams != null)
+            list.AddRange(container.EventCallbackParams.Select(injector => CreateEventCallbackInjector(new EventCallbackParams
             {
-                foreach (var injector in container.EventCallbackParams)
-                {
-                    list.Add(CreateEventCallbackInjector(new EventCallbackParams
-                    {
-                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
-                        OwnerMethodName = injector.OwnerMethodName,
-                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
-                        CallbackType = injector.CallbackType,
-                        InstanceCallbackName = injector.InstanceCallbackName,
-                        InstanceCallbackDesc = injector.InstanceCallbackDesc,
-                        StaticCallbackName = injector.StaticCallbackName,
-                        StaticCallbackDesc = injector.StaticCallbackDesc,
-                    }));
-                }
-            }
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerMethodName = injector.OwnerMethodName,
+                OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                CallbackType = injector.CallbackType,
+                InstanceCallbackName = injector.InstanceCallbackName,
+                InstanceCallbackDesc = injector.InstanceCallbackDesc,
+                StaticCallbackName = injector.StaticCallbackName,
+                StaticCallbackDesc = injector.StaticCallbackDesc,
+            })));
+
             return list;
         }
     }

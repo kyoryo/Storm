@@ -9,5 +9,7 @@ namespace gAyPI.StardewValley.Accessor
     public interface GameLocationAccessor
     {
         IDictionary _GetObjects();
+
+        bool _IsOutdoors();
     }
 }

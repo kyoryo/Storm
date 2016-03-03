@@ -9,7 +9,7 @@ using System.IO;
 using gAyPI.StardewValley;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using gAyPI.ModLoader;
+using gAyPI.ExternalEvent;
 using System.Diagnostics;
 
 namespace gAyPI

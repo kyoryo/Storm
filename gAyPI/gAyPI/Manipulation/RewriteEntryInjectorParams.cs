@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gAyPI.StardewValley.Accessor
+namespace gAyPI.Manipulation
 {
-    public interface ProgramAccessor
+    public struct RewriteEntryInjectorParams
     {
-        StaticContextAccessor _GetGame();
     }
 }
