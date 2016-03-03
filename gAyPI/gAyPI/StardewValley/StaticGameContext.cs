@@ -51,7 +51,6 @@ namespace gAyPI.StardewValley
 
         public static void InitializeCallback()
         {
-            Debug.WriteLine("?!??!@");
             var @event = new InitializeEvent();
             EventBus.Fire<InitializeEvent>(@event);
         }

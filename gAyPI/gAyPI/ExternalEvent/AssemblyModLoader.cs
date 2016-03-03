@@ -25,7 +25,7 @@ namespace gAyPI.ExternalEvent
                     var @params = handler.GetParameters();
                     if (@params.Length != 1)
                     {
-                        Debug.WriteLine("Invalid handler on " + mod.FullName + " " + handler.Name + " " + ReflectionUtils.DescriptionOf(handler));
+                        Logging.DebugLog("Invalid handler on " + mod.FullName + " " + handler.Name + " " + ReflectionUtils.DescriptionOf(handler));
                         continue;
                     }
 

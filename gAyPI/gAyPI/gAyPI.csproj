@@ -157,7 +157,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\ToolDelegate.cs" />
-    <Compile Include="StardewValley\ToolInterceptor.cs" />
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />

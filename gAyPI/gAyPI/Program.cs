@@ -19,6 +19,7 @@ namespace gAyPI
         static void Main(string[] args)
         {
             Logging.Log = (msg) => Console.WriteLine(msg);
+            Logging.DebugLog = (msg) => Debug.WriteLine(msg);
 
             var launcher = new ManagedStardewValleyLauncher(new FileStream("C:\\Users\\Cody\\Desktop\\test_injectors.json", FileMode.Open), "Stardew Valley.exe");
             launcher.Launch();

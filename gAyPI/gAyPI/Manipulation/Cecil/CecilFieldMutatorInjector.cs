@@ -30,8 +30,7 @@ namespace gAyPI.Manipulation.Cecil
             {
                 paramType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ParamType));
             }
-
-            Debug.WriteLine(@params.OwnerType + " " + @params.OwnerFieldName);
+            
             var field = gameModule.Types.
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
