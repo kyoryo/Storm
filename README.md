@@ -11,3 +11,8 @@ Mods: Mods each have their own individual folder, and go in AppData/storm-mods/m
 <h1>*** CONTRIBUTORS ***</h1>
 Please stay consistent with the overall style that has been used throughout the project.<br>
 Any changes breaking this rule will be denied.
+
+Please also add your name into the event spreadsheet when implementing Event(s), otherwise your merge and push requests will be denied.
+
+Event spreadsheet:
+https://docs.google.com/spreadsheets/d/1vvHVA3tb1SL6X6GbJY7FayuiuX24VMLBgLS3-KGMfGQ/edit#gid=0
