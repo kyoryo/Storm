@@ -57,7 +57,7 @@ namespace Storm.ExternalEvent
         public string Author { get { return annotation.Author; } }
         public double Version { get { return annotation.Version; } }
 
-        public void Call<T>(T @event) where T : DetourEvent
+        public void Fire<T>(T @event) where T : DetourEvent
         {
             List<MethodInfo> handlers;
             if (callMap.TryGetValue(typeof(T), out handlers))

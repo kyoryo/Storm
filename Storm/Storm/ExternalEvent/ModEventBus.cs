@@ -57,10 +57,7 @@ namespace Storm.ExternalEvent
 
         public void Fire<T>(T val) where T : DetourEvent
         {
-            foreach (var mod in mods)
-            {
-                mod.Call<T>(val);
-            }
+            mods.ForEach(m => m.Fire<T>(val));
         }
     }
 }
