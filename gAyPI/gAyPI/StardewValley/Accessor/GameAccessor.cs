@@ -21,5 +21,7 @@ namespace gAyPI.StardewValley.Accessor
         FarmerAccessor _GetPlayer();
 
         GameLocationAccessor _GetCurrentLocation();
+
+        void _UnlockSteamAchievement(string name);
     }
 }
