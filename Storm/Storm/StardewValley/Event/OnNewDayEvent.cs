@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    class OnNewDayEvent : StaticContextEvent
+    public class OnNewDayEvent : StaticContextEvent
     {
     }
 }

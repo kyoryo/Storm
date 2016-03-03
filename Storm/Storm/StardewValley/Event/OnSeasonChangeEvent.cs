@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    class OnSeasonChangeEvent : StaticContextEvent
+    public class OnSeasonChangeEvent : StaticContextEvent
     {
     }
 }
