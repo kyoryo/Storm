@@ -39,13 +39,23 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Farmer
+    public class Farmer : Character
     {
         private FarmerAccessor accessor;
 
-        public Farmer(FarmerAccessor accessor)
+        public Farmer(FarmerAccessor accessor) : base(accessor)
         {
             this.accessor = accessor;
+        }
+
+        public int GetMoney()
+        {
+            return accessor._GetMoney();
+        }
+
+        public void SetMoney(int money)
+        {
+            accessor._SetMoney(money);
         }
     }
 }

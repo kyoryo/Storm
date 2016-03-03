@@ -112,6 +112,7 @@ namespace Storm.Manipulation.Cecil
 
         public override Assembly ToConcrete()
         {
+            if (refAssembly != null) return refAssembly;
             using (var strum = new MemoryStream())
             {
                 gameAssembly.Write(strum);

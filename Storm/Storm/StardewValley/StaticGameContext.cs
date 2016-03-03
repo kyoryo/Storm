@@ -55,26 +55,15 @@ namespace Storm.StardewValley
     {
         private StaticGameContext() { }
 
-        public static Assembly Assembly
-        {
-            get; set;
-        }
-        public static ProgramAccessor Root
-        {
-            get; set;
-        }
-        public static Type ToolType
-        {
-            get; set;
-        }
-        public static ToolInterceptorDelegateFactory ToolFactory
-        {
-            get; set;
-        }
-        public static ModEventBus EventBus
-        {
-            get; set;
-        }
+        public static Assembly Assembly { get; set; }
+
+        public static ProgramAccessor Root { get; set; }
+
+        public static Type ToolType { get; set; }
+
+        public static ToolInterceptorDelegateFactory ToolFactory{ get; set; }
+
+        public static ModEventBus EventBus { get; set; }
 
         public static StaticContext WrappedGame
         {

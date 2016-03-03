@@ -38,7 +38,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface ObjectAccessor
+    public interface ObjectAccessor : ItemAccessor
     {
         string _GetName();
     }

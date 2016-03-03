@@ -266,13 +266,6 @@
 	},
 	{
 	  "OwnerAccessorType": "@Character",
-	  "OwnerFieldName": "xVelocity",
-	  "OwnerFieldType": "System.Single",
-	  "MethodName": "_SetVelocityX",
-	  "ParamType": "System.Single"
-	},
-	{
-	  "OwnerAccessorType": "@Character",
 	  "OwnerFieldName": "scale",
 	  "OwnerFieldType": "System.Single",
 	  "MethodName": "_SetScale",
@@ -337,8 +330,7 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "InitializeCallback",
-	  "DetourMethodDesc": "()System.Void",
-	  "InsertionIndex": 0
+	  "DetourMethodDesc": "()System.Void"
 	},
     {
       "OwnerAccessorType": "@StaticContext",
@@ -355,8 +347,7 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "SeasonChangeCallback",
-	  "DetourMethodDesc": "()System.Void",
-	  "InsertionIndex": 0
+	  "DetourMethodDesc": "()System.Void"
 	}
 	,
 	{
@@ -365,8 +356,7 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "NewDayCallback",
-	  "DetourMethodDesc": "()System.Void",
-	  "InsertionIndex": 0
+	  "DetourMethodDesc": "()System.Void"
 	}
   ],
   "EventCallbackParams": [

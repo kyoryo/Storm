@@ -89,6 +89,7 @@
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
+    <Compile Include="Manipulation\ConstantReplacerParams.cs" />
     <Compile Include="Manipulation\DetourEvent.cs" />
     <Compile Include="Manipulation\EventCallbackParams.cs" />
     <Compile Include="Manipulation\FieldInfoInjector.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />
     <Compile Include="StardewValley\Accessor\GameLocationAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
@@ -162,8 +162,11 @@
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
+    <Compile Include="StardewValley\Wrapper\Item.cs" />
+    <Compile Include="StardewValley\Wrapper\Object.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
     <Compile Include="StardewValley\Wrapper\GameLocation.cs" />
+    <Compile Include="StardewValley\Wrapper\Tool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

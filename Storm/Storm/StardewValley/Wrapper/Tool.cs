@@ -30,15 +30,27 @@
                  |_____|        |_____|         ~ - . _ _ _ _ _>
 
  */
+using Storm.StardewValley.Accessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Accessor
+namespace Storm.StardewValley.Wrapper
 {
-    public interface EventAccessor
+    public class Tool : Item
     {
+        private ToolAccessor accessor;
+
+        public Tool(ToolAccessor accessor) : base(accessor)
+        {
+            this.accessor = accessor;
+        }
+
+        public string GetName()
+        {
+            return accessor._GetName();
+        }
     }
 }

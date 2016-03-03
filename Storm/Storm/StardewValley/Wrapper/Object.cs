@@ -30,33 +30,27 @@
                  |_____|        |_____|         ~ - . _ _ _ _ _>
 
  */
+using Storm.StardewValley.Accessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Storm.Manipulation;
-using System.IO;
-using Storm.StardewValley;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.ExternalEvent;
-using System.Diagnostics;
-
-namespace Storm
+namespace Storm.StardewValley.Wrapper
 {
-    class Program
+    public class Object : Item
     {
-        static void Main(string[] args)
+        private ObjectAccessor accessor;
+
+        public Object(ObjectAccessor accessor) : base(accessor)
         {
-            Logging.Log = (msg) => Console.WriteLine(msg);
-            Logging.DebugLog = (msg) => Debug.WriteLine(msg);
+            this.accessor = accessor;
+        }
 
-            var launcher = new ManagedStardewValleyLauncher(new FileStream("injectors-1.02.json", FileMode.Open), "Stardew Valley.exe");
-            launcher.Launch();
-
-            Console.ReadKey();
+        public string GetName()
+        {
+            return accessor._GetName();
         }
     }
 }

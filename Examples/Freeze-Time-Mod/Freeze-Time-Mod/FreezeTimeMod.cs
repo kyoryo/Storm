@@ -1,6 +1,6 @@
-﻿using gAyPI.ExternalEvent;
-using gAyPI.StardewValley;
-using gAyPI.StardewValley.Event;
+﻿using Storm.ExternalEvent;
+using Storm.StardewValley;
+using Storm.StardewValley.Event;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -15,8 +15,6 @@ namespace Freeze_Time_Mod
     [Mod(Author = "Demmonic", Name = "Freeze Time Indoors", Version = 0.1D)]
     public class FreezeTimeMod
     {
-        private Texture2D chickenTexture;
-
         [Subscribe]
         public void PostRenderCallback(PostRenderEvent @event)
         {

@@ -60,15 +60,8 @@ namespace Storm.StardewValley
             this.gamePath = gamePath;
         }
 
-        public void Launch()
+        private InjectionFactoryContext Inject()
         {
-            // force the loading of dependencies so we can resolve injection types...
-            Type tmp = null;
-            tmp = typeof(Microsoft.Xna.Framework.Vector2);
-            tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
-            tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
-            tmp = typeof(xTile.Dimensions.Rectangle);
-
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
             var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
             if (factory is CecilInjectorFactory)
@@ -77,7 +70,11 @@ namespace Storm.StardewValley
                 ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
             }
             ctx.Injectors.ForEach(injector => injector.Inject());
+            return ctx;
+        }
 
+        private void InitializeStaticContext(InjectionFactoryContext ctx)
+        {
             var assembly = ctx.GetConcreteAssembly();
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
@@ -102,8 +99,22 @@ namespace Storm.StardewValley
                 eventBus.AddReceiver(mod);
             }
             StaticGameContext.EventBus = eventBus;
-            
-            new Thread(() => entry.Invoke(null, new object[] { new string[] { } })).Start();
+        }
+
+        public void Launch()
+        {
+            // force the loading of dependencies so we can resolve injection types...
+            Type tmp = null;
+            tmp = typeof(Microsoft.Xna.Framework.Vector2);
+            tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
+            tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
+            tmp = typeof(xTile.Dimensions.Rectangle);
+
+            var ctx = Inject();
+            InitializeStaticContext(ctx);
+
+            var assembly = ctx.GetConcreteAssembly();
+            new Thread(() => assembly.EntryPoint.Invoke(null, new object[] { new string[] { } })).Start();
         }
     }
 }
