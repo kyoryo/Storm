@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace gAyPI.ExternalEvent
 {
-    public interface IModLoader
+    public interface ModLoader
     {
         List<LoadedMod> Load();
     }

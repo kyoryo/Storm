@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
     <Compile Include="Manipulation\MethodInfoParams.cs" />
     <Compile Include="ExternalEvent\ModEventBus.cs" />
-    <Compile Include="ExternalEvent\IModLoader.cs" />
+    <Compile Include="ExternalEvent\ModLoader.cs" />
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Mod.cs" />

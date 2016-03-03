@@ -11,7 +11,7 @@ using System.Diagnostics;
 
 namespace gAyPI.ExternalEvent
 {
-    public class LocalModLoader : IModLoader
+    public class LocalModLoader : ModLoader
     { 
         private string path;
 
