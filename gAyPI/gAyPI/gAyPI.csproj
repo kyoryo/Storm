@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
