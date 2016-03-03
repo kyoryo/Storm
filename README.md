@@ -1,7 +1,7 @@
 <h1>*** STORM **</h1>
 Storm is a modding API for the game Stardew Valley. Storm works by dynamically modifying the game's executable at runtime, to expose data, provide callbacks,
 and provide abstraction for a stable, maintainable modding environment. <br><br>
-We using Mono.Cecil for our MSIL injection, DynamicProxy for creating instances of any 
+We use Mono.Cecil for our MSIL injection, DynamicProxy for creating instances of any 
 games classes, and Json.NET for serialization.
 
 <h1>*** INSTALLATION/USAGE **</h1>
