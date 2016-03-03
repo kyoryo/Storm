@@ -18,20 +18,11 @@ namespace Freeze_Time_Mod
         private Texture2D chickenTexture;
 
         [Subscribe]
-        public void InitializeCallback(InitializeEvent @event)
-        {
-            Debug.WriteLine("loaded?");
-            chickenTexture = @event.Root.LoadResource("C:\\Users\\Cody\\Desktop\\Untitled.png");
-        }
-
-        [Subscribe]
         public void PostRenderCallback(PostRenderEvent @event)
         {
             var batch = @event.Root.GetSpriteBatch();
-            if (chickenTexture != null)
-            {
-                batch.Draw(chickenTexture, new Vector2(16, 16), Color.Red);
-            }
+            var font = @event.Root.GetSmoothFont();
+            batch.DrawString(font, "Freeze Time Indoors - Example", new Vector2(16, 16), Color.Red);
         }
 
         [Subscribe]
