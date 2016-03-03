@@ -29,10 +29,18 @@ namespace gAyPI.Manipulation
                 Where(t => t.FullName.Equals(@params.DetourType)).
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) &&  CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
+            if (callingDefinition == null)
+            {
+                callingDefinition = def.Modules.
+                SelectMany(m => m.Types).
+                Where(t => t.FullName.Equals(@params.DetourType)).
+                SelectMany(t => t.Methods).
+                FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
+            }
 
             var fieldRef = def.Modules.
                 SelectMany(m => m.Types).
-                Where(t => t.FullName.Equals(@params.DetourType)).
+                Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
 
@@ -45,6 +53,7 @@ namespace gAyPI.Manipulation
                     foreach (var method in type.Methods)
                     {
                         if (!method.HasBody) continue;
+                        if (method.Resolve() == callingDefinition.Resolve()) continue;
 
                         var processor = method.Body.GetILProcessor();
                         var instructions = method.Body.Instructions;

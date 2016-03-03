@@ -33,6 +33,8 @@ namespace gAyPI.Manipulation
 
         public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
 
+        public abstract Injector CreateEventCallbackInjector(EventCallbackParams @params);
+
         public virtual Injector CreateFieldInfoInjector(FieldInfoParams @params)
         {
             return new FieldInfoInjector(@params);
@@ -121,7 +123,7 @@ namespace gAyPI.Manipulation
                         OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                         OwnerFieldName = injector.OwnerFieldName,
                         OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
-                        DetourType = injector.DetourType,
+                        DetourType = FilterTags(nameMap, injector.DetourType),
                         DetourMethodName = injector.DetourMethodName,
                         DetourMethodDesc = injector.DetourMethodDesc
                     }));
@@ -222,6 +224,24 @@ namespace gAyPI.Manipulation
                         MethodDesc = FilterTags(nameMap, injector.MethodDesc),
                         OwnerAccessorType = injector.OwnerAccessorType,
                         RefactoredName = injector.RefactoredName,
+                    }));
+                }
+            }
+
+            if (container.EventCallbackParams != null)
+            {
+                foreach (var injector in container.EventCallbackParams)
+                {
+                    list.Add(CreateEventCallbackInjector(new EventCallbackParams
+                    {
+                        OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                        OwnerMethodName = injector.OwnerMethodName,
+                        OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                        CallbackType = injector.CallbackType,
+                        InstanceCallbackName = injector.InstanceCallbackName,
+                        InstanceCallbackDesc = injector.InstanceCallbackDesc,
+                        StaticCallbackName = injector.StaticCallbackName,
+                        StaticCallbackDesc = injector.StaticCallbackDesc,
                     }));
                 }
             }

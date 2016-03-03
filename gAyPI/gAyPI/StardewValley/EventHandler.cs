@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace gAyPI.StardewValley
 {
     [AttributeUsage(AttributeTargets.Method)]
-    public class EventHandler : Attribute
+    public class Subscribe : Attribute
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gAyPI.StardewValley;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,6 @@ namespace gAyPI.ModLoader
 {
     public interface IModLoader
     {
-        List<Assembly> Load();
+        List<LoadedMod> Load();
     }
 }

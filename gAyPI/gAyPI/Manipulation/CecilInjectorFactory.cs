@@ -72,6 +72,12 @@ namespace gAyPI.Manipulation
             return new CecilAbsoluteCallInjector(selfAssembly, gameAssembly, @params);
         }
 
+        public override Injector CreateEventCallbackInjector(EventCallbackParams @params)
+        {
+            CheckSelf();
+            return new CecilEventCallbackInjector(selfAssembly, gameAssembly, @params);
+        }
+
         public override Assembly ToConcrete()
         {
             using (var strum = new MemoryStream())

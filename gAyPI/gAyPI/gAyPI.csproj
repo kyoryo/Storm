@@ -80,19 +80,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Manipulation\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\CecilInvokerInjector.cs" />
+    <Compile Include="Manipulation\DetourEvent.cs" />
+    <Compile Include="Manipulation\EventCallbackParams.cs" />
     <Compile Include="Manipulation\FieldInfoInjector.cs" />
     <Compile Include="Manipulation\FieldInfoParams.cs" />
     <Compile Include="Manipulation\FieldMutatorParams.cs" />
     <Compile Include="Manipulation\InjectorMetaData.cs" />
     <Compile Include="Manipulation\InvokerParams.cs" />
+    <Compile Include="Manipulation\JsonEventCallbackParams.cs" />
     <Compile Include="Manipulation\JsonFieldInfoParams.cs" />
     <Compile Include="Manipulation\JsonFieldMutatorParams.cs" />
     <Compile Include="Manipulation\JsonInvokerParams.cs" />
     <Compile Include="Manipulation\JsonMethodInfoParams.cs" />
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
     <Compile Include="Manipulation\MethodInfoParams.cs" />
+    <Compile Include="ModLoader\EventBus.cs" />
     <Compile Include="ModLoader\IModLoader.cs" />
     <Compile Include="ModLoader\LocalModLoader.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
@@ -107,7 +112,9 @@
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
     <Compile Include="StardewValley\EventHandler.cs" />
+    <Compile Include="StardewValley\Event\PerformClockUpdateEvent.cs" />
     <Compile Include="StardewValley\InterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\LoadedMod.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
     <Compile Include="StardewValley\Mod.cs" />
     <Compile Include="StardewValley\StaticGameContext.cs" />

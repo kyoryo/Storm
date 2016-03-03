@@ -1,5 +1,6 @@
 ﻿using Castle.DynamicProxy;
 using gAyPI.Manipulation;
+using gAyPI.ModLoader;
 using gAyPI.StardewValley.Accessor;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -53,6 +54,21 @@ namespace gAyPI.StardewValley
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
 
+            var modFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "gaypi-mods\\");
+            var eventBus = new ModEventBus();
+            if (!Directory.Exists(modFolder))
+            {
+                Directory.CreateDirectory(modFolder);
+            }
+
+            var modLoader = new LocalModLoader(modFolder);
+            var mods = modLoader.Load();
+            foreach (var mod in mods)
+            {
+                eventBus.AddReceiver(mod);
+            }
+            StaticGameContext.EventBus = eventBus;
+            
             new Thread(() => entry.Invoke(null, new object[] { new string[] { } })).Start();
         }
     }

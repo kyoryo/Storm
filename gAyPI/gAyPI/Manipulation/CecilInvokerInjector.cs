@@ -76,10 +76,6 @@ namespace gAyPI.Manipulation
             instructions.Add(processor.Create(OpCodes.Call, invoking));
             instructions.Add(processor.Create(OpCodes.Ret));
             invoking.DeclaringType.Methods.Add(method);
-
-            var fs = new FileStream("out.exe", FileMode.Create);
-            def.Write(fs);
-            fs.Close();
         }
 
         public object GetParams()
