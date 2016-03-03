@@ -1,0 +1,36 @@
+﻿using Mono.Cecil;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Storm.Manipulation.Cecil
+{
+    public class CecilInterfaceInjector : Injector
+    {
+        private AssemblyDefinition self;
+        private AssemblyDefinition def;
+        private InterfaceParams @params;
+
+        public CecilInterfaceInjector(AssemblyDefinition self, AssemblyDefinition def, InterfaceParams @params)
+        {
+            this.self = self;
+            this.def = def;
+            this.@params = @params;
+        }
+
+        public void Inject()
+        {
+            Logging.DebugLog(@params.InterfaceType);
+            var implementingInterface = self.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.InterfaceType));
+            var implementer = def.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.OwnerType));
+            implementer.Interfaces.Add(implementer.Module.Import(implementingInterface));
+        }
+
+        public object GetParams()
+        {
+            return @params;
+        }
+    }
+}

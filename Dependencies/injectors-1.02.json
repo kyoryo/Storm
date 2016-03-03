@@ -3,42 +3,42 @@
     {
 	  "SimpleName": "Program",
 	  "OwnerType": "StardewValley.Program",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.ProgramAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.ProgramAccessor"
 	},
 	{
 	  "SimpleName": "StaticContext",
 	  "OwnerType": "StardewValley.Game1",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.StaticContextAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.StaticContextAccessor"
 	},
 	{
 	  "SimpleName": "GameLocation",
 	  "OwnerType": "StardewValley.GameLocation",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.GameLocationAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.GameLocationAccessor"
 	},
 	{
 	  "SimpleName": "Character",
 	  "OwnerType": "StardewValley.Character",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.CharacterAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.CharacterAccessor"
 	},
 	{
 	  "SimpleName": "Farmer",
 	  "OwnerType": "StardewValley.Farmer",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.FarmerAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.FarmerAccessor"
 	},
 	{
 	  "SimpleName": "Item",
 	  "OwnerType": "StardewValley.Item",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.ItemAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.ItemAccessor"
 	},
 	{
 	  "SimpleName": "Tool",
 	  "OwnerType": "StardewValley.Tool",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.ToolAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.ToolAccessor"
 	},
 	{
 	  "SimpleName": "Object",
 	  "OwnerType": "StardewValley.Object",
-	  "InterfaceType": "gAyPI.StardewValley.Accessor.ObjectAccessor"
+	  "InterfaceType": "Storm.StardewValley.Accessor.ObjectAccessor"
 	},
   ],
   "FieldDetourParams": [
@@ -50,7 +50,7 @@
 	  "OwnerFieldName": "gamePtr",
 	  "OwnerFieldType": "@StaticContext",
 	  "MethodName": "_GetGame",
-	  "ReturnType": "gAyPI.StardewValley.Accessor.StaticContextAccessor"
+	  "ReturnType": "Storm.StardewValley.Accessor.StaticContextAccessor"
 	},
 	
 	{
@@ -93,14 +93,14 @@
 	  "OwnerFieldName": "player",
 	  "OwnerFieldType": "@Farmer",
 	  "MethodName": "_GetPlayer",
-	  "ReturnType": "gAyPI.StardewValley.Accessor.FarmerAccessor"
+	  "ReturnType": "Storm.StardewValley.Accessor.FarmerAccessor"
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
 	  "OwnerFieldName": "currentLocation",
 	  "OwnerFieldType": "@GameLocation",
 	  "MethodName": "_GetCurrentLocation",
-	  "ReturnType": "gAyPI.StardewValley.Accessor.GameLocationAccessor"
+	  "ReturnType": "Storm.StardewValley.Accessor.GameLocationAccessor"
 	},
 	
 	{
@@ -335,7 +335,7 @@
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Initialize",
 	  "OwnerMethodDesc": "()System.Void",
-	  "DetourType": "gAyPI.StardewValley.StaticGameContext",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "InitializeCallback",
 	  "DetourMethodDesc": "()System.Void",
 	  "InsertionIndex": 0
@@ -344,7 +344,7 @@
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Draw",
 	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
-	  "DetourType": "gAyPI.StardewValley.StaticGameContext",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "DrawLastCallback",
 	  "DetourMethodDesc": "()System.Void",
 	  "InsertionIndex": 2626
@@ -355,11 +355,11 @@
 	  "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "performTenMinuteClockUpdate",
 	  "OwnerMethodDesc": "()System.Void",
-	  "CallbackType": "gAyPI.StardewValley.StaticGameContext",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
 	  "InstanceCallbackName": "PerformClockUpdateCallback",
-	  "InstanceCallbackDesc": "(gAyPI.StardewValley.Accessor.StaticContextAccessor)gAyPI.Manipulation.DetourEvent",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
 	  "StaticCallbackName": "PerformClockUpdateCallback",
-	  "StaticCallbackDesc": "()gAyPI.Manipulation.DetourEvent",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
 	}
   ]
 }

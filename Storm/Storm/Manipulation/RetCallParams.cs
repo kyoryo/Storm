@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Storm.Manipulation
+{
+    public struct RetCallParams
+    {
+        public string OwnerType { get; set; }
+        public string OwnerMethodName { get; set; }
+        public string OwnerMethodDesc { get; set; }
+        public string DetourType { get; set; }
+        public string DetourMethodName { get; set; }
+        public string DetourMethodDesc { get; set; }
+    }
+}
