@@ -53,7 +53,7 @@
 	  "SimpleName": "Object",
 	  "OwnerType": "StardewValley.Object",
 	  "InterfaceType": "Storm.StardewValley.Accessor.ObjectAccessor"
-	}
+	},
 	{
 	  "SimpleName": "Crop",
 	  "OwnerType": "StardewValley.Crop",
@@ -415,6 +415,13 @@
 	},
 	{
 	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "description",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "Description",
+	  "Type": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
 	  "OwnerFieldName": "stackable",
 	  "OwnerFieldType": "System.Boolean",
 	  "MethodName": "IsStackable",
@@ -691,10 +698,10 @@
   ],
   "MethodInfoParams": [
     {
-	  "OwnerAccessorType": "@Tool",
-	  "MethodName": "get_Name",
-	  "MethodDesc": "System.String",
-	  "RefactoredName": "GetName"
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
+	  "MethodName": "drawInMenu",
+	  "MethodDesc": "",
+	  "RefactoredName": "Draw"
 	}
   ],
   "InvokerParams": [

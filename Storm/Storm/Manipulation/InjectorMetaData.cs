@@ -59,6 +59,7 @@ namespace Storm.Manipulation
                 if (@params is MethodInfoParams)
                 {
                     var casted = (MethodInfoParams)@params;
+                    Logging.DebugLog(casted.OwnerAccessorType + " " + type + " " + casted.RefactoredName + " " + refactored);
                     if (casted.OwnerAccessorType == type && casted.RefactoredName == refactored)
                     {
                         return casted.MethodName;

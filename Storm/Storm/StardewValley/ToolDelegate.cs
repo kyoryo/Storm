@@ -15,6 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley
@@ -22,6 +24,6 @@ namespace Storm.StardewValley
     public abstract class ToolDelegate : TypeDelegate<ToolAccessor>
     {
 
-        public abstract string GetName();
+        public abstract void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
     }
 }

@@ -16,6 +16,7 @@
  */
 using Storm.StardewValley.Accessor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,11 @@ namespace Storm.StardewValley.Wrapper
         public Farmer(FarmerAccessor accessor) : base(accessor)
         {
             this.accessor = accessor;
+        }
+
+        public IList Items
+        {
+            get { return accessor._GetItems(); }
         }
 
         public int Money

@@ -51,6 +51,12 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetName(value); }
         }
 
+        public string Description
+        {
+            get { return accessor._GetDescription(); }
+            set { accessor._SetDescription(value); }
+        }
+
         public bool Stackable
         {
             get { return accessor._GetIsStackable(); }

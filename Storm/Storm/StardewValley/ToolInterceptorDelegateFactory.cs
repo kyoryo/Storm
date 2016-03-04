@@ -17,32 +17,35 @@
 
 using System;
 using Castle.DynamicProxy;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley
 {
     public class ToolInterceptorDelegateFactory : InterceptorDelegateFactory<ToolDelegate>
     {
-        public delegate string GetNameDelegate();
+        public delegate void DrawInMenuDelegate(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
 
-        private string getNameMethodName;
+        private string drawInMenuName;
 
         private class ToolInterceptor : IInterceptor
         {
-            private string getNameMethodName;
-            private GetNameDelegate getNameDelegate;
+            private string drawInMenuName;
+            private DrawInMenuDelegate drawInMenuDelegate;
 
-            public ToolInterceptor(string getNameMethodName, GetNameDelegate getNameDelegate)
+            public ToolInterceptor(string getNameMethodName, DrawInMenuDelegate drawInMenuDelegate)
             {
-                this.getNameMethodName = getNameMethodName;
-                this.getNameDelegate = getNameDelegate;
+                this.drawInMenuName = getNameMethodName;
+                this.drawInMenuDelegate = drawInMenuDelegate;
             }
 
             public void Intercept(IInvocation invocation)
             {
                 var method = invocation.Method;
-                if (method.Name == getNameMethodName)
+                if (method.Name == drawInMenuName)
                 {
-                    invocation.ReturnValue = getNameDelegate();
+                    var args = invocation.Arguments;
+                    drawInMenuDelegate((SpriteBatch)args[0], (Vector2)args[1], (float)args[2], (float)args[3], (float)args[4], (bool)args[5]);
                     return;
                 }
 
@@ -52,12 +55,12 @@ namespace Storm.StardewValley
 
         public ToolInterceptorDelegateFactory(string getNameMethodName)
         {
-            this.getNameMethodName = getNameMethodName;
+            this.drawInMenuName = getNameMethodName;
         }
 
         public IInterceptor CreateInterceptor(ToolDelegate t)
         {
-            return new ToolInterceptor(getNameMethodName, t.GetName);
+            return new ToolInterceptor(drawInMenuName, t.DrawInMenu);
         }
     }
 }
