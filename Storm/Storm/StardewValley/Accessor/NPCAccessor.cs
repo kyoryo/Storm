@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface NPCAccessor
+    public interface NPCAccessor : CharacterAccessor
     {
     }
 }

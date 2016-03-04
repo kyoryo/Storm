@@ -28,7 +28,7 @@ namespace Storm.StardewValley
         public static readonly string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\";
         public static readonly string stardewPath = appDataPath + "StardewValley\\";
         public static readonly string stormPath = stardewPath + "Storm\\";
-        public static readonly string stormModsPath = stormPath + "Mods\\";
+        public static readonly string stormModsPath = stardewPath + "Mods\\";
 
         public static string GetResource(string file)
         {

@@ -1,5 +1,10 @@
 {
   "InterfaceParams": [
+	{
+	  "SimpleName": "AnimatedSprite",
+	  "OwnerType": "StardewValley.AnimatedSprite",
+	  "InterfaceType": "Storm.StardewValley.Accessor.AnimatedSpriteAccessor"
+	},
     {
 	  "SimpleName": "Program",
 	  "OwnerType": "StardewValley.Program",
@@ -19,6 +24,15 @@
 	  "SimpleName": "Character",
 	  "OwnerType": "StardewValley.Character",
 	  "InterfaceType": "Storm.StardewValley.Accessor.CharacterAccessor"
+	},
+	{
+	  "SimpleName": "NPC",
+	  "OwnerType": "StardewValley.NPC",
+	  "InterfaceType": "Storm.StardewValley.Accessor.NPCAccessor"
+	},{
+	  "SimpleName": "Monster",
+	  "OwnerType": "StardewValley.Monsters.Monster",
+	  "InterfaceType": "Storm.StardewValley.Accessor.MonsterAccessor"
 	},
 	{
 	  "SimpleName": "Farmer",
@@ -50,6 +64,28 @@
     
   ],
   "FieldAccessorParams": [
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteTexture",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+	  "MethodName": "_GetSpriteTexture",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.Texture2D"
+	},
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteWidth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpriteWidth",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteHeight",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpriteHeight",
+	  "ReturnType": "System.Int32"
+	},
+	
     {
 	  "OwnerAccessorType": "@Program",
 	  "OwnerFieldName": "gamePtr",
@@ -114,6 +150,13 @@
 	  "MethodName": "_GetCurrentLocation",
 	  "ReturnType": "Storm.StardewValley.Accessor.GameLocationAccessor"
 	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "pixelZoom",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetPixelZoom",
+	  "ReturnType": "System.Int32"
+	},
 	
 	{
 	  "OwnerAccessorType": "@GameLocation",
@@ -121,6 +164,13 @@
 	  "OwnerFieldType": "StardewValley.SerializableDictionary`2",
 	  "MethodName": "_GetObjects",
 	  "ReturnType": "System.Collections.IDictionary"
+	},
+	{
+	  "OwnerAccessorType": "@GameLocation",
+	  "OwnerFieldName": "characters",
+	  "OwnerFieldType": "System.Collections.Generic.List`1",
+	  "MethodName": "_GetCharacters",
+	  "ReturnType": "System.Collections.IList"
 	},
 	
 	{
@@ -185,6 +235,28 @@
 	  "OwnerFieldType": "System.Single",
 	  "MethodName": "_GetVelocityY",
 	  "ReturnType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "sprite",
+	  "OwnerFieldType": "@AnimatedSprite",
+	  "MethodName": "_GetSprite",
+	  "ReturnType": "Storm.StardewValley.Accessor.AnimatedSpriteAccessor"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "health",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetHealth",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "maxHealth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetMaxHealth",
+	  "ReturnType": "System.Int32"
 	},
 	
 	{
@@ -280,6 +352,13 @@
 	  "OwnerFieldType": "System.Single",
 	  "MethodName": "_SetVelocityY",
 	  "ParamType": "System.Single"
+	},
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "maxHealth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_SetMaxHealth",
+	  "ParamType": "System.Int32"
 	},
 	
 	{
