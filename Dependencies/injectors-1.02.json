@@ -348,12 +348,21 @@
 	  "DetourMethodName": "InitializeCallback",
 	  "DetourMethodDesc": "()System.Void"
 	},
+	    {
+      "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Draw",
+	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
+	  "DetourMethodName": "PreDrawCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionIndex": o
+	},
     {
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Draw",
 	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
-	  "DetourMethodName": "DrawLastCallback",
+	  "DetourMethodName": "PostDrawCallback",
 	  "DetourMethodDesc": "()System.Void",
 	  "InsertionIndex": 2626
 	},

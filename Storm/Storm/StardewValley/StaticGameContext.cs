@@ -64,10 +64,16 @@ namespace Storm.StardewValley
             EventBus.Fire<InitializeEvent>(@event);
         }
 
-        public static void DrawLastCallback()
+        public static void PostDrawCallback()
         {
             var @event = new PostRenderEvent();
             EventBus.Fire<PostRenderEvent>(@event);
+        }
+
+        public static void PreDrawCallback()
+        {
+            var @event = new PreRenderEvent();
+            EventBus.Fire<PreRenderEvent>(@event);
         }
 
         public static void SeasonChangeCallback()
