@@ -157,6 +157,20 @@
 	  "MethodName": "_GetPixelZoom",
 	  "ReturnType": "System.Int32"
 	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "tinyFontBorder",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+	  "MethodName": "_GetTinyFontBorder",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "tinyFont",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+	  "MethodName": "_GetTinyFont",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+	},
 	
 	{
 	  "OwnerAccessorType": "@GameLocation",
