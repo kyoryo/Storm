@@ -232,15 +232,7 @@
 	  "OwnerFieldType": "System.String",
 	  "MethodName": "_GetName",
 	  "ReturnType": "System.String"
-	},
-	
-	{
-	  "OwnerAccessorType": "@Object",
-	  "OwnerFieldName": "name",
-	  "OwnerFieldType": "System.String",
-	  "MethodName": "_GetName",
-	  "ReturnType": "System.String"
-	},
+	}
   ],
   "FieldMutatorParams": [
   	{
@@ -299,14 +291,6 @@
 	  "OwnerFieldType": "System.Int32",
 	  "MethodName": "_SetMoney",
 	  "ParamType": "System.Int32"
-	},
-	
-	{
-	  "OwnerAccessorType": "@Object",
-	  "OwnerFieldName": "name",
-	  "OwnerFieldType": "System.String",
-	  "MethodName": "_SetName",
-	  "ParamType": "System.String"
 	}
   ],
   "FieldAccessorMutatorParams": [
@@ -316,6 +300,147 @@
 	  "OwnerFieldType": "System.Boolean",
 	  "MethodName": "IsOutdoors",
 	  "Type": "System.Boolean"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "canBeGrabbed",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "CanBeGrabbed",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "canBeSetDown",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "CanBeSetDown",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "edibility",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "Edibility",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "flipped",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "Flipped",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "fragility",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "Fragility",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "hasBeenPickedUpByFarmer",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "HasBeenPickedUpByFarmer",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isActive",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsActive",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isHoedirt",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsHoeDirt",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isLamp",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsLamp",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isOn",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsOn",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isRecipe",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsRecipe",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "isSpawnedObject",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsSpawnedObject",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "Name",
+	  "Type": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "owner",
+	  "OwnerFieldType": "System.Int64",
+	  "MethodName": "Owner",
+	  "Type": "System.Int64"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "price",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "Price",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "quality",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "Quality",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "questItem",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsQuestItem",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "readyForHarvest",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsReadyForHarvest",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "scale",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+	  "MethodName": "Scale",
+	  "Type": "Microsoft.Xna.Framework.Vector2"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "type",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "Type",
+	  "Type": "System.String"
 	}
   ],
   "MethodInfoParams": [
@@ -364,6 +489,16 @@
 	  "DetourMethodName": "PreDrawCallback",
 	  "DetourMethodDesc": "()System.Void",
 	},
+	{
+      "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Draw",
+	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
+	  "DetourMethodName": "PreUIDrawCallback",
+	  "DetourMethodDesc": "()System.Void",
+	  "InsertionType": "ABSOLUTE",
+	  "InsertionIndex": 2092
+	},
     {
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Draw",
@@ -381,8 +516,7 @@
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "SeasonChangeCallback",
 	  "DetourMethodDesc": "()System.Void"
-	}
-	,
+	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "newDayAfterFade",
