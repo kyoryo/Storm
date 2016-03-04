@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    class PreRenderEvent : StaticContextEvent
+    public class PreRenderEvent : StaticContextEvent
     {
     }
 }

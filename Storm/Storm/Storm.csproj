@@ -117,9 +117,11 @@
     <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
@@ -172,7 +174,9 @@
     <Compile Include="StardewValley\ToolDelegate.cs" />
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
+    <Compile Include="StardewValley\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
+    <Compile Include="StardewValley\Wrapper\Crop.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
     <Compile Include="StardewValley\Wrapper\Item.cs" />
     <Compile Include="StardewValley\Wrapper\Monster.cs" />

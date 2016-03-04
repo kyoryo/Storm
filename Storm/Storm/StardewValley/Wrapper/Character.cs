@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Character
+    public class Character : Wrapper<CharacterAccessor>
     {
         private CharacterAccessor accessor;
 
@@ -87,5 +87,7 @@ namespace Storm.StardewValley.Wrapper
         {
             return new AnimatedSprite(accessor._GetSprite());
         }
+
+        public CharacterAccessor Expose() => accessor;
     }
 }

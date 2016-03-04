@@ -129,7 +129,11 @@ namespace Storm.Manipulation.Cecil
             processor.InsertBefore(ins, processor.Create(OpCodes.Call, hasReturnValueImport));
             processor.InsertBefore(ins, processor.Create(OpCodes.Brfalse_S, jmpTarget));
 
-            processor.InsertBefore(ins, processor.Create(OpCodes.Call, eventReturnValueImport));
+            if (!returnName.Equals(typeof(void).FullName))
+            {
+                processor.InsertBefore(ins, processor.Create(OpCodes.Call, eventReturnValueImport));
+            }
+
             if (returnName.Equals(typeof(Int32).FullName) || returnName.Equals(typeof(Boolean).FullName))
             {
                 processor.InsertBefore(ins, processor.Create(OpCodes.Unbox_Any, injectee.ReturnType));

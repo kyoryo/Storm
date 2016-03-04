@@ -14,44 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.StardewValley.Accessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Wrapper
+namespace Storm.StardewValley.Event
 {
-    public class Item : Wrapper<ItemAccessor>
+    public class PreUIRenderEvent : StaticContextEvent
     {
-        private ItemAccessor accessor;
-
-        public Item(ItemAccessor accessor)
-        {
-            this.accessor = accessor;
-        }
-
-        public int GetCategory()
-        {
-            return accessor._GetCategory();
-        }
-
-        public bool HasBeenInInventory()
-        {
-            return accessor._HasBeenInInventory();
-        }
-
-        public bool IsSpecialItem()
-        {
-            return accessor._IsSpecialItem();
-        }
-
-        public int GetSpecialVariable()
-        {
-            return accessor._GetSpecialVariable();
-        }
-
-        public ItemAccessor Expose() => accessor;
     }
 }

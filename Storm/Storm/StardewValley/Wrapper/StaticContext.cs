@@ -28,7 +28,7 @@ using xTile.Dimensions;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class StaticContext
+    public class StaticContext : Wrapper<StaticContextAccessor>
     {
         private StaticContextAccessor accessor;
 
@@ -103,5 +103,7 @@ namespace Storm.StardewValley.Wrapper
         {
             return accessor._GetPixelZoom();
         }
+
+        public StaticContextAccessor Expose() => accessor;
     }
 }

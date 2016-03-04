@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,65 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ObjectAccessor : ItemAccessor
     {
+        bool _GetCanBeGrabbed();
+        void _SetCanBeGrabbed(bool canBeGrabbed);
+
+        bool _GetCanBeSetDown();
+        void _SetCanBeSetDown(bool canBeSetDown);
+
+        int _GetEdibility();
+        void _SetEdibility(int edibility);
+
+        bool _GetFlipped();
+        void _SetFlipped(bool flipped);
+
+        int _GetFragility();
+        void _SetFragility(int fragility);
+
+        bool _GetHasBeenPickedUpByFarmer();
+        void _SetHasBeenPickedUpByFarmer(bool hasBeenPickedUp);
+
+        bool _GetIsActive();
+        void _SetIsActive(bool active);
+
+        bool _GetIsHoeDirt();
+        void _SetIsHoeDirt(bool isHoeDirt);
+
+        bool _GetIsLamp();
+        void _SetIsLamp(bool isLamp);
+
+        bool _GetIsOn();
+        void _SetIsOn(bool on);
+
+        bool _GetIsRecipe();
+        void _SetIsRecipe(bool isRecipe);
+
+        bool _GetIsSpawnedObject();
+        void _SetIsSpawnedObject(bool spawned);
+
         string _GetName();
+        void _SetName(string name);
+
+        long _GetOwner();
+        void _SetOwner(long owner);
+
+        int _GetPrice();
+        void _SetPrice(int price);
+
+        int _GetQuality();
+        void _SetQuality(int quality);
+
+        bool _GetIsQuestItem();
+        void _SetIsQuestItem(bool questItem);
+
+        bool _GetIsReadyForHarvest();
+        void _SetIsReadyForHarvest(bool ready);
+
+        Vector2 _GetScale();
+        void _SetScale(Vector2 scale);
+
+        string _GetType();
+        void _SetType(string type);
+
     }
 }

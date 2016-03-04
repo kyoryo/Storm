@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
 using System;
 using System.Collections;
@@ -24,13 +25,24 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class GameLocation
+    public class GameLocation : Wrapper<GameLocationAccessor>
     {
         private GameLocationAccessor accessor;
 
         public GameLocation(GameLocationAccessor accessor)
         {
             this.accessor = accessor;
+        }
+
+        public Dictionary<Vector2, Object> GetObjects()
+        {
+            var orig = accessor._GetObjects();
+            var conv = new Dictionary<Vector2, Object>();
+            foreach (var vec in orig.Keys)
+            {
+                conv.Add((Vector2) vec, new Object((ObjectAccessor) orig[vec]));
+            }
+            return conv;
         }
 
         public bool IsOutdoors()
@@ -69,5 +81,19 @@ namespace Storm.StardewValley.Wrapper
             Console.WriteLine("monsters: " + monsters.Count);
             return monsters;
         }
+
+        public Object GetObjectAt(int tileX, int tileY)
+        {
+            var game = StaticGameContext.WrappedGame;
+            var key = new Vector2(tileX / game.GetTileSize(), tileY / game.GetTileSize());
+            var objects = GetObjects();
+            if (objects.ContainsKey(key))
+            {
+                return objects[key];
+            }
+            return null;
+        }
+
+        public GameLocationAccessor Expose() => accessor;
     }
 }

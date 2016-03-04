@@ -35,21 +35,24 @@ namespace Storm.StardewValley
 {
     public class ManagedStardewValleyLauncher
     {
-        private string injectorsPath;
-        private string gamePath;
+        public string InjectorsPath { get; set; }
+        public string GamePath { get; set; }
+        public bool Debug { get; set; }
 
-        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath)
+        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath, bool debug = false)
         {
-            this.injectorsPath = injectorsPath;
-            this.gamePath = gamePath;
+            this.InjectorsPath = injectorsPath;
+            this.GamePath = gamePath;
+            this.Debug = debug;
         }
 
         private InjectionFactoryContext Inject()
         {
             FileStream injectorStream = null;
-            try {
-                injectorStream = new FileStream(injectorsPath, FileMode.Open, FileAccess.Read);
-                var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
+            try
+            {
+                injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read);
+                var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
                 var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
                 if (factory is CecilInjectorFactory)
                 {
@@ -57,6 +60,31 @@ namespace Storm.StardewValley
                     ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
                 }
                 ctx.Injectors.ForEach(injector => injector.Inject());
+                if (Debug)
+                {
+                    if (factory is CecilInjectorFactory)
+                    {
+                        var casted = factory as CecilInjectorFactory;
+                        FileStream fs = null;
+                        try
+                        {
+                            fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Write);
+                            casted.WriteModifiedAssembly(fs);
+                        }
+                        finally
+                        {
+                            if (fs != null)
+                            {
+                                try
+                                {
+                                    fs.Close();
+                                }
+                                catch (Exception e) { }
+                            }
+                        }
+                    }
+                }
+                
                 return ctx;
             }
             finally
