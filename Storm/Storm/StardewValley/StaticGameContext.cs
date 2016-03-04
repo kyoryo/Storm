@@ -39,16 +39,28 @@ namespace Storm.StardewValley
     {
         private StaticGameContext() { }
 
+        /// <summary>
+        /// The Stardew Valley assembly
+        /// </summary>
         public static Assembly Assembly { get; set; }
 
+        /// <summary>
+        /// Wrapped Stardew Valley Program class.
+        /// </summary>
         public static ProgramAccessor Root { get; set; }
 
         public static Type ToolType { get; set; }
 
         public static ToolInterceptorDelegateFactory ToolFactory{ get; set; }
 
+        /// <summary>
+        /// Event handler for all Storm mods.
+        /// </summary>
         public static ModEventBus EventBus { get; set; }
 
+        /// <summary>
+        /// Wrapped Stardew Valley Game class.
+        /// </summary>
         public static StaticContext WrappedGame
         {
             get { return new StaticContext(Root._GetGame());  }

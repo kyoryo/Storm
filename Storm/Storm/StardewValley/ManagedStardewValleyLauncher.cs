@@ -14,29 +14,34 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Castle.DynamicProxy;
-using Storm.Manipulation;
+
 using Storm.ExternalEvent;
-using Storm.StardewValley.Accessor;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using Storm.Manipulation;
 using Storm.Manipulation.Cecil;
+using Storm.StardewValley.Accessor;
+using System;
+using System.IO;
 
 namespace Storm.StardewValley
 {
+    /// <summary>
+    /// Handles managed injection & launching of Stardew Valley
+    /// </summary>
     public class ManagedStardewValleyLauncher
     {
+        /// <summary>
+        /// The file path to the injectors json.
+        /// </summary>
         public string InjectorsPath { get; set; }
+
+        /// <summary>
+        /// The file  path to the game executable.
+        /// </summary>
         public string GamePath { get; set; }
+
+        /// <summary>
+        /// If Storm is in debug mode or not.
+        /// </summary>
         public bool Debug { get; set; }
 
         public ManagedStardewValleyLauncher(string injectorsPath, string gamePath, bool debug = false)
@@ -88,16 +93,13 @@ namespace Storm.StardewValley
             
             var eventBus = new ModEventBus();
             if (!Directory.Exists(StormAPI.ModsPath))
-            {
                 Directory.CreateDirectory(StormAPI.ModsPath);
-            }
 
             var modLoader = new LocalModLoader(StormAPI.ModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods)
-            {
                 eventBus.AddReceiver(mod);
-            }
+
             StaticGameContext.EventBus = eventBus;
         }
 
