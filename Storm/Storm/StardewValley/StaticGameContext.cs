@@ -64,6 +64,12 @@ namespace Storm.StardewValley
             EventBus.Fire<InitializeEvent>(@event);
         }
 
+        public static void LoadContentCallback()
+        {
+            var @event = new LoadContentEvent();
+            EventBus.Fire<LoadContentEvent>(@event);
+        }
+
         public static void PostDrawCallback()
         {
             var @event = new PostRenderEvent();
