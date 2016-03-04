@@ -39,7 +39,7 @@
 	  "SimpleName": "Object",
 	  "OwnerType": "StardewValley.Object",
 	  "InterfaceType": "Storm.StardewValley.Accessor.ObjectAccessor"
-	},
+	}
   ],
   "FieldDetourParams": [
     
@@ -240,7 +240,7 @@
 	  "OwnerFieldType": "System.String",
 	  "MethodName": "_GetName",
 	  "ReturnType": "System.String"
-	},
+	}
   ],
   "FieldMutatorParams": [
   	{
@@ -362,7 +362,7 @@
 	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "PreDrawCallback",
-	  "DetourMethodDesc": "()System.Void",
+	  "DetourMethodDesc": "()System.Void"
 	},
     {
       "OwnerAccessorType": "@StaticContext",
@@ -401,7 +401,7 @@
 	  "InstanceCallbackName": "PerformClockUpdateCallback",
 	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
 	  "StaticCallbackName": "PerformClockUpdateCallback",
-	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
 	},
 	{
 	  "OwnerAccessorType": "@Farmer",
