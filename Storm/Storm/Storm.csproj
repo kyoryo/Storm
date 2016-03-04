@@ -176,6 +176,7 @@
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\ToolDelegate.cs" />
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
     <Compile Include="StardewValley\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />

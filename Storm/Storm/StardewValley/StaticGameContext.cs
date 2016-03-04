@@ -141,7 +141,9 @@ namespace Storm.StardewValley
         public static ToolAccessor ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            return (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
+            var accessor = (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
+            @delegate.Accessor = accessor;
+            return accessor;
         }
     }
 }

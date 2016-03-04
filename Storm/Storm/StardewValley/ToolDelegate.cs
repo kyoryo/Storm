@@ -15,10 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Accessor;
+
 namespace Storm.StardewValley
 {
-    public interface ToolDelegate
+    public abstract class ToolDelegate : TypeDelegate<ToolAccessor>
     {
-        string GetName();
+
+        public abstract string GetName();
     }
 }
