@@ -47,6 +47,16 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetSmoothFont(); }
         }
 
+        public SpriteFont TinyFont
+        {
+            get { return accessor._GetTinyFont(); }
+        }
+
+        public SpriteFont TinyFontBorder
+        {
+            get { return accessor._GetTinyFontBorder(); }
+        }
+
         public GraphicsDeviceManager GraphicsDeviceManager
         {
             get { return accessor._GetGraphicsDeviceManager(); }
