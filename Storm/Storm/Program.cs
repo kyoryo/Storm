@@ -31,17 +31,8 @@
 
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Storm.Manipulation;
 using System.IO;
 using Storm.StardewValley;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.ExternalEvent;
 using System.Diagnostics;
 
 namespace Storm
@@ -50,6 +41,10 @@ namespace Storm
     {
         static void Main(string[] args)
         {
+            /* allow window resizing on osx & *nix */
+            if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
+                Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
+
             Logging.Log = (msg) => Console.WriteLine(msg);
             Logging.DebugLog = (msg) => Debug.WriteLine(msg);
 
