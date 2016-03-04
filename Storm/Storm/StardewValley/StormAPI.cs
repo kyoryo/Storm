@@ -14,29 +14,26 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley
 {
     public static class StormAPI
     {
-        public static readonly string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\";
-        public static readonly string stardewPath = appDataPath + "StardewValley\\";
-        public static readonly string stormPath = stardewPath + "Storm\\";
-        public static readonly string stormModsPath = stardewPath + "Mods\\";
+        public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\";
+        public static readonly string StardewPath = AppDataPath + "StardewValley\\";
+        public static readonly string StormPath = StardewPath + "Storm\\";
+        public static readonly string ModsPath = StardewPath + "Mods\\";
 
         public static string GetResource(string file)
         {
-            if (!Directory.Exists(stormPath))
+            if (!Directory.Exists(StormPath))
             {
-                Directory.CreateDirectory(stormPath);
+                Directory.CreateDirectory(StormPath);
             }
-            return Path.Combine(stormPath, file);
+            return Path.Combine(StormPath, file);
         }
     }
 }

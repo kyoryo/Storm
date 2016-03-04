@@ -87,12 +87,12 @@ namespace Storm.StardewValley
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
             
             var eventBus = new ModEventBus();
-            if (!Directory.Exists(StormAPI.stormModsPath))
+            if (!Directory.Exists(StormAPI.ModsPath))
             {
-                Directory.CreateDirectory(StormAPI.stormModsPath);
+                Directory.CreateDirectory(StormAPI.ModsPath);
             }
 
-            var modLoader = new LocalModLoader(StormAPI.stormModsPath);
+            var modLoader = new LocalModLoader(StormAPI.ModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods)
             {
