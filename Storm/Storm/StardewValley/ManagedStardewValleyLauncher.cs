@@ -33,28 +33,43 @@ using Storm.Manipulation.Cecil;
 
 namespace Storm.StardewValley
 {
-    public class ManagedStardewValleyLauncher : IDisposable
+    public class ManagedStardewValleyLauncher
     {
-        private Stream injectorStream;
+        private string injectorsPath;
         private string gamePath;
 
-        public ManagedStardewValleyLauncher(Stream injectorStream, string gamePath)
+        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath)
         {
-            this.injectorStream = injectorStream;
+            this.injectorsPath = injectorsPath;
             this.gamePath = gamePath;
         }
 
         private InjectionFactoryContext Inject()
         {
-            var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
-            var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
-            if (factory is CecilInjectorFactory)
-            {
-                var casted = factory as CecilInjectorFactory;
-                ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
+            FileStream injectorStream = null;
+            try {
+                injectorStream = new FileStream(injectorsPath, FileMode.Open, FileAccess.Read);
+                var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, gamePath);
+                var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
+                if (factory is CecilInjectorFactory)
+                {
+                    var casted = factory as CecilInjectorFactory;
+                    ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
+                }
+                ctx.Injectors.ForEach(injector => injector.Inject());
+                return ctx;
             }
-            ctx.Injectors.ForEach(injector => injector.Inject());
-            return ctx;
+            finally
+            {
+                if (injectorStream != null)
+                {
+                    try
+                    {
+                        injectorStream.Close();
+                    }
+                    catch (Exception e) { }
+                }
+            }
         }
 
         private void InitializeStaticContext(InjectionFactoryContext ctx)
@@ -98,11 +113,6 @@ namespace Storm.StardewValley
 
             var assembly = ctx.GetConcreteAssembly();
             assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
-        }
-
-        public void Dispose()
-        {
-            injectorStream.Close();
         }
     }
 }
