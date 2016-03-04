@@ -224,14 +224,6 @@
 	  "OwnerFieldType": "System.Int32",
 	  "MethodName": "_GetSpecialVariable",
 	  "ReturnType": "System.Int32"
-	},
-	
-	{
-	  "OwnerAccessorType": "@Tool",
-	  "OwnerFieldName": "name",
-	  "OwnerFieldType": "System.String",
-	  "MethodName": "_GetName",
-	  "ReturnType": "System.String"
 	}
   ],
   "FieldMutatorParams": [
@@ -305,9 +297,37 @@
 	{
 	  "OwnerAccessorType": "@Tool",
 	  "OwnerFieldName": "attachments",
-	  "OwnerFieldType": "@(Object)[]",
-	  "MethodName": "Atachments",
+	  "OwnerFieldType": "@Object",
+	  "MethodName": "Attachments",
 	  "Type": "Storm.StardewValley.Accessor.ObjectAccessor[]"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "Name",
+	  "Type": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "stackable",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsStackable",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "upgradeLevel",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "UpgradeLevel",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "weaponsTexture",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+	  "MethodName": "WeaponTexture",
+	  "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
 	},
 	
 	{
