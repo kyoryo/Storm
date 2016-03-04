@@ -44,8 +44,9 @@ namespace Storm.ExternalEvent
     {
         public abstract List<LoadedMod> Load();
 
-        protected void LoadModsFromAssembly(Assembly assembly, List<LoadedMod> result)
+        protected List<LoadedMod> LoadModsFromAssembly(Assembly assembly)
         {
+            var result = new List<LoadedMod>();
             var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof(Mod)) != null);
             foreach (var mod in mods)
             {
@@ -77,6 +78,7 @@ namespace Storm.ExternalEvent
                     callMap = map,
                 });
             }
+            return result;
         }
     }
 }

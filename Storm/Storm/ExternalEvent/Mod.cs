@@ -44,11 +44,14 @@ namespace Storm.ExternalEvent
         private string name;
         private string author;
         private double version;
+        private string loadPath;
 
         public string Name { get { return name; } set { this.name = value; } }
 
         public string Author { get { return author; } set { this.author = value; } }
 
         public double Version { get { return version; } set { this.version = value; } }
+
+        public string LoadPath { get { return loadPath; } set { this.loadPath = value; } }
     }
 }

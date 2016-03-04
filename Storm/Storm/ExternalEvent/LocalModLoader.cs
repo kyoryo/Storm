@@ -69,7 +69,9 @@ namespace Storm.ExternalEvent
             foreach (var file in files)
             {
                 Logging.DebugLog("Loading mod from " + file);
-                LoadModsFromAssembly(Assembly.LoadFile(file), result);
+                var loaded = LoadModsFromAssembly(Assembly.LoadFile(file));
+                loaded.ForEach(m => m.LoadDirectory = file);
+                result.AddRange(loaded);
             }
         }
     }

@@ -62,6 +62,8 @@ namespace Storm.Manipulation
 
         public abstract Injector CreateFieldMutatorInjector(FieldMutatorParams @params);
 
+        public abstract Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params);
+
         public abstract Injector CreateInvokerInjector(InvokerParams @params);
 
         public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
@@ -174,6 +176,17 @@ namespace Storm.Manipulation
                 OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
                 MethodName = injector.MethodName,
                 ParamType = FilterTags(nameMap, injector.ParamType),
+                IsStatic = injector.IsStatic,
+                OwnerAccessorType = injector.OwnerAccessorType,
+            })));
+
+            list.AddRange(container.FieldAccessorMutatorParams.Select(injector => CreateFieldAccessorMutatorInjector(new FieldAccessorMutatorParams
+            {
+                OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = FilterTags(nameMap, injector.OwnerFieldType),
+                MethodName = injector.MethodName,
+                Type = FilterTags(nameMap, injector.Type),
                 IsStatic = injector.IsStatic,
                 OwnerAccessorType = injector.OwnerAccessorType,
             })));

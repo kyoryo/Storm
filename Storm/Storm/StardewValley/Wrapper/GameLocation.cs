@@ -50,7 +50,7 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsOutdoors()
         {
-            return accessor._IsOutdoors();
+            return accessor._GetIsOutdoors();
         }
     }
 }

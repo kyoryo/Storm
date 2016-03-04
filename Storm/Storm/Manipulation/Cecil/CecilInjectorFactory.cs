@@ -92,6 +92,12 @@ namespace Storm.Manipulation.Cecil
             return new CecilFieldMutatorInjector(selfAssembly, gameAssembly, @params);
         }
 
+        public override Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
+        {
+            CheckSelf();
+            return new CecilFieldAccessorMutatorInjector(selfAssembly, gameAssembly, @params);
+        }
+
         public override Injector CreateInvokerInjector(InvokerParams @params)
         {
             CheckSelf();

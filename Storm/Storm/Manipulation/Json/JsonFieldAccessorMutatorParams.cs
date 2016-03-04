@@ -31,17 +31,20 @@
 
  */
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Accessor
+namespace Storm.Manipulation.Json
 {
-    public interface GameLocationAccessor
+    public class JsonFieldAccessorMutatorParams
     {
-        IDictionary _GetObjects();
-
-        bool _GetIsOutdoors();
+        public string OwnerAccessorType { get; set; }
+        public string OwnerFieldType { get; set; }
+        public string OwnerFieldName { get; set; }
+        public string MethodName { get; set; }
+        public string Type { get; set; }
+        public bool IsStatic { get; set; }
     }
 }
