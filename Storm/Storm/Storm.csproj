@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
+    <Compile Include="ExternalEvent\DiskResource.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
@@ -114,6 +115,7 @@
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
