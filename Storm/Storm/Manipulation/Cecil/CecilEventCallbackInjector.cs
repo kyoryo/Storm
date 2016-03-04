@@ -106,13 +106,16 @@ namespace Storm.Manipulation.Cecil
                     switch (i)
                     {
                         case 0:
-                            processor.InsertBefore(ins, processor.Create(OpCodes.Ldarg_1));
+                            processor.InsertBefore(ins, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
                             break;
                         case 1:
-                            processor.InsertBefore(ins, processor.Create(OpCodes.Ldarg_2));
+                            processor.InsertBefore(ins, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2));
                             break;
                         case 2:
-                            processor.InsertBefore(ins, processor.Create(OpCodes.Ldarg_3));
+                            processor.InsertBefore(ins, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3));
+                            break;
+                        case 3:
+                            processor.InsertBefore(ins, injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i));
                             break;
                         default:
                             processor.InsertBefore(ins, processor.Create(OpCodes.Ldarg, i));

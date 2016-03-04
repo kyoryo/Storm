@@ -783,6 +783,16 @@
 	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
 	},
 	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "warpFarmer",
+	  "OwnerMethodDesc": "(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)System.Void",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "WarpFarmerCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "WarpFarmerCallback",
+	  "StaticCallbackDesc": "(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+	},
+	{
 	  "OwnerAccessorType": "@Farmer",
 	  "OwnerMethodName": "addItemToInventory",
 	  "OwnerMethodDesc": "(@(Item))@(Item)",

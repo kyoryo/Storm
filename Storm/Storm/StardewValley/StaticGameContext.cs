@@ -129,6 +129,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
+        {
+            var @event = new WarpFarmerEvent(location, tileX, tileY, facingDirection, isStructure);
+            EventBus.Fire<WarpFarmerEvent>(@event);
+            return @event;
+        }
+
         public static ToolAccessor ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
