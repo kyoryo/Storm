@@ -26,23 +26,18 @@ namespace Storm.StardewValley.Accessor
     public interface ToolAccessor : ItemAccessor
     {
         ObjectAccessor[] _GetAttachments();
-
         void _SetAttachments(ObjectAccessor[] attachments);
 
         string _GetName();
-
         void _SetName(string name);
 
         bool _GetIsStackable();
-
         void _SetIsStackable(bool stackable);
 
         int _GetUpgradeLevel();
-
         void _SetUpgradeLevel(int level);
 
         Texture2D _GetWeaponTexture();
-
         void _SetWeaponTexture(Texture2D tex);
     }
 }
