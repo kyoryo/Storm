@@ -107,6 +107,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent SellShippedItemsCallback()
+        {
+            var @event = new SellShippedItemsEvent();
+            EventBus.Fire<SellShippedItemsEvent>(@event);
+            return @event;
+        }
+
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
             var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));

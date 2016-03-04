@@ -684,6 +684,16 @@
 	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
 	},
 	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "sellShippedItems",
+	  "OwnerMethodDesc": "()System.Void",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "SellShippedItemsCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "SellShippedItemsCallback",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	},
+	{
 	  "OwnerAccessorType": "@Farmer",
 	  "OwnerMethodName": "addItemToInventory",
 	  "OwnerMethodDesc": "(@(Item))@(Item)",
