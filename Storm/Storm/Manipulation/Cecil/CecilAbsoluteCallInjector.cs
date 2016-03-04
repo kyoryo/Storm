@@ -74,7 +74,7 @@ namespace Storm.Manipulation.Cecil
                     processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
                     break;
                 case InsertionType.LAST:
-                    processor.InsertBefore(instructions[instructions.Count], processor.Create(OpCodes.Call, import));
+                    processor.InsertBefore(instructions[instructions.Count - 1], processor.Create(OpCodes.Call, import));
                     break;
             }
         }

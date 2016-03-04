@@ -53,7 +53,7 @@
 	  "SimpleName": "Object",
 	  "OwnerType": "StardewValley.Object",
 	  "InterfaceType": "Storm.StardewValley.Accessor.ObjectAccessor"
-	},
+	}
 	{
 	  "SimpleName": "Crop",
 	  "OwnerType": "StardewValley.Crop",
@@ -301,6 +301,13 @@
 	  "OwnerFieldType": "System.Int32",
 	  "MethodName": "_GetSpecialVariable",
 	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Object",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_GetName",
+	  "ReturnType": "System.String"
 	}
   ],
   "FieldMutatorParams": [
@@ -712,9 +719,9 @@
 	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "PreDrawCallback",
-	  "DetourMethodDesc": "()System.Void",
+	  "DetourMethodDesc": "()System.Void"
 	},
-	{
+    {
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Draw",
 	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
@@ -740,7 +747,8 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "SeasonChangeCallback",
-	  "DetourMethodDesc": "()System.Void"
+	  "DetourMethodDesc": "()System.Void",
+      "InsertionType" : "LAST"
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
@@ -748,7 +756,8 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "NewDayCallback",
-	  "DetourMethodDesc": "()System.Void"
+	  "DetourMethodDesc": "()System.Void",
+      "InsertionType" : "LAST"
 	}
   ],
   "EventCallbackParams": [
@@ -760,7 +769,7 @@
 	  "InstanceCallbackName": "PerformClockUpdateCallback",
 	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
 	  "StaticCallbackName": "PerformClockUpdateCallback",
-	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
