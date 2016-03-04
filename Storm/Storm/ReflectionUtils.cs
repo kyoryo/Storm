@@ -23,10 +23,8 @@ using System.Threading.Tasks;
 
 namespace Storm
 {
-    public sealed class ReflectionUtils
+    public static class ReflectionUtils
     {
-        private ReflectionUtils() { }
-
         public static string DescriptionOf(MethodInfo md)
         {
             var sb = new StringBuilder();

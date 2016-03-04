@@ -38,7 +38,7 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var implementingInterface = self.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.InterfaceType));
+            var implementingInterface = self.GetTypeDef(@params.InterfaceType);
             if (implementingInterface == null)
             {
                 Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementingInterface {0} {1}", 
@@ -46,7 +46,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var implementer = def.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.OwnerType));
+            var implementer = def.GetTypeDef(@params.OwnerType);
             if (implementer == null)
             {
                 Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementer {0} {1}",

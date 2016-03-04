@@ -39,17 +39,8 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.Modules.
-               SelectMany(m => m.Types).
-               Where(t => t.FullName.Equals(@params.DetourType)).
-               SelectMany(t => t.Methods).
-               FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
-
-            var injectee = def.Modules.
-               SelectMany(m => m.Types).
-               Where(t => t.FullName.Equals(@params.OwnerType)).
-               SelectMany(t => t.Methods).
-               FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+            var injectee = self.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
 
             if (callingDefinition == null)
             {

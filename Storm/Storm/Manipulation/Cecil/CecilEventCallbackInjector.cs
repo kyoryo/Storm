@@ -41,32 +41,15 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var instancedRecv = self.MainModule.Types.
-                Where(t => t.FullName.Equals(@params.CallbackType)).
-                SelectMany(t => t.Methods).
-                FirstOrDefault(m => m.Name.Equals(@params.InstanceCallbackName) && CecilUtils.DescriptionOf(m).Equals(@params.InstanceCallbackDesc));
-
-            var staticRecv = self.MainModule.Types.
-                Where(t => t.FullName.Equals(@params.CallbackType)).
-                SelectMany(t => t.Methods).
-                FirstOrDefault(m => m.Name.Equals(@params.StaticCallbackName) && CecilUtils.DescriptionOf(m).Equals(@params.StaticCallbackDesc));
-
-            var injectee = def.MainModule.Types.
-                Where(t => t.FullName.Equals(@params.OwnerType)).
-                SelectMany(t => t.Methods).
-                FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+            var instancedRecv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+            var staticRecv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
+            var injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
 
             if (instancedRecv == null)
             {
                 Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find instancedRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType,
-                    @params.OwnerMethodName,
-                    @params.OwnerMethodDesc,
-                    @params.CallbackType,
-                    @params.InstanceCallbackName,
-                    @params.InstanceCallbackDesc,
-                    @params.StaticCallbackName,
-                    @params.StaticCallbackDesc,
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
+                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                     @params.InsertionIndex));
                 return;
             }
@@ -74,14 +57,8 @@ namespace Storm.Manipulation.Cecil
             if (staticRecv == null)
             {
                 Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find staticRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType,
-                    @params.OwnerMethodName,
-                    @params.OwnerMethodDesc,
-                    @params.CallbackType,
-                    @params.InstanceCallbackName,
-                    @params.InstanceCallbackDesc,
-                    @params.StaticCallbackName,
-                    @params.StaticCallbackDesc,
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
+                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                     @params.InsertionIndex));
                 return;
             }
@@ -89,14 +66,8 @@ namespace Storm.Manipulation.Cecil
             if (injectee == null)
             {
                 Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType,
-                    @params.OwnerMethodName,
-                    @params.OwnerMethodDesc,
-                    @params.CallbackType,
-                    @params.InstanceCallbackName,
-                    @params.InstanceCallbackDesc,
-                    @params.StaticCallbackName,
-                    @params.StaticCallbackDesc,
+                    @params.OwnerType, @params.OwnerMethodName,  @params.OwnerMethodDesc, @params.CallbackType,
+                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                     @params.InsertionIndex));
                 return;
             }

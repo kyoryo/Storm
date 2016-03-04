@@ -42,12 +42,8 @@ namespace Storm.Manipulation.Cecil
         {
             var gameModule = def.MainModule;
 
-            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.InvokerReturnType));
-            if (returnType == null) returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.InvokerReturnType));
-
-            var invoking = gameModule.Types.
-                FirstOrDefault(t => t.Resolve().FullName.Equals(@params.OwnerType)).
-                Methods.FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+            var returnType = def.GetTypeRef(@params.InvokerReturnType, true);
+            var invoking = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
 
             if (returnType == null)
             {
@@ -68,12 +64,7 @@ namespace Storm.Manipulation.Cecil
             var paramTypes = new TypeReference[@params.InvokerReturnParams.Length];
             for (int i = 0; i < paramTypes.Length; i++)
             {
-                TypeReference paramType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.InvokerReturnParams[i]));
-                if (paramType == null)
-                {
-                    paramType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.InvokerReturnParams[i]));
-                }
-
+                var paramType = def.GetTypeRef(@params.InvokerReturnParams[i], true);
                 if (paramType == null)
                 {
                     Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find param {0} {1} {2} {3} {4}",

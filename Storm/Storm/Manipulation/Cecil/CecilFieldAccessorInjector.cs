@@ -42,17 +42,8 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var gameModule = def.MainModule;
-            TypeReference returnType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.ReturnType));
-            if (returnType == null)
-            {
-                returnType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.ReturnType));
-            }
-
-            var field = gameModule.Types.
-                Where(t => t.FullName.Equals(@params.OwnerType)).
-                SelectMany(t => t.Fields).
-                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+            TypeReference returnType = def.GetTypeRef(@params.ReturnType, true);
+            var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
 
             if (returnType == null)
             {
@@ -70,7 +61,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(returnType));
+            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.MainModule.Import(returnType));
             var instructions = method.Body.Instructions;
             var processor = method.Body.GetILProcessor();
             if (!@params.IsStatic)

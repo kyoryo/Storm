@@ -25,10 +25,8 @@ using System.Threading.Tasks;
 
 namespace Storm
 {
-    public sealed class CecilUtils
+    public static class CecilUtils
     {
-        private CecilUtils() { }
-
         public static string DescriptionOf(MethodDefinition md)
         {
             var sb = new StringBuilder();
@@ -46,6 +44,89 @@ namespace Storm
             sb.Append(')');
             sb.Append(md.ReturnType.Resolve().FullName);
             return sb.ToString();
+        }
+
+        public static TypeReference GetTypeRef(this AssemblyDefinition asm, string type, bool dynamicFallback = false)
+        {
+            var tds = asm.Modules.Select(m => m.GetType(type));
+            if (tds.Count() == 0)
+            {
+                return dynamicFallback ? asm.MainModule.Import(ReflectionUtils.DynamicResolve(type)) : null;
+            }
+            if (tds.Count() > 1)
+            {
+                throw new TypeCollisionException();
+            }
+            return tds.First();
+        }
+
+        public static TypeDefinition GetTypeDef(this AssemblyDefinition asm, string type)
+        {
+            var tds = asm.Modules.Select(m => m.GetType(type));
+            if (tds.Count() == 0)
+            {
+                return null;
+            }
+            if (tds.Count() > 1)
+            {
+                throw new TypeCollisionException();
+            }
+            return tds.First();
+        }
+
+        public static FieldDefinition GetField(this AssemblyDefinition asm, string type, string name, string fieldType)
+        {
+            var tds = asm.Modules.Select(m => m.GetType(type));
+            if (tds.Count() == 0)
+            {
+                return null;
+            }
+            if (tds.Count() > 1)
+            {
+                throw new TypeCollisionException();
+            }
+            var td = tds.First();
+            return td.Fields.FirstOrDefault(f => f.Name.Equals(name) && f.FieldType.Resolve().FullName.Equals(fieldType));
+        }
+
+        public static MethodDefinition GetMethod(this AssemblyDefinition asm, string type, string name, string desc)
+        {
+            var tds = asm.Modules.Select(m => m.GetType(type));
+            if (tds.Count() == 0)
+            {
+                return null;
+            }
+            if (tds.Count() != 1)
+            {
+                throw new TypeCollisionException();
+            }
+            var td = tds.First();
+            return td.Methods.FirstOrDefault(m => m.Name.Equals(name) && DescriptionOf(m).Equals(desc));
+        }
+
+        public static TypeReference Import(this AssemblyDefinition asm, Type t)
+        {
+            return asm.MainModule.Import(t);
+        }
+
+        public static TypeReference Import(this AssemblyDefinition asm, TypeReference tr)
+        {
+            return asm.MainModule.Import(tr);
+        }
+
+        public static IEnumerable<MethodDefinition> FindRefences(this AssemblyDefinition asm, FieldDefinition fd, MethodDefinition exclude = null)
+        {
+            return asm.Modules.
+                SelectMany(m => m.Types).
+                SelectMany(t => t.Methods).
+                Where(m => m.HasBody && m != exclude && m.Body.Instructions.
+                    FirstOrDefault(i => {
+                    if (i.Operand != null && i.Operand is FieldReference)
+                    {
+                        return ((FieldReference)i.Operand).Resolve() == fd;
+                    }
+                    return false;
+               }) != null);
         }
 
         public static bool IsGettingField(Instruction ins)

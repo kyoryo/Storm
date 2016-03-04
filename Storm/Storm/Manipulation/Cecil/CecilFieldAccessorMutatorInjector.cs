@@ -39,17 +39,8 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var gameModule = def.MainModule;
-            TypeReference methodType = gameModule.Types.FirstOrDefault(t => t.Resolve().FullName.Equals(@params.Type));
-            if (methodType == null)
-            {
-                methodType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.Type));
-            }
-
-            var field = gameModule.Types.
-                Where(t => t.FullName.Equals(@params.OwnerType)).
-                SelectMany(t => t.Fields).
-                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+            var methodType = def.GetTypeRef(@params.Type, true);
+            var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
 
             if (methodType == null)
             {
@@ -66,11 +57,10 @@ namespace Storm.Manipulation.Cecil
                      @params.MethodName, @params.Type, @params.IsStatic));
                 return;
             }
-
-            Logging.DebugLog("Bleh???? " + @params.MethodName);
-            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(typeof(void)));
+            
+            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(void)));
             {
-                mutator.Parameters.Add(new ParameterDefinition(gameModule.Import(methodType)));
+                mutator.Parameters.Add(new ParameterDefinition(def.Import(methodType)));
 
                 var instructions = mutator.Body.Instructions;
                 var processor = mutator.Body.GetILProcessor();
@@ -83,7 +73,7 @@ namespace Storm.Manipulation.Cecil
                 instructions.Add(processor.Create(OpCodes.Ret));
             }
 
-            var accessor = new MethodDefinition("_Get" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(methodType));
+            var accessor = new MethodDefinition("_Get" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(methodType));
             {
                 var instructions = accessor.Body.Instructions;
                 var processor = accessor.Body.GetILProcessor();

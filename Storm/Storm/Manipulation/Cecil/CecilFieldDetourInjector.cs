@@ -40,25 +40,13 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.Modules.
-                SelectMany(m => m.Types).
-                Where(t => t.FullName.Equals(@params.DetourType)).
-                SelectMany(t => t.Methods).
-                FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) &&  CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
+            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
             if (callingDefinition == null)
             {
-                callingDefinition = def.Modules.
-                SelectMany(m => m.Types).
-                Where(t => t.FullName.Equals(@params.DetourType)).
-                SelectMany(t => t.Methods).
-                FirstOrDefault(m => m.Name.Equals(@params.DetourMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.DetourMethodDesc));
+                callingDefinition = def.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
             }
 
-            var fieldRef = def.Modules.
-                SelectMany(m => m.Types).
-                Where(t => t.FullName.Equals(@params.OwnerType)).
-                SelectMany(t => t.Fields).
-                FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+            var fieldRef = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
 
             if (callingDefinition == null)
             {
@@ -76,12 +64,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var resolved = fieldRef.Resolve();
-            var methods = def.Modules.SelectMany(m => m.Types).
-                SelectMany(t => t.Methods).
-                Where(m => m.HasBody && m != callingDefinition && m.Body.Instructions.
-                    FirstOrDefault(i => CecilUtils.IsGettingField(i) && i.Operand is FieldReference) != null);
-
+            var methods = def.FindRefences(fieldRef, callingDefinition);
             foreach (var method in methods)
             {
                 var import = method.Module.Import(callingDefinition.Resolve());
@@ -93,7 +76,7 @@ namespace Storm.Manipulation.Cecil
                     if (CecilUtils.IsGettingField(ins) && (ins.Operand is FieldReference))
                     {
                         var casted = ins.Operand as FieldReference;
-                        if (casted.Resolve() == resolved)
+                        if (casted.Resolve() == fieldRef.Resolve())
                         {
                             instructions[i] = processor.Create(OpCodes.Call, import);
                         }
