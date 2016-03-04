@@ -194,6 +194,7 @@ namespace Storm.Manipulation
                 DetourType = injector.DetourType,
                 DetourMethodName = injector.DetourMethodName,
                 DetourMethodDesc = FilterTags(nameMap, injector.DetourMethodDesc),
+                InsertionType = injector.InsertionType,
                 InsertionIndex = injector.InsertionIndex,
             })));
 
