@@ -48,16 +48,36 @@ namespace Storm
 
         public static TypeReference GetTypeRef(this AssemblyDefinition asm, string type, bool dynamicFallback = false)
         {
+            var arrayDepth = 0;
+            while (type.EndsWith("[]"))
+            {
+                type = type.Substring(0, type.Length - 2);
+                arrayDepth++;
+            }
+
+            TypeReference first = null;
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
             if (tds.Count() == 0)
             {
-                return dynamicFallback ? asm.MainModule.Import(ReflectionUtils.DynamicResolve(type)) : null;
+                if (dynamicFallback)
+                {
+                    first = asm.MainModule.Import(ReflectionUtils.DynamicResolve(type));
+                }
             }
-            if (tds.Count() > 1)
+            else if (tds.Count() > 1)
             {
                 throw new TypeCollisionException();
             }
-            return tds.First();
+            else
+            {
+                first = tds.First();
+            }
+
+            if (arrayDepth > 0)
+            {
+                return new ArrayType(first, arrayDepth);
+            }
+            return first;
         }
 
         public static TypeDefinition GetTypeDef(this AssemblyDefinition asm, string type)
