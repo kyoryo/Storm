@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using Mono.Cecil.Cil;
@@ -67,7 +51,23 @@ namespace Storm.Manipulation.Cecil
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
-            
+
+            if (paramType == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find paramType {0} {1} {2} {3} {4} {4} {5}",
+                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                     @params.MethodName, @params.ParamType, @params.IsStatic));
+                return;
+            }
+
+            if (field == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
+                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                     @params.MethodName, @params.ParamType, @params.IsStatic));
+                return;
+            }
+
             var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(typeof(void)));
             method.Parameters.Add(new ParameterDefinition(gameModule.Import(paramType)));
 

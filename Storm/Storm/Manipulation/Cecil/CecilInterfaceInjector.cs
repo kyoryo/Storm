@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using System;
@@ -54,9 +38,22 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            Logging.DebugLog(@params.InterfaceType);
             var implementingInterface = self.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.InterfaceType));
+            if (implementingInterface == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementingInterface {0} {1}", 
+                    @params.OwnerType, @params.InterfaceType));
+                return;
+            }
+
             var implementer = def.Modules.SelectMany(m => m.Types).FirstOrDefault(t => t.FullName.Equals(@params.OwnerType));
+            if (implementer == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementer {0} {1}",
+                    @params.OwnerType, @params.InterfaceType));
+                return;
+            }
+
             implementer.Interfaces.Add(implementer.Module.Import(implementingInterface));
         }
 

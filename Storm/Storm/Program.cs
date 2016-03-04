@@ -13,35 +13,10 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Storm.Manipulation;
 using System.IO;
 using Storm.StardewValley;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.ExternalEvent;
 using System.Diagnostics;
 
 namespace Storm
@@ -50,6 +25,10 @@ namespace Storm
     {
         static void Main(string[] args)
         {
+            /* allow window resizing on osx & *nix */
+            if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
+                Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
+
             Logging.Log = (msg) => Console.WriteLine(msg);
             Logging.DebugLog = (msg) => Debug.WriteLine(msg);
 
@@ -59,6 +38,7 @@ namespace Storm
 
                 var launcher = new ManagedStardewValleyLauncher(injectStream, "Stardew Valley.exe");
                 launcher.Launch();
+                launcher.Dispose();
             }
             catch (Exception ex)
             {

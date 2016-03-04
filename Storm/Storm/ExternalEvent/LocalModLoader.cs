@@ -68,7 +68,10 @@ namespace Storm.ExternalEvent
             var files = Directory.GetFiles(path, "*.dll");
             foreach (var file in files)
             {
-                LoadModsFromAssembly(Assembly.LoadFile(file), result);
+                Logging.DebugLog("Loading mod from " + file);
+                var loaded = LoadModsFromAssembly(Assembly.LoadFile(file));
+                loaded.ForEach(m => m.LoadDirectory = file);
+                result.AddRange(loaded);
             }
         }
     }

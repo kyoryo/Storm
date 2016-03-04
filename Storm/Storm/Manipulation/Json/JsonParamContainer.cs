@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Newtonsoft.Json;
 using System;
@@ -46,6 +30,7 @@ namespace Storm.Manipulation.Json
         private JsonFieldDetourParams[] fieldDetourParams = new JsonFieldDetourParams[0];
         private JsonFieldAccessorParams[] fieldAccessorParams = new JsonFieldAccessorParams[0];
         private JsonFieldMutatorParams[] fieldMutatorParams = new JsonFieldMutatorParams[0];
+        private JsonFieldAccessorMutatorParams[] fieldAccessorMutatorParams = new JsonFieldAccessorMutatorParams[0];
         private JsonAbsoluteCallParams[] absoluteCallParams = new JsonAbsoluteCallParams[0];
         private JsonFieldInfoParams[] fieldInfoParams = new JsonFieldInfoParams[0];
         private JsonInvokerParams[] invokerParamsParams = new JsonInvokerParams[0];
@@ -56,6 +41,7 @@ namespace Storm.Manipulation.Json
         public JsonFieldDetourParams[] FieldDetourParams { get { return fieldDetourParams; }set { fieldDetourParams = value; } }
         public JsonFieldAccessorParams[] FieldAccessorParams { get { return fieldAccessorParams;  } set { fieldAccessorParams = value; } }
         public JsonFieldMutatorParams[] FieldMutatorParams { get { return fieldMutatorParams; } set { fieldMutatorParams = value; } }
+        public JsonFieldAccessorMutatorParams[] FieldAccessorMutatorParams { get { return fieldAccessorMutatorParams; } set { fieldAccessorMutatorParams = value; } }
         public JsonAbsoluteCallParams[] AbsoluteCallParams { get { return absoluteCallParams; } set { absoluteCallParams = value; } }
         public JsonFieldInfoParams[] FieldInfoParams { get { return fieldInfoParams; } set { fieldInfoParams = value; } }
         public JsonInvokerParams[] InvokerParams { get { return invokerParamsParams; } set { invokerParamsParams = value; } }

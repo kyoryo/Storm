@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using Mono.Cecil.Cil;
@@ -61,18 +45,64 @@ namespace Storm.Manipulation.Cecil
                 Where(t => t.FullName.Equals(@params.CallbackType)).
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.InstanceCallbackName) && CecilUtils.DescriptionOf(m).Equals(@params.InstanceCallbackDesc));
-            var instancedImport = def.MainModule.Import(instancedRecv);
 
             var staticRecv = self.MainModule.Types.
                 Where(t => t.FullName.Equals(@params.CallbackType)).
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.StaticCallbackName) && CecilUtils.DescriptionOf(m).Equals(@params.StaticCallbackDesc));
-            var staticImport = def.MainModule.Import(staticRecv);
 
             var injectee = def.MainModule.Types.
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+
+            if (instancedRecv == null)
+            {
+                Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find instancedRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    @params.OwnerType,
+                    @params.OwnerMethodName,
+                    @params.OwnerMethodDesc,
+                    @params.CallbackType,
+                    @params.InstanceCallbackName,
+                    @params.InstanceCallbackDesc,
+                    @params.StaticCallbackName,
+                    @params.StaticCallbackDesc,
+                    @params.InsertionIndex));
+                return;
+            }
+            
+            if (staticRecv == null)
+            {
+                Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find staticRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    @params.OwnerType,
+                    @params.OwnerMethodName,
+                    @params.OwnerMethodDesc,
+                    @params.CallbackType,
+                    @params.InstanceCallbackName,
+                    @params.InstanceCallbackDesc,
+                    @params.StaticCallbackName,
+                    @params.StaticCallbackDesc,
+                    @params.InsertionIndex));
+                return;
+            }
+
+            if (injectee == null)
+            {
+                Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    @params.OwnerType,
+                    @params.OwnerMethodName,
+                    @params.OwnerMethodDesc,
+                    @params.CallbackType,
+                    @params.InstanceCallbackName,
+                    @params.InstanceCallbackDesc,
+                    @params.StaticCallbackName,
+                    @params.StaticCallbackDesc,
+                    @params.InsertionIndex));
+                return;
+            }
+
+            var instancedImport = def.MainModule.Import(instancedRecv);
+            var staticImport = def.MainModule.Import(staticRecv);
             var returnName = injectee.ReturnType.FullName;
 
             var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");

@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using System;
 using System.Collections.Generic;
@@ -90,6 +74,12 @@ namespace Storm.Manipulation.Cecil
         {
             CheckSelf();
             return new CecilFieldMutatorInjector(selfAssembly, gameAssembly, @params);
+        }
+
+        public override Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
+        {
+            CheckSelf();
+            return new CecilFieldAccessorMutatorInjector(selfAssembly, gameAssembly, @params);
         }
 
         public override Injector CreateInvokerInjector(InvokerParams @params)

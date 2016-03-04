@@ -117,13 +117,6 @@
 	  "MethodName": "_GetObjects",
 	  "ReturnType": "System.Collections.IDictionary"
 	},
-	{
-	  "OwnerAccessorType": "@GameLocation",
-	  "OwnerFieldName": "isOutdoors",
-	  "OwnerFieldType": "System.Boolean",
-	  "MethodName": "_IsOutdoors",
-	  "ReturnType": "System.Boolean"
-	},
 	
 	{
 	  "OwnerAccessorType": "@Character",
@@ -314,6 +307,15 @@
 	  "OwnerFieldType": "System.String",
 	  "MethodName": "_SetName",
 	  "ParamType": "System.String"
+	}
+  ],
+  "FieldAccessorMutatorParams": [
+    {
+	  "OwnerAccessorType": "@GameLocation",
+	  "OwnerFieldName": "isOutdoors",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsOutdoors",
+	  "Type": "System.Boolean"
 	}
   ],
   "MethodInfoParams": [

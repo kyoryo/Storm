@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using Mono.Cecil.Cil;
@@ -75,6 +59,22 @@ namespace Storm.Manipulation.Cecil
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+
+            if (callingDefinition == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                return;
+            }
+
+            if (fieldRef == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find fieldRef {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                return;
+            }
 
             var resolved = fieldRef.Resolve();
             var methods = def.Modules.SelectMany(m => m.Types).

@@ -45,17 +45,30 @@ namespace Storm.ExternalEvent
         public object instance;
         public Mod annotation;
         public Dictionary<Type, List<MethodInfo>> callMap;
+        public string loadDirectory;
 
         public LoadedMod(object instance, Mod annotation, Dictionary<Type, List<MethodInfo>> callMap)
         {
             this.instance = instance;
             this.annotation = annotation;
             this.callMap = callMap;
+            this.loadDirectory = "";
         }
 
         public string Name { get { return annotation.Name; } }
         public string Author { get { return annotation.Author; } }
         public double Version { get { return annotation.Version; } }
+        public string LoadDirectory
+        {
+            get
+            {
+                return annotation.LoadPath;
+            }
+            set
+            {
+                annotation.LoadPath = value;
+            }
+        }
 
         public void Fire<T>(T @event) where T : DetourEvent
         {

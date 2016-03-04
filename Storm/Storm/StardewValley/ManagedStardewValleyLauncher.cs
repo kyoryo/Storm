@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Castle.DynamicProxy;
 using Storm.Manipulation;
@@ -49,7 +33,7 @@ using Storm.Manipulation.Cecil;
 
 namespace Storm.StardewValley
 {
-    public class ManagedStardewValleyLauncher
+    public class ManagedStardewValleyLauncher : IDisposable
     {
         private Stream injectorStream;
         private string gamePath;
@@ -84,15 +68,14 @@ namespace Storm.StardewValley
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
-
-            var modFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "storm-mods\\");
+            
             var eventBus = new ModEventBus();
-            if (!Directory.Exists(modFolder))
+            if (!Directory.Exists(StormAPI.stormModsPath))
             {
-                Directory.CreateDirectory(modFolder);
+                Directory.CreateDirectory(StormAPI.stormModsPath);
             }
 
-            var modLoader = new LocalModLoader(modFolder);
+            var modLoader = new LocalModLoader(StormAPI.stormModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods)
             {
@@ -115,6 +98,11 @@ namespace Storm.StardewValley
 
             var assembly = ctx.GetConcreteAssembly();
             assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
+        }
+
+        public void Dispose()
+        {
+            injectorStream.Close();
         }
     }
 }

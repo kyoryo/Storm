@@ -14,17 +14,22 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Castle.DynamicProxy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley
+namespace Storm.Manipulation
 {
-    public interface InterceptorDelegateFactory<T>
+    public struct FieldAccessorMutatorParams
     {
-        IInterceptor CreateInterceptor(T t);
+        public string OwnerType { get; set; }
+        public string OwnerFieldType { get; set; }
+        public string OwnerFieldName { get; set; }
+        public string MethodName { get; set; }
+        public string Type { get; set; }
+        public bool IsStatic { get; set; }
+        public string OwnerAccessorType { get; set; }
     }
 }

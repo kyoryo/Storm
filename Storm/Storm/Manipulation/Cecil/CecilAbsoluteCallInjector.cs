@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using Mono.Cecil.Cil;
@@ -66,6 +50,22 @@ namespace Storm.Manipulation.Cecil
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
+
+            if (callingDefinition == null)
+            {
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName,  @params.OwnerMethodDesc, 
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc,  @params.InsertionIndex));
+                return;
+            }
+
+            if (injectee == null)
+            {
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
+                    @params.DetourType,  @params.DetourMethodDesc,  @params.DetourMethodDesc, @params.InsertionIndex));
+                return;
+            }
 
             var import = injectee.Module.Import(callingDefinition);
             var processor = injectee.Body.GetILProcessor();

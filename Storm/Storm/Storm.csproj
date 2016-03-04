@@ -80,24 +80,27 @@
     <Reference Include="System.Xml" />
     <Reference Include="xTile, Version=2.0.4.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Stardew Valley\xTile.dll</HintPath>
+      <HintPath>..\..\Dependencies\xTile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
+    <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
     <Compile Include="Manipulation\ConstantReplacerParams.cs" />
     <Compile Include="Manipulation\DetourEvent.cs" />
     <Compile Include="Manipulation\EventCallbackParams.cs" />
+    <Compile Include="Manipulation\FieldAccessorMutatorParams.cs" />
     <Compile Include="Manipulation\FieldInfoInjector.cs" />
     <Compile Include="Manipulation\FieldInfoParams.cs" />
     <Compile Include="Manipulation\FieldMutatorParams.cs" />
     <Compile Include="Manipulation\InjectorMetaData.cs" />
     <Compile Include="Manipulation\InvokerParams.cs" />
     <Compile Include="Manipulation\Json\JsonEventCallbackParams.cs" />
+    <Compile Include="Manipulation\Json\JsonFieldAccessorMutatorParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldInfoParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldMutatorParams.cs" />
     <Compile Include="Manipulation\Json\JsonInvokerParams.cs" />
@@ -110,6 +113,7 @@
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />

@@ -13,22 +13,6 @@
 
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
-
-                              .       .
-                         / `.   .' \
-                 .---.  <    > <    >  .---.
-                 |    \  \ - ~ ~ - /  /    |
-                  ~-..-~             ~-..-~
-              \~~~\.'                    `./~~~/
-    .-~~^-.    \__/                        \__/
-  .'  O    \     /               /       \  \
- (_____,    `._.'               |         }  \/~~~/
-  `----.          /       }     |        /    \__/
-        `-.      |       /      |       /      `. ,~~|
-            ~-.__|      /_ - ~ ^|      /- _      `..-'   f: f:
-                 |     /        |     /     ~-.     `-. _||_||_
-                 |_____|        |_____|         ~ - . _ _ _ _ _>
-
  */
 using Mono.Cecil;
 using Mono.Cecil.Cil;
@@ -64,8 +48,22 @@ namespace Storm.Manipulation.Cecil
             var invoking = gameModule.Types.
                 FirstOrDefault(t => t.Resolve().FullName.Equals(@params.OwnerType)).
                 Methods.FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
-            var invokingParent = invoking.DeclaringType;
 
+            if (returnType == null)
+            {
+                Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find returnType {0} {1} {2} {3} {4}",
+                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                return;
+            }
+
+            if (invoking == null)
+            {
+                Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find invoking {0} {1} {2} {3} {4}",
+                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                return;
+            }
+
+            var invokingParent = invoking.DeclaringType;
             var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, returnType);
             var paramTypes = new TypeReference[@params.InvokerReturnParams.Length];
             for (int i = 0; i < paramTypes.Length; i++)
@@ -75,6 +73,14 @@ namespace Storm.Manipulation.Cecil
                 {
                     paramType = gameModule.Import(ReflectionUtils.DynamicResolve(@params.InvokerReturnParams[i]));
                 }
+
+                if (paramType == null)
+                {
+                    Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find param {0} {1} {2} {3} {4}",
+                         @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                    return;
+                }
+
                 invoker.Parameters.Add(new ParameterDefinition(paramType));
             }
             
