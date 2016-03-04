@@ -48,7 +48,7 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
-            using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileMode.Read))
+            using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read))
             {
                 var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
                 var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
