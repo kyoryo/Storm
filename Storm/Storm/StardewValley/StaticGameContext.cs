@@ -94,17 +94,17 @@ namespace Storm.StardewValley
             EventBus.Fire<OnNewDayEvent>(@event);
         }
 
-        public static DetourEvent PerformClockUpdateCallback(StaticContextAccessor source)
+        public static DetourEvent PerformClockUpdateCallback()
         {
             var @event = new PerformClockUpdateEvent();
             EventBus.Fire<PerformClockUpdateEvent>(@event);
             return @event;
         }
 
-        public static DetourEvent PerformClockUpdateCallback()
+        public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
-            var @event = new PerformClockUpdateEvent();
-            EventBus.Fire<PerformClockUpdateEvent>(@event);
+            var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));
+            EventBus.Fire<AddItemToInventoryEvent>(@event);
             return @event;
         }
 
