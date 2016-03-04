@@ -35,6 +35,9 @@ namespace Storm.StardewValley.Accessor
 
         int _GetTileSize();
 
+        string _GetVersionString();
+        void _SetVersionString(string version);
+
         xTile.Dimensions.Rectangle _GetViewport();
 
         FarmerAccessor _GetPlayer();

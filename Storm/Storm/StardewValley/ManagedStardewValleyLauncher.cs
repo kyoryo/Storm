@@ -97,7 +97,7 @@ namespace Storm.StardewValley
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            new Thread(() => assembly.EntryPoint.Invoke(null, new object[] { new string[] { } })).Start();
+            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
         }
 
         public void Dispose()

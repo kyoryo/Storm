@@ -32,11 +32,23 @@ namespace Storm
             Logging.Log = (msg) => Console.WriteLine(msg);
             Logging.DebugLog = (msg) => Debug.WriteLine(msg);
 
-            var launcher = new ManagedStardewValleyLauncher(new FileStream(StormAPI.GetResource("injectors.json"), FileMode.Open), "Stardew Valley.exe");
-            launcher.Launch();
-            launcher.Dispose();
+            FileStream injectStream = null;
+            try {
+                injectStream = new FileStream("injectors-1.02.json", FileMode.Open, FileAccess.Read);
 
-            Console.ReadKey();
+                var launcher = new ManagedStardewValleyLauncher(injectStream, "Stardew Valley.exe");
+                launcher.Launch();
+                launcher.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Logging.Log(ex.Message);
+            }
+            finally
+            {
+                if (injectStream != null)
+                    injectStream.Close();
+            }
         }
     }
 }

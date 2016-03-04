@@ -83,6 +83,13 @@
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "version",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_GetVersionString",
+	  "ReturnType": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
 	  "OwnerFieldName": "viewport",
 	  "OwnerFieldType": "xTile.Dimensions.Rectangle",
 	  "MethodName": "_GetViewport",
@@ -236,6 +243,13 @@
 	},
   ],
   "FieldMutatorParams": [
+  	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "version",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "_SetVersionString",
+	  "ParamType": "System.String"
+	},
     {
 	  "OwnerAccessorType": "@Character",
 	  "OwnerFieldName": "name",

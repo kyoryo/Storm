@@ -65,6 +65,17 @@ namespace Storm.StardewValley.Wrapper
             return accessor._GetTileSize();
         }
 
+        public string Version
+        {
+            get { return accessor._GetVersionString(); }
+            set { accessor._SetVersionString(value);  }
+        }
+
+        public GameWindow GetWindow()
+        {
+            return ((Game)accessor).Window;
+        }
+
         public xTile.Dimensions.Rectangle GetViewport()
         {
             return accessor._GetViewport();
