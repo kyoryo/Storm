@@ -48,7 +48,7 @@ namespace Storm
 
         public static TypeReference GetTypeRef(this AssemblyDefinition asm, string type, bool dynamicFallback = false)
         {
-            var tds = asm.Modules.Select(m => m.GetType(type));
+            var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
             if (tds.Count() == 0)
             {
                 return dynamicFallback ? asm.MainModule.Import(ReflectionUtils.DynamicResolve(type)) : null;
@@ -62,7 +62,7 @@ namespace Storm
 
         public static TypeDefinition GetTypeDef(this AssemblyDefinition asm, string type)
         {
-            var tds = asm.Modules.Select(m => m.GetType(type));
+            var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
             if (tds.Count() == 0)
             {
                 return null;
@@ -76,7 +76,7 @@ namespace Storm
 
         public static FieldDefinition GetField(this AssemblyDefinition asm, string type, string name, string fieldType)
         {
-            var tds = asm.Modules.Select(m => m.GetType(type));
+            var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
             if (tds.Count() == 0)
             {
                 return null;
@@ -91,7 +91,7 @@ namespace Storm
 
         public static MethodDefinition GetMethod(this AssemblyDefinition asm, string type, string name, string desc)
         {
-            var tds = asm.Modules.Select(m => m.GetType(type));
+            var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
             if (tds.Count() == 0)
             {
                 return null;

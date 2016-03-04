@@ -40,19 +40,23 @@ namespace Storm.Manipulation.Cecil
         public void Inject()
         {
             var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+            if (callingDefinition == null)
+            {
+                callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+            }
             var injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
 
             if (callingDefinition == null)
             {
-                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5} {6}",
                     @params.OwnerType, @params.OwnerMethodName,  @params.OwnerMethodDesc, 
-                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc,  @params.InsertionIndex));
+                    @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc,  @params.InsertionIndex));
                 return;
             }
 
             if (injectee == null)
             {
-                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5}",
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5} {6}",
                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
                     @params.DetourType,  @params.DetourMethodDesc,  @params.DetourMethodDesc, @params.InsertionIndex));
                 return;
