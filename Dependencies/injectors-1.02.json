@@ -348,6 +348,14 @@
 	  "DetourMethodName": "InitializeCallback",
 	  "DetourMethodDesc": "()System.Void"
 	},
+    {
+      "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "LoadContent",
+	  "OwnerMethodDesc": "()System.Void",
+	  "DetourType": "Storm.StardewValley.StaticGameContext",
+	  "DetourMethodName": "LoadContentCallback",
+	  "DetourMethodDesc": "()System.Void"
+	},
 	{
       "OwnerAccessorType": "@StaticContext",
 	  "OwnerMethodName": "Draw",
