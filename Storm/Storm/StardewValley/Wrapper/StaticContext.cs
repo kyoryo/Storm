@@ -54,7 +54,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Texture2D LoadResource(string path)
         {
-            var fs = new FileStream(path, FileMode.Create);
+            var fs = new FileStream(path, FileMode.Open);
             var tex = Texture2D.FromStream(GetGraphicsDeviceManager().GraphicsDevice, fs);
             fs.Close();
             return tex;
@@ -97,6 +97,11 @@ namespace Storm.StardewValley.Wrapper
         public void UnlockSteamAchievement(string name)
         {
             accessor._UnlockSteamAchievement(name);
+        }
+
+        public int GetPixelZoom()
+        {
+            return accessor._GetPixelZoom();
         }
     }
 }

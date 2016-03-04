@@ -44,5 +44,7 @@ namespace Storm.StardewValley.Accessor
         float _GetScale();
 
         int _GetSpeed();
+
+        AnimatedSpriteAccessor _GetSprite();
     }
 }

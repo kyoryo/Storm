@@ -83,5 +83,9 @@ namespace Storm.StardewValley.Wrapper
             return accessor._GetSpeed();
         }
 
+        public AnimatedSprite GetSprite()
+        {
+            return new AnimatedSprite(accessor._GetSprite());
+        }
     }
 }

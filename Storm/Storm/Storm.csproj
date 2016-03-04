@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\Games\Steam\steamapps\common\Stardew Valley\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
+    <Compile Include="ExternalEvent\DiskResource.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
@@ -114,6 +115,9 @@
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
+    <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
@@ -167,9 +171,12 @@
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\ToolDelegate.cs" />
     <Compile Include="StardewValley\ToolInterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
     <Compile Include="StardewValley\Wrapper\Item.cs" />
+    <Compile Include="StardewValley\Wrapper\Monster.cs" />
+    <Compile Include="StardewValley\Wrapper\NPC.cs" />
     <Compile Include="StardewValley\Wrapper\Object.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
     <Compile Include="StardewValley\Wrapper\GameLocation.cs" />

@@ -45,5 +45,7 @@ namespace Storm.StardewValley.Accessor
         GameLocationAccessor _GetCurrentLocation();
 
         void _UnlockSteamAchievement(string name);
+
+        int _GetPixelZoom();
     }
 }
