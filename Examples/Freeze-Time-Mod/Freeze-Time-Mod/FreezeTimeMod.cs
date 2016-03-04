@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 namespace Freeze_Time_Mod
 {
     [Mod(Author = "Demmonic", Name = "Freeze Time Indoors", Version = 0.1D)]
-    public class FreezeTimeMod
+    public class FreezeTimeMod : DiskResource
     {
         [Subscribe]
         public void PostRenderCallback(PostRenderEvent @event)
         {
             var batch = @event.Root.GetSpriteBatch();
             var font = @event.Root.GetSmoothFont();
-            batch.DrawString(font, "Freeze Time Indoors - Example ", new Vector2(16, 16), Color.Red);
+            batch.DrawString(font, "Freeze Time Indoors - Example " + PathOnDisk, new Vector2(16, 16), Color.Red);
         }
 
         [Subscribe]
