@@ -522,7 +522,8 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "SeasonChangeCallback",
-	  "DetourMethodDesc": "()System.Void"
+	  "DetourMethodDesc": "()System.Void",
+      "InsertionType" : "LAST"
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
@@ -530,7 +531,8 @@
 	  "OwnerMethodDesc": "()System.Void",
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "NewDayCallback",
-	  "DetourMethodDesc": "()System.Void"
+	  "DetourMethodDesc": "()System.Void",
+      "InsertionType" : "LAST"
 	}
   ],
   "EventCallbackParams": [
