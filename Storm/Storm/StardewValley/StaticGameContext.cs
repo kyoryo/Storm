@@ -14,24 +14,14 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Storm.StardewValley;
-using Storm.StardewValley.Accessor;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.Reflection;
 using Castle.DynamicProxy;
-using Microsoft.Xna.Framework.Input;
-using Storm.Manipulation;
-using System.Diagnostics;
 using Storm.ExternalEvent;
+using Storm.Manipulation;
+using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Wrapper;
+using System;
+using System.Reflection;
 
 namespace Storm.StardewValley
 {
@@ -39,16 +29,28 @@ namespace Storm.StardewValley
     {
         private StaticGameContext() { }
 
+        /// <summary>
+        /// The Stardew Valley assembly
+        /// </summary>
         public static Assembly Assembly { get; set; }
 
+        /// <summary>
+        /// Wrapped Stardew Valley Program class.
+        /// </summary>
         public static ProgramAccessor Root { get; set; }
 
         public static Type ToolType { get; set; }
 
         public static ToolInterceptorDelegateFactory ToolFactory{ get; set; }
 
+        /// <summary>
+        /// Event handler for all Storm mods.
+        /// </summary>
         public static ModEventBus EventBus { get; set; }
 
+        /// <summary>
+        /// Wrapped Stardew Valley Game class.
+        /// </summary>
         public static StaticContext WrappedGame
         {
             get { return new StaticContext(Root._GetGame());  }

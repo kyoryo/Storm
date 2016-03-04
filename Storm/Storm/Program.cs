@@ -15,7 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using System;
-using System.IO;
 using Storm.StardewValley;
 using System.Diagnostics;
 
