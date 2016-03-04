@@ -57,7 +57,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
                 if (charList == null)
                 {
                     return null;
@@ -70,7 +70,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
                 if (charList == null)
                 {
                     return null;
