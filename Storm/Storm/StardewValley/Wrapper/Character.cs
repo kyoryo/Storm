@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Character
+    public class Character : Wrapper<CharacterAccessor>
     {
         private CharacterAccessor accessor;
 
@@ -83,5 +83,6 @@ namespace Storm.StardewValley.Wrapper
             return accessor._GetSpeed();
         }
 
+        public CharacterAccessor Expose() => accessor;
     }
 }

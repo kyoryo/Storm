@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Farmer : Character
+    public class Farmer : Character, Wrapper<FarmerAccessor>
     {
         private FarmerAccessor accessor;
 
@@ -41,5 +41,7 @@ namespace Storm.StardewValley.Wrapper
         {
             accessor._SetMoney(money);
         }
+
+        public new FarmerAccessor Expose() => accessor;
     }
 }

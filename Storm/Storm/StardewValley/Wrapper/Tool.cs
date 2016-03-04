@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Tool : Item
+    public class Tool : Item, Wrapper<ToolAccessor>
     {
         private ToolAccessor accessor;
 
@@ -32,9 +33,42 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public string GetName()
+        public Object[] Attachments
         {
-            return accessor._GetName();
+            get
+            {
+                return Array.ConvertAll(accessor._GetAttachments(), (i) => new Object(i));
+            }
+            set
+            {
+                accessor._SetAttachments(Array.ConvertAll(value, (i) => i.Expose()));
+            }
         }
+
+        public string Name
+        {
+            get { return accessor._GetName(); }
+            set { accessor._SetName(value); }
+        }
+
+        public bool Stackable
+        {
+            get { return accessor._GetIsStackable(); }
+            set { accessor._SetIsStackable(value); }
+        }
+
+        public int UpgradeLevel
+        {
+            get { return accessor._GetUpgradeLevel(); }
+            set { accessor._SetUpgradeLevel(value); }
+        }
+
+        public Texture2D WeaponTexture
+        {
+            get { return accessor._GetWeaponTexture(); }
+            set { accessor._SetWeaponTexture(value); }
+        }
+
+        public new ToolAccessor Expose() => accessor;
     }
 }

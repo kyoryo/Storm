@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class GameLocation
+    public class GameLocation : Wrapper<GameLocationAccessor>
     {
         private GameLocationAccessor accessor;
 
@@ -60,5 +60,7 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
+
+        public GameLocationAccessor Expose() => accessor;
     }
 }

@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Item
+    public class Item : Wrapper<ItemAccessor>
     {
         private ItemAccessor accessor;
 
@@ -51,5 +51,7 @@ namespace Storm.StardewValley.Wrapper
         {
             return accessor._GetSpecialVariable();
         }
+
+        public ItemAccessor Expose() => accessor;
     }
 }
