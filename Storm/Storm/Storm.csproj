@@ -122,6 +122,7 @@
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\PreUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\SellShippedItemsEvent.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />

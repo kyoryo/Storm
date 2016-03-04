@@ -773,6 +773,16 @@
 	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
 	},
 	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Update",
+	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "PreUpdateCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "PreUpdateCallback",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	},
+	{
 	  "OwnerAccessorType": "@Farmer",
 	  "OwnerMethodName": "addItemToInventory",
 	  "OwnerMethodDesc": "(@(Item))@(Item)",

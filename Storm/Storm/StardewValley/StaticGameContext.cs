@@ -122,6 +122,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
+        {
+            var @event = new PreUpdateEvent();
+            EventBus.Fire<PreUpdateEvent>(@event);
+            return @event;
+        }
+
         public static ToolAccessor ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
