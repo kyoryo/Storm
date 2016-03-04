@@ -363,7 +363,6 @@
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "PreDrawCallback",
 	  "DetourMethodDesc": "()System.Void",
-	  "InsertionIndex": 0
 	},
     {
       "OwnerAccessorType": "@StaticContext",
@@ -372,7 +371,8 @@
 	  "DetourType": "Storm.StardewValley.StaticGameContext",
 	  "DetourMethodName": "PostDrawCallback",
 	  "DetourMethodDesc": "()System.Void",
-	  "InsertionIndex": 2626
+	  "InsertionType": "ABSOLUTE",
+	  "InsertionIndex": 2627
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
@@ -402,6 +402,17 @@
 	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
 	  "StaticCallbackName": "PerformClockUpdateCallback",
 	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	},
+	{
+	  "OwnerAccessorType": "@Farmer",
+	  "OwnerMethodName": "addItemToInventory",
+	  "OwnerMethodDesc": "(@(Item))@(Item)",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "AddItemToInventoryCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "AddItemToInventoryCallback",
+	  "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true"
 	}
   ]
 }
