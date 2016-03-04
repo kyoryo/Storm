@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Item
+    public class Item : Wrapper<ItemAccessor>
     {
         private ItemAccessor accessor;
 
@@ -32,24 +32,26 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public int GetCategory()
+        public int Category
         {
-            return accessor._GetCategory();
+            get { return accessor._GetCategory(); }
         }
 
-        public bool HasBeenInInventory()
+        public bool HasBeenInInventory
         {
-            return accessor._HasBeenInInventory();
+            get { return accessor._HasBeenInInventory(); }
         }
 
-        public bool IsSpecialItem()
+        public bool IsSpecialItem
         {
-            return accessor._IsSpecialItem();
+            get { return accessor._IsSpecialItem(); }
         }
 
-        public int GetSpecialVariable()
+        public int SpecialVariable
         {
-            return accessor._GetSpecialVariable();
+            get { return accessor._GetSpecialVariable(); }
         }
+
+        public ItemAccessor Expose() => accessor;
     }
 }

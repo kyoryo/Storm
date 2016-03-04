@@ -28,7 +28,7 @@ using xTile.Dimensions;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class StaticContext
+    public class StaticContext : Wrapper<StaticContextAccessor>
     {
         private StaticContextAccessor accessor;
 
@@ -37,32 +37,32 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public SpriteBatch GetSpriteBatch()
+        public SpriteBatch SpriteBatch
         {
-            return accessor._GetSpriteBatch();
+            get { return accessor._GetSpriteBatch(); }
         }
 
-        public SpriteFont GetSmoothFont()
+        public SpriteFont SmoothFont
         {
-            return accessor._GetSmoothFont();
+            get { return accessor._GetSmoothFont(); }
         }
 
-        public GraphicsDeviceManager GetGraphicsDeviceManager()
+        public GraphicsDeviceManager GraphicsDeviceManager
         {
-            return accessor._GetGraphicsDeviceManager();
+            get { return accessor._GetGraphicsDeviceManager(); }
         }
 
         public Texture2D LoadResource(string path)
         {
-            var fs = new FileStream(path, FileMode.Create);
-            var tex = Texture2D.FromStream(GetGraphicsDeviceManager().GraphicsDevice, fs);
+            var fs = new FileStream(path, FileMode.Open);
+            var tex = Texture2D.FromStream(GraphicsDeviceManager.GraphicsDevice, fs);
             fs.Close();
             return tex;
         }
 
-        public int GetTileSize()
+        public int TileSize
         {
-            return accessor._GetTileSize();
+            get { return accessor._GetTileSize(); }
         }
 
         public string Version
@@ -71,32 +71,45 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetVersionString(value);  }
         }
 
-        public GameWindow GetWindow()
+        public GameWindow Window
         {
-            return ((Game)accessor).Window;
+            get { return ((Game)accessor).Window; }
         }
 
-        public xTile.Dimensions.Rectangle GetViewport()
+        public xTile.Dimensions.Rectangle Viewport
         {
-            return accessor._GetViewport();
+            get { return accessor._GetViewport(); }
         }
 
-        public Farmer GetPlayer()
+        public Farmer Player
         {
-            var farmer = accessor._GetPlayer();
-            if (farmer == null) return null;
-            return new Farmer(farmer);
+            get
+            {
+                var farmer = accessor._GetPlayer();
+                if (farmer == null) return null;
+                return new Farmer(farmer);
+            }
         }
 
-        public GameLocation GetCurrentLocation()
+        public GameLocation CurrentLocation
         {
-            var location = accessor._GetCurrentLocation();
-            return location == null ? null : new GameLocation(location);
+            get
+            {
+                var location = accessor._GetCurrentLocation();
+                return location == null ? null : new GameLocation(location);
+            }
         }
 
         public void UnlockSteamAchievement(string name)
         {
             accessor._UnlockSteamAchievement(name);
         }
+
+        public int PixelZoom
+        {
+            get { return accessor._GetPixelZoom(); }
+        }
+
+        public StaticContextAccessor Expose() => accessor;
     }
 }

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Inari
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,25 +14,35 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Storm.StardewValley.Accessor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.ExternalEvent
+namespace Storm.StardewValley.Wrapper
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class Mod : Attribute
+    public class Monster : NPC
     {
-        private string name;
-        private string author;
-        private double version;
+        MonsterAccessor accessor;
 
-        public string Name { get { return name; } set { this.name = value; } }
+        public Monster(MonsterAccessor accessor) : base(accessor)
+        {
+            this.accessor = accessor;
+        }
 
-        public string Author { get { return author; } set { this.author = value; } }
+        public int Health
+        {
+            get { return accessor._GetHealth(); }
+        }
 
-        public double Version { get { return version; } set { this.version = value; } }
+        public int MaxHealth
+        {
+            get { return accessor._GetMaxHealth(); }
+            set { accessor._SetMaxHealth(value); }
+        }
+
+        public new MonsterAccessor Expose() => accessor;
     }
 }

@@ -1,5 +1,10 @@
 {
   "InterfaceParams": [
+	{
+	  "SimpleName": "AnimatedSprite",
+	  "OwnerType": "StardewValley.AnimatedSprite",
+	  "InterfaceType": "Storm.StardewValley.Accessor.AnimatedSpriteAccessor"
+	},
     {
 	  "SimpleName": "Program",
 	  "OwnerType": "StardewValley.Program",
@@ -21,6 +26,15 @@
 	  "InterfaceType": "Storm.StardewValley.Accessor.CharacterAccessor"
 	},
 	{
+	  "SimpleName": "NPC",
+	  "OwnerType": "StardewValley.NPC",
+	  "InterfaceType": "Storm.StardewValley.Accessor.NPCAccessor"
+	},{
+	  "SimpleName": "Monster",
+	  "OwnerType": "StardewValley.Monsters.Monster",
+	  "InterfaceType": "Storm.StardewValley.Accessor.MonsterAccessor"
+	},
+	{
 	  "SimpleName": "Farmer",
 	  "OwnerType": "StardewValley.Farmer",
 	  "InterfaceType": "Storm.StardewValley.Accessor.FarmerAccessor"
@@ -40,11 +54,38 @@
 	  "OwnerType": "StardewValley.Object",
 	  "InterfaceType": "Storm.StardewValley.Accessor.ObjectAccessor"
 	}
+	{
+	  "SimpleName": "Crop",
+	  "OwnerType": "StardewValley.Crop",
+	  "InterfaceType": "Storm.StardewValley.Accessor.CropAccessor"
+	},
   ],
   "FieldDetourParams": [
     
   ],
   "FieldAccessorParams": [
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteTexture",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+	  "MethodName": "_GetSpriteTexture",
+	  "ReturnType": "Microsoft.Xna.Framework.Graphics.Texture2D"
+	},
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteWidth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpriteWidth",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@AnimatedSprite",
+	  "OwnerFieldName": "spriteHeight",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetSpriteHeight",
+	  "ReturnType": "System.Int32"
+	},
+	
     {
 	  "OwnerAccessorType": "@Program",
 	  "OwnerFieldName": "gamePtr",
@@ -109,6 +150,13 @@
 	  "MethodName": "_GetCurrentLocation",
 	  "ReturnType": "Storm.StardewValley.Accessor.GameLocationAccessor"
 	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerFieldName": "pixelZoom",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetPixelZoom",
+	  "ReturnType": "System.Int32"
+	},
 	
 	{
 	  "OwnerAccessorType": "@GameLocation",
@@ -116,6 +164,13 @@
 	  "OwnerFieldType": "StardewValley.SerializableDictionary`2",
 	  "MethodName": "_GetObjects",
 	  "ReturnType": "System.Collections.IDictionary"
+	},
+	{
+	  "OwnerAccessorType": "@GameLocation",
+	  "OwnerFieldName": "characters",
+	  "OwnerFieldType": "System.Collections.Generic.List`1",
+	  "MethodName": "_GetCharacters",
+	  "ReturnType": "System.Collections.IList"
 	},
 	
 	{
@@ -181,6 +236,28 @@
 	  "MethodName": "_GetVelocityY",
 	  "ReturnType": "System.Single"
 	},
+	{
+	  "OwnerAccessorType": "@Character",
+	  "OwnerFieldName": "sprite",
+	  "OwnerFieldType": "@AnimatedSprite",
+	  "MethodName": "_GetSprite",
+	  "ReturnType": "Storm.StardewValley.Accessor.AnimatedSpriteAccessor"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "health",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetHealth",
+	  "ReturnType": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "maxHealth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_GetMaxHealth",
+	  "ReturnType": "System.Int32"
+	},
 	
 	{
 	  "OwnerAccessorType": "@Farmer",
@@ -224,14 +301,6 @@
 	  "OwnerFieldType": "System.Int32",
 	  "MethodName": "_GetSpecialVariable",
 	  "ReturnType": "System.Int32"
-	},
-	
-	{
-	  "OwnerAccessorType": "@Tool",
-	  "OwnerFieldName": "name",
-	  "OwnerFieldType": "System.String",
-	  "MethodName": "_GetName",
-	  "ReturnType": "System.String"
 	},
 	{
 	  "OwnerAccessorType": "@Object",
@@ -291,6 +360,13 @@
 	  "MethodName": "_SetVelocityY",
 	  "ParamType": "System.Single"
 	},
+	{
+	  "OwnerAccessorType": "@Monster",
+	  "OwnerFieldName": "maxHealth",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "_SetMaxHealth",
+	  "ParamType": "System.Int32"
+	},
 	
 	{
 	  "OwnerAccessorType": "@Farmer",
@@ -307,6 +383,42 @@
 	  "OwnerFieldType": "System.Boolean",
 	  "MethodName": "IsOutdoors",
 	  "Type": "System.Boolean"
+	},
+	
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "attachments",
+	  "OwnerFieldType": "@Object",
+	  "MethodName": "Attachments",
+	  "Type": "Storm.StardewValley.Accessor.ObjectAccessor[]"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "name",
+	  "OwnerFieldType": "System.String",
+	  "MethodName": "Name",
+	  "Type": "System.String"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "stackable",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsStackable",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "upgradeLevel",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "UpgradeLevel",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "weaponsTexture",
+	  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+	  "MethodName": "WeaponTexture",
+	  "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
 	},
 	
 	{
@@ -448,7 +560,120 @@
 	  "OwnerFieldType": "System.String",
 	  "MethodName": "Type",
 	  "Type": "System.String"
-	}
+	},
+	
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "chanceForExtraCrops",
+	  "OwnerFieldType": "System.Double",
+	  "MethodName": "ChanceForExtraCrops",
+	  "Type": "System.Double"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "currentPhase",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "CurrentPhase",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "dayOfCurrentPhase",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "DayOfCurrentPhase",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "dead",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsDead",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "flip",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "Flip",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "forageCrop",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "ForageCrop",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "fullyGrown",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsFullyGrown",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "harvestMethod",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "HarvestMethod",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "indexOfHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "IndexOfHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "maxHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MaxHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "maxHarvestIncreasePerFarmingLevel",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MaxHarvestIncreasePerFarmingLevel",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "minHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MinHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "phaseToShow",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "PhaseToShow",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "programColored",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "ProgramColored",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "raisedSeeds",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "HasRaisedSeeds",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "regrowAfterHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "RegrowAfterHarvest",
+	  "Type": "System.Int32"
+	},
   ],
   "MethodInfoParams": [
     {
@@ -514,7 +739,7 @@
 	  "DetourMethodName": "PostDrawCallback",
 	  "DetourMethodDesc": "()System.Void",
 	  "InsertionType": "ABSOLUTE",
-	  "InsertionIndex": 2627
+	  "InsertionIndex": 2628
 	},
 	{
 	  "OwnerAccessorType": "@StaticContext",
@@ -545,6 +770,26 @@
 	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
 	  "StaticCallbackName": "PerformClockUpdateCallback",
 	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "sellShippedItems",
+	  "OwnerMethodDesc": "()System.Void",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "SellShippedItemsCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "SellShippedItemsCallback",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+	},
+	{
+	  "OwnerAccessorType": "@StaticContext",
+	  "OwnerMethodName": "Update",
+	  "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+	  "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "PreUpdateCallback",
+	  "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+	  "StaticCallbackName": "PreUpdateCallback",
+	  "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
 	},
 	{
 	  "OwnerAccessorType": "@Farmer",

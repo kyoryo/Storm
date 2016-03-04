@@ -25,6 +25,7 @@ namespace Storm.StardewValley.Accessor
     public interface GameLocationAccessor
     {
         IDictionary _GetObjects();
+        IList _GetCharacters();
 
         bool _GetIsOutdoors();
     }

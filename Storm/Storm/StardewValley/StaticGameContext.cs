@@ -56,9 +56,10 @@ namespace Storm.StardewValley
 
         public static void InitializeCallback()
         {
-            StaticGameContext.WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
-            StaticGameContext.WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
-            StaticGameContext.WrappedGame.GetWindow().Title = "Stardew Valley - Version " + StaticGameContext.WrappedGame.Version;
+            var game = StaticGameContext.WrappedGame;
+            game.Version += ", " + AssemblyInfo.NICE_VERSION;
+            game.Version += ", mods loaded: " + EventBus.mods.Count;
+            game.Window.Title = "Stardew Valley - Version " + StaticGameContext.WrappedGame.Version;
 
             var @event = new InitializeEvent();
             EventBus.Fire<InitializeEvent>(@event);
@@ -107,10 +108,24 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent SellShippedItemsCallback()
+        {
+            var @event = new SellShippedItemsEvent();
+            EventBus.Fire<SellShippedItemsEvent>(@event);
+            return @event;
+        }
+
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
             var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));
             EventBus.Fire<AddItemToInventoryEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
+        {
+            var @event = new PreUpdateEvent();
+            EventBus.Fire<PreUpdateEvent>(@event);
             return @event;
         }
 

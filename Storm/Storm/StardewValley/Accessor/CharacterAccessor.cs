@@ -34,7 +34,6 @@ namespace Storm.StardewValley.Accessor
         string _GetName();
 
         Vector2 _GetPosition();
-
         void _SetPosition(Vector2 pos);
 
         float _GetVelocityX();
@@ -44,5 +43,7 @@ namespace Storm.StardewValley.Accessor
         float _GetScale();
 
         int _GetSpeed();
+
+        AnimatedSpriteAccessor _GetSprite();
     }
 }

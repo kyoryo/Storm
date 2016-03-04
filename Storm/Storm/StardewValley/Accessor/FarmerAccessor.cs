@@ -28,7 +28,6 @@ namespace Storm.StardewValley.Accessor
         IList _GetItems();
 
         int _GetMoney();
-
         void _SetMoney(int money);
     }
 }
