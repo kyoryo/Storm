@@ -34,48 +34,58 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public Dictionary<Vector2, Object> GetObjects()
+        public Dictionary<Vector2, Object> Objects
         {
-            var orig = accessor._GetObjects();
-            var conv = new Dictionary<Vector2, Object>();
-            foreach (var vec in orig.Keys)
+            get
             {
-                conv.Add((Vector2) vec, new Object((ObjectAccessor) orig[vec]));
+                var orig = accessor._GetObjects();
+                var conv = new Dictionary<Vector2, Object>();
+                foreach (var vec in orig.Keys)
+                {
+                    conv.Add((Vector2)vec, new Object((ObjectAccessor)orig[vec]));
+                }
+                return conv;
             }
-            return conv;
         }
 
-        public bool IsOutdoors()
+        public bool IsOutdoors
         {
-            return accessor._GetIsOutdoors();
+            get { return accessor._GetIsOutdoors(); }
         }
 
-        public List<NPC> GetCharacters()
+        public List<NPC> Characters
         {
-            List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
-            if (charList == null) {
-                return null;
-            }
-            return charList.Select(c => new NPC(c as NPCAccessor)).ToList();
-        }
-
-        public List<Monster> GetMonsters()
-        {
-            List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
-            if (charList == null)
+            get
             {
-                return null;
+                List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                if (charList == null)
+                {
+                    return null;
+                }
+                return charList.Select(c => new NPC(c as NPCAccessor)).ToList();
             }
+        }
 
-            var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(c as MonsterAccessor) ).ToList();
-            return monsters;
+        public List<Monster> Monsters
+        {
+            get
+            {
+                List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                if (charList == null)
+                {
+                    return null;
+                }
+
+                var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(c as MonsterAccessor)).ToList();
+                return monsters;
+            }
         }
 
         public Object GetObjectAt(int tileX, int tileY)
         {
             var game = StaticGameContext.WrappedGame;
-            var key = new Vector2(tileX / game.GetTileSize(), tileY / game.GetTileSize());
-            var objects = GetObjects();
+            var key = new Vector2(tileX / game.TileSize, tileY / game.TileSize);
+            var objects = Objects;
             if (objects.ContainsKey(key))
             {
                 return objects[key];

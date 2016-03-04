@@ -18,16 +18,16 @@ namespace Freeze_Time_Mod
         [Subscribe]
         public void PostRenderCallback(PostRenderEvent @event)
         {
-            var batch = @event.Root.GetSpriteBatch();
-            var font = @event.Root.GetSmoothFont();
+            var batch = @event.Root.SpriteBatch;
+            var font = @event.Root.SmoothFont;
             batch.DrawString(font, "Freeze Time Indoors - Example " + PathOnDisk, new Vector2(16, 16), Color.Red);
         }
 
         [Subscribe]
         public void PerformClockUpdateCallback(PerformClockUpdateEvent @event)
         {
-            var loc = @event.Root.GetCurrentLocation();
-            @event.ReturnEarly = (loc != null && !loc.IsOutdoors());
+            var loc = @event.Root.CurrentLocation;
+            @event.ReturnEarly = (loc != null && !loc.IsOutdoors);
         }
     }
 }

@@ -33,19 +33,19 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public Texture2D getSpriteTexture()
+        public Texture2D SpriteTexture
         {
-            return accessor._GetSpriteTexture();
+            get { return accessor._GetSpriteTexture(); }
         }
 
-        public int getSpriteWidth()
+        public int SpriteWidth
         {
-            return accessor._GetSpriteWidth();
+            get { return accessor._GetSpriteWidth(); }
         }
 
-        public int getSpriteHeight()
+        public int SpriteHeight
         {
-            return accessor._GetSpriteHeight();
+            get { return accessor._GetSpriteHeight(); }
         }
     }
 }

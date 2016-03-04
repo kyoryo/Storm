@@ -23,13 +23,15 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class NPC : Character
+    public class NPC : Character, Wrapper<NPCAccessor>
     {
-        NPCAccessor accessor;
+        private NPCAccessor accessor;
 
         public NPC(NPCAccessor accessor) : base(accessor)
         {
             this.accessor = accessor;
         }
+
+        public new NPCAccessor Expose() => accessor;
     }
 }

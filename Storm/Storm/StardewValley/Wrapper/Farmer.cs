@@ -32,14 +32,10 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public int GetMoney()
+        public int Money
         {
-            return accessor._GetMoney();
-        }
-
-        public void SetMoney(int money)
-        {
-            accessor._SetMoney(money);
+            get { return accessor._GetMoney(); }
+            set { accessor._SetMoney(value); }
         }
 
         public new FarmerAccessor Expose() => accessor;

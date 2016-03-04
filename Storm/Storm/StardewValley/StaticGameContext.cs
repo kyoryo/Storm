@@ -56,9 +56,10 @@ namespace Storm.StardewValley
 
         public static void InitializeCallback()
         {
-            StaticGameContext.WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
-            StaticGameContext.WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
-            StaticGameContext.WrappedGame.GetWindow().Title = "Stardew Valley - Version " + StaticGameContext.WrappedGame.Version;
+            var game = StaticGameContext.WrappedGame;
+            game.Version += ", " + AssemblyInfo.NICE_VERSION;
+            game.Version += ", mods loaded: " + EventBus.mods.Count;
+            game.Window.Title = "Stardew Valley - Version " + StaticGameContext.WrappedGame.Version;
 
             var @event = new InitializeEvent();
             EventBus.Fire<InitializeEvent>(@event);

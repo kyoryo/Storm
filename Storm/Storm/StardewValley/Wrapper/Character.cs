@@ -33,59 +33,55 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public bool IsEmoteFading()
+        public bool EmoteFading
         {
-            return accessor._IsEmoteFading();
+            get { return accessor._IsEmoteFading(); }
         }
 
-        public float GetEmoteInterval()
+        public float EmoteInterval
         {
-            return accessor._GetEmoteInterval();
+            get { return accessor._GetEmoteInterval(); }
         }
 
-        public Vector2 GetLastClick()
+        public Vector2 LastClick
         {
-            return accessor._GetLastClick();
+            get { return accessor._GetLastClick(); }
         }
 
-        public string GetName()
+        public string Name
         {
-            return accessor._GetName();
+            get { return accessor._GetName(); }
         }
 
-        public Vector2 GetPosition()
+        public Vector2 Position
         {
-            return accessor._GetPosition();
+            get { return accessor._GetPosition(); }
+            set { accessor._SetPosition(value); }
         }
 
-        public void SetPosition(Vector2 pos)
+        public float VelocityX
         {
-            accessor._SetPosition(pos);
+            get { return accessor._GetVelocityX(); }
         }
 
-        public float GetVelocityX()
+        public float VelocityY
         {
-            return accessor._GetVelocityX();
+            get { return accessor._GetVelocityY(); }
         }
 
-        public float GetVelocityY()
+        public float Scale
         {
-            return accessor._GetVelocityY();
+            get { return accessor._GetScale(); }
         }
 
-        public float GetScale()
+        public int Spee
         {
-            return accessor._GetScale();
+            get { return accessor._GetSpeed(); }
         }
 
-        public int GetSpeed()
+        public AnimatedSprite Sprite
         {
-            return accessor._GetSpeed();
-        }
-
-        public AnimatedSprite GetSprite()
-        {
-            return new AnimatedSprite(accessor._GetSprite());
+            get { return new AnimatedSprite(accessor._GetSprite()); }
         }
 
         public CharacterAccessor Expose() => accessor;
