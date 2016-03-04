@@ -63,7 +63,7 @@ namespace Storm.StardewValley
                     if (factory is CecilInjectorFactory)
                     {
                         var casted = factory as CecilInjectorFactory;
-                        using (var fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Read))
+                        using (var fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Write))
                         {
                             casted.WriteModifiedAssembly(fs);
                         }
