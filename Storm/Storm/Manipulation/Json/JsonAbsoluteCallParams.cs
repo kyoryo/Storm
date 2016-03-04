@@ -30,6 +30,7 @@ namespace Storm.Manipulation.Json
         public string DetourType { get; set; }
         public string DetourMethodName { get; set; }
         public string DetourMethodDesc { get; set; }
+        public InsertionType InsertionType { get; set; }
         public int InsertionIndex { get; set; }
     }
 }

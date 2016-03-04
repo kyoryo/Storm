@@ -98,6 +98,7 @@
     <Compile Include="Manipulation\FieldInfoParams.cs" />
     <Compile Include="Manipulation\FieldMutatorParams.cs" />
     <Compile Include="Manipulation\InjectorMetaData.cs" />
+    <Compile Include="Manipulation\InsertionType.cs" />
     <Compile Include="Manipulation\InvokerParams.cs" />
     <Compile Include="Manipulation\Json\JsonEventCallbackParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldAccessorMutatorParams.cs" />

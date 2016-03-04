@@ -65,7 +65,18 @@ namespace Storm.Manipulation.Cecil
             var import = injectee.Module.Import(callingDefinition);
             var processor = injectee.Body.GetILProcessor();
             var instructions = injectee.Body.Instructions;
-            processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
+            switch (@params.InsertionType)
+            {
+                case InsertionType.BEGINING:
+                    processor.InsertBefore(instructions[0], processor.Create(OpCodes.Call, import));
+                    break;
+                case InsertionType.ABSOLUTE:
+                    processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
+                    break;
+                case InsertionType.LAST:
+                    processor.InsertBefore(instructions[instructions.Count], processor.Create(OpCodes.Call, import));
+                    break;
+            }
         }
 
         public object GetParams()
