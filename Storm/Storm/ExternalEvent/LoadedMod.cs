@@ -62,11 +62,18 @@ namespace Storm.ExternalEvent
         {
             get
             {
-                return annotation.LoadPath;
+                if (instance is DiskResource)
+                {
+                    return (instance as DiskResource).PathOnDisk;
+                }
+                return string.Empty;
             }
             set
             {
-                annotation.LoadPath = value;
+                if (instance is DiskResource)
+                {
+                    (instance as DiskResource).PathOnDisk = value;
+                }
             }
         }
 
