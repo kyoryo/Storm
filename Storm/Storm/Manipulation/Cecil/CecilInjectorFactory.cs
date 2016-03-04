@@ -110,5 +110,10 @@ namespace Storm.Manipulation.Cecil
             }
             return refAssembly;
         }
+
+        public void WriteModifiedAssembly(Stream @out)
+        {
+            gameAssembly.Write(@out);
+        }
     }
 }
