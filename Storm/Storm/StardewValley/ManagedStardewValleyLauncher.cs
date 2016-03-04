@@ -49,7 +49,7 @@ using Storm.Manipulation.Cecil;
 
 namespace Storm.StardewValley
 {
-    public class ManagedStardewValleyLauncher
+    public class ManagedStardewValleyLauncher : IDisposable
     {
         private Stream injectorStream;
         private string gamePath;
@@ -84,15 +84,14 @@ namespace Storm.StardewValley
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
-
-            var modFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "storm-mods\\");
+            
             var eventBus = new ModEventBus();
-            if (!Directory.Exists(modFolder))
+            if (!Directory.Exists(StormAPI.stormModsPath))
             {
-                Directory.CreateDirectory(modFolder);
+                Directory.CreateDirectory(StormAPI.stormModsPath);
             }
 
-            var modLoader = new LocalModLoader(modFolder);
+            var modLoader = new LocalModLoader(StormAPI.stormModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods)
             {
@@ -115,6 +114,11 @@ namespace Storm.StardewValley
 
             var assembly = ctx.GetConcreteAssembly();
             new Thread(() => assembly.EntryPoint.Invoke(null, new object[] { new string[] { } })).Start();
+        }
+
+        public void Dispose()
+        {
+            injectorStream.Close();
         }
     }
 }

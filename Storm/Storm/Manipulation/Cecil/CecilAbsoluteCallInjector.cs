@@ -75,7 +75,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            if (injectee != null)
+            if (injectee == null)
             {
                 Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5}",
                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,

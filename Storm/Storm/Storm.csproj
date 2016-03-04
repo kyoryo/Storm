@@ -110,6 +110,7 @@
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmerAccessor.cs" />
