@@ -17,6 +17,7 @@
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,6 +48,27 @@ namespace Storm.StardewValley.Wrapper
         public bool IsOutdoors()
         {
             return accessor._GetIsOutdoors();
+        }
+
+        public List<NPC> GetCharacters()
+        {
+            List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+            if (charList == null) {
+                return null;
+            }
+            return charList.Select(c => new NPC(c as NPCAccessor)).ToList();
+        }
+
+        public List<Monster> GetMonsters()
+        {
+            List<NPCAccessor> charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+            if (charList == null)
+            {
+                return null;
+            }
+
+            var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(c as MonsterAccessor) ).ToList();
+            return monsters;
         }
 
         public Object GetObjectAt(int tileX, int tileY)
