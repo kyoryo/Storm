@@ -16,17 +16,17 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public int getHealth()
+        public int GetHealth()
         {
             return accessor._GetHealth();
         }
 
-        public void setMaxHealth(int newHealth)
+        public void SetMaxHealth(int newHealth)
         {
             accessor._SetMaxHealth(newHealth);
         }
 
-        public int getMaxHealth()
+        public int GetMaxHealth()
         {
             return accessor._GetMaxHealth();
         }
