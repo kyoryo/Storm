@@ -553,7 +553,120 @@
 	  "OwnerFieldType": "System.String",
 	  "MethodName": "Type",
 	  "Type": "System.String"
-	}
+	},
+	
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "chanceForExtraCrops",
+	  "OwnerFieldType": "System.Double",
+	  "MethodName": "ChanceForExtraCrops",
+	  "Type": "System.Double"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "currentPhase",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "CurrentPhase",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "dayOfCurrentPhase",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "DayOfCurrentPhase",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "dead",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsDead",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "flip",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "Flip",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "forageCrop",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "ForageCrop",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "fullyGrown",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "IsFullyGrown",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "harvestMethod",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "HarvestMethod",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "indexOfHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "IndexOfHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "maxHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MaxHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "maxHarvestIncreasePerFarmingLevel",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MaxHarvestIncreasePerFarmingLevel",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "minHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "MinHarvest",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "phaseToShow",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "PhaseToShow",
+	  "Type": "System.Int32"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "programColored",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "ProgramColored",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "raisedSeeds",
+	  "OwnerFieldType": "System.Boolean",
+	  "MethodName": "HasRaisedSeeds",
+	  "Type": "System.Boolean"
+	},
+	{
+	  "OwnerAccessorType": "@Crop",
+	  "OwnerFieldName": "regrowAfterHarvest",
+	  "OwnerFieldType": "System.Int32",
+	  "MethodName": "RegrowAfterHarvest",
+	  "Type": "System.Int32"
+	},
   ],
   "MethodInfoParams": [
     {
