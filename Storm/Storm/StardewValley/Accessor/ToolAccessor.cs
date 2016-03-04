@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,24 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ToolAccessor : ItemAccessor
     {
+        ObjectAccessor[] _GetAttachments();
+
+        void _SetAttachments(ObjectAccessor[] attachments);
+
         string _GetName();
+
+        void _SetName(string name);
+
+        bool _GetIsStackable();
+
+        void _SetIsStackable(bool stackable);
+
+        int _GetUpgradeLevel();
+
+        void _SetUpgradeLevel(int level);
+
+        Texture2D _GetWeaponTexture();
+
+        void _SetWeaponTexture(Texture2D tex);
     }
 }
