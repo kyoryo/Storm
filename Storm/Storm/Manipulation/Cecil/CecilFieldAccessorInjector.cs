@@ -69,7 +69,23 @@ namespace Storm.Manipulation.Cecil
                 Where(t => t.FullName.Equals(@params.OwnerType)).
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
+
+            if (returnType == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldAccessorInjector] Could not find returnType {0} {1} {2} {3} {4} {4} {5}",
+                     @params.OwnerType, @params.OwnerFieldName,  @params.OwnerFieldType, 
+                     @params.MethodName, @params.ReturnType, @params.IsStatic));
+                return;
+            }
             
+            if (field == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldAccessorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
+                     @params.OwnerType, @params.OwnerFieldName,  @params.OwnerFieldType, 
+                     @params.MethodName, @params.ReturnType,  @params.IsStatic));
+                return;
+            }
+
             var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, gameModule.Import(returnType));
             var instructions = method.Body.Instructions;
             var processor = method.Body.GetILProcessor();

@@ -38,7 +38,7 @@ using System.Threading.Tasks;
 
 namespace Storm
 {
-    public enum DataFormat : Byte
+    public enum DataFormat
     {
         XML,
         Json,

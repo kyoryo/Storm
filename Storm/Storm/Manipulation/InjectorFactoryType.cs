@@ -38,7 +38,7 @@ using System.Threading.Tasks;
 
 namespace Storm.Manipulation
 {
-    public enum InjectorFactoryType : Byte
+    public enum InjectorFactoryType
     {
         Cecil,
     }

@@ -76,6 +76,22 @@ namespace Storm.Manipulation.Cecil
                 SelectMany(t => t.Fields).
                 FirstOrDefault(f => f.Name.Equals(@params.OwnerFieldName) && f.FieldType.Resolve().FullName.Equals(@params.OwnerFieldType));
 
+            if (callingDefinition == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                return;
+            }
+
+            if (fieldRef == null)
+            {
+                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find fieldRef {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                return;
+            }
+
             var resolved = fieldRef.Resolve();
             var methods = def.Modules.SelectMany(m => m.Types).
                 SelectMany(t => t.Methods).

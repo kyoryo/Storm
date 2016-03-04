@@ -67,6 +67,22 @@ namespace Storm.Manipulation.Cecil
                 SelectMany(t => t.Methods).
                 FirstOrDefault(m => m.Name.Equals(@params.OwnerMethodName) && CecilUtils.DescriptionOf(m).Equals(@params.OwnerMethodDesc));
 
+            if (callingDefinition == null)
+            {
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName,  @params.OwnerMethodDesc, 
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc,  @params.InsertionIndex));
+                return;
+            }
+
+            if (injectee != null)
+            {
+                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
+                    @params.DetourType,  @params.DetourMethodDesc,  @params.DetourMethodDesc, @params.InsertionIndex));
+                return;
+            }
+
             var import = injectee.Module.Import(callingDefinition);
             var processor = injectee.Body.GetILProcessor();
             var instructions = injectee.Body.Instructions;
