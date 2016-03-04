@@ -14,8 +14,10 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Storm.StardewValley;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,5 +32,13 @@ namespace Storm
 
         public static Logger Log = (s) => { };
         public static Logger DebugLog = (s) => { };
+
+        public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
+        {
+            var @out = StormAPI.GetResource("crash_log.txt");
+            var sr = new StreamWriter(@out, true);
+            sr.WriteLine(e.ToString());
+            sr.Close();
+        };
     }
 }
