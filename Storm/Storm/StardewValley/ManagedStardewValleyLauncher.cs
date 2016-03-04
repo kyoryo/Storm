@@ -48,10 +48,8 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
-            FileStream injectorStream = null;
-            try
+            using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileMode.Read))
             {
-                injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read);
                 var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
                 var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
                 if (factory is CecilInjectorFactory)
@@ -65,38 +63,14 @@ namespace Storm.StardewValley
                     if (factory is CecilInjectorFactory)
                     {
                         var casted = factory as CecilInjectorFactory;
-                        FileStream fs = null;
-                        try
+                        using (var fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Read))
                         {
-                            fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Write);
                             casted.WriteModifiedAssembly(fs);
                         }
-                        finally
-                        {
-                            if (fs != null)
-                            {
-                                try
-                                {
-                                    fs.Close();
-                                }
-                                catch (Exception e) { }
-                            }
-                        }
                     }
                 }
-                
+
                 return ctx;
-            }
-            finally
-            {
-                if (injectorStream != null)
-                {
-                    try
-                    {
-                        injectorStream.Close();
-                    }
-                    catch (Exception e) { }
-                }
             }
         }
 
