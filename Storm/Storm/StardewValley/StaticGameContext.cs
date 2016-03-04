@@ -14,24 +14,14 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Storm.StardewValley;
-using Storm.StardewValley.Accessor;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework;
-using System.Reflection;
 using Castle.DynamicProxy;
-using Microsoft.Xna.Framework.Input;
-using Storm.Manipulation;
-using System.Diagnostics;
 using Storm.ExternalEvent;
+using Storm.Manipulation;
+using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Wrapper;
+using System;
+using System.Reflection;
 
 namespace Storm.StardewValley
 {
