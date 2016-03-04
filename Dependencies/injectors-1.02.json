@@ -303,6 +303,14 @@
 	},
 	
 	{
+	  "OwnerAccessorType": "@Tool",
+	  "OwnerFieldName": "attachments",
+	  "OwnerFieldType": "@(Object)[]",
+	  "MethodName": "Atachments",
+	  "Type": "Storm.StardewValley.Accessor.ObjectAccessor[]"
+	},
+	
+	{
 	  "OwnerAccessorType": "@Object",
 	  "OwnerFieldName": "canBeGrabbed",
 	  "OwnerFieldType": "System.Boolean",
