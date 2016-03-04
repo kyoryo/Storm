@@ -67,7 +67,7 @@ namespace Storm.Manipulation.Cecil
             var instructions = injectee.Body.Instructions;
             switch (@params.InsertionType)
             {
-                case InsertionType.BEGINING:
+                case InsertionType.BEGINNING:
                     processor.InsertBefore(instructions[0], processor.Create(OpCodes.Call, import));
                     break;
                 case InsertionType.ABSOLUTE:

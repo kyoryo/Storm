@@ -8,7 +8,7 @@ namespace Storm.Manipulation
 {
     public enum InsertionType
     {
-        BEGINING,
+        BEGINNING,
         ABSOLUTE,
         LAST,
     }
