@@ -43,7 +43,7 @@ namespace Storm.ExternalEvent
 {
     public class ModEventBus
     {
-        private List<LoadedMod> mods = new List<LoadedMod>();
+        public List<LoadedMod> mods = new List<LoadedMod>();
 
         public void AddReceiver(LoadedMod mod)
         {
