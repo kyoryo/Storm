@@ -24,6 +24,8 @@ namespace Storm.Manipulation
 {
     public interface Injector
     {
+        void Init();
+
         void Inject();
 
         object GetParams();

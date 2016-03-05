@@ -62,6 +62,7 @@ namespace Storm.StardewValley
                     var casted = factory as CecilInjectorFactory;
                     ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
                 }
+                ctx.Injectors.ForEach(injector => injector.Init());
                 ctx.Injectors.ForEach(injector => injector.Inject());
                 if (Debug)
                 {

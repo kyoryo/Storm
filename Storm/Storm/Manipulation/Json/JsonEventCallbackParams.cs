@@ -24,14 +24,19 @@ namespace Storm.Manipulation.Json
 {
     public class JsonEventCallbackParams
     {
+        private string instanceCallbackName = string.Empty;
+        private string instanceCallbackDesc = string.Empty;
+        private string staticCallbackName = string.Empty;
+        private string staticCallbackDesc = string.Empty;
+
         public string OwnerAccessorType { get; set; }
         public string OwnerMethodName { get; set; }
         public string OwnerMethodDesc { get; set; }
         public string CallbackType { get; set; }
-        public string InstanceCallbackName { get; set; }
-        public string InstanceCallbackDesc { get; set; }
-        public string StaticCallbackName { get; set; }
-        public string StaticCallbackDesc { get; set; }
+        public string InstanceCallbackName { get { return instanceCallbackName; } set { instanceCallbackName = value; } }
+        public string InstanceCallbackDesc { get { return instanceCallbackDesc; } set { instanceCallbackDesc = value; } }
+        public string StaticCallbackName { get { return staticCallbackName; } set { staticCallbackName = value; } }
+        public string StaticCallbackDesc { get { return staticCallbackDesc; } set { staticCallbackDesc = value; } }
         public bool PushParams { get; set; }
         public InsertionType InsertionType { get; set; }
         public int InsertionIndex { get; set; }

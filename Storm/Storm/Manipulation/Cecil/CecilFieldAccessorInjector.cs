@@ -40,6 +40,11 @@ namespace Storm.Manipulation.Cecil
             this.@params = @params;
         }
 
+        public void Init()
+        {
+
+        }
+
         public void Inject()
         {
             TypeReference returnType = def.GetTypeRef(@params.ReturnType, true);

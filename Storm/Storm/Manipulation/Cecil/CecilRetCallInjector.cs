@@ -37,6 +37,11 @@ namespace Storm.Manipulation.Cecil
             this.@params = @params;
         }
 
+        public void Init()
+        {
+
+        }
+
         public void Inject()
         {
             var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);

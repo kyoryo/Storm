@@ -31,24 +31,25 @@ namespace Custom_Tool_Test_Mod
             var root = @event.Root;
             var batch = root.SpriteBatch;
             var font = root.SmoothFont;
-            batch.DrawString(font, "Custom Tool - Example " + PathOnDisk, new Vector2(16, 16), Color.Red);
-            if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
-            {
-                pressedLast = true;
-                var obj = @event.ProxyTool(new CustomTool());
-                obj.Name = "Tool name!";
-                obj.Description = "Tool Desc! Pretty gooood.";
+            batch.DrawString(font, "Custom Tool - Example- " + PathOnDisk, new Vector2(16, 16), Color.Red);
 
-                var farmer = root.Player;
-                if (farmer != null)
+            var farmer = root.Player;
+            if (farmer != null)
+            {
+                if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
                 {
-                    farmer.Items[1] = obj;
+                    pressedLast = true;
+                    var obj = @event.ProxyTool(new CustomTool());
+                    obj.Name = "Tool name!";
+                    obj.Description = "Tool Desc! Pretty gooood.";
+                    farmer.SetItem(1, obj);
+                }
+                else if (!Keyboard.GetState().IsKeyDown(Keys.X))
+                {
+                    pressedLast = false;
                 }
             }
-            else if (!Keyboard.GetState().IsKeyDown(Keys.X))
-            {
-                pressedLast = false;
-            }
+            
         }
     }
 }
