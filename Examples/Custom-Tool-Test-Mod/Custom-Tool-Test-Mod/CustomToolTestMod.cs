@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storm.StardewValley.Wrapper;
 
 namespace Custom_Tool_Test_Mod
 {
@@ -19,6 +20,11 @@ namespace Custom_Tool_Test_Mod
 
         private class CustomTool : ToolDelegate
         {
+            public override void BeginUsing(GameLocation location, int x, int y, Farmer farmer)
+            {
+                
+            }
+
             public override void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber)
             {
                 b.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
