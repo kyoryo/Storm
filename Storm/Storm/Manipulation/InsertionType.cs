@@ -11,5 +11,6 @@ namespace Storm.Manipulation
         BEGINNING,
         ABSOLUTE,
         LAST,
+        RETURNS,
     }
 }

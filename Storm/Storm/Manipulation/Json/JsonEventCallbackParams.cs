@@ -39,6 +39,6 @@ namespace Storm.Manipulation.Json
         public string StaticCallbackDesc { get { return staticCallbackDesc; } set { staticCallbackDesc = value; } }
         public bool PushParams { get; set; }
         public InsertionType InsertionType { get; set; }
-        public int InsertionIndex { get; set; }
+        public int[] InsertionIndex { get; set; }
     }
 }

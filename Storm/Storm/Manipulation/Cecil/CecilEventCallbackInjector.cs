@@ -33,7 +33,7 @@ namespace Storm.Manipulation.Cecil
         private EventCallbackParams @params;
 
         private MethodDefinition injectee = null;
-        private Instruction injectionPoint = null;
+        private List<Instruction> injectionPoints = new List<Instruction>();
         private bool invalid = false;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
@@ -41,6 +41,25 @@ namespace Storm.Manipulation.Cecil
             this.self = self;
             this.def = def;
             this.@params = @params;
+        }
+
+        private Instruction GetReturnByRelativity(MethodDefinition md, int index)
+        {
+            var instructions = md.Body.Instructions;
+            var counter = 0;
+            for (int i = 0; i < instructions.Count; i++)
+            {
+                var ins = instructions[i];
+                if (ins.OpCode == OpCodes.Ret)
+                {
+                    if (counter == index)
+                    {
+                        return ins;
+                    }
+                    counter++;
+                }
+            }
+            return null;
         }
 
         public void Init()
@@ -57,10 +76,22 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            if (@params.InsertionType == InsertionType.BEGINNING || @params.InsertionType == InsertionType.ABSOLUTE)
-                injectionPoint = injectee.Body.Instructions[@params.InsertionIndex];
-            else
-                injectionPoint = injectee.Body.Instructions[injectee.Body.Instructions.Count - 1];
+            foreach (var i in @params.InsertionIndex)
+            {
+                switch (@params.InsertionType)
+                {
+                    case InsertionType.BEGINNING:
+                    case InsertionType.ABSOLUTE:
+                        injectionPoints.Add(injectee.Body.Instructions[@params.InsertionIndex[i]]);
+                        break;
+                    case InsertionType.LAST:
+                        injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1 - @params.InsertionIndex[i]]);
+                        break;
+                    case InsertionType.RETURNS:
+                        injectionPoints.Add(GetReturnByRelativity(injectee, @params.InsertionIndex[i]));
+                        break;
+                }
+            }
         }
 
         public void Inject()
@@ -80,7 +111,6 @@ namespace Storm.Manipulation.Cecil
 
             var body = injectee.Body;
             var processor = body.GetILProcessor();
-            var jmpTarget = returnName.Equals(typeof(void).FullName) ? injectionPoint : processor.Create(OpCodes.Pop);
 
             MethodReference instancedImport = null;
             MethodReference staticImport = null;
@@ -111,58 +141,63 @@ namespace Storm.Manipulation.Cecil
                 instancedImport = injectee.Module.Import(instancedRecv);
             }
 
-            if (!injectee.IsStatic)
+            foreach (var injectionPoint in injectionPoints)
             {
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg_0));
-            }
+                var jmpTarget = returnName.Equals(typeof(void).FullName) ? injectionPoint : processor.Create(OpCodes.Pop);
 
-            if (@params.PushParams)
-            {
-                for (int i = 0; i < injectee.Parameters.Count(); i++)
+                if (!injectee.IsStatic)
                 {
-                    switch (i)
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg_0));
+                }
+
+                if (@params.PushParams)
+                {
+                    for (int i = 0; i < injectee.Parameters.Count(); i++)
                     {
-                        case 0:
-                            processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
-                            break;
-                        case 1:
-                            processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2));
-                            break;
-                        case 2:
-                            processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3));
-                            break;
-                        case 3:
-                            processor.InsertBefore(injectionPoint, injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i));
-                            break;
-                        default:
-                            processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg, i));
-                            break;
+                        switch (i)
+                        {
+                            case 0:
+                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
+                                break;
+                            case 1:
+                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2));
+                                break;
+                            case 2:
+                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3));
+                                break;
+                            case 3:
+                                processor.InsertBefore(injectionPoint, injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i));
+                                break;
+                            default:
+                                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg, i));
+                                break;
+                        }
                     }
                 }
-            }
 
-            processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, injectee.IsStatic ? staticImport : instancedImport));
-            if (!returnName.Equals(typeof(void).FullName))
-            {
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Dup));
-            }
-            processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, hasReturnValueImport));
-            processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Brfalse, jmpTarget));
+                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, injectee.IsStatic ? staticImport : instancedImport));
+                if (!returnName.Equals(typeof(void).FullName))
+                {
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Dup));
+                }
+                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, hasReturnValueImport));
+                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Brfalse, jmpTarget));
 
-            if (!returnName.Equals(typeof(void).FullName))
-            {
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, eventReturnValueImport));
-            }
+                if (!returnName.Equals(typeof(void).FullName))
+                {
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, eventReturnValueImport));
+                }
 
-            if (returnName.Equals(typeof(Int32).FullName) || returnName.Equals(typeof(Boolean).FullName))
-            {
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Unbox_Any, injectee.ReturnType));
-            }
+                if (returnName.Equals(typeof(Int32).FullName) || returnName.Equals(typeof(Boolean).FullName))
+                {
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Unbox_Any, injectee.ReturnType));
+                }
 
-            processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ret));
-            if (!returnName.Equals(typeof(void).FullName))
-            {
-                processor.InsertBefore(injectionPoint, jmpTarget);
+                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ret));
+                if (!returnName.Equals(typeof(void).FullName))
+                {
+                    processor.InsertBefore(injectionPoint, jmpTarget);
+                }
             }
         }
 
