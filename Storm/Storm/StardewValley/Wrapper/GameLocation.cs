@@ -50,9 +50,29 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public Dictionary<Vector2, TerrainFeature> TerrainFeatures
+        {
+            get
+            {
+                var orig = accessor._GetTerrainFeatures();
+                var conv = new Dictionary<Vector2, TerrainFeature>();
+                foreach (var vec in orig.Keys)
+                {
+                    conv.Add((Vector2)vec, new TerrainFeature(Parent, (TerrainFeatureAccessor)orig[vec]));
+                }
+                return conv;
+            }
+        }
+
+        public void GrowWeedGrass(int iterations)
+        {
+            accessor._GrowWeedGrass(iterations);
+        }
+
         public bool IsOutdoors
         {
             get { return accessor._GetIsOutdoors(); }
+            set { accessor._SetIsOutdoors(value); }
         }
 
         public List<NPC> Characters

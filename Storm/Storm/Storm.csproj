@@ -123,9 +123,11 @@
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\HoeDirtAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
@@ -196,6 +198,7 @@
     <Compile Include="StardewValley\Wrapper\Object.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
     <Compile Include="StardewValley\Wrapper\GameLocation.cs" />
+    <Compile Include="StardewValley\Wrapper\TerrainFeature.cs" />
     <Compile Include="StardewValley\Wrapper\Tool.cs" />
     <Compile Include="TypeCollisionException.cs" />
   </ItemGroup>

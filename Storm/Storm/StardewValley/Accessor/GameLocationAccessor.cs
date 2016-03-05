@@ -26,6 +26,9 @@ namespace Storm.StardewValley.Accessor
 {
     public interface GameLocationAccessor
     {
+
+        void _GrowWeedGrass(int iterations);
+
         Map _GetMap();
         void _SetMap(Map val);
 

@@ -118,6 +118,7 @@ namespace Storm.StardewValley.Wrapper
         public int PixelZoom
         {
             get { return accessor._GetPixelZoom(); }
+            set { accessor._SetPixelZoom(value); }
         }
 
         public StaticContextAccessor Expose() => accessor;
