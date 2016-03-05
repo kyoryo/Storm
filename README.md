@@ -6,7 +6,7 @@ games classes, and Json.NET for serialization.
 
 <h1>*** INSTALLATION/USAGE ***</h1>
 Launcher: Compile Storm, and place it in the same directory as the game. Launching Storm will cause the Game to be launched.  
-Mods: Mods each have their own individual folder, and go in AppData/StardewValley/Storm/Mods/mod-name/ 
+Mods: Mods each have their own individual folder, and go in AppData/StardewValley/Mods/mod-name/ 
   
 <h1>*** CONTRIBUTORS ***</h1>
 Please stay consistent with the overall style that has been used throughout the project.  

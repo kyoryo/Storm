@@ -122,6 +122,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent OnUpdateGameClockCallback()
+        {
+            var @event = new OnUpdateGameClockEvent();
+            EventBus.Fire<OnUpdateGameClockEvent>(@event);
+            return @event;
+        }
+
         public static DetourEvent SellShippedItemsCallback()
         {
             var @event = new SellShippedItemsEvent();
