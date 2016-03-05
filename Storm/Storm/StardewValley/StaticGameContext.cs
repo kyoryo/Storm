@@ -56,6 +56,8 @@ namespace Storm.StardewValley
             get { return new StaticContext(Root._GetGame());  }
         }
 
+        #region Game1 Events
+
         public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
             var game = StaticGameContext.WrappedGame;
@@ -157,11 +159,24 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PressUseToolButtonCallback(StaticContextAccessor accessor)
+        {
+            var @event = new PressUseToolButtonEvent();
+            EventBus.Fire<PressUseToolButtonEvent>(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region Farmer Events
+
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
             var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
             EventBus.Fire<WarpFarmerEvent>(@event);
             return @event;
         }
+
+        #endregion
     }
 }

@@ -129,6 +129,8 @@
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\PressActionButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\PressUseToolButtonEvent.cs" />
     <Compile Include="StardewValley\Event\UpdateGameClockEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PostUpdateEvent.cs" />

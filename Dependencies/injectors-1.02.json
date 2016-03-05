@@ -5056,7 +5056,7 @@
       "MethodDesc":"",
       "RefactoredName":"DrawInMenu"
     },
-	{
+  {
       "OwnerAccessorType":"Storm.StardewValley.Accessor.ToolAccessor",
       "MethodName":"beginUsing",
       "MethodDesc":"",
@@ -5204,6 +5204,14 @@
       "StaticCallbackName":"WarpFarmerCallback",
       "StaticCallbackDesc":"(Storm.StardewValley.Accessor.GameLocationAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams":"true"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"pressUseToolButton",
+      "OwnerMethodDesc":"()System.Boolean",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"PressUseToolButtonCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@Farmer",
