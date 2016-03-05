@@ -32,6 +32,9 @@ namespace Storm.StardewValley.Accessor
         SpriteFont _GetSmoothFont();
         SpriteFont _GetTinyFontBorder();
         SpriteFont _GetTinyFont();
+        SpriteFont _GetSmallFont();
+        SpriteFont _GetDialogueFont();
+        SpriteFont _GetDialogueFontBorder();
 
         GraphicsDeviceManager _GetGraphicsDeviceManager();
 

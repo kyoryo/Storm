@@ -145,9 +145,25 @@
 			"OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
 			"MethodName": "_GetTinyFont",
 			"ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
-		},
-
-		{
+		}, {
+			"OwnerAccessorType": "@StaticContext",
+			"OwnerFieldName": "smallFont",
+			"OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+			"MethodName": "_GetSmallFont",
+			"ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+		}, {
+			"OwnerAccessorType": "@StaticContext",
+			"OwnerFieldName": "dialogueFont",
+			"OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+			"MethodName": "_GetDialogueFont",
+			"ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+		}, {
+			"OwnerAccessorType": "@StaticContext",
+			"OwnerFieldName": "borderFont",
+			"OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+			"MethodName": "_GetDialogueFontBorder",
+			"ReturnType": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+		}, {
 			"OwnerAccessorType": "@GameLocation",
 			"OwnerFieldName": "objects",
 			"OwnerFieldType": "StardewValley.SerializableDictionary`2",
