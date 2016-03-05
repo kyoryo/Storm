@@ -62,7 +62,7 @@
     },
     {
       "SimpleName":"ClickableMenu",
-      "OwnerType":"StardewValley.IClickableMenu",
+      "OwnerType":"StardewValley.Menus.IClickableMenu",
       "InterfaceType":"Storm.StardewValley.Accessor.ClickableMenuAccessor"
     },
     {
@@ -74,6 +74,16 @@
       "SimpleName":"Event",
       "OwnerType":"StardewValley.Event",
       "InterfaceType":"Storm.StardewValley.Accessor.EventAccessor"
+    },
+	{
+      "SimpleName":"TerrainFeature",
+      "OwnerType":"StardewValley.TerrainFeatures.TerrainFeature",
+      "InterfaceType":"Storm.StardewValley.Accessor.TerrainFeatureAccessor"
+    },
+	{
+      "SimpleName":"HoeDirt",
+      "OwnerType":"StardewValley.TerrainFeatures.HoeDirt",
+      "InterfaceType":"Storm.StardewValley.Accessor.HoeDirtAccessor"
     }
   ],
   "FieldDetourParams":[
@@ -157,9 +167,6 @@
       "MethodName":"_GetName",
       "ReturnType":"System.String"
     }
-  ],
-  "FieldMutatorParams":[
-
   ],
   "FieldAccessorMutatorParams":[
     {
@@ -4977,80 +4984,88 @@
       ],
       "InvokerReturnType":"System.Void",
       "IsStatic":"true"
+    },
+	{
+      "OwnerAccessorType":"@GameLocation",
+      "OwnerMethodName":"growWeedGrass",
+      "OwnerMethodDesc":"(System.Int32)System.Void",
+      "InvokerName":"_GrowWeedGrass",
+      "InvokerReturnParams":[
+        "System.Int32"
+      ],
+      "InvokerReturnType":"System.Void",
+      "IsStatic":"false"
     }
   ],
   "AbsoluteCallParams":[
+    
+  ],
+  "EventCallbackParams":[
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"Initialize",
       "OwnerMethodDesc":"()System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"InitializeCallback",
-      "DetourMethodDesc":"()System.Void"
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"InitializeCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"LoadContent",
       "OwnerMethodDesc":"()System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"LoadContentCallback",
-      "DetourMethodDesc":"()System.Void"
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"LoadContentCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+	{
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"Draw",
+      "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"PreDrawCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"Draw",
       "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"PreDrawCallback",
-      "DetourMethodDesc":"()System.Void"
-    },
-    {
-      "OwnerAccessorType":"@StaticContext",
-      "OwnerMethodName":"Draw",
-      "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"PreUIDrawCallback",
-      "DetourMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"PreUIDrawCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2092
+      "InsertionIndex":2091
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"Draw",
       "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"PostDrawCallback",
-      "DetourMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"PostDrawCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2628
+      "InsertionIndex":2627
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"newSeason",
       "OwnerMethodDesc":"()System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"SeasonChangeCallback",
-      "DetourMethodDesc":"()System.Void",
-      "InsertionType":"LAST"
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"SeasonChangeCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"newDayAfterFade",
       "OwnerMethodDesc":"()System.Void",
-      "DetourType":"Storm.StardewValley.StaticGameContext",
-      "DetourMethodName":"NewDayCallback",
-      "DetourMethodDesc":"()System.Void",
-      "InsertionType":"LAST"
-    }
-  ],
-  "EventCallbackParams":[
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"NewDayCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent",
+    },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"performTenMinuteClockUpdate",
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName":"PerformClockUpdateCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "StaticCallbackName":"PerformClockUpdateCallback",
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
@@ -5059,8 +5074,6 @@
       "OwnerMethodName":"sellShippedItems",
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName":"SellShippedItemsCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "StaticCallbackName":"SellShippedItemsCallback",
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
@@ -5071,16 +5084,12 @@
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"PreUpdateCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "StaticCallbackName":"PreUpdateCallback",
-      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"warpFarmer",
       "OwnerMethodDesc":"(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName":"WarpFarmerCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor,@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "StaticCallbackName":"WarpFarmerCallback",
       "StaticCallbackDesc":"(Storm.StardewValley.Accessor.GameLocationAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams":"true"
@@ -5092,8 +5101,6 @@
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"AddItemToInventoryCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
-      "StaticCallbackName":"AddItemToInventoryCallback",
-      "StaticCallbackDesc":"(Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
       "PushParams":"true"
     }
   ]
