@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -39,9 +39,13 @@ namespace Storm.StardewValley
         /// </summary>
         public static ProgramAccessor Root { get; set; }
 
+        //Tool Proxy
         public static Type ToolType { get; set; }
+        public static ToolInterceptorDelegateFactory ToolFactory { get; set; }
 
-        public static ToolInterceptorDelegateFactory ToolFactory{ get; set; }
+        //Object Proxy
+        public static Type ObjectType { get; set; }
+        public static ObjectInterceptorDelegateFactory ObjectFactory { get; set; }
 
         /// <summary>
         /// Event handler for all Storm mods.
@@ -135,6 +139,13 @@ namespace Storm.StardewValley
         {
             var @event = new WarpFarmerEvent(location, tileX, tileY, facingDirection, isStructure);
             EventBus.Fire<WarpFarmerEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PlayerDamagedCallback(int damage, bool overrideParry, Monster damager)
+        {
+            var @event = new PlayerDamagedEvent(damage, overrideParry, damager);
+            EventBus.Fire<PlayerDamagedEvent>(@event);
             return @event;
         }
 

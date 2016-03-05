@@ -612,6 +612,12 @@
 		"MethodName": "drawInMenu",
 		"MethodDesc": "",
 		"RefactoredName": "Draw"
+	},
+    {
+		"OwnerAccessorType": "@Object",
+		"MethodName": "drawWhenHeld",
+		"MethodDesc": "",
+		"RefactoredName": "Draw"
 	}],
 	"InvokerParams": [{
 		"OwnerAccessorType": "@StaticContext",
@@ -716,6 +722,15 @@
 		"InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
 		"StaticCallbackName": "WarpFarmerCallback",
 		"StaticCallbackDesc": "(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent"
+	}, {
+        "OwnerAccessorType": "@StaticContext",
+		"OwnerMethodName": "farmerTakeDamage",
+		"OwnerMethodDesc": "(System.Int32, System.Boolean, @(Monster))System.Void",
+		"CallbackType": "Storm.StardewValley.StaticGameContext",
+		"InstanceCallbackName": "PlayerDamagedCallback",
+		"InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent",
+		"StaticCallbackName": "PlayerDamagedCallback",
+		"StaticCallbackDesc": "(System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent"
 	}, {
 		"OwnerAccessorType": "@Farmer",
 		"OwnerMethodName": "addItemToInventory",

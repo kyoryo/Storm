@@ -90,7 +90,9 @@ namespace Storm.StardewValley
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "DrawInMenu"));
-            
+            StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
+            StaticGameContext.ObjectFactory = new ObjectInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
+
             var eventBus = new ModEventBus();
             if (!Directory.Exists(StormAPI.ModsPath))
                 Directory.CreateDirectory(StormAPI.ModsPath);

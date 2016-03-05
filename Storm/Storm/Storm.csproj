@@ -120,11 +120,14 @@
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
+    <Compile Include="StardewValley\Event\PlayerDamagedEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />
     <Compile Include="StardewValley\Event\PreUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\SellShippedItemsEvent.cs" />
     <Compile Include="StardewValley\Event\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\ObjectDelegate.cs" />
+    <Compile Include="StardewValley\ObjectInterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
