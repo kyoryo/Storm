@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event
@@ -28,9 +29,9 @@ namespace Storm.StardewValley.Event
     {
         public int Damage { get; }
         public bool OverrideParry { get; }
-        public Monster Damager { get; }
+        public MonsterAccessor Damager { get; }
 
-        public PlayerDamagedEvent(int damage, bool overrideParry, Monster damager)
+        public PlayerDamagedEvent(int damage, bool overrideParry, MonsterAccessor damager)
         {
             Damage = damage;
             OverrideParry = overrideParry;

@@ -142,7 +142,7 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent PlayerDamagedCallback(int damage, bool overrideParry, Monster damager)
+        public static DetourEvent PlayerDamagedCallback(int damage, bool overrideParry, MonsterAccessor damager)
         {
             var @event = new PlayerDamagedEvent(damage, overrideParry, damager);
             EventBus.Fire<PlayerDamagedEvent>(@event);

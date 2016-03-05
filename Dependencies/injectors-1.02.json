@@ -730,7 +730,8 @@
 		"InstanceCallbackName": "PlayerDamagedCallback",
 		"InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent",
 		"StaticCallbackName": "PlayerDamagedCallback",
-		"StaticCallbackDesc": "(System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent"
+		"StaticCallbackDesc": "(System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent",
+        "PushParams": "true"
 	}, {
 		"OwnerAccessorType": "@Farmer",
 		"OwnerMethodName": "addItemToInventory",
