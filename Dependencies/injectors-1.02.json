@@ -728,7 +728,7 @@
 		"OwnerMethodDesc": "(System.Int32, System.Boolean, @(Monster))System.Void",
 		"CallbackType": "Storm.StardewValley.StaticGameContext",
 		"InstanceCallbackName": "PlayerDamagedCallback",
-		"InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent",
+		"InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor,System.Int32,System.Boolean,Storm.StardewValley.Accessor.MonsterAccessor)Storm.Manipulation.DetourEvent",
 		"StaticCallbackName": "PlayerDamagedCallback",
 		"StaticCallbackDesc": "(System.Int32,System.Boolean,@(Monster))Storm.Manipulation.DetourEvent",
         "PushParams": "true"

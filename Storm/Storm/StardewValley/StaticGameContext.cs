@@ -124,6 +124,7 @@ namespace Storm.StardewValley
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
             var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));
+            Console.WriteLine("ADDITEMTOINV");
             EventBus.Fire<AddItemToInventoryEvent>(@event);
             return @event;
         }
@@ -145,6 +146,7 @@ namespace Storm.StardewValley
         public static DetourEvent PlayerDamagedCallback(int damage, bool overrideParry, MonsterAccessor damager)
         {
             var @event = new PlayerDamagedEvent(damage, overrideParry, damager);
+            Console.WriteLine(@event.Damager._GetName() + " damaged the player for " + @event.Damage + " HP");
             EventBus.Fire<PlayerDamagedEvent>(@event);
             return @event;
         }

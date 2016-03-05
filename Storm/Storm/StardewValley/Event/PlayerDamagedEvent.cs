@@ -27,15 +27,19 @@ namespace Storm.StardewValley.Event
 {
     public class PlayerDamagedEvent : StaticContextEvent
     {
-        public int Damage { get; }
-        public bool OverrideParry { get; }
-        public MonsterAccessor Damager { get; }
+        private int damage;
+        private bool overrideParry;
+        private MonsterAccessor damager;
 
         public PlayerDamagedEvent(int damage, bool overrideParry, MonsterAccessor damager)
         {
-            Damage = damage;
-            OverrideParry = overrideParry;
-            Damager = damager;
+            this.damage = damage;
+            this.overrideParry = overrideParry;
+            this.damager = damager;
         }
+
+        public int Damage { get { return damage; } }
+        public bool OverrideParry { get { return overrideParry; } }
+        public MonsterAccessor Damager { get { return damager; } }
     }
 }
