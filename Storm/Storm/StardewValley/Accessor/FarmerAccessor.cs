@@ -308,10 +308,10 @@ namespace Storm.StardewValley.Accessor
         int _GetClubCoins();
         void _SetClubCoins(int val);
 
-        UInt32 _GetTotalMoneyEarned();
+        uint _GetTotalMoneyEarned();
         void _SetTotalMoneyEarned(UInt32 val);
 
-        UInt32 _GetMillisecondsPlayed();
+        uint _GetMillisecondsPlayed();
         void _SetMillisecondsPlayed(UInt32 val);
 
         ToolAccessor _GetToolBeingUpgraded();
