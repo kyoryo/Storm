@@ -24,7 +24,8 @@ namespace Storm.StardewValley
 {
     public abstract class ToolDelegate : TypeDelegate<Tool>
     {
-
         public abstract void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
+
+        public abstract void BeginUsing(GameLocationAccessor location, int x, int y, FarmerAccessor farmer);
     }
 }

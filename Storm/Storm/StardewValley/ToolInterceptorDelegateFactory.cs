@@ -19,24 +19,34 @@ using System;
 using Castle.DynamicProxy;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley
 {
     public class ToolInterceptorDelegateFactory : InterceptorDelegateFactory<ToolDelegate>
     {
         public delegate void DrawInMenuDelegate(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
+        public delegate void BeginUsingDelegate(GameLocationAccessor loc, int x, int y, FarmerAccessor farmer);
 
         private string drawInMenuName;
+        private string beginUsingName;
 
         private class ToolInterceptor : IInterceptor
         {
             private string drawInMenuName;
             private DrawInMenuDelegate drawInMenuDelegate;
 
-            public ToolInterceptor(string getNameMethodName, DrawInMenuDelegate drawInMenuDelegate)
+            private string beginUsingName;
+            private BeginUsingDelegate beginUsingDelegate;
+
+            public ToolInterceptor(
+                string getNameMethodName, DrawInMenuDelegate drawInMenuDelegate, 
+                string beginUsingName, BeginUsingDelegate beginUsingDelegate)
             {
                 this.drawInMenuName = getNameMethodName;
                 this.drawInMenuDelegate = drawInMenuDelegate;
+                this.beginUsingName = beginUsingName;
+                this.beginUsingDelegate = beginUsingDelegate;
             }
 
             public void Intercept(IInvocation invocation)
@@ -47,20 +57,25 @@ namespace Storm.StardewValley
                     var args = invocation.Arguments;
                     drawInMenuDelegate((SpriteBatch)args[0], (Vector2)args[1], (float)args[2], (float)args[3], (float)args[4], (bool)args[5]);
                     return;
+                } else if (method.Name == beginUsingName)
+                {
+                    var args = invocation.Arguments;
+                    beginUsingDelegate((GameLocationAccessor)args[0], (int)args[1], (int)args[2], (FarmerAccessor)args[3]);
                 }
 
                 invocation.Proceed();
             }
         }
 
-        public ToolInterceptorDelegateFactory(string getNameMethodName)
+        public ToolInterceptorDelegateFactory(string getNameMethodName, string beginUsingName)
         {
             this.drawInMenuName = getNameMethodName;
+            this.beginUsingName = beginUsingName;
         }
 
         public IInterceptor CreateInterceptor(ToolDelegate t)
         {
-            return new ToolInterceptor(drawInMenuName, t.DrawInMenu);
+            return new ToolInterceptor(drawInMenuName, t.DrawInMenu, beginUsingName, t.BeginUsing);
         }
     }
 }

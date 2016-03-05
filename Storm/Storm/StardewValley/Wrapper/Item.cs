@@ -37,21 +37,25 @@ namespace Storm.StardewValley.Wrapper
         public int Category
         {
             get { return accessor._GetCategory(); }
+            set { accessor._SetCategory(value); }
         }
 
         public bool HasBeenInInventory
         {
-            get { return accessor._HasBeenInInventory(); }
+            get { return accessor._GetHasBeenInInventory(); }
+            set { accessor._SetHasBeenInInventory(value); }
         }
 
         public bool IsSpecialItem
         {
-            get { return accessor._IsSpecialItem(); }
+            get { return accessor._GetSpecialItem(); }
+            set { accessor._SetSpecialItem(value); }
         }
 
         public int SpecialVariable
         {
             get { return accessor._GetSpecialVariable(); }
+            set { accessor._SetSpecialVariable(value); }
         }
 
         public ItemAccessor Expose() => accessor;
