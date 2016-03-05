@@ -57,12 +57,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFarmName(value); }
         }
 
-        public string Name
-        {
-            get { return accessor._GetName(); }
-            set { accessor._SetName(value); }
-        }
-
         public int Money
         {
             get { return accessor._GetMoney(); }
