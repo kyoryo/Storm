@@ -60,7 +60,6 @@ namespace Storm
             {
                 if (dynamicFallback)
                 {
-                    Logging.DebugLog(type);
                     first = asm.MainModule.Import(ReflectionUtils.DynamicResolve(type));
                 }
             }
