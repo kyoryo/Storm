@@ -56,7 +56,7 @@ namespace Storm.StardewValley
             get { return new StaticContext(Root._GetGame());  }
         }
 
-        public static void InitializeCallback()
+        public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
             var game = StaticGameContext.WrappedGame;
             game.Version += ", " + AssemblyInfo.NICE_VERSION;
@@ -65,42 +65,54 @@ namespace Storm.StardewValley
 
             var @event = new InitializeEvent();
             EventBus.Fire<InitializeEvent>(@event);
+            return @event;
         }
 
-        public static void LoadContentCallback()
+        public static DetourEvent LoadContentCallback(StaticContextAccessor context)
         {
             var @event = new LoadContentEvent();
             EventBus.Fire<LoadContentEvent>(@event);
+            return @event;
         }
 
-        public static void PreDrawCallback()
+        public static DetourEvent PreDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreRenderEvent();
             EventBus.Fire<PreRenderEvent>(@event);
+            return @event;
         }
 
-        public static void PreUIDrawCallback()
+        public static DetourEvent PreUIDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreUIRenderEvent();
             EventBus.Fire<PreUIRenderEvent>(@event);
+            return @event;
         }
 
-        public static void PostDrawCallback()
+        public static DetourEvent PostDrawCallback(StaticContextAccessor context)
         {
+            var batch = context._GetSpriteBatch();
+            batch.Begin();
+
             var @event = new PostRenderEvent();
             EventBus.Fire<PostRenderEvent>(@event);
+
+            batch.End();
+            return @event;
         }
 
-        public static void SeasonChangeCallback()
+        public static DetourEvent SeasonChangeCallback()
         {
             var @event = new OnSeasonChangeEvent();
             EventBus.Fire<OnSeasonChangeEvent>(@event);
+            return @event;
         }
 
-        public static void NewDayCallback()
+        public static DetourEvent NewDayCallback()
         {
             var @event = new OnNewDayEvent();
             EventBus.Fire<OnNewDayEvent>(@event);
+            return @event;
         }
 
         public static DetourEvent PerformClockUpdateCallback()
