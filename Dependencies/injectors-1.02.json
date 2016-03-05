@@ -75,12 +75,12 @@
       "OwnerType":"StardewValley.Event",
       "InterfaceType":"Storm.StardewValley.Accessor.EventAccessor"
     },
-	{
+    {
       "SimpleName":"TerrainFeature",
       "OwnerType":"StardewValley.TerrainFeatures.TerrainFeature",
       "InterfaceType":"Storm.StardewValley.Accessor.TerrainFeatureAccessor"
     },
-	{
+    {
       "SimpleName":"HoeDirt",
       "OwnerType":"StardewValley.TerrainFeatures.HoeDirt",
       "InterfaceType":"Storm.StardewValley.Accessor.HoeDirtAccessor"
@@ -4963,6 +4963,90 @@
       "OwnerFieldType":"System.Collections.Generic.List`1",
       "MethodName":"LuauIngredients",
       "Type":"System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"lightTexture",
+      "OwnerFieldType":"Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName":"LightTexture",
+      "Type":"Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"darkTexture",
+      "OwnerFieldType":"Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName":"DarkTexture",
+      "Type":"Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"snowTexture",
+      "OwnerFieldType":"Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName":"SnowTexture",
+      "Type":"Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"crop",
+      "OwnerFieldType":"@Crop",
+      "MethodName":"Crop",
+      "Type":"Storm.StardewValley.Accessor.CropAccessor"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"drawGuide",
+      "OwnerFieldType":"System.Collections.Generic.Dictionary`2",
+      "MethodName":"DrawGuide",
+      "Type":"System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"state",
+      "OwnerFieldType":"System.Int32",
+      "MethodName":"State",
+      "Type":"System.Int32"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"fertilizer",
+      "OwnerFieldType":"System.Int32",
+      "MethodName":"Fertilizer",
+      "Type":"System.Int32"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"shakeLeft",
+      "OwnerFieldType":"System.Boolean",
+      "MethodName":"ShakeLeft",
+      "Type":"System.Boolean"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"shakeRotation",
+      "OwnerFieldType":"System.Single",
+      "MethodName":"ShakeRotation",
+      "Type":"System.Single"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"maxShake",
+      "OwnerFieldType":"System.Single",
+      "MethodName":"MaxShake",
+      "Type":"System.Single"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"shakeRate",
+      "OwnerFieldType":"System.Single",
+      "MethodName":"ShakeRate",
+      "Type":"System.Single"
+    },
+    {
+      "OwnerAccessorType":"@HoeDirt",
+      "OwnerFieldName":"c",
+      "OwnerFieldType":"Microsoft.Xna.Framework.Color",
+      "MethodName":"C",
+      "Type":"Microsoft.Xna.Framework.Color"
     }
   ],
   "MethodInfoParams":[
@@ -4985,7 +5069,7 @@
       "InvokerReturnType":"System.Void",
       "IsStatic":"true"
     },
-	{
+    {
       "OwnerAccessorType":"@GameLocation",
       "OwnerMethodName":"growWeedGrass",
       "OwnerMethodDesc":"(System.Int32)System.Void",
@@ -4998,7 +5082,7 @@
     }
   ],
   "AbsoluteCallParams":[
-    
+
   ],
   "EventCallbackParams":[
     {
@@ -5017,7 +5101,7 @@
       "InstanceCallbackName":"LoadContentCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
-	{
+    {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"Draw",
       "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
@@ -5059,7 +5143,7 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "StaticCallbackName":"NewDayCallback",
-      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5083,7 +5167,7 @@
       "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"PreUpdateCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@StaticContext",
