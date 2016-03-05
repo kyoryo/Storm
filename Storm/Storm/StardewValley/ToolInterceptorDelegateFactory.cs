@@ -57,10 +57,12 @@ namespace Storm.StardewValley
                     var args = invocation.Arguments;
                     drawInMenuDelegate((SpriteBatch)args[0], (Vector2)args[1], (float)args[2], (float)args[3], (float)args[4], (bool)args[5]);
                     return;
-                } else if (method.Name == beginUsingName)
+                }
+                else if (method.Name == beginUsingName)
                 {
                     var args = invocation.Arguments;
                     beginUsingDelegate((GameLocationAccessor)args[0], (int)args[1], (int)args[2], (FarmerAccessor)args[3]);
+                    return;
                 }
 
                 invocation.Proceed();
