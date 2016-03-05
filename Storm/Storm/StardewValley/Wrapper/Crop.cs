@@ -25,10 +25,12 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Crop : Wrapper<CropAccessor>
     {
+        public StaticContext Parent { get; }
         private CropAccessor accessor;
 
-        public Crop(CropAccessor accessor)
+        public Crop(StaticContext parent, CropAccessor accessor)
         {
+            this.Parent = parent;
             this.accessor = accessor;
         }
 

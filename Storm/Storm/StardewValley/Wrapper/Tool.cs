@@ -28,7 +28,7 @@ namespace Storm.StardewValley.Wrapper
     {
         private ToolAccessor accessor;
 
-        public Tool(ToolAccessor accessor) : base(accessor)
+        public Tool(StaticContext parent, ToolAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
         }
@@ -37,7 +37,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                return Array.ConvertAll(accessor._GetAttachments(), (i) => new Object(i));
+                return Array.ConvertAll(accessor._GetAttachments(), (i) => new Object(Parent, i));
             }
             set
             {

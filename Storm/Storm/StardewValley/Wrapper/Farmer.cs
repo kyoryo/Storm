@@ -28,7 +28,7 @@ namespace Storm.StardewValley.Wrapper
     {
         private FarmerAccessor accessor;
 
-        public Farmer(FarmerAccessor accessor) : base(accessor)
+        public Farmer(StaticContext parent, FarmerAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
         }

@@ -26,10 +26,12 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Character : Wrapper<CharacterAccessor>
     {
+        public StaticContext Parent { get; }
         private CharacterAccessor accessor;
 
-        public Character(CharacterAccessor accessor)
+        public Character(StaticContext parent, CharacterAccessor accessor)
         {
+            this.Parent = parent;
             this.accessor = accessor;
         }
 

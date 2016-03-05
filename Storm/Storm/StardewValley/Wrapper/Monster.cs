@@ -25,9 +25,9 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Monster : NPC
     {
-        MonsterAccessor accessor;
+        private MonsterAccessor accessor;
 
-        public Monster(MonsterAccessor accessor) : base(accessor)
+        public Monster(StaticContext parent, MonsterAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
         }

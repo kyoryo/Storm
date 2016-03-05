@@ -18,10 +18,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley
 {
-    public abstract class ToolDelegate : TypeDelegate<ToolAccessor>
+    public abstract class ToolDelegate : TypeDelegate<Tool>
     {
 
         public abstract void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);

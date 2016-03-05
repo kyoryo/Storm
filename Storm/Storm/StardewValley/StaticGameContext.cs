@@ -119,7 +119,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
-            var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));
+            var @event = new AddItemToInventoryEvent(new Farmer(WrappedGame, farmer), new Item(WrappedGame, item));
             EventBus.Fire<AddItemToInventoryEvent>(@event);
             return @event;
         }
@@ -133,17 +133,9 @@ namespace Storm.StardewValley
 
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
-            var @event = new WarpFarmerEvent(new GameLocation(location), tileX, tileY, facingDirection, isStructure);
+            var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
             EventBus.Fire<WarpFarmerEvent>(@event);
             return @event;
-        }
-
-        public static ToolAccessor ProxyTool(ToolDelegate @delegate)
-        {
-            var generator = new ProxyGenerator();
-            var accessor = (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
-            @delegate.Accessor = accessor;
-            return accessor;
         }
     }
 }

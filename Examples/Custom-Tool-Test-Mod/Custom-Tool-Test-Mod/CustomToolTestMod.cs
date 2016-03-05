@@ -21,8 +21,7 @@ namespace Custom_Tool_Test_Mod
         {
             public override void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber)
             {
-                b.DrawString(StaticGameContext.Root._GetGame()._GetSmoothFont(), "lee", new Vector2(16, 16), Color.Red);
-                b.DrawString(StaticGameContext.Root._GetGame()._GetSmoothFont(), "le custom draw override", loc, Color.Red);
+                b.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
             }
         }
 
@@ -36,9 +35,9 @@ namespace Custom_Tool_Test_Mod
             if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
             {
                 pressedLast = true;
-                var obj = StaticGameContext.ProxyTool(new CustomTool());
-                obj._SetName("Tool name!");
-                obj._SetDescription("Tool desc! pretty gooood");
+                var obj = @event.ProxyTool(new CustomTool());
+                obj.Name = "Tool name!";
+                obj.Description = "Tool Desc! Pretty gooood.";
 
                 var farmer = root.Player;
                 if (farmer != null)

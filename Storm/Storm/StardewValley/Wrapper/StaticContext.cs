@@ -97,7 +97,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 var farmer = accessor._GetPlayer();
                 if (farmer == null) return null;
-                return new Farmer(farmer);
+                return new Farmer(this, farmer);
             }
         }
 
@@ -106,7 +106,7 @@ namespace Storm.StardewValley.Wrapper
             get
             {
                 var location = accessor._GetCurrentLocation();
-                return location == null ? null : new GameLocation(location);
+                return location == null ? null : new GameLocation(this, location);
             }
         }
 

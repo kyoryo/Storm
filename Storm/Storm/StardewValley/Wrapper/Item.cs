@@ -25,10 +25,12 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Item : Wrapper<ItemAccessor>
     {
+        public StaticContext Parent { get; }
         private ItemAccessor accessor;
 
-        public Item(ItemAccessor accessor)
+        public Item(StaticContext parent, ItemAccessor accessor)
         {
+            this.Parent = parent;
             this.accessor = accessor;
         }
 
