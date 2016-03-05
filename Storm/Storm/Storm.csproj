@@ -122,6 +122,7 @@
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
