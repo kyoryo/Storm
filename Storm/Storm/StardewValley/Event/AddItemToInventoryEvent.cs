@@ -25,16 +25,13 @@ namespace Storm.StardewValley.Event
 {
     public class AddItemToInventoryEvent : StaticContextEvent
     {
-        private Farmer source;
-        private Item item;
+        private Farmer Source { get; }
+        private Item Item { get; }
         
         public AddItemToInventoryEvent(Farmer source, Item item)
         {
-            this.source = source;
-            this.item = item;
+            this.Source = source;
+            this.Item = item;
         }
-
-        public Farmer Source { get { return source; } }
-        public Item Item { get { return item; } }
     }
 }

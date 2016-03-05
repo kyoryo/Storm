@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,25 +26,19 @@ namespace Storm.StardewValley.Event
 {
     public class WarpFarmerEvent : StaticContextEvent
     {
-        private GameLocationAccessor location;
-        private int tileX;
-        private int tileY;
-        private int facingDirection;
-        private bool isStructure;
+        private GameLocation Location { get; }
+        private int TileX { get; }
+        private int TileY { get; }
+        private int FacingDirection { get; }
+        private bool IsStructure { get; }
 
-        public WarpFarmerEvent(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
+        public WarpFarmerEvent(GameLocation location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
-            this.location = location;
-            this.tileX = tileX;
-            this.tileY = tileY;
-            this.facingDirection = facingDirection;
-            this.isStructure = isStructure;
+            this.Location = location;
+            this.TileX = tileX;
+            this.TileY = tileY;
+            this.FacingDirection = facingDirection;
+            this.IsStructure = isStructure;
         }
-
-        public GameLocationAccessor Location {get { return location; } }
-        public int TileX { get { return tileX; } }
-        public int TileY { get { return tileY; } }
-        public int FacingDirection { get { return facingDirection; } }
-        public bool IsStructure { get { return isStructure; } }
     }
 }
