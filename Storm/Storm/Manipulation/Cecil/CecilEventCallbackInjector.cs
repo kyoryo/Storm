@@ -57,7 +57,10 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            injectionPoint = injectee.Body.Instructions[@params.InsertionIndex];
+            if (@params.InsertionType == InsertionType.BEGINNING || @params.InsertionType == InsertionType.ABSOLUTE)
+                injectionPoint = injectee.Body.Instructions[@params.InsertionIndex];
+            else
+                injectionPoint = injectee.Body.Instructions[injectee.Body.Instructions.Count - 1];
         }
 
         public void Inject()
