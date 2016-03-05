@@ -119,6 +119,7 @@
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\OnUpdateGameClockEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />
