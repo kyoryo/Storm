@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    public class OnUpdateGameClockEvent : StaticContextEvent
+    public class UpdateGameClockEvent : StaticContextEvent
     {
     }
 }

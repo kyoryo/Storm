@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    public class OnNewDayEvent : StaticContextEvent
+    public class SeasonChangeEvent : StaticContextEvent
     {
     }
 }

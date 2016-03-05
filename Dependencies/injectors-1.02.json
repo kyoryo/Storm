@@ -5166,9 +5166,9 @@
       "OwnerMethodName": "UpdateGameClock",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "OnUpdateGameClockCallback",
+      "InstanceCallbackName": "UpdateGameClockCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "StaticCallbackName": "OnUpdateGameClockCallback",
+      "StaticCallbackName": "UpdateGameClockCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {

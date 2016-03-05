@@ -103,15 +103,15 @@ namespace Storm.StardewValley
 
         public static DetourEvent SeasonChangeCallback()
         {
-            var @event = new OnSeasonChangeEvent();
-            EventBus.Fire<OnSeasonChangeEvent>(@event);
+            var @event = new SeasonChangeEvent();
+            EventBus.Fire<SeasonChangeEvent>(@event);
             return @event;
         }
 
         public static DetourEvent NewDayCallback()
         {
-            var @event = new OnNewDayEvent();
-            EventBus.Fire<OnNewDayEvent>(@event);
+            var @event = new NewDayEvent();
+            EventBus.Fire<NewDayEvent>(@event);
             return @event;
         }
 
@@ -122,10 +122,10 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent OnUpdateGameClockCallback()
+        public static DetourEvent UpdateGameClockCallback()
         {
-            var @event = new OnUpdateGameClockEvent();
-            EventBus.Fire<OnUpdateGameClockEvent>(@event);
+            var @event = new UpdateGameClockEvent();
+            EventBus.Fire<UpdateGameClockEvent>(@event);
             return @event;
         }
 
