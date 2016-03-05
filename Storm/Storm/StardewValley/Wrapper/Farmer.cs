@@ -33,15 +33,70 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public IList Items
+        public List<Item> Items
         {
-            get { return accessor._GetItems(); }
+            get
+            {
+                return accessor.
+                    _GetItems().
+                    Cast<ItemAccessor>().
+                    Where(i => i != null).
+                    Select(i => new Item(Parent, i)).
+                    ToList();
+            }
+        }
+
+        public void SetItem(int idx, Item item)
+        {
+            accessor._GetItems()[idx] = item.Expose();
+        }
+
+        public string FarmName
+        {
+            get { return accessor._GetFarmName(); }
+            set { accessor._SetFarmName(value); }
         }
 
         public int Money
         {
             get { return accessor._GetMoney(); }
             set { accessor._SetMoney(value); }
+        }
+
+        public int Health
+        {
+            get { return accessor._GetHealth(); }
+            set { accessor._SetHealth(value); }
+        }
+
+        public int MaxHealth
+        {
+            get { return accessor._GetMaxHealth(); }
+            set { accessor._SetMaxHealth(value); }
+        }
+
+        public float Stamina
+        {
+            get { return accessor._GetStamina(); }
+            set { accessor._SetStamina(value); }
+        }
+
+        public int MaxStamina
+        {
+            get { return accessor._GetMaxStamina(); }
+            set { accessor._SetMaxStamina(value); }
+        }
+
+        public uint MillisecondsPlayed
+        {
+            get { return accessor._GetMillisecondsPlayed(); }
+            set { accessor._SetMillisecondsPlayed(value); }
+        }
+
+        public int HouseUpgradeLevel
+        {
+            get { return accessor._GetHouseUpgradeLevel(); }
+            set { accessor._SetHouseUpgradeLevel(value); }
         }
 
         public new FarmerAccessor Expose() => accessor;
