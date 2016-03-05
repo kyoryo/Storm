@@ -5056,7 +5056,7 @@
       "MethodDesc":"",
       "RefactoredName":"DrawInMenu"
     },
-	{
+  {
       "OwnerAccessorType":"Storm.StardewValley.Accessor.ToolAccessor",
       "MethodName":"beginUsing",
       "MethodDesc":"",
@@ -5097,7 +5097,8 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"InitializeCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5105,7 +5106,8 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"LoadContentCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5123,7 +5125,7 @@
       "InstanceCallbackName":"PreUIDrawCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2091
+      "InsertionIndex":[2091]
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5133,7 +5135,7 @@
       "InstanceCallbackName":"PostDrawCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2627
+      "InsertionIndex":[2627]
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5164,9 +5166,9 @@
       "OwnerMethodName": "UpdateGameClock",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "OnUpdateGameClockCallback",
+      "InstanceCallbackName": "UpdateGameClockCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "StaticCallbackName": "OnUpdateGameClockCallback",
+      "StaticCallbackName": "UpdateGameClockCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
@@ -5187,12 +5189,29 @@
     },
     {
       "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"Update",
+      "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"PostUpdateCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"warpFarmer",
       "OwnerMethodDesc":"(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "StaticCallbackName":"WarpFarmerCallback",
       "StaticCallbackDesc":"(Storm.StardewValley.Accessor.GameLocationAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams":"true"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"pressUseToolButton",
+      "OwnerMethodDesc":"()System.Boolean",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"PressUseToolButtonCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@Farmer",
