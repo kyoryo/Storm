@@ -129,6 +129,7 @@
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\OnUpdateGameClockEvent.cs" />
     <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
     <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
     <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />

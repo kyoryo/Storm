@@ -5160,6 +5160,16 @@
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "UpdateGameClock",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "OnUpdateGameClockCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "StaticCallbackName": "OnUpdateGameClockCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"sellShippedItems",
       "OwnerMethodDesc":"()System.Void",
