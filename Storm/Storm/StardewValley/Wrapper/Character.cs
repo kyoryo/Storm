@@ -35,7 +35,7 @@ namespace Storm.StardewValley.Wrapper
 
         public bool EmoteFading
         {
-            get { return accessor._IsEmoteFading(); }
+            get { return accessor._GetEmoteFading(); }
         }
 
         public float EmoteInterval
@@ -61,12 +61,12 @@ namespace Storm.StardewValley.Wrapper
 
         public float VelocityX
         {
-            get { return accessor._GetVelocityX(); }
+            get { return accessor._GetXVelocity(); }
         }
 
         public float VelocityY
         {
-            get { return accessor._GetVelocityY(); }
+            get { return accessor._GetYVelocity(); }
         }
 
         public float Scale
