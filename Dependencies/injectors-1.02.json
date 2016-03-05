@@ -5189,6 +5189,15 @@
     },
     {
       "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"Update",
+      "OwnerMethodDesc":"(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"PostUpdateCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"warpFarmer",
       "OwnerMethodDesc":"(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",

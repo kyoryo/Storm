@@ -150,6 +150,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PostUpdateCallback(StaticContextAccessor accessor)
+        {
+            var @event = new PostUpdateEvent();
+            EventBus.Fire<PostUpdateEvent>(@event);
+            return @event;
+        }
+
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
             var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
