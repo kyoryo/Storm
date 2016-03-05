@@ -59,7 +59,7 @@ namespace Storm.StardewValley.Wrapper
         
         public GraphicsDeviceManager GraphicsDeviceManager
         {
-            get { return accessor._GetGraphicsDeviceManager(); }
+            get { return accessor._GetGraphics(); }
         }
 
         public Texture2D LoadResource(string path)
@@ -77,8 +77,8 @@ namespace Storm.StardewValley.Wrapper
 
         public string Version
         {
-            get { return accessor._GetVersionString(); }
-            set { accessor._SetVersionString(value);  }
+            get { return accessor._GetVersion(); }
+            set { accessor._SetVersion(value);  }
         }
 
         public GameWindow Window
@@ -112,7 +112,7 @@ namespace Storm.StardewValley.Wrapper
 
         public void UnlockSteamAchievement(string name)
         {
-            accessor._UnlockSteamAchievement(name);
+           // accessor._UnlockSteamAchievement(name);
         }
 
         public int PixelZoom
