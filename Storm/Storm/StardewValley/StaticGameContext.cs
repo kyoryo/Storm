@@ -159,7 +159,7 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent PressUseToolButtonCallback(StaticContextAccessor accessor)
+        public static DetourEvent PressUseToolButtonCallback()
         {
             var @event = new PressUseToolButtonEvent();
             EventBus.Fire<PressUseToolButtonEvent>(@event);
