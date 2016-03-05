@@ -133,34 +133,6 @@
       "ReturnType":"System.Collections.IList"
     },
     {
-      "OwnerAccessorType":"@Item",
-      "OwnerFieldName":"category",
-      "OwnerFieldType":"System.Int32",
-      "MethodName":"_GetCategory",
-      "ReturnType":"System.Int32"
-    },
-    {
-      "OwnerAccessorType":"@Item",
-      "OwnerFieldName":"hasBeenInInventory",
-      "OwnerFieldType":"System.Boolean",
-      "MethodName":"_HasBeenInInventory",
-      "ReturnType":"System.Boolean"
-    },
-    {
-      "OwnerAccessorType":"@Item",
-      "OwnerFieldName":"specialItem",
-      "OwnerFieldType":"System.Boolean",
-      "MethodName":"_IsSpecialItem",
-      "ReturnType":"System.Boolean"
-    },
-    {
-      "OwnerAccessorType":"@Item",
-      "OwnerFieldName":"specialVariable",
-      "OwnerFieldType":"System.Int32",
-      "MethodName":"_GetSpecialVariable",
-      "ReturnType":"System.Int32"
-    },
-    {
       "OwnerAccessorType":"@Object",
       "OwnerFieldName":"name",
       "OwnerFieldType":"System.String",
@@ -5047,6 +5019,34 @@
       "OwnerFieldType":"Microsoft.Xna.Framework.Color",
       "MethodName":"C",
       "Type":"Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType":"@Item",
+      "OwnerFieldName":"specialVariable",
+      "OwnerFieldType":"System.Int32",
+      "MethodName":"SpecialVariable",
+      "Type":"System.Int32"
+    },
+    {
+      "OwnerAccessorType":"@Item",
+      "OwnerFieldName":"category",
+      "OwnerFieldType":"System.Int32",
+      "MethodName":"Category",
+      "Type":"System.Int32"
+    },
+    {
+      "OwnerAccessorType":"@Item",
+      "OwnerFieldName":"specialItem",
+      "OwnerFieldType":"System.Boolean",
+      "MethodName":"SpecialItem",
+      "Type":"System.Boolean"
+    },
+    {
+      "OwnerAccessorType":"@Item",
+      "OwnerFieldName":"hasBeenInInventory",
+      "OwnerFieldType":"System.Boolean",
+      "MethodName":"HasBeenInInventory",
+      "Type":"System.Boolean"
     }
   ],
   "MethodInfoParams":[
@@ -5055,6 +5055,12 @@
       "MethodName":"drawInMenu",
       "MethodDesc":"",
       "RefactoredName":"DrawInMenu"
+    },
+	{
+      "OwnerAccessorType":"Storm.StardewValley.Accessor.ToolAccessor",
+      "MethodName":"beginUsing",
+      "MethodDesc":"",
+      "RefactoredName":"BeginUsing"
     }
   ],
   "InvokerParams":[
