@@ -109,6 +109,7 @@ namespace Storm.StardewValley
             Type tmp = null;
             tmp = typeof(Microsoft.Xna.Framework.Vector2);
             tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
+            tmp = typeof(Microsoft.Xna.Framework.Audio.AudioEngine);
             tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
             tmp = typeof(xTile.Dimensions.Rectangle);
 
