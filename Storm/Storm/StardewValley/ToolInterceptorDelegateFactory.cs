@@ -14,25 +14,28 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 using System;
 using Castle.DynamicProxy;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley
 {
     public class ToolInterceptorDelegateFactory : InterceptorDelegateFactory<ToolDelegate>
     {
         public delegate void DrawInMenuDelegate(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
-        public delegate void BeginUsingDelegate(GameLocationAccessor loc, int x, int y, FarmerAccessor farmer);
+        public delegate void BeginUsingDelegate(GameLocation loc, int x, int y, Farmer farmer);
 
         private string drawInMenuName;
         private string beginUsingName;
 
+        private StaticContext Parent { get; }
+
         private class ToolInterceptor : IInterceptor
         {
+            private StaticContext Parent { get; }
             private string drawInMenuName;
             private DrawInMenuDelegate drawInMenuDelegate;
 
@@ -40,9 +43,11 @@ namespace Storm.StardewValley
             private BeginUsingDelegate beginUsingDelegate;
 
             public ToolInterceptor(
+                StaticContext parent,
                 string getNameMethodName, DrawInMenuDelegate drawInMenuDelegate, 
                 string beginUsingName, BeginUsingDelegate beginUsingDelegate)
             {
+                this.Parent = parent;
                 this.drawInMenuName = getNameMethodName;
                 this.drawInMenuDelegate = drawInMenuDelegate;
                 this.beginUsingName = beginUsingName;
@@ -61,7 +66,9 @@ namespace Storm.StardewValley
                 else if (method.Name == beginUsingName)
                 {
                     var args = invocation.Arguments;
-                    beginUsingDelegate((GameLocationAccessor)args[0], (int)args[1], (int)args[2], (FarmerAccessor)args[3]);
+                    var location = new GameLocation(Parent, (GameLocationAccessor)args[0]);
+                    var farmer = new Farmer(Parent, (FarmerAccessor)args[3]);
+                    beginUsingDelegate(location, (int)args[1], (int)args[2], farmer);
                     return;
                 }
 
@@ -69,15 +76,16 @@ namespace Storm.StardewValley
             }
         }
 
-        public ToolInterceptorDelegateFactory(string getNameMethodName, string beginUsingName)
+        public ToolInterceptorDelegateFactory(StaticContext parent, string getNameMethodName, string beginUsingName)
         {
+            this.Parent = parent;
             this.drawInMenuName = getNameMethodName;
             this.beginUsingName = beginUsingName;
         }
 
         public IInterceptor CreateInterceptor(ToolDelegate t)
         {
-            return new ToolInterceptor(drawInMenuName, t.DrawInMenu, beginUsingName, t.BeginUsing);
+            return new ToolInterceptor(Parent, drawInMenuName, t.DrawInMenu, beginUsingName, t.BeginUsing);
         }
     }
 }
