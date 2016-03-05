@@ -5097,7 +5097,8 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"InitializeCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5105,7 +5106,8 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"LoadContentCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"LAST"
     },
     {
       "OwnerAccessorType":"@StaticContext",
