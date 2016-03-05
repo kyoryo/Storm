@@ -5125,7 +5125,7 @@
       "InstanceCallbackName":"PreUIDrawCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2091
+      "InsertionIndex":[2091]
     },
     {
       "OwnerAccessorType":"@StaticContext",
@@ -5135,7 +5135,7 @@
       "InstanceCallbackName":"PostDrawCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"ABSOLUTE",
-      "InsertionIndex":2627
+      "InsertionIndex":[2627]
     },
     {
       "OwnerAccessorType":"@StaticContext",
