@@ -17,7 +17,7 @@
 
 using Castle.DynamicProxy;
 
-namespace Storm.StardewValley
+namespace Storm.StardewValley.Proxy
 {
     public interface InterceptorDelegateFactory<T>
     {

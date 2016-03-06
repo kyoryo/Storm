@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley
+namespace Storm.StardewValley.Proxy
 {
     public abstract class ToolDelegate : TypeDelegate<Tool>
     {

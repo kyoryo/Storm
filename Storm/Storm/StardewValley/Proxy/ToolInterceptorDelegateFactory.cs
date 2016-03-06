@@ -21,7 +21,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley
+namespace Storm.StardewValley.Proxy
 {
     public class ToolInterceptorDelegateFactory : InterceptorDelegateFactory<ToolDelegate>
     {

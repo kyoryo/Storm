@@ -26,6 +26,7 @@ using Storm.Manipulation;
 using Storm.Manipulation.Cecil;
 using Storm.StardewValley.Accessor;
 using Rectangle = xTile.Dimensions.Rectangle;
+using Storm.StardewValley.Proxy;
 
 namespace Storm.StardewValley
 {

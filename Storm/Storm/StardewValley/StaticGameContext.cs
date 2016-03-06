@@ -26,6 +26,7 @@ using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
+using Storm.StardewValley.Proxy;
 
 namespace Storm.StardewValley
 {

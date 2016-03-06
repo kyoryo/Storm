@@ -22,6 +22,7 @@ using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
+using Storm.StardewValley.Proxy;
 
 namespace Storm.StardewValley.Event
 {
