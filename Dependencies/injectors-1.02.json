@@ -6626,6 +6626,14 @@
          "PushParams":"true"
       },
       {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"pressAddItemToInventoryButton",
+         "OwnerMethodDesc":"()System.Void",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "StaticCallbackName":"PressAddItemToInventoryButtonEventCallback",
+         "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+      },
+      {
          "OwnerAccessorType":"@Crop",
          "OwnerMethodName":"growCompletely",
          "OwnerMethodDesc":"()System.Void",

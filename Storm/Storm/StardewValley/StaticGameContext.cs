@@ -287,6 +287,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public DetourEvent PressAddItemToInventoryButtonEventCallback()
+        {
+            var @event = new PressAddItemToInventoryButtonEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
