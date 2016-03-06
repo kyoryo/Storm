@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Castle.DynamicProxy;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
@@ -184,6 +185,13 @@ namespace Storm.StardewValley
         {
             var @event = new PlayMorningSongEvent();
             EventBus.Fire<PlayMorningSongEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
+        {
+            var @event = new CompleteGrowthEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<CompleteGrowthEvent>(@event);
             return @event;
         }
 

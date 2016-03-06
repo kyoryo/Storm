@@ -129,6 +129,7 @@
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\CompleteGrowthEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
@@ -215,8 +216,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StardewValley\Event\ClickableMenu\" />
-    <Folder Include="StardewValley\Event\Crop\" />
     <Folder Include="StardewValley\Event\GameLocation\" />
+    <Folder Include="StardewValley\Event\Crop\" />
     <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\Object\" />
