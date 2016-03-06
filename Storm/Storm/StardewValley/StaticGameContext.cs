@@ -17,6 +17,7 @@
 
 using System;
 using System.Reflection;
+using Microsoft.Xna.Framework;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
@@ -233,6 +234,48 @@ namespace Storm.StardewValley
         public static DetourEvent ShowEndOfNightStuffCallback()
         {
             var @event = new ShowEndOfNightStuffEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent TryToBuySelectedItemsCallback()
+        {
+            var @event = new TryToBuySelectedItemsEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent UpdateMusicCallback()
+        {
+            var @event = new UpdateMusicEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent UpdateTitleScreenCallback(GameTime gameTime)
+        {
+            var @event = new UpdateTitleScreenEvent(gameTime);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ShowRedMessageCallback(string message)
+        {
+            var @event = new ShowRedMessageEvent(message);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ShowGlobalMessageCallback(string message)
+        {
+            var @event = new ShowGlobalMessageEvent(message);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GameExitEventCallback(object sender, EventArgs e)
+        {
+            var @event = new GameExitEvent(sender, e);
             EventBus.Fire(@event);
             return @event;
         }

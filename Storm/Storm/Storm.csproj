@@ -145,6 +145,7 @@
     <Compile Include="StardewValley\Accessor\MineShaftAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameLoadedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\FarmerDamageEvent.cs" />
     <Compile Include="StardewValley\Accessor\PetAccessor.cs" />
@@ -164,6 +165,9 @@
     <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PressUseToolButtonEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShowEndOfNightStuffEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowGlobalMessageEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowRedMessageEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\TryToBuySelectedItemsEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UnloadContentEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UpdateGameClockEvent.cs" />
     <Compile Include="StardewValley\Event\Game\LoadContentEvent.cs" />
@@ -172,6 +176,8 @@
     <Compile Include="StardewValley\Event\Game\PreUIRenderEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PreUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\SellShippedItemsEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateMusicEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
