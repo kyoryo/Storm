@@ -5408,6 +5408,15 @@
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType":"LAST"
     },
+	{
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"UnloadContent",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"UnloadContentCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"FIRST"
+    },
     {
       "OwnerAccessorType":"@StaticContext",
       "OwnerMethodName":"Draw",
