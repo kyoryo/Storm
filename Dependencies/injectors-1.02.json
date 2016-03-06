@@ -6537,6 +6537,15 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "loadForNewGame",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "BeforeGameLoadedCallback",
+      "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
       "OwnerAccessorType": "@Crop",
       "OwnerMethodName": "growCompletely",
       "OwnerMethodDesc": "()System.Void",

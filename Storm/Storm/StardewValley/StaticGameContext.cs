@@ -24,6 +24,7 @@ using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Wrapper;
 using System;
 using System.Reflection;
+using Storm.StardewValley.Event.Game;
 
 namespace Storm.StardewValley
 {
@@ -200,6 +201,20 @@ namespace Storm.StardewValley
         {
             var @event = new FarmerDamageEvent(damage, overrideParry, new Monster(WrappedGame, damager));
             EventBus.Fire<FarmerDamageEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeGameLoadedCallback(bool loadedGame)
+        {
+            var @event = new GameLoadedEvent(loadedGame);
+            EventBus.Fire<GameLoadedEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterGameLoadedCallback(bool loadedGame)
+        {
+            var @event = new GameLoadedEvent(loadedGame);
+            EventBus.Fire<GameLoadedEvent>(@event);
             return @event;
         }
 
