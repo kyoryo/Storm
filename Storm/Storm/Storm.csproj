@@ -134,6 +134,7 @@
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
+    <Compile Include="StardewValley\Event\Crop\AfterHarvestCropEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\BeforeHarvestCropEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />

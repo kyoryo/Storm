@@ -6544,6 +6544,14 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": "harvest",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,@(HoeDirt))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHarvestCropCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
       "OwnerAccessorType": "@Farmer",
       "OwnerMethodName": "addItemToInventory",
       "OwnerMethodDesc": "(@(Item))@(Item)",

@@ -214,6 +214,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
+        {
+            var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<AfterHarvestCropEvent>(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Farmer Events
