@@ -121,6 +121,7 @@
     <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BobberBarAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ChestAccessor.cs" />
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
@@ -153,7 +154,7 @@
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
     <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="StardewValley\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
+    <Compile Include="StardewValley\Wrapper\Chest.cs" />
     <Compile Include="StardewValley\Wrapper\Crop.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
     <Compile Include="StardewValley\Wrapper\Item.cs" />
