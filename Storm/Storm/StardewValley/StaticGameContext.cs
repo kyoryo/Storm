@@ -218,6 +218,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent ShowEndOfNightStuffCallback()
+        {
+            var @event = new ShowEndOfNightStuffEvent();
+            EventBus.Fire<ShowEndOfNightStuffEvent>(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events

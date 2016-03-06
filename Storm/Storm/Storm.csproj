@@ -163,6 +163,7 @@
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PressUseToolButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShowEndOfNightStuffEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UnloadContentEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UpdateGameClockEvent.cs" />
     <Compile Include="StardewValley\Event\Game\LoadContentEvent.cs" />
