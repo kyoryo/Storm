@@ -15,8 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Wrapper;
-
 namespace Storm.StardewValley.Event.Crop
 {
     public class CropCompleteGrowthEvent : StaticContextEvent

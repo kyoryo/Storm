@@ -15,15 +15,9 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Storm.Manipulation;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System.IO;
 
 namespace Storm.Manipulation.Cecil
 {
