@@ -16,19 +16,19 @@
  */
 
 
-using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event.Game
 {
     public class PlayerEatObjectEvent : StaticContextEvent
     {
-        public PlayerEatObjectEvent(ObjectAccessor o, bool overrideFullness)
+        public PlayerEatObjectEvent(Object o, bool overrideFullness)
         {
             O = o;
             OverrideFullness = overrideFullness;
         }
 
-        public ObjectAccessor O { get; }
+        public Object O { get; }
         public bool OverrideFullness { get; }
     }
 }

@@ -25,6 +25,7 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
+using Object = Storm.StardewValley.Wrapper.Object;
 
 namespace Storm.StardewValley
 {
@@ -296,7 +297,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PlayerEatObjectCallback(ObjectAccessor o, bool overrideFullness)
         {
-            var @event = new PlayerEatObjectEvent(o, overrideFullness);
+            var @event = new PlayerEatObjectEvent(new Object(WrappedGame, o), overrideFullness);
             EventBus.Fire(@event);
             return @event;
         }
