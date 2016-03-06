@@ -76,19 +76,30 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
+            if (@params.InsertionType == InsertionType.BEGINNING)
+            {
+                injectionPoints.Add(injectee.Body.Instructions[0]);
+                return;
+            }
+
+            if (@params.InsertionType == InsertionType.LAST && @params.InsertionIndex == null)
+            {
+                injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1]);
+                return;
+            }
+
             foreach (var i in @params.InsertionIndex)
             {
                 switch (@params.InsertionType)
                 {
-                    case InsertionType.BEGINNING:
                     case InsertionType.ABSOLUTE:
-                        injectionPoints.Add(injectee.Body.Instructions[@params.InsertionIndex[i]]);
+                        injectionPoints.Add(injectee.Body.Instructions[i]);
                         break;
                     case InsertionType.LAST:
-                        injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1 - @params.InsertionIndex[i]]);
+                        injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1 - i]);
                         break;
                     case InsertionType.RETURNS:
-                        injectionPoints.Add(GetReturnByRelativity(injectee, @params.InsertionIndex[i]));
+                        injectionPoints.Add(GetReturnByRelativity(injectee, i));
                         break;
                 }
             }
