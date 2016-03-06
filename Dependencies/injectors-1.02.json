@@ -2573,21 +2573,21 @@
       "OwnerFieldName": "cookingRecipes",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "CookingRecipes",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "craftingRecipes",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "CraftingRecipes",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "activeDialogueEvents",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "ActiveDialogueEvents",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
@@ -2711,7 +2711,7 @@
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "currentLocation",
-      "OwnerFieldType": "StardewValley.GameLocation",
+      "OwnerFieldType": "@GameLocation",
       "MethodName": "CurrentLocation",
       "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
     },
@@ -3546,42 +3546,42 @@
       "OwnerFieldName": "basicShipped",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "BasicShipped",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "mineralsFound",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "MineralsFound",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "recipesCooked",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "RecipesCooked",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "archaeologyFound",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "ArchaeologyFound",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "fishCaught",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "FishCaught",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "friendships",
       "OwnerFieldType": "StardewValley.SerializableDictionary`2",
       "MethodName": "Friendships",
-      "Type": "StardewValley.SerializableDictionary`2"
+      "Type": "System.Collections.IDictionary"
     },
     {
       "OwnerAccessorType": "@Farmer",

@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,6 +56,15 @@ namespace Storm.StardewValley.Accessor
 
         IList _GetFurnitureOwned();
         void _SetFurnitureOwned(IList val);
+
+        IDictionary _GetCookingRecipes();
+        void _SetCookingRecipes(IDictionary val);
+
+        IDictionary _GetCraftingRecipes();
+        void _SetCraftingRecipes(IDictionary val);
+
+        IDictionary _GetActiveDialogueEvents();
+        void _SetActiveDialogueEvents(IDictionary val);
 
         IList _GetEventsSeen();
         void _SetEventsSeen(IList val);
@@ -308,10 +318,10 @@ namespace Storm.StardewValley.Accessor
         int _GetClubCoins();
         void _SetClubCoins(int val);
 
-        uint _GetTotalMoneyEarned();
+        UInt32 _GetTotalMoneyEarned();
         void _SetTotalMoneyEarned(UInt32 val);
 
-        uint _GetMillisecondsPlayed();
+        UInt32 _GetMillisecondsPlayed();
         void _SetMillisecondsPlayed(UInt32 val);
 
         ToolAccessor _GetToolBeingUpgraded();
@@ -445,7 +455,25 @@ namespace Storm.StardewValley.Accessor
 
         bool _GetCanUnderstandDwarves();
         void _SetCanUnderstandDwarves(bool val);
-        
+
+        IDictionary _GetBasicShipped();
+        void _SetBasicShipped(IDictionary val);
+
+        IDictionary _GetMineralsFound();
+        void _SetMineralsFound(IDictionary val);
+
+        IDictionary _GetRecipesCooked();
+        void _SetRecipesCooked(IDictionary val);
+
+        IDictionary _GetArchaeologyFound();
+        void _SetArchaeologyFound(IDictionary val);
+
+        IDictionary _GetFishCaught();
+        void _SetFishCaught(IDictionary val);
+
+        IDictionary _GetFriendships();
+        void _SetFriendships(IDictionary val);
+
         Vector2 _GetPositionBeforeEvent();
         void _SetPositionBeforeEvent(Vector2 val);
 
@@ -496,6 +524,9 @@ namespace Storm.StardewValley.Accessor
 
         String _GetBobber();
         void _SetBobber(String val);
+
+        ContentManager _GetFarmerTextureManager();
+        void _SetFarmerTextureManager(ContentManager val);
 
         int _GetSaveTime();
         void _SetSaveTime(int val);
