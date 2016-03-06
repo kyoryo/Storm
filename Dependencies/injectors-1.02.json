@@ -6608,11 +6608,20 @@
          "PushParams":"true"
       },
       {
-         "OwnerAccessorType":"StardewValley.Game1",
+         "OwnerAccessorType":"@StaticContext",
          "OwnerMethodName":"exitEvent",
          "OwnerMethodDesc":"(System.Object,System.EventArgs)System.Void",
          "CallbackType":"Storm.StardewValley.StaticGameContext",
          "InstanceCallbackName":"GameExitEventCallback",
+         "InstanceCallbackDesc":"(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
+         "PushParams":"true"
+      },
+      {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"Window_ClientSizeChanged",
+         "OwnerMethodDesc":"(System.Object,System.EventArgs)System.Void",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "InstanceCallbackName":"ClientSizeChangedEventCallback",
          "InstanceCallbackDesc":"(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
          "PushParams":"true"
       },

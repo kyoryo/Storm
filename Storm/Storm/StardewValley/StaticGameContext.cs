@@ -280,6 +280,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public DetourEvent ClientSizeChangedEventCallback(object sender, EventArgs e)
+        {
+            var @event = new ClientSizeChangedEvent(sender, e);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
