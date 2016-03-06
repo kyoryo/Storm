@@ -125,8 +125,11 @@
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\FenceAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\GameMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\HoeDirtAccessor.cs" />
     <Compile Include="StardewValley\Accessor\InventoryMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\InventoryPageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
@@ -156,8 +159,14 @@
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\Event.cs" />
+    <Compile Include="StardewValley\Wrapper\Fence.cs" />
+    <Compile Include="StardewValley\Wrapper\GameMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\HoeDirt.cs" />
     <Compile Include="StardewValley\Wrapper\InventoryMenu.cs" />
-    <Compile Include="StardewValley\Wrapper\ObjectAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\InventoryPage.cs" />
+    <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
     <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />

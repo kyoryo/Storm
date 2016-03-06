@@ -257,16 +257,16 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCatPerson(value); }
         }
 
-        public ItemAccessor MostRecentlyGrabbedItem
+        public Item MostRecentlyGrabbedItem
         {
-            get { return accessor._GetMostRecentlyGrabbedItem(); }
-            set { accessor._SetMostRecentlyGrabbedItem(value); }
+            get { return new Item(Parent, accessor._GetMostRecentlyGrabbedItem()); }
+            set { accessor._SetMostRecentlyGrabbedItem(value.Expose()); }
         }
 
-        public ItemAccessor ItemToEat
+        public Item ItemToEat
         {
-            get { return accessor._GetItemToEat(); }
-            set { accessor._SetItemToEat(value); }
+            get { return new Item(Parent, accessor._GetItemToEat()); }
+            set { accessor._SetItemToEat(value.Expose()); }
         }
 
         public int ToolPower
@@ -359,10 +359,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetNewEyeColor(value); }
         }
         
-        public NPCAccessor DancePartner
+        public NPC DancePartner
         {
-            get { return accessor._GetDancePartner(); }
-            set { accessor._SetDancePartner(value); }
+            get { return new NPC(Parent, accessor._GetDancePartner()); }
+            set { accessor._SetDancePartner(value.Expose()); }
         }
 
         public bool RidingMineElevator
@@ -629,22 +629,22 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetClubCoins(value); }
         }
 
-        public UInt32 TotalMoneyEarned
+        public uint TotalMoneyEarned
         {
             get { return accessor._GetTotalMoneyEarned(); }
             set { accessor._SetTotalMoneyEarned(value); }
         }
 
-        public UInt32 MillisecondsPlayed
+        public uint MillisecondsPlayed
         {
             get { return accessor._GetMillisecondsPlayed(); }
             set { accessor._SetMillisecondsPlayed(value); }
         }
 
-        public ToolAccessor ToolBeingUpgraded
+        public Tool ToolBeingUpgraded
         {
-            get { return accessor._GetToolBeingUpgraded(); }
-            set { accessor._SetToolBeingUpgraded(value); }
+            get { return new Tool(Parent, accessor._GetToolBeingUpgraded()); }
+            set { accessor._SetToolBeingUpgraded(value.Expose()); }
         }
 
         public int DaysLeftForToolUpgrade
@@ -1073,10 +1073,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCharactercollisionTimer(value); }
         }
 
-        public NPCAccessor CollisionNPC
+        public NPC CollisionNPC
         {
-            get { return accessor._GetCollisionNPC(); }
-            set { accessor._SetCollisionNPC(value); }
+            get { return new NPC(Parent, accessor._GetCollisionNPC()); }
+            set { accessor._SetCollisionNPC(value.Expose()); }
         }
 
         public float MovementMultiplier

@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class InventoryMenu : Wrapper<InventoryMenuAccessor>
+    public class InventoryMenu : ClickableMenu, Wrapper<InventoryMenuAccessor>
     {
-        public StaticContext Parent { get; }
         private InventoryMenuAccessor accessor;
 
-        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor)
+        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) : base(parent, accessor)
         {
-            this.Parent = parent;
             this.accessor = accessor;
+        }
+
+        public ItemAccessor GetItemAt(int mouseX, int mouseY)
+        {
+            return accessor._GetItemAt(mouseX, mouseY);
         }
 
         public String HoverText
@@ -97,6 +100,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetVerticalGap(value); }
         }
 
-        public InventoryMenuAccessor Expose() => accessor;
+        public new InventoryMenuAccessor Expose() => accessor;
     }
 }
