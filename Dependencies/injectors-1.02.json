@@ -5243,7 +5243,7 @@
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"CompleteGrowthCallback",
-      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType":"@Farmer",
