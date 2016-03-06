@@ -114,6 +114,7 @@ namespace Storm.StardewValley
             tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
             tmp = typeof(Microsoft.Xna.Framework.Audio.AudioEngine);
             tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
+            tmp = typeof(Microsoft.Xna.Framework.Input.Keyboard);
             tmp = typeof(xTile.Dimensions.Rectangle);
 
             var ctx = Inject();
