@@ -14,16 +14,10 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System;
+
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.Core.Internal;
-using Storm.StardewValley;
-using System.Diagnostics;
 
 namespace Storm.ExternalEvent
 {

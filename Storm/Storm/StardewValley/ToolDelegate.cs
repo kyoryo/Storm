@@ -17,7 +17,6 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley

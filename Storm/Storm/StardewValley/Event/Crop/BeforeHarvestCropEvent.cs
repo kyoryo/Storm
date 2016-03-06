@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Storm.StardewValley.Wrapper;
-
-namespace Storm.StardewValley.Event.Crop
+﻿namespace Storm.StardewValley.Event.Crop
 {
     public class BeforeHarvestCropEvent : StaticContextEvent
     {

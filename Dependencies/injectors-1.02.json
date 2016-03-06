@@ -6546,6 +6546,26 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "loadForNewGame",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "AfterGameLoadedCallback",
+      "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "showEndOfNightStuff",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShowEndOfNightStuffCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
       "OwnerAccessorType": "@Crop",
       "OwnerMethodName": "growCompletely",
       "OwnerMethodDesc": "()System.Void",

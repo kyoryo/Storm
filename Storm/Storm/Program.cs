@@ -16,7 +16,6 @@
  */
 using System;
 using Storm.StardewValley;
-using System.Diagnostics;
 
 namespace Storm
 {
