@@ -78,6 +78,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent UnloadContentCallback(StaticContextAccessor context)
+        {
+            var @event = new UnloadContentEvent();
+            EventBus.Fire<UnloadContentEvent>(@event);
+            return @event;
+        }
+
         public static DetourEvent PreDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreRenderEvent();
