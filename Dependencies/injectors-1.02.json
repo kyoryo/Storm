@@ -6528,6 +6528,15 @@
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "farmerTakeDamage",
+      "OwnerMethodDesc": "(System.Int32,System.Boolean,@(Monster))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "FarmerTakeDamageCallback",
+      "StaticCallbackDesc": "(System.Int32,System.Boolean,Storm.StardewValley.Accessor.MonsterAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
       "OwnerAccessorType": "@Crop",
       "OwnerMethodName": "growCompletely",
       "OwnerMethodDesc": "()System.Void",

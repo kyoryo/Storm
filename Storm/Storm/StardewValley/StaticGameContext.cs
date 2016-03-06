@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -193,6 +193,13 @@ namespace Storm.StardewValley
         {
             var @event = new PlayMorningSongEvent();
             EventBus.Fire<PlayMorningSongEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerTakeDamageCallback(int damage, bool overrideParry, MonsterAccessor damager)
+        {
+            var @event = new FarmerDamageEvent(damage, overrideParry, new Monster(WrappedGame, damager));
+            EventBus.Fire<FarmerDamageEvent>(@event);
             return @event;
         }
 
