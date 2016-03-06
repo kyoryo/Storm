@@ -1,12 +1,11 @@
-﻿using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
+﻿using System.Collections;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    class InventoryPage : ClickableMenu, Wrapper<InventoryPageAccessor>
+    internal class InventoryPage : ClickableMenu, Wrapper<InventoryPageAccessor>
     {
-        private InventoryPageAccessor accessor;
+        private readonly InventoryPageAccessor accessor;
 
         public InventoryPage(StaticContext parent, InventoryPageAccessor accessor) : base(parent, accessor)
         {
@@ -19,25 +18,25 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetInventory(value); }
         }
 
-        public String DescriptionText
+        public string DescriptionText
         {
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
         }
 
-        public String HoverText
+        public string HoverText
         {
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }
         }
 
-        public String DescriptionTitle
+        public string DescriptionTitle
         {
             get { return accessor._GetDescriptionTitle(); }
             set { accessor._SetDescriptionTitle(value); }
         }
 
-        public String HoverTitle
+        public string HoverTitle
         {
             get { return accessor._GetHoverTitle(); }
             set { accessor._SetHoverTitle(value); }
@@ -67,7 +66,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetTrashCanLidRotation(value); }
         }
 
-        public String HorseName
+        public string HorseName
         {
             get { return accessor._GetHorseName(); }
             set { accessor._SetHorseName(value); }

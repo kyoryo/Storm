@@ -19,9 +19,5 @@ namespace Storm.StardewValley.Event.Game
 {
     public class ShowEndOfNightStuffEvent : StaticContextEvent
     {
-        public ShowEndOfNightStuffEvent()
-        {
-            
-        }
     }
 }

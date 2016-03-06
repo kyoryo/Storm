@@ -15,12 +15,12 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Mono.Cecil;
-using Mono.Cecil.Cil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Mono.Cecil;
+using Mono.Cecil.Cil;
 
 namespace Storm
 {
@@ -139,13 +139,14 @@ namespace Storm
                 SelectMany(m => m.Types).
                 SelectMany(t => t.Methods).
                 Where(m => m.HasBody && m != exclude && m.Body.Instructions.
-                    FirstOrDefault(i => {
-                    if (i.Operand != null && i.Operand is FieldReference)
+                    FirstOrDefault(i =>
                     {
-                        return ((FieldReference)i.Operand).Resolve() == fd;
-                    }
-                    return false;
-               }) != null);
+                        if (i.Operand != null && i.Operand is FieldReference)
+                        {
+                            return ((FieldReference) i.Operand).Resolve() == fd;
+                        }
+                        return false;
+                    }) != null);
         }
 
         public static bool IsGettingField(Instruction ins)
@@ -158,5 +159,4 @@ namespace Storm
             return ins.OpCode == OpCodes.Stfld;
         }
     }
-
 }

@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 
 namespace Storm.ExternalEvent
@@ -21,14 +22,10 @@ namespace Storm.ExternalEvent
     [AttributeUsage(AttributeTargets.Class)]
     public class Mod : Attribute
     {
-        private string name;
-        private string author;
-        private double version;
+        public string Name { get; set; }
 
-        public string Name { get { return name; } set { this.name = value; } }
+        public string Author { get; set; }
 
-        public string Author { get { return author; } set { this.author = value; } }
-
-        public double Version { get { return version; } set { this.version = value; } }
+        public double Version { get; set; }
     }
 }

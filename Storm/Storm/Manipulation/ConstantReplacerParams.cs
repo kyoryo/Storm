@@ -24,6 +24,5 @@ namespace Storm.Manipulation
         public string OwnerMethodDesc { get; set; }
         public string Value { get; set; }
         public string ValueType { get; set; }
-
     }
 }

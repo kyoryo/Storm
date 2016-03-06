@@ -14,16 +14,16 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilInterfaceInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private InterfaceParams @params;
+        private readonly AssemblyDefinition self;
 
         public CecilInterfaceInjector(AssemblyDefinition self, AssemblyDefinition def, InterfaceParams @params)
         {
@@ -34,7 +34,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -42,7 +41,7 @@ namespace Storm.Manipulation.Cecil
             var implementingInterface = self.GetTypeDef(@params.InterfaceType);
             if (implementingInterface == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementingInterface {0} {1}", 
+                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find implementingInterface {0} {1}",
                     @params.OwnerType, @params.InterfaceType));
                 return;
             }
@@ -50,7 +49,7 @@ namespace Storm.Manipulation.Cecil
             var implementer = def.GetTypeDef(@params.OwnerType);
             if (implementer == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find implementer {0} {1}",
+                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find implementer {0} {1}",
                     @params.OwnerType, @params.InterfaceType));
                 return;
             }

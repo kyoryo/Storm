@@ -14,18 +14,21 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.Manipulation.Json;
-using Newtonsoft.Json;
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Newtonsoft.Json;
+using Storm.Manipulation.Json;
 
 namespace Storm.Manipulation
 {
     public abstract class InjectorFactory
     {
-        public InjectorFactory() { }
+        public InjectorFactory()
+        {
+        }
 
         public InjectorFactory(string path)
         {
@@ -82,14 +85,14 @@ namespace Storm.Manipulation
         {
             while (s.IndexOf("@") != -1)
             {
-                int start = s.IndexOf('@');
-                int end = -1;
+                var start = s.IndexOf('@');
+                var end = -1;
                 if (s[start + 1] == '(')
                 {
                     end = s.IndexOf(')', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
-                    string key = s.Substring(start + 2, end - start - 3);
+                    var key = s.Substring(start + 2, end - start - 3);
                     s = s.Replace(s.Substring(start, end - start), map[key]);
                 }
                 else
@@ -97,7 +100,7 @@ namespace Storm.Manipulation
                     end = s.IndexOf(' ', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
-                    string key = s.Substring(start + 1, end - start - 1);
+                    var key = s.Substring(start + 1, end - start - 1);
                     s = s.Replace(s.Substring(start, end - start), map[key]);
                 }
             }
@@ -121,7 +124,7 @@ namespace Storm.Manipulation
                 list.Add(CreateInterfaceInjector(new InterfaceParams
                 {
                     OwnerType = injector.OwnerType,
-                    InterfaceType = injector.InterfaceType,
+                    InterfaceType = injector.InterfaceType
                 }));
                 nameMap.Add(injector.SimpleName, injector.OwnerType);
                 accessorMap.Add(injector.InterfaceType, injector.OwnerType);
@@ -146,7 +149,7 @@ namespace Storm.Manipulation
                 MethodName = injector.MethodName,
                 ReturnType = FilterTags(nameMap, injector.ReturnType),
                 IsStatic = injector.IsStatic,
-                OwnerAccessorType = injector.OwnerAccessorType,
+                OwnerAccessorType = injector.OwnerAccessorType
             })));
 
             list.AddRange(container.FieldMutatorParams.Select(injector => CreateFieldMutatorInjector(new FieldMutatorParams
@@ -157,7 +160,7 @@ namespace Storm.Manipulation
                 MethodName = injector.MethodName,
                 ParamType = FilterTags(nameMap, injector.ParamType),
                 IsStatic = injector.IsStatic,
-                OwnerAccessorType = injector.OwnerAccessorType,
+                OwnerAccessorType = injector.OwnerAccessorType
             })));
 
             list.AddRange(container.FieldAccessorMutatorParams.Select(injector => CreateFieldAccessorMutatorInjector(new FieldAccessorMutatorParams
@@ -168,7 +171,7 @@ namespace Storm.Manipulation
                 MethodName = injector.MethodName,
                 Type = FilterTags(nameMap, injector.Type),
                 IsStatic = injector.IsStatic,
-                OwnerAccessorType = injector.OwnerAccessorType,
+                OwnerAccessorType = injector.OwnerAccessorType
             })));
 
             list.AddRange(container.InvokerParams.Select(injector => CreateInvokerInjector(new InvokerParams
@@ -179,7 +182,7 @@ namespace Storm.Manipulation
                 InvokerName = injector.InvokerName,
                 InvokerReturnParams = injector.InvokerReturnParams,
                 InvokerReturnType = injector.InvokerReturnType,
-                IsStatic = injector.IsStatic,
+                IsStatic = injector.IsStatic
             })));
 
             list.AddRange(container.AbsoluteCallParams.Select(injector => CreateAbsoluteCallInjector(new AbsoluteCallParams
@@ -191,7 +194,7 @@ namespace Storm.Manipulation
                 DetourMethodName = injector.DetourMethodName,
                 DetourMethodDesc = FilterTags(nameMap, injector.DetourMethodDesc),
                 InsertionType = injector.InsertionType,
-                InsertionIndex = injector.InsertionIndex,
+                InsertionIndex = injector.InsertionIndex
             })));
 
             list.AddRange(container.FieldInfoParams.Select(injector => CreateFieldInfoInjector(new FieldInfoParams
@@ -200,7 +203,7 @@ namespace Storm.Manipulation
                 FieldName = injector.FieldName,
                 FieldType = FilterTags(nameMap, injector.FieldType),
                 OwnerAccessorType = injector.OwnerAccessorType,
-                RefactoredName = injector.RefactoredName,
+                RefactoredName = injector.RefactoredName
             })));
 
             list.AddRange(container.MethodInfoParams.Select(injector => CreateMethodInfoInjector(new MethodInfoParams
@@ -209,7 +212,7 @@ namespace Storm.Manipulation
                 MethodName = injector.MethodName,
                 MethodDesc = FilterTags(nameMap, injector.MethodDesc),
                 OwnerAccessorType = injector.OwnerAccessorType,
-                RefactoredName = injector.RefactoredName,
+                RefactoredName = injector.RefactoredName
             })));
 
             list.AddRange(container.EventCallbackParams.Select(injector => CreateEventCallbackInjector(new EventCallbackParams
@@ -224,7 +227,7 @@ namespace Storm.Manipulation
                 StaticCallbackDesc = injector.StaticCallbackDesc,
                 InsertionIndex = injector.InsertionIndex,
                 InsertionType = injector.InsertionType,
-                PushParams = injector.PushParams,
+                PushParams = injector.PushParams
             })));
 
             return list;

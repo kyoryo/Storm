@@ -15,41 +15,46 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
+using System.IO;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.Manipulation.Cecil;
 using Storm.StardewValley.Accessor;
-using System;
-using System.IO;
+using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace Storm.StardewValley
 {
     /// <summary>
-    /// Handles managed injection & launching of Stardew Valley
+    ///     Handles managed injection & launching of Stardew Valley
     /// </summary>
     public class ManagedStardewValleyLauncher
     {
+        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath, bool debug = false)
+        {
+            InjectorsPath = injectorsPath;
+            GamePath = gamePath;
+            Debug = debug;
+        }
+
         /// <summary>
-        /// The file path to the injectors json.
+        ///     The file path to the injectors json.
         /// </summary>
         public string InjectorsPath { get; set; }
 
         /// <summary>
-        /// The file  path to the game executable.
+        ///     The file  path to the game executable.
         /// </summary>
         public string GamePath { get; set; }
 
         /// <summary>
-        /// If Storm is in debug mode or not.
+        ///     If Storm is in debug mode or not.
         /// </summary>
         public bool Debug { get; set; }
-
-        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath, bool debug = false)
-        {
-            this.InjectorsPath = injectorsPath;
-            this.GamePath = gamePath;
-            this.Debug = debug;
-        }
 
         private InjectionFactoryContext Inject()
         {
@@ -88,12 +93,12 @@ namespace Storm.StardewValley
             var constructor = entryType.GetConstructor(new Type[0]);
 
             StaticGameContext.Assembly = assembly;
-            StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
+            StaticGameContext.Root = (ProgramAccessor) constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(StaticGameContext.WrappedGame,
                 InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "DrawInMenu"),
                 InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "BeginUsing"));
-            
+
             var eventBus = new ModEventBus();
             if (!Directory.Exists(StormAPI.ModsPath))
                 Directory.CreateDirectory(StormAPI.ModsPath);
@@ -110,18 +115,18 @@ namespace Storm.StardewValley
         {
             // force the loading of dependencies so we can resolve injection types...
             Type tmp = null;
-            tmp = typeof(Microsoft.Xna.Framework.Vector2);
-            tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
-            tmp = typeof(Microsoft.Xna.Framework.Audio.AudioEngine);
-            tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
-            tmp = typeof(Microsoft.Xna.Framework.Input.Keyboard);
-            tmp = typeof(xTile.Dimensions.Rectangle);
+            tmp = typeof (Vector2);
+            tmp = typeof (SpriteBatch);
+            tmp = typeof (AudioEngine);
+            tmp = typeof (GraphicsDeviceManager);
+            tmp = typeof (Keyboard);
+            tmp = typeof (Rectangle);
 
             var ctx = Inject();
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
+            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
         }
     }
 }

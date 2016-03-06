@@ -1,6 +1,5 @@
-﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -21,8 +20,8 @@ namespace Storm.StardewValley.Accessor
         FarmerAccessor _GetOpener();
         void _SetOpener(FarmerAccessor val);
 
-        String _GetChestType();
-        void _SetChestType(String val);
+        string _GetChestType();
+        void _SetChestType(string val);
 
         Color _GetTint();
         void _SetTint(Color val);

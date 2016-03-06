@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilFieldDetourInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private FieldDetourParams @params;
+        private readonly AssemblyDefinition self;
 
         public CecilFieldDetourInjector(AssemblyDefinition self, AssemblyDefinition def, FieldDetourParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -50,7 +49,7 @@ namespace Storm.Manipulation.Cecil
 
             if (callingDefinition == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
+                Logging.DebugLog(string.Format("[CecilFieldDetourInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
                     @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
                 return;
@@ -58,7 +57,7 @@ namespace Storm.Manipulation.Cecil
 
             if (fieldRef == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldDetourInjector] Could not find fieldRef {0} {1} {2} {3} {4} {4} {5}",
+                Logging.DebugLog(string.Format("[CecilFieldDetourInjector] Could not find fieldRef {0} {1} {2} {3} {4} {4} {5}",
                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
                     @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
                 return;
@@ -70,10 +69,10 @@ namespace Storm.Manipulation.Cecil
                 var import = method.Module.Import(callingDefinition.Resolve());
                 var processor = method.Body.GetILProcessor();
                 var instructions = method.Body.Instructions;
-                for (int i = 0; i < instructions.Count; i++)
+                for (var i = 0; i < instructions.Count; i++)
                 {
                     var ins = instructions[i];
-                    if (CecilUtils.IsGettingField(ins) && (ins.Operand is FieldReference))
+                    if (CecilUtils.IsGettingField(ins) && ins.Operand is FieldReference)
                     {
                         var casted = ins.Operand as FieldReference;
                         if (casted.Resolve() == fieldRef.Resolve())

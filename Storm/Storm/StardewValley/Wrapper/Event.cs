@@ -1,24 +1,24 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Event : Wrapper<EventAccessor>
     {
-        private StaticContext Parent { get; }
-        private EventAccessor accessor;
+        private readonly EventAccessor accessor;
 
         public Event(StaticContext parent, EventAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
 
-        public String EventCommands
+        private StaticContext Parent { get; }
+
+        public string EventCommands
         {
             get { return accessor._GetEventCommands(); }
             set { accessor._SetEventCommands(value); }
@@ -60,13 +60,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFestivalProps(value); }
         }
 
-        public String MessageToScreen
+        public string MessageToScreen
         {
             get { return accessor._GetMessageToScreen(); }
             set { accessor._SetMessageToScreen(value); }
         }
 
-        public String PlayerControlSequenceID
+        public string PlayerControlSequenceID
         {
             get { return accessor._GetPlayerControlSequenceID(); }
             set { accessor._SetPlayerControlSequenceID(value); }
@@ -300,7 +300,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFestivalHost(value); }
         }
 
-        public String HostMessage
+        public string HostMessage
         {
             get { return accessor._GetHostMessage(); }
             set { accessor._SetHostMessage(value); }

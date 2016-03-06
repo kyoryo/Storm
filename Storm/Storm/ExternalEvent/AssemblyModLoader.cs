@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,12 @@ namespace Storm.ExternalEvent
         protected List<LoadedMod> LoadModsFromAssembly(Assembly assembly)
         {
             var result = new List<LoadedMod>();
-            var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof(Mod)) != null);
+            var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof (Mod)) != null);
             foreach (var mod in mods)
             {
                 var map = new Dictionary<Type, List<MethodInfo>>();
 
-                var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof(Subscribe)) != null);
+                var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof (Subscribe)) != null);
                 foreach (var handler in handlers)
                 {
                     var @params = handler.GetParameters();
@@ -56,7 +57,7 @@ namespace Storm.ExternalEvent
                 {
                     instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
                     annotation = mod.GetCustomAttribute<Mod>(),
-                    callMap = map,
+                    callMap = map
                 });
             }
             return result;

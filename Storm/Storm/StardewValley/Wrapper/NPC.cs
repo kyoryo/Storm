@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class NPC : Character, Wrapper<NPCAccessor>
     {
-        private NPCAccessor accessor;
+        private readonly NPCAccessor accessor;
 
         public NPC(StaticContext parent, NPCAccessor accessor) : base(parent, accessor)
         {
@@ -85,19 +85,19 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetLastCrossroad(value); }
         }
 
-        public String DefaultMap
+        public string DefaultMap
         {
             get { return accessor._GetDefaultMap(); }
             set { accessor._SetDefaultMap(value); }
         }
 
-        public String LoveInterest
+        public string LoveInterest
         {
             get { return accessor._GetLoveInterest(); }
             set { accessor._SetLoveInterest(value); }
         }
 
-        public String BirthdaySeason
+        public string BirthdaySeason
         {
             get { return accessor._GetBirthdaySeason(); }
             set { accessor._SetBirthdaySeason(value); }
@@ -163,7 +163,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetRoutesFromLocationToLocation(value); }
         }
 
-        public String TextAboveHead
+        public string TextAboveHead
         {
             get { return accessor._GetTextAboveHead(); }
             set { accessor._SetTextAboveHead(value); }
@@ -259,7 +259,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetBirthdayDay(value); }
         }
 
-        public String ExtraDialogueMessageToAddThisMorning
+        public string ExtraDialogueMessageToAddThisMorning
         {
             get { return accessor._GetExtraDialogueMessageToAddThisMorning(); }
             set { accessor._SetExtraDialogueMessageToAddThisMorning(value); }
@@ -349,7 +349,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetTimerSinceLastMovement(value); }
         }
 
-        public String MapBeforeEvent
+        public string MapBeforeEvent
         {
             get { return accessor._GetMapBeforeEvent(); }
             set { accessor._SetMapBeforeEvent(value); }
@@ -427,19 +427,19 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetRouteEndOutro(value); }
         }
 
-        public String EndOfRouteMessage
+        public string EndOfRouteMessage
         {
             get { return accessor._GetEndOfRouteMessage(); }
             set { accessor._SetEndOfRouteMessage(value); }
         }
 
-        public String NextEndOfRouteMessage
+        public string NextEndOfRouteMessage
         {
             get { return accessor._GetNextEndOfRouteMessage(); }
             set { accessor._SetNextEndOfRouteMessage(value); }
         }
 
-        public String EndOfRouteBehaviorName
+        public string EndOfRouteBehaviorName
         {
             get { return accessor._GetEndOfRouteBehaviorName(); }
             set { accessor._SetEndOfRouteBehaviorName(value); }

@@ -20,6 +20,6 @@ namespace Storm
     public enum DataFormat
     {
         XML,
-        Json,
+        Json
     }
 }

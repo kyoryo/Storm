@@ -19,11 +19,11 @@ namespace Storm.StardewValley.Event.Game
 {
     public class GameLoadedEvent : StaticContextEvent
     {
-        public bool LoadedGame { get; }
-
         public GameLoadedEvent(bool loadedGame)
         {
             LoadedGame = loadedGame;
         }
+
+        public bool LoadedGame { get; }
     }
 }

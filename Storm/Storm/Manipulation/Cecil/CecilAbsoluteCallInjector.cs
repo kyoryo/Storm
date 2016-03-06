@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilAbsoluteCallInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private AbsoluteCallParams @params;
+        private readonly AssemblyDefinition self;
 
         public CecilAbsoluteCallInjector(AssemblyDefinition self, AssemblyDefinition def, AbsoluteCallParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -49,17 +48,17 @@ namespace Storm.Manipulation.Cecil
 
             if (callingDefinition == null)
             {
-                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5} {6}",
-                    @params.OwnerType, @params.OwnerMethodName,  @params.OwnerMethodDesc, 
-                    @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc,  @params.InsertionIndex));
+                Logging.DebugLog(string.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5} {6}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
+                    @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc, @params.InsertionIndex));
                 return;
             }
 
             if (injectee == null)
             {
-                Logging.DebugLog(String.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5} {6}",
+                Logging.DebugLog(string.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5} {6}",
                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
-                    @params.DetourType,  @params.DetourMethodDesc,  @params.DetourMethodDesc, @params.InsertionIndex));
+                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc, @params.InsertionIndex));
                 return;
             }
 

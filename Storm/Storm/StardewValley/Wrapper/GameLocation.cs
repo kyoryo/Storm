@@ -14,23 +14,25 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Storm.StardewValley.Accessor;
+
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class GameLocation : Wrapper<GameLocationAccessor>
     {
-        public StaticContext Parent { get; }
-        private GameLocationAccessor accessor;
+        private readonly GameLocationAccessor accessor;
 
         public GameLocation(StaticContext parent, GameLocationAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        public StaticContext Parent { get; }
 
         public Dictionary<Vector2, Object> Objects
         {
@@ -40,7 +42,7 @@ namespace Storm.StardewValley.Wrapper
                 var conv = new Dictionary<Vector2, Object>();
                 foreach (var vec in orig.Keys)
                 {
-                    conv.Add((Vector2)vec, new Object(Parent, (ObjectAccessor)orig[vec]));
+                    conv.Add((Vector2) vec, new Object(Parent, (ObjectAccessor) orig[vec]));
                 }
                 return conv;
             }
@@ -54,15 +56,10 @@ namespace Storm.StardewValley.Wrapper
                 var conv = new Dictionary<Vector2, TerrainFeature>();
                 foreach (var vec in orig.Keys)
                 {
-                    conv.Add((Vector2)vec, new TerrainFeature(Parent, (TerrainFeatureAccessor)orig[vec]));
+                    conv.Add((Vector2) vec, new TerrainFeature(Parent, (TerrainFeatureAccessor) orig[vec]));
                 }
                 return conv;
             }
-        }
-
-        public void GrowWeedGrass(int iterations)
-        {
-            accessor._GrowWeedGrass(iterations);
         }
 
         public bool IsOutdoors
@@ -75,12 +72,12 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
                 if (charList == null)
                 {
                     return null;
                 }
-                return charList.Select(c => new NPC(Parent, c as NPCAccessor)).ToList();
+                return charList.Select(c => new NPC(Parent, c)).ToList();
             }
         }
 
@@ -88,7 +85,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList<NPCAccessor>();
+                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
                 if (charList == null)
                 {
                     return null;
@@ -97,6 +94,13 @@ namespace Storm.StardewValley.Wrapper
                 var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(Parent, c as MonsterAccessor)).ToList();
                 return monsters;
             }
+        }
+
+        public GameLocationAccessor Expose() => accessor;
+
+        public void GrowWeedGrass(int iterations)
+        {
+            accessor._GrowWeedGrass(iterations);
         }
 
         public Object GetObjectAt(int tileX, int tileY)
@@ -110,7 +114,5 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
-
-        public GameLocationAccessor Expose() => accessor;
     }
 }

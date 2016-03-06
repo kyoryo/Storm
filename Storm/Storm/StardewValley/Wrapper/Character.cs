@@ -14,21 +14,23 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.StardewValley.Accessor;
+
 using Microsoft.Xna.Framework;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Character : Wrapper<CharacterAccessor>
     {
-        public StaticContext Parent { get; }
-        private CharacterAccessor accessor;
+        private readonly CharacterAccessor accessor;
 
         public Character(StaticContext parent, CharacterAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        public StaticContext Parent { get; }
 
         public bool EmoteFading
         {

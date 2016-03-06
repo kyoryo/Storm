@@ -14,13 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System;
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections;
 using xTile.Display;
+using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -32,8 +34,8 @@ namespace Storm.StardewValley.Accessor
         int _GetTileSize();
         void _SetTileSize(int val);
 
-        String _GetVersion();
-        void _SetVersion(String val);
+        string _GetVersion();
+        void _SetVersion(string val);
 
         GraphicsDeviceManager _GetGraphics();
         void _SetGraphics(GraphicsDeviceManager val);
@@ -80,8 +82,8 @@ namespace Storm.StardewValley.Accessor
         FarmerAccessor _GetServerHost();
         void _SetServerHost(FarmerAccessor val);
 
-        xTile.Dimensions.Rectangle _GetViewport();
-        void _SetViewport(xTile.Dimensions.Rectangle val);
+        Rectangle _GetViewport();
+        void _SetViewport(Rectangle val);
 
         Texture2D _GetObjectSpriteSheet();
         void _SetObjectSpriteSheet(Texture2D val);
@@ -395,47 +397,47 @@ namespace Storm.StardewValley.Accessor
         bool _GetLastCursorMotionWasMouse();
         void _SetLastCursorMotionWasMouse(bool val);
 
-        String _GetCurrentSeason();
-        void _SetCurrentSeason(String val);
+        string _GetCurrentSeason();
+        void _SetCurrentSeason(string val);
 
-        String _GetDebugOutput();
-        void _SetDebugOutput(String val);
+        string _GetDebugOutput();
+        void _SetDebugOutput(string val);
 
-        String _GetNextMusicTrack();
-        void _SetNextMusicTrack(String val);
+        string _GetNextMusicTrack();
+        void _SetNextMusicTrack(string val);
 
-        String _GetSelectedItemsType();
-        void _SetSelectedItemsType(String val);
+        string _GetSelectedItemsType();
+        void _SetSelectedItemsType(string val);
 
-        String _GetNameSelectType();
-        void _SetNameSelectType(String val);
+        string _GetNameSelectType();
+        void _SetNameSelectType(string val);
 
-        String _GetMessageAfterPause();
-        void _SetMessageAfterPause(String val);
+        string _GetMessageAfterPause();
+        void _SetMessageAfterPause(string val);
 
-        String _GetFertilizer();
-        void _SetFertilizer(String val);
+        string _GetFertilizer();
+        void _SetFertilizer(string val);
 
-        String _GetSamBandName();
-        void _SetSamBandName(String val);
+        string _GetSamBandName();
+        void _SetSamBandName(string val);
 
-        String _GetElliottBookName();
-        void _SetElliottBookName(String val);
+        string _GetElliottBookName();
+        void _SetElliottBookName(string val);
 
-        String _GetSlotResult();
-        void _SetSlotResult(String val);
+        string _GetSlotResult();
+        void _SetSlotResult(string val);
 
-        String _GetKeyHelpString();
-        void _SetKeyHelpString(String val);
+        string _GetKeyHelpString();
+        void _SetKeyHelpString(string val);
 
-        String _GetDebugInput();
-        void _SetDebugInput(String val);
+        string _GetDebugInput();
+        void _SetDebugInput(string val);
 
-        String _GetLoadingMessage();
-        void _SetLoadingMessage(String val);
+        string _GetLoadingMessage();
+        void _SetLoadingMessage(string val);
 
-        String _GetErrorMessage();
-        void _SetErrorMessage(String val);
+        string _GetErrorMessage();
+        void _SetErrorMessage(string val);
 
         ICollection _GetCurrentObjectDialogue();
         void _SetCurrentObjectDialogue(ICollection val);
@@ -668,8 +670,8 @@ namespace Storm.StardewValley.Accessor
         IEnumerator _GetCurrentLoader();
         void _SetCurrentLoader(IEnumerator val);
 
-        UInt64 _GetUniqueIDForThisGame();
-        void _SetUniqueIDForThisGame(UInt64 val);
+        ulong _GetUniqueIDForThisGame();
+        void _SetUniqueIDForThisGame(ulong val);
 
         int _GetCropsOfTheWeek();
         void _SetCropsOfTheWeek(int val);
@@ -752,8 +754,8 @@ namespace Storm.StardewValley.Accessor
         bool _GetSetToFullscreen();
         void _SetSetToFullscreen(bool val);
 
-        String _GetWhereIsTodaysFest();
-        void _SetWhereIsTodaysFest(String val);
+        string _GetWhereIsTodaysFest();
+        void _SetWhereIsTodaysFest(string val);
 
         bool _GetFarmerShouldPassOut();
         void _SetFarmerShouldPassOut(bool val);
@@ -773,8 +775,8 @@ namespace Storm.StardewValley.Accessor
         bool _GetHaltAfterCheck();
         void _SetHaltAfterCheck(bool val);
 
-        String _GetPanModeString();
-        void _SetPanModeString(String val);
+        string _GetPanModeString();
+        void _SetPanModeString(string val);
 
         bool _GetPanFacingDirectionWait();
         void _SetPanFacingDirectionWait(bool val);

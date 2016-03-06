@@ -21,11 +21,11 @@ namespace Storm.StardewValley.Event.Game
 {
     public class UpdateTitleScreenEvent : StaticContextEvent
     {
-        public GameTime GameTime { get; }
-
         public UpdateTitleScreenEvent(GameTime gameTime)
         {
             GameTime = gameTime;
         }
+
+        public GameTime GameTime { get; }
     }
 }

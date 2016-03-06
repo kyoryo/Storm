@@ -19,7 +19,7 @@ namespace Storm.Manipulation
 {
     public class MethodInfoInjector : Injector
     {
-        private MethodInfoParams @params;
+        private readonly MethodInfoParams @params;
 
         public MethodInfoInjector(MethodInfoParams @params)
         {
@@ -28,12 +28,10 @@ namespace Storm.Manipulation
 
         public void Init()
         {
-
         }
 
         public void Inject()
         {
-
         }
 
         public object GetParams()

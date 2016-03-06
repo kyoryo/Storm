@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
 
@@ -21,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Object : Item, Wrapper<ObjectAccessor>
     {
-        private ObjectAccessor accessor;
+        private readonly ObjectAccessor accessor;
 
         public Object(StaticContext parent, ObjectAccessor accessor) : base(parent, accessor)
         {
@@ -109,7 +110,7 @@ namespace Storm.StardewValley.Wrapper
         public long Owner
         {
             get { return accessor._GetOwner(); }
-            set { accessor._SetOwner(value);  }
+            set { accessor._SetOwner(value); }
         }
 
         public int Price
@@ -127,7 +128,7 @@ namespace Storm.StardewValley.Wrapper
         public bool IsQuestItem
         {
             get { return accessor._GetIsQuestItem(); }
-            set { accessor._SetIsQuestItem(value);  }
+            set { accessor._SetIsQuestItem(value); }
         }
 
         public bool ReadyForHarvest

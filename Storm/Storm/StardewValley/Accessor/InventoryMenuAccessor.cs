@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -7,17 +6,17 @@ namespace Storm.StardewValley.Accessor
     {
         ItemAccessor _GetItemAt(int mouesX, int mouseY);
 
-        String _GetHoverText();
-        void _SetHoverText(String val);
+        string _GetHoverText();
+        void _SetHoverText(string val);
 
-        String _GetHoverTitle();
-        void _SetHoverTitle(String val);
+        string _GetHoverTitle();
+        void _SetHoverTitle(string val);
 
-        String _GetDescriptionTitle();
-        void _SetDescriptionTitle(String val);
+        string _GetDescriptionTitle();
+        void _SetDescriptionTitle(string val);
 
-        String _GetDescriptionText();
-        void _SetDescriptionText(String val);
+        string _GetDescriptionText();
+        void _SetDescriptionText(string val);
 
         IList _GetInventory();
         void _SetInventory(IList val);

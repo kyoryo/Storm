@@ -14,15 +14,16 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Tool : Item, Wrapper<ToolAccessor>
     {
-        private ToolAccessor accessor;
+        private readonly ToolAccessor accessor;
 
         public Tool(StaticContext parent, ToolAccessor accessor) : base(parent, accessor)
         {
@@ -31,14 +32,8 @@ namespace Storm.StardewValley.Wrapper
 
         public Object[] Attachments
         {
-            get
-            {
-                return Array.ConvertAll(accessor._GetAttachments(), (i) => new Object(Parent, i));
-            }
-            set
-            {
-                accessor._SetAttachments(Array.ConvertAll(value, (i) => i.Expose()));
-            }
+            get { return Array.ConvertAll(accessor._GetAttachments(), i => new Object(Parent, i)); }
+            set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Expose())); }
         }
 
         public string Name

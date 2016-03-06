@@ -14,8 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.Manipulation;
+
 using System.Collections.Generic;
+using Storm.Manipulation;
 
 namespace Storm.ExternalEvent
 {
@@ -35,7 +36,7 @@ namespace Storm.ExternalEvent
 
         public void Fire<T>(T val) where T : DetourEvent
         {
-            mods.ForEach(m => m.Fire<T>(val));
+            mods.ForEach(m => m.Fire(val));
         }
     }
 }

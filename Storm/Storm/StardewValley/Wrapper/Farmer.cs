@@ -14,19 +14,19 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Storm.StardewValley.Accessor;
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Farmer : Character, Wrapper<FarmerAccessor>
     {
-        private FarmerAccessor accessor;
+        private readonly FarmerAccessor accessor;
 
         public Farmer(StaticContext parent, FarmerAccessor accessor) : base(parent, accessor)
         {
@@ -44,11 +44,6 @@ namespace Storm.StardewValley.Wrapper
                     Select(i => new Item(Parent, i)).
                     ToList();
             }
-        }
-
-        public void SetItem(int idx, Item item)
-        {
-            accessor._GetItems()[idx] = item.Expose();
         }
 
         public int TileSlideThreshold
@@ -201,13 +196,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetMovementDirections(value); }
         }
 
-        public String FarmName
+        public string FarmName
         {
             get { return accessor._GetFarmName(); }
             set { accessor._SetFarmName(value); }
         }
 
-        public String FavoriteThing
+        public string FavoriteThing
         {
             get { return accessor._GetFavoriteThing(); }
             set { accessor._SetFavoriteThing(value); }
@@ -237,13 +232,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetUniqueMultiplayerID(value); }
         }
 
-        public String TmpLocationName
+        public string TmpLocationName
         {
             get { return accessor._GetTmpLocationName(); }
             set { accessor._SetTmpLocationName(value); }
         }
 
-        public String PreviousLocationName
+        public string PreviousLocationName
         {
             get { return accessor._GetPreviousLocationName(); }
             set { accessor._SetPreviousLocationName(value); }
@@ -356,7 +351,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetNewEyeColor(); }
             set { accessor._SetNewEyeColor(value); }
         }
-        
+
         public NPC DancePartner
         {
             get { return new NPC(Parent, accessor._GetDancePartner()); }
@@ -987,13 +982,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetYOffset(value); }
         }
 
-        public String Spouse
+        public string Spouse
         {
             get { return accessor._GetSpouse(); }
             set { accessor._SetSpouse(value); }
         }
 
-        public String DateStringForSaveGame
+        public string DateStringForSaveGame
         {
             get { return accessor._GetDateStringForSaveGame(); }
             set { accessor._SetDateStringForSaveGame(value); }
@@ -1035,12 +1030,12 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetArmOffset(value); }
         }
 
-        public String Bobber
+        public string Bobber
         {
             get { return accessor._GetBobber(); }
             set { accessor._SetBobber(value); }
         }
-        
+
         public ContentManager FarmerTextureManager
         {
             get { return accessor._GetFarmerTextureManager(); }
@@ -1084,5 +1079,10 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public new FarmerAccessor Expose() => accessor;
+
+        public void SetItem(int idx, Item item)
+        {
+            accessor._GetItems()[idx] = item.Expose();
+        }
     }
 }

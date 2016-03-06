@@ -14,19 +14,20 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event
 {
     public class AddItemToInventoryEvent : StaticContextEvent
     {
-        public Farmer Source { get; }
-        public Item Item { get; }
-        
         public AddItemToInventoryEvent(Farmer source, Item item)
         {
-            this.Source = source;
-            this.Item = item;
+            Source = source;
+            Item = item;
         }
+
+        public Farmer Source { get; }
+        public Item Item { get; }
     }
 }

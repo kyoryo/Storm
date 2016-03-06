@@ -19,26 +19,15 @@ namespace Storm.Manipulation.Json
 {
     public class JsonParamContainer
     {
-        private JsonInterfaceParams[] interfaceParams = new JsonInterfaceParams[0];
-        private JsonFieldDetourParams[] fieldDetourParams = new JsonFieldDetourParams[0];
-        private JsonFieldAccessorParams[] fieldAccessorParams = new JsonFieldAccessorParams[0];
-        private JsonFieldMutatorParams[] fieldMutatorParams = new JsonFieldMutatorParams[0];
-        private JsonFieldAccessorMutatorParams[] fieldAccessorMutatorParams = new JsonFieldAccessorMutatorParams[0];
-        private JsonAbsoluteCallParams[] absoluteCallParams = new JsonAbsoluteCallParams[0];
-        private JsonFieldInfoParams[] fieldInfoParams = new JsonFieldInfoParams[0];
-        private JsonInvokerParams[] invokerParamsParams = new JsonInvokerParams[0];
-        private JsonMethodInfoParams[] methodInfoParamsParams = new JsonMethodInfoParams[0];
-        private JsonEventCallbackParams[] eventCallbackParams = new JsonEventCallbackParams[0];
-
-        public JsonInterfaceParams[] InterfaceParams { get { return interfaceParams; } set { interfaceParams = value; } }
-        public JsonFieldDetourParams[] FieldDetourParams { get { return fieldDetourParams; }set { fieldDetourParams = value; } }
-        public JsonFieldAccessorParams[] FieldAccessorParams { get { return fieldAccessorParams;  } set { fieldAccessorParams = value; } }
-        public JsonFieldMutatorParams[] FieldMutatorParams { get { return fieldMutatorParams; } set { fieldMutatorParams = value; } }
-        public JsonFieldAccessorMutatorParams[] FieldAccessorMutatorParams { get { return fieldAccessorMutatorParams; } set { fieldAccessorMutatorParams = value; } }
-        public JsonAbsoluteCallParams[] AbsoluteCallParams { get { return absoluteCallParams; } set { absoluteCallParams = value; } }
-        public JsonFieldInfoParams[] FieldInfoParams { get { return fieldInfoParams; } set { fieldInfoParams = value; } }
-        public JsonInvokerParams[] InvokerParams { get { return invokerParamsParams; } set { invokerParamsParams = value; } }
-        public JsonMethodInfoParams[] MethodInfoParams { get { return methodInfoParamsParams; } set { methodInfoParamsParams = value; } }
-        public JsonEventCallbackParams[] EventCallbackParams { get { return eventCallbackParams; } set { eventCallbackParams = value; } }
+        public JsonInterfaceParams[] InterfaceParams { get; set; } = new JsonInterfaceParams[0];
+        public JsonFieldDetourParams[] FieldDetourParams { get; set; } = new JsonFieldDetourParams[0];
+        public JsonFieldAccessorParams[] FieldAccessorParams { get; set; } = new JsonFieldAccessorParams[0];
+        public JsonFieldMutatorParams[] FieldMutatorParams { get; set; } = new JsonFieldMutatorParams[0];
+        public JsonFieldAccessorMutatorParams[] FieldAccessorMutatorParams { get; set; } = new JsonFieldAccessorMutatorParams[0];
+        public JsonAbsoluteCallParams[] AbsoluteCallParams { get; set; } = new JsonAbsoluteCallParams[0];
+        public JsonFieldInfoParams[] FieldInfoParams { get; set; } = new JsonFieldInfoParams[0];
+        public JsonInvokerParams[] InvokerParams { get; set; } = new JsonInvokerParams[0];
+        public JsonMethodInfoParams[] MethodInfoParams { get; set; } = new JsonMethodInfoParams[0];
+        public JsonEventCallbackParams[] EventCallbackParams { get; set; } = new JsonEventCallbackParams[0];
     }
 }

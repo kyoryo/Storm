@@ -14,23 +14,23 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Mono.Cecil;
-using Mono.Cecil.Cil;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
+using Mono.Cecil;
+using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilEventCallbackInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
-        private EventCallbackParams @params;
+        private readonly AssemblyDefinition def;
 
-        private MethodDefinition injectee = null;
-        private List<Instruction> injectionPoints = new List<Instruction>();
-        private bool invalid = false;
+        private MethodDefinition injectee;
+        private readonly List<Instruction> injectionPoints = new List<Instruction>();
+        private bool invalid;
+        private EventCallbackParams @params;
+        private readonly AssemblyDefinition self;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
         {
@@ -39,32 +39,13 @@ namespace Storm.Manipulation.Cecil
             this.@params = @params;
         }
 
-        private Instruction GetReturnByRelativity(MethodDefinition md, int index)
-        {
-            var instructions = md.Body.Instructions;
-            var counter = 0;
-            for (int i = 0; i < instructions.Count; i++)
-            {
-                var ins = instructions[i];
-                if (ins.OpCode == OpCodes.Ret)
-                {
-                    if (counter == index)
-                    {
-                        return ins;
-                    }
-                    counter++;
-                }
-            }
-            return null;
-        }
-
         public void Init()
         {
             injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
 
             if (injectee == null)
             {
-                Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
                     @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                     @params.InsertionIndex));
@@ -104,13 +85,13 @@ namespace Storm.Manipulation.Cecil
         public void Inject()
         {
             if (invalid) return;
-            
+
             var returnName = injectee.ReturnType.FullName;
 
-            var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");
+            var hasReturnValue = typeof (DetourEvent).GetProperty("ReturnEarly");
             var hasReturnValueImport = def.MainModule.Import(hasReturnValue.GetMethod);
-            
-            var eventReturnValue = typeof(DetourEvent).GetProperty("ReturnValue");
+
+            var eventReturnValue = typeof (DetourEvent).GetProperty("ReturnValue");
             var eventReturnValueImport = def.MainModule.Import(eventReturnValue.GetMethod);
 
             var body = injectee.Body;
@@ -122,7 +103,7 @@ namespace Storm.Manipulation.Cecil
                 var staticRecv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
                 if (staticRecv == null)
                 {
-                    Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find staticRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find staticRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
                         @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
                         @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                         @params.InsertionIndex));
@@ -135,7 +116,7 @@ namespace Storm.Manipulation.Cecil
                 var instancedRecv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
                 if (instancedRecv == null)
                 {
-                    Logging.DebugLog(String.Format("[CecilEventCallbackInjector] Could not find instancedRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find instancedRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
                         @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
                         @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                         @params.InsertionIndex));
@@ -144,14 +125,14 @@ namespace Storm.Manipulation.Cecil
                 callback = injectee.Module.Import(instancedRecv);
             }
 
-            var returnsVoid = returnName.Equals(typeof(void).FullName);
-            var returnsPrimitive = 
-                returnName.Equals(typeof(Int32).FullName) || 
-                returnName.Equals(typeof(Boolean).FullName);
+            var returnsVoid = returnName.Equals(typeof (void).FullName);
+            var returnsPrimitive =
+                returnName.Equals(typeof (int).FullName) ||
+                returnName.Equals(typeof (bool).FullName);
 
             foreach (var injectionPoint in injectionPoints)
             {
-                var jmpTarget = returnName.Equals(typeof(void).FullName) ? injectionPoint : processor.Create(OpCodes.Pop);
+                var jmpTarget = returnName.Equals(typeof (void).FullName) ? injectionPoint : processor.Create(OpCodes.Pop);
 
                 if (!injectee.IsStatic)
                 {
@@ -160,7 +141,7 @@ namespace Storm.Manipulation.Cecil
 
                 if (@params.PushParams)
                 {
-                    for (int i = 0; i < injectee.Parameters.Count(); i++)
+                    for (var i = 0; i < injectee.Parameters.Count(); i++)
                     {
                         switch (i)
                         {
@@ -212,6 +193,25 @@ namespace Storm.Manipulation.Cecil
         public object GetParams()
         {
             return @params;
+        }
+
+        private Instruction GetReturnByRelativity(MethodDefinition md, int index)
+        {
+            var instructions = md.Body.Instructions;
+            var counter = 0;
+            for (var i = 0; i < instructions.Count; i++)
+            {
+                var ins = instructions[i];
+                if (ins.OpCode == OpCodes.Ret)
+                {
+                    if (counter == index)
+                    {
+                        return ins;
+                    }
+                    counter++;
+                }
+            }
+            return null;
         }
     }
 }

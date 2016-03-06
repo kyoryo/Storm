@@ -4,14 +4,15 @@ namespace Storm.StardewValley.Wrapper
 {
     public class ClickableMenu : Wrapper<ClickableMenuAccessor>
     {
-        private StaticContext Parent { get; }
-        private ClickableMenuAccessor accessor;
+        private readonly ClickableMenuAccessor accessor;
 
         public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        private StaticContext Parent { get; }
 
         public ClickableMenuAccessor Expose() => accessor;
     }

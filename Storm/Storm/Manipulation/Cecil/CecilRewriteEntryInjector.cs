@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using System.Linq;
 using Mono.Cecil;
@@ -23,9 +24,9 @@ namespace Storm.Manipulation.Cecil
 {
     public class CecilRewriteEntryInjector : Injector
     {
+        private readonly AssemblyDefinition def;
+        private readonly RewriteEntryInjectorParams @params;
         private AssemblyDefinition self;
-        private AssemblyDefinition def;
-        private RewriteEntryInjectorParams @params;
 
         public CecilRewriteEntryInjector(AssemblyDefinition self, AssemblyDefinition def, RewriteEntryInjectorParams @params)
         {
@@ -36,33 +37,32 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
         {
             var entry = def.EntryPoint.DeclaringType;
-            entry.Attributes = TypeAttributes.Class | 
-                TypeAttributes.AutoLayout | 
-                TypeAttributes.BeforeFieldInit | 
-                TypeAttributes.Public | 
-                TypeAttributes.AnsiClass;
+            entry.Attributes = TypeAttributes.Class |
+                               TypeAttributes.AutoLayout |
+                               TypeAttributes.BeforeFieldInit |
+                               TypeAttributes.Public |
+                               TypeAttributes.AnsiClass;
 
             var hasConstructor = entry.Methods.SingleOrDefault(m => m.Name.Equals(".ctor")) != null;
             if (!hasConstructor)
             {
-                var method = new MethodDefinition(".ctor", 
-                    MethodAttributes.SpecialName | 
-                    MethodAttributes.HideBySig | 
-                    MethodAttributes.Family | 
-                    MethodAttributes.Public | 
-                    MethodAttributes.ReuseSlot | 
+                var method = new MethodDefinition(".ctor",
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.HideBySig |
+                    MethodAttributes.Family |
+                    MethodAttributes.Public |
+                    MethodAttributes.ReuseSlot |
                     MethodAttributes.RTSpecialName,
-                    entry.Module.Import(typeof(void)));
+                    entry.Module.Import(typeof (void)));
 
                 var processor = method.Body.GetILProcessor();
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
-                processor.Append(processor.Create(OpCodes.Call, entry.Module.Import(typeof(object).GetConstructor(new Type[0]))));
+                processor.Append(processor.Create(OpCodes.Call, entry.Module.Import(typeof (object).GetConstructor(new Type[0]))));
                 processor.Append(processor.Create(OpCodes.Ret));
                 entry.Methods.Add(method);
             }

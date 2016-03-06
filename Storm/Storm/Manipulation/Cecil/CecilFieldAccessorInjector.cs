@@ -17,15 +17,14 @@
 
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilFieldAccessorInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private FieldAccessorParams @params;
+        private AssemblyDefinition self;
 
         public CecilFieldAccessorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldAccessorParams @params)
         {
@@ -36,27 +35,26 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
         {
-            TypeReference returnType = def.GetTypeRef(@params.ReturnType, true);
+            var returnType = def.GetTypeRef(@params.ReturnType, true);
             var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
 
             if (returnType == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldAccessorInjector] Could not find returnType {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName,  @params.OwnerFieldType, 
-                     @params.MethodName, @params.ReturnType, @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldAccessorInjector] Could not find returnType {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.ReturnType, @params.IsStatic));
                 return;
             }
-            
+
             if (field == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldAccessorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName,  @params.OwnerFieldType, 
-                     @params.MethodName, @params.ReturnType,  @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldAccessorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.ReturnType, @params.IsStatic));
                 return;
             }
 

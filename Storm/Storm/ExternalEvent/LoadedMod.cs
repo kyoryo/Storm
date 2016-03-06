@@ -14,10 +14,11 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.Manipulation;
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Storm.Manipulation;
 
 namespace Storm.ExternalEvent
 {
@@ -33,12 +34,24 @@ namespace Storm.ExternalEvent
             this.instance = instance;
             this.annotation = annotation;
             this.callMap = callMap;
-            this.loadDirectory = "";
+            loadDirectory = "";
         }
 
-        public string Name { get { return annotation.Name; } }
-        public string Author { get { return annotation.Author; } }
-        public double Version { get { return annotation.Version; } }
+        public string Name
+        {
+            get { return annotation.Name; }
+        }
+
+        public string Author
+        {
+            get { return annotation.Author; }
+        }
+
+        public double Version
+        {
+            get { return annotation.Version; }
+        }
+
         public string LoadDirectory
         {
             get
@@ -61,11 +74,11 @@ namespace Storm.ExternalEvent
         public void Fire<T>(T @event) where T : DetourEvent
         {
             List<MethodInfo> handlers;
-            if (callMap.TryGetValue(typeof(T), out handlers))
+            if (callMap.TryGetValue(typeof (T), out handlers))
             {
                 foreach (var info in handlers)
                 {
-                    info.Invoke(instance, new object[] { @event });
+                    info.Invoke(instance, new object[] {@event});
                 }
             }
         }

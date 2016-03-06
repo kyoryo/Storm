@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilRetCallInjector
     {
-        private AssemblyDefinition self;
         private AssemblyDefinition def;
         private RetCallParams @params;
+        private readonly AssemblyDefinition self;
 
         public CecilRetCallInjector(AssemblyDefinition self, AssemblyDefinition def, RetCallParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -45,24 +44,24 @@ namespace Storm.Manipulation.Cecil
 
             if (callingDefinition == null)
             {
-                Logging.DebugLog(String.Format("[CecilRetCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5}",
-                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
-                     @params.DetourMethodName, @params.DetourMethodDesc));
+                Logging.DebugLog(string.Format("[CecilRetCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
+                    @params.DetourMethodName, @params.DetourMethodDesc));
                 return;
             }
 
             if (injectee == null)
             {
-                Logging.DebugLog(String.Format("[CecilRetCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5}",
-                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
-                     @params.DetourMethodName, @params.DetourMethodDesc));
+                Logging.DebugLog(string.Format("[CecilRetCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
+                    @params.DetourMethodName, @params.DetourMethodDesc));
                 return;
             }
 
             var import = injectee.Module.Import(callingDefinition);
             var processor = injectee.Body.GetILProcessor();
             var instructions = injectee.Body.Instructions;
-            for (int i = 0; i < instructions.Count; i++)
+            for (var i = 0; i < instructions.Count; i++)
             {
                 var ins = instructions[i];
                 if (ins.OpCode == OpCodes.Ret)

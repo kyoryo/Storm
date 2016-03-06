@@ -2,12 +2,11 @@
 {
     public class AfterHarvestCropEvent : StaticContextEvent
     {
-        public Storm.StardewValley.Wrapper.Crop Crop { get; }
-
-        public AfterHarvestCropEvent(Storm.StardewValley.Wrapper.Crop crop)
+        public AfterHarvestCropEvent(Wrapper.Crop crop)
         {
-            this.Crop = crop;
+            Crop = crop;
         }
 
+        public Wrapper.Crop Crop { get; }
     }
 }

@@ -20,8 +20,9 @@ namespace Storm.Manipulation
     public class DetourEvent
     {
         private object returnValue;
-        
+
         public bool ReturnEarly { get; set; }
+
         public object ReturnValue
         {
             get { return returnValue; }

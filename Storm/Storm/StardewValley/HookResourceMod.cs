@@ -2,7 +2,7 @@
 
 namespace Storm.StardewValley
 {
-    [Mod()]
+    [Mod]
     public class HookResourceMod
     {
     }

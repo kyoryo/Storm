@@ -21,19 +21,19 @@ namespace Storm.StardewValley.Event
 {
     public class WarpFarmerEvent : StaticContextEvent
     {
+        public WarpFarmerEvent(GameLocation location, int tileX, int tileY, int facingDirection, bool isStructure)
+        {
+            Location = location;
+            TileX = tileX;
+            TileY = tileY;
+            FacingDirection = facingDirection;
+            IsStructure = isStructure;
+        }
+
         public GameLocation Location { get; }
         public int TileX { get; }
         public int TileY { get; }
         public int FacingDirection { get; }
         public bool IsStructure { get; }
-
-        public WarpFarmerEvent(GameLocation location, int tileX, int tileY, int facingDirection, bool isStructure)
-        {
-            this.Location = location;
-            this.TileX = tileX;
-            this.TileY = tileY;
-            this.FacingDirection = facingDirection;
-            this.IsStructure = isStructure;
-        }
     }
 }

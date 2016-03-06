@@ -14,14 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.StardewValley.Accessor;
+
 using System.Collections;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Monster : NPC
     {
-        private MonsterAccessor accessor;
+        private readonly MonsterAccessor accessor;
 
         public Monster(StaticContext parent, MonsterAccessor accessor) : base(parent, accessor)
         {
