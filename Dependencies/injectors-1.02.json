@@ -5238,12 +5238,12 @@
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
-      "OwnerAccessorType":"@StaticContext",
+      "OwnerAccessorType":"@Crop",
       "OwnerMethodName":"growCompletely",
       "OwnerMethodDesc":"()System.Void",
       "CallbackType":"Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName":"growCompletelyCallback",
-      "InstanceCallbackDesc":"()Storm.Manipulation.DetourEvent",
+      "InstanceCallbackName":"CompleteGrowthCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType":"@Farmer",
