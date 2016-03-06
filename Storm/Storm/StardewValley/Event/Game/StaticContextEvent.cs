@@ -14,24 +14,19 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System;
+using System.Reflection;
 using Castle.DynamicProxy;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
-using System;
-using System.Reflection;
 
 namespace Storm.StardewValley.Event
 {
     public class StaticContextEvent : DetourEvent
     {
-        public Assembly GameAssembly { get; }
-        public StaticContext Root { get; }
-        public ModEventBus EventBus { get; }
-        public Type ToolType { get; }
-        public ToolInterceptorDelegateFactory ToolFactory { get; }
-
         public StaticContextEvent()
         {
             GameAssembly = StaticGameContext.Assembly;
@@ -41,10 +36,16 @@ namespace Storm.StardewValley.Event
             ToolFactory = StaticGameContext.ToolFactory;
         }
 
+        public Assembly GameAssembly { get; }
+        public StaticContext Root { get; }
+        public ModEventBus EventBus { get; }
+        public Type ToolType { get; }
+        public ToolInterceptorDelegateFactory ToolFactory { get; }
+
         public Tool ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            var accessor = (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
+            var accessor = (ToolAccessor) generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
             var wrapped = new Tool(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;

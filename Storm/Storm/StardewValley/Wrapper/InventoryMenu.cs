@@ -1,42 +1,36 @@
-﻿using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
+﻿using System.Collections;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class InventoryMenu : ClickableMenu, Wrapper<InventoryMenuAccessor>
     {
-        private InventoryMenuAccessor accessor;
+        private readonly InventoryMenuAccessor accessor;
 
         public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
         }
 
-        public ItemAccessor GetItemAt(int mouseX, int mouseY)
-        {
-            return accessor._GetItemAt(mouseX, mouseY);
-        }
-
-        public String HoverText
+        public string HoverText
         {
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }
         }
 
-        public String HoverTitle
+        public string HoverTitle
         {
             get { return accessor._GetHoverTitle(); }
             set { accessor._SetHoverTitle(value); }
         }
 
-        public String DescriptionTitle
+        public string DescriptionTitle
         {
             get { return accessor._GetDescriptionTitle(); }
             set { accessor._SetDescriptionTitle(value); }
         }
 
-        public String DescriptionText
+        public string DescriptionText
         {
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
@@ -97,5 +91,10 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public new InventoryMenuAccessor Expose() => accessor;
+
+        public ItemAccessor GetItemAt(int mouseX, int mouseY)
+        {
+            return accessor._GetItemAt(mouseX, mouseY);
+        }
     }
 }

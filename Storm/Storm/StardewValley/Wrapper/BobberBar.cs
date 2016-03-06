@@ -6,14 +6,15 @@ namespace Storm.StardewValley.Wrapper
 {
     public class BobberBar : Wrapper<BobberBarAccessor>
     {
-        private StaticContext Parent { get; }
-        private BobberBarAccessor accessor;
+        private readonly BobberBarAccessor accessor;
 
         public BobberBar(StaticContext parent, BobberBarAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        private StaticContext Parent { get; }
 
         public float Difficulty
         {

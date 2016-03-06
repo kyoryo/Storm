@@ -14,10 +14,10 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -101,11 +101,11 @@ namespace Storm.StardewValley.Accessor
         IList _GetMovementDirections();
         void _SetMovementDirections(IList val);
 
-        String _GetFarmName();
-        void _SetFarmName(String val);
+        string _GetFarmName();
+        void _SetFarmName(string val);
 
-        String _GetFavoriteThing();
-        void _SetFavoriteThing(String val);
+        string _GetFavoriteThing();
+        void _SetFavoriteThing(string val);
 
         IList _GetBuffs();
         void _SetBuffs(IList val);
@@ -119,11 +119,11 @@ namespace Storm.StardewValley.Accessor
         long _GetUniqueMultiplayerID();
         void _SetUniqueMultiplayerID(long val);
 
-        String _GetTmpLocationName();
-        void _SetTmpLocationName(String val);
+        string _GetTmpLocationName();
+        void _SetTmpLocationName(string val);
 
-        String _GetPreviousLocationName();
-        void _SetPreviousLocationName(String val);
+        string _GetPreviousLocationName();
+        void _SetPreviousLocationName(string val);
 
         bool _GetCatPerson();
         void _SetCatPerson(bool val);
@@ -314,11 +314,11 @@ namespace Storm.StardewValley.Accessor
         int _GetClubCoins();
         void _SetClubCoins(int val);
 
-        UInt32 _GetTotalMoneyEarned();
-        void _SetTotalMoneyEarned(UInt32 val);
+        uint _GetTotalMoneyEarned();
+        void _SetTotalMoneyEarned(uint val);
 
-        UInt32 _GetMillisecondsPlayed();
-        void _SetMillisecondsPlayed(UInt32 val);
+        uint _GetMillisecondsPlayed();
+        void _SetMillisecondsPlayed(uint val);
 
         ToolAccessor _GetToolBeingUpgraded();
         void _SetToolBeingUpgraded(ToolAccessor val);
@@ -494,11 +494,11 @@ namespace Storm.StardewValley.Accessor
         float _GetYOffset();
         void _SetYOffset(float val);
 
-        String _GetSpouse();
-        void _SetSpouse(String val);
+        string _GetSpouse();
+        void _SetSpouse(string val);
 
-        String _GetDateStringForSaveGame();
-        void _SetDateStringForSaveGame(String val);
+        string _GetDateStringForSaveGame();
+        void _SetDateStringForSaveGame(string val);
 
         int _GetOverallsColor();
         void _SetOverallsColor(int val);
@@ -518,8 +518,8 @@ namespace Storm.StardewValley.Accessor
         Vector2 _GetArmOffset();
         void _SetArmOffset(Vector2 val);
 
-        String _GetBobber();
-        void _SetBobber(String val);
+        string _GetBobber();
+        void _SetBobber(string val);
 
         ContentManager _GetFarmerTextureManager();
         void _SetFarmerTextureManager(ContentManager val);

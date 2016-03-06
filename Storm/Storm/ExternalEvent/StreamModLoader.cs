@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,11 +24,16 @@ namespace Storm.ExternalEvent
 {
     public class StreamModLoader : AssemblyModLoader, IDisposable
     {
-        private Stream strum;
+        private readonly Stream strum;
 
         public StreamModLoader(Stream strum)
         {
             this.strum = strum;
+        }
+
+        public void Dispose()
+        {
+            strum.Close();
         }
 
         public override List<LoadedMod> Load()
@@ -36,11 +42,6 @@ namespace Storm.ExternalEvent
             var result = LoadModsFromAssembly(Assembly.Load(reader.ReadToEnd()));
             reader.Close();
             return result;
-        }
-
-        public void Dispose()
-        {
-            strum.Close();
         }
     }
 }

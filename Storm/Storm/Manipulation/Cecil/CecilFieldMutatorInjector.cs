@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilFieldMutatorInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private FieldMutatorParams @params;
+        private AssemblyDefinition self;
 
         public CecilFieldMutatorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldMutatorParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -45,21 +44,21 @@ namespace Storm.Manipulation.Cecil
 
             if (paramType == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find paramType {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                     @params.MethodName, @params.ParamType, @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find paramType {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.ParamType, @params.IsStatic));
                 return;
             }
 
             if (field == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                     @params.MethodName, @params.ParamType, @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.ParamType, @params.IsStatic));
                 return;
             }
 
-            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(void)));
+            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof (void)));
             method.Parameters.Add(new ParameterDefinition(def.Import(paramType)));
 
             var instructions = method.Body.Instructions;

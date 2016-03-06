@@ -1,12 +1,12 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using System.Collections;
+using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Fence : Object, Wrapper<FenceAccessor>
     {
-        private FenceAccessor accessor;
+        private readonly FenceAccessor accessor;
 
         public Fence(StaticContext parent, FenceAccessor accessor) : base(parent, accessor)
         {

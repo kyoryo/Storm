@@ -14,14 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.Manipulation.Cecil;
+
 using System;
+using Storm.Manipulation.Cecil;
 
 namespace Storm.Manipulation
 {
     public sealed class InjectorFactories
     {
-        private InjectorFactories() { }
+        private InjectorFactories()
+        {
+        }
 
         public static InjectorFactory Create(InjectorFactoryType type, string path)
         {

@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Accessor
@@ -79,6 +80,5 @@ namespace Storm.StardewValley.Accessor
 
         string _GetType();
         void _SetType(string type);
-
     }
 }

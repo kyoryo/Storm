@@ -1,12 +1,11 @@
-﻿using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
+﻿using System.Collections;
+using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class GameMenu : ClickableMenu, Wrapper<GameMenuAccessor>
     {
-        private GameMenuAccessor accessor;
+        private readonly GameMenuAccessor accessor;
 
         public GameMenu(StaticContext parent, GameMenuAccessor accessor) : base(parent, accessor)
         {
@@ -19,13 +18,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCurrentTab(value); }
         }
 
-        public String HoverText
+        public string HoverText
         {
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }
         }
 
-        public String DescriptionText
+        public string DescriptionText
         {
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }

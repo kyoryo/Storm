@@ -14,18 +14,18 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface EventAccessor
     {
-        String _GetEventCommands();
-        void _SetEventCommands(String val);
+        string _GetEventCommands();
+        void _SetEventCommands(string val);
 
         int _GetCurrentCommand();
         void _SetCurrentCommand(int val);
@@ -45,11 +45,11 @@ namespace Storm.StardewValley.Accessor
         IList _GetFestivalProps();
         void _SetFestivalProps(IList val);
 
-        String _GetMessageToScreen();
-        void _SetMessageToScreen(String val);
+        string _GetMessageToScreen();
+        void _SetMessageToScreen(string val);
 
-        String _GetPlayerControlSequenceID();
-        void _SetPlayerControlSequenceID(String val);
+        string _GetPlayerControlSequenceID();
+        void _SetPlayerControlSequenceID(string val);
 
         bool _GetShowActiveObject();
         void _SetShowActiveObject(bool val);
@@ -165,8 +165,8 @@ namespace Storm.StardewValley.Accessor
         NPCAccessor _GetFestivalHost();
         void _SetFestivalHost(NPCAccessor val);
 
-        String _GetHostMessage();
-        void _SetHostMessage(String val);
+        string _GetHostMessage();
+        void _SetHostMessage(string val);
 
         int _GetFestivalTimer();
         void _SetFestivalTimer(int val);

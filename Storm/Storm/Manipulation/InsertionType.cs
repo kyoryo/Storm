@@ -5,6 +5,6 @@
         BEGINNING,
         ABSOLUTE,
         LAST,
-        RETURNS,
+        RETURNS
     }
 }

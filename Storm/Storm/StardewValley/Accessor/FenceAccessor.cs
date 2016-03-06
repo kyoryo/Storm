@@ -1,5 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System.Collections;
+﻿using System.Collections;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Storm.StardewValley.Accessor
 {

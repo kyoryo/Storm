@@ -14,21 +14,22 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using Storm.StardewValley;
 
 namespace Storm
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             /* allow window resizing on osx & *nix */
             if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
                 Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
 
-            Logging.Log = (msg) => Console.WriteLine(msg);
-            Logging.DebugLog = (msg) => Console.WriteLine(msg);
+            Logging.Log = msg => Console.WriteLine(msg);
+            Logging.DebugLog = msg => Console.WriteLine(msg);
 
             var launcher = new ManagedStardewValleyLauncher(StormAPI.GetResource("injectors.json"), "Stardew Valley.exe", true);
             launcher.Launch();

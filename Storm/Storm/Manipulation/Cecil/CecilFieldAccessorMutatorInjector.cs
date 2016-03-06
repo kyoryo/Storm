@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilFieldAccessorMutatorInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private FieldAccessorMutatorParams @params;
+        private AssemblyDefinition self;
 
         public CecilFieldAccessorMutatorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldAccessorMutatorParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -45,21 +44,21 @@ namespace Storm.Manipulation.Cecil
 
             if (methodType == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldAccessorMutatorInjector] Could not find methodType {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                     @params.MethodName, @params.Type, @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldAccessorMutatorInjector] Could not find methodType {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.Type, @params.IsStatic));
                 return;
             }
 
             if (field == null)
             {
-                Logging.DebugLog(String.Format("[CecilFieldAccessorMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
-                     @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                     @params.MethodName, @params.Type, @params.IsStatic));
+                Logging.DebugLog(string.Format("[CecilFieldAccessorMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
+                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
+                    @params.MethodName, @params.Type, @params.IsStatic));
                 return;
             }
 
-            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(void)));
+            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof (void)));
             {
                 mutator.Parameters.Add(new ParameterDefinition(def.Import(methodType)));
 

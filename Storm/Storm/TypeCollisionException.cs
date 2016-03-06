@@ -21,10 +21,16 @@ namespace Storm
 {
     public class TypeCollisionException : Exception
     {
-        public TypeCollisionException() : base() { }
+        public TypeCollisionException()
+        {
+        }
 
-        public TypeCollisionException(string message) : base(message) { }
+        public TypeCollisionException(string message) : base(message)
+        {
+        }
 
-        public TypeCollisionException(string message, Exception innerException) : base(message, innerException) { }
+        public TypeCollisionException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

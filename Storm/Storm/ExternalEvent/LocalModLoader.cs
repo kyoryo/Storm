@@ -22,8 +22,8 @@ using System.Reflection;
 namespace Storm.ExternalEvent
 {
     public class LocalModLoader : AssemblyModLoader
-    { 
-        private string path;
+    {
+        private readonly string path;
 
         public LocalModLoader(string path = "./")
         {

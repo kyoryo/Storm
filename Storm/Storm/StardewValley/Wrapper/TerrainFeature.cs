@@ -4,14 +4,15 @@ namespace Storm.StardewValley.Wrapper
 {
     public class TerrainFeature : Wrapper<TerrainFeatureAccessor>
     {
-        private StaticContext Parent { get; }
-        private TerrainFeatureAccessor accessor;
+        private readonly TerrainFeatureAccessor accessor;
 
         public TerrainFeature(StaticContext parent, TerrainFeatureAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        private StaticContext Parent { get; }
 
         public TerrainFeatureAccessor Expose() => accessor;
     }

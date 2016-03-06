@@ -14,16 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using System;
+
 using System.Collections;
+using Microsoft.Xna.Framework;
 using xTile;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface GameLocationAccessor
     {
-
         void _GrowWeedGrass(int iterations);
 
         Map _GetMap();
@@ -80,17 +79,17 @@ namespace Storm.StardewValley.Accessor
         bool _GetWaterTiles();
         void _SetWaterTiles(bool val);
 
-        String _GetUniqueName();
-        void _SetUniqueName(String val);
+        string _GetUniqueName();
+        void _SetUniqueName(string val);
 
-        String _GetName();
-        void _SetName(String val);
+        string _GetName();
+        void _SetName(string val);
 
         Color _GetWaterColor();
         void _SetWaterColor(Color val);
 
-        String _GetLastQuestionKey();
-        void _SetLastQuestionKey(String val);
+        string _GetLastQuestionKey();
+        void _SetLastQuestionKey(string val);
 
         Vector2 _GetLastTouchActionLocation();
         void _SetLastTouchActionLocation(Vector2 val);

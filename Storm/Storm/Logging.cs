@@ -15,20 +15,18 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley;
 using System;
 using System.IO;
+using Storm.StardewValley;
 
 namespace Storm
 {
     public sealed class Logging
     {
-        private Logging() { }
-
         public delegate void Logger(string msg);
 
-        public static Logger Log = (s) => { };
-        public static Logger DebugLog = (s) => { };
+        public static Logger Log = s => { };
+        public static Logger DebugLog = s => { };
 
         public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
         {
@@ -37,5 +35,9 @@ namespace Storm
             sr.WriteLine(e.ToString());
             sr.Close();
         };
+
+        private Logging()
+        {
+        }
     }
 }

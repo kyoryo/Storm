@@ -1,13 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Chest : Object, Wrapper<ChestAccessor>
     {
-        private ChestAccessor accessor;
+        private readonly ChestAccessor accessor;
 
         public Chest(StaticContext parent, ChestAccessor accessor) : base(parent, accessor)
         {
@@ -44,7 +43,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetOpener(value.Expose()); }
         }
 
-        public String ChestType
+        public string ChestType
         {
             get { return accessor._GetChestType(); }
             set { accessor._SetChestType(value); }

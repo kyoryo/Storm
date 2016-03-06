@@ -1,13 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class HoeDirt : TerrainFeature, Wrapper<HoeDirtAccessor>
     {
-        private HoeDirtAccessor accessor;
+        private readonly HoeDirtAccessor accessor;
 
         public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) : base(parent, accessor)
         {

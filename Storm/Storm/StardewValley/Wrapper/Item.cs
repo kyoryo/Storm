@@ -14,20 +14,22 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Item : Wrapper<ItemAccessor>
     {
-        public StaticContext Parent { get; }
-        private ItemAccessor accessor;
+        private readonly ItemAccessor accessor;
 
         public Item(StaticContext parent, ItemAccessor accessor)
         {
-            this.Parent = parent;
+            Parent = parent;
             this.accessor = accessor;
         }
+
+        public StaticContext Parent { get; }
 
         public int Category
         {

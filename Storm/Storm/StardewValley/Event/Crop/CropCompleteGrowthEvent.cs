@@ -19,11 +19,11 @@ namespace Storm.StardewValley.Event.Crop
 {
     public class CropCompleteGrowthEvent : StaticContextEvent
     {
-        public Storm.StardewValley.Wrapper.Crop Crop { get; }
-
-        public CropCompleteGrowthEvent(Storm.StardewValley.Wrapper.Crop crop)
+        public CropCompleteGrowthEvent(Wrapper.Crop crop)
         {
-            this.Crop = crop;
+            Crop = crop;
         }
+
+        public Wrapper.Crop Crop { get; }
     }
 }

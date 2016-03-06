@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -8,11 +7,11 @@ namespace Storm.StardewValley.Accessor
         int _GetCurrentTab();
         void _SetCurrentTab(int val);
 
-        String _GetHoverText();
-        void _SetHoverText(String val);
+        string _GetHoverText();
+        void _SetHoverText(string val);
 
-        String _GetDescriptionText();
-        void _SetDescriptionText(String val);
+        string _GetDescriptionText();
+        void _SetDescriptionText(string val);
 
         IList _GetTabs();
         void _SetTabs(IList val);

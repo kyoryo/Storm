@@ -14,10 +14,10 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -50,14 +50,14 @@ namespace Storm.StardewValley.Accessor
         Rectangle _GetLastCrossroad();
         void _SetLastCrossroad(Rectangle val);
 
-        String _GetDefaultMap();
-        void _SetDefaultMap(String val);
+        string _GetDefaultMap();
+        void _SetDefaultMap(string val);
 
-        String _GetLoveInterest();
-        void _SetLoveInterest(String val);
+        string _GetLoveInterest();
+        void _SetLoveInterest(string val);
 
-        String _GetBirthdaySeason();
-        void _SetBirthdaySeason(String val);
+        string _GetBirthdaySeason();
+        void _SetBirthdaySeason(string val);
 
         Texture2D _GetPortrait();
         void _SetPortrait(Texture2D val);
@@ -89,8 +89,8 @@ namespace Storm.StardewValley.Accessor
         IList _GetRoutesFromLocationToLocation();
         void _SetRoutesFromLocationToLocation(IList val);
 
-        String _GetTextAboveHead();
-        void _SetTextAboveHead(String val);
+        string _GetTextAboveHead();
+        void _SetTextAboveHead(string val);
 
         int _GetTextAboveHeadPreTimer();
         void _SetTextAboveHeadPreTimer(int val);
@@ -137,8 +137,8 @@ namespace Storm.StardewValley.Accessor
         int _GetBirthdayDay();
         void _SetBirthdayDay(int val);
 
-        String _GetExtraDialogueMessageToAddThisMorning();
-        void _SetExtraDialogueMessageToAddThisMorning(String val);
+        string _GetExtraDialogueMessageToAddThisMorning();
+        void _SetExtraDialogueMessageToAddThisMorning(string val);
 
         GameLocationAccessor _GetCurrentLocation();
         void _SetCurrentLocation(GameLocationAccessor val);
@@ -182,8 +182,8 @@ namespace Storm.StardewValley.Accessor
         float _GetTimerSinceLastMovement();
         void _SetTimerSinceLastMovement(float val);
 
-        String _GetMapBeforeEvent();
-        void _SetMapBeforeEvent(String val);
+        string _GetMapBeforeEvent();
+        void _SetMapBeforeEvent(string val);
 
         Vector2 _GetPositionBeforeEvent();
         void _SetPositionBeforeEvent(Vector2 val);
@@ -221,14 +221,14 @@ namespace Storm.StardewValley.Accessor
         int _GetRouteEndOutro();
         void _SetRouteEndOutro(int val);
 
-        String _GetEndOfRouteMessage();
-        void _SetEndOfRouteMessage(String val);
+        string _GetEndOfRouteMessage();
+        void _SetEndOfRouteMessage(string val);
 
-        String _GetNextEndOfRouteMessage();
-        void _SetNextEndOfRouteMessage(String val);
+        string _GetNextEndOfRouteMessage();
+        void _SetNextEndOfRouteMessage(string val);
 
-        String _GetEndOfRouteBehaviorName();
-        void _SetEndOfRouteBehaviorName(String val);
+        string _GetEndOfRouteBehaviorName();
+        void _SetEndOfRouteBehaviorName(string val);
 
         Point _GetPreviousEndPoint();
         void _SetPreviousEndPoint(Point val);

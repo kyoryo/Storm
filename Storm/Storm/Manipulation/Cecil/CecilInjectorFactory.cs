@@ -15,84 +15,86 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.IO;
 using System.Reflection;
 using Mono.Cecil;
-using System.IO;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilInjectorFactory : InjectorFactory
     {
-        private AssemblyDefinition selfAssembly = null;
-        private AssemblyDefinition gameAssembly = null;
-        private Assembly refAssembly = null;
+        private Assembly refAssembly;
 
-        public CecilInjectorFactory() { }
+        public CecilInjectorFactory()
+        {
+        }
 
-        public CecilInjectorFactory(string path) : base(path) { }
+        public CecilInjectorFactory(string path) : base(path)
+        {
+        }
 
-        public AssemblyDefinition SelfAssembly { get { return selfAssembly; } }
-        public AssemblyDefinition GameAssembly { get { return gameAssembly; } }
+        public AssemblyDefinition SelfAssembly { get; private set; }
+        public AssemblyDefinition GameAssembly { get; private set; }
 
         private void CheckSelf()
         {
-            if (selfAssembly == null)
+            if (SelfAssembly == null)
             {
-                selfAssembly = AssemblyDefinition.ReadAssembly("StormLoader.exe");
+                SelfAssembly = AssemblyDefinition.ReadAssembly("StormLoader.exe");
             }
         }
 
         protected override void UpdatePath(string path)
         {
-            this.gameAssembly = AssemblyDefinition.ReadAssembly(path);
+            GameAssembly = AssemblyDefinition.ReadAssembly(path);
         }
 
         public override Injector CreateInterfaceInjector(InterfaceParams @params)
         {
             CheckSelf();
-            return new CecilInterfaceInjector(selfAssembly, gameAssembly, @params);
+            return new CecilInterfaceInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateFieldDetourInjector(FieldDetourParams @params)
         {
             CheckSelf();
-            return new CecilFieldDetourInjector(selfAssembly, gameAssembly, @params);
+            return new CecilFieldDetourInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateFieldAccessorInjector(FieldAccessorParams @params)
         {
             CheckSelf();
-            return new CecilFieldAccessorInjector(selfAssembly, gameAssembly, @params);
+            return new CecilFieldAccessorInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateFieldMutatorInjector(FieldMutatorParams @params)
         {
             CheckSelf();
-            return new CecilFieldMutatorInjector(selfAssembly, gameAssembly, @params);
+            return new CecilFieldMutatorInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
         {
             CheckSelf();
-            return new CecilFieldAccessorMutatorInjector(selfAssembly, gameAssembly, @params);
+            return new CecilFieldAccessorMutatorInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateInvokerInjector(InvokerParams @params)
         {
             CheckSelf();
-            return new CecilInvokerInjector(selfAssembly, gameAssembly, @params);
+            return new CecilInvokerInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
         {
             CheckSelf();
-            return new CecilAbsoluteCallInjector(selfAssembly, gameAssembly, @params);
+            return new CecilAbsoluteCallInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateEventCallbackInjector(EventCallbackParams @params)
         {
             CheckSelf();
-            return new CecilEventCallbackInjector(selfAssembly, gameAssembly, @params);
+            return new CecilEventCallbackInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Assembly ToConcrete()
@@ -100,7 +102,7 @@ namespace Storm.Manipulation.Cecil
             if (refAssembly != null) return refAssembly;
             using (var strum = new MemoryStream())
             {
-                gameAssembly.Write(strum);
+                GameAssembly.Write(strum);
                 refAssembly = Assembly.Load(strum.GetBuffer());
             }
             return refAssembly;
@@ -108,7 +110,7 @@ namespace Storm.Manipulation.Cecil
 
         public void WriteModifiedAssembly(Stream @out)
         {
-            gameAssembly.Write(@out);
+            GameAssembly.Write(@out);
         }
     }
 }

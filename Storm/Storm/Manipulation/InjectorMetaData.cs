@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -22,7 +23,9 @@ namespace Storm.Manipulation
 {
     public sealed class InjectorMetaData
     {
-        private InjectorMetaData() { }
+        private InjectorMetaData()
+        {
+        }
 
         public static string AccessorToGameType<T>(List<Injector> list)
         {
@@ -31,8 +34,8 @@ namespace Storm.Manipulation
                 var @params = injector.GetParams();
                 if (@params is InterfaceParams)
                 {
-                    var casted = (InterfaceParams)@params;
-                    if (casted.InterfaceType == typeof(T).FullName)
+                    var casted = (InterfaceParams) @params;
+                    if (casted.InterfaceType == typeof (T).FullName)
                     {
                         return casted.OwnerType;
                     }
@@ -55,7 +58,7 @@ namespace Storm.Manipulation
                 var @params = injector.GetParams();
                 if (@params is MethodInfoParams)
                 {
-                    var casted = (MethodInfoParams)@params;
+                    var casted = (MethodInfoParams) @params;
                     if (casted.OwnerAccessorType == type && casted.RefactoredName == refactored)
                     {
                         return casted.MethodName;
@@ -67,7 +70,7 @@ namespace Storm.Manipulation
 
         public static string NameOfMethod<T>(List<Injector> list, string refactored)
         {
-            return NameOfMethod(list, typeof(T).FullName, refactored);
+            return NameOfMethod(list, typeof (T).FullName, refactored);
         }
     }
 }

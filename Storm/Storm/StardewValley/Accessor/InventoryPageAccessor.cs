@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -8,17 +7,17 @@ namespace Storm.StardewValley.Accessor
         InventoryMenuAccessor _GetInventory();
         void _SetInventory(InventoryMenuAccessor val);
 
-        String _GetDescriptionText();
-        void _SetDescriptionText(String val);
+        string _GetDescriptionText();
+        void _SetDescriptionText(string val);
 
-        String _GetHoverText();
-        void _SetHoverText(String val);
+        string _GetHoverText();
+        void _SetHoverText(string val);
 
-        String _GetDescriptionTitle();
-        void _SetDescriptionTitle(String val);
+        string _GetDescriptionTitle();
+        void _SetDescriptionTitle(string val);
 
-        String _GetHoverTitle();
-        void _SetHoverTitle(String val);
+        string _GetHoverTitle();
+        void _SetHoverTitle(string val);
 
         ItemAccessor _GetHeldItem();
         void _SetHeldItem(ItemAccessor val);
@@ -32,7 +31,7 @@ namespace Storm.StardewValley.Accessor
         float _GetTrashCanLidRotation();
         void _SetTrashCanLidRotation(float val);
 
-        String _GetHorseName();
-        void _SetHorseName(String val);
+        string _GetHorseName();
+        void _SetHorseName(string val);
     }
 }

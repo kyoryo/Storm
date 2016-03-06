@@ -14,8 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Microsoft.Xna.Framework;
-using System;
 
 namespace Storm.StardewValley.Accessor
 {
@@ -51,8 +51,8 @@ namespace Storm.StardewValley.Accessor
         int _GetMovementPause();
         void _SetMovementPause(int val);
 
-        String _GetName();
-        void _SetName(String val);
+        string _GetName();
+        void _SetName(string val);
 
         bool _GetMoveUp();
         void _SetMoveUp(bool val);
@@ -176,7 +176,5 @@ namespace Storm.StardewValley.Accessor
 
         Vector2 _GetDrawOffset();
         void _SetDrawOffset(Vector2 val);
-
-        
     }
 }

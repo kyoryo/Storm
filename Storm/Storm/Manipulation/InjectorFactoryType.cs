@@ -19,6 +19,6 @@ namespace Storm.Manipulation
 {
     public enum InjectorFactoryType
     {
-        Cecil,
+        Cecil
     }
 }

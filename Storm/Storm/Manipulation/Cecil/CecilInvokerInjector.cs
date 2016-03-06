@@ -14,17 +14,17 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Mono.Cecil;
 using Mono.Cecil.Cil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilInvokerInjector : Injector
     {
-        private AssemblyDefinition self;
-        private AssemblyDefinition def;
+        private readonly AssemblyDefinition def;
         private InvokerParams @params;
+        private AssemblyDefinition self;
 
         public CecilInvokerInjector(AssemblyDefinition self, AssemblyDefinition def, InvokerParams @params)
         {
@@ -35,7 +35,6 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-
         }
 
         public void Inject()
@@ -47,41 +46,41 @@ namespace Storm.Manipulation.Cecil
 
             if (returnType == null)
             {
-                Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find returnType {0} {1} {2} {3} {4}",
-                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                Logging.DebugLog(string.Format("[CecilInvokerInjector] Could not find returnType {0} {1} {2} {3} {4}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
                 return;
             }
 
             if (invoking == null)
             {
-                Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find invoking {0} {1} {2} {3} {4}",
-                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                Logging.DebugLog(string.Format("[CecilInvokerInjector] Could not find invoking {0} {1} {2} {3} {4}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
                 return;
             }
 
             var invokingParent = invoking.DeclaringType;
             var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, returnType);
             var paramTypes = new TypeReference[@params.InvokerReturnParams.Length];
-            for (int i = 0; i < paramTypes.Length; i++)
+            for (var i = 0; i < paramTypes.Length; i++)
             {
                 var paramType = def.GetTypeRef(@params.InvokerReturnParams[i], true);
                 if (paramType == null)
                 {
-                    Logging.DebugLog(String.Format("[CecilInvokerInjector] Could not find param {0} {1} {2} {3} {4}",
-                         @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                    Logging.DebugLog(string.Format("[CecilInvokerInjector] Could not find param {0} {1} {2} {3} {4}",
+                        @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
                     return;
                 }
 
                 invoker.Parameters.Add(new ParameterDefinition(paramType));
             }
-            
+
             var processor = invoker.Body.GetILProcessor();
             if (!@params.IsStatic)
             {
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
             }
 
-            for (int i = 0; i < paramTypes.Length; i++)
+            for (var i = 0; i < paramTypes.Length; i++)
             {
                 switch (i)
                 {
