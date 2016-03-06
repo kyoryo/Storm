@@ -7,7 +7,7 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event.Crop
 {
-    class BeforeHarvestCropEvent : StaticContextEvent
+    public class BeforeHarvestCropEvent : StaticContextEvent
     {
         public Storm.StardewValley.Wrapper.Crop Crop { get; }
 
