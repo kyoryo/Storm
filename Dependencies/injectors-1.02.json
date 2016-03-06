@@ -92,7 +92,7 @@
     }
   ],
   "FieldDetourParams": [
-    
+
   ],
   "FieldAccessorParams": [
     {
@@ -5933,7 +5933,7 @@
     }
   ],
   "AbsoluteCallParams": [
-    
+
   ],
   "EventCallbackParams": [
     {
@@ -5953,6 +5953,24 @@
       "InstanceCallbackName": "LoadContentCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType": "LAST"
+    },
+	{
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"UnloadContent",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"UnloadContentCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"BEGINNING"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"UnloadContent",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"UnloadContentCallback",
+      "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType":"BEGINNING"
     },
     {
       "OwnerAccessorType": "@StaticContext",
