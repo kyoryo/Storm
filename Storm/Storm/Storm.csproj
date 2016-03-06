@@ -145,6 +145,7 @@
     <Compile Include="StardewValley\Accessor\MineShaftAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Event\Game\GameLoadedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\FarmerDamageEvent.cs" />
     <Compile Include="StardewValley\Accessor\PetAccessor.cs" />
     <Compile Include="StardewValley\Accessor\PickAxeAccessor.cs" />

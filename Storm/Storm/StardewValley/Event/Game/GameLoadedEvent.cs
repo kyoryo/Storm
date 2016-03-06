@@ -20,22 +20,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Storm.StardewValley.Accessor;
-using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Game
 {
-    public class FarmerDamageEvent : StaticContextEvent
+    public class GameLoadedEvent : StaticContextEvent
     {
-        public int Damage { get; }
-        public bool OverrideParry { get; }
-        public Monster Damager { get; }
+        public bool LoadedGame { get; }
 
-        public FarmerDamageEvent(int damage, bool overrideParry, Monster damager)
+        public GameLoadedEvent(bool loadedGame)
         {
-            Damage = damage;
-            OverrideParry = overrideParry;
-            Damager = damager;
+            LoadedGame = loadedGame;
         }
     }
 }
