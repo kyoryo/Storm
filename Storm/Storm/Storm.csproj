@@ -208,7 +208,7 @@
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
     <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\StaticContextEvent.cs" />
+    <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PerformClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
