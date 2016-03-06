@@ -17,13 +17,13 @@
 
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Crop
 {
-    public class CompleteGrowthEvent : StaticContextEvent
+    public class CropCompleteGrowthEvent : StaticContextEvent
     {
-        public Crop Crop { get; }
+        public Storm.StardewValley.Wrapper.Crop Crop { get; }
 
-        public CompleteGrowthEvent(Crop crop)
+        public CropCompleteGrowthEvent(Storm.StardewValley.Wrapper.Crop crop)
         {
             this.Crop = crop;
         }

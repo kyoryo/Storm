@@ -20,6 +20,7 @@ using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
+using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Wrapper;
 using System;
 using System.Reflection;
@@ -195,10 +196,21 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        #endregion
+
+        #region Crop Events
+
         public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
         {
-            var @event = new CompleteGrowthEvent(new Crop(WrappedGame, accessor));
-            EventBus.Fire<CompleteGrowthEvent>(@event);
+            var @event = new CropCompleteGrowthEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<CropCompleteGrowthEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeHarvestCropCallback(CropAccessor accessor)
+        {
+            var @event = new BeforeHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<BeforeHarvestCropEvent>(@event);
             return @event;
         }
 
