@@ -6621,7 +6621,7 @@
          "OwnerMethodName":"Window_ClientSizeChanged",
          "OwnerMethodDesc":"(System.Object,System.EventArgs)System.Void",
          "CallbackType":"Storm.StardewValley.StaticGameContext",
-         "InstanceCallbackName":"ClientSizeChangedEventCallback",
+         "InstanceCallbackName":"ClientSizeChangedCallback",
          "InstanceCallbackDesc":"(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
          "PushParams":"true"
       },
@@ -6630,7 +6630,39 @@
          "OwnerMethodName":"pressAddItemToInventoryButton",
          "OwnerMethodDesc":"()System.Void",
          "CallbackType":"Storm.StardewValley.StaticGameContext",
-         "StaticCallbackName":"PressAddItemToInventoryButtonEventCallback",
+         "StaticCallbackName":"PressAddItemToInventoryButtonCallback",
+         "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+      },      
+      {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"playerEatObject",
+         "OwnerMethodDesc":"(@(Object),System.Boolean)System.Void",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "StaticCallbackName":"PlayerEatObjectCallback",
+         "StaticCallbackDesc":"(Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean)Storm.Manipulation.DetourEvent"
+      },
+      {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"pressSwitchToolButton",
+         "OwnerMethodDesc":"()System.Void",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "StaticCallbackName":"PressSwitchToolButtonCallback",
+         "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+      },
+      {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"releaseUseToolButton",
+         "OwnerMethodDesc":"()System.Void",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "StaticCallbackName":"ReleaseUseToolButtonCallback",
+         "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+      },
+      {
+         "OwnerAccessorType":"@StaticContext",
+         "OwnerMethodName":"shouldTimePass",
+         "OwnerMethodDesc":"()System.Boolean",
+         "CallbackType":"Storm.StardewValley.StaticGameContext",
+         "StaticCallbackName":"ShouldTimePassCallback",
          "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
       },
       {

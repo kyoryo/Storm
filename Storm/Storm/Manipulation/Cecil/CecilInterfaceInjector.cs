@@ -22,8 +22,8 @@ namespace Storm.Manipulation.Cecil
     public class CecilInterfaceInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private InterfaceParams @params;
         private readonly AssemblyDefinition self;
+        private InterfaceParams @params;
 
         public CecilInterfaceInjector(AssemblyDefinition self, AssemblyDefinition def, InterfaceParams @params)
         {

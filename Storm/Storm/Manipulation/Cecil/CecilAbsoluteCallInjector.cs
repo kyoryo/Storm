@@ -23,8 +23,8 @@ namespace Storm.Manipulation.Cecil
     public class CecilAbsoluteCallInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private AbsoluteCallParams @params;
         private readonly AssemblyDefinition self;
+        private AbsoluteCallParams @params;
 
         public CecilAbsoluteCallInjector(AssemblyDefinition self, AssemblyDefinition def, AbsoluteCallParams @params)
         {

@@ -25,6 +25,7 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
+using Object = Storm.StardewValley.Wrapper.Object;
 
 namespace Storm.StardewValley
 {
@@ -280,16 +281,44 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public DetourEvent ClientSizeChangedEventCallback(object sender, EventArgs e)
+        public DetourEvent ClientSizeChangedCallback(object sender, EventArgs e)
         {
             var @event = new ClientSizeChangedEvent(sender, e);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public DetourEvent PressAddItemToInventoryButtonEventCallback()
+        public static DetourEvent PressAddItemToInventoryButtonCallback()
         {
             var @event = new PressAddItemToInventoryButtonEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent PlayerEatObjectCallback(ObjectAccessor o, bool overrideFullness)
+        {
+            var @event = new PlayerEatObjectEvent(new Object(WrappedGame, o), overrideFullness);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent PressSwitchToolButtonCallback()
+        {
+            var @event = new PressSwitchToolButtonEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ReleaseUseToolButtonCallback()
+        {
+            var @event = new ReleaseUseToolButtonEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ShouldTimePassCallback()
+        {
+            var @event = new ShouldTimePassEvent();
             EventBus.Fire(@event);
             return @event;
         }

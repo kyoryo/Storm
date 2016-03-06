@@ -25,12 +25,12 @@ namespace Storm.Manipulation.Cecil
     public class CecilEventCallbackInjector : Injector
     {
         private readonly AssemblyDefinition def;
+        private readonly List<Instruction> injectionPoints = new List<Instruction>();
+        private readonly AssemblyDefinition self;
 
         private MethodDefinition injectee;
-        private readonly List<Instruction> injectionPoints = new List<Instruction>();
         private bool invalid;
         private EventCallbackParams @params;
-        private readonly AssemblyDefinition self;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
         {
