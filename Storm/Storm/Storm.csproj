@@ -128,20 +128,20 @@
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
-    <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\CompleteGrowthEvent.cs" />
-    <Compile Include="StardewValley\Event\PlayMorningSongEvent.cs" />
-    <Compile Include="StardewValley\Event\PrepareSpouseForWeddingEvent.cs" />
-    <Compile Include="StardewValley\Event\PressActionButtonEvent.cs" />
-    <Compile Include="StardewValley\Event\PressUseToolButtonEvent.cs" />
-    <Compile Include="StardewValley\Event\UpdateGameClockEvent.cs" />
-    <Compile Include="StardewValley\Event\LoadContentEvent.cs" />
-    <Compile Include="StardewValley\Event\PostUpdateEvent.cs" />
-    <Compile Include="StardewValley\Event\PreRenderEvent.cs" />
-    <Compile Include="StardewValley\Event\PreUIRenderEvent.cs" />
-    <Compile Include="StardewValley\Event\PreUpdateEvent.cs" />
-    <Compile Include="StardewValley\Event\SellShippedItemsEvent.cs" />
-    <Compile Include="StardewValley\Event\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PressUseToolButtonEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\UpdateGameClockEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\LoadContentEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreUIRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PreUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\SellShippedItemsEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
@@ -154,12 +154,12 @@
     <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
-    <Compile Include="StardewValley\Event\NewDayEvent.cs" />
-    <Compile Include="StardewValley\Event\SeasonChangeEvent.cs" />
-    <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
-    <Compile Include="StardewValley\Event\InitializeEvent.cs" />
-    <Compile Include="StardewValley\Event\PerformClockUpdateEvent.cs" />
-    <Compile Include="StardewValley\Event\PostRenderEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\StaticContextEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PerformClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
     <Compile Include="StardewValley\InterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
     <Compile Include="StardewValley\StaticGameContext.cs" />
@@ -214,7 +214,18 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="StardewValley\Event\ClickableMenu\" />
+    <Folder Include="StardewValley\Event\Crop\" />
+    <Folder Include="StardewValley\Event\GameLocation\" />
+    <Folder Include="StardewValley\Event\MineShaft\" />
+    <Folder Include="StardewValley\Event\NPC\" />
+    <Folder Include="StardewValley\Event\Object\" />
+    <Folder Include="StardewValley\Event\SeedShop\" />
+    <Folder Include="StardewValley\Event\ShopMenu\" />
+    <Folder Include="StardewValley\Event\TerrainFeature\" />
+    <Folder Include="StardewValley\Event\Utility\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
