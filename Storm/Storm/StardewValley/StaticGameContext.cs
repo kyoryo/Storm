@@ -252,7 +252,7 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent UpdateTitleScreenCallback(GameTime gameTime)
+        public DetourEvent UpdateTitleScreenCallback(GameTime gameTime)
         {
             var @event = new UpdateTitleScreenEvent(gameTime);
             EventBus.Fire(@event);
@@ -273,7 +273,7 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent GameExitEventCallback(object sender, EventArgs e)
+        public DetourEvent GameExitEventCallback(object sender, EventArgs e)
         {
             var @event = new GameExitEvent(sender, e);
             EventBus.Fire(@event);
