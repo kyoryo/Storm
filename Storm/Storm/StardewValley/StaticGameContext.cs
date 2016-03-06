@@ -166,6 +166,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PressActionButtonCallback()
+        {
+            var @event = new PressActionButtonEvent();
+            EventBus.Fire<PressActionButtonEvent>(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Farmer Events
