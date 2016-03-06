@@ -198,6 +198,7 @@
     <Compile Include="StardewValley\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
     <Compile Include="StardewValley\Wrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
     <Compile Include="StardewValley\Wrapper\Crop.cs" />
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
@@ -218,7 +219,6 @@
   <ItemGroup>
     <Folder Include="StardewValley\Event\ClickableMenu\" />
     <Folder Include="StardewValley\Event\GameLocation\" />
-    <Folder Include="StardewValley\Event\Crop\" />
     <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\Object\" />
