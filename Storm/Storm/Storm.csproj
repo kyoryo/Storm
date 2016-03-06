@@ -217,6 +217,7 @@
   <ItemGroup>
     <Folder Include="StardewValley\Event\ClickableMenu\" />
     <Folder Include="StardewValley\Event\GameLocation\" />
+    <Folder Include="StardewValley\Event\Crop\" />
     <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\Object\" />
