@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Event
 {
     public class CompleteGrowthEvent : StaticContextEvent
     {
-        private Crop Crop { get; }
+        public Crop Crop { get; }
 
         public CompleteGrowthEvent(Crop crop)
         {
