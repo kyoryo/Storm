@@ -5238,6 +5238,14 @@
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"growCompletely",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName":"growCompletelyCallback",
+      "InstanceCallbackDesc":"()Storm.Manipulation.DetourEvent",
+    },
+    {
       "OwnerAccessorType":"@Farmer",
       "OwnerMethodName":"addItemToInventory",
       "OwnerMethodDesc":"(@(Item))@(Item)",
@@ -5246,5 +5254,6 @@
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
       "PushParams":"true"
     }
+
   ]
 }

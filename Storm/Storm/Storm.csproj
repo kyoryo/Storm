@@ -129,6 +129,7 @@
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
     <Compile Include="StardewValley\Event\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\CompleteGrowthEvent.cs" />
     <Compile Include="StardewValley\Event\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\PrepareSpouseForWeddingEvent.cs" />
     <Compile Include="StardewValley\Event\PressActionButtonEvent.cs" />
