@@ -151,10 +151,12 @@
     <Compile Include="StardewValley\Accessor\SeedsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Stable.cs" />
     <Compile Include="StardewValley\Accessor\TempAnimatedSpriteAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
-    <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
-    <Compile Include="StardewValley\Event\Crop\CompleteGrowthEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\AfterHarvestCropEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\BeforeHarvestCropEvent.cs" />
+	<Compile Include="StardewValley\Accessor\TerrainFeatureAccessor.cs" />
+	<Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
+	<Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PressActionButtonEvent.cs" />
