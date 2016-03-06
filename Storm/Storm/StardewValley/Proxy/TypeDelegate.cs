@@ -15,7 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley
+namespace Storm.StardewValley.Proxy
 {
     public abstract class TypeDelegate<T>
     {

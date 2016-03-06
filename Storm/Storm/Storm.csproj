@@ -186,6 +186,8 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
+    <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ClickableMenuInterceptFactory.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
@@ -243,8 +245,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\Proxy\ToolDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\ToolInterceptorDelegateFactory.cs" />
-    <Compile Include="StardewValley\TypeDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ToolInterceptFactory.cs" />
+    <Compile Include="StardewValley\Proxy\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
     <Compile Include="StardewValley\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\BobberBar.cs" />

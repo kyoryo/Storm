@@ -23,17 +23,15 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class ToolInterceptorDelegateFactory : InterceptorDelegateFactory<ToolDelegate>
+    public class ToolInterceptFactory : InterceptorDelegateFactory<ToolDelegate>
     {
         public delegate void BeginUsingDelegate(GameLocation loc, int x, int y, Farmer farmer);
-
         public delegate void DrawInMenuDelegate(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
 
         private readonly string beginUsingName;
-
         private readonly string drawInMenuName;
 
-        public ToolInterceptorDelegateFactory(StaticContext parent, string getNameMethodName, string beginUsingName)
+        public ToolInterceptFactory(StaticContext parent, string getNameMethodName, string beginUsingName)
         {
             Parent = parent;
             drawInMenuName = getNameMethodName;
@@ -49,19 +47,19 @@ namespace Storm.StardewValley.Proxy
 
         private class ToolInterceptor : IInterceptor
         {
-            private readonly BeginUsingDelegate beginUsingDelegate;
-
             private readonly string beginUsingName;
-            private readonly DrawInMenuDelegate drawInMenuDelegate;
             private readonly string drawInMenuName;
+
+            private readonly BeginUsingDelegate beginUsingDelegate;
+            private readonly DrawInMenuDelegate drawInMenuDelegate;
 
             public ToolInterceptor(
                 StaticContext parent,
                 string getNameMethodName, DrawInMenuDelegate drawInMenuDelegate,
                 string beginUsingName, BeginUsingDelegate beginUsingDelegate)
             {
-                Parent = parent;
-                drawInMenuName = getNameMethodName;
+                this.Parent = parent;
+                this.drawInMenuName = getNameMethodName;
                 this.drawInMenuDelegate = drawInMenuDelegate;
                 this.beginUsingName = beginUsingName;
                 this.beginUsingDelegate = beginUsingDelegate;

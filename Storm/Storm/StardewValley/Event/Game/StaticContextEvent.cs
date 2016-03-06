@@ -41,7 +41,7 @@ namespace Storm.StardewValley.Event
         public StaticContext Root { get; }
         public ModEventBus EventBus { get; }
         public Type ToolType { get; }
-        public ToolInterceptorDelegateFactory ToolFactory { get; }
+        public ToolInterceptFactory ToolFactory { get; }
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {

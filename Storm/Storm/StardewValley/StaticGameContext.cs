@@ -48,7 +48,7 @@ namespace Storm.StardewValley
 
         public static Type ToolType { get; set; }
 
-        public static ToolInterceptorDelegateFactory ToolFactory { get; set; }
+        public static ToolInterceptFactory ToolFactory { get; set; }
 
         /// <summary>
         ///     Event handler for all Storm mods.
