@@ -22,9 +22,9 @@ namespace Storm.Manipulation.Cecil
 {
     public class CecilRetCallInjector
     {
+        private readonly AssemblyDefinition self;
         private AssemblyDefinition def;
         private RetCallParams @params;
-        private readonly AssemblyDefinition self;
 
         public CecilRetCallInjector(AssemblyDefinition self, AssemblyDefinition def, RetCallParams @params)
         {

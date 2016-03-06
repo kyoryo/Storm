@@ -23,8 +23,8 @@ namespace Storm.Manipulation.Cecil
     public class CecilFieldDetourInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private FieldDetourParams @params;
         private readonly AssemblyDefinition self;
+        private FieldDetourParams @params;
 
         public CecilFieldDetourInjector(AssemblyDefinition self, AssemblyDefinition def, FieldDetourParams @params)
         {
