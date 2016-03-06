@@ -16,6 +16,7 @@
  */
 using Storm.StardewValley.Accessor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,15 +33,124 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public int DamageToFarmer
+        {
+            get { return accessor._GetDamageToFarmer(); }
+            set { accessor._SetDamageToFarmer(value); }
+        }
+
         public int Health
         {
             get { return accessor._GetHealth(); }
+            set { accessor._SetHealth(value); }
         }
 
         public int MaxHealth
         {
             get { return accessor._GetMaxHealth(); }
             set { accessor._SetMaxHealth(value); }
+        }
+
+        public int CoinsToDrop
+        {
+            get { return accessor._GetCoinsToDrop(); }
+            set { accessor._SetCoinsToDrop(value); }
+        }
+
+        public int DurationOfRandomMovements
+        {
+            get { return accessor._GetDurationOfRandomMovements(); }
+            set { accessor._SetDurationOfRandomMovements(value); }
+        }
+
+        public int Resilience
+        {
+            get { return accessor._GetResilience(); }
+            set { accessor._SetResilience(value); }
+        }
+
+        public int Slipperiness
+        {
+            get { return accessor._GetSlipperiness(); }
+            set { accessor._SetSlipperiness(value); }
+        }
+
+        public int ExperienceGained
+        {
+            get { return accessor._GetExperienceGained(); }
+            set { accessor._SetExperienceGained(value); }
+        }
+
+        public double Jitteriness
+        {
+            get { return accessor._GetJitteriness(); }
+            set { accessor._SetJitteriness(value); }
+        }
+
+        public double MissChance
+        {
+            get { return accessor._GetMissChance(); }
+            set { accessor._SetMissChance(value); }
+        }
+
+        public bool IsGlider
+        {
+            get { return accessor._GetIsGlider(); }
+            set { accessor._SetIsGlider(value); }
+        }
+
+        public bool MineMonster
+        {
+            get { return accessor._GetMineMonster(); }
+            set { accessor._SetMineMonster(value); }
+        }
+
+        public bool HasSpecialItem
+        {
+            get { return accessor._GetHasSpecialItem(); }
+            set { accessor._SetHasSpecialItem(value); }
+        }
+
+        public IList ObjectsToDrop
+        {
+            get { return accessor._GetObjectsToDrop(); }
+            set { accessor._SetObjectsToDrop(value); }
+        }
+
+        public int SkipHorizontal
+        {
+            get { return accessor._GetSkipHorizontal(); }
+            set { accessor._SetSkipHorizontal(value); }
+        }
+
+        public int InvincibleCountdown
+        {
+            get { return accessor._GetInvincibleCountdown(); }
+            set { accessor._SetInvincibleCountdown(value); }
+        }
+
+        public bool SkipHorizontalUp
+        {
+            get { return accessor._GetSkipHorizontalUp(); }
+            set { accessor._SetSkipHorizontalUp(value); }
+        }
+
+        public int DefaultAnimationInterval
+        {
+            get { return accessor._GetDefaultAnimationInterval(); }
+            set { accessor._SetDefaultAnimationInterval(value); }
+        }
+
+        public bool FocusedOnFarmers
+        {
+            get { return accessor._GetFocusedOnFarmers(); }
+            set { accessor._SetFocusedOnFarmers(value); }
+        }
+
+        public int SlideAnimationTimer
+        {
+            get { return accessor._GetSlideAnimationTimer(); }
+            set { accessor._SetSlideAnimationTimer(value); }
         }
 
         public new MonsterAccessor Expose() => accessor;
