@@ -21,6 +21,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Storm.StardewValley.Accessor;
+using System;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -52,148 +53,40 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetTileSlideThreshold(value); }
         }
 
-        public IList QuestLog
-        {
-            get { return accessor._GetQuestLog(); }
-            set { accessor._SetQuestLog(value); }
-        }
-
-        public IList Professions
-        {
-            get { return accessor._GetProfessions(); }
-            set { accessor._SetProfessions(value); }
-        }
-
-        public IList NewLevels
-        {
-            get { return accessor._GetNewLevels(); }
-            set { accessor._SetNewLevels(value); }
-        }
-
-        public ICollection NewLevelSparklingTexts
-        {
-            get { return accessor._GetNewLevelSparklingTexts(); }
-            set { accessor._SetNewLevelSparklingTexts(value); }
-        }
-
         public int ExperiencePoints
         {
             get { return accessor._GetExperiencePoints(); }
             set { accessor._SetExperiencePoints(value); }
         }
 
-        public ItemAccessor ActiveObject
+        public Item ActiveObject
         {
-            get { return accessor._GetActiveObject(); }
-            set { accessor._SetActiveObject(value); }
+            get { return new Item(Parent, accessor._GetActiveObject()); }
+            set { accessor._SetActiveObject(value.Expose()); }
+        }
+        
+        public Tool[] ToolBox
+        {
+            get
+            {
+                var arr = accessor._GetToolBox();
+                return Array.ConvertAll(arr, (i) => new Tool(Parent, i));
+            }
+            set
+            {
+                accessor._SetToolBox(Array.ConvertAll(value, (i) => i.Expose()));
+            }
         }
 
-        public IList DialogueQuestionsAnswered
+        public void SetToolInToolBox(int idx, Tool t)
         {
-            get { return accessor._GetDialogueQuestionsAnswered(); }
-            set { accessor._SetDialogueQuestionsAnswered(value); }
+            accessor._GetToolBox()[idx] = t.Expose();
         }
 
-        public IList FurnitureOwned
+        public Object Cupboard
         {
-            get { return accessor._GetFurnitureOwned(); }
-            set { accessor._SetFurnitureOwned(value); }
-        }
-
-        public IDictionary CookingRecipes
-        {
-            get { return accessor._GetCookingRecipes(); }
-            set { accessor._SetCookingRecipes(value); }
-        }
-
-        public IDictionary CraftingRecipes
-        {
-            get { return accessor._GetCraftingRecipes(); }
-            set { accessor._SetCraftingRecipes(value); }
-        }
-
-        public IDictionary ActiveDialogueEvents
-        {
-            get { return accessor._GetActiveDialogueEvents(); }
-            set { accessor._SetActiveDialogueEvents(value); }
-        }
-
-        public IList EventsSeen
-        {
-            get { return accessor._GetEventsSeen(); }
-            set { accessor._SetEventsSeen(value); }
-        }
-
-        public IList SongsHeard
-        {
-            get { return accessor._GetSongsHeard(); }
-            set { accessor._SetSongsHeard(value); }
-        }
-
-        public IList Achievements
-        {
-            get { return accessor._GetAchievements(); }
-            set { accessor._SetAchievements(value); }
-        }
-
-        public IList SpecialItems
-        {
-            get { return accessor._GetSpecialItems(); }
-            set { accessor._SetSpecialItems(value); }
-        }
-
-        public IList SpecialBigCraftables
-        {
-            get { return accessor._GetSpecialBigCraftables(); }
-            set { accessor._SetSpecialBigCraftables(value); }
-        }
-
-        public IList MailReceived
-        {
-            get { return accessor._GetMailReceived(); }
-            set { accessor._SetMailReceived(value); }
-        }
-
-        public IList MailForTomorrow
-        {
-            get { return accessor._GetMailForTomorrow(); }
-            set { accessor._SetMailForTomorrow(value); }
-        }
-
-        public IList Blueprints
-        {
-            get { return accessor._GetBlueprints(); }
-            set { accessor._SetBlueprints(value); }
-        }
-
-        public IList CoopDwellers
-        {
-            get { return accessor._GetCoopDwellers(); }
-            set { accessor._SetCoopDwellers(value); }
-        }
-
-        public IList BarnDwellers
-        {
-            get { return accessor._GetBarnDwellers(); }
-            set { accessor._SetBarnDwellers(value); }
-        }
-
-        public ToolAccessor ToolBox
-        {
-            get { return accessor._GetToolBox(); }
-            set { accessor._SetToolBox(value); }
-        }
-
-        public ObjectAccessor Cupboard
-        {
-            get { return accessor._GetCupboard(); }
-            set { accessor._SetCupboard(value); }
-        }
-
-        public IList MovementDirections
-        {
-            get { return accessor._GetMovementDirections(); }
-            set { accessor._SetMovementDirections(value); }
+            get { return new Object(Parent, accessor._GetCupboard()); }
+            set { accessor._SetCupboard(value.Expose()); }
         }
 
         public string FarmName
@@ -208,22 +101,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFavoriteThing(value); }
         }
 
-        public IList Buffs
+        public GameLocation CurrentLocation
         {
-            get { return accessor._GetBuffs(); }
-            set { accessor._SetBuffs(value); }
-        }
-
-        public IList MultiplayerMessage
-        {
-            get { return accessor._GetMultiplayerMessage(); }
-            set { accessor._SetMultiplayerMessage(value); }
-        }
-
-        public GameLocationAccessor CurrentLocation
-        {
-            get { return accessor._GetCurrentLocation(); }
-            set { accessor._SetCurrentLocation(value); }
+            get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
+            set { accessor._SetCurrentLocation(value.Expose()); }
         }
 
         public long UniqueMultiplayerID
@@ -897,43 +778,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetCanUnderstandDwarves(); }
             set { accessor._SetCanUnderstandDwarves(value); }
         }
-
-        public IDictionary BasicShipped
-        {
-            get { return accessor._GetBasicShipped(); }
-            set { accessor._SetBasicShipped(value); }
-        }
-
-        public IDictionary MineralsFound
-        {
-            get { return accessor._GetMineralsFound(); }
-            set { accessor._SetMineralsFound(value); }
-        }
-
-        public IDictionary RecipesCooked
-        {
-            get { return accessor._GetRecipesCooked(); }
-            set { accessor._SetRecipesCooked(value); }
-        }
-
-        public IDictionary ArchaeologyFound
-        {
-            get { return accessor._GetArchaeologyFound(); }
-            set { accessor._SetArchaeologyFound(value); }
-        }
-
-        public IDictionary FishCaught
-        {
-            get { return accessor._GetFishCaught(); }
-            set { accessor._SetFishCaught(value); }
-        }
-
-        public IDictionary Friendships
-        {
-            get { return accessor._GetFriendships(); }
-            set { accessor._SetFriendships(value); }
-        }
-
+        
         public Vector2 PositionBeforeEvent
         {
             get { return accessor._GetPositionBeforeEvent(); }

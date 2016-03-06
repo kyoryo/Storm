@@ -51,19 +51,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
         }
-
-        public IList Inventory
-        {
-            get { return accessor._GetInventory(); }
-            set { accessor._SetInventory(value); }
-        }
-
-        public IList ActualInventory
-        {
-            get { return accessor._GetActualInventory(); }
-            set { accessor._SetActualInventory(value); }
-        }
-
+        
         public bool PlayerInventory
         {
             get { return accessor._GetPlayerInventory(); }
@@ -106,11 +94,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetVerticalGap(value); }
         }
 
-        public new InventoryMenuAccessor Expose() => accessor;
-
         public ItemAccessor GetItemAt(int mouseX, int mouseY)
         {
             return accessor._GetItemAt(mouseX, mouseY);
         }
+
+        public new InventoryMenuAccessor Expose() => accessor;
     }
 }

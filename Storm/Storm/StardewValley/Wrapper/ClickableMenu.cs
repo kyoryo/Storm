@@ -28,7 +28,7 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        private StaticContext Parent { get; }
+        public StaticContext Parent { get; }
 
         public ClickableMenuAccessor Expose() => accessor;
     }

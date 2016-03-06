@@ -107,12 +107,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetHasSpecialItem(value); }
         }
 
-        public IList ObjectsToDrop
-        {
-            get { return accessor._GetObjectsToDrop(); }
-            set { accessor._SetObjectsToDrop(value); }
-        }
-
         public int SkipHorizontal
         {
             get { return accessor._GetSkipHorizontal(); }

@@ -51,5 +51,15 @@ namespace Storm.StardewValley
             @delegate.Accessor = wrapped;
             return wrapped;
         }
+
+        public Farmer LocalPlayer
+        {
+            get { return Root.Player; }
+        }
+
+        public GameLocation Location
+        {
+            get { return Root.CurrentLocation; }
+        }
     }
 }

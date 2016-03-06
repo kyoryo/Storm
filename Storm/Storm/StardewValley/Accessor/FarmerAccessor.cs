@@ -92,8 +92,8 @@ namespace Storm.StardewValley.Accessor
         IList _GetBarnDwellers();
         void _SetBarnDwellers(IList val);
 
-        ToolAccessor _GetToolBox();
-        void _SetToolBox(ToolAccessor val);
+        ToolAccessor[] _GetToolBox();
+        void _SetToolBox(ToolAccessor[] val);
 
         ObjectAccessor _GetCupboard();
         void _SetCupboard(ObjectAccessor val);

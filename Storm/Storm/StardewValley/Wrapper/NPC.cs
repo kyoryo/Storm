@@ -31,18 +31,6 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public IDictionary Schedule
-        {
-            get { return accessor._GetSchedule(); }
-            set { accessor._SetSchedule(value); }
-        }
-
-        public IDictionary Dialogue
-        {
-            get { return accessor._GetDialogue(); }
-            set { accessor._SetDialogue(value); }
-        }
-
         public int DirectionIndex
         {
             get { return accessor._GetDirectionIndex(); }
@@ -157,12 +145,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCurrentDialogue(value); }
         }
 
-        public IList RoutesFromLocationToLocation
-        {
-            get { return accessor._GetRoutesFromLocationToLocation(); }
-            set { accessor._SetRoutesFromLocationToLocation(value); }
-        }
-
         public string TextAboveHead
         {
             get { return accessor._GetTextAboveHead(); }
@@ -265,10 +247,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetExtraDialogueMessageToAddThisMorning(value); }
         }
 
-        public GameLocationAccessor CurrentLocation
+        public GameLocation CurrentLocation
         {
-            get { return accessor._GetCurrentLocation(); }
-            set { accessor._SetCurrentLocation(value); }
+            get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
+            set { accessor._SetCurrentLocation(value.Expose()); }
         }
 
         public bool UpdatedDialogueYet

@@ -2689,7 +2689,7 @@
          "OwnerFieldName":"toolBox",
          "OwnerFieldType":"@Tool",
          "MethodName":"ToolBox",
-         "Type":"Storm.StardewValley.Accessor.ToolAccessor"
+         "Type":"Storm.StardewValley.Accessor.ToolAccessor[]"
       },
       {
          "OwnerAccessorType":"@Farmer",

@@ -45,19 +45,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
         }
-
-        public IList Tabs
-        {
-            get { return accessor._GetTabs(); }
-            set { accessor._SetTabs(value); }
-        }
-
-        public IList Pages
-        {
-            get { return accessor._GetPages(); }
-            set { accessor._SetPages(value); }
-        }
-
+        
         public bool Invisible
         {
             get { return accessor._GetInvisible(); }

@@ -68,6 +68,12 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetIsOutdoors(value); }
         }
 
+        public string Name
+        {
+            get { return accessor._GetName(); }
+            set { accessor._SetName(value); }
+        }
+
         public List<NPC> Characters
         {
             get
@@ -96,8 +102,6 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public GameLocationAccessor Expose() => accessor;
-
         public void GrowWeedGrass(int iterations)
         {
             accessor._GrowWeedGrass(iterations);
@@ -114,5 +118,7 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
+
+        public GameLocationAccessor Expose() => accessor;
     }
 }

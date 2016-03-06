@@ -47,12 +47,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCoins(value); }
         }
 
-        public IList Items
-        {
-            get { return accessor._GetItems(); }
-            set { accessor._SetItems(value); }
-        }
-
         public Farmer Opener
         {
             get { return new Farmer(Parent, accessor._GetOpener()); }

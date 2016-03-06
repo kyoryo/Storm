@@ -48,16 +48,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetSnowTexture(value); }
         }
 
-        public CropAccessor Crop
+        public Crop Crop
         {
-            get { return accessor._GetCrop(); }
-            set { accessor._SetCrop(value); }
-        }
-
-        public IDictionary DrawGuide
-        {
-            get { return accessor._GetDrawGuide(); }
-            set { accessor._SetDrawGuide(value); }
+            get { return new Crop(Parent, accessor._GetCrop()); }
+            set { accessor._SetCrop(value.Expose()); }
         }
 
         public int State

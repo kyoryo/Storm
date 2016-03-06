@@ -58,22 +58,16 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetHoverTitle(value); }
         }
 
-        public ItemAccessor HeldItem
+        public Item HeldItem
         {
-            get { return accessor._GetHeldItem(); }
-            set { accessor._SetHeldItem(value); }
+            get { return new Item(Parent, accessor._GetHeldItem()); }
+            set { accessor._SetHeldItem(value.Expose()); }
         }
 
-        public ItemAccessor HoveredItem
+        public Item HoveredItem
         {
-            get { return accessor._GetHoveredItem(); }
-            set { accessor._SetHoveredItem(value); }
-        }
-
-        public IList EquipmentIcons
-        {
-            get { return accessor._GetEquipmentIcons(); }
-            set { accessor._SetEquipmentIcons(value); }
+            get { return new Item(Parent, accessor._GetHoveredItem()); }
+            set { accessor._SetHoveredItem(value.Expose()); }
         }
 
         public float TrashCanLidRotation

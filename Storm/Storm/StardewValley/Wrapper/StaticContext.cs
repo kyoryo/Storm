@@ -138,12 +138,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetOldMouseState(value); }
         }
 
-        public IList Locations
-        {
-            get { return accessor._GetLocations(); }
-            set { accessor._SetLocations(value); }
-        }
-
         public GameLocation LocationAfterWarp
         {
             get { return new GameLocation(this, accessor._GetLocationAfterWarp()); }
@@ -870,24 +864,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetErrorMessage(value); }
         }
 
-        public ICollection CurrentObjectDialogue
-        {
-            get { return accessor._GetCurrentObjectDialogue(); }
-            set { accessor._SetCurrentObjectDialogue(value); }
-        }
-
-        public ICollection Mailbox
-        {
-            get { return accessor._GetMailbox(); }
-            set { accessor._SetMailbox(value); }
-        }
-
-        public IList QuestionChoices
-        {
-            get { return accessor._GetQuestionChoices(); }
-            set { accessor._SetQuestionChoices(value); }
-        }
-
         public int XLocationAfterWarp
         {
             get { return accessor._GetXLocationAfterWarp(); }
@@ -1098,12 +1074,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetMinecartHighScore(value); }
         }
 
-        public IList DealerCalicoJackTotal
-        {
-            get { return accessor._GetDealerCalicoJackTotal(); }
-            set { accessor._SetDealerCalicoJackTotal(value); }
-        }
-
         public Color MorningColor
         {
             get { return accessor._GetMorningColor(); }
@@ -1144,42 +1114,6 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return accessor._GetRecentMultiplayerRandom(); }
             set { accessor._SetRecentMultiplayerRandom(value); }
-        }
-
-        public IDictionary ObjectInformation
-        {
-            get { return accessor._GetObjectInformation(); }
-            set { accessor._SetObjectInformation(value); }
-        }
-
-        public IDictionary BigCraftablesInformation
-        {
-            get { return accessor._GetBigCraftablesInformation(); }
-            set { accessor._SetBigCraftablesInformation(value); }
-        }
-
-        public IList ShippingBin
-        {
-            get { return accessor._GetShippingBin(); }
-            set { accessor._SetShippingBin(value); }
-        }
-
-        public IList HudMessages
-        {
-            get { return accessor._GetHudMessages(); }
-            set { accessor._SetHudMessages(value); }
-        }
-
-        public IDictionary EventConditions
-        {
-            get { return accessor._GetEventConditions(); }
-            set { accessor._SetEventConditions(value); }
-        }
-
-        public IDictionary NPCGiftTastes
-        {
-            get { return accessor._GetNPCGiftTastes(); }
-            set { accessor._SetNPCGiftTastes(value); }
         }
 
         public float MusicPlayerVolume
@@ -1302,18 +1236,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetDailyLuck(value); }
         }
 
-        public IList DebrisWeather
-        {
-            get { return accessor._GetDebrisWeather(); }
-            set { accessor._SetDebrisWeather(value); }
-        }
-
-        public IList ScreenOverlayTempSprites
-        {
-            get { return accessor._GetScreenOverlayTempSprites(); }
-            set { accessor._SetScreenOverlayTempSprites(value); }
-        }
-
         public byte GameMode
         {
             get { return accessor._GetGameMode(); }
@@ -1324,12 +1246,6 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return accessor._GetMultiplayerMode(); }
             set { accessor._SetMultiplayerMode(value); }
-        }
-
-        public IEnumerator CurrentLoader
-        {
-            get { return accessor._GetCurrentLoader(); }
-            set { accessor._SetCurrentLoader(value); }
         }
 
         public ulong UniqueIDForThisGame
@@ -1368,16 +1284,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetTextShadowColor(value); }
         }
 
-        public ClickableMenuAccessor ActiveClickableMenu
+        public ClickableMenu ActiveClickableMenu
         {
-            get { return accessor._GetActiveClickableMenu(); }
-            set { accessor._SetActiveClickableMenu(value); }
-        }
-
-        public IList OnScreenMenus
-        {
-            get { return accessor._GetOnScreenMenus(); }
-            set { accessor._SetOnScreenMenus(value); }
+            get { return new ClickableMenu(this, accessor._GetActiveClickableMenu()); }
+            set { accessor._SetActiveClickableMenu(value.Expose()); }
         }
 
         public int FramesThisSecond
@@ -1397,23 +1307,11 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetCurrentfps(); }
             set { accessor._SetCurrentfps(value); }
         }
-
-        public IDictionary Achievements
+        
+        public Object DishOfTheDay
         {
-            get { return accessor._GetAchievements(); }
-            set { accessor._SetAchievements(value); }
-        }
-
-        public ObjectAccessor DishOfTheDay
-        {
-            get { return accessor._GetDishOfTheDay(); }
-            set { accessor._SetDishOfTheDay(value); }
-        }
-
-        public IDictionary OtherFarmers
-        {
-            get { return accessor._GetOtherFarmers(); }
-            set { accessor._SetOtherFarmers(value); }
+            get { return new Object(this, accessor._GetDishOfTheDay()); }
+            set { accessor._SetDishOfTheDay(value.Expose()); }
         }
 
         public GameTime CurrentGameTime
@@ -1422,22 +1320,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCurrentGameTime(value); }
         }
 
-        public IList DelayedActions
-        {
-            get { return accessor._GetDelayedActions(); }
-            set { accessor._SetDelayedActions(value); }
-        }
-
         public Stack EndOfNightMenus
         {
             get { return accessor._GetEndOfNightMenus(); }
             set { accessor._SetEndOfNightMenus(value); }
-        }
-
-        public StaticContextAccessor Game1
-        {
-            get { return accessor._GetGame1(); }
-            set { accessor._SetGame1(value); }
         }
 
         public Point LastMousePositionBeforeFade

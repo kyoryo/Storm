@@ -77,12 +77,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetGateMotion(value); }
         }
 
-        public IDictionary FenceDrawGuide
-        {
-            get { return accessor._GetFenceDrawGuide(); }
-            set { accessor._SetFenceDrawGuide(value); }
-        }
-
         public bool IsGate
         {
             get { return accessor._GetIsGate(); }

@@ -58,24 +58,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetReadyConfirmationTimer(value); }
         }
 
-        public IList Actors
-        {
-            get { return accessor._GetActors(); }
-            set { accessor._SetActors(value); }
-        }
-
-        public IList Props
-        {
-            get { return accessor._GetProps(); }
-            set { accessor._SetProps(value); }
-        }
-
-        public IList FestivalProps
-        {
-            get { return accessor._GetFestivalProps(); }
-            set { accessor._SetFestivalProps(value); }
-        }
-
         public string MessageToScreen
         {
             get { return accessor._GetMessageToScreen(); }
@@ -160,12 +142,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetPlayerWasMounted(value); }
         }
 
-        public IDictionary ActorPositionsAfterMove
-        {
-            get { return accessor._GetActorPositionsAfterMove(); }
-            set { accessor._SetActorPositionsAfterMove(value); }
-        }
-
         public float TimeAccumulator
         {
             get { return accessor._GetTimeAccumulator(); }
@@ -196,22 +172,16 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetPreviousAmbientLight(value); }
         }
 
-        public IList NpcsWithUniquePortraits
-        {
-            get { return accessor._GetNpcsWithUniquePortraits(); }
-            set { accessor._SetNpcsWithUniquePortraits(value); }
-        }
-
         public ContentManager TemporaryContent
         {
             get { return accessor._GetTemporaryContent(); }
             set { accessor._SetTemporaryContent(value); }
         }
 
-        public GameLocationAccessor TemporaryLocation
+        public GameLocation TemporaryLocation
         {
-            get { return accessor._GetTemporaryLocation(); }
-            set { accessor._SetTemporaryLocation(value); }
+            get { return new GameLocation(Parent, accessor._GetTemporaryLocation()); }
+            set { accessor._SetTemporaryLocation(value.Expose()); }
         }
 
         public Point PlayerControlTargetTile
@@ -226,22 +196,16 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFestivalTexture(value); }
         }
 
-        public IList NpcControllers
+        public NPC SecretSantaRecipient
         {
-            get { return accessor._GetNpcControllers(); }
-            set { accessor._SetNpcControllers(value); }
+            get { return new NPC(Parent, accessor._GetSecretSantaRecipient()); }
+            set { accessor._SetSecretSantaRecipient(value.Expose()); }
         }
 
-        public NPCAccessor SecretSantaRecipient
+        public NPC MySecretSanta
         {
-            get { return accessor._GetSecretSantaRecipient(); }
-            set { accessor._SetSecretSantaRecipient(value); }
-        }
-
-        public NPCAccessor MySecretSanta
-        {
-            get { return accessor._GetMySecretSanta(); }
-            set { accessor._SetMySecretSanta(value); }
+            get { return new NPC(Parent, accessor._GetMySecretSanta()); }
+            set { accessor._SetMySecretSanta(value.Expose()); }
         }
 
         public bool Skippable
@@ -254,18 +218,6 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return accessor._GetId(); }
             set { accessor._SetId(value); }
-        }
-
-        public IList CharacterWalkLocations
-        {
-            get { return accessor._GetCharacterWalkLocations(); }
-            set { accessor._SetCharacterWalkLocations(value); }
-        }
-
-        public IDictionary FestivalData
-        {
-            get { return accessor._GetFestivalData(); }
-            set { accessor._SetFestivalData(value); }
         }
 
         public int OldShirt
@@ -298,22 +250,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetOldTime(value); }
         }
 
-        public IList UnderwaterSprites
+        public NPC FestivalHost
         {
-            get { return accessor._GetUnderwaterSprites(); }
-            set { accessor._SetUnderwaterSprites(value); }
-        }
-
-        public IList AboveMapSprites
-        {
-            get { return accessor._GetAboveMapSprites(); }
-            set { accessor._SetAboveMapSprites(value); }
-        }
-
-        public NPCAccessor FestivalHost
-        {
-            get { return accessor._GetFestivalHost(); }
-            set { accessor._SetFestivalHost(value); }
+            get { return new NPC(Parent, accessor._GetFestivalHost()); }
+            set { accessor._SetFestivalHost(value.Expose()); }
         }
 
         public string HostMessage
@@ -328,10 +268,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFestivalTimer(value); }
         }
 
-        public ItemAccessor TempItemStash
+        public Item TempItemStash
         {
-            get { return accessor._GetTempItemStash(); }
-            set { accessor._SetTempItemStash(value); }
+            get { return new Item(Parent, accessor._GetTempItemStash()); }
+            set { accessor._SetTempItemStash(value.Expose()); }
         }
 
         public int GrangeScore
@@ -340,22 +280,16 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetGrangeScore(value); }
         }
 
-        public FarmerAccessor PlayerUsingGrangeDisplay
+        public Farmer PlayerUsingGrangeDisplay
         {
-            get { return accessor._GetPlayerUsingGrangeDisplay(); }
-            set { accessor._SetPlayerUsingGrangeDisplay(value); }
+            get { return new Farmer(Parent, accessor._GetPlayerUsingGrangeDisplay()); }
+            set { accessor._SetPlayerUsingGrangeDisplay(value.Expose()); }
         }
 
         public int PreviousFacingDirection
         {
             get { return accessor._GetPreviousFacingDirection(); }
             set { accessor._SetPreviousFacingDirection(value); }
-        }
-
-        public IDictionary FestivalShops
-        {
-            get { return accessor._GetFestivalShops(); }
-            set { accessor._SetFestivalShops(value); }
         }
 
         public int PreviousAnswerChoice
@@ -370,22 +304,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetStartSecretSantaAfterDialogue(value); }
         }
 
-        public IList GrangeDisplay
-        {
-            get { return accessor._GetGrangeDisplay(); }
-            set { accessor._SetGrangeDisplay(value); }
-        }
-
         public bool SpecialEventVariable2
         {
             get { return accessor._GetSpecialEventVariable2(); }
             set { accessor._SetSpecialEventVariable2(value); }
-        }
-
-        public IList LuauIngredients
-        {
-            get { return accessor._GetLuauIngredients(); }
-            set { accessor._SetLuauIngredients(value); }
         }
 
         public EventAccessor Expose() => accessor;
