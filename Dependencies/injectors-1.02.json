@@ -5415,7 +5415,7 @@
       "CallbackType":"Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName":"UnloadContentCallback",
       "InstanceCallbackDesc":"(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType":"FIRST"
+      "InsertionType":"BEGINNING"
     },
     {
       "OwnerAccessorType":"@StaticContext",
