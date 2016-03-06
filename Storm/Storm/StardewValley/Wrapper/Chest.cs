@@ -42,10 +42,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetItems(value); }
         }
 
-        public FarmerAccessor Opener
+        public Farmer Opener
         {
-            get { return accessor._GetOpener(); }
-            set { accessor._SetOpener(value); }
+            get { return new Farmer(Parent, accessor._GetOpener()); }
+            set { accessor._SetOpener(value.Expose()); }
         }
 
         public String ChestType
@@ -72,6 +72,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetGiftbox(value); }
         }
 
-        public ChestAccessor Expose() => accessor;
+        public new ChestAccessor Expose() => accessor;
     }
 }

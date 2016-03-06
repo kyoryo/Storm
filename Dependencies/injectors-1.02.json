@@ -95,10 +95,25 @@
       "OwnerType": "StardewValley.Objects.Chest",
       "InterfaceType": "Storm.StardewValley.Accessor.ChestAccessor"
     },
-	{
+    {
       "SimpleName": "InventoryMenu",
       "OwnerType": "StardewValley.Menus.InventoryMenu",
       "InterfaceType": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "SimpleName": "InventoryPage",
+      "OwnerType": "StardewValley.Menus.InventoryPage",
+      "InterfaceType": "Storm.StardewValley.Accessor.InventoryPageAccessor"
+    },
+    {
+      "SimpleName": "GameMenu",
+      "OwnerType": "StardewValley.Menus.GameMenu",
+      "InterfaceType": "Storm.StardewValley.Accessor.GameMenuAccessor"
+    },
+	{
+      "SimpleName": "Fence",
+      "OwnerType": "StardewValley.Fence",
+      "InterfaceType": "Storm.StardewValley.Accessor.FenceAccessor"
     }
   ],
   "FieldDetourParams": [
@@ -6070,7 +6085,225 @@
       "OwnerFieldType": "System.Int32",
       "MethodName": "VerticalGap",
       "Type": "System.Int32"
-    }
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "currentTab",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentTab",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "tabs",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Tabs",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "pages",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Pages",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "invisible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Invisible",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "forcePreventClose",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ForcePreventClose",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "junimoNoteIcon",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "JunimoNoteIcon",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "descriptionTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoverTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoveredItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoveredItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "equipmentIcons",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "EquipmentIcons",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "portrait",
+      "OwnerFieldType": "StardewValley.Menus.ClickableComponent",
+      "MethodName": "Portrait",
+      "Type": "StardewValley.Menus.ClickableComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "trashCan",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "TrashCan",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "organizeButton",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "OrganizeButton",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "trashCanLidRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TrashCanLidRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "horseName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HorseName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fencePieceWidth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FencePieceWidth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fencePieceHeight",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FencePieceHeight",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fenceTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "FenceTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Health",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "maxHealth",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxHealth",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "whichType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "gatePosition",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GatePosition",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "gateMotion",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GateMotion",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fenceDrawGuide",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "FenceDrawGuide",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "isGate",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsGate",
+      "Type": "System.Boolean"
+    },
+    
   ],
   "MethodInfoParams": [
     {
@@ -6107,6 +6340,18 @@
         "System.Int32"
       ],
       "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerMethodName": "getItemAt",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)@(Item)",
+      "InvokerName": "_GetItemAt",
+      "InvokerReturnParams": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "InvokerReturnType": "Storm.StardewValley.Accessor.ItemAccessor",
       "IsStatic": "false"
     }
   ],

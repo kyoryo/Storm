@@ -691,6 +691,9 @@ namespace Storm.StardewValley.Accessor
         Color _GetTextShadowColor();
         void _SetTextShadowColor(Color val);
 
+        ClickableMenuAccessor _GetActiveClickableMenu();
+        void _SetActiveClickableMenu(ClickableMenuAccessor val);
+
         IList _GetOnScreenMenus();
         void _SetOnScreenMenus(IList val);
 

@@ -9,6 +9,8 @@ namespace Storm.StardewValley.Accessor
 {
     public interface InventoryMenuAccessor : ClickableMenuAccessor
     {
+        ItemAccessor _GetItemAt(int mouesX, int mouseY);
+
         String _GetHoverText();
         void _SetHoverText(String val);
 
