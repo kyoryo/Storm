@@ -190,7 +190,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
         {
-            var @event = new CompleteGrowthEvent();
+            var @event = new CompleteGrowthEvent(new Crop(accessor));
             EventBus.Fire<CompleteGrowthEvent>(@event);
             return @event;
         }
