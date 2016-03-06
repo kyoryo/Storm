@@ -5222,6 +5222,22 @@
       "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"prepareSpouseForWedding",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"PrepareSpouseForWeddingCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType":"@StaticContext",
+      "OwnerMethodName":"playMorningSong",
+      "OwnerMethodDesc":"()System.Void",
+      "CallbackType":"Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName":"PlayMorningSongCallback",
+      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+    },
+    {
       "OwnerAccessorType":"@Farmer",
       "OwnerMethodName":"addItemToInventory",
       "OwnerMethodDesc":"(@(Item))@(Item)",

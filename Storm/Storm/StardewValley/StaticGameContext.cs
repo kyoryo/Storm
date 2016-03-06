@@ -173,6 +173,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PrepareSpouseForWeddingCallback()
+        {
+            var @event = new PrepareSpouseForWeddingEvent();
+            EventBus.Fire<PrepareSpouseForWeddingEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PlayMorningSongCallback()
+        {
+            var @event = new PlayMorningSongEvent();
+            EventBus.Fire<PlayMorningSongEvent>(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Farmer Events
