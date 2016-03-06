@@ -24,12 +24,16 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ItemAccessor
     {
-        int _GetCategory();
-
-        bool _HasBeenInInventory();
-
-        bool _IsSpecialItem();
-
         int _GetSpecialVariable();
+        void _SetSpecialVariable(int val);
+
+        int _GetCategory();
+        void _SetCategory(int val);
+
+        bool _GetSpecialItem();
+        void _SetSpecialItem(bool val);
+
+        bool _GetHasBeenInInventory();
+        void _SetHasBeenInInventory(bool val);
     }
 }

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Matthew Bell
+    Copyright 2016 Cody R. (Demmonic)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,9 +20,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Accessor
 {
-    public class OnNewDayEvent : StaticContextEvent
+    public interface TempAnimatedSpriteAccessor
     {
     }
 }

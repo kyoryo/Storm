@@ -14,6 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,21 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    public class PreUpdateEvent : StaticContextEvent
+    public class WarpFarmerEvent : StaticContextEvent
     {
+        public GameLocation Location { get; }
+        public int TileX { get; }
+        public int TileY { get; }
+        public int FacingDirection { get; }
+        public bool IsStructure { get; }
+
+        public WarpFarmerEvent(GameLocation location, int tileX, int tileY, int facingDirection, bool isStructure)
+        {
+            this.Location = location;
+            this.TileX = tileX;
+            this.TileY = tileY;
+            this.FacingDirection = facingDirection;
+            this.IsStructure = isStructure;
+        }
     }
 }

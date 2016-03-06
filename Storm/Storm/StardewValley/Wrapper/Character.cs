@@ -26,31 +26,36 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Character : Wrapper<CharacterAccessor>
     {
+        public StaticContext Parent { get; }
         private CharacterAccessor accessor;
 
-        public Character(CharacterAccessor accessor)
+        public Character(StaticContext parent, CharacterAccessor accessor)
         {
+            this.Parent = parent;
             this.accessor = accessor;
         }
 
         public bool EmoteFading
         {
-            get { return accessor._IsEmoteFading(); }
+            get { return accessor._GetEmoteFading(); }
         }
 
         public float EmoteInterval
         {
             get { return accessor._GetEmoteInterval(); }
+            set { accessor._SetEmoteInterval(value); }
         }
 
         public Vector2 LastClick
         {
             get { return accessor._GetLastClick(); }
+            set { accessor._SetLastClick(value); }
         }
 
         public string Name
         {
             get { return accessor._GetName(); }
+            set { accessor._SetName(value); }
         }
 
         public Vector2 Position
@@ -61,27 +66,32 @@ namespace Storm.StardewValley.Wrapper
 
         public float VelocityX
         {
-            get { return accessor._GetVelocityX(); }
+            get { return accessor._GetXVelocity(); }
+            set { accessor._SetXVelocity(value); }
         }
 
         public float VelocityY
         {
-            get { return accessor._GetVelocityY(); }
+            get { return accessor._GetYVelocity(); }
+            set { accessor._SetYVelocity(value); }
         }
 
         public float Scale
         {
             get { return accessor._GetScale(); }
+            set { accessor._SetScale(value); }
         }
 
-        public int Spee
+        public int Speed
         {
             get { return accessor._GetSpeed(); }
+            set { accessor._SetSpeed(value); }
         }
 
         public AnimatedSprite Sprite
         {
             get { return new AnimatedSprite(accessor._GetSprite()); }
+            set { accessor._SetSprite(value.Expose()); }
         }
 
         public CharacterAccessor Expose() => accessor;

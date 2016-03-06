@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +25,64 @@ namespace Storm.StardewValley.Accessor
 {
     public interface MonsterAccessor : NPCAccessor
     {
+        int _GetDamageToFarmer();
+        void _SetDamageToFarmer(int val);
+
         int _GetHealth();
+        void _SetHealth(int val);
+
         int _GetMaxHealth();
-        void _SetMaxHealth(int newMaxHealth);
+        void _SetMaxHealth(int val);
+
+        int _GetCoinsToDrop();
+        void _SetCoinsToDrop(int val);
+
+        int _GetDurationOfRandomMovements();
+        void _SetDurationOfRandomMovements(int val);
+
+        int _GetResilience();
+        void _SetResilience(int val);
+
+        int _GetSlipperiness();
+        void _SetSlipperiness(int val);
+
+        int _GetExperienceGained();
+        void _SetExperienceGained(int val);
+
+        double _GetJitteriness();
+        void _SetJitteriness(double val);
+
+        double _GetMissChance();
+        void _SetMissChance(double val);
+
+        bool _GetIsGlider();
+        void _SetIsGlider(bool val);
+
+        bool _GetMineMonster();
+        void _SetMineMonster(bool val);
+
+        bool _GetHasSpecialItem();
+        void _SetHasSpecialItem(bool val);
+
+        IList _GetObjectsToDrop();
+        void _SetObjectsToDrop(IList val);
+
+        int _GetSkipHorizontal();
+        void _SetSkipHorizontal(int val);
+
+        int _GetInvincibleCountdown();
+        void _SetInvincibleCountdown(int val);
+
+        bool _GetSkipHorizontalUp();
+        void _SetSkipHorizontalUp(bool val);
+
+        int _GetDefaultAnimationInterval();
+        void _SetDefaultAnimationInterval(int val);
+
+        bool _GetFocusedOnFarmers();
+        void _SetFocusedOnFarmers(bool val);
+
+        int _GetSlideAnimationTimer();
+        void _SetSlideAnimationTimer(int val);
     }
 }

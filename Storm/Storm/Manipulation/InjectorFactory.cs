@@ -226,6 +226,8 @@ namespace Storm.Manipulation
                 InstanceCallbackDesc = injector.InstanceCallbackDesc,
                 StaticCallbackName = injector.StaticCallbackName,
                 StaticCallbackDesc = injector.StaticCallbackDesc,
+                InsertionIndex = injector.InsertionIndex,
+                InsertionType = injector.InsertionType,
                 PushParams = injector.PushParams,
             })));
 

@@ -27,10 +27,12 @@ namespace Storm.StardewValley.Wrapper
 {
     public class GameLocation : Wrapper<GameLocationAccessor>
     {
+        public StaticContext Parent { get; }
         private GameLocationAccessor accessor;
 
-        public GameLocation(GameLocationAccessor accessor)
+        public GameLocation(StaticContext parent, GameLocationAccessor accessor)
         {
+            this.Parent = parent;
             this.accessor = accessor;
         }
 
@@ -42,15 +44,35 @@ namespace Storm.StardewValley.Wrapper
                 var conv = new Dictionary<Vector2, Object>();
                 foreach (var vec in orig.Keys)
                 {
-                    conv.Add((Vector2)vec, new Object((ObjectAccessor)orig[vec]));
+                    conv.Add((Vector2)vec, new Object(Parent, (ObjectAccessor)orig[vec]));
                 }
                 return conv;
             }
         }
 
+        public Dictionary<Vector2, TerrainFeature> TerrainFeatures
+        {
+            get
+            {
+                var orig = accessor._GetTerrainFeatures();
+                var conv = new Dictionary<Vector2, TerrainFeature>();
+                foreach (var vec in orig.Keys)
+                {
+                    conv.Add((Vector2)vec, new TerrainFeature(Parent, (TerrainFeatureAccessor)orig[vec]));
+                }
+                return conv;
+            }
+        }
+
+        public void GrowWeedGrass(int iterations)
+        {
+            accessor._GrowWeedGrass(iterations);
+        }
+
         public bool IsOutdoors
         {
             get { return accessor._GetIsOutdoors(); }
+            set { accessor._SetIsOutdoors(value); }
         }
 
         public List<NPC> Characters
@@ -62,7 +84,7 @@ namespace Storm.StardewValley.Wrapper
                 {
                     return null;
                 }
-                return charList.Select(c => new NPC(c as NPCAccessor)).ToList();
+                return charList.Select(c => new NPC(Parent, c as NPCAccessor)).ToList();
             }
         }
 
@@ -76,7 +98,7 @@ namespace Storm.StardewValley.Wrapper
                     return null;
                 }
 
-                var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(c as MonsterAccessor)).ToList();
+                var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(Parent, c as MonsterAccessor)).ToList();
                 return monsters;
             }
         }

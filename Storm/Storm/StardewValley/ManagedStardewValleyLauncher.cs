@@ -62,6 +62,7 @@ namespace Storm.StardewValley
                     var casted = factory as CecilInjectorFactory;
                     ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
                 }
+                ctx.Injectors.ForEach(injector => injector.Init());
                 ctx.Injectors.ForEach(injector => injector.Inject());
                 if (Debug)
                 {
@@ -89,10 +90,10 @@ namespace Storm.StardewValley
             StaticGameContext.Assembly = assembly;
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
-            StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "DrawInMenu"));
-            StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
-            StaticGameContext.ObjectFactory = new ObjectInterceptorDelegateFactory(InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "GetName"));
-
+            StaticGameContext.ToolFactory = new ToolInterceptorDelegateFactory(StaticGameContext.WrappedGame,
+                InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "DrawInMenu"),
+                InjectorMetaData.NameOfMethod<ToolAccessor>(ctx.Injectors, "BeginUsing"));
+            
             var eventBus = new ModEventBus();
             if (!Directory.Exists(StormAPI.ModsPath))
                 Directory.CreateDirectory(StormAPI.ModsPath);
@@ -111,7 +112,9 @@ namespace Storm.StardewValley
             Type tmp = null;
             tmp = typeof(Microsoft.Xna.Framework.Vector2);
             tmp = typeof(Microsoft.Xna.Framework.Graphics.SpriteBatch);
+            tmp = typeof(Microsoft.Xna.Framework.Audio.AudioEngine);
             tmp = typeof(Microsoft.Xna.Framework.GraphicsDeviceManager);
+            tmp = typeof(Microsoft.Xna.Framework.Input.Keyboard);
             tmp = typeof(xTile.Dimensions.Rectangle);
 
             var ctx = Inject();

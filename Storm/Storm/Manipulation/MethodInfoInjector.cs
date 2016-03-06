@@ -31,6 +31,11 @@ namespace Storm.Manipulation
             this.@params = @params;
         }
 
+        public void Init()
+        {
+
+        }
+
         public void Inject()
         {
 

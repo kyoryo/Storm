@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storm.StardewValley.Wrapper;
 
 namespace Custom_Tool_Test_Mod
 {
@@ -19,10 +20,14 @@ namespace Custom_Tool_Test_Mod
 
         private class CustomTool : ToolDelegate
         {
+            public override void BeginUsing(GameLocation location, int x, int y, Farmer farmer)
+            {
+                
+            }
+
             public override void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber)
             {
-                b.DrawString(StaticGameContext.Root._GetGame()._GetSmoothFont(), "lee", new Vector2(16, 16), Color.Red);
-                b.DrawString(StaticGameContext.Root._GetGame()._GetSmoothFont(), "le custom draw override", loc, Color.Red);
+                b.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
             }
         }
 
@@ -32,24 +37,25 @@ namespace Custom_Tool_Test_Mod
             var root = @event.Root;
             var batch = root.SpriteBatch;
             var font = root.SmoothFont;
-            batch.DrawString(font, "Custom Tool - Example " + PathOnDisk, new Vector2(16, 16), Color.Red);
-            if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
-            {
-                pressedLast = true;
-                var obj = StaticGameContext.ProxyTool(new CustomTool());
-                obj._SetName("Tool name!");
-                obj._SetDescription("Tool desc! pretty gooood");
+            batch.DrawString(font, "Custom Tool - Example- " + PathOnDisk, new Vector2(16, 16), Color.Red);
 
-                var farmer = root.Player;
-                if (farmer != null)
+            var farmer = root.Player;
+            if (farmer != null)
+            {
+                if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
                 {
-                    farmer.Items[1] = obj;
+                    pressedLast = true;
+                    var obj = @event.ProxyTool(new CustomTool());
+                    obj.Name = "Tool name!";
+                    obj.Description = "Tool Desc! Pretty gooood.";
+                    farmer.SetItem(1, obj);
+                }
+                else if (!Keyboard.GetState().IsKeyDown(Keys.X))
+                {
+                    pressedLast = false;
                 }
             }
-            else if (!Keyboard.GetState().IsKeyDown(Keys.X))
-            {
-                pressedLast = false;
-            }
+            
         }
     }
 }

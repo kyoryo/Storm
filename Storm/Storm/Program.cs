@@ -29,7 +29,7 @@ namespace Storm
                 Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
 
             Logging.Log = (msg) => Console.WriteLine(msg);
-            Logging.DebugLog = (msg) => Debug.WriteLine(msg);
+            Logging.DebugLog = (msg) => Console.WriteLine(msg);
 
             var launcher = new ManagedStardewValleyLauncher(StormAPI.GetResource("injectors.json"), "Stardew Valley.exe", true);
             launcher.Launch();

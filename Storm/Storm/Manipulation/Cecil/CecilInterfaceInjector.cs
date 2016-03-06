@@ -36,6 +36,11 @@ namespace Storm.Manipulation.Cecil
             this.@params = @params;
         }
 
+        public void Init()
+        {
+
+        }
+
         public void Inject()
         {
             var implementingInterface = self.GetTypeDef(@params.InterfaceType);

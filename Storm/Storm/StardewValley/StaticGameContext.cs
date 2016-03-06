@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn)
+    Copyright 2016 Cody R. (Demmonic)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,11 +14,13 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Castle.DynamicProxy;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
+using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Wrapper;
 using System;
 using System.Reflection;
@@ -39,13 +41,9 @@ namespace Storm.StardewValley
         /// </summary>
         public static ProgramAccessor Root { get; set; }
 
-        //Tool Proxy
         public static Type ToolType { get; set; }
-        public static ToolInterceptorDelegateFactory ToolFactory { get; set; }
 
-        //Object Proxy
-        public static Type ObjectType { get; set; }
-        public static ObjectInterceptorDelegateFactory ObjectFactory { get; set; }
+        public static ToolInterceptorDelegateFactory ToolFactory{ get; set; }
 
         /// <summary>
         /// Event handler for all Storm mods.
@@ -60,7 +58,9 @@ namespace Storm.StardewValley
             get { return new StaticContext(Root._GetGame());  }
         }
 
-        public static void InitializeCallback()
+        #region Game1 Events
+
+        public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
             var game = StaticGameContext.WrappedGame;
             game.Version += ", " + AssemblyInfo.NICE_VERSION;
@@ -69,48 +69,74 @@ namespace Storm.StardewValley
 
             var @event = new InitializeEvent();
             EventBus.Fire<InitializeEvent>(@event);
+            return @event;
         }
 
-        public static void LoadContentCallback()
+        public static DetourEvent LoadContentCallback(StaticContextAccessor context)
         {
             var @event = new LoadContentEvent();
             EventBus.Fire<LoadContentEvent>(@event);
+            return @event;
         }
 
-        public static void PreDrawCallback()
+        public static DetourEvent UnloadContentCallback(StaticContextAccessor context)
+        {
+            var @event = new UnloadContentEvent();
+            EventBus.Fire<UnloadContentEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PreDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreRenderEvent();
             EventBus.Fire<PreRenderEvent>(@event);
+            return @event;
         }
 
-        public static void PreUIDrawCallback()
+        public static DetourEvent PreUIDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreUIRenderEvent();
             EventBus.Fire<PreUIRenderEvent>(@event);
+            return @event;
         }
 
-        public static void PostDrawCallback()
+        public static DetourEvent PostDrawCallback(StaticContextAccessor context)
         {
+            var batch = context._GetSpriteBatch();
+            batch.Begin();
+
             var @event = new PostRenderEvent();
             EventBus.Fire<PostRenderEvent>(@event);
+
+            batch.End();
+            return @event;
         }
 
-        public static void SeasonChangeCallback()
+        public static DetourEvent SeasonChangeCallback()
         {
-            var @event = new OnSeasonChangeEvent();
-            EventBus.Fire<OnSeasonChangeEvent>(@event);
+            var @event = new SeasonChangeEvent();
+            EventBus.Fire<SeasonChangeEvent>(@event);
+            return @event;
         }
 
-        public static void NewDayCallback()
+        public static DetourEvent NewDayCallback()
         {
-            var @event = new OnNewDayEvent();
-            EventBus.Fire<OnNewDayEvent>(@event);
+            var @event = new NewDayEvent();
+            EventBus.Fire<NewDayEvent>(@event);
+            return @event;
         }
 
         public static DetourEvent PerformClockUpdateCallback()
         {
             var @event = new PerformClockUpdateEvent();
             EventBus.Fire<PerformClockUpdateEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent UpdateGameClockCallback()
+        {
+            var @event = new UpdateGameClockEvent();
+            EventBus.Fire<UpdateGameClockEvent>(@event);
             return @event;
         }
 
@@ -123,8 +149,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
-            var @event = new AddItemToInventoryEvent(new Farmer(farmer), new Item(item));
-            Console.WriteLine("ADDITEMTOINV");
+            var @event = new AddItemToInventoryEvent(new Farmer(WrappedGame, farmer), new Item(WrappedGame, item));
             EventBus.Fire<AddItemToInventoryEvent>(@event);
             return @event;
         }
@@ -136,27 +161,77 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PostUpdateCallback(StaticContextAccessor accessor)
+        {
+            var @event = new PostUpdateEvent();
+            EventBus.Fire<PostUpdateEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PressUseToolButtonCallback()
+        {
+            var @event = new PressUseToolButtonEvent();
+            EventBus.Fire<PressUseToolButtonEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PressActionButtonCallback()
+        {
+            var @event = new PressActionButtonEvent();
+            EventBus.Fire<PressActionButtonEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PrepareSpouseForWeddingCallback()
+        {
+            var @event = new PrepareSpouseForWeddingEvent();
+            EventBus.Fire<PrepareSpouseForWeddingEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent PlayMorningSongCallback()
+        {
+            var @event = new PlayMorningSongEvent();
+            EventBus.Fire<PlayMorningSongEvent>(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region Crop Events
+
+        public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
+        {
+            var @event = new CropCompleteGrowthEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<CropCompleteGrowthEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeHarvestCropCallback(CropAccessor accessor)
+        {
+            var @event = new BeforeHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<BeforeHarvestCropEvent>(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
+        {
+            var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire<AfterHarvestCropEvent>(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region Farmer Events
+
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
-            var @event = new WarpFarmerEvent(location, tileX, tileY, facingDirection, isStructure);
+            var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
             EventBus.Fire<WarpFarmerEvent>(@event);
             return @event;
         }
 
-        public static DetourEvent PlayerDamagedCallback(int damage, bool overrideParry, MonsterAccessor damager)
-        {
-            var @event = new PlayerDamagedEvent(damage, overrideParry, damager);
-            Console.WriteLine("PLAYERDMG");
-            EventBus.Fire<PlayerDamagedEvent>(@event);
-            return @event;
-        }
-
-        public static ToolAccessor ProxyTool(ToolDelegate @delegate)
-        {
-            var generator = new ProxyGenerator();
-            var accessor = (ToolAccessor)generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
-            @delegate.Accessor = accessor;
-            return accessor;
-        }
+        #endregion
     }
 }

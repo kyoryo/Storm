@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Matthew Bell
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,30 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.ExternalEvent;
-using Storm.Manipulation;
-using Storm.StardewValley.Accessor;
-using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    public class StaticContextEvent : DetourEvent
+    public class NewDayEvent : StaticContextEvent
     {
-        public Assembly GameAssembly { get; set; }
-        public StaticContext Root { get; set; }
-        public ModEventBus EventBus { get; set; }
-
-        public StaticContextEvent()
-        {
-            GameAssembly = StaticGameContext.Assembly;
-            Root = StaticGameContext.WrappedGame;
-            EventBus = StaticGameContext.EventBus;
-        }
     }
 }
