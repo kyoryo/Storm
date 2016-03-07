@@ -7009,7 +7009,8 @@
       "OwnerMethodDesc": "(@(Object),System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "StaticCallbackName": "PlayerEatObjectCallback",
-      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean)Storm.Manipulation.DetourEvent"
+      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     },
     {
       "OwnerAccessorType": "@StaticContext",

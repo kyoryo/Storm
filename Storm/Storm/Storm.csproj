@@ -198,6 +198,8 @@
     <Compile Include="StardewValley\Proxy\ClickableMenuInterceptFactory.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeInterceptFactory.cs" />
+    <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
+    <Compile Include="StardewValley\Proxy\ReflectionInterceptorDelegateFactory.cs" />
     <Compile Include="StardewValley\Proxy\TextureComponentDelegate.cs" />
     <Compile Include="StardewValley\Proxy\TextureComponentInterceptFactory.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />

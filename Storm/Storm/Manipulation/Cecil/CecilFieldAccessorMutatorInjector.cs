@@ -58,7 +58,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof (void)));
+            var mutator = new MethodDefinition("_Set" + @params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(void)));
             {
                 mutator.Parameters.Add(new ParameterDefinition(def.Import(methodType)));
 

@@ -51,6 +51,7 @@ namespace Storm.Manipulation
             return asm.GetType(matching);
         }
 
+            
         public static string NameOfMethod(List<Injector> list, string type, string refactored)
         {
             foreach (var injector in list)
@@ -71,6 +72,11 @@ namespace Storm.Manipulation
         public static string NameOfMethod<T>(List<Injector> list, string refactored)
         {
             return NameOfMethod(list, typeof (T).FullName, refactored);
+        }
+
+        public static string NameOfMethod(Type t, List<Injector> list, string refactored)
+        {
+            return NameOfMethod(list, t.FullName, refactored);
         }
     }
 }
