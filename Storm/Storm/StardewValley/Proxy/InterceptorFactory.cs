@@ -19,7 +19,7 @@ using Castle.DynamicProxy;
 
 namespace Storm.StardewValley.Proxy
 {
-    public interface InterceptorDelegateFactory<T>
+    public interface InterceptorFactory<T>
     {
         IInterceptor CreateInterceptor(T t);
     }

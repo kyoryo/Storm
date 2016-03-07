@@ -25,7 +25,7 @@ using Storm.Manipulation;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class ReflectionInterceptorDelegateFactory<T> : InterceptorDelegateFactory<T>
+    public class MappedInterceptorFactory<T> : InterceptorFactory<T>
     {
         private Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
 
@@ -67,7 +67,7 @@ namespace Storm.StardewValley.Proxy
                 if (callMap.ContainsKey(invocation.Method.Name))
                 {
                     var method = callMap[invocation.Method.Name];
-                    var ret = method.Invoke(instance, invocation.Method.GetParameters());
+                    var ret = method.Invoke(instance, new object[] { invocation.Arguments });
                     if (method.ReturnType != typeof(void))
                     {
                         invocation.ReturnValue = ret;

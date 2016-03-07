@@ -149,11 +149,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetType(value); }
         }
 
-        public bool AccessorInstanceOf<T>()
-        {
-            return accessor.GetType().IsSubclassOf(typeof(T));
-        }
-
         public Fence ToFence()
         {
             return new Fence(Parent, (FenceAccessor)accessor);

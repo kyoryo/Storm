@@ -43,9 +43,9 @@ namespace Storm.StardewValley
         public StaticContext Root { get; }
         public ModEventBus EventBus { get; }
         public Type ToolType { get; }
-        public ToolInterceptFactory ToolFactory { get; }
+        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
         public Type TextureComponentType { get; }
-        public TextureComponentInterceptorFactory TextureComponentFactory { get; }
+        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {
