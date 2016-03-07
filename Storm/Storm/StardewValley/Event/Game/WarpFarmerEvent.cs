@@ -30,7 +30,7 @@ namespace Storm.StardewValley.Event
             IsStructure = isStructure;
         }
 
-        public GameLocation Location { get; }
+        public new GameLocation Location { get; }
         public int TileX { get; }
         public int TileY { get; }
         public int FacingDirection { get; }
