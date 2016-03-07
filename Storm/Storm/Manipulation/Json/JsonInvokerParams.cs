@@ -22,6 +22,7 @@ namespace Storm.Manipulation.Json
         public string OwnerAccessorType { get; set; }
         public string OwnerMethodName { get; set; }
         public string OwnerMethodDesc { get; set; }
+        public string InvokerType { get; set; }
         public string InvokerName { get; set; }
         public string[] InvokerReturnParams { get; set; }
         public string InvokerReturnType { get; set; }

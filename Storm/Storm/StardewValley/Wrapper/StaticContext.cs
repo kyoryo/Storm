@@ -1500,7 +1500,7 @@ namespace Storm.StardewValley.Wrapper
         public bool IsFestivalDay(int day, string season)
         {
             var key = day + season;
-            var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\DestivalDates");
+            var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
 
