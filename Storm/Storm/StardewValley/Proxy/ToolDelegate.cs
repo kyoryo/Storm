@@ -23,8 +23,10 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class ToolDelegate : TypeDelegate<Tool>
     {
+        [ProxyMap(Name = "DrawInMenu")]
         public abstract void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber);
 
+        [ProxyMap(Name = "BeginUsing")]
         public abstract void BeginUsing(GameLocation location, int x, int y, Farmer farmer);
     }
 }

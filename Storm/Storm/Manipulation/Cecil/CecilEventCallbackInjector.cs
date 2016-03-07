@@ -25,12 +25,13 @@ namespace Storm.Manipulation.Cecil
     public class CecilEventCallbackInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private readonly List<Instruction> injectionPoints = new List<Instruction>();
         private readonly AssemblyDefinition self;
+        private readonly EventCallbackParams @params;
 
+        private readonly List<Instruction> injectionPoints = new List<Instruction>();
         private MethodDefinition injectee;
+        private MethodReference callback;
         private bool invalid;
-        private EventCallbackParams @params;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
         {
@@ -46,6 +47,37 @@ namespace Storm.Manipulation.Cecil
             if (injectee == null)
             {
                 Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
+                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
+                    @params.InsertionIndex));
+                invalid = true;
+                return;
+            }
+
+            MethodDefinition recv = null;
+            if (injectee.IsStatic) recv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
+            else recv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+
+            if (recv == null)
+            {
+                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find receiver {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
+                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
+                    @params.InsertionIndex));
+                invalid = true;
+                return;
+            }
+            callback = injectee.Module.Import(recv);
+
+            var paramCount = (injectee.IsStatic ? 0 : 1);
+            if (@params.PushParams)
+            {
+                paramCount += injectee.Parameters.Count;
+            }
+            
+            if (paramCount != callback.Parameters.Count)
+            {
+                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Invalid callback description {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
                     @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
                     @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
                     @params.InsertionIndex));
@@ -86,49 +118,27 @@ namespace Storm.Manipulation.Cecil
         {
             if (invalid) return;
 
-            var returnName = injectee.ReturnType.FullName;
-
-            var hasReturnValue = typeof (DetourEvent).GetProperty("ReturnEarly");
+            var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");
             var hasReturnValueImport = def.MainModule.Import(hasReturnValue.GetMethod);
 
-            var eventReturnValue = typeof (DetourEvent).GetProperty("ReturnValue");
+            var eventReturnValue = typeof(DetourEvent).GetProperty("ReturnValue");
             var eventReturnValueImport = def.MainModule.Import(eventReturnValue.GetMethod);
 
             var body = injectee.Body;
             var processor = body.GetILProcessor();
 
-            MethodReference callback = null;
-            if (injectee.IsStatic)
-            {
-                var staticRecv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
-                if (staticRecv == null)
-                {
-                    Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find staticRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                        @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
-                        @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
-                        @params.InsertionIndex));
-                    return;
-                }
-                callback = injectee.Module.Import(staticRecv);
-            }
-            else
-            {
-                var instancedRecv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                if (instancedRecv == null)
-                {
-                    Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find instancedRecv {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                        @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
-                        @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
-                        @params.InsertionIndex));
-                    return;
-                }
-                callback = injectee.Module.Import(instancedRecv);
-            }
+            var returnName = injectee.ReturnType.FullName;
+            var returnsVoid = returnName.Equals(typeof(void).FullName);
 
-            var returnsVoid = returnName.Equals(typeof (void).FullName);
             var returnsPrimitive =
-                returnName.Equals(typeof (int).FullName) ||
-                returnName.Equals(typeof (bool).FullName);
+                returnName.Equals(typeof(long).FullName) ||
+                returnName.Equals(typeof(ulong).FullName) ||
+                returnName.Equals(typeof(int).FullName) ||
+                returnName.Equals(typeof(uint).FullName) ||
+                returnName.Equals(typeof(short).FullName) ||
+                returnName.Equals(typeof(ushort).FullName) ||
+                returnName.Equals(typeof(byte).FullName) ||
+                returnName.Equals(typeof(bool).FullName);
 
             foreach (var injectionPoint in injectionPoints)
             {
@@ -190,11 +200,6 @@ namespace Storm.Manipulation.Cecil
             }
         }
 
-        public object GetParams()
-        {
-            return @params;
-        }
-
         private Instruction GetReturnByRelativity(MethodDefinition md, int index)
         {
             var instructions = md.Body.Instructions;
@@ -212,6 +217,11 @@ namespace Storm.Manipulation.Cecil
                 }
             }
             return null;
+        }
+
+        public object GetParams()
+        {
+            return @params;
         }
     }
 }
