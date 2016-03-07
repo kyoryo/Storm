@@ -182,6 +182,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterClockUpdateCallback()
+        {
+            var @event = new AfterClockUpdateEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         public static DetourEvent UpdateGameClockCallback()
         {
             var @event = new UpdateGameClockEvent();
