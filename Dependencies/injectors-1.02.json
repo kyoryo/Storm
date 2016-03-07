@@ -4043,6 +4043,13 @@
     },
     {
       "OwnerAccessorType": "@Object",
+      "OwnerFieldName": "stack",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Stack",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Object",
       "OwnerFieldName": "questItem",
       "OwnerFieldType": "System.Boolean",
       "MethodName": "IsQuestItem",
