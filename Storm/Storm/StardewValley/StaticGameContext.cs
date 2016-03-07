@@ -49,6 +49,9 @@ namespace Storm.StardewValley
         public static Type ToolType { get; set; }
         public static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
 
+        public static Type ObjectType { get; set; }
+        public static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
+
         public static Type TextureComponentType { get; set; }
         public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
 
