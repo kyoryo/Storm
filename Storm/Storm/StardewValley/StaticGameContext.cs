@@ -74,28 +74,28 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterFarmerShippedBasicCallback(int index,int number)
+        public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
         {
             var @event = new Event.Farmer.AfterFarmerShippedBasicEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerCaughtFishCallback(int index, int size)
+        public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
             var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, size);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerFoundArtifactCallback(int index, int number)
+        public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
             var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerCookedRecipeCallback(int index)
+        public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
             var @event = new Event.Farmer.AfterFarmerCookedRecipeEvent(index);
             EventBus.Fire(@event);

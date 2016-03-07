@@ -7074,7 +7074,7 @@
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterFarmerShippedBasicCallback",
-      "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
     {
@@ -7083,7 +7083,7 @@
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterFarmerCaughtFishCallback",
-      "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
     {
@@ -7092,7 +7092,7 @@
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterFarmerFoundArtifactCallback",
-      "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
     {
@@ -7101,7 +7101,7 @@
       "OwnerMethodDesc": "(System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterFarmerCookedRecipeCallback",
-      "InstanceCallbackDesc": "(System.Int32)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     }
   ]
