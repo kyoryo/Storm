@@ -7112,6 +7112,15 @@
       "InstanceCallbackName": "AfterFarmerCookedRecipeCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "increaseBackpackSize",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerIncreaseBackpackSizeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     }
   ]
 }
