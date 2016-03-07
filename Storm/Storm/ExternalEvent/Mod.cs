@@ -27,5 +27,7 @@ namespace Storm.ExternalEvent
         public string Author { get; set; }
 
         public double Version { get; set; }
+
+        public string Description { get; set; }
     }
 }
