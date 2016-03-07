@@ -7130,6 +7130,15 @@
       "InstanceCallbackName": "AfterFarmerFoundMineralCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "consumeObject",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerConsumeObjectCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     }
   ]
 }

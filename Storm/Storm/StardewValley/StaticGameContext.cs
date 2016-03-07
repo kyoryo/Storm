@@ -120,6 +120,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
+        {
+            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Game1 Events
