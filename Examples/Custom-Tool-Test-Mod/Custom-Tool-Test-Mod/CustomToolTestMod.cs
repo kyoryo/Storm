@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Storm.StardewValley.Wrapper;
+using Storm.StardewValley.Proxy;
 
 namespace Custom_Tool_Test_Mod
 {
@@ -20,14 +21,17 @@ namespace Custom_Tool_Test_Mod
 
         private class CustomTool : ToolDelegate
         {
-            public override void BeginUsing(GameLocation location, int x, int y, Farmer farmer)
+            public override void BeginUsing(object[] @params)
             {
-                
+                //GameLocation location, int x, int y, Farmer farmer
             }
 
-            public override void DrawInMenu(SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber)
+            public override void DrawInMenu(object[] @params)
             {
-                b.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
+                //SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber
+                var batch = (SpriteBatch)@params[0];
+                var loc = (Vector2)@params[1];
+                batch.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
             }
         }
 
@@ -37,7 +41,6 @@ namespace Custom_Tool_Test_Mod
             var root = @event.Root;
             var batch = root.SpriteBatch;
             var font = root.SmoothFont;
-            batch.DrawString(font, "Custom Tool - Example- " + PathOnDisk, new Vector2(16, 16), Color.Red);
 
             var farmer = root.Player;
             if (farmer != null)

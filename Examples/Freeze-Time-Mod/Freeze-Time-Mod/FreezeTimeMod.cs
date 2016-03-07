@@ -16,16 +16,6 @@ namespace Freeze_Time_Mod
     [Mod(Author = "Demmonic", Name = "Freeze Time Indoors", Version = 0.1D)]
     public class FreezeTimeMod : DiskResource
     {
-
-        [Subscribe]
-        public void PostRenderCallback(PostRenderEvent @event)
-        {
-            var root = @event.Root;
-            var batch = root.SpriteBatch;
-            var font = root.SmoothFont;
-            batch.DrawString(font, "Freeze Time Indoors - Example", new Vector2(16, 16), Color.Red);
-        }
-
         [Subscribe]
         public void PerformClockUpdateCallback(PerformClockUpdateEvent @event)
         {

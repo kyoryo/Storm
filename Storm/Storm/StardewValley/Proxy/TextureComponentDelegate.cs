@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
-    public abstract class TextureComponentDelegate : TypeDelegate<ClickableTextureComponentAccessor>
+    public abstract class TextureComponentDelegate : TypeDelegate<ClickableTextureComponent>
     {
         public abstract object[] GetConstructorParams();
     }

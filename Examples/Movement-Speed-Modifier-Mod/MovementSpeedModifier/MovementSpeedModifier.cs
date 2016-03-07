@@ -33,45 +33,44 @@ namespace MovementSpeedModifier
     [Mod(Author = "Zoryn Aaron", Name = "Movement Speed Modifier", Version = 1.0d)]
     public class MovementSpeedModifier : DiskResource
     {
-        public static string ExecutionLocation { get; private set; }
-        public static string ConfigLocation { get; private set; }
-        public static Config ModConfig { get; private set; }
-
-        public static Farmer Player => StaticGameContext.WrappedGame.Player;
+        public Config ModConfig { get; private set; }
 
         [Subscribe]
         public void InitializeCallback(InitializeEvent @event)
         {
-            ExecutionLocation = ParentPathOnDisk;
-            ConfigLocation = Path.Combine(ExecutionLocation, "Config.json");
-            if (!File.Exists(ConfigLocation))
+            var configLocation = Path.Combine(ParentPathOnDisk, "Config.json");
+            if (!File.Exists(configLocation))
             {
                 Console.WriteLine("The config file for MovementSpeedModifier was not found, attempting creation...");
                 ModConfig = new Config();
                 ModConfig.EnableDiagonalMovementSpeedFix = true;
                 ModConfig.PlayerRunningSpeed = 5;
                 ModConfig.PlayerWalkingSpeed = 2;
-                File.WriteAllBytes(ConfigLocation, Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(ModConfig)));
-                Console.WriteLine("The config file for MovementSpeedModifier has been loaded.\n\tDiagonalFix: {0}, PlayerWalkingSpeed: {1}, PlayerRunningSpeed: {2}", ModConfig.EnableDiagonalMovementSpeedFix, ModConfig.PlayerWalkingSpeed, ModConfig.PlayerRunningSpeed);
+                File.WriteAllBytes(configLocation, Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(ModConfig)));
+                Console.WriteLine("The config file for MovementSpeedModifier has been loaded.\n\tDiagonalFix: {0}, PlayerWalkingSpeed: {1}, PlayerRunningSpeed: {2}", 
+                    ModConfig.EnableDiagonalMovementSpeedFix, ModConfig.PlayerWalkingSpeed, ModConfig.PlayerRunningSpeed);
             }
             else
             {
-                ModConfig = JsonConvert.DeserializeObject<Config>(Encoding.UTF8.GetString(File.ReadAllBytes(ConfigLocation)));
-                Console.WriteLine("The config file for MovementSpeedModifier has been loaded.\n\tDiagonalFix: {0}, PlayerWalkingSpeed: {1}, PlayerRunningSpeed: {2}", ModConfig.EnableDiagonalMovementSpeedFix, ModConfig.PlayerWalkingSpeed, ModConfig.PlayerRunningSpeed);
+                ModConfig = JsonConvert.DeserializeObject<Config>(Encoding.UTF8.GetString(File.ReadAllBytes(configLocation)));
+                Console.WriteLine("The config file for MovementSpeedModifier has been loaded.\n\tDiagonalFix: {0}, PlayerWalkingSpeed: {1}, PlayerRunningSpeed: {2}", 
+                    ModConfig.EnableDiagonalMovementSpeedFix, ModConfig.PlayerWalkingSpeed, ModConfig.PlayerRunningSpeed);
             }
+
             Console.WriteLine("MovementSpeedModifier Initialization Completed");
         }
 
         [Subscribe]
         public void UpdateCallback(PreUpdateEvent @event)
         {
-            if (Player.Running)
-                Player.Speed = ModConfig.PlayerRunningSpeed;
+            var player = @event.LocalPlayer;
+            if (player.Running)
+                player.Speed = ModConfig.PlayerRunningSpeed;
             else
-                Player.Speed = ModConfig.PlayerWalkingSpeed;
+                player.Speed = ModConfig.PlayerWalkingSpeed;
 
             if (ModConfig.EnableDiagonalMovementSpeedFix)
-                Player.MovementDirections.Clear();
+                player.ClearMovementDirections();
         }
     }
 

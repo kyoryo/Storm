@@ -195,13 +195,10 @@
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\ClickableMenuInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\CraftingRecipeInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
     <Compile Include="StardewValley\Proxy\MappedInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\TextureComponentDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\TextureComponentInterceptorFactory.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
@@ -210,7 +207,9 @@
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableComponent.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\ClickableTextureComponent.cs" />
     <Compile Include="StardewValley\Wrapper\Event.cs" />
     <Compile Include="StardewValley\Wrapper\Fence.cs" />
     <Compile Include="StardewValley\Wrapper\GameMenu.cs" />
@@ -259,10 +258,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtils.cs" />
     <Compile Include="StardewValley\Proxy\ToolDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\ToolInterceptFactory.cs" />
     <Compile Include="StardewValley\Proxy\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
-    <Compile Include="StardewValley\Wrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
     <Compile Include="StardewValley\Wrapper\Chest.cs" />
