@@ -39,11 +39,10 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var gameModule = def.MainModule;
+            //var gameModule = def.MainModule;
 
             var returnType = def.GetTypeRef(@params.InvokerReturnType, true);
             var invoking = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-
             if (returnType == null)
             {
                 Logging.DebugLog(string.Format("[CecilInvokerInjector] Could not find returnType {0} {1} {2} {3} {4}",
@@ -59,6 +58,23 @@ namespace Storm.Manipulation.Cecil
             }
 
             var invokingParent = invoking.DeclaringType;
+            var invokerType = invokingParent;
+            if (@params.InvokerType != null)
+            {
+                invokerType = def.GetTypeDef(@params.InvokerType);
+                if (invokerType == null)
+                {
+                    invokerType = self.GetTypeDef(@params.InvokerType);
+                }
+            }
+
+            if (invokerType == null)
+            {
+                Logging.DebugLog(string.Format("[CecilInvokerInjector] Could not find invoker type {0} {1} {2} {3} {4}",
+                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.InvokerName, @params.InvokerReturnType));
+                return;
+            }
+
             var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, returnType);
             var paramTypes = new TypeReference[@params.InvokerReturnParams.Length];
             for (var i = 0; i < paramTypes.Length; i++)
