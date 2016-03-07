@@ -47,8 +47,10 @@ namespace Storm.StardewValley
         public static ProgramAccessor Root { get; set; }
 
         public static Type ToolType { get; set; }
-
         public static ToolInterceptFactory ToolFactory { get; set; }
+
+        public static Type TextureComponentType { get; set; }
+        public static TextureComponentInterceptFactory TextureComponentFactory { get; set; }
 
         /// <summary>
         ///     Event handler for all Storm mods.

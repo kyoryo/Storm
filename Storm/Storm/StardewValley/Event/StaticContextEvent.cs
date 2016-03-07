@@ -35,6 +35,8 @@ namespace Storm.StardewValley
             EventBus = StaticGameContext.EventBus;
             ToolType = StaticGameContext.ToolType;
             ToolFactory = StaticGameContext.ToolFactory;
+            TextureComponentType = StaticGameContext.TextureComponentType;
+            TextureComponentFactory = StaticGameContext.TextureComponentFactory;
         }
 
         public Assembly GameAssembly { get; }
@@ -42,14 +44,30 @@ namespace Storm.StardewValley
         public ModEventBus EventBus { get; }
         public Type ToolType { get; }
         public ToolInterceptFactory ToolFactory { get; }
+        public Type TextureComponentType { get; }
+        public TextureComponentInterceptFactory TextureComponentFactory { get; }
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            var accessor = (ToolAccessor) generator.CreateClassProxy(ToolType, ToolFactory.CreateInterceptor(@delegate));
+            var accessor = (ToolAccessor) generator.CreateClassProxy(
+                ToolType, 
+                ToolFactory.CreateInterceptor(@delegate));
+
             var wrapped = new Tool(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
+        }
+
+        public ClickableTextureComponentAccessor ProxyTexture(TextureComponentDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (ClickableTextureComponentAccessor)generator.CreateClassProxy(
+                TextureComponentType,
+                @delegate.GetConstructorParams(),
+                TextureComponentFactory.CreateInterceptor(@delegate));
+
+            return accessor;
         }
 
         public Farmer LocalPlayer
