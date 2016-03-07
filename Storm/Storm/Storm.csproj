@@ -232,7 +232,7 @@
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\PerformClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\BeforeClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
     <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />

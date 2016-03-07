@@ -6824,8 +6824,9 @@
       "OwnerMethodName": "performTenMinuteClockUpdate",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "PerformClockUpdateCallback",
-      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+      "StaticCallbackName": "BeforeClockUpdateCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "BEGINNING"
     },
     {
       "OwnerAccessorType": "@StaticContext",
