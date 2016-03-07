@@ -386,6 +386,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
+        {
+            var @event = new ShipObjectEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
@@ -410,6 +417,10 @@ namespace Storm.StardewValley
             EventBus.Fire(@event);
             return @event;
         }
+
+        #endregion
+
+        #region Objects
 
         #endregion
     }

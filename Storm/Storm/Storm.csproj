@@ -197,6 +197,7 @@
     <Compile Include="StardewValley\Event\Game\UpdateMusicEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
