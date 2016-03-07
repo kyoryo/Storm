@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Russell Long (InfinitySamurai)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,19 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Wrapper;
-
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Farmer
 {
-    public class AddItemToInventoryEvent : StaticContextEvent
+    public class AfterFarmerFoundArtifactEvent : StaticContextEvent
     {
-        public AddItemToInventoryEvent(Wrapper.Farmer source, Item item)
+        public AfterFarmerFoundArtifactEvent(int index, int number)
         {
-            Source = source;
-            Item = item;
+            Index = index;
+            Number = number;
         }
 
-        public Wrapper.Farmer Source { get; }
-        public Item Item { get; }
+        public int Index { get; }
+        public int Number { get; }
     }
 }
