@@ -316,9 +316,9 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public DetourEvent UpdateTitleScreenCallback(GameTime gameTime)
+        public static DetourEvent UpdateTitleScreenCallback(StaticContextAccessor context)
         {
-            var @event = new UpdateTitleScreenEvent(gameTime);
+            var @event = new UpdateTitleScreenEvent(context);
             EventBus.Fire(@event);
             return @event;
         }
@@ -337,16 +337,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public DetourEvent GameExitEventCallback(object sender, EventArgs e)
+        public static DetourEvent GameExitEventCallback(StaticContextAccessor context)
         {
-            var @event = new GameExitEvent(sender, e);
+            var @event = new GameExitEvent(context);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public DetourEvent ClientSizeChangedCallback(object sender, EventArgs e)
+        public static DetourEvent ClientSizeChangedCallback(StaticContextAccessor context)
         {
-            var @event = new ClientSizeChangedEvent(sender, e);
+            var @event = new ClientSizeChangedEvent(context);
             EventBus.Fire(@event);
             return @event;
         }

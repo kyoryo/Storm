@@ -15,17 +15,18 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework;
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event.Game
 {
     public class UpdateTitleScreenEvent : StaticContextEvent
     {
-        public UpdateTitleScreenEvent(GameTime gameTime)
+        public UpdateTitleScreenEvent(StaticContextAccessor context)
         {
-            GameTime = gameTime;
+            Context = new StaticContext(context);
         }
 
-        public GameTime GameTime { get; }
+        public StaticContext Context { get; }
     }
 }
