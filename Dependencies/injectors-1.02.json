@@ -6822,6 +6822,15 @@
     },
     {
       "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "performTenMinuteClockUpdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "AfterClockUpdateCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "UpdateGameClock",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",

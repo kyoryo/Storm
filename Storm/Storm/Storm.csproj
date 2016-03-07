@@ -173,6 +173,7 @@
     <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
