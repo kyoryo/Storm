@@ -23,6 +23,7 @@ using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
+using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
@@ -79,28 +80,49 @@ namespace Storm.StardewValley
 
         public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
         {
-            var @event = new Event.Farmer.AfterFarmerShippedBasicEvent(index, number);
+            var @event = new AfterFarmerShippedBasicEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, size);
+            var @event = new AfterFarmerCaughtFishEvent(index, size);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, number);
+            var @event = new AfterFarmerCaughtFishEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new Event.Farmer.AfterFarmerCookedRecipeEvent(index);
+            var @event = new AfterFarmerCookedRecipeEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
+        {
+            var @event = new FarmerGainedExperienceEvent(which, howMuch);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
+        {
+            var @event = new AfterFarmerFoundMineralEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
+        {
+            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
             EventBus.Fire(@event);
             return @event;
         }
@@ -364,6 +386,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
+        {
+            var @event = new ShipObjectEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
@@ -388,6 +417,10 @@ namespace Storm.StardewValley
             EventBus.Fire(@event);
             return @event;
         }
+
+        #endregion
+
+        #region Objects
 
         #endregion
     }
