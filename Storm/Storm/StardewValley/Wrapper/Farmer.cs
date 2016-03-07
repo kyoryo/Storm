@@ -65,6 +65,28 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetActiveObject(value.Expose()); }
         }
         
+        public List<int> MovementDirections
+        {
+            get
+            {
+                return accessor._GetMovementDirections().Cast<int>().ToList();
+            }
+            set
+            {
+                accessor._SetMovementDirections(value);
+            }
+        }
+
+        public void AddMovementDirection(int direction)
+        {
+            accessor._GetMovementDirections().Add(direction);
+        }
+
+        public void ClearMovementDirections()
+        {
+            accessor._GetMovementDirections().Clear();
+        }
+
         public Tool[] ToolBox
         {
             get

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Storm.StardewValley.Wrapper;
+using Storm.StardewValley.Proxy;
 
 namespace Custom_Tool_Test_Mod
 {
@@ -37,7 +38,6 @@ namespace Custom_Tool_Test_Mod
             var root = @event.Root;
             var batch = root.SpriteBatch;
             var font = root.SmoothFont;
-            batch.DrawString(font, "Custom Tool - Example- " + PathOnDisk, new Vector2(16, 16), Color.Red);
 
             var farmer = root.Player;
             if (farmer != null)
