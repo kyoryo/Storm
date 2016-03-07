@@ -17,7 +17,7 @@
 
 namespace Storm.StardewValley.Event
 {
-    public class AfterClockUpdateEvent : StaticContextEvent
+    public class After10MinuteClockUpdateEvent : StaticContextEvent
     {
     }
 }
