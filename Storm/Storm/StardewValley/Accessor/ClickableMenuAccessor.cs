@@ -19,5 +19,43 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ClickableMenuAccessor
     {
+        int _GetBorderWidth();
+        void _SetBorderWidth(int val);
+
+        int _GetTabYPositionRelativeToMenuY();
+        void _SetTabYPositionRelativeToMenuY(int val);
+
+        int _GetSpaceToClearTopBorder();
+        void _SetSpaceToClearTopBorder(int val);
+
+        int _GetSpaceToClearSideBorder();
+        void _SetSpaceToClearSideBorder(int val);
+
+        int _GetWidth();
+        void _SetWidth(int val);
+
+        int _GetHeight();
+        void _SetHeight(int val);
+
+        int _GetXPositionOnScreen();
+        void _SetXPositionOnScreen(int val);
+
+        int _GetYPositionOnScreen();
+        void _SetYPositionOnScreen(int val);
+
+        int _GetCurrentRegion();
+        void _SetCurrentRegion(int val);
+
+        Microsoft.Xna.Framework.Graphics.Texture2D _GetHoverBox();
+        void _SetHoverBox(Microsoft.Xna.Framework.Graphics.Texture2D val);
+
+        ClickableTextureComponentAccessor _GetUpperRightCloseButton();
+        void _SetUpperRightCloseButton(ClickableTextureComponentAccessor val);
+
+        bool _GetDestroy();
+        void _SetDestroy(bool val);
+
+        bool _GetGamePadControlsImplemented();
+        void _SetGamePadControlsImplemented(bool val);
     }
 }
