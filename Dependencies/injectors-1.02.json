@@ -6956,8 +6956,8 @@
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "UpdateTitleScreenCallback",
-      "InstanceCallbackDesc": "(Microsoft.Xna.Framework.GameTime)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6983,8 +6983,8 @@
       "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "GameExitEventCallback",
-      "InstanceCallbackDesc": "(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6992,8 +6992,7 @@
       "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "ClientSizeChangedCallback",
-      "InstanceCallbackDesc": "(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",

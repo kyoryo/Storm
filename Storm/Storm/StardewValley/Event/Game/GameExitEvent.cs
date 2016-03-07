@@ -15,19 +15,18 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event.Game
 {
     public class GameExitEvent : StaticContextEvent
     {
-        public GameExitEvent(object sender, EventArgs e)
+        public GameExitEvent(StaticContextAccessor context)
         {
-            Sender = sender;
-            E = e;
+            Context = new StaticContext(context);
         }
 
-        public object Sender { get; }
-        public EventArgs E { get; }
+        public StaticContext Context { get; }
     }
 }
