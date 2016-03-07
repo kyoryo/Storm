@@ -127,8 +127,12 @@
     <Compile Include="StardewValley\Accessor\CatAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ChestAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ChildAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ClickableComponentAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ClickableTextureComponentAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CoopAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CrabPotAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CraftingPageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\CraftingRecipeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\DogAccessor.cs" />
     <Compile Include="StardewValley\Accessor\EventAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />

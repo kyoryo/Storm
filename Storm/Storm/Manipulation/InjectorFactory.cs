@@ -83,6 +83,7 @@ namespace Storm.Manipulation
 
         private string FilterTags(Dictionary<string, string> map, string s)
         {
+            Logging.DebugLog(s);
             while (s.IndexOf("@") != -1)
             {
                 var start = s.IndexOf('@');
