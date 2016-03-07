@@ -7125,14 +7125,14 @@
     },
     {
       "OwnerAccessorType": "@Farmer",
-<<<<<<< HEAD
       "OwnerMethodName": "increaseBackpackSize",
       "OwnerMethodDesc": "(System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "FarmerIncreaseBackpackSizeCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
-=======
+    },
+    {
       "OwnerMethodName": "gainExperience",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
@@ -7166,7 +7166,6 @@
       "StaticCallbackName": "ShipObjectCallback",
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
->>>>>>> d3e4d21886ef9dd156a9b8d9878e12ce02dfe16d
     }
   ]
 }

@@ -156,11 +156,8 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
-<<<<<<< HEAD
     <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
-=======
     <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
->>>>>>> d3e4d21886ef9dd156a9b8d9878e12ce02dfe16d
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
