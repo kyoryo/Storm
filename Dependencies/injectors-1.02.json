@@ -6993,7 +6993,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "GameExitEventCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType": "LAST"
+      "InsertionType": "BEGINNING"
     },
     {
       "OwnerAccessorType": "@StaticContext",
