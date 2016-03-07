@@ -40,21 +40,20 @@ namespace Storm.Manipulation.Cecil
         public void Inject()
         {
             var paramType = def.GetTypeRef(@params.ParamType, true);
-            var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-
             if (paramType == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find paramType {0} {1} {2} {3} {4} {4} {5}",
-                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                    @params.MethodName, @params.ParamType, @params.IsStatic));
+                Logging.DebugLogs("[{0}] Could not find paramType!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {3}", @params.MethodName, @params.ParamType, @params.IsStatic);
                 return;
             }
 
+            var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
             if (field == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find field {0} {1} {2} {3} {4} {4} {5}",
-                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                    @params.MethodName, @params.ParamType, @params.IsStatic));
+                Logging.DebugLogs("[{0}] Could not find field!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {3}", @params.MethodName, @params.ParamType, @params.IsStatic);
                 return;
             }
 

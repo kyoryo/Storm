@@ -44,22 +44,20 @@ namespace Storm.Manipulation.Cecil
             {
                 callingDefinition = def.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
             }
-
-            var fieldRef = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-
             if (callingDefinition == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldDetourInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {4} {5}",
-                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {3}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 
+            var fieldRef = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
             if (fieldRef == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldDetourInjector] Could not find fieldRef {0} {1} {2} {3} {4} {4} {5}",
-                    @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType,
-                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc));
+                Logging.DebugLogs("[{0}] Could not find fieldRef!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {3}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 

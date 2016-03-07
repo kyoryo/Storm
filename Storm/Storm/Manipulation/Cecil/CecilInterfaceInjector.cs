@@ -41,16 +41,16 @@ namespace Storm.Manipulation.Cecil
             var implementingInterface = self.GetTypeDef(@params.InterfaceType);
             if (implementingInterface == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find implementingInterface {0} {1}",
-                    @params.OwnerType, @params.InterfaceType));
+                Logging.DebugLogs("[{0}] Could not find implementingInterface!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1}", @params.OwnerType, @params.InterfaceType);
                 return;
             }
 
             var implementer = def.GetTypeDef(@params.OwnerType);
             if (implementer == null)
             {
-                Logging.DebugLog(string.Format("[CecilFieldMutatorInjector] Could not find implementer {0} {1}",
-                    @params.OwnerType, @params.InterfaceType));
+                Logging.DebugLogs("[{0}] Could not find implementer!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1}", @params.OwnerType, @params.InterfaceType);
                 return;
             }
 

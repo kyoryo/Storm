@@ -44,21 +44,22 @@ namespace Storm.Manipulation.Cecil
             {
                 callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
             }
-            var injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-
             if (callingDefinition == null)
             {
-                Logging.DebugLog(string.Format("[CecilAbsoluteCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5} {6}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
-                    @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc, @params.InsertionIndex));
+                Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
                 return;
             }
 
+            var injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
             if (injectee == null)
             {
-                Logging.DebugLog(string.Format("[CecilAbsoluteCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5} {6}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc,
-                    @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc, @params.InsertionIndex));
+                Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
                 return;
             }
 
