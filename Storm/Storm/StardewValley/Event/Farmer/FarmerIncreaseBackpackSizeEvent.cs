@@ -23,7 +23,6 @@ namespace Storm.StardewValley.Event.Farmer
     {
         public FarmerIncreaseBackpackSizeEvent(int howMuch)
         {
-            Console.WriteLine("Event created");
             HowMuch = howMuch;
         }
 

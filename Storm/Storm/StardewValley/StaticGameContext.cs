@@ -107,7 +107,6 @@ namespace Storm.StardewValley
 
         public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
         {
-            Console.WriteLine("Callback called");
             var @event = new Event.Farmer.FarmerIncreaseBackpackSizeEvent(howMuch);
             EventBus.Fire(@event);
             return @event;
