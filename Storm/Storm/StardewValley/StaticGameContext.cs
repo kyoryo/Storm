@@ -329,6 +329,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent IsDarkOutCallback()
+        {
+            var @event = new IsDarkOutEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
