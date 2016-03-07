@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Storm.StardewValley.Wrapper;
 using Storm.StardewValley.Proxy;
 
-namespace Custom_Tool_Test_Mod
+namespace Subclass_Test_Mod
 {
     [Mod(Author = "Demmonic", Name = "Subclass Test", Version = 0.1D)]
     public class SubclassTestMod : DiskResource
