@@ -14,18 +14,18 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Castle.DynamicProxy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Castle.DynamicProxy;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class CraftingRecipeInterceptFactory : InterceptorDelegateFactory<CraftingRecipeDelegate>
+    public class TextureComponentInterceptorFactory : InterceptorDelegateFactory<TextureComponentDelegate>
     {
-        public IInterceptor CreateInterceptor(CraftingRecipeDelegate t)
+        public IInterceptor CreateInterceptor(TextureComponentDelegate t)
         {
             return new TextureComponentInterceptor();
         }
