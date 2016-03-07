@@ -6987,6 +6987,15 @@
       "InstanceCallbackName": "AfterFarmerCaughtFishCallback",
       "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "foundArtifact",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerFoundArtifactCallback",
+      "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     }
   ]
 }
