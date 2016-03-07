@@ -150,9 +150,12 @@
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerConsumObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
@@ -194,6 +198,7 @@
     <Compile Include="StardewValley\Event\Game\UpdateMusicEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
