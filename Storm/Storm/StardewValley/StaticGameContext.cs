@@ -23,6 +23,7 @@ using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
+using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
@@ -30,12 +31,8 @@ using Storm.StardewValley.Proxy;
 
 namespace Storm.StardewValley
 {
-    public sealed class StaticGameContext
+    public static class StaticGameContext
     {
-        private StaticGameContext()
-        {
-        }
-
         /// <summary>
         ///     The Stardew Valley assembly
         /// </summary>
@@ -46,9 +43,15 @@ namespace Storm.StardewValley
         /// </summary>
         public static ProgramAccessor Root { get; set; }
 
+        /// <summary>
+        ///     The Type of the Tool class within the game, cached here so we can proxy it later
+        /// </summary>
         public static Type ToolType { get; set; }
         public static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
 
+        /// <summary>
+        ///     The Type of the Object class within the game, cached here so we can proxy it later
+        /// </summary>
         public static Type ObjectType { get; set; }
         public static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
 
@@ -79,28 +82,49 @@ namespace Storm.StardewValley
 
         public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
         {
-            var @event = new Event.Farmer.AfterFarmerShippedBasicEvent(index, number);
+            var @event = new AfterFarmerShippedBasicEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, size);
+            var @event = new AfterFarmerCaughtFishEvent(index, size);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, number);
+            var @event = new AfterFarmerCaughtFishEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new Event.Farmer.AfterFarmerCookedRecipeEvent(index);
+            var @event = new AfterFarmerCookedRecipeEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
+        {
+            var @event = new FarmerGainedExperienceEvent(which, howMuch);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
+        {
+            var @event = new AfterFarmerFoundMineralEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
+        {
+            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
             EventBus.Fire(@event);
             return @event;
         }
@@ -182,9 +206,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent PerformClockUpdateCallback()
+        public static DetourEvent Before10MinuteClockUpdateCallback()
         {
-            var @event = new PerformClockUpdateEvent();
+            var @event = new Before10MinuteClockUpdateEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent After10MinuteClockUpdateCallback()
+        {
+            var @event = new After10MinuteClockUpdateEvent();
             EventBus.Fire(@event);
             return @event;
         }
@@ -294,9 +325,9 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public DetourEvent UpdateTitleScreenCallback(GameTime gameTime)
+        public static DetourEvent UpdateTitleScreenCallback(StaticContextAccessor context)
         {
-            var @event = new UpdateTitleScreenEvent(gameTime);
+            var @event = new UpdateTitleScreenEvent(context);
             EventBus.Fire(@event);
             return @event;
         }
@@ -315,16 +346,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public DetourEvent GameExitEventCallback(object sender, EventArgs e)
+        public static DetourEvent GameExitEventCallback(StaticContextAccessor context)
         {
-            var @event = new GameExitEvent(sender, e);
+            var @event = new GameExitEvent(context);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public DetourEvent ClientSizeChangedCallback(object sender, EventArgs e)
+        public static DetourEvent ClientSizeChangedCallback(StaticContextAccessor context)
         {
-            var @event = new ClientSizeChangedEvent(sender, e);
+            var @event = new ClientSizeChangedEvent(context);
             EventBus.Fire(@event);
             return @event;
         }
@@ -371,6 +402,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
+        {
+            var @event = new ShipObjectEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
@@ -395,6 +433,10 @@ namespace Storm.StardewValley
             EventBus.Fire(@event);
             return @event;
         }
+
+        #endregion
+
+        #region Objects
 
         #endregion
     }

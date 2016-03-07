@@ -52,6 +52,11 @@ namespace Storm.ExternalEvent
             get { return annotation.Version; }
         }
 
+        public string Description
+        {
+            get { return annotation.Description; }
+        }
+
         public string LoadDirectory
         {
             get

@@ -88,6 +88,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CecilExtensions.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
@@ -150,10 +151,16 @@
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerConsumObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
+<<<<<<< HEAD
     <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
+=======
+    <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
+>>>>>>> d3e4d21886ef9dd156a9b8d9878e12ce02dfe16d
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
@@ -171,6 +178,7 @@
     <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
@@ -195,6 +203,8 @@
     <Compile Include="StardewValley\Event\Game\UpdateMusicEvent.cs" />
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
@@ -227,7 +237,7 @@
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\PerformClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\BeforeClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
     <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />

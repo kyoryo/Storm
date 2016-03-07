@@ -4043,6 +4043,13 @@
     },
     {
       "OwnerAccessorType": "@Object",
+      "OwnerFieldName": "stack",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Stack",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Object",
       "OwnerFieldName": "questItem",
       "OwnerFieldType": "System.Boolean",
       "MethodName": "IsQuestItem",
@@ -6752,8 +6759,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "UnloadContentCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType": "BEGINNING"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6761,8 +6767,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "UnloadContentCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType": "BEGINNING"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6817,16 +6822,23 @@
       "OwnerMethodName": "performTenMinuteClockUpdate",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "PerformClockUpdateCallback",
+      "StaticCallbackName": "Before10MinuteClockUpdateCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "performTenMinuteClockUpdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "After10MinuteClockUpdateCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "UpdateGameClock",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "UpdateGameClockCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "StaticCallbackName": "UpdateGameClockCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
@@ -6956,8 +6968,8 @@
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "UpdateTitleScreenCallback",
-      "InstanceCallbackDesc": "(Microsoft.Xna.Framework.GameTime)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6983,8 +6995,7 @@
       "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "GameExitEventCallback",
-      "InstanceCallbackDesc": "(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -6992,8 +7003,7 @@
       "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "ClientSizeChangedCallback",
-      "InstanceCallbackDesc": "(System.Object,System.EventArgs)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",
@@ -7115,12 +7125,48 @@
     },
     {
       "OwnerAccessorType": "@Farmer",
+<<<<<<< HEAD
       "OwnerMethodName": "increaseBackpackSize",
       "OwnerMethodDesc": "(System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "FarmerIncreaseBackpackSizeCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+=======
+      "OwnerMethodName": "gainExperience",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerGainedExperienceCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "foundMineral",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerFoundMineralCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "consumeObject",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerConsumeObjectCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "shipObject",
+      "OwnerMethodDesc": "(@(Object))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShipObjectCallback",
+      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+>>>>>>> d3e4d21886ef9dd156a9b8d9878e12ce02dfe16d
     }
   ]
 }

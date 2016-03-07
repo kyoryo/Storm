@@ -541,5 +541,8 @@ namespace Storm.StardewValley.Accessor
 
         float _GetMovementMultiplier();
         void _SetMovementMultiplier(float val);
+
+        int _GetAddedSpeed();
+        void _SetAddedSpeed(int val);
     }
 }

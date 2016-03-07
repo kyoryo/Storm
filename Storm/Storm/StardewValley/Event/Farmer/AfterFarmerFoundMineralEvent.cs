@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Russell Long (InfinitySamurai)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,9 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Farmer
 {
-    public class PerformClockUpdateEvent : StaticContextEvent
+    public class AfterFarmerFoundMineralEvent : StaticContextEvent
     {
+        public AfterFarmerFoundMineralEvent(int index)
+        {
+            Index = index;
+        }
+
+        public int Index { get; }
     }
 }

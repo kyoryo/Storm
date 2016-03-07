@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Zoey (Zoryn)
+    Copyright 2016 Russell Long (InfinitySamurai)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,18 +15,16 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event.Game
 {
-    public class UpdateTitleScreenEvent : StaticContextEvent
+    public class ShipObjectEvent : StaticContextEvent
     {
-        public UpdateTitleScreenEvent(StaticContextAccessor context)
+        public ShipObjectEvent(Wrapper.Object item)
         {
-            Context = new StaticContext(context);
+            Item = item;
         }
 
-        public StaticContext Context { get; }
+        public Wrapper.Object Item { get; }
     }
 }

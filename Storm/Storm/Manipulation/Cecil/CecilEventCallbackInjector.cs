@@ -43,13 +43,13 @@ namespace Storm.Manipulation.Cecil
         public void Init()
         {
             injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-
             if (injectee == null)
             {
-                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find injectee {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
-                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
-                    @params.InsertionIndex));
+                Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
                 invalid = true;
                 return;
             }
@@ -57,30 +57,31 @@ namespace Storm.Manipulation.Cecil
             MethodDefinition recv = null;
             if (injectee.IsStatic) recv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
             else recv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-
             if (recv == null)
             {
-                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Could not find receiver {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
-                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
-                    @params.InsertionIndex));
+                Logging.DebugLogs("[{0}] Could not find receiver!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
                 invalid = true;
                 return;
             }
-            callback = injectee.Module.Import(recv);
 
             var paramCount = (injectee.IsStatic ? 0 : 1);
             if (@params.PushParams)
             {
                 paramCount += injectee.Parameters.Count;
             }
-            
+
+            callback = injectee.Module.Import(recv);
             if (paramCount != callback.Parameters.Count)
             {
-                Logging.DebugLog(string.Format("[CecilEventCallbackInjector] Invalid callback description {0} {1} {2} {3} {4} {4} {5} {6} {7} {8}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.CallbackType,
-                    @params.InstanceCallbackName, @params.InstanceCallbackDesc, @params.StaticCallbackName, @params.StaticCallbackDesc,
-                    @params.InsertionIndex));
+                Logging.DebugLog("[CecilEventCallbackInjector] Invalid param count on callback!");
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
                 invalid = true;
                 return;
             }

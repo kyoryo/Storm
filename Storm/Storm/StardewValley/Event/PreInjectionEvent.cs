@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Zoey (Zoryn)
+    Copyright 2016 Cody R. (Demmonic)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,19 +14,24 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Storm.Manipulation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-using Storm.StardewValley.Accessor;
-using Storm.StardewValley.Wrapper;
-
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event
 {
-    public class UpdateTitleScreenEvent : StaticContextEvent
+    public class PreInjectionEvent : DetourEvent
     {
-        public UpdateTitleScreenEvent(StaticContextAccessor context)
+        public PreInjectionEvent(InjectorFactory factory, List<Injector> injectors)
         {
-            Context = new StaticContext(context);
+            this.InjectorFactory = factory;
+            this.Injectors = injectors;
         }
 
-        public StaticContext Context { get; }
+        public InjectorFactory InjectorFactory { get; }
+        public List<Injector> Injectors { get; }
     }
 }

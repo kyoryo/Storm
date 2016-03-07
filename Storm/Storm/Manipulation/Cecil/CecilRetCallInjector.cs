@@ -40,27 +40,27 @@ namespace Storm.Manipulation.Cecil
         public void Inject()
         {
             var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
-            var injectee = self.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-
             if (callingDefinition == null)
             {
-                Logging.DebugLog(string.Format("[CecilRetCallInjector] Could not find callingDefinition {0} {1} {2} {3} {4} {5}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
-                    @params.DetourMethodName, @params.DetourMethodDesc));
+                Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 
+            var injectee = self.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
             if (injectee == null)
             {
-                Logging.DebugLog(string.Format("[CecilRetCallInjector] Could not find injectee {0} {1} {2} {3} {4} {5}",
-                    @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc, @params.DetourType,
-                    @params.DetourMethodName, @params.DetourMethodDesc));
+                Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 
             var import = injectee.Module.Import(callingDefinition);
-            var processor = injectee.Body.GetILProcessor();
-            var instructions = injectee.Body.Instructions;
+            var body = injectee.Body;
+            var processor = body.GetILProcessor();
+            var instructions = body.Instructions;
             for (var i = 0; i < instructions.Count; i++)
             {
                 var ins = instructions[i];

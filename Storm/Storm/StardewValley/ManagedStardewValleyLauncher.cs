@@ -27,6 +27,7 @@ using Storm.Manipulation.Cecil;
 using Storm.StardewValley.Accessor;
 using Rectangle = xTile.Dimensions.Rectangle;
 using Storm.StardewValley.Proxy;
+using Storm.StardewValley.Event;
 
 namespace Storm.StardewValley
 {
@@ -57,6 +58,8 @@ namespace Storm.StardewValley
         /// </summary>
         public bool Debug { get; set; }
 
+        private ModEventBus EventBus { get; } = new ModEventBus();
+
         private InjectionFactoryContext Inject()
         {
             using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read))
@@ -68,6 +71,10 @@ namespace Storm.StardewValley
                     var casted = factory as CecilInjectorFactory;
                     ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
                 }
+
+                var @event = new PreInjectionEvent(factory, ctx.Injectors);
+                EventBus.Fire(@event);
+
                 ctx.Injectors.ForEach(injector => injector.Init());
                 ctx.Injectors.ForEach(injector => injector.Inject());
                 if (Debug)
@@ -94,7 +101,7 @@ namespace Storm.StardewValley
             var constructor = entryType.GetConstructor(new Type[0]);
 
             StaticGameContext.Assembly = assembly;
-            StaticGameContext.Root = (ProgramAccessor) constructor.Invoke(new object[0]);
+            StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
 
@@ -106,34 +113,33 @@ namespace Storm.StardewValley
             objectFactory.Map(typeof(ObjectAccessor), typeof(ObjectDelegate), ctx.Injectors);
             StaticGameContext.ObjectFactory = objectFactory;
 
-            var eventBus = new ModEventBus();
-            if (!Directory.Exists(StormAPI.ModsPath))
-                Directory.CreateDirectory(StormAPI.ModsPath);
-
-            var modLoader = new LocalModLoader(StormAPI.ModsPath);
-            var mods = modLoader.Load();
-            foreach (var mod in mods)
-                eventBus.AddReceiver(mod);
-
-            StaticGameContext.EventBus = eventBus;
+            StaticGameContext.EventBus = EventBus;
         }
 
         public void Launch()
         {
             // force the loading of dependencies so we can resolve injection types...
             Type tmp = null;
-            tmp = typeof (Vector2);
-            tmp = typeof (SpriteBatch);
-            tmp = typeof (AudioEngine);
-            tmp = typeof (GraphicsDeviceManager);
-            tmp = typeof (Keyboard);
-            tmp = typeof (Rectangle);
+            tmp = typeof(Vector2);
+            tmp = typeof(SpriteBatch);
+            tmp = typeof(AudioEngine);
+            tmp = typeof(GraphicsDeviceManager);
+            tmp = typeof(Keyboard);
+            tmp = typeof(Rectangle);
+
+            if (!Directory.Exists(StormAPI.ModsPath))
+            {
+                Directory.CreateDirectory(StormAPI.ModsPath);
+            }
+            var modLoader = new LocalModLoader(StormAPI.ModsPath);
+            var mods = modLoader.Load();
+            foreach (var mod in mods) EventBus.AddReceiver(mod);
 
             var ctx = Inject();
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
+            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
         }
     }
 }

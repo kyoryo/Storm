@@ -179,6 +179,7 @@ namespace Storm.Manipulation
                 OwnerType = FilterTags(nameMap, injector.OwnerAccessorType),
                 OwnerMethodName = injector.OwnerMethodName,
                 OwnerMethodDesc = FilterTags(nameMap, injector.OwnerMethodDesc),
+                InvokerType = injector.InvokerType == null ? null : FilterTags(nameMap, injector.InvokerType),
                 InvokerName = injector.InvokerName,
                 InvokerReturnParams = injector.InvokerReturnParams,
                 InvokerReturnType = injector.InvokerReturnType,
