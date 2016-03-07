@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class CraftingRecipeInterceptFactory : InterceptorDelegateFactory<CraftingRecipeDelegate>
+    public class CraftingRecipeInterceptorFactory : InterceptorDelegateFactory<CraftingRecipeDelegate>
     {
         public IInterceptor CreateInterceptor(CraftingRecipeDelegate t)
         {

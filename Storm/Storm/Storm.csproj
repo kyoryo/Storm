@@ -191,13 +191,13 @@
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\ClickableMenuInterceptFactory.cs" />
+    <Compile Include="StardewValley\Proxy\ClickableMenuInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\CraftingRecipeInterceptFactory.cs" />
+    <Compile Include="StardewValley\Proxy\CraftingRecipeInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
-    <Compile Include="StardewValley\Proxy\ReflectionInterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\Proxy\MappedInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\TextureComponentDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\TextureComponentInterceptFactory.cs" />
+    <Compile Include="StardewValley\Proxy\TextureComponentInterceptorFactory.cs" />
     <Compile Include="StardewValley\StormAPI.cs" />
     <Compile Include="StardewValley\Accessor\BootsAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CharacterAccessor.cs" />
@@ -222,7 +222,7 @@
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PerformClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
-    <Compile Include="StardewValley\Proxy\InterceptorDelegateFactory.cs" />
+    <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
     <Compile Include="StardewValley\StaticGameContext.cs" />
     <Compile Include="CecilUtils.cs" />

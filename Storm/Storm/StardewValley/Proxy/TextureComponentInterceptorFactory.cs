@@ -7,7 +7,7 @@ using Castle.DynamicProxy;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class TextureComponentInterceptFactory : InterceptorDelegateFactory<TextureComponentDelegate>
+    public class TextureComponentInterceptorFactory : InterceptorDelegateFactory<TextureComponentDelegate>
     {
         public IInterceptor CreateInterceptor(TextureComponentDelegate t)
         {

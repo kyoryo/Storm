@@ -45,7 +45,7 @@ namespace Storm.StardewValley
         public Type ToolType { get; }
         public ToolInterceptFactory ToolFactory { get; }
         public Type TextureComponentType { get; }
-        public TextureComponentInterceptFactory TextureComponentFactory { get; }
+        public TextureComponentInterceptorFactory TextureComponentFactory { get; }
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {

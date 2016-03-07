@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class ClickableMenuInterceptFactory : InterceptorDelegateFactory<ClickableMenuDelegate>
+    public class ClickableMenuInterceptorFactory : InterceptorDelegateFactory<ClickableMenuDelegate>
     {
         public delegate void DrawDelegate(SpriteBatch b);
         public delegate void PerformHoverActionDelegate(int x, int y);
@@ -28,7 +28,7 @@ namespace Storm.StardewValley.Proxy
         private readonly string receiveRightClickName;
         private readonly string receiveScrollWheelActionName;
 
-        public ClickableMenuInterceptFactory(
+        public ClickableMenuInterceptorFactory(
             StaticContext parent,
             string drawName, 
             string performHoverActionName, 
