@@ -31,12 +31,8 @@ using Storm.StardewValley.Proxy;
 
 namespace Storm.StardewValley
 {
-    public sealed class StaticGameContext
+    public static class StaticGameContext
     {
-        private StaticGameContext()
-        {
-        }
-
         /// <summary>
         ///     The Stardew Valley assembly
         /// </summary>
@@ -47,9 +43,15 @@ namespace Storm.StardewValley
         /// </summary>
         public static ProgramAccessor Root { get; set; }
 
+        /// <summary>
+        ///     The Type of the Tool class within the game, cached here so we can proxy it later
+        /// </summary>
         public static Type ToolType { get; set; }
         public static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
 
+        /// <summary>
+        ///     The Type of the Object class within the game, cached here so we can proxy it later
+        /// </summary>
         public static Type ObjectType { get; set; }
         public static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
 
