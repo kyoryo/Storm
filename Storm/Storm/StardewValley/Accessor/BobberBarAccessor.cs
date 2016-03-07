@@ -19,7 +19,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface BobberBarAccessor
+    public interface BobberBarAccessor : ClickableMenuAccessor
     {
         float _GetDifficulty();
         void _SetDifficulty(float val);

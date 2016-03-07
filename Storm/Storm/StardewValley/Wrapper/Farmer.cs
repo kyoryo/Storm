@@ -945,11 +945,17 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetMovementMultiplier(value); }
         }
 
+        public int AddedSpeed
+        {
+            get { return accessor._GetAddedSpeed(); }
+            set { accessor._SetAddedSpeed(value); }
+        }
+
         public new FarmerAccessor Expose() => accessor;
 
         public void SetItem(int idx, Item item)
         {
             accessor._GetItems()[idx] = item.Expose();
-        }
+        }       
     }
 }
