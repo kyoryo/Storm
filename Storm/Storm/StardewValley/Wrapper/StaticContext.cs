@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Accessor;
 using xTile.Display;
 using Rectangle = xTile.Dimensions.Rectangle;
+using System.Collections.Generic;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -1488,8 +1489,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetObjectDialoguePortraitPerson(value.Expose()); }
         }
 
-        public StaticContextAccessor Expose() => accessor;
-
         public Texture2D LoadResource(string path)
         {
             var fs = new FileStream(path, FileMode.Open);
@@ -1497,5 +1496,14 @@ namespace Storm.StardewValley.Wrapper
             fs.Close();
             return tex;
         }
+
+        public bool IsFestivalDay(int day, string season)
+        {
+            var key = day + season;
+            var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\DestivalDates");
+            return map != null && map.ContainsKey(key);
+        }
+
+        public StaticContextAccessor Expose() => accessor;
     }
 }
