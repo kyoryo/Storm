@@ -17,15 +17,13 @@
 
 namespace Storm.StardewValley.Event.Farmer
 {
-    public class FarmerGainedExperienceEvent : StaticContextEvent
+    public class AfterFarmerFoundMineralEvent : StaticContextEvent
     {
-        public FarmerGainedExperienceEvent(int which, int howMuch)
+        public AfterFarmerFoundMineralEvent(int index)
         {
-            Which = which;
-            HowMuch = howMuch;
+            Index = index;
         }
 
-        public int Which { get; }
-        public int HowMuch { get; }
+        public int Index { get; }
     }
 }

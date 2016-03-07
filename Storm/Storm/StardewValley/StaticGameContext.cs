@@ -113,6 +113,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
+        {
+            var @event = new AfterFarmerFoundMineralEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Game1 Events
