@@ -150,6 +150,7 @@
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />

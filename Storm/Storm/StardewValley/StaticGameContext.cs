@@ -93,6 +93,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterFarmerCookedRecipeCallback(int index)
+        {
+            var @event = new Event.Farmer.AfterFarmerCookedRecipeEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Game1 Events

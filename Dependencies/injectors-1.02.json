@@ -6996,6 +6996,15 @@
       "InstanceCallbackName": "AfterFarmerFoundArtifactCallback",
       "InstanceCallbackDesc": "(System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "cookedRecipe",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerCookedRecipeCallback",
+      "InstanceCallbackDesc": "(System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     }
   ]
 }
