@@ -69,6 +69,10 @@ namespace Storm.StardewValley.Accessor
         int _GetQuality();
         void _SetQuality(int quality);
 
+        int _GetStack();
+        void _SetStack(int stack);
+
+
         bool _GetIsQuestItem();
         void _SetIsQuestItem(bool questItem);
 

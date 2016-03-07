@@ -125,6 +125,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetQuality(value); }
         }
 
+        public int Stack
+        {
+            get { return accessor._GetStack(); }
+            set { accessor._SetStack(value); }
+        }
+
+
         public bool IsQuestItem
         {
             get { return accessor._GetIsQuestItem(); }
