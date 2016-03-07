@@ -72,6 +72,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterFarmerShippedBasicCallback(int index,int number)
+        {
+            var @event = new Event.Farmer.AfterFarmerShippedBasicEvent(index, number);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerCaughtFishCallback(int index, int size)
+        {
+            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, size);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Game1 Events

@@ -149,6 +149,8 @@
     <Compile Include="StardewValley\Accessor\MineShaftAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameLoadedEvent.cs" />
