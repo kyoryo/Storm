@@ -24,9 +24,21 @@ namespace Storm.StardewValley.Proxy
     public abstract class ToolDelegate : TypeDelegate<Tool>
     {
         [ProxyMap(Name = "DrawInMenu")]
-        public abstract void DrawInMenu(object[] @params);
+        public virtual OverrideEvent DrawInMenu(object[] @params)
+        {
+            return new OverrideEvent
+            {
+                ReturnEarly = false
+            };
+        }
 
         [ProxyMap(Name = "BeginUsing")]
-        public abstract void BeginUsing(object[] @params);
+        public virtual OverrideEvent BeginUsing(object[] @params)
+        {
+            return new OverrideEvent
+            {
+                ReturnEarly = false
+            };
+        }
     }
 }

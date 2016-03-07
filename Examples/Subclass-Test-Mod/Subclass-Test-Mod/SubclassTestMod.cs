@@ -12,26 +12,29 @@ using System.Threading.Tasks;
 using Storm.StardewValley.Wrapper;
 using Storm.StardewValley.Proxy;
 
-namespace Custom_Tool_Test_Mod
+namespace Subclass_Test_Mod
 {
-    [Mod(Author = "Demmonic", Name = "Custom Tool Test", Version = 0.1D)]
-    public class CustomToolTestMod : DiskResource
+    [Mod(Author = "Demmonic", Name = "Subclass Test", Version = 0.1D)]
+    public class SubclassTestMod : DiskResource
     {
         private bool pressedLast = false;
 
         private class CustomTool : ToolDelegate
         {
-            public override void BeginUsing(object[] @params)
+            public override OverrideEvent DrawInMenu(object[] @params)
             {
-                //GameLocation location, int x, int y, Farmer farmer
-            }
-
-            public override void DrawInMenu(object[] @params)
-            {
-                //SpriteBatch b, Vector2 loc, float scaleSize, float transparency, float layerDepth, bool drawStackNumber
                 var batch = (SpriteBatch)@params[0];
                 var loc = (Vector2)@params[1];
                 batch.DrawString(Accessor.Parent.SmoothFont, "le custom draw override", loc, Color.Red);
+                return new OverrideEvent { ReturnEarly = true };
+            }
+        }
+
+        private class CustomObject : ObjectDelegate
+        {
+            public override object[] GetConstructorParams()
+            {
+                return new object[] { (int)3, (int)2, };
             }
         }
 
@@ -48,10 +51,15 @@ namespace Custom_Tool_Test_Mod
                 if (!pressedLast && Keyboard.GetState().IsKeyDown(Keys.X))
                 {
                     pressedLast = true;
-                    var obj = @event.ProxyTool(new CustomTool());
-                    obj.Name = "Tool name!";
-                    obj.Description = "Tool Desc! Pretty gooood.";
-                    farmer.SetItem(1, obj);
+
+                    var customTool = @event.ProxyTool(new CustomTool());
+                    customTool.Name = "Tool name!";
+                    customTool.Description = "Tool Desc! Pretty gooood.";
+                    farmer.SetItem(0, customTool);
+
+                    var customObject = @event.ProxyObject(new CustomObject());
+                    customObject.Name = "Object name!";
+                    farmer.SetItem(1, customObject);
                 }
                 else if (!Keyboard.GetState().IsKeyDown(Keys.X))
                 {

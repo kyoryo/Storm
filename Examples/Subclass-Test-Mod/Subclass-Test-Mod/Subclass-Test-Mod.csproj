@@ -7,8 +7,8 @@
     <ProjectGuid>{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Custom_Tool_Test_Mod</RootNamespace>
-    <AssemblyName>Custom-Tool-Test-Mod</AssemblyName>
+    <RootNamespace>Subclass_Test_Mod</RootNamespace>
+    <AssemblyName>Subclass-Test-Mod</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomToolTestMod.cs" />
+    <Compile Include="SubclassTestMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

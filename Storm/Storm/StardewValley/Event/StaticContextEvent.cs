@@ -28,6 +28,16 @@ namespace Storm.StardewValley
 {
     public class StaticContextEvent : DetourEvent
     {
+        public Assembly GameAssembly { get; }
+        public StaticContext Root { get; }
+        public ModEventBus EventBus { get; }
+        public Type ToolType { get; }
+        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
+        public Type ObjectType { get; }
+        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; }
+        public Type TextureComponentType { get; }
+        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
+
         public StaticContextEvent()
         {
             GameAssembly = StaticGameContext.Assembly;
@@ -35,26 +45,30 @@ namespace Storm.StardewValley
             EventBus = StaticGameContext.EventBus;
             ToolType = StaticGameContext.ToolType;
             ToolFactory = StaticGameContext.ToolFactory;
+            ObjectType = StaticGameContext.ObjectType;
+            ObjectFactory = StaticGameContext.ObjectFactory;
             TextureComponentType = StaticGameContext.TextureComponentType;
             TextureComponentFactory = StaticGameContext.TextureComponentFactory;
         }
-
-        public Assembly GameAssembly { get; }
-        public StaticContext Root { get; }
-        public ModEventBus EventBus { get; }
-        public Type ToolType { get; }
-        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
-        public Type TextureComponentType { get; }
-        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {
             var generator = new ProxyGenerator();
             var accessor = (ToolAccessor) generator.CreateClassProxy(
-                ToolType, 
-                ToolFactory.CreateInterceptor(@delegate));
+                ToolType, ToolFactory.CreateInterceptor(@delegate));
 
             var wrapped = new Tool(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public StardewValley.Wrapper.Object ProxyObject(ObjectDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (ObjectAccessor)generator.CreateClassProxy(
+                ObjectType, ObjectFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new StardewValley.Wrapper.Object(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }

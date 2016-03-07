@@ -153,6 +153,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameLoadedEvent.cs" />
@@ -196,6 +197,8 @@
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ObjectDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\OverrideEvent.cs" />
     <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
     <Compile Include="StardewValley\Proxy\MappedInterceptorFactory.cs" />
     <Compile Include="StardewValley\Proxy\TextureComponentDelegate.cs" />
