@@ -23,6 +23,7 @@ using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
+using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
@@ -79,28 +80,35 @@ namespace Storm.StardewValley
 
         public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
         {
-            var @event = new Event.Farmer.AfterFarmerShippedBasicEvent(index, number);
+            var @event = new AfterFarmerShippedBasicEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, size);
+            var @event = new AfterFarmerCaughtFishEvent(index, size);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new Event.Farmer.AfterFarmerCaughtFishEvent(index, number);
+            var @event = new AfterFarmerCaughtFishEvent(index, number);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new Event.Farmer.AfterFarmerCookedRecipeEvent(index);
+            var @event = new AfterFarmerCookedRecipeEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
+        {
+            var @event = new FarmerGainedExperienceEvent(which, howMuch);
             EventBus.Fire(@event);
             return @event;
         }

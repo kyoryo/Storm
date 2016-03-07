@@ -153,6 +153,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
