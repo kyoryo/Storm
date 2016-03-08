@@ -14,7 +14,7 @@ using Storm.StardewValley.Proxy;
 
 namespace Subclass_Test_Mod
 {
-    [Mod(Author = "Demmonic", Name = "Subclass Test", Version = 0.1D)]
+    [Mod]
     public class SubclassTestMod : DiskResource
     {
         private bool pressedLast = false;
