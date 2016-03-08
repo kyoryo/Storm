@@ -129,6 +129,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
+        {
+            var @event = new Event.Farmer.FarmerIncreaseBackpackSizeEvent(howMuch);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Game1 Events
