@@ -30,6 +30,10 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
+        public bool IsShopMenu() => accessor is ShopMenuAccessor;
+
+        public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
+
         public ClickableMenuAccessor Expose() => accessor;
     }
 }

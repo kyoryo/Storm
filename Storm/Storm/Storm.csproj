@@ -157,6 +157,7 @@
     <Compile Include="StardewValley\Accessor\MineShaftAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ShopMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TextBoxAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedAccessoryEvent.cs" />
@@ -302,6 +303,7 @@
     <Compile Include="StardewValley\Proxy\ToolDelegate.cs" />
     <Compile Include="StardewValley\Proxy\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
+    <Compile Include="StardewValley\Wrapper\ShopMenu.cs" />
     <Compile Include="StardewValley\Wrapper\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />
