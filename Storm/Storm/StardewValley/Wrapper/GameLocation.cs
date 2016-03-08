@@ -34,15 +34,15 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
-        public Dictionary<Vector2, Object> Objects
+        public Dictionary<Vector2, ObjectItem> Objects
         {
             get
             {
                 var orig = accessor._GetObjects();
-                var conv = new Dictionary<Vector2, Object>();
+                var conv = new Dictionary<Vector2, ObjectItem>();
                 foreach (var vec in orig.Keys)
                 {
-                    conv.Add((Vector2) vec, new Object(Parent, (ObjectAccessor) orig[vec]));
+                    conv.Add((Vector2) vec, new ObjectItem(Parent, (ObjectAccessor) orig[vec]));
                 }
                 return conv;
             }
@@ -107,7 +107,7 @@ namespace Storm.StardewValley.Wrapper
             accessor._GrowWeedGrass(iterations);
         }
 
-        public Object GetObjectAt(int tileX, int tileY)
+        public ObjectItem GetObjectAt(int tileX, int tileY)
         {
             var game = StaticGameContext.WrappedGame;
             var key = new Vector2(tileX / game.TileSize, tileY / game.TileSize);

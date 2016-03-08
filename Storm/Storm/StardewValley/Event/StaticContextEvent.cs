@@ -62,13 +62,13 @@ namespace Storm.StardewValley
             return wrapped;
         }
 
-        public StardewValley.Wrapper.Object ProxyObject(ObjectDelegate @delegate)
+        public StardewValley.Wrapper.ObjectItem ProxyObject(ObjectDelegate @delegate)
         {
             var generator = new ProxyGenerator();
             var accessor = (ObjectAccessor)generator.CreateClassProxy(
                 ObjectType, ObjectFactory.CreateInterceptor(@delegate));
 
-            var wrapped = new StardewValley.Wrapper.Object(Root, accessor);
+            var wrapped = new StardewValley.Wrapper.ObjectItem(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }

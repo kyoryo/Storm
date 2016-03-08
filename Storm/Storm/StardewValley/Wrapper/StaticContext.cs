@@ -1309,9 +1309,9 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetCurrentfps(value); }
         }
         
-        public Object DishOfTheDay
+        public ObjectItem DishOfTheDay
         {
-            get { return new Object(this, accessor._GetDishOfTheDay()); }
+            get { return new ObjectItem(this, accessor._GetDishOfTheDay()); }
             set { accessor._SetDishOfTheDay(value.Expose()); }
         }
 

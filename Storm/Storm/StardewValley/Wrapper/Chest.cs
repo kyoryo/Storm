@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Chest : Object, Wrapper<ChestAccessor>
+    public class Chest : ObjectItem, Wrapper<ChestAccessor>
     {
         private readonly ChestAccessor accessor;
 

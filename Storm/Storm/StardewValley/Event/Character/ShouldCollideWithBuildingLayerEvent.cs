@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Russell Long (InfinitySamurai)
+    Copyright 2016 Zoey (Zoryn)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,16 +15,18 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event.Farmer
 {
-    public class ShipObjectEvent : StaticContextEvent
+    public class ShouldCollideWithBuildingLayerEvent : StaticContextEvent
     {
-        public ShipObjectEvent(Wrapper.ObjectItem item)
-        {
-            Item = item;
-        }
+        public GameLocation BuildingLocation { get; }
 
-        public Wrapper.ObjectItem Item { get; }
+        public ShouldCollideWithBuildingLayerEvent(GameLocationAccessor gameLocationAccessor)
+        {
+            BuildingLocation = new GameLocation(StaticGameContext.WrappedGame, gameLocationAccessor);
+        }
     }
 }

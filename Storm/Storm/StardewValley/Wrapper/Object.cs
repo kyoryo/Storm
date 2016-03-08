@@ -20,11 +20,11 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Object : Item, Wrapper<ObjectAccessor>
+    public class ObjectItem : Item, Wrapper<ObjectAccessor>
     {
         private readonly ObjectAccessor accessor;
 
-        public Object(StaticContext parent, ObjectAccessor accessor) : base(parent, accessor)
+        public ObjectItem(StaticContext parent, ObjectAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
         }

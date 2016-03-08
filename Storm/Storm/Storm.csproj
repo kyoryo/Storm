@@ -180,6 +180,7 @@
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ShopMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\TextBoxAccessor.cs" />
+    <Compile Include="StardewValley\Event\Character\ShouldCollideWithBuildingLayerEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedAccessoryEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedEyeColorEvent.cs" />
@@ -197,6 +198,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedShoeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedSkinColorEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerCollideWithEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
     <Compile Include="StardewValley\Event\Game\BeforeGameLoadedEvent.cs" />
@@ -250,6 +252,8 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\AfterObjectDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
@@ -351,7 +355,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
-    <Folder Include="StardewValley\Event\Object\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
     <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />

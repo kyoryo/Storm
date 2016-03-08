@@ -7685,6 +7685,16 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType": "@Character",
+      "OwnerMethodName": "shouldCollideWithBuildingLayer",
+      "OwnerMethodDesc": "(@(GameLocation))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ShouldCollideWithBuildingLayerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CharacterAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
       "OwnerAccessorType": "@Farmer",
       "OwnerMethodName": "addItemToInventory",
       "OwnerMethodDesc": "(@(Item))@(Item)",
@@ -7856,6 +7866,16 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "collideWith",
+      "OwnerMethodDesc": "(@(Object))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerCollideWithCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "shipObject",
       "OwnerMethodDesc": "(@(Object))System.Void",
@@ -7890,6 +7910,22 @@
       "InstanceCallbackName": "BeforeDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "DayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeObjectDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "DayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterObjectDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent"
     }
   ]
 }

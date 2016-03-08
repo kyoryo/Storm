@@ -30,9 +30,9 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public Object[] Attachments
+        public ObjectItem[] Attachments
         {
-            get { return Array.ConvertAll(accessor._GetAttachments(), i => new Object(Parent, i)); }
+            get { return Array.ConvertAll(accessor._GetAttachments(), i => new ObjectItem(Parent, i)); }
             set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Expose())); }
         }
 
