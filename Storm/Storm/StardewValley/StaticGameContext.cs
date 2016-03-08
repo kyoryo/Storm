@@ -25,6 +25,7 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
+using Storm.StardewValley.Event.Object;
 using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
@@ -593,6 +594,20 @@ namespace Storm.StardewValley
         #endregion
 
         #region Objects
+
+        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
+        {
+            var @event = new BeforeObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
+        {
+            var @event = new AfterObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
 
         #endregion
 

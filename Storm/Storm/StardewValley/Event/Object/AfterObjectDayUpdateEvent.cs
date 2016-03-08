@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Zoey (Zoryn)
+    Copyright 2016 Maurício Gomes (Speeder)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,20 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
-using Storm.StardewValley.Wrapper;
-
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event.Object
 {
-    public class PlayerEatObjectEvent : StaticContextEvent
+    public class AfterObjectDayUpdateEvent : StaticContextEvent
     {
-        public PlayerEatObjectEvent(Wrapper.Object o, bool overrideFullness)
+        public AfterObjectDayUpdateEvent(Wrapper.Object obj)
         {
-            O = o;
-            OverrideFullness = overrideFullness;
+            This = obj;
         }
 
-        public Wrapper.Object O { get; }
-        public bool OverrideFullness { get; }
+        public Wrapper.Object This { get; }
     }
 }
