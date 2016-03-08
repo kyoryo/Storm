@@ -31,6 +31,8 @@ namespace Storm.ExternalEvent.Json
         [DefaultValue("1.0.0.0")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string Version { get; set; }
+        [DefaultValue("")]
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string Description { get; set; }
         public string AssemblyFileName { get; set; }
     }
