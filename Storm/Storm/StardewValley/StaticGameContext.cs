@@ -29,6 +29,7 @@ using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event.HoeDirt;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley
 {
