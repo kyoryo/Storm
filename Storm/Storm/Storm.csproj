@@ -148,6 +148,7 @@
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BarnAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\BillboardAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BobberBarAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BuildingAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CatAccessor.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\Billboard.cs" />
     <Compile Include="StardewValley\Wrapper\ChatBox.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableComponent.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableMenu.cs" />
