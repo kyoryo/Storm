@@ -24,7 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -89,8 +89,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="ExternalEvent\AssemblyMod.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
+    <Compile Include="ExternalEvent\Json\JsonModManifest.cs" />
+    <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
@@ -118,7 +121,6 @@
     <Compile Include="ExternalEvent\ModLoader.cs" />
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
-    <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
@@ -139,6 +141,7 @@
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FenceAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\FishingRodAccessor.cs" />
     <Compile Include="StardewValley\Accessor\GameMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\HatAccessor.cs" />
     <Compile Include="StardewValley\Accessor\HoeAccessor.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerConsumObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerDismountHorseEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
@@ -176,6 +180,10 @@
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
     <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonPressed.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonReleased.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
@@ -202,6 +210,8 @@
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
@@ -224,6 +234,7 @@
     <Compile Include="StardewValley\Wrapper\ClickableTextureComponent.cs" />
     <Compile Include="StardewValley\Wrapper\Event.cs" />
     <Compile Include="StardewValley\Wrapper\Fence.cs" />
+    <Compile Include="StardewValley\Wrapper\FishingRod.cs" />
     <Compile Include="StardewValley\Wrapper\GameMenu.cs" />
     <Compile Include="StardewValley\Wrapper\HoeDirt.cs" />
     <Compile Include="StardewValley\Wrapper\InventoryMenu.cs" />

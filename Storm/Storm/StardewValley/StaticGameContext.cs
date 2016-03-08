@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn)
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 
 using System;
 using System.Reflection;
-using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
@@ -29,6 +29,8 @@ using Storm.StardewValley.Event.Object;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
+using Storm.StardewValley.Event.HoeDirt;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley
 {
@@ -72,81 +74,15 @@ namespace Storm.StardewValley
             get { return new StaticContext(Root._GetGame()); }
         }
 
-        #region Farmer Events
-
-        public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
-        {
-            var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
-        {
-            var @event = new AfterFarmerShippedBasicEvent(index, number);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
-        {
-            var @event = new AfterFarmerCaughtFishEvent(index, size);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
-        {
-            var @event = new AfterFarmerCaughtFishEvent(index, number);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
-        {
-            var @event = new AfterFarmerCookedRecipeEvent(index);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
-        {
-            var @event = new FarmerGainedExperienceEvent(which, howMuch);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
-        {
-            var @event = new AfterFarmerFoundMineralEvent(index);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
-        {
-            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
-        {
-            var @event = new Event.Farmer.FarmerIncreaseBackpackSizeEvent(howMuch);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
-        #endregion
-
         #region Game1 Events
 
         public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
-            var game = WrappedGame;
-            game.Version += ", " + AssemblyInfo.NICE_VERSION;
-            game.Version += ", mods loaded: " + EventBus.mods.Count;
-            game.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
+            WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
+            WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
+            WrappedGame.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
+
+            Logging.DebugLog("Game Initialized");
 
             var @event = new InitializeEvent();
             EventBus.Fire(@event);
@@ -249,8 +185,49 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        private static KeyboardState oldKeyboardState = new KeyboardState();
+        private static MouseState oldMouseState = new MouseState();
+        private static GamePadState oldGamepadState = new GamePadState();
+
         public static DetourEvent PostUpdateCallback(StaticContextAccessor accessor)
         {
+            var keyboardState = Keyboard.GetState();
+            var mouseState = Mouse.GetState();
+            var gamepadState = GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex.One);
+
+            /* keyboard events */
+
+            foreach (Keys key in keyboardState.GetPressedKeys())
+                if (!oldKeyboardState.IsKeyDown(key))
+                    EventBus.Fire(new KeyPressedEvent(key));
+
+            foreach (Keys key in oldKeyboardState.GetPressedKeys())
+                if (!keyboardState.IsKeyDown(key))
+                    EventBus.Fire(new KeyReleasedEvent(key));
+
+            /* probably a way to template this, but whatever, mouse events */
+
+            if (mouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Left));
+            if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Left));
+
+            if (mouseState.MiddleButton == ButtonState.Pressed && oldMouseState.MiddleButton == ButtonState.Released)
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Middle));
+            if (mouseState.MiddleButton == ButtonState.Released && oldMouseState.MiddleButton == ButtonState.Pressed)
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Middle));
+
+            if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Right));
+            if (mouseState.RightButton == ButtonState.Released && oldMouseState.RightButton == ButtonState.Pressed)
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right));
+
+            /* todo: gamepad events */
+
+            oldKeyboardState = keyboardState;
+            oldMouseState = mouseState;
+            oldGamepadState = gamepadState;
+
             var @event = new PostUpdateEvent();
             EventBus.Fire(@event);
             return @event;
@@ -412,6 +389,80 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region Farmer Events
+
+        public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
+        {
+            var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index,int number)
+        {
+            var @event = new AfterFarmerShippedBasicEvent(index, number);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
+        {
+            var @event = new AfterFarmerCaughtFishEvent(index, size);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
+        {
+            var @event = new AfterFarmerCaughtFishEvent(index, number);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
+        {
+            var @event = new AfterFarmerCookedRecipeEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
+        {
+            var @event = new FarmerGainedExperienceEvent(which, howMuch);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
+        {
+            var @event = new AfterFarmerFoundMineralEvent(index);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
+        {
+            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
+        {
+            var @event = new Event.Farmer.FarmerIncreaseBackpackSizeEvent(howMuch);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerDismountHorseCallback(FarmerAccessor accessor)
+        {
+            var @event = new Event.Farmer.AfterFarmerDismountHorseEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
         #region Crop Events
 
         public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
@@ -431,6 +482,24 @@ namespace Storm.StardewValley
         public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
         {
             var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region HoeDirt Events
+
+        public static DetourEvent BeforeDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        {
+            var @event = new BeforeDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        {
+            var @event = new AfterDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
             EventBus.Fire(@event);
             return @event;
         }

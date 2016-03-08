@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,20 +14,20 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework;
+using Storm.StardewValley.Wrapper;
 
-using System;
-
-namespace Storm.ExternalEvent
+namespace Storm.StardewValley.Event.HoeDirt
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class Mod : Attribute
+    public class BeforeDayUpdateHoeDirtEvent : StaticContextEvent
     {
-        public string Name { get; set; }
+        public BeforeDayUpdateHoeDirtEvent(Wrapper.GameLocation environment, Microsoft.Xna.Framework.Vector2 tilelocation)
+        {
+            Environment = environment;
+            TileLocation = tilelocation;
+        }
 
-        public string Author { get; set; }
-
-        public double Version { get; set; }
-
-        public string Description { get; set; }
+        public Wrapper.GameLocation Environment { get; }
+        public Microsoft.Xna.Framework.Vector2 TileLocation { get; }
     }
 }

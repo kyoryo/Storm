@@ -66,6 +66,13 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetWeaponTexture(value); }
         }
 
+        public bool IsFishingRod() => accessor is FishingRodAccessor;
+
+        public FishingRod ToFishingRod()
+        {
+            return new FishingRod(Parent, (FishingRodAccessor)accessor);
+        }
+
         public new ToolAccessor Expose() => accessor;
     }
 }
