@@ -533,6 +533,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent FarmerCollideWithCallback(FarmerAccessor accessor, ObjectAccessor collisionObject)
+        {
+            var @event = new FarmerCollideWithEvent(collisionObject);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ShouldCollideWithBuildingLayerCallback(CharacterAccessor accessor, GameLocationAccessor gameLocationAccessor)
+        {
+            var @event = new ShouldCollideWithBuildingLayerEvent(gameLocationAccessor);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events

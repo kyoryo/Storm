@@ -7685,6 +7685,16 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
+      "OwnerAccessorType": "@Character",
+      "OwnerMethodName": "shouldCollideWithBuildingLayer",
+      "OwnerMethodDesc": "(@(GameLocation))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ShouldCollideWithBuildingLayerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CharacterAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
       "OwnerAccessorType": "@Farmer",
       "OwnerMethodName": "addItemToInventory",
       "OwnerMethodDesc": "(@(Item))@(Item)",
@@ -7854,6 +7864,16 @@
       "InstanceCallbackName": "FarmerChangedGenderCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "collideWith",
+      "OwnerMethodDesc": "(@(Object))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerCollideWithCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
     },
     {
       "OwnerAccessorType": "@StaticContext",
