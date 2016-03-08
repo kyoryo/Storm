@@ -172,6 +172,8 @@
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedSkinColorEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\BeforeDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\BeforePullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
