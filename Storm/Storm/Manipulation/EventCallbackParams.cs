@@ -28,6 +28,7 @@ namespace Storm.Manipulation
         public string StaticCallbackName { get; set; }
         public string StaticCallbackDesc { get; set; }
         public bool PushParams { get; set; }
+        public bool JumpFix { get; set; }
         public InsertionType InsertionType { get; set; }
         public int[] InsertionIndex { get; set; }
     }

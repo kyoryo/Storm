@@ -15,26 +15,31 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework.Input;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Storm.StardewValley.Accessor;
+using System;
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Wrapper
 {
-    public class MouseButtonPressedEvent : StaticContextEvent
+    public class ChatBox : ClickableMenu, Wrapper<ChatBoxAccessor>
     {
-        public enum MouseButton
+        private readonly ChatBoxAccessor accessor;
+
+        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) : base(parent, accessor)
         {
-            Left,
-            Middle,
-            Right
+            this.accessor = accessor;
         }
 
-        public MouseButtonPressedEvent(MouseButton button, MouseState state)
+        public void ReceiveChatMessage(string message, long who)
         {
-            Button = button;
-            State = state;
+            accessor._ReceiveChatMessage(message, who);
         }
 
-        public MouseButton Button { get; }
-        public MouseState State { get; }
+        public new ChatBoxAccessor Expose() => accessor;
+
     }
 }

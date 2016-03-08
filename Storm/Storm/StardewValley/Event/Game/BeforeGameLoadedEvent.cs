@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Matt Stevens (Handsome Matt)
+    Copyright 2016 Zoey (Zoryn)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,26 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework.Input;
-
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Game
 {
-    public class MouseButtonPressedEvent : StaticContextEvent
+    public class BeforeGameLoadedEvent : StaticContextEvent
     {
-        public enum MouseButton
+        public BeforeGameLoadedEvent(bool loadedGame)
         {
-            Left,
-            Middle,
-            Right
+            LoadedGame = loadedGame;
         }
 
-        public MouseButtonPressedEvent(MouseButton button, MouseState state)
-        {
-            Button = button;
-            State = state;
-        }
-
-        public MouseButton Button { get; }
-        public MouseState State { get; }
+        public bool LoadedGame { get; }
     }
 }

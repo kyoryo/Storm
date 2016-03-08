@@ -228,7 +228,8 @@ namespace Storm.Manipulation
                 StaticCallbackDesc = injector.StaticCallbackDesc,
                 InsertionIndex = injector.InsertionIndex,
                 InsertionType = injector.InsertionType,
-                PushParams = injector.PushParams
+                PushParams = injector.PushParams,
+                JumpFix = injector.JumpFix
             })));
 
             return list;

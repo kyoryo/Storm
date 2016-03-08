@@ -48,7 +48,7 @@ namespace Storm.Manipulation.Cecil
             {
                 Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {3}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace Storm.Manipulation.Cecil
             {
                 Logging.DebugLogs("[{0}] Could not find fieldRef!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {3}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
                 return;
             }
 
