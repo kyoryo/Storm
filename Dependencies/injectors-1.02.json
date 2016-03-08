@@ -7632,8 +7632,7 @@
       "OwnerMethodDesc": "(@(GameLocation))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "BeforeObjectDayUpdateCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType": "BEGINNING"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@Object",
@@ -7641,8 +7640,7 @@
       "OwnerMethodDesc": "(@(GameLocation))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterObjectDayUpdateCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
-      "InsertionType": "LAST"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent"
     }
   ]
 }
