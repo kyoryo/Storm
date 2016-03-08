@@ -139,7 +139,17 @@
       "SimpleName": "FishingRod",
       "OwnerType": "StardewValley.Tools.FishingRod",
       "InterfaceType": "Storm.StardewValley.Accessor.FishingRodAccessor"
-    }
+    },
+    {
+      "SimpleName": "ChatBox",
+      "OwnerType": "StardewValley.Menus.ChatBox",
+      "InterfaceType": "Storm.StardewValley.Accessor.ChatBoxAccessor"
+    },
+    {
+      "SimpleName": "TextBox",
+      "OwnerType": "StardewValley.Menus.TextBox",
+      "InterfaceType": "Storm.StardewValley.Accessor.TextBoxAccessor"
+    },
   ],
   "FieldDetourParams": [
     
@@ -6992,6 +7002,13 @@
       "OwnerFieldType": "System.Boolean",
       "MethodName": "UsedGamePadToCast",
       "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@TextBox",
+      "OwnerFieldName": "_text",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Text",
+      "Type": "System.String"
     }
   ],
   "MethodInfoParams": [
@@ -7041,6 +7058,18 @@
         "System.Int32"
       ],
       "InvokerReturnType": "Storm.StardewValley.Accessor.ItemAccessor",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "receiveChatMessage",
+      "OwnerMethodDesc": "(System.String,System.Int64)System.Void",
+      "InvokerName": "_ReceiveChatMessage",
+      "InvokerReturnParams": [
+        "System.String",
+        "System.Int64"
+      ],
+      "InvokerReturnType": "System.Void",
       "IsStatic": "false"
     }
   ],
@@ -7479,6 +7508,15 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "StaticCallbackName": "ShipObjectCallback",
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "textBoxEnter",
+      "OwnerMethodDesc": "(@(TextBox))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ChatboxTextEnteredCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ChatBoxAccessor,Storm.StardewValley.Accessor.TextBoxAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     }
   ]

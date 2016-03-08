@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Zoey (Zoryn)
+    Copyright 2016 Matt Stevens (Handsome Matt)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,15 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event
 {
-    public class GameLoadedEvent : StaticContextEvent
+    public class ChatMessageEnteredEvent : StaticContextEvent
     {
-        public GameLoadedEvent(bool loadedGame)
+        public ChatMessageEnteredEvent(string text)
         {
-            LoadedGame = loadedGame;
+            ChatText = text;
         }
 
-        public bool LoadedGame { get; }
+        public string ChatText { get; }
     }
 }
