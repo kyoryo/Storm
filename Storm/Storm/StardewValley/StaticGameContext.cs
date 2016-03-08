@@ -604,9 +604,9 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
+        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
-            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
             EventBus.Fire(@event);
             return @event;
         }
