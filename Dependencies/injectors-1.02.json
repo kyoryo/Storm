@@ -7160,6 +7160,14 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "dismount",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerDismountHorseCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "shipObject",
       "OwnerMethodDesc": "(@(Object))System.Void",

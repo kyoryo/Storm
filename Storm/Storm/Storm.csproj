@@ -153,6 +153,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerConsumObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerDismountHorseEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
