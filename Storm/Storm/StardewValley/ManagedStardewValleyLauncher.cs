@@ -105,6 +105,7 @@ namespace Storm.StardewValley
             StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
+            StaticGameContext.BillboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
 
             var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
             toolFactory.Map(typeof(ToolAccessor), typeof(ToolDelegate), ctx.Injectors);
@@ -113,6 +114,10 @@ namespace Storm.StardewValley
             var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
             objectFactory.Map(typeof(ObjectAccessor), typeof(ObjectDelegate), ctx.Injectors);
             StaticGameContext.ObjectFactory = objectFactory;
+
+            var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
+            billboardFactory.Map(typeof(BillboardAccessor), typeof(BillboardDelegate), ctx.Injectors);
+            StaticGameContext.BillboardFactory = billboardFactory;
 
             StaticGameContext.EventBus = EventBus;
         }

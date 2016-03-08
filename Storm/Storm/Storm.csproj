@@ -258,8 +258,10 @@
     <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
+    <Compile Include="StardewValley\Proxy\BillboardDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\DefaultBillboardDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ObjectDelegate.cs" />
     <Compile Include="StardewValley\Proxy\OverrideEvent.cs" />
     <Compile Include="StardewValley\Proxy\ProxyMap.cs" />

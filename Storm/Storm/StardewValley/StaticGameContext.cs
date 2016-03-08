@@ -28,7 +28,6 @@ using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Event.Object;
 using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
-using ObjectItem = Storm.StardewValley.Wrapper.ObjectItem;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event.HoeDirt;
 using Microsoft.Xna.Framework;
@@ -61,6 +60,9 @@ namespace Storm.StardewValley
 
         public static Type TextureComponentType { get; set; }
         public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
+
+        public static Type BillboardType { get; set; }
+        public static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
 
         /// <summary>
         ///     Event handler for all Storm mods.
