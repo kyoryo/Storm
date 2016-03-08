@@ -26,6 +26,7 @@ using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Event.Object;
+using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
@@ -461,6 +462,76 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent FarmerChangedShirtCallback(FarmerAccessor accessor, int whichShirt)
+        {
+            var @event = new Event.Farmer.FarmerChangedShirtEvent(whichShirt);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedHairCallback(FarmerAccessor accessor, int whichHair)
+        {
+            var @event = new Event.Farmer.FarmerChangedHairEvent(whichHair);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedShoeCallback(FarmerAccessor accessor, int which)
+        {
+            var @event = new Event.Farmer.FarmerChangedShoeEvent(which);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedHairColorCallback(FarmerAccessor accessor, Color c)
+        {
+            var @event = new Event.Farmer.FarmerChangedHairColorEvent(c);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedPantsCallback(FarmerAccessor accessor, Color color)
+        {
+            var @event = new Event.Farmer.FarmerChangedPantsEvent(color);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedHatCallback(FarmerAccessor accessor, int newHat)
+        {
+            var @event = new Event.Farmer.FarmerChangedHatEvent(newHat);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedAccessoryCallback(FarmerAccessor accessor, int which)
+        {
+            var @event = new Event.Farmer.FarmerChangedAccessoryEvent(which);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedSkinColorCallback(FarmerAccessor accessor, int which)
+        {
+            var @event = new Event.Farmer.FarmerChangedSkinColorEvent(which);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedEyeColorCallback(FarmerAccessor accessor, Color c)
+        {
+            var @event = new Event.Farmer.FarmerChangedEyeColorEvent(c);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerChangedGenderCallback(FarmerAccessor accessor, bool male)
+        {
+            var @event = new Event.Farmer.FarmerChangedGenderEvent(male);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
@@ -511,6 +582,24 @@ namespace Storm.StardewValley
         public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
         {
             var @event = new BeforeObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region FishingRod Events
+
+        public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        {
+            var @event = new BeforePullFishFromWaterEvent(whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
+        {
+            var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), consumeBaitAndTackle);
             EventBus.Fire(@event);
             return @event;
         }
