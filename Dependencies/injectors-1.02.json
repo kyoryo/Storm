@@ -134,6 +134,11 @@
       "SimpleName": "ClickableTextureComponent",
       "OwnerType": "StardewValley.Menus.ClickableTextureComponent",
       "InterfaceType": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "SimpleName": "FishingRod",
+      "OwnerType": "StardewValley.Tools.FishingRod",
+      "InterfaceType": "Storm.StardewValley.Accessor.FishingRodAccessor"
     }
   ],
   "FieldDetourParams": [
@@ -6679,6 +6684,321 @@
       "OwnerFieldType": "System.Boolean",
       "MethodName": "GamePadControlsImplemented",
       "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "bobber",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "Bobber",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "minFishingBiteTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MinFishingBiteTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "maxFishingBiteTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxFishingBiteTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "minTimeToNibble",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MinTimeToNibble",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "maxTimeToNibble",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxTimeToNibble",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "baseChanceForTreasure",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "BaseChanceForTreasure",
+      "Type": "System.Double"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "bobberBob",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BobberBob",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "bobberTimeAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberTimeAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "timePerBobberBob",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimePerBobberBob",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "timeUntilFishingBite",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeUntilFishingBite",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishingBiteAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FishingBiteAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishingNibbleAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FishingNibbleAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "timeUntilFishingNibbleDone",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeUntilFishingNibbleDone",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "castingPower",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CastingPower",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "castingChosenCountdown",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CastingChosenCountdown",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "castingTimerSpeed",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CastingTimerSpeed",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishWiggle",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FishWiggle",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishWiggleIntensity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FishWiggleIntensity",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "isFishing",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsFishing",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "hit",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Hit",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "isNibbling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsNibbling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "favBait",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FavBait",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "isTimingCast",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsTimingCast",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "isCasting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsCasting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "castedButBobberStillInAir",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CastedButBobberStillInAir",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "doneWithAnimation",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DoneWithAnimation",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "hasDoneFucntionYet",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasDoneFucntionYet",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "pullingOutOfWater",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PullingOutOfWater",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "isReeling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsReeling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishCaught",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FishCaught",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "recordSize",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "RecordSize",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "treasureCaught",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "TreasureCaught",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "showingTreasure",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowingTreasure",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "hadBobber",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HadBobber",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "bossFish",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BossFish",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "animations",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Animations",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "sparklingText",
+      "OwnerFieldType": "@SparklingText",
+      "MethodName": "SparklingText",
+      "Type": "Storm.StardewValley.Accessor.SparklingTextAccessor"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishSize",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishSize",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "whichFish",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichFish",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "fishQuality",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishQuality",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "clearWaterDistance",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ClearWaterDistance",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "originalFacingDirection",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OriginalFacingDirection",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "chargeSound",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "ChargeSound",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "reelSound",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "ReelSound",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerFieldName": "usedGamePadToCast",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UsedGamePadToCast",
+      "Type": "System.Boolean"
     }
   ],
   "MethodInfoParams": [
@@ -7047,12 +7367,12 @@
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
-      "OwnerAccessorType":"@StaticContext",
-      "OwnerMethodName":"isDarkOut",
-      "OwnerMethodDesc":"()System.Boolean",
-      "CallbackType":"Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName":"IsDarkOutCallback",
-      "StaticCallbackDesc":"()Storm.Manipulation.DetourEvent"
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "isDarkOut",
+      "OwnerMethodDesc": "()System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "IsDarkOutCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@Crop",
@@ -7133,7 +7453,7 @@
       "PushParams": "true"
     },
     {
-	  "OwnerAccessorType": "@Farmer",
+      "OwnerAccessorType": "@Farmer",
       "OwnerMethodName": "gainExperience",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
