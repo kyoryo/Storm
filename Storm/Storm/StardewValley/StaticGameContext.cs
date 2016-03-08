@@ -597,9 +597,9 @@ namespace Storm.StardewValley
 
         #region Objects
 
-        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
+        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
-            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
             EventBus.Fire(@event);
             return @event;
         }
