@@ -48,11 +48,6 @@ namespace Storm.ExternalEvent
             get { return Manifest.Description;  }
         }
 
-        public string Description
-        {
-            get { return annotation.Description; }
-        }
-
         public string Version
         {
             get { return Manifest.Version; }
