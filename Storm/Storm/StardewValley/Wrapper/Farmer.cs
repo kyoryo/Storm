@@ -47,11 +47,11 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public ProxyDictionary<string, int, int> Friendships
+        public ValueProxyDictionary<string, int, int> Friendships
         {
             get
             {
-                return new ProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i);
+                return new ValueProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i);
             }
         }
 

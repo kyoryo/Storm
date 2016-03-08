@@ -14,17 +14,48 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Proxy
+namespace Storm
 {
-    public struct OverrideEvent
+    public class KeyProxyDictionary<TKey, TValue>
     {
-        public bool ReturnEarly { get; set; }
-        public object ReturnValue { get; set; }
+        private System.Collections.IDictionary real;
+
+        public KeyProxyDictionary(System.Collections.IDictionary real)
+        {
+            this.real = real;
+        }
+
+        public int Count
+        {
+            get { return real.Count; }
+        }
+
+        public void Add<T>(Wrapper<T> key, TValue value)
+        {
+            real.Add(key.Expose(), value);
+        }
+
+        public void Remove(Wrapper<TKey> key)
+        {
+            real.Remove(key.Expose());
+        }
+
+        public TValue Get(Wrapper<TKey> key)
+        {
+            return (TValue)real[key.Expose()];
+        }
+
+        public void Clear()
+        {
+            real.Clear();
+        }
     }
 }
