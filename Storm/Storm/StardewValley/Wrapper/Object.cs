@@ -29,6 +29,12 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public Vector2 TileLocation
+        {
+            get { return accessor._GetTileLocation(); }
+            set { accessor._SetTileLocation(value); }
+        }
+
         public bool CanBeGrabbed
         {
             get { return accessor._GetCanBeGrabbed(); }
