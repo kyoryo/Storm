@@ -201,6 +201,7 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
@@ -296,7 +297,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
-    <Folder Include="StardewValley\Event\Object\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
     <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
