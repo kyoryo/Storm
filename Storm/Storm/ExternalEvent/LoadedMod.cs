@@ -24,63 +24,39 @@ namespace Storm.ExternalEvent
 {
     public struct LoadedMod
     {
-        public object instance;
-        public Mod annotation;
-        public Dictionary<Type, List<MethodInfo>> callMap;
-        public string loadDirectory;
+        public List<AssemblyMod> AssemblyMods;
+        public Json.JsonModManifest Manifest;
 
-        public LoadedMod(object instance, Mod annotation, Dictionary<Type, List<MethodInfo>> callMap)
+        public LoadedMod(Json.JsonModManifest manifest, List<AssemblyMod> mods)
         {
-            this.instance = instance;
-            this.annotation = annotation;
-            this.callMap = callMap;
-            loadDirectory = "";
+            Manifest = manifest;
+            AssemblyMods = mods;
         }
 
         public string Name
         {
-            get { return annotation.Name; }
+            get { return Manifest.DisplayName; }
         }
 
         public string Author
         {
-            get { return annotation.Author; }
+            get { return Manifest.Author; }
         }
 
-        public double Version
+        public string Description
         {
-            get { return annotation.Version; }
+            get { return Manifest.Description;  }
         }
 
-        public string LoadDirectory
+        public string Version
         {
-            get
-            {
-                if (instance is DiskResource)
-                {
-                    return (instance as DiskResource).PathOnDisk;
-                }
-                return string.Empty;
-            }
-            set
-            {
-                if (instance is DiskResource)
-                {
-                    (instance as DiskResource).PathOnDisk = value;
-                }
-            }
+            get { return Manifest.Version; }
         }
 
         public void Fire<T>(T @event) where T : DetourEvent
         {
-            List<MethodInfo> handlers;
-            if (callMap.TryGetValue(typeof (T), out handlers))
-            {
-                foreach (var info in handlers)
-                {
-                    info.Invoke(instance, new object[] {@event});
-                }
-            }
+            foreach (var mod in AssemblyMods)
+                mod.Fire<T>(@event);
         }
     }
 }
