@@ -26,9 +26,9 @@ namespace Storm.ExternalEvent
     {
         public abstract List<LoadedMod> Load();
 
-        protected List<LoadedMod> LoadModsFromAssembly(Assembly assembly)
+        protected List<AssemblyMod> LoadModsFromAssembly(Assembly assembly)
         {
-            var result = new List<LoadedMod>();
+            var result = new List<AssemblyMod>();
             var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof (Mod)) != null);
             foreach (var mod in mods)
             {
@@ -53,11 +53,10 @@ namespace Storm.ExternalEvent
                     list.Add(handler);
                 }
 
-                result.Add(new LoadedMod
+                result.Add(new AssemblyMod
                 {
-                    instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
-                    annotation = mod.GetCustomAttribute<Mod>(),
-                    callMap = map
+                    Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
+                    CallMap = map
                 });
             }
             return result;

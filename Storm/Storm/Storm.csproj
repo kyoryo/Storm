@@ -89,8 +89,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="ExternalEvent\AssemblyMod.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
+    <Compile Include="ExternalEvent\Json\JsonModManifest.cs" />
+    <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
@@ -118,7 +121,6 @@
     <Compile Include="ExternalEvent\ModLoader.cs" />
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
-    <Compile Include="ExternalEvent\Mod.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
@@ -178,6 +180,10 @@
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
     <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\KeyReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonPressed.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonReleased.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />

@@ -1,0 +1,8 @@
+{
+    "displayName": "Example Mod",
+    "author": "Handsome Matt",
+    "version": "1.0.0.0",
+    "description": "Goes in %appdata% StardewValley/Mods/ExampleMod with your dll.",
+
+    "assemblyFileName": "MyMod.dll"
+}
