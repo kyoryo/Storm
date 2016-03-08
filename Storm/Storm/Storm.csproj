@@ -252,6 +252,17 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\BeforeBuriedItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\BeforeStoneItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\ChooseLevelTypeEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\CreateLadderDownEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetExtraMineShaftMillisecondsEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMineAreaEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMonsterForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetOreIndexForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\LoadMineshaftLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PlayMineSongEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PrepareElevatorEvent.cs" />
     <Compile Include="StardewValley\Event\Object\AfterObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
