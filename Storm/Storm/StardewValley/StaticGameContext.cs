@@ -28,6 +28,7 @@ using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
+using Storm.StardewValley.Event.HoeDirt;
 
 namespace Storm.StardewValley
 {
@@ -479,6 +480,24 @@ namespace Storm.StardewValley
         public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
         {
             var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region HoeDirt Events
+
+        public static DetourEvent BeforeDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        {
+            var @event = new BeforeDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        {
+            var @event = new AfterDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
             EventBus.Fire(@event);
             return @event;
         }
