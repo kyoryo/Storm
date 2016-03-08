@@ -4092,14 +4092,6 @@
       "Type": "System.String"
     },
     {
-      "OwnerAccessorType": "@Object",
-      "OwnerMethodName": "DayUpdate",
-      "OwnerMethodDesc": "(@(GameLocation))System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeObjectDayUpdateCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent"
-    },
-    {
       "OwnerAccessorType": "@Crop",
       "OwnerFieldName": "chanceForExtraCrops",
       "OwnerFieldType": "System.Double",
