@@ -34,6 +34,10 @@ namespace Storm.StardewValley.Wrapper
 
         public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
 
+        public bool IsBillboard() => accessor is BillboardAccessor;
+
+        public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
+
         public ClickableMenuAccessor Expose() => accessor;
     }
 }
