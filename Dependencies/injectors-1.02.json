@@ -21,6 +21,11 @@
       "InterfaceType": "Storm.StardewValley.Accessor.GameLocationAccessor"
     },
     {
+      "SimpleName": "Billboard",
+      "OwnerType": "StardewValley.Menus.Billboard",
+      "InterfaceType": "Storm.StardewValley.Accessor.BillboardAccessor"
+    },
+    {
       "SimpleName": "Character",
       "OwnerType": "StardewValley.Character",
       "InterfaceType": "Storm.StardewValley.Accessor.CharacterAccessor"
@@ -151,10 +156,10 @@
       "InterfaceType": "Storm.StardewValley.Accessor.TextBoxAccessor"
     },
     {
-  "SimpleName": "ShopMenu",
-  "OwnerType": "StardewValley.Menus.ShopMenu",
-  "InterfaceType": "Storm.StardewValley.Accessor.ShopMenuAccessor"
-}
+      "SimpleName": "ShopMenu",
+      "OwnerType": "StardewValley.Menus.ShopMenu",
+      "InterfaceType": "Storm.StardewValley.Accessor.ShopMenuAccessor"
+    }
   ],
   "FieldDetourParams": [
     
@@ -7099,181 +7104,216 @@
       "MethodName": "Text",
       "Type": "System.String"
     },
-	{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "descriptionText",
-  "OwnerFieldType": "System.String",
-  "MethodName": "DescriptionText",
-  "Type": "System.String"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "hoverText",
-  "OwnerFieldType": "System.String",
-  "MethodName": "HoverText",
-  "Type": "System.String"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "boldTitleText",
-  "OwnerFieldType": "System.String",
-  "MethodName": "BoldTitleText",
-  "Type": "System.String"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "inventory",
-  "OwnerFieldType": "@InventoryMenu",
-  "MethodName": "Inventory",
-  "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "heldItem",
-  "OwnerFieldType": "@Item",
-  "MethodName": "HeldItem",
-  "Type": "Storm.StardewValley.Accessor.ItemAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "hoveredItem",
-  "OwnerFieldType": "@Item",
-  "MethodName": "HoveredItem",
-  "Type": "Storm.StardewValley.Accessor.ItemAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "wallpapers",
-  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
-  "MethodName": "Wallpapers",
-  "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "floors",
-  "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
-  "MethodName": "Floors",
-  "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "lastWallpaperFloorPrice",
-  "OwnerFieldType": "System.Int32",
-  "MethodName": "LastWallpaperFloorPrice",
-  "Type": "System.Int32"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "scrollBarRunner",
-  "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
-  "MethodName": "ScrollBarRunner",
-  "Type": "Microsoft.Xna.Framework.Rectangle"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "forSale",
-  "OwnerFieldType": "System.Collections.Generic.List`1",
-  "MethodName": "ForSale",
-  "Type": "System.Collections.IList"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "forSaleButtons",
-  "OwnerFieldType": "System.Collections.Generic.List`1",
-  "MethodName": "ForSaleButtons",
-  "Type": "System.Collections.IList"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "categoriesToSellHere",
-  "OwnerFieldType": "System.Collections.Generic.List`1",
-  "MethodName": "CategoriesToSellHere",
-  "Type": "System.Collections.IList"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "itemPriceAndStock",
-  "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
-  "MethodName": "ItemPriceAndStock",
-  "Type": "System.Collections.IDictionary"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "sellPercentage",
-  "OwnerFieldType": "System.Single",
-  "MethodName": "SellPercentage",
-  "Type": "System.Single"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "animations",
-  "OwnerFieldType": "System.Collections.Generic.List`1",
-  "MethodName": "Animations",
-  "Type": "System.Collections.IList"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "hoverPrice",
-  "OwnerFieldType": "System.Int32",
-  "MethodName": "HoverPrice",
-  "Type": "System.Int32"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "currency",
-  "OwnerFieldType": "System.Int32",
-  "MethodName": "Currency",
-  "Type": "System.Int32"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "currentItemIndex",
-  "OwnerFieldType": "System.Int32",
-  "MethodName": "CurrentItemIndex",
-  "Type": "System.Int32"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "upArrow",
-  "OwnerFieldType": "@ClickableTextureComponent",
-  "MethodName": "UpArrow",
-  "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "downArrow",
-  "OwnerFieldType": "@ClickableTextureComponent",
-  "MethodName": "DownArrow",
-  "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "scrollBar",
-  "OwnerFieldType": "@ClickableTextureComponent",
-  "MethodName": "ScrollBar",
-  "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "portraitPerson",
-  "OwnerFieldType": "@NPC",
-  "MethodName": "PortraitPerson",
-  "Type": "Storm.StardewValley.Accessor.NPCAccessor"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "potraitPersonDialogue",
-  "OwnerFieldType": "System.String",
-  "MethodName": "PotraitPersonDialogue",
-  "Type": "System.String"
-},
-{
-  "OwnerAccessorType": "@ShopMenu",
-  "OwnerFieldName": "scrolling",
-  "OwnerFieldType": "System.Boolean",
-  "MethodName": "Scrolling",
-  "Type": "System.Boolean"
-}
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "boldTitleText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "BoldTitleText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "hoveredItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoveredItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "wallpapers",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Wallpapers",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "floors",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Floors",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "lastWallpaperFloorPrice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LastWallpaperFloorPrice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "scrollBarRunner",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "ScrollBarRunner",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "forSale",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ForSale",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "forSaleButtons",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ForSaleButtons",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "categoriesToSellHere",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "CategoriesToSellHere",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "itemPriceAndStock",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "ItemPriceAndStock",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "sellPercentage",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "SellPercentage",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "animations",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Animations",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "hoverPrice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HoverPrice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "currency",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Currency",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "currentItemIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentItemIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "upArrow",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "UpArrow",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "downArrow",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "DownArrow",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "scrollBar",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "ScrollBar",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "portraitPerson",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "PortraitPerson",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "potraitPersonDialogue",
+      "OwnerFieldType": "System.String",
+      "MethodName": "PotraitPersonDialogue",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerFieldName": "scrolling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Scrolling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "billboardTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "BillboardTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "dailyQuestBoard",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DailyQuestBoard",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "acceptQuestButton",
+      "OwnerFieldType": "@ClickableComponent",
+      "MethodName": "AcceptQuestButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "calendarDays",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "CalendarDays",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    }
   ],
   "MethodInfoParams": [
     {
