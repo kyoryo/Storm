@@ -7931,7 +7931,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "ChatboxTextEnteredCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ChatBoxAccessor,Storm.StardewValley.Accessor.TextBoxAccessor)Storm.Manipulation.DetourEvent",
-      
+      "PushParams": "true"
     },
     {
       "OwnerAccessorType": "@FishingRod",
