@@ -7133,6 +7133,7 @@
       "PushParams": "true"
     },
     {
+	  "OwnerAccessorType": "@Farmer",
       "OwnerMethodName": "gainExperience",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
