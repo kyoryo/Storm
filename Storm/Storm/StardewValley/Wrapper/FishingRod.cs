@@ -283,6 +283,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetUsedGamePadToCast(value); }
         }
 
-        public FishingRodAccessor Expose() => accessor;
+        public new FishingRodAccessor Expose() => accessor;
     }
 }
