@@ -47,32 +47,12 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public Dictionary<string, int[]> Friendships
+        public ProxyDictionary<string, int, int> Friendships
         {
             get
             {
-                var conv = new Dictionary<string, int[]>();
-                var dict = accessor._GetFriendships();
-                foreach (var key in dict.Keys)
-                {
-                    conv.Add((string)key, (int[])dict[key]);
-                }
-                return conv;
+                return new ProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i);
             }
-            set
-            {
-                accessor._SetFriendships(value);
-            }
-        }
-
-        public void AddFriendship(string key, int[] value)
-        {
-            accessor._GetFriendships().Add(key, value);
-        }
-
-        public void RemoveFriendship(string key)
-        {
-            accessor._GetFriendships().Remove(key);
         }
 
         public int TileSlideThreshold
@@ -93,15 +73,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetActiveObject(value.Expose()); }
         }
         
-        public List<int> MovementDirections
+        public ProxyList<int, int> MovementDirections
         {
             get
             {
-                return accessor._GetMovementDirections().Cast<int>().ToList();
-            }
-            set
-            {
-                accessor._SetMovementDirections(value);
+                return new ProxyList<int, int>(accessor._GetMovementDirections(), i => i);
             }
         }
 

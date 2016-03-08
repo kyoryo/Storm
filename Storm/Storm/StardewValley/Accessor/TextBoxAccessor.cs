@@ -15,26 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework.Input;
-
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Accessor
 {
-    public class MouseButtonPressedEvent : StaticContextEvent
+    public interface TextBoxAccessor
     {
-        public enum MouseButton
-        {
-            Left,
-            Middle,
-            Right
-        }
-
-        public MouseButtonPressedEvent(MouseButton button, MouseState state)
-        {
-            Button = button;
-            State = state;
-        }
-
-        public MouseButton Button { get; }
-        public MouseState State { get; }
+        string _GetText();
+        void _SetText(string val);
     }
 }

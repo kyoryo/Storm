@@ -44,7 +44,7 @@ namespace Storm.Manipulation.Cecil
             {
                 Logging.DebugLogs("[{0}] Could not find paramType!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {3}", @params.MethodName, @params.ParamType, @params.IsStatic);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.MethodName, @params.ParamType, @params.IsStatic);
                 return;
             }
 
@@ -53,7 +53,7 @@ namespace Storm.Manipulation.Cecil
             {
                 Logging.DebugLogs("[{0}] Could not find field!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {3}", @params.MethodName, @params.ParamType, @params.IsStatic);
+                Logging.DebugLogs("\t{0} {1} {2}", @params.MethodName, @params.ParamType, @params.IsStatic);
                 return;
             }
 

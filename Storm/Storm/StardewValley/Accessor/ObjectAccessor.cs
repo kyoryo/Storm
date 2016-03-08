@@ -21,68 +21,104 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ObjectAccessor : ItemAccessor
     {
-        bool _GetCanBeGrabbed();
-        void _SetCanBeGrabbed(bool canBeGrabbed);
+        Microsoft.Xna.Framework.Vector2 _GetTileLocation();
+        void _SetTileLocation(Microsoft.Xna.Framework.Vector2 val);
 
-        bool _GetCanBeSetDown();
-        void _SetCanBeSetDown(bool canBeSetDown);
-
-        int _GetEdibility();
-        void _SetEdibility(int edibility);
-
-        bool _GetFlipped();
-        void _SetFlipped(bool flipped);
-
-        int _GetFragility();
-        void _SetFragility(int fragility);
-
-        bool _GetHasBeenPickedUpByFarmer();
-        void _SetHasBeenPickedUpByFarmer(bool hasBeenPickedUp);
-
-        bool _GetIsActive();
-        void _SetIsActive(bool active);
-
-        bool _GetIsHoeDirt();
-        void _SetIsHoeDirt(bool isHoeDirt);
-
-        bool _GetIsLamp();
-        void _SetIsLamp(bool isLamp);
-
-        bool _GetIsOn();
-        void _SetIsOn(bool on);
-
-        bool _GetIsRecipe();
-        void _SetIsRecipe(bool isRecipe);
-
-        bool _GetIsSpawnedObject();
-        void _SetIsSpawnedObject(bool spawned);
-
-        string _GetName();
-        void _SetName(string name);
+        int _GetParentSheetIndex();
+        void _SetParentSheetIndex(int val);
 
         long _GetOwner();
-        void _SetOwner(long owner);
+        void _SetOwner(long val);
+
+        System.String _GetName();
+        void _SetName(System.String val);
+
+        System.String _GetType();
+        void _SetType(System.String val);
+
+        bool _GetCanBeSetDown();
+        void _SetCanBeSetDown(bool val);
+
+        bool _GetCanBeGrabbed();
+        void _SetCanBeGrabbed(bool val);
+
+        bool _GetIsHoedirt();
+        void _SetIsHoedirt(bool val);
+
+        bool _GetIsSpawnedObject();
+        void _SetIsSpawnedObject(bool val);
+
+        bool _GetQuestItem();
+        void _SetQuestItem(bool val);
+
+        bool _GetIsOn();
+        void _SetIsOn(bool val);
+
+        int _GetFragility();
+        void _SetFragility(int val);
+
+        bool _GetIsActive();
+        void _SetIsActive(bool val);
 
         int _GetPrice();
-        void _SetPrice(int price);
+        void _SetPrice(int val);
 
-        int _GetQuality();
-        void _SetQuality(int quality);
+        int _GetEdibility();
+        void _SetEdibility(int val);
 
         int _GetStack();
-        void _SetStack(int stack);
+        void _SetStack(int val);
 
+        int _GetQuality();
+        void _SetQuality(int val);
 
-        bool _GetIsQuestItem();
-        void _SetIsQuestItem(bool questItem);
+        bool _GetBigCraftable();
+        void _SetBigCraftable(bool val);
 
-        bool _GetIsReadyForHarvest();
-        void _SetIsReadyForHarvest(bool ready);
+        bool _GetSetOutdoors();
+        void _SetSetOutdoors(bool val);
 
-        Vector2 _GetScale();
-        void _SetScale(Vector2 scale);
+        bool _GetSetIndoors();
+        void _SetSetIndoors(bool val);
 
-        string _GetType();
-        void _SetType(string type);
+        bool _GetReadyForHarvest();
+        void _SetReadyForHarvest(bool val);
+
+        bool _GetShowNextIndex();
+        void _SetShowNextIndex(bool val);
+
+        bool _GetFlipped();
+        void _SetFlipped(bool val);
+
+        bool _GetHasBeenPickedUpByFarmer();
+        void _SetHasBeenPickedUpByFarmer(bool val);
+
+        bool _GetIsRecipe();
+        void _SetIsRecipe(bool val);
+
+        bool _GetIsLamp();
+        void _SetIsLamp(bool val);
+
+        ObjectAccessor _GetHeldObject();
+        void _SetHeldObject(ObjectAccessor val);
+
+        int _GetMinutesUntilReady();
+        void _SetMinutesUntilReady(int val);
+
+        Microsoft.Xna.Framework.Rectangle _GetBoundingBox();
+        void _SetBoundingBox(Microsoft.Xna.Framework.Rectangle val);
+
+        Microsoft.Xna.Framework.Vector2 _GetScale();
+        void _SetScale(Microsoft.Xna.Framework.Vector2 val);
+
+        int _GetShakeTimer();
+        void _SetShakeTimer(int val);
+
+        Microsoft.Xna.Framework.Audio.Cue _GetInternalSound();
+        void _SetInternalSound(Microsoft.Xna.Framework.Audio.Cue val);
+
+        int _GetHealth();
+        void _SetHealth(int val);
+
     }
 }

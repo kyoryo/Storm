@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Matt Stevens (Handsome Matt)
+    Copyright 2016
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,27 +14,26 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework;
+using Storm.StardewValley.Wrapper;
 
-using Microsoft.Xna.Framework.Input;
-
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.HoeDirt
 {
-    public class MouseButtonPressedEvent : StaticContextEvent
+    public class AfterHoeDirtPlantEvent : StaticContextEvent
     {
-        public enum MouseButton
+        public AfterHoeDirtPlantEvent(int objectIndex, int tileX, int tileY, Wrapper.Farmer farmer, bool isFertilizer = false)
         {
-            Left,
-            Middle,
-            Right
+            ObjectIndex = objectIndex;
+            TileX = tileX;
+            TileY = tileY;
+            Farmer = farmer;
+            IsFertilizer = isFertilizer;
         }
 
-        public MouseButtonPressedEvent(MouseButton button, MouseState state)
-        {
-            Button = button;
-            State = state;
-        }
-
-        public MouseButton Button { get; }
-        public MouseState State { get; }
+        public int ObjectIndex { get; }
+        public int TileX { get; }
+        public int TileY { get; }
+        public Wrapper.Farmer Farmer { get; }
+        public bool IsFertilizer { get; }
     }
 }

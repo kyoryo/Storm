@@ -15,6 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework.Input;
+
 namespace Storm.StardewValley.Event
 {
     public class MouseButtonReleasedEvent : StaticContextEvent
@@ -26,11 +28,13 @@ namespace Storm.StardewValley.Event
             Right
         }
 
-        public MouseButtonReleasedEvent(MouseButton button)
+        public MouseButtonReleasedEvent(MouseButton button, MouseState state)
         {
             Button = button;
+            State = state;
         }
 
         public MouseButton Button { get; }
+        public MouseState State { get; }
     }
 }

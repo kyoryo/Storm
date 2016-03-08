@@ -73,8 +73,8 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsHoeDirt
         {
-            get { return accessor._GetIsHoeDirt(); }
-            set { accessor._SetIsHoeDirt(value); }
+            get { return accessor._GetIsHoedirt(); }
+            set { accessor._SetIsHoedirt(value); }
         }
 
         public bool IsLamp
@@ -134,14 +134,14 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsQuestItem
         {
-            get { return accessor._GetIsQuestItem(); }
-            set { accessor._SetIsQuestItem(value); }
+            get { return accessor._GetQuestItem(); }
+            set { accessor._SetQuestItem(value); }
         }
 
         public bool ReadyForHarvest
         {
-            get { return accessor._GetIsReadyForHarvest(); }
-            set { accessor._SetIsReadyForHarvest(value); }
+            get { return accessor._GetReadyForHarvest(); }
+            set { accessor._SetReadyForHarvest(value); }
         }
 
         public Vector2 Scale
