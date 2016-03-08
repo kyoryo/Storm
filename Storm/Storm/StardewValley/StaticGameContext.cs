@@ -594,6 +594,8 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        #endregion
+
         #region FishingRod Events
 
         public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
