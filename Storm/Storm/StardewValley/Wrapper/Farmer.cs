@@ -47,6 +47,34 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public Dictionary<string, int[]> Friendships
+        {
+            get
+            {
+                var conv = new Dictionary<string, int[]>();
+                var dict = accessor._GetFriendships();
+                foreach (var key in dict.Keys)
+                {
+                    conv.Add((string)key, (int[])dict[key]);
+                }
+                return conv;
+            }
+            set
+            {
+                accessor._SetFriendships(value);
+            }
+        }
+
+        public void AddFriendship(string key, int[] value)
+        {
+            accessor._GetFriendships().Add(key, value);
+        }
+
+        public void RemoveFriendship(string key)
+        {
+            accessor._GetFriendships().Remove(key);
+        }
+
         public int TileSlideThreshold
         {
             get { return accessor._GetTileSlideThreshold(); }
