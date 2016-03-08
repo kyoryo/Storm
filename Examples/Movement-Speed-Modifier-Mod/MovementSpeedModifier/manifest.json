@@ -1,0 +1,8 @@
+{
+    "displayName": "Movement Speed Modifier",
+    "author": "Zoryn",
+    "version": "0.1",
+    "description": "Goes in %appdata% StardewValley/Mods/MovementSpeedModifier with your dll.",
+
+    "assemblyFileName": "MovementSpeedModifier.dll"
+}
