@@ -17,9 +17,9 @@
 
 namespace Storm.StardewValley.Event.Object
 {
-    public class BeforeObjectDayUpdateEvent : StaticContextEvent
+    public class AfterObjectDayUpdateEvent : StaticContextEvent
     {
-        public BeforeObjectDayUpdateEvent(Wrapper.Object obj)
+        public AfterObjectDayUpdateEvent(Wrapper.Object obj)
         {
             This = obj;
         }

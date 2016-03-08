@@ -221,6 +221,7 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\Object\AfterObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />

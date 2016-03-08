@@ -7596,6 +7596,24 @@
       "InstanceCallbackName": "BeforeDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "DayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeObjectDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "DayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterObjectDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     }
   ]
 }

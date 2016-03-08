@@ -586,6 +586,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
+        {
+            var @event = new AfterObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region FishingRod Events
