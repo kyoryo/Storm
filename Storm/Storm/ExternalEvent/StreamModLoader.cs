@@ -38,10 +38,11 @@ namespace Storm.ExternalEvent
 
         public override List<LoadedMod> Load()
         {
-            var reader = new StreamReader(strum);
-            var result = LoadModsFromAssembly(Assembly.Load(reader.ReadToEnd()));
-            reader.Close();
-            return result;
+            //var reader = new StreamReader(strum);
+            //var result = LoadModFromAssembly(Assembly.Load(reader.ReadToEnd()));
+            //reader.Close();
+            //return result;
+            return null; // iou a StreamModLoader - Handsome Matt
         }
     }
 }

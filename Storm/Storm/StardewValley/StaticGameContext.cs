@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn)
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 
 using System;
 using System.Reflection;
-using Microsoft.Xna.Framework;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
@@ -149,10 +148,11 @@ namespace Storm.StardewValley
 
         public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
-            var game = WrappedGame;
-            game.Version += ", " + AssemblyInfo.NICE_VERSION;
-            game.Version += ", mods loaded: " + EventBus.mods.Count;
-            game.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
+            WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
+            WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
+            WrappedGame.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
+
+            Logging.DebugLog("Game Initialized");
 
             var @event = new InitializeEvent();
             EventBus.Fire(@event);

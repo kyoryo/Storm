@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Matt Stevens (Handsome Matt)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,15 +19,5 @@ using System;
 
 namespace Storm.ExternalEvent
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class Mod : Attribute
-    {
-        public string Name { get; set; }
-
-        public string Author { get; set; }
-
-        public double Version { get; set; }
-
-        public string Description { get; set; }
-    }
+    public class Mod : Attribute { }
 }
