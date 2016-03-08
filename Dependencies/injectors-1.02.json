@@ -6939,13 +6939,6 @@
     },
     {
       "OwnerAccessorType": "@FishingRod",
-      "OwnerFieldName": "sparklingText",
-      "OwnerFieldType": "@SparklingText",
-      "MethodName": "SparklingText",
-      "Type": "Storm.StardewValley.Accessor.SparklingTextAccessor"
-    },
-    {
-      "OwnerAccessorType": "@FishingRod",
       "OwnerFieldName": "fishSize",
       "OwnerFieldType": "System.Int32",
       "MethodName": "FishSize",
@@ -7480,14 +7473,6 @@
       "PushParams": "true"
     },
     {
-      "OwnerAccessorType": "@Farmer",
-      "OwnerMethodName": "dismount",
-      "OwnerMethodDesc": "()System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerDismountHorseCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
-    },
-    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "shipObject",
       "OwnerMethodDesc": "(@(Object))System.Void",
@@ -7495,26 +7480,6 @@
       "StaticCallbackName": "ShipObjectCallback",
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
-    },
-	{
-      "OwnerAccessorType": "@HoeDirt",
-      "OwnerMethodName": "dayUpdate",
-      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
-	  "InsertionType": "BEGINNING"
-    },
-	{
-      "OwnerAccessorType": "@HoeDirt",
-      "OwnerMethodName": "dayUpdate",
-      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
-	  "InsertionType": "LAST"
     }
   ]
 }
