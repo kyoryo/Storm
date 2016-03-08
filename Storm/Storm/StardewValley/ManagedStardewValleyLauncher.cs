@@ -120,14 +120,12 @@ namespace Storm.StardewValley
         [MethodImpl(MethodImplOptions.NoOptimization)]
         private void ResolveDependencies()
         {
-            // force the loading of dependencies so we can resolve injection types...
-            Type tmp = null;
-            tmp = typeof(Vector2);
-            tmp = typeof(SpriteBatch);
-            tmp = typeof(AudioEngine);
-            tmp = typeof(GraphicsDeviceManager);
-            tmp = typeof(Keyboard);
-            tmp = typeof(Rectangle);
+            typeof(Vector2).GetType();
+            typeof(SpriteBatch).GetType();
+            typeof(AudioEngine).GetType();
+            typeof(GraphicsDeviceManager).GetType();
+            typeof(Keyboard).GetType();
+            typeof(Rectangle).GetType();
         }
 
         public void Launch()
