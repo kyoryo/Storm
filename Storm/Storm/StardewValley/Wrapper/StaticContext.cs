@@ -1504,6 +1504,19 @@ namespace Storm.StardewValley.Wrapper
             return map != null && map.ContainsKey(key);
         }
 
+        public ChatBox ChatBox
+        {
+            get
+            {
+                foreach (var iclickableMenu in accessor._GetOnScreenMenus())
+                {
+                    if (iclickableMenu is ChatBoxAccessor)
+                        return (ChatBox)new ChatBox(this, (ChatBoxAccessor)iclickableMenu);
+                }
+                return (ChatBox)null;
+            }
+        }
+
         public StaticContextAccessor Expose() => accessor;
     }
 }

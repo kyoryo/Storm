@@ -139,7 +139,17 @@
       "SimpleName": "FishingRod",
       "OwnerType": "StardewValley.Tools.FishingRod",
       "InterfaceType": "Storm.StardewValley.Accessor.FishingRodAccessor"
-    }
+    },
+    {
+      "SimpleName": "ChatBox",
+      "OwnerType": "StardewValley.Menus.ChatBox",
+      "InterfaceType": "Storm.StardewValley.Accessor.ChatBoxAccessor"
+    },
+    {
+      "SimpleName": "TextBox",
+      "OwnerType": "StardewValley.Menus.TextBox",
+      "InterfaceType": "Storm.StardewValley.Accessor.TextBoxAccessor"
+    },
   ],
   "FieldDetourParams": [
     
@@ -6992,6 +7002,13 @@
       "OwnerFieldType": "System.Boolean",
       "MethodName": "UsedGamePadToCast",
       "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@TextBox",
+      "OwnerFieldName": "_text",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Text",
+      "Type": "System.String"
     }
   ],
   "MethodInfoParams": [
@@ -7041,6 +7058,18 @@
         "System.Int32"
       ],
       "InvokerReturnType": "Storm.StardewValley.Accessor.ItemAccessor",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "receiveChatMessage",
+      "OwnerMethodDesc": "(System.String,System.Int64)System.Void",
+      "InvokerName": "_ReceiveChatMessage",
+      "InvokerReturnParams": [
+        "System.String",
+        "System.Int64"
+      ],
+      "InvokerReturnType": "System.Void",
       "IsStatic": "false"
     }
   ],
@@ -7473,12 +7502,128 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeShirt",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedShirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHairStyle",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHairCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeShoeColor",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedShoeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHairColor",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHairColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changePants",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedPantsCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHat",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHatCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeAccessory",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedAccessoryCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeSkinColor",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedSkinColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeEyeColor",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedEyeColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeGender",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedGenderCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "shipObject",
       "OwnerMethodDesc": "(@(Object))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "StaticCallbackName": "ShipObjectCallback",
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "textBoxEnter",
+      "OwnerMethodDesc": "(@(TextBox))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ChatboxTextEnteredCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ChatBoxAccessor,Storm.StardewValley.Accessor.TextBoxAccessor)Storm.Manipulation.DetourEvent",
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "pullFishFromWater",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforePullFishFromWaterCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "doneFishing",
+      "OwnerMethodDesc": "(@(Farmer),System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeDoneFishingCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     }
   ]

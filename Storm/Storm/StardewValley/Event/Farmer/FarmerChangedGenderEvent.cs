@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Zoey (Zoryn)
+    Copyright 2016 TownEater
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,15 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event.Farmer
 {
-    public class GameLoadedEvent : StaticContextEvent
+    public class FarmerChangedGenderEvent : StaticContextEvent
     {
-        public GameLoadedEvent(bool loadedGame)
+        public FarmerChangedGenderEvent(bool male)
         {
-            LoadedGame = loadedGame;
+            Male = male;
         }
 
-        public bool LoadedGame { get; }
+        public bool Male { get; }
     }
 }

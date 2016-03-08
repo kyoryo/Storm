@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Matt Stevens (Handsome Matt)
+    Copyright 2016 TownEater
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,26 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 
-namespace Storm.StardewValley.Event
+namespace Storm.StardewValley.Event.Farmer
 {
-    public class MouseButtonPressedEvent : StaticContextEvent
+    public class FarmerChangedEyeColorEvent : StaticContextEvent
     {
-        public enum MouseButton
+        public FarmerChangedEyeColorEvent(Color c)
         {
-            Left,
-            Middle,
-            Right
+            Color = c;
         }
 
-        public MouseButtonPressedEvent(MouseButton button, MouseState state)
-        {
-            Button = button;
-            State = state;
-        }
-
-        public MouseButton Button { get; }
-        public MouseState State { get; }
+        public Color Color { get; }
     }
 }
