@@ -25,9 +25,9 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
+using Storm.StardewValley.Event.Object;
 using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
-using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event.HoeDirt;
 using Microsoft.Xna.Framework;
@@ -60,6 +60,9 @@ namespace Storm.StardewValley
 
         public static Type TextureComponentType { get; set; }
         public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
+
+        public static Type BillboardType { get; set; }
+        public static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
 
         /// <summary>
         ///     Event handler for all Storm mods.
@@ -349,7 +352,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PlayerEatObjectCallback(ObjectAccessor o, bool overrideFullness)
         {
-            var @event = new PlayerEatObjectEvent(new Object(WrappedGame, o), overrideFullness);
+            var @event = new PlayerEatObjectEvent(new ObjectItem(WrappedGame, o), overrideFullness);
             EventBus.Fire(@event);
             return @event;
         }
@@ -384,7 +387,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
         {
-            var @event = new ShipObjectEvent(new Object(WrappedGame, accessor));
+            var @event = new ShipObjectEvent(new ObjectItem(WrappedGame, accessor));
             EventBus.Fire(@event);
             return @event;
         }
@@ -533,6 +536,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent FarmerCollideWithCallback(FarmerAccessor accessor, ObjectAccessor collisionObject)
+        {
+            var @event = new FarmerCollideWithEvent(collisionObject);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ShouldCollideWithBuildingLayerCallback(CharacterAccessor accessor, GameLocationAccessor gameLocationAccessor)
+        {
+            var @event = new ShouldCollideWithBuildingLayerEvent(gameLocationAccessor);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Crop Events
@@ -608,6 +625,20 @@ namespace Storm.StardewValley
         #endregion
 
         #region Objects
+
+        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
+        {
+            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
+        {
+            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
 
         #endregion
 

@@ -37,6 +37,8 @@ namespace Storm.StardewValley
         public InterceptorFactory<ObjectDelegate> ObjectFactory { get; }
         public Type TextureComponentType { get; }
         public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
+        public Type BillboardType { get; }
+        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; }
 
         public StaticContextEvent()
         {
@@ -49,6 +51,8 @@ namespace Storm.StardewValley
             ObjectFactory = StaticGameContext.ObjectFactory;
             TextureComponentType = StaticGameContext.TextureComponentType;
             TextureComponentFactory = StaticGameContext.TextureComponentFactory;
+            BillboardType = StaticGameContext.BillboardType;
+            BillboardFactory = StaticGameContext.BillboardFactory;
         }
 
         public Tool ProxyTool(ToolDelegate @delegate)
@@ -62,13 +66,24 @@ namespace Storm.StardewValley
             return wrapped;
         }
 
-        public StardewValley.Wrapper.Object ProxyObject(ObjectDelegate @delegate)
+        public ObjectItem ProxyObject(ObjectDelegate @delegate)
         {
             var generator = new ProxyGenerator();
             var accessor = (ObjectAccessor)generator.CreateClassProxy(
                 ObjectType, ObjectFactory.CreateInterceptor(@delegate));
 
-            var wrapped = new StardewValley.Wrapper.Object(Root, accessor);
+            var wrapped = new ObjectItem(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public Billboard ProxyBillboard(BillboardDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (BillboardAccessor)generator.CreateClassProxy(
+                BillboardType, BillboardFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new Billboard(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }

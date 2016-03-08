@@ -37,7 +37,12 @@ namespace Storm
 
         public TWrapper Get(TKey key)
         {
-            return wrapper((TValue) real[key]);
+            return wrapper((TValue)real[key]);
+        }
+
+        public void Clear()
+        {
+            real.Clear();
         }
     }
 }

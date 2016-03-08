@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Storm")]
-[assembly: AssemblyCopyright("Copyright © Demmonic 2016")]
+[assembly: AssemblyCopyright("Copyright © Storm 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 internal static class AssemblyInfo
 {
     public const string GUID = "3ae6190c-1cc7-4fa4-b859-5eabc8ec0614";
-    public const string VERSION = "1.0.0.0";
+    public const string VERSION = "0.1.0";
 
     public const string NICE_VERSION = "Storm " + "v" + VERSION;
 }
