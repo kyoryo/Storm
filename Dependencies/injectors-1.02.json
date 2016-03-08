@@ -7167,6 +7167,26 @@
       "StaticCallbackName": "ShipObjectCallback",
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
+	  "InsertionType": "BEGINNING"
+    },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
+	  "InsertionType": "LAST"
     }
   ]
 }
