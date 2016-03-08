@@ -154,6 +154,7 @@
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerConsumObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCookedRecipeEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerDismountHorseEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundArtifactEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerFoundMineralEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerShippedBasicEvent.cs" />
@@ -202,6 +203,8 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
