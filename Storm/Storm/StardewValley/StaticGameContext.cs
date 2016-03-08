@@ -25,6 +25,7 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Event.Crop;
 using Storm.StardewValley.Event.Farmer;
 using Storm.StardewValley.Event.Game;
+using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
 using Object = Storm.StardewValley.Wrapper.Object;
 using Storm.StardewValley.Proxy;
@@ -506,6 +507,24 @@ namespace Storm.StardewValley
         #endregion
 
         #region Objects
+
+        #endregion
+
+        #region FishingRod Events
+
+        public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        {
+            var @event = new BeforePullFishFromWaterEvent(whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
+        {
+            var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), consumeBaitAndTackle);
+            EventBus.Fire(@event);
+            return @event;
+        }
 
         #endregion
     }
