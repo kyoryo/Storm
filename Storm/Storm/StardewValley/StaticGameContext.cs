@@ -644,5 +644,86 @@ namespace Storm.StardewValley
         }
 
         #endregion
+
+        #region MineShaft Events
+
+        public static DetourEvent BeforeBuriedItemCheckCallback(MineShaftAccessor accessor, int xLocation, int yLocation, bool explosion, bool detectOnly)
+        {
+            var @event = new Event.MineShaft.BeforeBuriedItemCheckEvent(xLocation, yLocation, explosion, detectOnly);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent BeforeStoneItemCheckCallback(MineShaftAccessor accessor, int tileIndexOfStone, int x, int y, Farmer who)
+        {
+            var @event = new Event.MineShaft.BeforeStoneItemCheckEvent(tileIndexOfStone, x, y, who);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent PlayMineSongCallback(MineShaftAccessor accessor)
+        {
+            var @event = new Event.MineShaft.PlayMineSongEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent ChooseLevelTypeCallback(MineShaftAccessor accessor)
+        {
+            var @event = new Event.MineShaft.ChooseLevelTypeEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent LoadMineshaftLevelCallback(MineShaftAccessor accessor, int level)
+        {
+            var @event = new Event.MineShaft.LoadMineshaftLevelEvent(level);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent PrepareElevatorCallback(MineShaftAccessor accessor)
+        {
+            var @event = new Event.MineShaft.PrepareElevatorEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent CreateLadderDownCallback(MineShaftAccessor accessor, int x, int y)
+        {
+            var @event = new Event.MineShaft.CreateLadderDownEvent(x, y);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GetOreIndexForLevelCallback(MineShaftAccessor accessor, int mineLevel, Random r)
+        {
+            var @event = new Event.MineShaft.GetOreIndexForLevelEvent(mineLevel, r);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GetMineAreaCallback(MineShaftAccessor accessor, int level)
+        {
+            var @event = new Event.MineShaft.GetMineAreaEvent(level);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GetMonsterForLevelCallback(MineShaftAccessor accessor, int level, int xTile, int yTile)
+        {
+            var @event = new Event.MineShaft.GetMonsterForLevelEvent(level, xTile, yTile);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GetExtraMineShaftMillisecondsCallback(MineShaftAccessor accessor)
+        {
+            var @event = new Event.MineShaft.GetExtraMineShaftMillisecondsEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
     }
 }
