@@ -28,6 +28,7 @@ using Storm.StardewValley.Accessor;
 using Rectangle = xTile.Dimensions.Rectangle;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event;
+using System.Runtime.CompilerServices;
 
 namespace Storm.StardewValley
 {
@@ -116,7 +117,8 @@ namespace Storm.StardewValley
             StaticGameContext.EventBus = EventBus;
         }
 
-        public void Launch()
+        [MethodImpl(MethodImplOptions.NoOptimization)]
+        private void ResolveDependencies()
         {
             // force the loading of dependencies so we can resolve injection types...
             Type tmp = null;
@@ -126,6 +128,11 @@ namespace Storm.StardewValley
             tmp = typeof(GraphicsDeviceManager);
             tmp = typeof(Keyboard);
             tmp = typeof(Rectangle);
+        }
+
+        public void Launch()
+        {
+            ResolveDependencies();
 
             if (!Directory.Exists(StormAPI.ModsPath))
             {
