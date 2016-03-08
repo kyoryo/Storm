@@ -39,5 +39,10 @@ namespace Storm
         {
             real.Remove(value.Expose());
         }
+
+        public void Clear()
+        {
+            real.Clear();
+        }
     }
 }
