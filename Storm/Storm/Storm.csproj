@@ -122,6 +122,8 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="ProxyDictionary.cs" />
+    <Compile Include="ProxyList.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BarnAccessor.cs" />
