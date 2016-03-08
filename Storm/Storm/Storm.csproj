@@ -141,6 +141,7 @@
     <Compile Include="StardewValley\Accessor\FarmAnimalAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\FenceAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\FishingRodAccessor.cs" />
     <Compile Include="StardewValley\Accessor\GameMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\HatAccessor.cs" />
     <Compile Include="StardewValley\Accessor\HoeAccessor.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="StardewValley\Wrapper\ClickableTextureComponent.cs" />
     <Compile Include="StardewValley\Wrapper\Event.cs" />
     <Compile Include="StardewValley\Wrapper\Fence.cs" />
+    <Compile Include="StardewValley\Wrapper\FishingRod.cs" />
     <Compile Include="StardewValley\Wrapper\GameMenu.cs" />
     <Compile Include="StardewValley\Wrapper\HoeDirt.cs" />
     <Compile Include="StardewValley\Wrapper\InventoryMenu.cs" />
