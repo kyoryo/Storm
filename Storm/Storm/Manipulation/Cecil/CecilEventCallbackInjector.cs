@@ -143,11 +143,12 @@ namespace Storm.Manipulation.Cecil
 
             foreach (var injectionPoint in injectionPoints)
             {
-                var jmpTarget = returnName.Equals(typeof (void).FullName) ? injectionPoint : processor.Create(OpCodes.Pop);
+                var jmpTarget = returnsVoid ? injectionPoint : processor.Create(OpCodes.Pop);
 
+                Instruction initial = null;
                 if (!injectee.IsStatic)
                 {
-                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg_0));
+                    processor.InsertBefore(injectionPoint, (initial = processor.Create(OpCodes.Ldarg_0)));
                 }
 
                 if (@params.PushParams)
@@ -157,31 +158,60 @@ namespace Storm.Manipulation.Cecil
                         switch (i)
                         {
                             case 0:
-                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
+
                             case 1:
-                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2));
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
+
                             case 2:
-                                processor.InsertBefore(injectionPoint, processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3));
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
+
                             case 3:
-                                processor.InsertBefore(injectionPoint, injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i));
+                                {
+                                    var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
+
                             default:
-                                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldarg, i));
+                                {
+                                    var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
                         }
                     }
                 }
 
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, callback));
+                var callbackCall = processor.Create(OpCodes.Call, callback);
+                if (initial == null) initial = callbackCall;
+
+                processor.InsertBefore(injectionPoint, callbackCall);
                 if (!returnsVoid)
                 {
                     processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Dup));
                 }
                 processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, hasReturnValueImport));
-                processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Brfalse, jmpTarget));
+
+                var continueNormalJump = processor.Create(OpCodes.Brfalse, jmpTarget);
+                processor.InsertBefore(injectionPoint, continueNormalJump);
 
                 if (!returnsVoid)
                 {
@@ -197,6 +227,25 @@ namespace Storm.Manipulation.Cecil
                 if (!returnsVoid)
                 {
                     processor.InsertBefore(injectionPoint, jmpTarget);
+                }
+
+                if (@params.JumpFix)
+                {
+                    foreach (var instruction in body.Instructions.Where(i => i != continueNormalJump))
+                    {
+                        var oc = instruction.OpCode;
+                        if (oc == OpCodes.Brtrue || oc == OpCodes.Brtrue_S || 
+                            oc == OpCodes.Brfalse || oc == OpCodes.Brfalse_S || 
+                            oc == OpCodes.Br || oc == OpCodes.Br_S)
+                        {
+                            var idx = body.Instructions.IndexOf(instruction.Operand as Instruction);
+                            var targetIdx = body.Instructions.IndexOf(jmpTarget);
+                            if (instruction.Operand == injectionPoint)
+                            {
+                                instruction.Operand = initial;
+                            }
+                        }
+                    }
                 }
             }
         }

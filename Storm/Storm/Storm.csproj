@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="ExternalEvent\AssemblyMod.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
@@ -122,12 +123,15 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="ProxyDictionary.cs" />
+    <Compile Include="ProxyList.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BarnAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BobberBarAccessor.cs" />
     <Compile Include="StardewValley\Accessor\BuildingAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CatAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\ChatBoxAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ChestAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ChildAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ClickableComponentAccessor.cs" />
@@ -153,6 +157,7 @@
     <Compile Include="StardewValley\Accessor\MineShaftAccessor.cs" />
     <Compile Include="StardewValley\Accessor\MonsterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\CropAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\TextBoxAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AfterFarmerCaughtFishEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedAccessoryEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedEyeColorEvent.cs" />
@@ -172,12 +177,14 @@
     <Compile Include="StardewValley\Event\Farmer\FarmerChangedSkinColorEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerIncreaseBackpackSizeEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\FarmerGainedExperienceEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\BeforeGameLoadedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\ChatMessageEnteredEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\BeforeDoneFishingEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\BeforePullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\Game\IsDarkOutEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ClientSizeChangedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GameExitEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\GameLoadedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterGameLoadedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\FarmerDamageEvent.cs" />
     <Compile Include="StardewValley\Accessor\PetAccessor.cs" />
     <Compile Include="StardewValley\Accessor\PickAxeAccessor.cs" />
@@ -242,6 +249,7 @@
     <Compile Include="StardewValley\Accessor\ItemAccessor.cs" />
     <Compile Include="StardewValley\Accessor\StaticContextAccessor.cs" />
     <Compile Include="StardewValley\Accessor\NPCAccessor.cs" />
+    <Compile Include="StardewValley\Wrapper\ChatBox.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableComponent.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableMenu.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableTextureComponent.cs" />

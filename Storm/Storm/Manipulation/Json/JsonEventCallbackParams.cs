@@ -28,6 +28,7 @@ namespace Storm.Manipulation.Json
         public string StaticCallbackName { get; set; } = string.Empty;
         public string StaticCallbackDesc { get; set; } = string.Empty;
         public bool PushParams { get; set; }
+        public bool JumpFix { get; set; } = false;
         public InsertionType InsertionType { get; set; }
         public int[] InsertionIndex { get; set; }
     }

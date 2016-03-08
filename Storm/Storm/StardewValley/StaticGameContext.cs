@@ -209,19 +209,19 @@ namespace Storm.StardewValley
             /* probably a way to template this, but whatever, mouse events */
 
             if (mouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Left));
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Left, mouseState));
             if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Left));
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Left, mouseState));
 
             if (mouseState.MiddleButton == ButtonState.Pressed && oldMouseState.MiddleButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Middle));
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Middle, mouseState));
             if (mouseState.MiddleButton == ButtonState.Released && oldMouseState.MiddleButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Middle));
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Middle, mouseState));
 
             if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Right));
+                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Right, mouseState));
             if (mouseState.RightButton == ButtonState.Released && oldMouseState.RightButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right));
+                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right, mouseState));
 
             /* todo: gamepad events */
 
@@ -271,14 +271,16 @@ namespace Storm.StardewValley
 
         public static DetourEvent BeforeGameLoadedCallback(bool loadedGame)
         {
-            var @event = new GameLoadedEvent(loadedGame);
+            var @event = new BeforeGameLoadedEvent(loadedGame);
+            @event.Root.MultiplayerMode = 1; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterGameLoadedCallback(bool loadedGame)
         {
-            var @event = new GameLoadedEvent(loadedGame);
+            var @event = new AfterGameLoadedEvent(loadedGame);
+            @event.Root.MultiplayerMode = 0; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             EventBus.Fire(@event);
             return @event;
         }
@@ -589,6 +591,20 @@ namespace Storm.StardewValley
         public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
         {
             var @event = new AfterObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region Chatbox
+
+        public static DetourEvent ChatboxTextEnteredCallback(ChatBoxAccessor chatbox, TextBoxAccessor textbox)
+        {
+            var @event = new ChatMessageEnteredEvent(textbox._GetText());
+
+            // just echo back for now, idk why
+            @event.Root.ChatBox.ReceiveChatMessage(@event.ChatText, -1L);
             EventBus.Fire(@event);
             return @event;
         }
