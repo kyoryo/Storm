@@ -22,11 +22,11 @@ namespace Storm.StardewValley.Event.Farmer
 {
     public class FarmerCollideWithEvent : StaticContextEvent
     {
-        public Object CollisionObject { get; }
+        public ObjectItem CollisionObject { get; }
 
         public FarmerCollideWithEvent(ObjectAccessor collisionObject)
         {
-            CollisionObject = new Object(StaticGameContext.WrappedGame, collisionObject);
+            CollisionObject = new ObjectItem(StaticGameContext.WrappedGame, collisionObject);
         }
     }
 }

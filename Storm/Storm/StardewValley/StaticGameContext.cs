@@ -28,7 +28,7 @@ using Storm.StardewValley.Event.Game;
 using Storm.StardewValley.Event.Object;
 using Storm.StardewValley.Event.FishingRod;
 using Storm.StardewValley.Wrapper;
-using Object = Storm.StardewValley.Wrapper.Object;
+using ObjectItem = Storm.StardewValley.Wrapper.ObjectItem;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event.HoeDirt;
 using Microsoft.Xna.Framework;
@@ -350,7 +350,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PlayerEatObjectCallback(ObjectAccessor o, bool overrideFullness)
         {
-            var @event = new PlayerEatObjectEvent(new Object(WrappedGame, o), overrideFullness);
+            var @event = new PlayerEatObjectEvent(new ObjectItem(WrappedGame, o), overrideFullness);
             EventBus.Fire(@event);
             return @event;
         }
@@ -385,7 +385,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
         {
-            var @event = new ShipObjectEvent(new Object(WrappedGame, accessor));
+            var @event = new ShipObjectEvent(new ObjectItem(WrappedGame, accessor));
             EventBus.Fire(@event);
             return @event;
         }
@@ -597,14 +597,14 @@ namespace Storm.StardewValley
 
         public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
         {
-            var @event = new BeforeObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
         {
-            var @event = new AfterObjectDayUpdateEvent(new Object(WrappedGame, accessor));
+            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
             EventBus.Fire(@event);
             return @event;
         }

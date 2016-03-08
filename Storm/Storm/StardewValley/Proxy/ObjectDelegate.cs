@@ -6,7 +6,7 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Proxy
 {
-    public abstract class ObjectDelegate : TypeDelegate<Object>
+    public abstract class ObjectDelegate : TypeDelegate<ObjectItem>
     {
         public abstract object[] GetConstructorParams();
 

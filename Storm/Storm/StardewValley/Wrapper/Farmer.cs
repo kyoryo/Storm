@@ -109,9 +109,9 @@ namespace Storm.StardewValley.Wrapper
             accessor._GetToolBox()[idx] = t.Expose();
         }
 
-        public Object Cupboard
+        public ObjectItem Cupboard
         {
-            get { return new Object(Parent, accessor._GetCupboard()); }
+            get { return new ObjectItem(Parent, accessor._GetCupboard()); }
             set { accessor._SetCupboard(value.Expose()); }
         }
 

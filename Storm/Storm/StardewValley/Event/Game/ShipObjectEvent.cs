@@ -20,11 +20,11 @@ namespace Storm.StardewValley.Event.Game
 {
     public class ShipObjectEvent : StaticContextEvent
     {
-        public ShipObjectEvent(Wrapper.Object item)
+        public ShipObjectEvent(Wrapper.ObjectItem item)
         {
             Item = item;
         }
 
-        public Wrapper.Object Item { get; }
+        public Wrapper.ObjectItem Item { get; }
     }
 }
