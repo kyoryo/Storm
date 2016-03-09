@@ -83,18 +83,6 @@ namespace Storm.StardewValley
 
                 ctx.Injectors.ForEach(injector => injector.Init());
                 ctx.Injectors.ForEach(injector => injector.Inject());
-                if (Debug)
-                {
-                    if (factory is CecilInjectorFactory)
-                    {
-                        var casted = factory as CecilInjectorFactory;
-                        using (var fs = new FileStream("Modified-Game.exe", FileMode.Create, FileAccess.Write))
-                        {
-                            casted.WriteModifiedAssembly(fs);
-                        }
-                    }
-                }
-
                 return ctx;
             }
         }
