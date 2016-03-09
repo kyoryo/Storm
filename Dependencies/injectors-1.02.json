@@ -8081,7 +8081,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PlayMineSongCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8089,7 +8089,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "ChooseLevelTypeCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8106,7 +8106,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PrepareElevatorCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8150,7 +8150,7 @@
       "OwnerMethodDesc": "()System.Int32",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "GetExtraMineShaftMillisecondsCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType": "@Object",
