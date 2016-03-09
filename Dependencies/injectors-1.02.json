@@ -159,6 +159,11 @@
       "SimpleName": "ShopMenu",
       "OwnerType": "StardewValley.Menus.ShopMenu",
       "InterfaceType": "Storm.StardewValley.Accessor.ShopMenuAccessor"
+    },
+    {
+      "SimpleName": "MineShaft",
+      "OwnerType": "StardewValley.Locations.MineShaft",
+      "InterfaceType": "Storm.StardewValley.Accessor.MineShaftAccessor"
     }
   ],
   "FieldDetourParams": [
@@ -8009,6 +8014,101 @@
       "InstanceCallbackName": "BeforeDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "checkForBuriedItem",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Boolean,System.Boolean)System.String",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeBuriedItemCheckCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "checkStoneForItems",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeStoneItemCheckCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Wrapper.Farmer)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "playMineSong",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PlayMineSongCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "chooseLevelType",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ChooseLevelTypeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "loadLevel",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "LoadMineshaftLevelCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "prepareElevator",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PrepareElevatorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "createLadderDown",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "CreateLadderDownCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "getOreIndexForLevel",
+      "OwnerMethodDesc": "(System.Int32,System.Random)System.Int32",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetOreIndexForLevelCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Random)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "getMineArea",
+      "OwnerMethodDesc": "(System.Int32)System.Int32",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetMineAreaCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "getMonsterForThisLevel",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)@(Monster)",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetMonsterForLevelCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerMethodName": "getExtraMillisecondsPerInGameMinuteForThisLocation",
+      "OwnerMethodDesc": "()System.Int32",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetExtraMineShaftMillisecondsCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
     },
     {
       "OwnerAccessorType": "@Object",

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 TownEater
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,30 +14,13 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Proxy
+namespace Storm.StardewValley.Event.MineShaft
 {
-    public abstract class ToolDelegate : TypeDelegate<Tool>
+    public class ChooseLevelTypeEvent : StaticContextEvent
     {
-        [ProxyMap(Name = "DrawInMenu")]
-        public virtual OverrideEvent DrawInMenu(object[] @params)
+        public ChooseLevelTypeEvent()
         {
-            return new OverrideEvent
-            {
-                ReturnEarly = false
-            };
-        }
-
-        [ProxyMap(Name = "BeginUsing")]
-        public virtual OverrideEvent BeginUsing(object[] @params)
-        {
-            return new OverrideEvent
-            {
-                ReturnEarly = false
-            };
         }
     }
 }

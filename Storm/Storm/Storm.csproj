@@ -110,12 +110,14 @@
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="DualProxyDictionary.cs" />
     <Compile Include="ExternalEvent\AssemblyMod.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
     <Compile Include="ExternalEvent\Json\JsonModManifest.cs" />
     <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
+    <Compile Include="KeyProxyDictionary.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
@@ -143,7 +145,8 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
-    <Compile Include="ProxyDictionary.cs" />
+    <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
+    <Compile Include="ValueProxyDictionary.cs" />
     <Compile Include="ProxyList.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\AxeAccessor.cs" />
@@ -252,6 +255,17 @@
     <Compile Include="StardewValley\Event\Game\UpdateTitleScreenEvent.cs" />
     <Compile Include="StardewValley\Event\Game\WarpFarmerEvent.cs" />
     <Compile Include="StardewValley\Event\Game\ShipObjectEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\BeforeBuriedItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\BeforeStoneItemCheckEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\ChooseLevelTypeEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\CreateLadderDownEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetExtraMineShaftMillisecondsEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMineAreaEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetMonsterForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\GetOreIndexForLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\LoadMineshaftLevelEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PlayMineSongEvent.cs" />
+    <Compile Include="StardewValley\Event\MineShaft\PrepareElevatorEvent.cs" />
     <Compile Include="StardewValley\Event\Object\AfterObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
@@ -266,7 +280,7 @@
     <Compile Include="StardewValley\Proxy\BillboardDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CraftingRecipeDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\DefaultBillboardDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\StandardBillboardDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ObjectDelegate.cs" />
     <Compile Include="StardewValley\Proxy\OverrideEvent.cs" />
     <Compile Include="StardewValley\Proxy\ProxyMap.cs" />
@@ -360,7 +374,6 @@
   <ItemGroup>
     <Folder Include="StardewValley\Event\ClickableMenu\" />
     <Folder Include="StardewValley\Event\GameLocation\" />
-    <Folder Include="StardewValley\Event\MineShaft\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />

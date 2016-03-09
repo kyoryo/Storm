@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Freeze_Time_Mod
 {
-    [Mod(Author = "Demmonic", Name = "Freeze Time Indoors", Version = 0.1D)]
+    [Mod]
     public class FreezeTimeMod : DiskResource
     {
         [Subscribe]

@@ -14,30 +14,26 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Wrapper;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
-    public abstract class ToolDelegate : TypeDelegate<Tool>
+    public class StandardBillboardDelegate : BillboardDelegate
     {
-        [ProxyMap(Name = "DrawInMenu")]
-        public virtual OverrideEvent DrawInMenu(object[] @params)
+        private bool dailyQuest;
+
+        public StandardBillboardDelegate(bool dailyQuest = false)
         {
-            return new OverrideEvent
-            {
-                ReturnEarly = false
-            };
+            this.dailyQuest = dailyQuest;
         }
 
-        [ProxyMap(Name = "BeginUsing")]
-        public virtual OverrideEvent BeginUsing(object[] @params)
+        public override object[] GetConstructorParams()
         {
-            return new OverrideEvent
-            {
-                ReturnEarly = false
-            };
+            return new object[] { dailyQuest };
         }
     }
 }
