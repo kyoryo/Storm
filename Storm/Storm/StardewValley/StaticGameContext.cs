@@ -1,5 +1,5 @@
-﻿/*
-    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt)
+/*
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt), Matthew Bell (mdbell)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,6 +26,8 @@ using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
+using Microsoft.Xna.Framework.Content;
+using Storm.StardewValley.Event.Content;
 
 namespace Storm.StardewValley
 {
@@ -79,16 +81,16 @@ namespace Storm.StardewValley
 
         #region ContentManager Events
 
-        public static DetourEvent LoadContentCallback(StaticContextAccessor context)
+        public static DetourEvent ContentLoadCallback(ContentManager manager, Type assetType, string assetName)
         {
-            var @event = new LoadContentEvent();
+            var @event = new AssetLoadEvent(manager, assetType, assetName);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent UnloadContentCallback(StaticContextAccessor context)
+        public static DetourEvent ManagerUnloadCallback(ContentManager manager)
         {
-            var @event = new UnloadContentEvent();
+            var @event = new ManagerUnloadEvent(manager);
             EventBus.Fire(@event);
             return @event;
         }
