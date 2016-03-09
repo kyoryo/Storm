@@ -20,7 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm
+namespace Storm.Collections
 {
     public class ValueProxyDictionary<TKey, TOValue, TValue> : System.Collections.Generic.IDictionary<TKey, TValue> where TValue : Wrapper
     {
