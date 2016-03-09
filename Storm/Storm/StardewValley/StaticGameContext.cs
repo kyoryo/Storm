@@ -791,5 +791,16 @@ namespace Storm.StardewValley
         }
 
         #endregion
+
+        #region BobberBar Events
+
+        public static DetourEvent BobberBarUpdateCallback(BobberBarAccessor bobberBar, Microsoft.Xna.Framework.GameTime time)
+        {
+            var @event = new BobberBarUpdateEvent(time);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
     }
 }
