@@ -55,20 +55,37 @@ namespace Storm.Manipulation.Cecil
             }
 
             var methods = def.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).Where(m => m.HasBody).ToList();
+            
             foreach (var method in methods)
             {
-                foreach (var ins in method.Body.Instructions)
+                var body = method.Body;
+                var instructions = body.Instructions;
+                var processor = body.GetILProcessor();
+
+                for (int i = 0; i < instructions.Count; i++)
                 {
+                    var ins = instructions[i];
                     if (ins.OpCode == OpCodes.Call || ins.OpCode == OpCodes.Callvirt)
                     {
                         var @ref = (MethodReference)ins.Operand;
                         if (@ref.DeclaringType.FullName.Equals(@params.FromClass))
                         {
-                            var redirect = to.Resolve().Methods.Where(m => m.Name.Equals(@ref.Name)).FirstOrDefault();
+                            var redirect = to.Resolve().Methods.Where(m => m.Name.Equals(@ref.Name) && (@ref.Parameters.Count + 1) == m.Parameters.Count).FirstOrDefault();
                             if (redirect != null)
                             {
-                                ins.Operand = redirect;
-                                ins.OpCode = OpCodes.Call;
+                                var call = def.Import(redirect);
+                                if (@ref is GenericInstanceMethod)
+                                {
+                                    GenericInstanceMethod genericCall = new GenericInstanceMethod(def.Import(redirect));
+                                    var gim = (GenericInstanceMethod)@ref;
+                                    foreach (var arg in gim.GenericArguments)
+                                    {
+                                        genericCall.GenericArguments.Add(arg);
+                                    }
+                                    call = genericCall;
+                                }
+
+                                processor.Replace(ins, processor.Create(OpCodes.Call, call));
                             }
                         }
                     }

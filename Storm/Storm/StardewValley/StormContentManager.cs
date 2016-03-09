@@ -8,31 +8,22 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley
 {
-    class StormContentManager : ContentManager
+    public static class StormContentManager
     {
-        public StormContentManager(IServiceProvider provider) : base(provider)
+        public static T Load<T>(ContentManager manager, string assetName)
         {
-        }
-
-        public StormContentManager(IServiceProvider provider, string rootDirectory) : base(provider, rootDirectory)
-        {
-        }
-
-        public override T Load<T>(string assetName)
-        {
-            Logging.DebugLog("load..");
-            DetourEvent @event = StaticGameContext.ContentLoadCallback(this, typeof(T), assetName);
-            if (@event.ReturnValue != null)
+            DetourEvent @event = StaticGameContext.ContentLoadCallback(manager,typeof(T), assetName);
+            if(@event.ReturnValue != null)
             {
-                return (T)@event.ReturnValue;
+                return (T) @event.ReturnValue;
             }
-            return base.Load<T>(assetName);
+            return manager.Load<T>(assetName);
         }
 
-        public override void Unload()
+        public static void Unload(ContentManager manager)
         {
-            StaticGameContext.ManagerUnloadCallback(this);
-            base.Unload();
+            StaticGameContext.ManagerUnloadCallback(manager);
+            manager.Unload();
         }
     }
 }
