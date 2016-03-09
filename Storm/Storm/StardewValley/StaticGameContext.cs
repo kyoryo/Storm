@@ -39,30 +39,30 @@ namespace Storm.StardewValley
         /// <summary>
         ///     The Stardew Valley assembly
         /// </summary>
-        public static Assembly Assembly { get; set; }
+        public static Assembly Assembly { internal get; set; }
 
         /// <summary>
         ///     Wrapped Stardew Valley Program class.
         /// </summary>
-        public static ProgramAccessor Root { get; set; }
+        public static ProgramAccessor Root { internal get; set; }
 
         /// <summary>
         ///     The Type of the Tool class within the game, cached here so we can proxy it later
         /// </summary>
-        public static Type ToolType { get; set; }
-        public static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
+        public static Type ToolType { internal get; set; }
+        public static InterceptorFactory<ToolDelegate> ToolFactory { internal get; set; }
 
         /// <summary>
         ///     The Type of the Object class within the game, cached here so we can proxy it later
         /// </summary>
-        public static Type ObjectType { get; set; }
-        public static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
+        public static Type ObjectType { internal get; set; }
+        public static InterceptorFactory<ObjectDelegate> ObjectFactory { internal get; set; }
 
-        public static Type TextureComponentType { get; set; }
-        public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
+        public static Type TextureComponentType { internal get; set; }
+        public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { internal get; set; }
 
-        public static Type BillboardType { get; set; }
-        public static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
+        public static Type BillboardType { internal get; set; }
+        public static InterceptorFactory<BillboardDelegate> BillboardFactory { internal get; set; }
 
         public static Type ClickableMenuType { get; set; }
         public static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
@@ -70,7 +70,7 @@ namespace Storm.StardewValley
         /// <summary>
         ///     Event handler for all Storm mods.
         /// </summary>
-        public static ModEventBus EventBus { get; set; }
+        public static ModEventBus EventBus { internal get; set; }
 
         /// <summary>
         ///     Wrapped Stardew Valley Game class.
