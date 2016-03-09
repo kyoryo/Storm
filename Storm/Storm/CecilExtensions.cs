@@ -95,6 +95,11 @@ namespace Storm
             return asm.MainModule.Import(tr);
         }
 
+        public static MethodReference Import(this AssemblyDefinition asm, MethodDefinition md)
+        {
+            return asm.MainModule.Import(md);
+        }
+
         public static IEnumerable<MethodDefinition> FindRefences(this AssemblyDefinition asm, FieldDefinition fd, MethodDefinition exclude = null)
         {
             return asm.Modules.
