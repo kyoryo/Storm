@@ -590,6 +590,56 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterFarmerChangedIntoSwimsuitCallback(FarmerAccessor accessor)
+        {
+            var @event = new AfterFarmerChangeIntoSwimsuitEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerChangeOutOfSwimsuitCallback(FarmerAccessor accessor)
+        {
+            var @event = new AfterFarmerChangeOutOfSwimsuitEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterFarmerDayUpdateCallback(FarmerAccessor accessor)
+        {
+            var @event = new AfterFarmerDayUpdateEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent GetFarmerTextureCallback(FarmerAccessor accessor)
+        {
+            var @event = new GetFarmerTextureEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerMountHorseCallback(FarmerAccessor accessor, HorseAccessor mount)
+        {
+            var @event = new FarmerMountHorseEvent(mount);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerGetHisHerCallback(FarmerAccessor accessor)
+        {
+            var @event = new FarmerGetHisHerEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent FarmerShipAllCallback(FarmerAccessor accessor)
+        {
+            var @event = new FarmerShipAllEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+
         #endregion
 
         #region Crop Events

@@ -152,6 +152,13 @@
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerChangeIntoSwimsuitEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerChangeOutOfSwimsuitEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\AfterFarmerDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerGetHisHerEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerMountHorseEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\FarmerShipAllEvent.cs" />
+    <Compile Include="StardewValley\Event\Farmer\GetFarmerTextureEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\AfterDoneFishingEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\Game\AfterNewDayEvent.cs" />
@@ -161,6 +168,7 @@
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
+    <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\WrapperExtensions.cs" />
     <Compile Include="StardewValley\Wrapper\Wrappers.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
