@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\..\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -154,6 +154,7 @@
     <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtCanPlantEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
@@ -385,7 +386,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
-    <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
     <Folder Include="StardewValley\Event\Utility\" />
   </ItemGroup>

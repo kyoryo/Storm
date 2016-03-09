@@ -708,6 +708,14 @@ namespace Storm.StardewValley
 
         #region ShopMenu Events
 
+        public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
+        {
+            var itemsForSale = new ProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
+            var @event = new PreConstructShopViaListEvent(itemsForSale, currency, who);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
         {
             var itemsForSale = new ProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
