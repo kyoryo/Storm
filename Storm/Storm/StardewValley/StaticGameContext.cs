@@ -172,9 +172,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent NewDayCallback()
+        public static DetourEvent BeforeNewDayCallback()
         {
-            var @event = new NewDayEvent();
+            var @event = new BeforeNewDayEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterNewDayCallback()
+        {
+            var @event = new AfterNewDayEvent();
             EventBus.Fire(@event);
             return @event;
         }

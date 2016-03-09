@@ -7465,8 +7465,17 @@
       "OwnerMethodName": "newDayAfterFade",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "NewDayCallback",
+      "StaticCallbackName": "BeforeNewDayCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "newDayAfterFade",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "AfterNewDayCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@StaticContext",
