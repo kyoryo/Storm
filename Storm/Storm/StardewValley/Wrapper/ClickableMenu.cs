@@ -40,5 +40,9 @@ namespace Storm.StardewValley.Wrapper
         public bool IsBillboard() => accessor is BillboardAccessor;
 
         public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
+
+        public bool IsBobberBar() => accessor is BobberBarAccessor;
+
+        public BobberBar ToBobberBar() => new BobberBar(Parent, accessor as BobberBarAccessor);
     }
 }

@@ -21,17 +21,15 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class BobberBar : Wrapper<BobberBarAccessor>
+    public class BobberBar : ClickableMenu, Wrapper<BobberBarAccessor>
     {
         private readonly BobberBarAccessor accessor;
 
-        public BobberBar(StaticContext parent, BobberBarAccessor accessor)
+        public BobberBar(StaticContext parent, BobberBarAccessor accessor) : 
+            base(parent, accessor)
         {
-            Parent = parent;
             this.accessor = accessor;
         }
-
-        private StaticContext Parent { get; }
 
         public float Difficulty
         {
