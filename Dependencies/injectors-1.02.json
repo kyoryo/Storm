@@ -7998,7 +7998,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "SetUpShopOwnerCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.String)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "PushParams": "true",
     },
     {
       "OwnerAccessorType": "@ShopMenu",
