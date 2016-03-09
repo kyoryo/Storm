@@ -15,18 +15,20 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
+
 namespace Storm.StardewValley.Event.MineShaft
 {
     public class GetOreIndexForLevelEvent : StaticContextEvent
     {
-        public GetOreIndexForLevelEvent(int mineLevel, System.Random r)
+        public Random Random;
+
+        public GetOreIndexForLevelEvent(int mineLevel, Random r)
         {
             Level = mineLevel;
             Random = r;
         }
 
         public int Level { get; }
-
-        public System.Random Random;
     }
 }

@@ -51,7 +51,7 @@ namespace Storm.Manipulation
             return asm.GetType(matching);
         }
 
-            
+
         public static string NameOfMethod(List<Injector> list, string type, string refactored)
         {
             foreach (var injector in list)

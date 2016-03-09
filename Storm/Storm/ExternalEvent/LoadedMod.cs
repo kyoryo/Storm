@@ -15,9 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using System.Collections.Generic;
-using System.Reflection;
+using Storm.ExternalEvent.Json;
 using Storm.Manipulation;
 
 namespace Storm.ExternalEvent
@@ -25,9 +24,9 @@ namespace Storm.ExternalEvent
     public struct LoadedMod
     {
         public List<AssemblyMod> AssemblyMods;
-        public Json.JsonModManifest Manifest;
+        public JsonModManifest Manifest;
 
-        public LoadedMod(Json.JsonModManifest manifest, List<AssemblyMod> mods)
+        public LoadedMod(JsonModManifest manifest, List<AssemblyMod> mods)
         {
             Manifest = manifest;
             AssemblyMods = mods;
@@ -45,7 +44,7 @@ namespace Storm.ExternalEvent
 
         public string Description
         {
-            get { return Manifest.Description;  }
+            get { return Manifest.Description; }
         }
 
         public string Version
@@ -56,7 +55,7 @@ namespace Storm.ExternalEvent
         public void Fire<T>(T @event) where T : DetourEvent
         {
             foreach (var mod in AssemblyMods)
-                mod.Fire<T>(@event);
+                mod.Fire(@event);
         }
     }
 }

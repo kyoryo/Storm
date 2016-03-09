@@ -15,15 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework.Input;
+
 namespace Storm.StardewValley.Event
 {
     public class KeyPressedEvent : StaticContextEvent
     {
-        public KeyPressedEvent(Microsoft.Xna.Framework.Input.Keys key)
+        public KeyPressedEvent(Keys key)
         {
             Key = key;
         }
 
-        public Microsoft.Xna.Framework.Input.Keys Key { get; }
+        public Keys Key { get; }
     }
 }

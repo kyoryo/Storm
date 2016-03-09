@@ -15,21 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface ClickableComponentAccessor
     {
-        Microsoft.Xna.Framework.Rectangle _GetBounds();
-        void _SetBounds(Microsoft.Xna.Framework.Rectangle val);
+        Rectangle _GetBounds();
+        void _SetBounds(Rectangle val);
 
-        System.String _GetName();
-        void _SetName(System.String val);
+        string _GetName();
+        void _SetName(string val);
 
         float _GetScale();
         void _SetScale(float val);
@@ -39,6 +35,5 @@ namespace Storm.StardewValley.Accessor
 
         bool _GetVisible();
         void _SetVisible(bool val);
-
     }
 }

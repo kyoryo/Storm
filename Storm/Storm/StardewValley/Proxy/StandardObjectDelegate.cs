@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Storm.StardewValley.Proxy
+﻿namespace Storm.StardewValley.Proxy
 {
     public class StandardObjectDelegate : ObjectDelegate
     {
-        private int parentSpriteSheetIndex;
-        private int initialStack;
+        private readonly int initialStack;
+        private readonly int parentSpriteSheetIndex;
 
         public StandardObjectDelegate(int parentSpriteSheetIndex, int initialStack)
         {
@@ -19,7 +13,7 @@ namespace Storm.StardewValley.Proxy
 
         public override object[] GetConstructorParams()
         {
-            return new object[] { parentSpriteSheetIndex, initialStack };
+            return new object[] {parentSpriteSheetIndex, initialStack};
         }
     }
 }

@@ -147,6 +147,8 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\AfterDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
     <Compile Include="ProxyList.cs" />

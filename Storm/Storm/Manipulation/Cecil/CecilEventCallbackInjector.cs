@@ -25,12 +25,12 @@ namespace Storm.Manipulation.Cecil
     public class CecilEventCallbackInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private readonly AssemblyDefinition self;
-        private readonly EventCallbackParams @params;
 
         private readonly List<Instruction> injectionPoints = new List<Instruction>();
-        private MethodDefinition injectee;
+        private readonly EventCallbackParams @params;
+        private readonly AssemblyDefinition self;
         private MethodReference callback;
+        private MethodDefinition injectee;
         private bool invalid;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
@@ -68,7 +68,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var paramCount = (injectee.IsStatic ? 0 : 1);
+            var paramCount = injectee.IsStatic ? 0 : 1;
             if (@params.PushParams)
             {
                 paramCount += injectee.Parameters.Count;
@@ -119,27 +119,27 @@ namespace Storm.Manipulation.Cecil
         {
             if (invalid) return;
 
-            var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");
+            var hasReturnValue = typeof (DetourEvent).GetProperty("ReturnEarly");
             var hasReturnValueImport = def.MainModule.Import(hasReturnValue.GetMethod);
 
-            var eventReturnValue = typeof(DetourEvent).GetProperty("ReturnValue");
+            var eventReturnValue = typeof (DetourEvent).GetProperty("ReturnValue");
             var eventReturnValueImport = def.MainModule.Import(eventReturnValue.GetMethod);
 
             var body = injectee.Body;
             var processor = body.GetILProcessor();
 
             var returnName = injectee.ReturnType.FullName;
-            var returnsVoid = returnName.Equals(typeof(void).FullName);
+            var returnsVoid = returnName.Equals(typeof (void).FullName);
 
             var returnsPrimitive =
-                returnName.Equals(typeof(long).FullName) ||
-                returnName.Equals(typeof(ulong).FullName) ||
-                returnName.Equals(typeof(int).FullName) ||
-                returnName.Equals(typeof(uint).FullName) ||
-                returnName.Equals(typeof(short).FullName) ||
-                returnName.Equals(typeof(ushort).FullName) ||
-                returnName.Equals(typeof(byte).FullName) ||
-                returnName.Equals(typeof(bool).FullName);
+                returnName.Equals(typeof (long).FullName) ||
+                returnName.Equals(typeof (ulong).FullName) ||
+                returnName.Equals(typeof (int).FullName) ||
+                returnName.Equals(typeof (uint).FullName) ||
+                returnName.Equals(typeof (short).FullName) ||
+                returnName.Equals(typeof (ushort).FullName) ||
+                returnName.Equals(typeof (byte).FullName) ||
+                returnName.Equals(typeof (bool).FullName);
 
             foreach (var injectionPoint in injectionPoints)
             {
@@ -148,7 +148,7 @@ namespace Storm.Manipulation.Cecil
                 Instruction initial = null;
                 if (!injectee.IsStatic)
                 {
-                    processor.InsertBefore(injectionPoint, (initial = processor.Create(OpCodes.Ldarg_0)));
+                    processor.InsertBefore(injectionPoint, initial = processor.Create(OpCodes.Ldarg_0));
                 }
 
                 if (@params.PushParams)
@@ -158,43 +158,43 @@ namespace Storm.Manipulation.Cecil
                         switch (i)
                         {
                             case 0:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 1:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 2:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 3:
-                                {
-                                    var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             default:
-                                {
-                                    var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
                         }
                     }
@@ -234,8 +234,8 @@ namespace Storm.Manipulation.Cecil
                     foreach (var instruction in body.Instructions.Where(i => i != continueNormalJump))
                     {
                         var oc = instruction.OpCode;
-                        if (oc == OpCodes.Brtrue || oc == OpCodes.Brtrue_S || 
-                            oc == OpCodes.Brfalse || oc == OpCodes.Brfalse_S || 
+                        if (oc == OpCodes.Brtrue || oc == OpCodes.Brtrue_S ||
+                            oc == OpCodes.Brfalse || oc == OpCodes.Brfalse_S ||
                             oc == OpCodes.Br || oc == OpCodes.Br_S)
                         {
                             var idx = body.Instructions.IndexOf(instruction.Operand as Instruction);
@@ -248,6 +248,11 @@ namespace Storm.Manipulation.Cecil
                     }
                 }
             }
+        }
+
+        public object GetParams()
+        {
+            return @params;
         }
 
         private Instruction GetReturnByRelativity(MethodDefinition md, int index)
@@ -267,11 +272,6 @@ namespace Storm.Manipulation.Cecil
                 }
             }
             return null;
-        }
-
-        public object GetParams()
-        {
-            return @params;
         }
     }
 }

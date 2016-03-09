@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System.Collections;
+
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
@@ -51,7 +51,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
         }
-        
+
         public bool PlayerInventory
         {
             get { return accessor._GetPlayerInventory(); }
@@ -94,11 +94,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetVerticalGap(value); }
         }
 
+        public new InventoryMenuAccessor Expose() => accessor;
+
         public ItemAccessor GetItemAt(int mouseX, int mouseY)
         {
             return accessor._GetItemAt(mouseX, mouseY);
         }
-
-        public new InventoryMenuAccessor Expose() => accessor;
     }
 }

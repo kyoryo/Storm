@@ -19,8 +19,5 @@ namespace Storm.StardewValley.Event.MineShaft
 {
     public class PlayMineSongEvent : StaticContextEvent
     {
-        public PlayMineSongEvent()
-        {
-        }
     }
 }

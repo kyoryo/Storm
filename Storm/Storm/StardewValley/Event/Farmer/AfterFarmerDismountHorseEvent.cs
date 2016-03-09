@@ -19,8 +19,5 @@ namespace Storm.StardewValley.Event.Farmer
 {
     public class AfterFarmerDismountHorseEvent : StaticContextEvent
     {
-        public AfterFarmerDismountHorseEvent()
-        {
-        }
     }
 }

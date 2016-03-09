@@ -15,6 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework.Graphics;
+
 namespace Storm.StardewValley.Accessor
 {
     public interface ClickableMenuAccessor
@@ -46,8 +48,8 @@ namespace Storm.StardewValley.Accessor
         int _GetCurrentRegion();
         void _SetCurrentRegion(int val);
 
-        Microsoft.Xna.Framework.Graphics.Texture2D _GetHoverBox();
-        void _SetHoverBox(Microsoft.Xna.Framework.Graphics.Texture2D val);
+        Texture2D _GetHoverBox();
+        void _SetHoverBox(Texture2D val);
 
         ClickableTextureComponentAccessor _GetUpperRightCloseButton();
         void _SetUpperRightCloseButton(ClickableTextureComponentAccessor val);

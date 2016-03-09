@@ -541,6 +541,5 @@ namespace Storm.StardewValley.Accessor
 
         float _GetMovementMultiplier();
         void _SetMovementMultiplier(float val);
-
     }
 }

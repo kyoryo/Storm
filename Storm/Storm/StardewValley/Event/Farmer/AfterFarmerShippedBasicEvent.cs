@@ -23,7 +23,6 @@ namespace Storm.StardewValley.Event.Farmer
         {
             Index = index;
             Number = number;
-
         }
 
         public int Index { get; }

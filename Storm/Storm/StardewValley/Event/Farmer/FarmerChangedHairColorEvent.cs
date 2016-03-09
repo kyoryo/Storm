@@ -15,7 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
- using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Event.Farmer
 {
