@@ -17,6 +17,7 @@
 
 using System.Collections.Generic;
 using Storm.Manipulation;
+using System;
 
 namespace Storm.ExternalEvent
 {
@@ -36,7 +37,19 @@ namespace Storm.ExternalEvent
 
         public void Fire<T>(T val) where T : DetourEvent
         {
-            mods.ForEach(m => m.Fire(val));
+            for (int i = 0; i < mods.Count; i++)
+            {
+                var lm = mods[i];
+                try
+                {
+                    lm.Fire(val);
+                }
+                catch (Exception e)
+                {
+                    Logging.DebugLogs("[{0}] Mod {1} threw the error {2} ... unloading mod", GetType().Name, lm.Name, e.ToString());
+                    lm.Enabled = false;
+                }
+            }
         }
     }
 }
