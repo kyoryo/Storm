@@ -17,7 +17,7 @@
 
 using Microsoft.Xna.Framework;
 
-namespace Storm.StardewValley.Event.Farmer
+namespace Storm.StardewValley.Event
 {
     public class FarmerChangedEyeColorEvent : StaticContextEvent
     {

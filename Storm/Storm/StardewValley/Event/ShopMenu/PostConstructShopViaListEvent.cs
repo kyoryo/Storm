@@ -18,7 +18,7 @@
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.ShopMenu
+namespace Storm.StardewValley.Event
 {
     public class PostConstructShopViaListEvent : StaticContextEvent
     {

@@ -18,7 +18,7 @@
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event
 {
     public class UpdateTitleScreenEvent : StaticContextEvent
     {
