@@ -20,6 +20,7 @@ namespace Storm.StardewValley
 
         public override T Load<T>(string assetName)
         {
+            Logging.DebugLog("load..");
             DetourEvent @event = StaticGameContext.ContentLoadCallback(this, typeof(T), assetName);
             if (@event.ReturnValue != null)
             {

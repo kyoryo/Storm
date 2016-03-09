@@ -54,10 +54,7 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
-            var froms = from.Resolve().Methods.Where(m => m.Name.Equals(".ctor"));
-            var tos = to.Resolve().Methods.Where(m => m.Name.Equals(".ctor"));
-
-            var methods = def.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).ToList();
+            var methods = def.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).Where(m => m.HasBody).ToList();
             foreach (var method in methods)
             {
                 foreach (var ins in method.Body.Instructions)
@@ -65,12 +62,13 @@ namespace Storm.Manipulation.Cecil
                     if (ins.OpCode == OpCodes.Call || ins.OpCode == OpCodes.Callvirt)
                     {
                         var @ref = (MethodReference)ins.Operand;
-                        if (froms.Contains(@ref.Resolve()))
+                        if (@ref.DeclaringType.FullName.Equals(@params.FromClass))
                         {
-                            var toMatching = tos.Where(m => m.Parameters.Count == @ref.Parameters.Count).FirstOrDefault();
-                            if (toMatching != null)
+                            var redirect = to.Resolve().Methods.Where(m => m.Name.Equals(@ref.Name)).FirstOrDefault();
+                            if (redirect != null)
                             {
-                                Logging.DebugLog("bluuuh");
+                                ins.Operand = redirect;
+                                ins.OpCode = OpCodes.Call;
                             }
                         }
                     }
