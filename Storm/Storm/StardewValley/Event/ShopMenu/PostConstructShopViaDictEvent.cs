@@ -14,26 +14,25 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.HoeDirt
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
+//event requires new ProxyDictionary that can wrap the key instead of the value
+/*
+namespace Storm.StardewValley.Event.ShopMenu
 {
-    public class AfterHoeDirtPlantEvent : StaticContextEvent
+    public class PostConstructShopViaDictEvent : StaticContextEvent
     {
-        public AfterHoeDirtPlantEvent(int objectIndex, int tileX, int tileY, Wrapper.Farmer farmer, bool isFertilizer = false)
+        public PostConstructShopViaDictEvent(ProxyDictionary<> itemPriceAndStock, int currency = 0, string who = null)
         {
-            ObjectIndex = objectIndex;
-            TileX = tileX;
-            TileY = tileY;
-            Farmer = farmer;
-            IsFertilizer = isFertilizer;
+            ItemPriceAndStock = itemPriceAndStock;
+            Currency = currency;
+            Who = who;
         }
 
-        public int ObjectIndex { get; }
-        public int TileX { get; }
-        public int TileY { get; }
-        public Wrapper.Farmer Farmer { get; }
-        public bool IsFertilizer { get; }
+        public ProxyList<ItemAccessor, Item> ItemPriceAndStock { get; }
+        public int Currency { get; }
+        public string Who { get; }
     }
 }
+*/

@@ -14,24 +14,26 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Microsoft.Xna.Framework;
-using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.HoeDirt
+using Storm.Manipulation;
+using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
+using System.Collections;
+
+namespace Storm.StardewValley.Event.ShopMenu
 {
-    public class AfterHoeDirtCanPlantEvent : StaticContextEvent
+    public class PostConstructShopViaListEvent : StaticContextEvent
     {
-        public AfterHoeDirtCanPlantEvent(int objectIndex, int tileX, int tileY, bool isFertilizer = false)
+        public PostConstructShopViaListEvent(ProxyList<ItemAccessor, Item> itemsForSale, int currency = 0, string who = null)
         {
-            ObjectIndex = objectIndex;
-            TileX = tileX;
-            TileY = tileY;
-            IsFertilizer = isFertilizer;
+            ItemsForSale = itemsForSale;
+            Currency = currency;
+            Who = who;
         }
 
-        public int ObjectIndex { get; }
-        public int TileX { get; }
-        public int TileY { get; }
-        public bool IsFertilizer { get; }
+        public ProxyList<ItemAccessor, Item> ItemsForSale { get; }
+        public int Currency { get; }
+        public string Who { get; }
+
     }
 }
