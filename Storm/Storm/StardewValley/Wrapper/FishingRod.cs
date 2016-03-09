@@ -1,19 +1,15 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class FishingRod : Tool, Wrapper<FishingRodAccessor>
     {
-        private FishingRodAccessor accessor;
+        private readonly FishingRodAccessor accessor;
 
-        public FishingRod(StaticContext parent, FishingRodAccessor accessor) : 
+        public FishingRod(StaticContext parent, FishingRodAccessor accessor) :
             base(parent, accessor)
         {
             this.accessor = accessor;
@@ -229,7 +225,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetBossFish(value); }
         }
 
-        public System.Collections.IList Animations
+        public IList Animations
         {
             get { return accessor._GetAnimations(); }
             set { accessor._SetAnimations(value); }

@@ -14,18 +14,16 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using System.Collections;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface BillboardAccessor : ClickableMenuAccessor
     {
-        Microsoft.Xna.Framework.Graphics.Texture2D _GetBillboardTexture();
-        void _SetBillboardTexture(Microsoft.Xna.Framework.Graphics.Texture2D val);
+        Texture2D _GetBillboardTexture();
+        void _SetBillboardTexture(Texture2D val);
 
         bool _GetDailyQuestBoard();
         void _SetDailyQuestBoard(bool val);
@@ -33,11 +31,10 @@ namespace Storm.StardewValley.Accessor
         ClickableComponentAccessor _GetAcceptQuestButton();
         void _SetAcceptQuestButton(ClickableComponentAccessor val);
 
-        System.Collections.IList _GetCalendarDays();
-        void _SetCalendarDays(System.Collections.IList val);
+        IList _GetCalendarDays();
+        void _SetCalendarDays(IList val);
 
-        System.String _GetHoverText();
-        void _SetHoverText(System.String val);
-
+        string _GetHoverText();
+        void _SetHoverText(string val);
     }
 }

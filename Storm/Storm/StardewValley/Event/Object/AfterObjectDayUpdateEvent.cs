@@ -15,17 +15,19 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event.Object
 {
     public class AfterObjectDayUpdateEvent : StaticContextEvent
     {
-        public AfterObjectDayUpdateEvent(Wrapper.ObjectItem obj, Wrapper.GameLocation loc)
+        public AfterObjectDayUpdateEvent(ObjectItem obj, GameLocation loc)
         {
             This = obj;
             ArgLocation = loc;
         }
 
-        public Wrapper.ObjectItem This { get; }
-        public Wrapper.GameLocation ArgLocation { get; }
+        public ObjectItem This { get; }
+        public GameLocation ArgLocation { get; }
     }
 }

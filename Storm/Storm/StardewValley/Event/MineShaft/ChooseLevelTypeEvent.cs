@@ -19,8 +19,5 @@ namespace Storm.StardewValley.Event.MineShaft
 {
     public class ChooseLevelTypeEvent : StaticContextEvent
     {
-        public ChooseLevelTypeEvent()
-        {
-        }
     }
 }

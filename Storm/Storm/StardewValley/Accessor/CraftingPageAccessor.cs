@@ -15,21 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface CraftingPageAccessor : ClickableMenuAccessor
     {
-        System.String _GetDescriptionText();
-        void _SetDescriptionText(System.String val);
+        string _GetDescriptionText();
+        void _SetDescriptionText(string val);
 
-        System.String _GetHoverText();
-        void _SetHoverText(System.String val);
+        string _GetHoverText();
+        void _SetHoverText(string val);
 
         ItemAccessor _GetHoverItem();
         void _SetHoverItem(ItemAccessor val);
@@ -43,8 +39,8 @@ namespace Storm.StardewValley.Accessor
         ItemAccessor _GetHeldItem();
         void _SetHeldItem(ItemAccessor val);
 
-        System.Collections.IList _GetPagesOfCraftingRecipes();
-        void _SetPagesOfCraftingRecipes(System.Collections.IList val);
+        IList _GetPagesOfCraftingRecipes();
+        void _SetPagesOfCraftingRecipes(IList val);
 
         int _GetCurrentCraftingPage();
         void _SetCurrentCraftingPage(int val);
@@ -67,8 +63,7 @@ namespace Storm.StardewValley.Accessor
         float _GetTrashCanLidRotation();
         void _SetTrashCanLidRotation(float val);
 
-        System.String _GetHoverTitle();
-        void _SetHoverTitle(System.String val);
-
+        string _GetHoverTitle();
+        void _SetHoverTitle(string val);
     }
 }

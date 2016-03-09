@@ -14,15 +14,11 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Wrapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
@@ -57,6 +53,5 @@ namespace Storm.StardewValley.Proxy
 
         [ProxyMap(Name = "Update")]
         public abstract void Update(GameTime time);
-
     }
 }

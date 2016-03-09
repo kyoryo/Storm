@@ -28,16 +28,6 @@ namespace Storm
         public static Logger Log = s => { };
         public static Logger DebugLog = s => { };
 
-        public static void Logs(string format, params object[] values)
-        {
-            Log(string.Format(format, values));
-        }
-
-        public static void DebugLogs(string format, params object[] values)
-        {
-            DebugLog(string.Format(format, values));
-        }
-
         public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
         {
             var @out = StormAPI.GetResource("crash_log.txt");
@@ -48,6 +38,16 @@ namespace Storm
 
         private Logging()
         {
+        }
+
+        public static void Logs(string format, params object[] values)
+        {
+            Log(string.Format(format, values));
+        }
+
+        public static void DebugLogs(string format, params object[] values)
+        {
+            DebugLog(string.Format(format, values));
         }
     }
 }

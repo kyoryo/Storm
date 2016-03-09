@@ -15,13 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Storm.StardewValley.Accessor;
-using System;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -34,12 +28,11 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public new ChatBoxAccessor Expose() => accessor;
+
         public void ReceiveChatMessage(string message, long who)
         {
             accessor._ReceiveChatMessage(message, who);
         }
-
-        public new ChatBoxAccessor Expose() => accessor;
-
     }
 }

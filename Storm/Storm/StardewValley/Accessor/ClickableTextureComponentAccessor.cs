@@ -15,33 +15,29 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface ClickableTextureComponentAccessor : ClickableComponentAccessor
     {
-        Microsoft.Xna.Framework.Graphics.Texture2D _GetTexture();
-        void _SetTexture(Microsoft.Xna.Framework.Graphics.Texture2D val);
+        Texture2D _GetTexture();
+        void _SetTexture(Texture2D val);
 
-        Microsoft.Xna.Framework.Rectangle _GetSourceRect();
-        void _SetSourceRect(Microsoft.Xna.Framework.Rectangle val);
+        Rectangle _GetSourceRect();
+        void _SetSourceRect(Rectangle val);
 
         float _GetBaseScale();
         void _SetBaseScale(float val);
 
-        System.String _GetHoverText();
-        void _SetHoverText(System.String val);
+        string _GetHoverText();
+        void _SetHoverText(string val);
 
         bool _GetDrawLabel();
         void _SetDrawLabel(bool val);
 
         bool _GetDrawShadow();
         void _SetDrawShadow(bool val);
-
     }
 }

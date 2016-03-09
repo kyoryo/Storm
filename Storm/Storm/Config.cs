@@ -30,8 +30,14 @@ namespace Storm
     {
         [JsonIgnore]
         public virtual JObject JObject { get; protected set; }
+
         [JsonIgnore]
         public virtual string ConfigLocation { get; protected set; }
+
+        public static Config Instance
+        {
+            get { return new Config(); }
+        }
 
         public static Config InitializeConfig(string configLocation, Config baseConfig)
         {
@@ -55,12 +61,12 @@ namespace Storm
         {
             if (!File.Exists(baseConfig.ConfigLocation))
             {
-                var v = (Config)baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] { baseConfig });
+                var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
                 WriteConfig(v);
             }
             else
             {
-                string p = baseConfig.ConfigLocation;
+                var p = baseConfig.ConfigLocation;
 
                 try
                 {
@@ -90,24 +96,21 @@ namespace Storm
 
         public virtual Config UpdateConfig(Config baseConfig)
         {
-            return (Config)JObject.Parse(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings())).ToObject(baseConfig.GetType());
+            return (Config) JObject.Parse(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings())).ToObject(baseConfig.GetType());
         }
 
         public virtual void WriteConfig(Config baseConfig)
         {
-            byte[] toWrite = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings()));
+            var toWrite = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings()));
             if (!File.Exists(baseConfig.ConfigLocation) || !File.ReadAllBytes(baseConfig.ConfigLocation).SequenceEqual(toWrite))
                 File.WriteAllBytes(baseConfig.ConfigLocation, toWrite);
             toWrite = null;
         }
 
 
-
         public static string GetBasePath(DiskResource theMod)
         {
             return theMod.PathOnDisk + "\\config.json";
         }
-
-        public static Config Instance { get { return new Config(); } }
     }
 }

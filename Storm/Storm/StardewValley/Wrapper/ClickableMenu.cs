@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
@@ -30,6 +31,8 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
+        public ClickableMenuAccessor Expose() => accessor;
+
         public bool IsShopMenu() => accessor is ShopMenuAccessor;
 
         public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
@@ -37,7 +40,5 @@ namespace Storm.StardewValley.Wrapper
         public bool IsBillboard() => accessor is BillboardAccessor;
 
         public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
-
-        public ClickableMenuAccessor Expose() => accessor;
     }
 }

@@ -15,8 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-
 namespace Storm.StardewValley.Event.Farmer
 {
     public class FarmerIncreaseBackpackSizeEvent : StaticContextEvent

@@ -1,9 +1,5 @@
-﻿using Storm.StardewValley.Wrapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm
 {
@@ -11,10 +7,10 @@ namespace Storm
     {
         public delegate W Wrap<V, W>(V val);
 
-        private System.Collections.IList real;
+        private readonly IList real;
         private Wrap<TValue, TWrapper> wrapper;
 
-        public ProxyList(System.Collections.IList real, Wrap<TValue, TWrapper> wrapper)
+        public ProxyList(IList real, Wrap<TValue, TWrapper> wrapper)
         {
             this.real = real;
             this.wrapper = wrapper;
