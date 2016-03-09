@@ -29,19 +29,5 @@ namespace Storm.StardewValley
             StaticGameContext.ManagerUnloadCallback(manager);
             manager.Unload();
         }
-
-        public static Texture2D LookupTexture(List<LoadedMod> mods, string asset)
-        {
-            foreach (var mod in mods)
-            {
-                if (mod.Textures != null && mod.Textures.ContainsKey(asset))
-                {
-                    var path = Path.Combine(mod.Manifest.Path, mod.Textures[asset]);
-                    Console.WriteLine(asset + " => " + path);
-                    return StaticGameContext.WrappedGame.LoadResource(path);
-                }
-            }
-            return null;
-        }
     }
 }

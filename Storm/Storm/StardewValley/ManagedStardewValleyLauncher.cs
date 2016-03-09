@@ -100,30 +100,25 @@ namespace Storm.StardewValley
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
             var constructor = entryType.GetConstructor(new Type[0]);
-
-            StaticGameContext.Assembly = assembly;
-            StaticGameContext.Root = (ProgramAccessor) constructor.Invoke(new object[0]);
-            StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
-            StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
-            StaticGameContext.BillboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
+            
+            var root = (ProgramAccessor) constructor.Invoke(new object[0]);
+            var toolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
+            var objectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
+            var billboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
 
             var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
             toolFactory.Map(typeof (ToolAccessor), typeof (ToolDelegate), ctx.Injectors);
-            StaticGameContext.ToolFactory = toolFactory;
 
             var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
             objectFactory.Map(typeof (ObjectAccessor), typeof (ObjectDelegate), ctx.Injectors);
-            StaticGameContext.ObjectFactory = objectFactory;
 
             var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
             billboardFactory.Map(typeof (BillboardAccessor), typeof (BillboardDelegate), ctx.Injectors);
-            StaticGameContext.BillboardFactory = billboardFactory;
 
             var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
             clickableMenuFactory.Map(typeof (ClickableMenuAccessor), typeof (ClickableMenuDelegate), ctx.Injectors);
-            StaticGameContext.ClickableMenuFactory = clickableMenuFactory;
 
-            StaticGameContext.EventBus = EventBus;
+            StaticGameContext.Init(assembly, root, toolType, toolFactory, objectType, objectFactory, null, null, billboardType, billboardFactory, null, null, EventBus);
         }
 
         [MethodImpl(MethodImplOptions.NoOptimization)]

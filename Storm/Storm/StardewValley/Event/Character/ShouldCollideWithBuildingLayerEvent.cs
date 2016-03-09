@@ -22,9 +22,9 @@ namespace Storm.StardewValley.Event
 {
     public class ShouldCollideWithBuildingLayerEvent : StaticContextEvent
     {
-        public ShouldCollideWithBuildingLayerEvent(GameLocationAccessor gameLocationAccessor)
+        public ShouldCollideWithBuildingLayerEvent(GameLocation gameLocation)
         {
-            BuildingLocation = new GameLocation(StaticGameContext.WrappedGame, gameLocationAccessor);
+            BuildingLocation = gameLocation;
         }
 
         public GameLocation BuildingLocation { get; }
