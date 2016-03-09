@@ -71,7 +71,7 @@ namespace Storm.StardewValley
                 {
                     var casted = factory as CecilInjectorFactory;
                     ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
-                    ctx.Injectors.Add(new CecilConstructorReplacer(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
+                    ctx.Injectors.Add(new CecilInstanceDetourInjector(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
                     {
                         FromClass = "Microsoft.Xna.Framework.Content.ContentManager",
                         ToClass = "Storm.StardewValley.StormContentManager"

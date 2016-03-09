@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilConstructorReplacer : Injector
+    public class CecilInstanceDetourInjector : Injector
     {
         private readonly AssemblyDefinition def;
         private readonly AssemblyDefinition self;
         private readonly ConstructorReplacerParams @params;
 
-        public CecilConstructorReplacer(AssemblyDefinition self, AssemblyDefinition def, ConstructorReplacerParams @params)
+        public CecilInstanceDetourInjector(AssemblyDefinition self, AssemblyDefinition def, ConstructorReplacerParams @params)
         {
             this.self = self;
             this.def = def;
