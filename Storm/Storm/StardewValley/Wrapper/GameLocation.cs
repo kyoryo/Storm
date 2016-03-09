@@ -102,6 +102,12 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public Event CurrentEvent
+        {
+            get { return new Event(Parent, accessor._GetCurrentEvent()); }
+            set { accessor._SetCurrentEvent(value.Expose()); }
+        }
+
         public GameLocationAccessor Expose() => accessor;
 
         public void GrowWeedGrass(int iterations)
@@ -120,5 +126,6 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
+
     }
 }
