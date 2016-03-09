@@ -22,7 +22,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class GameLocation : Wrapper<GameLocationAccessor>
+    public class GameLocation : Wrapper
     {
         private readonly GameLocationAccessor accessor;
 
@@ -105,10 +105,10 @@ namespace Storm.StardewValley.Wrapper
         public Event CurrentEvent
         {
             get { return new Event(Parent, accessor._GetCurrentEvent()); }
-            set { accessor._SetCurrentEvent(value.Expose()); }
+            set { accessor._SetCurrentEvent(value.Cast<EventAccessor>()); }
         }
 
-        public GameLocationAccessor Expose() => accessor;
+        public object Expose() => accessor;
 
         public void GrowWeedGrass(int iterations)
         {

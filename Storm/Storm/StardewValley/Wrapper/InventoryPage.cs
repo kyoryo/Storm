@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    internal class InventoryPage : ClickableMenu, Wrapper<InventoryPageAccessor>
+    internal class InventoryPage : ClickableMenu
     {
         private readonly InventoryPageAccessor accessor;
 
@@ -61,13 +61,13 @@ namespace Storm.StardewValley.Wrapper
         public Item HeldItem
         {
             get { return new Item(Parent, accessor._GetHeldItem()); }
-            set { accessor._SetHeldItem(value.Expose()); }
+            set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
             get { return new Item(Parent, accessor._GetHoveredItem()); }
-            set { accessor._SetHoveredItem(value.Expose()); }
+            set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
         }
 
         public float TrashCanLidRotation
@@ -81,7 +81,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetHorseName(); }
             set { accessor._SetHorseName(value); }
         }
-
-        public new InventoryPageAccessor Expose() => accessor;
     }
 }

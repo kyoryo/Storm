@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Fence : ObjectItem, Wrapper<FenceAccessor>
+    public class Fence : ObjectItem
     {
         private readonly FenceAccessor accessor;
 

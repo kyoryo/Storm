@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Item : Wrapper<ItemAccessor>
+    public class Item : Wrapper
     {
         private readonly ItemAccessor accessor;
 
@@ -59,6 +59,6 @@ namespace Storm.StardewValley.Wrapper
 
         public Tool ToTool() => new Tool(Parent, (ToolAccessor)accessor);
 
-        public ItemAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }

@@ -5,7 +5,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class FishingRod : Tool, Wrapper<FishingRodAccessor>
+    public class FishingRod : Tool
     {
         private readonly FishingRodAccessor accessor;
 

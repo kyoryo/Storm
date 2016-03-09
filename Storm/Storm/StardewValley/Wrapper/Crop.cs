@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Crop : Wrapper<CropAccessor>
+    public class Crop : Wrapper
     {
         private readonly CropAccessor accessor;
 
@@ -121,6 +121,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetRegrowAfterHarvest(value); }
         }
 
-        public CropAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }

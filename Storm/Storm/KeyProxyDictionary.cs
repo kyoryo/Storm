@@ -34,22 +34,22 @@ namespace Storm
             get { return real.Count; }
         }
 
-        public bool Contains<T>(Wrapper<T> key)
+        public bool Contains(Wrapper key)
         {
             return real.Contains(key.Expose());
         }
 
-        public void Add<T>(Wrapper<T> key, TValue value)
+        public void Add(Wrapper key, TValue value)
         {
             real.Add(key.Expose(), value);
         }
 
-        public void Remove(Wrapper<TKey> key)
+        public void Remove(Wrapper key)
         {
             real.Remove(key.Expose());
         }
 
-        public TValue Get(Wrapper<TKey> key)
+        public TValue Get(Wrapper key)
         {
             return (TValue) real[key.Expose()];
         }

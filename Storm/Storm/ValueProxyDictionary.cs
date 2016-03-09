@@ -43,7 +43,7 @@ namespace Storm
             return real.Contains(key);
         }
 
-        public void Add<T>(TKey key, Wrapper<T> value)
+        public void Add<T>(TKey key, Wrapper value)
         {
             real.Add(key, value.Expose());
         }

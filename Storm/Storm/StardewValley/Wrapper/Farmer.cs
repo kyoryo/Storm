@@ -24,7 +24,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Farmer : Character, Wrapper<FarmerAccessor>
+    public class Farmer : Character
     {
         private readonly FarmerAccessor accessor;
 
@@ -66,12 +66,12 @@ namespace Storm.StardewValley.Wrapper
         public Item ActiveObject
         {
             get { return new Item(Parent, accessor._GetActiveObject()); }
-            set { accessor._SetActiveObject(value.Expose()); }
+            set { accessor._SetActiveObject(value.Cast<ItemAccessor>()); }
         }
 
         public ProxyList<int, int> MovementDirections
         {
-            get { return new ProxyList<int, int>(accessor._GetMovementDirections(), i => i); }
+            get { return new ProxyList<int, int>(accessor._GetMovementDirections()); }
         }
 
         public Tool[] ToolBox
@@ -81,13 +81,13 @@ namespace Storm.StardewValley.Wrapper
                 var arr = accessor._GetToolBox();
                 return Array.ConvertAll(arr, i => new Tool(Parent, i));
             }
-            set { accessor._SetToolBox(Array.ConvertAll(value, i => i.Expose())); }
+            set { accessor._SetToolBox(Array.ConvertAll(value, i => i.Cast<ToolAccessor>())); }
         }
 
         public ObjectItem Cupboard
         {
             get { return new ObjectItem(Parent, accessor._GetCupboard()); }
-            set { accessor._SetCupboard(value.Expose()); }
+            set { accessor._SetCupboard(value.Cast<ObjectAccessor>()); }
         }
 
         public string FarmName
@@ -105,7 +105,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation CurrentLocation
         {
             get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
-            set { accessor._SetCurrentLocation(value.Expose()); }
+            set { accessor._SetCurrentLocation(value.Cast<GameLocationAccessor>()); }
         }
 
         public long UniqueMultiplayerID
@@ -135,13 +135,13 @@ namespace Storm.StardewValley.Wrapper
         public Item MostRecentlyGrabbedItem
         {
             get { return new Item(Parent, accessor._GetMostRecentlyGrabbedItem()); }
-            set { accessor._SetMostRecentlyGrabbedItem(value.Expose()); }
+            set { accessor._SetMostRecentlyGrabbedItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item ItemToEat
         {
             get { return new Item(Parent, accessor._GetItemToEat()); }
-            set { accessor._SetItemToEat(value.Expose()); }
+            set { accessor._SetItemToEat(value.Cast<ItemAccessor>()); }
         }
 
         public int ToolPower
@@ -237,7 +237,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC DancePartner
         {
             get { return new NPC(Parent, accessor._GetDancePartner()); }
-            set { accessor._SetDancePartner(value.Expose()); }
+            set { accessor._SetDancePartner(value.Cast<NPCAccessor>()); }
         }
 
         public bool RidingMineElevator
@@ -519,7 +519,7 @@ namespace Storm.StardewValley.Wrapper
         public Tool ToolBeingUpgraded
         {
             get { return new Tool(Parent, accessor._GetToolBeingUpgraded()); }
-            set { accessor._SetToolBeingUpgraded(value.Expose()); }
+            set { accessor._SetToolBeingUpgraded(value.Cast<ToolAccessor>()); }
         }
 
         public int DaysLeftForToolUpgrade
@@ -915,7 +915,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC CollisionNPC
         {
             get { return new NPC(Parent, accessor._GetCollisionNPC()); }
-            set { accessor._SetCollisionNPC(value.Expose()); }
+            set { accessor._SetCollisionNPC(value.Cast<NPCAccessor>()); }
         }
 
         public float MovementMultiplier
@@ -944,7 +944,7 @@ namespace Storm.StardewValley.Wrapper
 
         public void SetToolInToolBox(int idx, Tool t)
         {
-            accessor._GetToolBox()[idx] = t.Expose();
+            accessor._GetToolBox()[idx] = t.Cast<ToolAccessor>();
         }
 
         public void SetItem(int idx, Item item)

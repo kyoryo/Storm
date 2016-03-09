@@ -2,7 +2,7 @@
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableTextureComponent : ClickableComponent, Wrapper<ClickableTextureComponentAccessor>
+    public class ClickableTextureComponent : ClickableComponent
     {
         private readonly ClickableTextureComponentAccessor accessor;
 
@@ -11,7 +11,5 @@ namespace Storm.StardewValley.Wrapper
         {
             this.accessor = accessor;
         }
-
-        public new ClickableTextureComponentAccessor Expose() => accessor;
     }
 }

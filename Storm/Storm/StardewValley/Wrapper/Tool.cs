@@ -21,7 +21,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Tool : Item, Wrapper<ToolAccessor>
+    public class Tool : Item
     {
         private readonly ToolAccessor accessor;
 
@@ -33,7 +33,7 @@ namespace Storm.StardewValley.Wrapper
         public ObjectItem[] Attachments
         {
             get { return Array.ConvertAll(accessor._GetAttachments(), i => new ObjectItem(Parent, i)); }
-            set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Expose())); }
+            set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
         }
 
         public string Name
@@ -65,8 +65,6 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetWeaponTexture(); }
             set { accessor._SetWeaponTexture(value); }
         }
-
-        public new ToolAccessor Expose() => accessor;
 
         public bool IsFishingRod() => accessor is FishingRodAccessor;
 

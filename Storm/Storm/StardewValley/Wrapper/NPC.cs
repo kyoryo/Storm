@@ -22,7 +22,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class NPC : Character, Wrapper<NPCAccessor>
+    public class NPC : Character
     {
         private readonly NPCAccessor accessor;
 
@@ -250,7 +250,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation CurrentLocation
         {
             get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
-            set { accessor._SetCurrentLocation(value.Expose()); }
+            set { accessor._SetCurrentLocation(value.Cast<GameLocationAccessor>()); }
         }
 
         public bool UpdatedDialogueYet
@@ -468,7 +468,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetDaysMarried(); }
             set { accessor._SetDaysMarried(value); }
         }
-
-        public new NPCAccessor Expose() => accessor;
     }
 }

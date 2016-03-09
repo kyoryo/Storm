@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ChatBox : ClickableMenu, Wrapper<ChatBoxAccessor>
+    public class ChatBox : ClickableMenu
     {
         private readonly ChatBoxAccessor accessor;
 
@@ -27,8 +27,6 @@ namespace Storm.StardewValley.Wrapper
         {
             this.accessor = accessor;
         }
-
-        public new ChatBoxAccessor Expose() => accessor;
 
         public void ReceiveChatMessage(string message, long who)
         {

@@ -21,7 +21,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class HoeDirt : TerrainFeature, Wrapper<HoeDirtAccessor>
+    public class HoeDirt : TerrainFeature
     {
         private readonly HoeDirtAccessor accessor;
 
@@ -51,7 +51,7 @@ namespace Storm.StardewValley.Wrapper
         public Crop Crop
         {
             get { return new Crop(Parent, accessor._GetCrop()); }
-            set { accessor._SetCrop(value.Expose()); }
+            set { accessor._SetCrop(value.Cast<CropAccessor>()); }
         }
 
         public int State
@@ -95,7 +95,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetC(); }
             set { accessor._SetC(value); }
         }
-
-        public new HoeDirtAccessor Expose() => accessor;
     }
 }

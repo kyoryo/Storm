@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class GameMenu : ClickableMenu, Wrapper<GameMenuAccessor>
+    public class GameMenu : ClickableMenu
     {
         private readonly GameMenuAccessor accessor;
 
@@ -57,7 +57,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetForcePreventClose(); }
             set { accessor._SetForcePreventClose(value); }
         }
-
-        public new GameMenuAccessor Expose() => accessor;
     }
 }

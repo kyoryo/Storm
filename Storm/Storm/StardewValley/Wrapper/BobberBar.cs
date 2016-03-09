@@ -21,7 +21,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class BobberBar : ClickableMenu, Wrapper<BobberBarAccessor>
+    public class BobberBar : ClickableMenu
     {
         private readonly BobberBarAccessor accessor;
 
@@ -276,7 +276,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetUnReelSound(); }
             set { accessor._SetUnReelSound(value); }
         }
-
-        public new BobberBarAccessor Expose() => accessor;
     }
 }

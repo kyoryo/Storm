@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class AnimatedSprite : Wrapper<AnimatedSpriteAccessor>
+    public class AnimatedSprite : Wrapper
     {
         private readonly AnimatedSpriteAccessor accessor;
 
@@ -44,6 +44,6 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetSpriteHeight(); }
         }
 
-        public AnimatedSpriteAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }

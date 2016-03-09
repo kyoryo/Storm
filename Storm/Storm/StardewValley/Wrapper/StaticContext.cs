@@ -29,7 +29,7 @@ using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class StaticContext : Wrapper<StaticContextAccessor>
+    public class StaticContext : Wrapper
     {
         private readonly StaticContextAccessor accessor;
 
@@ -142,7 +142,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation LocationAfterWarp
         {
             get { return new GameLocation(this, accessor._GetLocationAfterWarp()); }
-            set { accessor._SetLocationAfterWarp(value.Expose()); }
+            set { accessor._SetLocationAfterWarp(value.Cast<GameLocationAccessor>()); }
         }
 
         public IDisplayDevice MapDisplayDevice
@@ -1102,7 +1102,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC CurrentSpeaker
         {
             get { return new NPC(this, accessor._GetCurrentSpeaker()); }
-            set { accessor._SetCurrentSpeaker(value.Expose()); }
+            set { accessor._SetCurrentSpeaker(value.Cast<NPCAccessor>()); }
         }
 
         public Random Random
@@ -1295,7 +1295,7 @@ namespace Storm.StardewValley.Wrapper
             }
             set
             {
-                accessor._SetActiveClickableMenu(value.Expose());
+                accessor._SetActiveClickableMenu(value.Cast<ClickableMenuAccessor>());
             }
         }
 
@@ -1320,7 +1320,7 @@ namespace Storm.StardewValley.Wrapper
         public ObjectItem DishOfTheDay
         {
             get { return new ObjectItem(this, accessor._GetDishOfTheDay()); }
-            set { accessor._SetDishOfTheDay(value.Expose()); }
+            set { accessor._SetDishOfTheDay(value.Cast<ObjectAccessor>()); }
         }
 
         public GameTime CurrentGameTime
@@ -1494,7 +1494,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC ObjectDialoguePortraitPerson
         {
             get { return new NPC(this, accessor._GetObjectDialoguePortraitPerson()); }
-            set { accessor._SetObjectDialoguePortraitPerson(value.Expose()); }
+            set { accessor._SetObjectDialoguePortraitPerson(value.Cast<NPCAccessor>()); }
         }
 
         public ChatBox ChatBox
@@ -1510,7 +1510,7 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public StaticContextAccessor Expose() => accessor;
+        public object Expose() => accessor;
 
         public Texture2D LoadResource(string path)
         {

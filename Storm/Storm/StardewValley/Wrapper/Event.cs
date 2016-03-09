@@ -22,7 +22,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Event : Wrapper<EventAccessor>
+    public class Event : Wrapper
     {
         private readonly EventAccessor accessor;
 
@@ -181,7 +181,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation TemporaryLocation
         {
             get { return new GameLocation(Parent, accessor._GetTemporaryLocation()); }
-            set { accessor._SetTemporaryLocation(value.Expose()); }
+            set { accessor._SetTemporaryLocation(value.Cast<GameLocationAccessor>()); }
         }
 
         public Point PlayerControlTargetTile
@@ -199,13 +199,13 @@ namespace Storm.StardewValley.Wrapper
         public NPC SecretSantaRecipient
         {
             get { return new NPC(Parent, accessor._GetSecretSantaRecipient()); }
-            set { accessor._SetSecretSantaRecipient(value.Expose()); }
+            set { accessor._SetSecretSantaRecipient(value.Cast<NPCAccessor>()); }
         }
 
         public NPC MySecretSanta
         {
             get { return new NPC(Parent, accessor._GetMySecretSanta()); }
-            set { accessor._SetMySecretSanta(value.Expose()); }
+            set { accessor._SetMySecretSanta(value.Cast<NPCAccessor>()); }
         }
 
         public bool Skippable
@@ -253,7 +253,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC FestivalHost
         {
             get { return new NPC(Parent, accessor._GetFestivalHost()); }
-            set { accessor._SetFestivalHost(value.Expose()); }
+            set { accessor._SetFestivalHost(value.Cast<NPCAccessor>()); }
         }
 
         public string HostMessage
@@ -271,7 +271,7 @@ namespace Storm.StardewValley.Wrapper
         public Item TempItemStash
         {
             get { return new Item(Parent, accessor._GetTempItemStash()); }
-            set { accessor._SetTempItemStash(value.Expose()); }
+            set { accessor._SetTempItemStash(value.Cast<ItemAccessor>()); }
         }
 
         public int GrangeScore
@@ -310,6 +310,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetSpecialEventVariable2(value); }
         }
 
-        public EventAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }

@@ -8,12 +8,10 @@ namespace Storm
         public delegate W Wrap<V, W>(V val);
 
         private readonly IList real;
-        private Wrap<TValue, TWrapper> wrapper;
 
-        public ProxyList(IList real, Wrap<TValue, TWrapper> wrapper)
+        public ProxyList(IList real)
         {
             this.real = real;
-            this.wrapper = wrapper;
         }
 
         public int Count
@@ -21,7 +19,7 @@ namespace Storm
             get { return real.Count; }
         }
 
-        public void Add<T>(Wrapper<T> value)
+        public void Add(Wrapper value)
         {
             real.Add(value.Expose());
         }
@@ -31,7 +29,7 @@ namespace Storm
             real.RemoveAt(index);
         }
 
-        public void Remove<T>(Wrapper<T> value)
+        public void Remove(Wrapper value)
         {
             real.Remove(value.Expose());
         }

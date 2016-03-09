@@ -2,7 +2,7 @@
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableComponent : Wrapper<ClickableComponentAccessor>
+    public class ClickableComponent : Wrapper
     {
         private readonly ClickableComponentAccessor accessor;
 
@@ -14,6 +14,6 @@ namespace Storm.StardewValley.Wrapper
 
         private StaticContext Parent { get; }
 
-        public ClickableComponentAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }

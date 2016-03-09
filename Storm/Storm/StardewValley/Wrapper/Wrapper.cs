@@ -17,8 +17,8 @@
 
 namespace Storm.StardewValley.Wrapper
 {
-    public interface Wrapper<T>
+    public interface Wrapper
     {
-        T Expose();
+        object Expose();
     }
 }

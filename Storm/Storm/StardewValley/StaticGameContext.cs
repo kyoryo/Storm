@@ -717,7 +717,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
         {
-            var itemsForSale = new ProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
+            var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
             var @event = new PreConstructShopViaListEvent(itemsForSale, currency, who);
             EventBus.Fire(@event);
             return @event;
@@ -725,7 +725,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
         {
-            var itemsForSale = new ProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
+            var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
             var @event = new PostConstructShopViaListEvent(itemsForSale, currency, who);
             EventBus.Fire(@event);
             return @event;

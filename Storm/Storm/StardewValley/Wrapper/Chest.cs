@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Chest : ObjectItem, Wrapper<ChestAccessor>
+    public class Chest : ObjectItem
     {
         private readonly ChestAccessor accessor;
 
@@ -76,7 +76,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetGiftbox(); }
             set { accessor._SetGiftbox(value); }
         }
-
-        public new ChestAccessor Expose() => accessor;
     }
 }

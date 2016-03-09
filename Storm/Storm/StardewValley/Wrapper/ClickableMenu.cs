@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableMenu : Wrapper<ClickableMenuAccessor>
+    public class ClickableMenu : Wrapper
     {
         private readonly ClickableMenuAccessor accessor;
 
@@ -31,7 +31,7 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
-        public ClickableMenuAccessor Expose() => accessor;
+        public object Expose() => accessor;
 
         public bool IsShopMenu() => accessor is ShopMenuAccessor;
 

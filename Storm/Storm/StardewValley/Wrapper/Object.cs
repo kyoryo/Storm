@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ObjectItem : Item, Wrapper<ObjectAccessor>
+    public class ObjectItem : Item
     {
         private readonly ObjectAccessor accessor;
 
@@ -161,8 +161,6 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetType(); }
             set { accessor._SetType(value); }
         }
-
-        public new ObjectAccessor Expose() => accessor;
 
         public bool IsFence() => accessor is FenceAccessor;
 

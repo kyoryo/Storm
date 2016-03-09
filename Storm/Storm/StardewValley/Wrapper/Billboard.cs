@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Billboard : ClickableMenu, Wrapper<BillboardAccessor>
+    public class Billboard : ClickableMenu
     {
         private readonly BillboardAccessor accessor;
 
@@ -45,15 +45,14 @@ namespace Storm.StardewValley.Wrapper
         public ClickableComponent AcceptQuestButton
         {
             get { return new ClickableComponent(Parent, accessor._GetAcceptQuestButton()); }
-            set { accessor._SetAcceptQuestButton(value.Expose()); }
+            set { accessor._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
         }
 
         public ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
         {
             get
             {
-                return new ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(
-                    accessor._GetCalendarDays(), i => new ClickableTextureComponent(Parent, i));
+                return new ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(accessor._GetCalendarDays());
             }
         }
 
@@ -62,7 +61,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }
         }
-
-        public new BillboardAccessor Expose() => accessor;
     }
 }

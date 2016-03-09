@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class InventoryMenu : ClickableMenu, Wrapper<InventoryMenuAccessor>
+    public class InventoryMenu : ClickableMenu
     {
         private readonly InventoryMenuAccessor accessor;
 
@@ -93,8 +93,6 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetVerticalGap(); }
             set { accessor._SetVerticalGap(value); }
         }
-
-        public new InventoryMenuAccessor Expose() => accessor;
 
         public ItemAccessor GetItemAt(int mouseX, int mouseY)
         {

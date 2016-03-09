@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class TerrainFeature : Wrapper<TerrainFeatureAccessor>
+    public class TerrainFeature : Wrapper
     {
         private readonly TerrainFeatureAccessor accessor;
 
@@ -31,7 +31,7 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
-        public TerrainFeatureAccessor Expose() => accessor;
+        public object Expose() => accessor;
 
         public bool IsHoeDirt()
         {

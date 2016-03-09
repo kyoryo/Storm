@@ -5,7 +5,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ShopMenu : ClickableMenu, Wrapper<ShopMenuAccessor>
+    public class ShopMenu : ClickableMenu
     {
         private readonly ShopMenuAccessor accessor;
 
@@ -13,6 +13,16 @@ namespace Storm.StardewValley.Wrapper
             base(parent, accessor)
         {
             this.accessor = accessor;
+        }
+
+        public ProxyList<ItemAccessor, Item> ItemsForSale
+        {
+            get { return new ProxyList<ItemAccessor, Item>(accessor._GetForSale()); }
+        }
+
+        public KeyProxyDictionary<Item, int[]> ItemsForSaleData
+        {
+            get { return new KeyProxyDictionary<Item, int[]>(accessor._GetItemPriceAndStock()); }
         }
 
         public string DescriptionText
@@ -36,19 +46,19 @@ namespace Storm.StardewValley.Wrapper
         public InventoryMenu Inventory
         {
             get { return new InventoryMenu(Parent, accessor._GetInventory()); }
-            set { accessor._SetInventory(value.Expose()); }
+            set { accessor._SetInventory(value.Cast<InventoryMenuAccessor>()); }
         }
 
         public Item HeldItem
         {
             get { return new Item(Parent, accessor._GetHeldItem()); }
-            set { accessor._SetHeldItem(value.Expose()); }
+            set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
             get { return new Item(Parent, accessor._GetHoveredItem()); }
-            set { accessor._SetHoveredItem(value.Expose()); }
+            set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
         }
 
         public Texture2D Wallpapers
@@ -108,25 +118,25 @@ namespace Storm.StardewValley.Wrapper
         public ClickableTextureComponent UpArrow
         {
             get { return new ClickableTextureComponent(Parent, accessor._GetUpArrow()); }
-            set { accessor._SetUpArrow(value.Expose()); }
+            set { accessor._SetUpArrow(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent DownArrow
         {
             get { return new ClickableTextureComponent(Parent, accessor._GetDownArrow()); }
-            set { accessor._SetDownArrow(value.Expose()); }
+            set { accessor._SetDownArrow(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent ScrollBar
         {
             get { return new ClickableTextureComponent(Parent, accessor._GetScrollBar()); }
-            set { accessor._SetScrollBar(value.Expose()); }
+            set { accessor._SetScrollBar(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public NPC PortraitPerson
         {
             get { return new NPC(Parent, accessor._GetPortraitPerson()); }
-            set { accessor._SetPortraitPerson(value.Expose()); }
+            set { accessor._SetPortraitPerson(value.Cast<NPCAccessor>()); }
         }
 
         public string PotraitPersonDialogue
@@ -140,7 +150,5 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetScrolling(); }
             set { accessor._SetScrolling(value); }
         }
-
-        public new ShopMenuAccessor Expose() => accessor;
     }
 }

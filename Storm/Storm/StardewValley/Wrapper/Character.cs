@@ -20,7 +20,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Character : Wrapper<CharacterAccessor>
+    public class Character : Wrapper
     {
         private readonly CharacterAccessor accessor;
 
@@ -88,9 +88,9 @@ namespace Storm.StardewValley.Wrapper
         public AnimatedSprite Sprite
         {
             get { return new AnimatedSprite(accessor._GetSprite()); }
-            set { accessor._SetSprite(value.Expose()); }
+            set { accessor._SetSprite(value.Cast<AnimatedSpriteAccessor>()); }
         }
 
-        public CharacterAccessor Expose() => accessor;
+        public object Expose() => accessor;
     }
 }
