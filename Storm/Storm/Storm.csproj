@@ -273,7 +273,6 @@
     <Compile Include="StardewValley\Event\HoeDirt\BeforeHoeDirtCanPlantEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\BeforeHoeDirtPlantEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
-    <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaDictEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\SetUpShopOwnerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
@@ -376,7 +375,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
-    <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
     <Folder Include="StardewValley\Event\Utility\" />
   </ItemGroup>
