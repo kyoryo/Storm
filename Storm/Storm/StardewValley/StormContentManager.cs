@@ -4,9 +4,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Storm.Manipulation;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storm.ExternalEvent;
 
 namespace Storm.StardewValley
 {
@@ -26,6 +28,20 @@ namespace Storm.StardewValley
         {
             StaticGameContext.ManagerUnloadCallback(manager);
             manager.Unload();
+        }
+
+        public static Texture2D LookupTexture(List<LoadedMod> mods, string asset)
+        {
+            foreach (var mod in mods)
+            {
+                if (mod.Textures != null && mod.Textures.ContainsKey(asset))
+                {
+                    var path = Path.Combine(mod.Manifest.Path, mod.Textures[asset]);
+                    Console.WriteLine(asset + " => " + path);
+                    return StaticGameContext.WrappedGame.LoadResource(path);
+                }
+            }
+            return null;
         }
     }
 }

@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using Newtonsoft.Json;
 
@@ -39,5 +40,11 @@ namespace Storm.ExternalEvent.Json
         public string Description { get; set; }
 
         public string AssemblyFileName { get; set; }
+
+        //the director the manifest was loaded from
+        public string Path { get; set; }
+
+        // a mapping of textures to load
+        public Dictionary<string,string> Textures{get; set; } 
     }
 }

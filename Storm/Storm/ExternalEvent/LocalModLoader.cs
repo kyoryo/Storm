@@ -18,6 +18,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Castle.Core.Internal;
 using Newtonsoft.Json;
 using Storm.ExternalEvent.Json;
 
@@ -46,7 +47,6 @@ namespace Storm.ExternalEvent
         private void LoadMod(List<LoadedMod> result, string path)
         {
             var manifestPath = Path.Combine(path, "manifest.json");
-            var contentPath = Path.Combine(path, "Content");
 
             /* I thought about allowing mods without manifests, but it's unnecessary */
             /* just include a manifest.json with ur mods gee - Handsome Matt */
@@ -54,6 +54,9 @@ namespace Storm.ExternalEvent
                 return;
 
             var manifest = JsonConvert.DeserializeObject<JsonModManifest>(File.ReadAllText(manifestPath));
+
+            /* adapt all textures to their actual locations */
+            manifest.Path = path;
 
             var dllPath = string.Empty;
             if (!string.IsNullOrEmpty(manifest.AssemblyFileName))
@@ -67,11 +70,6 @@ namespace Storm.ExternalEvent
                 loaded.ForEach(m => m.LoadDirectory = path);
 
                 assemblyMods.AddRange(loaded);
-            }
-
-            if (Directory.Exists(contentPath))
-            {
-                /* do our custom content handlers */
             }
 
             var mod = new LoadedMod(manifest, assemblyMods);

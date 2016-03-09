@@ -54,6 +54,11 @@ namespace Storm.ExternalEvent
             get { return Manifest.Version; }
         }
 
+        public Dictionary<string, string> Textures
+        {
+            get { return Manifest.Textures; }
+        } 
+
         public void Fire<T>(T @event) where T : DetourEvent
         {
             if (!Enabled) return;

@@ -27,6 +27,7 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Storm.StardewValley
 {
@@ -84,6 +85,15 @@ namespace Storm.StardewValley
         {
             var @event = new AssetLoadEvent(manager, assetType, assetName);
             EventBus.Fire(@event);
+
+            if (@event.ReturnValue == null)
+            {
+                if (assetType == typeof (Texture2D))
+                {
+                    @event.ReturnValue = StormContentManager.LookupTexture(EventBus.mods,assetName);
+                }
+            }
+
             return @event;
         }
 
