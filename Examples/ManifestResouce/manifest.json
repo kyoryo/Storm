@@ -1,0 +1,10 @@
+{
+    "displayName": "Manifest Resources",
+    "author": "matt123337",
+    "version": "1.0.0.0",
+    "description": "An example mod that doesn't use dlls! (Place in AppData)",
+
+    "Textures" : {
+		"Minigames\\TitleButtons": "Content\\Minigames\\TitleButtons.png"
+	}
+}
