@@ -7979,7 +7979,7 @@
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     },
-	    {
+	{
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "canPlantThisSeedHere",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
@@ -7987,7 +7987,7 @@
       "InstanceCallbackName": "AfterHoeDirtCanPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
-      "InsertionType": "LAST"
+      "InsertionType": "LAST",
 	  "JumpFix": "true"
     },
     {
@@ -7998,7 +7998,7 @@
       "InstanceCallbackName": "AfterHoeDirtPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
-      "InsertionType": "LAST"
+      "InsertionType": "LAST",
 	  "JumpFix": "true"
     },
 	{
