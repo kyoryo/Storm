@@ -39,6 +39,8 @@ namespace Storm.StardewValley
         public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
         public Type BillboardType { get; }
         public InterceptorFactory<BillboardDelegate> BillboardFactory { get; }
+        public Type ClickableMenuType { get; }
+        public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; }
 
         public StaticContextEvent()
         {
@@ -53,6 +55,8 @@ namespace Storm.StardewValley
             TextureComponentFactory = StaticGameContext.TextureComponentFactory;
             BillboardType = StaticGameContext.BillboardType;
             BillboardFactory = StaticGameContext.BillboardFactory;
+            ClickableMenuType = StaticGameContext.ClickableMenuType;
+            ClickableMenuFactory = StaticGameContext.ClickableMenuFactory;
         }
 
         public Tool ProxyTool(ToolDelegate @delegate)
@@ -97,6 +101,17 @@ namespace Storm.StardewValley
                 TextureComponentFactory.CreateInterceptor(@delegate));
 
             return accessor;
+        }
+
+        public ClickableMenu ProxyClickableMenu(ClickableMenuDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (ClickableMenuAccessor)generator.CreateClassProxy(
+                ClickableMenuType, ClickableMenuFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new ClickableMenu(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
         }
 
         public Farmer LocalPlayer

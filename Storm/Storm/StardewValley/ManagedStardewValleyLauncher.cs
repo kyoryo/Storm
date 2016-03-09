@@ -119,6 +119,10 @@ namespace Storm.StardewValley
             billboardFactory.Map(typeof(BillboardAccessor), typeof(BillboardDelegate), ctx.Injectors);
             StaticGameContext.BillboardFactory = billboardFactory;
 
+            var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
+            clickableMenuFactory.Map(typeof(ClickableMenuAccessor), typeof(ClickableMenuDelegate), ctx.Injectors);
+            StaticGameContext.ClickableMenuFactory = clickableMenuFactory;
+
             StaticGameContext.EventBus = EventBus;
         }
 

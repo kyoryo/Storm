@@ -64,6 +64,9 @@ namespace Storm.StardewValley
         public static Type BillboardType { get; set; }
         public static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
 
+        public static Type ClickableMenuType { get; set; }
+        public static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
+
         /// <summary>
         ///     Event handler for all Storm mods.
         /// </summary>
