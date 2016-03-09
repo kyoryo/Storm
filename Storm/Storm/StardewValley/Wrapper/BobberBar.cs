@@ -277,6 +277,6 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetUnReelSound(value); }
         }
 
-        public BobberBarAccessor Expose() => accessor;
+        public new BobberBarAccessor Expose() => accessor;
     }
 }

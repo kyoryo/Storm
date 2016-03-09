@@ -31,7 +31,7 @@ namespace Storm.StardewValley.Accessor
         Texture2D _GetFenceTexture();
         void _SetFenceTexture(Texture2D val);
 
-        float _GetHealth();
+        new float _GetHealth();
         void _SetHealth(float val);
 
         float _GetMaxHealth();
