@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="DualProxyDictionary.cs" />
     <Compile Include="ExternalEvent\AssemblyMod.cs" />
@@ -147,7 +148,16 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
+    <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\AfterDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\After10MinuteClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\Before10MinuteClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonReleasedEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
     <Compile Include="ProxyList.cs" />
@@ -228,11 +238,8 @@
     <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\KeyPressedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\KeyReleasedEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\MouseButtonPressed.cs" />
-    <Compile Include="StardewValley\Event\Game\MouseButtonReleased.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
@@ -311,11 +318,10 @@
     <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
-    <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\BeforeNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\BeforeClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
     <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
@@ -378,7 +384,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
-    <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
     <Folder Include="StardewValley\Event\Utility\" />
   </ItemGroup>
