@@ -130,7 +130,15 @@ namespace Storm.Collections
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            throw new NotImplementedException();
+            foreach (var key in real.Keys)
+            {
+                if (key.Equals(item.Key.Expose()) && real[key].Equals(item.Value))
+                {
+                    real.Remove(key);
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool Remove(TKey key)

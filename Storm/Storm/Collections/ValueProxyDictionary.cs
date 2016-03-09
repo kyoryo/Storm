@@ -152,6 +152,7 @@ namespace Storm.Collections
                 if (key.Equals(item.Key) && real[key].Equals(item.Value.Expose()))
                 {
                     real.Remove(item.Key);
+                    return true;
                 }
             }
             return false;

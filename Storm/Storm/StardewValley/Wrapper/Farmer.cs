@@ -902,7 +902,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetToolPitchAccumulator(value); }
         }
 
-        public int CharactercollisionTimer
+        public int CharacterCollisionTimer
         {
             get { return accessor._GetCharactercollisionTimer(); }
             set { accessor._SetCharactercollisionTimer(value); }
@@ -926,21 +926,9 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetAddedSpeed(value); }
         }
 
-        public new FarmerAccessor Expose() => accessor;
-
-        public void AddMovementDirection(int direction)
-        {
-            accessor._GetMovementDirections().Add(direction);
-        }
-
-        public void ClearMovementDirections()
-        {
-            accessor._GetMovementDirections().Clear();
-        }
-
         public void SetToolInToolBox(int idx, Tool t)
         {
-            accessor._GetToolBox()[idx] = t.Cast<ToolAccessor>();
+            accessor._GetToolBox()[idx] = t == null ? null : t.Cast<ToolAccessor>();
         }
 
         public void SetItem(int idx, Item item)
