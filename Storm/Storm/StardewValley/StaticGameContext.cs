@@ -102,6 +102,15 @@ namespace Storm.StardewValley
             @event.ClickableMenuFactory = ClickableMenuFactory;
         }
 
+        private static void CheckAccessRights()
+        {
+            // make calls to this in all properties if someone tries to bypass
+            // private access
+
+            // if (did not originate from this class)
+            //  throw new Exception("Invalid access rights!");
+        }
+
         private static T HookEvent<T>(T @event) where T : DetourEvent
         {
             if (@event is StaticContextEvent)
