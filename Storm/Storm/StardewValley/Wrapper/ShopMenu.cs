@@ -27,13 +27,13 @@ namespace Storm.StardewValley.Wrapper
             return true;
         }
 
-        public ProxyList<ItemAccessor, Item> ItemsForSale
+        public WrappedProxyList<ItemAccessor, Item> ItemsForSale
         {
             get
             {
                 var tmp = accessor._GetForSale();
                 if (tmp == null) return null;
-                return new ProxyList<ItemAccessor, Item>(tmp);
+                return new WrappedProxyList<ItemAccessor, Item>(tmp, i => new Item(Parent, i));
             }
         }
 
