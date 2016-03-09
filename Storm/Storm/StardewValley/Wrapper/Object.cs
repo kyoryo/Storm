@@ -162,20 +162,20 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetType(value); }
         }
 
+        public new ObjectAccessor Expose() => accessor;
+
         public bool IsFence() => accessor is FenceAccessor;
 
         public bool IsChest() => accessor is ChestAccessor;
 
         public Fence ToFence()
         {
-            return new Fence(Parent, (FenceAccessor)accessor);
+            return new Fence(Parent, (FenceAccessor) accessor);
         }
 
         public Chest ToChest()
         {
-            return new Chest(Parent, (ChestAccessor)accessor);
+            return new Chest(Parent, (ChestAccessor) accessor);
         }
-
-        public new ObjectAccessor Expose() => accessor;
     }
 }

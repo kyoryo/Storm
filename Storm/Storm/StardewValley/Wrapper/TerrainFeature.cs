@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
@@ -39,7 +40,7 @@ namespace Storm.StardewValley.Wrapper
 
         public HoeDirt AsHoeDirt()
         {
-            return new HoeDirt(Parent, (HoeDirtAccessor)this.accessor);
+            return new HoeDirt(Parent, (HoeDirtAccessor) accessor);
         }
     }
 }

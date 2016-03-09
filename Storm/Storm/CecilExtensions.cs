@@ -1,9 +1,7 @@
-﻿using Mono.Cecil;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Mono.Cecil;
 
 namespace Storm
 {
@@ -107,7 +105,7 @@ namespace Storm
                     {
                         if (i.Operand != null && i.Operand is FieldReference)
                         {
-                            return ((FieldReference)i.Operand).Resolve() == fd;
+                            return ((FieldReference) i.Operand).Resolve() == fd;
                         }
                         return false;
                     }) != null);

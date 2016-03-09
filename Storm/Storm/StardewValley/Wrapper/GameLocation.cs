@@ -102,6 +102,8 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public GameLocationAccessor Expose() => accessor;
+
         public void GrowWeedGrass(int iterations)
         {
             accessor._GrowWeedGrass(iterations);
@@ -118,7 +120,5 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
-
-        public GameLocationAccessor Expose() => accessor;
     }
 }

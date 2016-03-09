@@ -15,12 +15,9 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.MineShaft
+namespace Storm.StardewValley.Event
 {
     public class PrepareElevatorEvent : StaticContextEvent
     {
-        public PrepareElevatorEvent()
-        {
-        }
     }
 }

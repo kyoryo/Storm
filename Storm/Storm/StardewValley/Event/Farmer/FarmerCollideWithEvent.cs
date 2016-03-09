@@ -18,15 +18,15 @@
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Farmer
+namespace Storm.StardewValley.Event
 {
     public class FarmerCollideWithEvent : StaticContextEvent
     {
-        public ObjectItem CollisionObject { get; }
-
         public FarmerCollideWithEvent(ObjectAccessor collisionObject)
         {
             CollisionObject = new ObjectItem(StaticGameContext.WrappedGame, collisionObject);
         }
+
+        public ObjectItem CollisionObject { get; }
     }
 }

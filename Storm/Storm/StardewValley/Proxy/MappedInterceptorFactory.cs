@@ -14,20 +14,18 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.DynamicProxy;
 using System.Reflection;
+using Castle.DynamicProxy;
 using Storm.Manipulation;
 
 namespace Storm.StardewValley.Proxy
 {
     public class MappedInterceptorFactory<T> : InterceptorFactory<T>
     {
-        private Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
+        private readonly Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
 
         public IInterceptor CreateInterceptor(T t)
         {
@@ -60,8 +58,8 @@ namespace Storm.StardewValley.Proxy
 
         private class ReflectionInterceptor<K> : IInterceptor
         {
-            private K instance;
-            private Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
+            private readonly Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
+            private readonly K instance;
 
             public ReflectionInterceptor(K instance, Dictionary<string, MethodInfo> callMap)
             {
@@ -74,13 +72,13 @@ namespace Storm.StardewValley.Proxy
                 if (callMap.ContainsKey(invocation.Method.Name))
                 {
                     var method = callMap[invocation.Method.Name];
-                    var ret = method.Invoke(instance, new object[] { invocation.Arguments });
+                    var ret = method.Invoke(instance, new object[] {invocation.Arguments});
                     if (!(ret is OverrideEvent))
                     {
                         throw new InvalidOperationException("What the fuck?");
                     }
 
-                    var casted = (OverrideEvent)ret;
+                    var casted = (OverrideEvent) ret;
                     if (casted.ReturnEarly)
                     {
                         invocation.ReturnValue = casted.ReturnValue;

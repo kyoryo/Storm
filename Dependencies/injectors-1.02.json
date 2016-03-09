@@ -8008,12 +8008,32 @@
     },
     {
       "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "pullFishFromWater",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterPullFishFromWaterCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
       "OwnerMethodName": "doneFishing",
       "OwnerMethodDesc": "(@(Farmer),System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "BeforeDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "doneFishing",
+      "OwnerMethodDesc": "(@(Farmer),System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterDoneFishingCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
     },
     {
       "OwnerAccessorType": "@MineShaft",

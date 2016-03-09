@@ -16,15 +16,17 @@
  */
 
 
-namespace Storm.StardewValley.Event.Game
+using Storm.StardewValley.Wrapper;
+
+namespace Storm.StardewValley.Event
 {
     public class ShipObjectEvent : StaticContextEvent
     {
-        public ShipObjectEvent(Wrapper.ObjectItem item)
+        public ShipObjectEvent(ObjectItem item)
         {
             Item = item;
         }
 
-        public Wrapper.ObjectItem Item { get; }
+        public ObjectItem Item { get; }
     }
 }

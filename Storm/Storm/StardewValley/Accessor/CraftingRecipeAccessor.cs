@@ -15,33 +15,29 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface CraftingRecipeAccessor
     {
-        System.String _GetName();
-        void _SetName(System.String val);
+        string _GetName();
+        void _SetName(string val);
 
-        System.String _GetDescription();
-        void _SetDescription(System.String val);
+        string _GetDescription();
+        void _SetDescription(string val);
 
-        System.Collections.IDictionary _GetCraftingRecipes();
-        void _SetCraftingRecipes(System.Collections.IDictionary val);
+        IDictionary _GetCraftingRecipes();
+        void _SetCraftingRecipes(IDictionary val);
 
-        System.Collections.IDictionary _GetCookingRecipes();
-        void _SetCookingRecipes(System.Collections.IDictionary val);
+        IDictionary _GetCookingRecipes();
+        void _SetCookingRecipes(IDictionary val);
 
-        System.Collections.IDictionary _GetRecipeList();
-        void _SetRecipeList(System.Collections.IDictionary val);
+        IDictionary _GetRecipeList();
+        void _SetRecipeList(IDictionary val);
 
-        System.Collections.IList _GetItemToProduce();
-        void _SetItemToProduce(System.Collections.IList val);
+        IList _GetItemToProduce();
+        void _SetItemToProduce(IList val);
 
         bool _GetBigCraftable();
         void _SetBigCraftable(bool val);
@@ -54,6 +50,5 @@ namespace Storm.StardewValley.Accessor
 
         int _GetNumberProducedPerCraft();
         void _SetNumberProducedPerCraft(int val);
-
     }
 }

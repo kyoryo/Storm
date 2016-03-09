@@ -14,12 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using Storm.Manipulation;
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Storm.Manipulation;
 
 namespace Storm.StardewValley.Event
 {
@@ -27,8 +24,8 @@ namespace Storm.StardewValley.Event
     {
         public PreInjectionEvent(InjectorFactory factory, List<Injector> injectors)
         {
-            this.InjectorFactory = factory;
-            this.Injectors = injectors;
+            InjectorFactory = factory;
+            Injectors = injectors;
         }
 
         public InjectorFactory InjectorFactory { get; }

@@ -17,6 +17,7 @@
 
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,10 +26,9 @@ using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.Manipulation.Cecil;
 using Storm.StardewValley.Accessor;
-using Rectangle = xTile.Dimensions.Rectangle;
-using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event;
-using System.Runtime.CompilerServices;
+using Storm.StardewValley.Proxy;
+using Rectangle = xTile.Dimensions.Rectangle;
 
 namespace Storm.StardewValley
 {
@@ -102,25 +102,25 @@ namespace Storm.StardewValley
             var constructor = entryType.GetConstructor(new Type[0]);
 
             StaticGameContext.Assembly = assembly;
-            StaticGameContext.Root = (ProgramAccessor)constructor.Invoke(new object[0]);
+            StaticGameContext.Root = (ProgramAccessor) constructor.Invoke(new object[0]);
             StaticGameContext.ToolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             StaticGameContext.ObjectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
             StaticGameContext.BillboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
 
             var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
-            toolFactory.Map(typeof(ToolAccessor), typeof(ToolDelegate), ctx.Injectors);
+            toolFactory.Map(typeof (ToolAccessor), typeof (ToolDelegate), ctx.Injectors);
             StaticGameContext.ToolFactory = toolFactory;
 
             var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
-            objectFactory.Map(typeof(ObjectAccessor), typeof(ObjectDelegate), ctx.Injectors);
+            objectFactory.Map(typeof (ObjectAccessor), typeof (ObjectDelegate), ctx.Injectors);
             StaticGameContext.ObjectFactory = objectFactory;
 
             var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
-            billboardFactory.Map(typeof(BillboardAccessor), typeof(BillboardDelegate), ctx.Injectors);
+            billboardFactory.Map(typeof (BillboardAccessor), typeof (BillboardDelegate), ctx.Injectors);
             StaticGameContext.BillboardFactory = billboardFactory;
 
             var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
-            clickableMenuFactory.Map(typeof(ClickableMenuAccessor), typeof(ClickableMenuDelegate), ctx.Injectors);
+            clickableMenuFactory.Map(typeof (ClickableMenuAccessor), typeof (ClickableMenuDelegate), ctx.Injectors);
             StaticGameContext.ClickableMenuFactory = clickableMenuFactory;
 
             StaticGameContext.EventBus = EventBus;
@@ -129,12 +129,12 @@ namespace Storm.StardewValley
         [MethodImpl(MethodImplOptions.NoOptimization)]
         private void ResolveDependencies()
         {
-            typeof(Vector2).GetType();
-            typeof(SpriteBatch).GetType();
-            typeof(AudioEngine).GetType();
-            typeof(GraphicsDeviceManager).GetType();
-            typeof(Keyboard).GetType();
-            typeof(Rectangle).GetType();
+            typeof (Vector2).GetType();
+            typeof (SpriteBatch).GetType();
+            typeof (AudioEngine).GetType();
+            typeof (GraphicsDeviceManager).GetType();
+            typeof (Keyboard).GetType();
+            typeof (Rectangle).GetType();
         }
 
         public void Launch()
@@ -153,7 +153,7 @@ namespace Storm.StardewValley
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
+            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
         }
     }
 }

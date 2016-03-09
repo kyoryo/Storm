@@ -24,7 +24,7 @@ namespace Storm.Manipulation.Cecil
     {
         private readonly AssemblyDefinition def;
         private InvokerParams @params;
-        private AssemblyDefinition self;
+        private readonly AssemblyDefinition self;
 
         public CecilInvokerInjector(AssemblyDefinition self, AssemblyDefinition def, InvokerParams @params)
         {
