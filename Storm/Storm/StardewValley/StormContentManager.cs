@@ -14,8 +14,6 @@ namespace Storm.StardewValley
     {
         public static T Load<T>(ContentManager manager, string assetName)
         {
-            Logging.DebugLogs("[{0}] Loading resource with name {1}", typeof(StormContentManager).Name, assetName);
-
             DetourEvent @event = StaticGameContext.ContentLoadCallback(manager, typeof(T), assetName);
             if (@event.ReturnValue != null)
             {

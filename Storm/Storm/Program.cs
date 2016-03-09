@@ -28,8 +28,16 @@ namespace Storm
             if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
                 Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
 
+
+#if DEBUG
             Logging.Log = msg => Console.WriteLine(msg);
             Logging.DebugLog = msg => Console.WriteLine(msg);
+#else
+            Logging.Log = Logging.LogToFile;
+            Logging.DebugLog = Logging.LogToFile;
+#endif
+
+            AppDomain.CurrentDomain.UnhandledException += Logging.UnhandledExceptionHandler;
 
             var launcher = new ManagedStardewValleyLauncher(StormAPI.GetResource("injectors.json"), "Stardew Valley.exe", true);
             launcher.Launch();
