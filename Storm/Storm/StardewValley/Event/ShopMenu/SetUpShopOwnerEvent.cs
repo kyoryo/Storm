@@ -15,15 +15,19 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class SetUpShopOwnerEvent : StaticContextEvent
     {
-        public SetUpShopOwnerEvent(string who)
+        public SetUpShopOwnerEvent(ShopMenu shopMenu, string who)
         {
+            ShopMenu = shopMenu;
             Who = who;
         }
 
+        public ShopMenu ShopMenu { get; }
         public string Who { get; }
     }
 }
