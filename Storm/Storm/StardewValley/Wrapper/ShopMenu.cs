@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
