@@ -26,6 +26,7 @@ using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
+using Storm.StardewValley.Event.ShopMenu;
 
 namespace Storm.StardewValley
 {
