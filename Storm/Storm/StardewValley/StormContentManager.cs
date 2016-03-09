@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley
 {
-    class StormContentManager
+    public static class StormContentManager
     {
-
         public static T Load<T>(ContentManager manager, string assetName)
         {
             DetourEvent @event = StaticGameContext.ContentLoadCallback(manager,typeof(T), assetName);

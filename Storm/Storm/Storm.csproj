@@ -119,11 +119,13 @@
     <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="KeyProxyDictionary.cs" />
+    <Compile Include="Manipulation\Cecil\CecilInstanceDetourInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
     <Compile Include="Manipulation\ConstantReplacerParams.cs" />
+    <Compile Include="Manipulation\ConstructorReplacerParams.cs" />
     <Compile Include="Manipulation\DetourEvent.cs" />
     <Compile Include="Manipulation\EventCallbackParams.cs" />
     <Compile Include="Manipulation\FieldAccessorMutatorParams.cs" />
