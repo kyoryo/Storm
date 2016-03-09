@@ -24,6 +24,9 @@ namespace Storm
         public string Name { get; set; }
         public string[] Args { get; set; }
 
+        public int ArgsCount => Args.Length;
+        public bool HasArgs => ArgsCount > 0;
+
         public static Command ParseCommand(string input)
         {
             string[] spaces = input.Split(new[] {" "}, 2, StringSplitOptions.RemoveEmptyEntries);
