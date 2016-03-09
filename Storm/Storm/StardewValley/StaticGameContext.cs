@@ -664,7 +664,6 @@ namespace Storm.StardewValley
 
         #endregion
 
-
         #region ShopMenu Events
 
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
@@ -759,6 +758,17 @@ namespace Storm.StardewValley
         public static DetourEvent GetExtraMineShaftMillisecondsCallback(MineShaftAccessor accessor)
         {
             var @event = new Event.MineShaft.GetExtraMineShaftMillisecondsEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+        #region BobberBar Events
+
+        public static DetourEvent BobberBarUpdateCallback(BobberBarAccessor bobberBar, Microsoft.Xna.Framework.GameTime time)
+        {
+            var @event = new BobberBarUpdateEvent(time);
             EventBus.Fire(@event);
             return @event;
         }
