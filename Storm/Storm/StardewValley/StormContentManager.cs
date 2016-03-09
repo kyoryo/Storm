@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using Storm.Manipulation;
 using System;
 using System.Collections.Generic;
@@ -12,10 +14,10 @@ namespace Storm.StardewValley
     {
         public static T Load<T>(ContentManager manager, string assetName)
         {
-            DetourEvent @event = StaticGameContext.ContentLoadCallback(manager,typeof(T), assetName);
-            if(@event.ReturnValue != null)
+            DetourEvent @event = StaticGameContext.ContentLoadCallback(manager, typeof(T), assetName);
+            if (@event.ReturnValue != null)
             {
-                return (T) @event.ReturnValue;
+                return (T)@event.ReturnValue;
             }
             return manager.Load<T>(assetName);
         }

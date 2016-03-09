@@ -30,11 +30,16 @@ namespace Storm
 
         public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
         {
-            var @out = StormAPI.GetResource("crash_log.txt");
-            var sr = new StreamWriter(@out, true);
-            sr.WriteLine(e.ToString());
-            sr.Close();
+            LogToFile(e.ToString());
         };
+
+        public static void LogToFile(string s)
+        {
+            var @out = StormAPI.GetResource("storm_log.txt");
+            var sr = new StreamWriter(@out, true);
+            sr.WriteLine(s);
+            sr.Close();
+        }
 
         private Logging()
         {

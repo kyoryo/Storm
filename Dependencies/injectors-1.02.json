@@ -8169,6 +8169,15 @@
       "InstanceCallbackName": "AfterObjectDayUpdateCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerMethodName": "update",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BobberBarUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.BobberBarAccessor,Microsoft.Xna.Framework.GameTime)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     }
   ]
 }

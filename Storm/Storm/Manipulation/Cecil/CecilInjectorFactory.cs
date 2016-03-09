@@ -18,6 +18,7 @@
 using System.IO;
 using System.Reflection;
 using Mono.Cecil;
+using System;
 
 namespace Storm.Manipulation.Cecil
 {
@@ -102,8 +103,16 @@ namespace Storm.Manipulation.Cecil
             if (refAssembly != null) return refAssembly;
             using (var strum = new MemoryStream())
             {
+                GameAssembly.Name.Name = "Storm-Hooked-Game";
                 GameAssembly.Write(strum);
-                refAssembly = Assembly.Load(strum.GetBuffer());
+                using (var strum2 = new FileStream("Storm-Hooked-Game.exe", FileMode.Create, FileAccess.Write))
+                {
+                    GameAssembly.Write(strum2);
+                }
+
+                var domain = AppDomain.CreateDomain("Game Domain");
+                domain.UnhandledException += Logging.UnhandledExceptionHandler;
+                refAssembly = domain.Load(strum.GetBuffer());
             }
             return refAssembly;
         }

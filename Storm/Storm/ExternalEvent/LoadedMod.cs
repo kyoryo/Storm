@@ -25,11 +25,13 @@ namespace Storm.ExternalEvent
     {
         public List<AssemblyMod> AssemblyMods;
         public JsonModManifest Manifest;
+        public bool Enabled;
 
         public LoadedMod(JsonModManifest manifest, List<AssemblyMod> mods)
         {
             Manifest = manifest;
             AssemblyMods = mods;
+            Enabled = true;
         }
 
         public string Name
@@ -54,6 +56,7 @@ namespace Storm.ExternalEvent
 
         public void Fire<T>(T @event) where T : DetourEvent
         {
+            if (!Enabled) return;
             foreach (var mod in AssemblyMods)
                 mod.Fire(@event);
         }
