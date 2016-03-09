@@ -1,0 +1,8 @@
+﻿{
+    "displayName": "Storm Test Mod",
+    "author": "Zoryn Aaron",
+    "version": "1_STORM",
+    "description": "Test Mod - This version showcases config usage",
+
+    "assemblyFileName": "StormTestMod.dll"
+}

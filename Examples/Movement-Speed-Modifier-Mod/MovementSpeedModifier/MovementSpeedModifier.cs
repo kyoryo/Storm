@@ -30,7 +30,7 @@ using Storm.StardewValley.Wrapper;
 
 namespace MovementSpeedModifier
 {
-    [Mod(Author = "Zoryn Aaron", Name = "Movement Speed Modifier", Version = 1.0d)]
+    [Mod]
     public class MovementSpeedModifier : DiskResource
     {
         public Config ModConfig { get; private set; }
