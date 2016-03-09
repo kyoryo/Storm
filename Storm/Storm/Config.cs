@@ -96,7 +96,22 @@ namespace Storm
 
         public virtual Config UpdateConfig(Config baseConfig)
         {
-            return (Config) JObject.Parse(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings())).ToObject(baseConfig.GetType());
+            try
+            {
+                //default config with all standard values
+                var b = JObject.FromObject(baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig}));
+                //user config with their values
+                var u = baseConfig.JObject;
+
+                b.Merge(u);
+
+                return (Config)b.ToObject(baseConfig.GetType());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return baseConfig;
         }
 
         public virtual void WriteConfig(Config baseConfig)
