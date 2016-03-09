@@ -31,5 +31,15 @@ namespace Storm.StardewValley.Wrapper
         public StaticContext Parent { get; }
 
         public TerrainFeatureAccessor Expose() => accessor;
+
+        public bool IsHoeDirt()
+        {
+            return accessor is HoeDirtAccessor;
+        }
+
+        public HoeDirt AsHoeDirt()
+        {
+            return new HoeDirt(Parent, (HoeDirtAccessor)this.accessor);
+        }
     }
 }

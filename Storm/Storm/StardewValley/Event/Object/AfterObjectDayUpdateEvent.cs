@@ -19,11 +19,13 @@ namespace Storm.StardewValley.Event.Object
 {
     public class AfterObjectDayUpdateEvent : StaticContextEvent
     {
-        public AfterObjectDayUpdateEvent(Wrapper.ObjectItem obj)
+        public AfterObjectDayUpdateEvent(Wrapper.ObjectItem obj, Wrapper.GameLocation loc)
         {
             This = obj;
+            ArgLocation = loc;
         }
 
         public Wrapper.ObjectItem This { get; }
+        public Wrapper.GameLocation ArgLocation { get; }
     }
 }
