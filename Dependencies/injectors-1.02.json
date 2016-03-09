@@ -7929,6 +7929,65 @@
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
+	  "InsertionType": "BEGINNING"
+    },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
+	  "InsertionType": "LAST"
+    },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "canPlantThisSeedHere",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BeforeHoeDirtCanPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+	{
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": "setUpShopOwner",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "SetUpShopOwnerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Collections.Generic.List`1,System.Int32,System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostConstructShopViaListCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.Collections.IList,System.Int32,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
     {
       "OwnerAccessorType": "@ChatBox",
       "OwnerMethodName": "textBoxEnter",
