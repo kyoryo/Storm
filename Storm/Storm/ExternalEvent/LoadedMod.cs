@@ -16,7 +16,6 @@
  */
 
 using System.Collections.Generic;
-using Storm.ExternalEvent.Json;
 using Storm.Manipulation;
 
 namespace Storm.ExternalEvent

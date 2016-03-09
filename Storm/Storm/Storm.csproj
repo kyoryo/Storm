@@ -117,7 +117,7 @@
     <Compile Include="ExternalEvent\AssemblyMod.cs" />
     <Compile Include="ExternalEvent\AssemblyModLoader.cs" />
     <Compile Include="ExternalEvent\DiskResource.cs" />
-    <Compile Include="ExternalEvent\Json\JsonModManifest.cs" />
+    <Compile Include="ExternalEvent\JsonModManifest.cs" />
     <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Collections\KeyProxyDictionary.cs" />

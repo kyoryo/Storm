@@ -20,7 +20,6 @@ using System.IO;
 using System.Reflection;
 using Castle.Core.Internal;
 using Newtonsoft.Json;
-using Storm.ExternalEvent.Json;
 
 namespace Storm.ExternalEvent
 {
