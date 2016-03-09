@@ -7968,6 +7968,17 @@
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+	  "InsertionIndex": [ 1 ]
+    },
     {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "canPlantThisSeedHere",
@@ -7977,6 +7988,17 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "canPlantThisSeedHere",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHoeDirtCanPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+	  "InsertionIndex": [ 1 ]
     },
 	{
       "OwnerAccessorType": "@ShopMenu",

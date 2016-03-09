@@ -647,6 +647,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AfterHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
+        {
+            var @event = new AfterHoeDirtCanPlantEvent(objectIndex, tileX, tileY, isFertilizer);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
+        {
+            var @event = new AfterHoeDirtPlantEvent(objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region Objects
