@@ -15,10 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using Newtonsoft.Json;
+using Storm.ExternalEvent.Json;
 
 namespace Storm.ExternalEvent
 {
@@ -52,17 +53,17 @@ namespace Storm.ExternalEvent
             if (!File.Exists(manifestPath))
                 return;
 
-            var manifest = JsonConvert.DeserializeObject<Json.JsonModManifest>(File.ReadAllText(manifestPath));
+            var manifest = JsonConvert.DeserializeObject<JsonModManifest>(File.ReadAllText(manifestPath));
 
             var dllPath = string.Empty;
             if (!string.IsNullOrEmpty(manifest.AssemblyFileName))
-                dllPath = Path.Combine(path, (string)manifest.AssemblyFileName);
+                dllPath = Path.Combine(path, manifest.AssemblyFileName);
 
             /* if we have an assembly to load, let's do it */
-            List<AssemblyMod> assemblyMods = new List<AssemblyMod>();
+            var assemblyMods = new List<AssemblyMod>();
             if (!string.IsNullOrEmpty(dllPath) && File.Exists(dllPath))
             {
-                var loaded = LoadModsFromAssembly(Assembly.LoadFile(dllPath));
+                var loaded = LoadModsFromAssembly(Assembly.UnsafeLoadFrom(dllPath));
                 loaded.ForEach(m => m.LoadDirectory = path);
 
                 assemblyMods.AddRange(loaded);
@@ -73,7 +74,7 @@ namespace Storm.ExternalEvent
                 /* do our custom content handlers */
             }
 
-            LoadedMod mod = new LoadedMod(manifest, assemblyMods);
+            var mod = new LoadedMod(manifest, assemblyMods);
             result.Add(mod);
 
             Logging.DebugLog(string.Format("Loaded {0} {2} by {1}", mod.Name, mod.Author, mod.Version));

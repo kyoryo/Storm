@@ -15,12 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using Storm.StardewValley.Wrapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm
 {
@@ -28,10 +24,10 @@ namespace Storm
     {
         public delegate W Wrap<V, W>(V val);
 
-        private System.Collections.IDictionary real;
-        private Wrap<TValue, TWrapper> wrapper;
+        private readonly IDictionary real;
+        private readonly Wrap<TValue, TWrapper> wrapper;
 
-        public DualProxyDictionary(System.Collections.IDictionary real, Wrap<TValue, TWrapper> wrapper)
+        public DualProxyDictionary(IDictionary real, Wrap<TValue, TWrapper> wrapper)
         {
             this.real = real;
             this.wrapper = wrapper;
@@ -40,6 +36,11 @@ namespace Storm
         public int Count
         {
             get { return real.Count; }
+        }
+
+        public bool Contains<T>(Wrapper<T> key)
+        {
+            return real.Contains(key.Expose());
         }
 
         public void Add<T>(Wrapper<TKey> key, Wrapper<T> value)
@@ -54,7 +55,7 @@ namespace Storm
 
         public TWrapper Get(Wrapper<TKey> key)
         {
-            return wrapper((TValue)real[key.Expose()]);
+            return wrapper((TValue) real[key.Expose()]);
         }
 
         public void Clear()

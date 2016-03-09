@@ -15,12 +15,10 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
-using System.Collections;
 
-namespace Storm.StardewValley.Event.ShopMenu
+namespace Storm.StardewValley.Event
 {
     public class PostConstructShopViaListEvent : StaticContextEvent
     {
@@ -34,6 +32,5 @@ namespace Storm.StardewValley.Event.ShopMenu
         public ProxyList<ItemAccessor, Item> ItemsForSale { get; }
         public int Currency { get; }
         public string Who { get; }
-
     }
 }

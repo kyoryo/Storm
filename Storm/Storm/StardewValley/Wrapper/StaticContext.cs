@@ -17,6 +17,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -25,7 +26,6 @@ using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Accessor;
 using xTile.Display;
 using Rectangle = xTile.Dimensions.Rectangle;
-using System.Collections.Generic;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -1308,7 +1308,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetCurrentfps(); }
             set { accessor._SetCurrentfps(value); }
         }
-        
+
         public ObjectItem DishOfTheDay
         {
             get { return new ObjectItem(this, accessor._GetDishOfTheDay()); }
@@ -1489,6 +1489,21 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetObjectDialoguePortraitPerson(value.Expose()); }
         }
 
+        public ChatBox ChatBox
+        {
+            get
+            {
+                foreach (var iclickableMenu in accessor._GetOnScreenMenus())
+                {
+                    if (iclickableMenu is ChatBoxAccessor)
+                        return new ChatBox(this, (ChatBoxAccessor) iclickableMenu);
+                }
+                return null;
+            }
+        }
+
+        public StaticContextAccessor Expose() => accessor;
+
         public Texture2D LoadResource(string path)
         {
             var fs = new FileStream(path, FileMode.Open);
@@ -1503,20 +1518,5 @@ namespace Storm.StardewValley.Wrapper
             var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
-
-        public ChatBox ChatBox
-        {
-            get
-            {
-                foreach (var iclickableMenu in accessor._GetOnScreenMenus())
-                {
-                    if (iclickableMenu is ChatBoxAccessor)
-                        return (ChatBox)new ChatBox(this, (ChatBoxAccessor)iclickableMenu);
-                }
-                return (ChatBox)null;
-            }
-        }
-
-        public StaticContextAccessor Expose() => accessor;
     }
 }

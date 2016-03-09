@@ -15,7 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.Farmer
+namespace Storm.StardewValley.Event
 {
     public class AfterFarmerShippedBasicEvent : StaticContextEvent
     {
@@ -23,7 +23,6 @@ namespace Storm.StardewValley.Event.Farmer
         {
             Index = index;
             Number = number;
-
         }
 
         public int Index { get; }

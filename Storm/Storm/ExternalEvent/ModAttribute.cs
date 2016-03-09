@@ -19,5 +19,7 @@ using System;
 
 namespace Storm.ExternalEvent
 {
-    public class Mod : Attribute { }
+    public class Mod : Attribute
+    {
+    }
 }

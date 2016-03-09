@@ -17,19 +17,14 @@
 
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Billboard : ClickableMenu, Wrapper<BillboardAccessor>
     {
-        private BillboardAccessor accessor;
+        private readonly BillboardAccessor accessor;
 
-        public Billboard(StaticContext parent, BillboardAccessor accessor) : 
+        public Billboard(StaticContext parent, BillboardAccessor accessor) :
             base(parent, accessor)
         {
             this.accessor = accessor;
@@ -55,13 +50,14 @@ namespace Storm.StardewValley.Wrapper
 
         public ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
         {
-            get {
+            get
+            {
                 return new ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(
                     accessor._GetCalendarDays(), i => new ClickableTextureComponent(Parent, i));
             }
         }
 
-        public String HoverText
+        public string HoverText
         {
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }

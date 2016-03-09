@@ -15,7 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Collections;
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper

@@ -15,13 +15,12 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Storm.StardewValley.Accessor;
-using System;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -49,10 +48,7 @@ namespace Storm.StardewValley.Wrapper
 
         public ValueProxyDictionary<string, int, int> Friendships
         {
-            get
-            {
-                return new ValueProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i);
-            }
+            get { return new ValueProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i); }
         }
 
         public int TileSlideThreshold
@@ -72,23 +68,10 @@ namespace Storm.StardewValley.Wrapper
             get { return new Item(Parent, accessor._GetActiveObject()); }
             set { accessor._SetActiveObject(value.Expose()); }
         }
-        
+
         public ProxyList<int, int> MovementDirections
         {
-            get
-            {
-                return new ProxyList<int, int>(accessor._GetMovementDirections(), i => i);
-            }
-        }
-
-        public void AddMovementDirection(int direction)
-        {
-            accessor._GetMovementDirections().Add(direction);
-        }
-
-        public void ClearMovementDirections()
-        {
-            accessor._GetMovementDirections().Clear();
+            get { return new ProxyList<int, int>(accessor._GetMovementDirections(), i => i); }
         }
 
         public Tool[] ToolBox
@@ -96,17 +79,9 @@ namespace Storm.StardewValley.Wrapper
             get
             {
                 var arr = accessor._GetToolBox();
-                return Array.ConvertAll(arr, (i) => new Tool(Parent, i));
+                return Array.ConvertAll(arr, i => new Tool(Parent, i));
             }
-            set
-            {
-                accessor._SetToolBox(Array.ConvertAll(value, (i) => i.Expose()));
-            }
-        }
-
-        public void SetToolInToolBox(int idx, Tool t)
-        {
-            accessor._GetToolBox()[idx] = t.Expose();
+            set { accessor._SetToolBox(Array.ConvertAll(value, i => i.Expose())); }
         }
 
         public ObjectItem Cupboard
@@ -804,7 +779,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetCanUnderstandDwarves(); }
             set { accessor._SetCanUnderstandDwarves(value); }
         }
-        
+
         public Vector2 PositionBeforeEvent
         {
             get { return accessor._GetPositionBeforeEvent(); }
@@ -957,9 +932,24 @@ namespace Storm.StardewValley.Wrapper
 
         public new FarmerAccessor Expose() => accessor;
 
+        public void AddMovementDirection(int direction)
+        {
+            accessor._GetMovementDirections().Add(direction);
+        }
+
+        public void ClearMovementDirections()
+        {
+            accessor._GetMovementDirections().Clear();
+        }
+
+        public void SetToolInToolBox(int idx, Tool t)
+        {
+            accessor._GetToolBox()[idx] = t.Expose();
+        }
+
         public void SetItem(int idx, Item item)
         {
             accessor._GetItems()[idx] = item.Expose();
-        }       
+        }
     }
 }

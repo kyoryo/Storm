@@ -21,25 +21,13 @@ using Castle.DynamicProxy;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
-using Storm.StardewValley.Wrapper;
 using Storm.StardewValley.Proxy;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley
 {
     public class StaticContextEvent : DetourEvent
     {
-        public Assembly GameAssembly { get; }
-        public StaticContext Root { get; }
-        public ModEventBus EventBus { get; }
-        public Type ToolType { get; }
-        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
-        public Type ObjectType { get; }
-        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; }
-        public Type TextureComponentType { get; }
-        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
-        public Type BillboardType { get; }
-        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; }
-
         public StaticContextEvent()
         {
             GameAssembly = StaticGameContext.Assembly;
@@ -53,6 +41,32 @@ namespace Storm.StardewValley
             TextureComponentFactory = StaticGameContext.TextureComponentFactory;
             BillboardType = StaticGameContext.BillboardType;
             BillboardFactory = StaticGameContext.BillboardFactory;
+            ClickableMenuType = StaticGameContext.ClickableMenuType;
+            ClickableMenuFactory = StaticGameContext.ClickableMenuFactory;
+        }
+
+        public Assembly GameAssembly { get; }
+        public StaticContext Root { get; }
+        public ModEventBus EventBus { get; }
+        public Type ToolType { get; }
+        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
+        public Type ObjectType { get; }
+        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; }
+        public Type TextureComponentType { get; }
+        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
+        public Type BillboardType { get; }
+        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; }
+        public Type ClickableMenuType { get; }
+        public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; }
+
+        public Farmer LocalPlayer
+        {
+            get { return Root.Player; }
+        }
+
+        public GameLocation Location
+        {
+            get { return Root.CurrentLocation; }
         }
 
         public Tool ProxyTool(ToolDelegate @delegate)
@@ -69,7 +83,7 @@ namespace Storm.StardewValley
         public ObjectItem ProxyObject(ObjectDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            var accessor = (ObjectAccessor)generator.CreateClassProxy(
+            var accessor = (ObjectAccessor) generator.CreateClassProxy(
                 ObjectType, ObjectFactory.CreateInterceptor(@delegate));
 
             var wrapped = new ObjectItem(Root, accessor);
@@ -80,7 +94,7 @@ namespace Storm.StardewValley
         public Billboard ProxyBillboard(BillboardDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            var accessor = (BillboardAccessor)generator.CreateClassProxy(
+            var accessor = (BillboardAccessor) generator.CreateClassProxy(
                 BillboardType, BillboardFactory.CreateInterceptor(@delegate));
 
             var wrapped = new Billboard(Root, accessor);
@@ -91,7 +105,7 @@ namespace Storm.StardewValley
         public ClickableTextureComponentAccessor ProxyTexture(TextureComponentDelegate @delegate)
         {
             var generator = new ProxyGenerator();
-            var accessor = (ClickableTextureComponentAccessor)generator.CreateClassProxy(
+            var accessor = (ClickableTextureComponentAccessor) generator.CreateClassProxy(
                 TextureComponentType,
                 @delegate.GetConstructorParams(),
                 TextureComponentFactory.CreateInterceptor(@delegate));
@@ -99,14 +113,15 @@ namespace Storm.StardewValley
             return accessor;
         }
 
-        public Farmer LocalPlayer
+        public ClickableMenu ProxyClickableMenu(ClickableMenuDelegate @delegate)
         {
-            get { return Root.Player; }
-        }
+            var generator = new ProxyGenerator();
+            var accessor = (ClickableMenuAccessor) generator.CreateClassProxy(
+                ClickableMenuType, ClickableMenuFactory.CreateInterceptor(@delegate));
 
-        public GameLocation Location
-        {
-            get { return Root.CurrentLocation; }
+            var wrapped = new ClickableMenu(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
         }
     }
 }

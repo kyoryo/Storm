@@ -14,20 +14,21 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.HoeDirt
+namespace Storm.StardewValley.Event
 {
     public class BeforeDayUpdateHoeDirtEvent : StaticContextEvent
     {
-        public BeforeDayUpdateHoeDirtEvent(Wrapper.GameLocation environment, Microsoft.Xna.Framework.Vector2 tilelocation)
+        public BeforeDayUpdateHoeDirtEvent(GameLocation environment, Vector2 tilelocation)
         {
             Environment = environment;
             TileLocation = tilelocation;
         }
 
-        public Wrapper.GameLocation Environment { get; }
-        public Microsoft.Xna.Framework.Vector2 TileLocation { get; }
+        public GameLocation Environment { get; }
+        public Vector2 TileLocation { get; }
     }
 }

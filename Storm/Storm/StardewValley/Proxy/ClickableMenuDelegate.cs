@@ -14,32 +14,44 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Wrapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
     public abstract class ClickableMenuDelegate : TypeDelegate<ClickableMenu>
     {
+        [ProxyMap(Name = "EmergencyShutDown")]
+        public abstract void EmergencyShutDown();
+
+        [ProxyMap(Name = "Draw")]
         public abstract void Draw(SpriteBatch b);
 
+        [ProxyMap(Name = "PerformHoverAction")]
         public abstract void PerformHoverAction(int x, int y);
 
+        [ProxyMap(Name = "ReadyToClose")]
         public abstract bool ReadyToClose();
 
+        [ProxyMap(Name = "ReceiveGamePadButton")]
+        public abstract void ReceiveGamePadButton(Buttons b);
+
+        [ProxyMap(Name = "ReceiveKeyPress")]
         public abstract void ReceiveKeyPress(Keys key);
 
+        [ProxyMap(Name = "ReceiveLeftClick")]
         public abstract void ReceiveLeftClick(int x, int y, bool playSound = true);
 
+        [ProxyMap(Name = "ReceiveRightClick")]
         public abstract void ReceiveRightClick(int x, int y, bool playSound = true);
 
+        [ProxyMap(Name = "ReceiveScrollWheelAction")]
         public abstract void ReceiveScrollWheelAction(int direction);
 
+        [ProxyMap(Name = "Update")]
+        public abstract void Update(GameTime time);
     }
 }

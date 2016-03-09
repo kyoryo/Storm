@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Russell Long (InfinitySamurai), Zoey (Zoryn)
+    Copyright 2016 Zoey (Zoryn)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,9 +17,9 @@
 
 namespace Storm.StardewValley.Event
 {
-    public class BeforeDoneFishingEvent : StaticContextEvent
+    public class AfterDoneFishingEvent : StaticContextEvent
     {
-        public BeforeDoneFishingEvent(Wrapper.Farmer who, Wrapper.FishingRod rod, bool consumeBaitAndTackle)
+        public AfterDoneFishingEvent(Wrapper.Farmer who, Wrapper.FishingRod rod, bool consumeBaitAndTackle)
         {
             Who = who;
             Rod = rod;
