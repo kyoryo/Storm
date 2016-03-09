@@ -945,7 +945,8 @@ namespace Storm.StardewValley.Wrapper
 
         public void SetItem(int idx, Item item)
         {
-            accessor._GetItems()[idx] = item.Expose();
+            var set = item == null ? null : item.Expose();
+            accessor._GetItems()[idx] = set;
         }
     }
 }
