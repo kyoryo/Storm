@@ -1287,8 +1287,16 @@ namespace Storm.StardewValley.Wrapper
 
         public ClickableMenu ActiveClickableMenu
         {
-            get { return new ClickableMenu(this, accessor._GetActiveClickableMenu()); }
-            set { accessor._SetActiveClickableMenu(value.Expose()); }
+            get
+            {
+                var tmp = accessor._GetActiveClickableMenu();
+                if (tmp == null) return null;
+                return new ClickableMenu(this, tmp);
+            }
+            set
+            {
+                accessor._SetActiveClickableMenu(value.Expose());
+            }
         }
 
         public int FramesThisSecond
