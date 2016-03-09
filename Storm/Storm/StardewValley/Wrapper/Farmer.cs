@@ -137,7 +137,7 @@ namespace Storm.StardewValley.Wrapper
         public Item ItemToEat
         {
             get { return new Item(Parent, accessor._GetItemToEat()); }
-            set { accessor._SetItemToEat(value.Cast<ItemAccessor>()); }
+            set { accessor._SetItemToEat(value == null ? null : value.Cast<ItemAccessor>()); }
         }
 
         public int ToolPower
