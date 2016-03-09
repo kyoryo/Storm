@@ -17,7 +17,7 @@
 
 namespace Storm.StardewValley.Event
 {
-    public class NewDayEvent : StaticContextEvent
+    public class BeforeNewDayEvent : StaticContextEvent
     {
     }
 }
