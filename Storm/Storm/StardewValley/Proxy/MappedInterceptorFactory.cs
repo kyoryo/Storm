@@ -46,6 +46,13 @@ namespace Storm.StardewValley.Proxy
                 var attr = method.GetCustomAttribute<ProxyMap>();
                 if (attr != null)
                 {
+                    var name = InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name);
+                    if (name == null)
+                    {
+                        Logging.Logs("[{0}] Failed to find obfuscated name to map", GetType().Name);
+                        Logging.Logs("\t{0} {1} {2}", accessor.Name, attr.Name, method.Name);
+                        continue;
+                    }
                     callMap.Add(InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name), method);
                 }
             }
