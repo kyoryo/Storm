@@ -17,7 +17,7 @@
 
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Object
+namespace Storm.StardewValley.Event
 {
     public class BeforeObjectDayUpdateEvent : StaticContextEvent
     {

@@ -18,7 +18,7 @@
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.HoeDirt
+namespace Storm.StardewValley.Event
 {
     public class BeforeDayUpdateHoeDirtEvent : StaticContextEvent
     {

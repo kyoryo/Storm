@@ -17,7 +17,7 @@
 
 using System;
 
-namespace Storm.StardewValley.Event.MineShaft
+namespace Storm.StardewValley.Event
 {
     public class GetOreIndexForLevelEvent : StaticContextEvent
     {

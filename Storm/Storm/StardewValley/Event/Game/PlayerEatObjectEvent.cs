@@ -18,7 +18,7 @@
 
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Game
+namespace Storm.StardewValley.Event
 {
     public class PlayerEatObjectEvent : StaticContextEvent
     {

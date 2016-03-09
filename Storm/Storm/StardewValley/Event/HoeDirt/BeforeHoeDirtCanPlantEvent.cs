@@ -15,7 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.HoeDirt
+namespace Storm.StardewValley.Event
 {
     public class BeforeHoeDirtCanPlantEvent : StaticContextEvent
     {
