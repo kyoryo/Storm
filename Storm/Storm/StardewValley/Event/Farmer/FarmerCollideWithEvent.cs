@@ -18,7 +18,7 @@
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Farmer
+namespace Storm.StardewValley.Event
 {
     public class FarmerCollideWithEvent : StaticContextEvent
     {

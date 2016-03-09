@@ -227,11 +227,11 @@
     <Compile Include="StardewValley\Accessor\WateringCanAccessor.cs" />
     <Compile Include="StardewValley\Event\Farmer\AddItemToInventoryEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\CropCompleteGrowthEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\AfterClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\After10MinuteClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\KeyPressedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\KeyReleasedEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\MouseButtonPressed.cs" />
-    <Compile Include="StardewValley\Event\Game\MouseButtonReleased.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\MouseButtonReleasedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayerEatObjectEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlayMorningSongEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PrepareSpouseForWeddingEvent.cs" />
@@ -314,7 +314,7 @@
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
-    <Compile Include="StardewValley\Event\Game\BeforeClockUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\Before10MinuteClockUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostRenderEvent.cs" />
     <Compile Include="StardewValley\Proxy\InterceptorFactory.cs" />
     <Compile Include="StardewValley\ManagedStardewValleyLauncher.cs" />
