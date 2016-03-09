@@ -77,6 +77,24 @@ namespace Storm.StardewValley
             get { return new StaticContext(Root._GetGame()); }
         }
 
+        #region ContentManager Events
+
+        public static DetourEvent LoadContentCallback(StaticContextAccessor context)
+        {
+            var @event = new LoadContentEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent UnloadContentCallback(StaticContextAccessor context)
+        {
+            var @event = new UnloadContentEvent();
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
         #region Chatbox
 
         public static DetourEvent ChatboxTextEnteredCallback(ChatBoxAccessor chatbox, TextBoxAccessor textbox)
