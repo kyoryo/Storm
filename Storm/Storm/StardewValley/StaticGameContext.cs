@@ -641,6 +641,26 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        
+        public static DetourEvent AfterHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
+        {
+            var @event = new AfterHoeDirtCanPlantEvent(objectIndex, tileX, tileY, isFertilizer);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+                //crashes when called currently
+
+        
+        public static DetourEvent AfterHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
+        {
+            var @event = new AfterHoeDirtPlantEvent(objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        //crashes when called currently
+
         #endregion
 
         #region Objects
@@ -694,15 +714,6 @@ namespace Storm.StardewValley
         #endregion
 
         #region ShopMenu Events
-
-        public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
-        {
-            var itemsForSale = new ProxyList<ItemAccessor, Item>(list, (i) => new Item(WrappedGame, i));
-            var @event = new PreConstructShopViaListEvent(itemsForSale, currency, who);
-            EventBus.Fire(@event);
-            return @event;
-        }
-
 
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
         {

@@ -7944,6 +7944,16 @@
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
+	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
+	  "InsertionType": "BEGINNING"
+    },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
 	  "PushParams": "true",
@@ -7968,6 +7978,28 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
+    },
+	    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "canPlantThisSeedHere",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHoeDirtCanPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+	  "JumpFix": "true"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+	  "JumpFix": "true"
     },
 	{
       "OwnerAccessorType": "@ShopMenu",
