@@ -1,26 +1,31 @@
-﻿using System;
+﻿using Storm.StardewValley.Wrapper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Storm.StardewValley.Wrapper;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Storm
+namespace Storm.Collections
 {
-    public class ProxyList<TOValue, TValue> : System.Collections.Generic.IList<TValue>
+    public class WrappedProxyList<TOValue, TValue> : System.Collections.Generic.IList<TValue> where TValue : Wrapper
     {
         public delegate W Wrap<V, W>(V val);
 
         private readonly IList real;
+        private readonly Wrap<TOValue, TValue> wrapper;
 
-        public ProxyList(IList real)
+        public WrappedProxyList(IList real, Wrap<TOValue, TValue> wrapper)
         {
             this.real = real;
+            this.wrapper = wrapper;
         }
 
         public int Count
         {
             get
             {
-                throw new NotImplementedException();
+                return real.Count;
             }
         }
 
@@ -36,23 +41,23 @@ namespace Storm
         {
             get
             {
-                return (TValue)real[index];
+                return wrapper((TOValue)real[index]);
             }
 
             set
             {
-                real[index] = value;
+                real[index] = value.Expose();
             }
         }
 
         public int IndexOf(TValue item)
         {
-            return real.IndexOf(item);
+            return real.IndexOf(item.Expose());
         }
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item);
+            real.Insert(index, item.Expose());
         }
 
         public void RemoveAt(int index)
@@ -62,7 +67,7 @@ namespace Storm
 
         public void Add(TValue item)
         {
-            real.Add(item);
+            real.Add(item.Expose());
         }
 
         public void Clear()
@@ -72,7 +77,7 @@ namespace Storm
 
         public bool Contains(TValue item)
         {
-            return real.Contains(item);
+            return real.Contains(item.Expose());
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
@@ -83,7 +88,7 @@ namespace Storm
         public bool Remove(TValue item)
         {
             if (!Contains(item)) return false;
-            real.Remove(item);
+            real.Remove(item.Expose());
             return true;
         }
 

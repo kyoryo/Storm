@@ -21,6 +21,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Storm.StardewValley.Accessor;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -33,22 +34,17 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public List<Item> Items
+        public WrappedProxyList<ItemAccessor, Item> Items
         {
             get
             {
-                return accessor.
-                    _GetItems().
-                    Cast<ItemAccessor>().
-                    Where(i => i != null).
-                    Select(i => new Item(Parent, i)).
-                    ToList();
+                return new WrappedProxyList<ItemAccessor, Item>(accessor._GetItems(), i => i == null ? null : new Item(Parent, i));
             }
         }
 
-        public ValueProxyDictionary<string, int, int> Friendships
+        public ProxyDictionary<string, int[]> Friendships
         {
-            get { return new ValueProxyDictionary<string, int, int>(accessor._GetFriendships(), i => i); }
+            get { return new ProxyDictionary<string, int[]>(accessor._GetFriendships()); }
         }
 
         public int TileSlideThreshold
