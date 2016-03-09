@@ -46,7 +46,7 @@ namespace Storm.Collections
 
             set
             {
-                real[index] = value.Expose();
+                real[index] = value == null ? null : value.Expose();
             }
         }
 
@@ -57,7 +57,7 @@ namespace Storm.Collections
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item.Expose());
+            real.Insert(index, item == null ? null : item.Expose());
         }
 
         public void RemoveAt(int index)
@@ -67,7 +67,7 @@ namespace Storm.Collections
 
         public void Add(TValue item)
         {
-            real.Add(item.Expose());
+            real.Add(item == null ? null : item.Expose());
         }
 
         public void Clear()
