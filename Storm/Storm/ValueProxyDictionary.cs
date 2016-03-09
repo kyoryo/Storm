@@ -42,6 +42,11 @@ namespace Storm
             get { return real.Count; }
         }
 
+        public bool Contains(TKey key)
+        {
+            return real.Contains(key);
+        }
+
         public void Add<T>(TKey key, Wrapper<T> value)
         {
             real.Add(key, value.Expose());
