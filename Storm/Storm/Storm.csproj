@@ -155,6 +155,8 @@
     <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\Game\AfterNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\BeforeNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtCanPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtPlantEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
