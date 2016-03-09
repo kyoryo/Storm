@@ -29,6 +29,7 @@ using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
 using Rectangle = xTile.Dimensions.Rectangle;
+using System.Windows.Forms;
 
 namespace Storm.StardewValley
 {
@@ -63,6 +64,12 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
+            if (!File.Exists(InjectorsPath))
+            {
+                MessageBox.Show("Could not find injectors @\n" + InjectorsPath, "Error");
+                Environment.Exit(1);
+            }
+
             using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read))
             {
                 var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
