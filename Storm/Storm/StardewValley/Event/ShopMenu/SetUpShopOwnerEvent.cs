@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Maurício Gomes (Speeder)
+    Copyright 2016
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,17 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Event.Object
+namespace Storm.StardewValley.Event.ShopMenu
 {
-    public class AfterObjectDayUpdateEvent : StaticContextEvent
+    public class SetUpShopOwnerEvent : StaticContextEvent
     {
-        public AfterObjectDayUpdateEvent(Wrapper.ObjectItem obj, Wrapper.GameLocation loc)
+        public SetUpShopOwnerEvent(string who)
         {
-            This = obj;
-            ArgLocation = loc;
+            Who = who;
         }
 
-        public Wrapper.ObjectItem This { get; }
-        public Wrapper.GameLocation ArgLocation { get; }
+        public string Who { get; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Maurício Gomes (Speeder)
+    Copyright 2016
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,18 +14,24 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Microsoft.Xna.Framework;
+using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Event.Object
+namespace Storm.StardewValley.Event.HoeDirt
 {
-    public class AfterObjectDayUpdateEvent : StaticContextEvent
+    public class BeforeHoeDirtCanPlantEvent : StaticContextEvent
     {
-        public AfterObjectDayUpdateEvent(Wrapper.ObjectItem obj, Wrapper.GameLocation loc)
+        public BeforeHoeDirtCanPlantEvent(int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            This = obj;
-            ArgLocation = loc;
+            ObjectIndex = objectIndex;
+            TileX = tileX;
+            TileY = tileY;
+            IsFertilizer = isFertilizer;
         }
 
-        public Wrapper.ObjectItem This { get; }
-        public Wrapper.GameLocation ArgLocation { get; }
+        public int ObjectIndex { get; }
+        public int TileX { get; }
+        public int TileY { get; }
+        public bool IsFertilizer { get; }
     }
 }

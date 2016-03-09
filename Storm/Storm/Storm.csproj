@@ -270,7 +270,11 @@
     <Compile Include="StardewValley\Event\Object\BeforeObjectDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterDayUpdateHoeDirtEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\BeforeDayUpdateHoeDirtEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\BeforeHoeDirtCanPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\HoeDirt\BeforeHoeDirtPlantEvent.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaListEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\SetUpShopOwnerEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
     <Compile Include="StardewValley\Proxy\BillboardDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ClickableMenuDelegate.cs" />

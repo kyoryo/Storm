@@ -31,6 +31,8 @@ using Storm.StardewValley.Wrapper;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Event.HoeDirt;
 using Microsoft.Xna.Framework;
+using Storm.StardewValley.Event.ShopMenu;
+using System.Collections;
 
 namespace Storm.StardewValley
 {
@@ -596,20 +598,34 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        #endregion
-
-        #region Objects
-
-        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor)
+        public static DetourEvent BeforeHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
-            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            var @event = new BeforeHoeDirtPlantEvent(objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor)
+        public static DetourEvent BeforeHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor));
+            var @event = new BeforeHoeDirtCanPlantEvent(objectIndex, tileX, tileY, isFertilizer);
+            EventBus.Fire(@event);
+            return @event;
+        }
+        
+        #endregion
+
+        #region Objects
+
+        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
+        {
+            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
+        {
+            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
             EventBus.Fire(@event);
             return @event;
         }
@@ -642,6 +658,26 @@ namespace Storm.StardewValley
         public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
             var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), consumeBaitAndTackle);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        #endregion
+
+
+        #region ShopMenu Events
+
+        public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
+        {
+            var itemsForSale = new ProxyList<ItemAccessor, Item>(list, (i) => new Item(WrappedGame, i));
+            var @event = new PostConstructShopViaListEvent(itemsForSale, currency, who);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent SetUpShopOwnerCallback(ShopMenuAccessor shop, string who)
+        {
+            var @event = new SetUpShopOwnerEvent(who);
             EventBus.Fire(@event);
             return @event;
         }
