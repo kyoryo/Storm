@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Event
 {
-    class AssetLoadEvent : StaticContextEvent
+    public class AssetLoadEvent : StaticContextEvent
     {
 
         public Type Type { get; }

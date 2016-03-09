@@ -7944,16 +7944,6 @@
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
-	  "InsertionType": "BEGINNING"
-    },
-	{
-      "OwnerAccessorType": "@HoeDirt",
-      "OwnerMethodName": "dayUpdate",
-      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
 	  "PushParams": "true",
@@ -7969,6 +7959,17 @@
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     },
+	{
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+	  "InsertionIndex": [ 1 ]
+    },
     {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "canPlantThisSeedHere",
@@ -7979,7 +7980,7 @@
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     },
-	{
+    {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "canPlantThisSeedHere",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
@@ -7987,19 +7988,8 @@
       "InstanceCallbackName": "AfterHoeDirtCanPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
-      "InsertionType": "LAST",
-	  "JumpFix": "true"
-    },
-    {
-      "OwnerAccessorType": "@HoeDirt",
-      "OwnerMethodName": "plant",
-      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterHoeDirtPlantCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
-      "PushParams": "true",
-      "InsertionType": "LAST",
-	  "JumpFix": "true"
+      "FixJump": "true",
+	  "InsertionIndex": [ 1 ]
     },
 	{
       "OwnerAccessorType": "@ShopMenu",
@@ -8008,7 +7998,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "SetUpShopOwnerCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.String)Storm.Manipulation.DetourEvent",
-      "PushParams": "true",
+      "PushParams": "true"
     },
     {
       "OwnerAccessorType": "@ShopMenu",
@@ -8091,7 +8081,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PlayMineSongCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8099,7 +8089,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "ChooseLevelTypeCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8116,7 +8106,7 @@
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PrepareElevatorCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@MineShaft",
@@ -8160,7 +8150,7 @@
       "OwnerMethodDesc": "()System.Int32",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "GetExtraMineShaftMillisecondsCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@Object",
