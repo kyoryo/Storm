@@ -162,6 +162,24 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetType(value); }
         }
 
+        public ObjectItem HeldObject
+        {
+            get {
+                    if (accessor._GetHeldObject() == null) return null;
+                    else return new ObjectItem(Parent, accessor._GetHeldObject());
+                }
+            set {
+                    if (value == null) accessor._SetHeldObject(null);
+                    else accessor._SetHeldObject(value.accessor);
+                }
+        }
+
+        public int MinutesUntilReady
+        {
+            get { return accessor._GetMinutesUntilReady(); }
+            set { accessor._SetMinutesUntilReady(value); }
+        }
+
         public bool IsFence() => accessor is FenceAccessor;
 
         public bool IsChest() => accessor is ChestAccessor;
