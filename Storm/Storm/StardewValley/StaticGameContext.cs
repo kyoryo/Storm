@@ -115,7 +115,7 @@ namespace Storm.StardewValley
         public static DetourEvent InitializeCallback(StaticContextAccessor context)
         {
             WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
-            WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
+            WrappedGame.Version += ", Mods Loaded: " + EventBus.mods.Count;
             WrappedGame.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
 
             Logging.DebugLog("Game Initialized");
