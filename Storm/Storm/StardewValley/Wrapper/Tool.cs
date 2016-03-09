@@ -35,25 +35,39 @@ namespace Storm.StardewValley.Wrapper
             get { return Array.ConvertAll(accessor._GetAttachments(), i => new ObjectItem(Parent, i)); }
             set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
         }
-
+        /// <summary>
+        /// The name of this tool
+        /// </summary>
+        /// <value>The Name property gets/sets the value of the string field Name</value>
         public string Name
         {
             get { return accessor._GetName(); }
             set { accessor._SetName(value); }
         }
-
+        /// <summary>
+        /// The description of this tool
+        /// </summary>
+        /// <value>The Description propertly gets/sets the value of the string field Description</value>
         public string Description
         {
             get { return accessor._GetDescription(); }
             set { accessor._SetDescription(value); }
         }
 
-        public bool Stackable
+        public bool IsStackable
         {
             get { return accessor._GetIsStackable(); }
             set { accessor._SetIsStackable(value); }
         }
-
+        /// <summary>
+        /// The upgrade level of this tool
+        /// Default = 0
+        /// Copper = 1
+        /// Iron = 2
+        /// Gold = 3
+        /// Iridium = 4
+        /// </summary>
+        /// <value>The UpgradeLevel property sets/gets the value of the int field UpgradeLevel</value>
         public int UpgradeLevel
         {
             get { return accessor._GetUpgradeLevel(); }
@@ -65,9 +79,16 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetWeaponTexture(); }
             set { accessor._SetWeaponTexture(value); }
         }
-
+        /// <summary>
+        /// Whether this tool is fishing rod or not
+        /// </summary>
+        /// <returns>A boolean representing the fishing rod status of this tool</returns>
         public bool IsFishingRod() => accessor is FishingRodAccessor;
 
+        /// <summary>
+        /// Turns this tool into a fishing rod
+        /// </summary>
+        /// <returns>A new Fishing Rod</returns>
         public FishingRod ToFishingRod()
         {
             return new FishingRod(Parent, (FishingRodAccessor) accessor);

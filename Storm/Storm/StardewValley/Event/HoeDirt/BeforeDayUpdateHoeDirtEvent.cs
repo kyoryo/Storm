@@ -22,12 +22,14 @@ namespace Storm.StardewValley.Event
 {
     public class BeforeDayUpdateHoeDirtEvent : StaticContextEvent
     {
-        public BeforeDayUpdateHoeDirtEvent(GameLocation environment, Vector2 tilelocation)
+        public BeforeDayUpdateHoeDirtEvent(HoeDirt hoeDirt, GameLocation environment, Vector2 tilelocation)
         {
+            HoeDirt = hoeDirt;
             Environment = environment;
             TileLocation = tilelocation;
         }
 
+        public HoeDirt HoeDirt { get; }
         public GameLocation Environment { get; }
         public Vector2 TileLocation { get; }
     }

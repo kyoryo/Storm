@@ -30,19 +30,29 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public StaticContext Parent { get; }
-
+        /// <summary>
+        /// The chance for this crop to drop extra products
+        /// </summary>
+        /// <value>The ChanceForExtraCrops property gets/sets the value of the double field ChanceForExtraCrops </value>
         public double ChanceForExtraCrops
         {
             get { return accessor._GetChanceForExtraCrops(); }
             set { accessor._SetChanceForExtraCrops(value); }
         }
-
+        /// <summary>
+        /// The current phase of this crops growth cycle
+        /// Typical crops have 5 phases of growth, as visualised by their growing sprites
+        /// </summary>
+        /// <value>The CurrentPhase property gets/sets the value of the int field CurrentPhase</value>
         public int CurrentPhase
         {
             get { return accessor._GetCurrentPhase(); }
             set { accessor._SetCurrentPhase(value); }
         }
-
+        /// <summary>
+        /// Whether this crop is dead or not
+        /// </summary>
+        /// <value>The IsDead property gets/sets the value of the bool field IsDead</value>
         public bool IsDead
         {
             get { return accessor._GetIsDead(); }
@@ -60,7 +70,10 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetForageCrop(); }
             set { accessor._SetForageCrop(value); }
         }
-
+        /// <summary>
+        /// Whether this crop is fully grown or not
+        /// </summary>
+        /// <value>The IsFullyGrown property gets/sets the value of the bool field IsFullyGrown</value>
         public bool IsFullyGrown
         {
             get { return accessor._GetIsFullyGrown(); }

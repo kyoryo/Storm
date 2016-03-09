@@ -47,7 +47,10 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return accessor._GetViewport(); }
         }
-
+        /// <summary>
+        /// The Farmer accessor for this game
+        /// </summary>
+        /// <value>The Player property gets the value of the Farmer field Farmer</value>
         public Farmer Player
         {
             get
@@ -57,7 +60,10 @@ namespace Storm.StardewValley.Wrapper
                 return new Farmer(this, farmer);
             }
         }
-
+        /// <summary>
+        /// The current location of the player in the world
+        /// </summary>
+        /// <value>The CurrentLocation property gets the value of the GameLocation field CurrentLocation</value>
         public GameLocation CurrentLocation
         {
             get

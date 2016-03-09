@@ -22,13 +22,15 @@ namespace Storm.StardewValley.Event
 {
     public class PostConstructShopViaListEvent : StaticContextEvent
     {
-        public PostConstructShopViaListEvent(ProxyList<ItemAccessor, Item> itemsForSale, int currency = 0, string who = null)
+        public PostConstructShopViaListEvent(ShopMenu shopMenu, ProxyList<ItemAccessor, Item> itemsForSale, int currency = 0, string who = null)
         {
+            ShopMenu = shopMenu;
             ItemsForSale = itemsForSale;
             Currency = currency;
             Who = who;
         }
 
+        public ShopMenu ShopMenu { get; }
         public ProxyList<ItemAccessor, Item> ItemsForSale { get; }
         public int Currency { get; }
         public string Who { get; }
