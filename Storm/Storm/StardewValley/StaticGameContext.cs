@@ -650,20 +650,33 @@ namespace Storm.StardewValley
 
         public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
-            var @event = new BeforePullFishFromWaterEvent(whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            var @event = new BeforePullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterPullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        {
+            var @event = new AfterPullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
-            var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), consumeBaitAndTackle);
+            var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent AfterDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
+        {
+            var @event = new AfterDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
             EventBus.Fire(@event);
             return @event;
         }
 
         #endregion
-
 
         #region ShopMenu Events
 
