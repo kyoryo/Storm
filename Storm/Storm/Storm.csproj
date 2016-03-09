@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CecilExtensions.cs" />
+    <Compile Include="Collections\ProxyList.cs" />
     <Compile Include="Collections\WrappedProxyList.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Config.cs" />

@@ -283,7 +283,7 @@ namespace Storm.StardewValley.Wrapper
         public Farmer PlayerUsingGrangeDisplay
         {
             get { return new Farmer(Parent, accessor._GetPlayerUsingGrangeDisplay()); }
-            set { accessor._SetPlayerUsingGrangeDisplay(value.Expose()); }
+            set { accessor._SetPlayerUsingGrangeDisplay(value.Cast<FarmerAccessor>()); }
         }
 
         public int PreviousFacingDirection

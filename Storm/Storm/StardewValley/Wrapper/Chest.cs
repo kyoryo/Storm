@@ -50,7 +50,7 @@ namespace Storm.StardewValley.Wrapper
         public Farmer Opener
         {
             get { return new Farmer(Parent, accessor._GetOpener()); }
-            set { accessor._SetOpener(value.Expose()); }
+            set { accessor._SetOpener(value.Cast<FarmerAccessor>()); }
         }
 
         public string ChestType

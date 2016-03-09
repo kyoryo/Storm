@@ -162,7 +162,7 @@ namespace Storm.StardewValley.Wrapper
         public Farmer ServerHost
         {
             get { return new Farmer(this, accessor._GetServerHost()); }
-            set { accessor._SetServerHost(value.Expose()); }
+            set { accessor._SetServerHost(value.Cast<FarmerAccessor>()); }
         }
 
         public Texture2D ObjectSpriteSheet
