@@ -128,8 +128,6 @@ namespace Storm.StardewValley
             WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
             WrappedGame.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;
 
-            WrappedGame.Random = new Random();
-
             Logging.DebugLog("Game Initialized");
 
             var @event = new InitializeEvent();
