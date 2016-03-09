@@ -164,6 +164,11 @@
       "SimpleName": "MineShaft",
       "OwnerType": "StardewValley.Locations.MineShaft",
       "InterfaceType": "Storm.StardewValley.Accessor.MineShaftAccessor"
+    },
+    {
+      "SimpleName": "Horse",
+      "OwnerType": "StardewValley.Characters.Horse",
+      "InterfaceType": "Storm.StardewValley.Accessor.HorseAccessor"
     }
   ],
   "FieldDetourParams": [
@@ -7928,6 +7933,63 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeIntoSwimsuit",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerChangedIntoSwimsuitCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeOutOfSwimSuit",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerChangeOutOfSwimsuitCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "dayupdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AfterFarmerDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "getTexture",
+      "OwnerMethodDesc": "()Microsoft.Xna.Framework.Graphics.Texture2D",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetFarmerTextureCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "mountUp",
+      "OwnerMethodDesc": "(@(Horse))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerMountHorseCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.HorseAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "getHisOrHer",
+      "OwnerMethodDesc": "()System.String",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerGetHisHerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "shipAll",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerShipAllCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
     },
     {
       "OwnerAccessorType": "@StaticContext",
