@@ -152,6 +152,8 @@
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\AfterDoneFishingEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\AfterPullFishFromWaterEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\AfterNewDayEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\BeforeNewDayEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
@@ -316,7 +318,6 @@
     <Compile Include="StardewValley\Accessor\ObjectAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ProgramAccessor.cs" />
     <Compile Include="StardewValley\Accessor\ToolAccessor.cs" />
-    <Compile Include="StardewValley\Event\Game\NewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\SeasonChangeEvent.cs" />
     <Compile Include="StardewValley\Event\StaticContextEvent.cs" />
     <Compile Include="StardewValley\Event\Game\InitializeEvent.cs" />
@@ -383,7 +384,6 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
-    <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
     <Folder Include="StardewValley\Event\Utility\" />
   </ItemGroup>
