@@ -15,8 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Newtonsoft.Json;
 using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace Storm.ExternalEvent.Json
 {
@@ -25,15 +25,19 @@ namespace Storm.ExternalEvent.Json
         [DefaultValue("Unnamed Mod")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string DisplayName { get; set; }
+
         [DefaultValue("Unknown")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string Author { get; set; }
+
         [DefaultValue("1.0.0.0")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string Version { get; set; }
+
         [DefaultValue("")]
         [JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public string Description { get; set; }
+
         public string AssemblyFileName { get; set; }
     }
 }

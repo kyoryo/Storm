@@ -1,37 +1,33 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class ShopMenu : ClickableMenu, Wrapper<ShopMenuAccessor>
     {
-        private ShopMenuAccessor accessor;
+        private readonly ShopMenuAccessor accessor;
 
-        public ShopMenu(StaticContext parent, ShopMenuAccessor accessor) : 
+        public ShopMenu(StaticContext parent, ShopMenuAccessor accessor) :
             base(parent, accessor)
         {
             this.accessor = accessor;
         }
 
-        public String DescriptionText
+        public string DescriptionText
         {
             get { return accessor._GetDescriptionText(); }
             set { accessor._SetDescriptionText(value); }
         }
 
-        public String HoverText
+        public string HoverText
         {
             get { return accessor._GetHoverText(); }
             set { accessor._SetHoverText(value); }
         }
 
-        public String BoldTitleText
+        public string BoldTitleText
         {
             get { return accessor._GetBoldTitleText(); }
             set { accessor._SetBoldTitleText(value); }
@@ -85,7 +81,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetSellPercentage(value); }
         }
 
-        public System.Collections.IList Animations
+        public IList Animations
         {
             get { return accessor._GetAnimations(); }
             set { accessor._SetAnimations(value); }
@@ -133,7 +129,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetPortraitPerson(value.Expose()); }
         }
 
-        public String PotraitPersonDialogue
+        public string PotraitPersonDialogue
         {
             get { return accessor._GetPotraitPersonDialogue(); }
             set { accessor._SetPotraitPersonDialogue(value); }

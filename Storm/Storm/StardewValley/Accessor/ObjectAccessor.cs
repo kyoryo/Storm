@@ -16,13 +16,14 @@
  */
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface ObjectAccessor : ItemAccessor
     {
-        Microsoft.Xna.Framework.Vector2 _GetTileLocation();
-        void _SetTileLocation(Microsoft.Xna.Framework.Vector2 val);
+        Vector2 _GetTileLocation();
+        void _SetTileLocation(Vector2 val);
 
         int _GetParentSheetIndex();
         void _SetParentSheetIndex(int val);
@@ -30,11 +31,11 @@ namespace Storm.StardewValley.Accessor
         long _GetOwner();
         void _SetOwner(long val);
 
-        System.String _GetName();
-        void _SetName(System.String val);
+        string _GetName();
+        void _SetName(string val);
 
-        System.String _GetType();
-        void _SetType(System.String val);
+        string _GetType();
+        void _SetType(string val);
 
         bool _GetCanBeSetDown();
         void _SetCanBeSetDown(bool val);
@@ -105,20 +106,19 @@ namespace Storm.StardewValley.Accessor
         int _GetMinutesUntilReady();
         void _SetMinutesUntilReady(int val);
 
-        Microsoft.Xna.Framework.Rectangle _GetBoundingBox();
-        void _SetBoundingBox(Microsoft.Xna.Framework.Rectangle val);
+        Rectangle _GetBoundingBox();
+        void _SetBoundingBox(Rectangle val);
 
-        Microsoft.Xna.Framework.Vector2 _GetScale();
-        void _SetScale(Microsoft.Xna.Framework.Vector2 val);
+        Vector2 _GetScale();
+        void _SetScale(Vector2 val);
 
         int _GetShakeTimer();
         void _SetShakeTimer(int val);
 
-        Microsoft.Xna.Framework.Audio.Cue _GetInternalSound();
-        void _SetInternalSound(Microsoft.Xna.Framework.Audio.Cue val);
+        Cue _GetInternalSound();
+        void _SetInternalSound(Cue val);
 
         int _GetHealth();
         void _SetHealth(int val);
-
     }
 }

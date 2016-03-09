@@ -35,7 +35,7 @@ namespace Storm.ExternalEvent
             Instance = instance;
             CallMap = callMap;
         }
-        
+
         public string LoadDirectory
         {
             get
@@ -55,11 +55,11 @@ namespace Storm.ExternalEvent
         public void Fire<T>(T @event) where T : DetourEvent
         {
             List<MethodInfo> handlers;
-            if (CallMap.TryGetValue(typeof(T), out handlers))
+            if (CallMap.TryGetValue(typeof (T), out handlers))
             {
                 foreach (var info in handlers)
                 {
-                    info.Invoke(Instance, new object[] { @event });
+                    info.Invoke(Instance, new object[] {@event});
                 }
             }
         }

@@ -22,13 +22,13 @@ namespace Storm.StardewValley.Event.Game
 {
     public class PlayerEatObjectEvent : StaticContextEvent
     {
-        public PlayerEatObjectEvent(Wrapper.ObjectItem o, bool overrideFullness)
+        public PlayerEatObjectEvent(ObjectItem o, bool overrideFullness)
         {
             O = o;
             OverrideFullness = overrideFullness;
         }
 
-        public Wrapper.ObjectItem O { get; }
+        public ObjectItem O { get; }
         public bool OverrideFullness { get; }
     }
 }

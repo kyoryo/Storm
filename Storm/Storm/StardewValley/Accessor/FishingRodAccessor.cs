@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Storm.StardewValley.Accessor
 {
     public interface FishingRodAccessor : ToolAccessor
     {
-        Microsoft.Xna.Framework.Vector2 _GetBobber();
-        void _SetBobber(Microsoft.Xna.Framework.Vector2 val);
+        Vector2 _GetBobber();
+        void _SetBobber(Vector2 val);
 
         int _GetMinFishingBiteTime();
         void _SetMinFishingBiteTime(int val);
@@ -113,8 +111,8 @@ namespace Storm.StardewValley.Accessor
         bool _GetBossFish();
         void _SetBossFish(bool val);
 
-        System.Collections.IList _GetAnimations();
-        void _SetAnimations(System.Collections.IList val);
+        IList _GetAnimations();
+        void _SetAnimations(IList val);
 
         int _GetFishSize();
         void _SetFishSize(int val);
@@ -131,14 +129,13 @@ namespace Storm.StardewValley.Accessor
         int _GetOriginalFacingDirection();
         void _SetOriginalFacingDirection(int val);
 
-        Microsoft.Xna.Framework.Audio.Cue _GetChargeSound();
-        void _SetChargeSound(Microsoft.Xna.Framework.Audio.Cue val);
+        Cue _GetChargeSound();
+        void _SetChargeSound(Cue val);
 
-        Microsoft.Xna.Framework.Audio.Cue _GetReelSound();
-        void _SetReelSound(Microsoft.Xna.Framework.Audio.Cue val);
+        Cue _GetReelSound();
+        void _SetReelSound(Cue val);
 
         bool _GetUsedGamePadToCast();
         void _SetUsedGamePadToCast(bool val);
-
     }
 }

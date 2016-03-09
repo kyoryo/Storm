@@ -14,17 +14,12 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
     public class StandardBillboardDelegate : BillboardDelegate
     {
-        private bool dailyQuest;
+        private readonly bool dailyQuest;
 
         public StandardBillboardDelegate(bool dailyQuest = false)
         {
@@ -33,7 +28,7 @@ namespace Storm.StardewValley.Proxy
 
         public override object[] GetConstructorParams()
         {
-            return new object[] { dailyQuest };
+            return new object[] {dailyQuest};
         }
     }
 }
