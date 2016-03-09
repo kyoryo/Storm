@@ -29,35 +29,42 @@ namespace Storm.ExternalEvent
         protected List<AssemblyMod> LoadModsFromAssembly(Assembly assembly)
         {
             var result = new List<AssemblyMod>();
-            var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof (Mod)) != null);
-            foreach (var mod in mods)
+            try
             {
-                var map = new Dictionary<Type, List<MethodInfo>>();
-
-                var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof (Subscribe)) != null);
-                foreach (var handler in handlers)
+                var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof(Mod)) != null);
+                foreach (var mod in mods)
                 {
-                    var @params = handler.GetParameters();
-                    if (@params.Length != 1)
+                    var map = new Dictionary<Type, List<MethodInfo>>();
+
+                    var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof(Subscribe)) != null);
+                    foreach (var handler in handlers)
                     {
-                        Logging.DebugLog("Invalid handler on " + mod.FullName + " " + handler.Name + " " + ReflectionUtils.DescriptionOf(handler));
-                        continue;
+                        var @params = handler.GetParameters();
+                        if (@params.Length != 1)
+                        {
+                            Logging.DebugLog("Invalid handler on " + mod.FullName + " " + handler.Name + " " + ReflectionUtils.DescriptionOf(handler));
+                            continue;
+                        }
+
+                        List<MethodInfo> list;
+                        if (!map.TryGetValue(@params[0].ParameterType, out list))
+                        {
+                            list = new List<MethodInfo>();
+                            map.Add(@params[0].ParameterType, list);
+                        }
+                        list.Add(handler);
                     }
 
-                    List<MethodInfo> list;
-                    if (!map.TryGetValue(@params[0].ParameterType, out list))
+                    result.Add(new AssemblyMod
                     {
-                        list = new List<MethodInfo>();
-                        map.Add(@params[0].ParameterType, list);
-                    }
-                    list.Add(handler);
+                        Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
+                        CallMap = map
+                    });
                 }
-
-                result.Add(new AssemblyMod
-                {
-                    Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
-                    CallMap = map
-                });
+            }
+            catch (Exception e)
+            {
+                Logging.Logs("[{0}] Failed to load mods from assembly {1} due to error {2}", GetType().Name, assembly.FullName, e.ToString());
             }
             return result;
         }
