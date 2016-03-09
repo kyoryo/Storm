@@ -62,7 +62,7 @@ namespace Storm.ExternalEvent
             List<AssemblyMod> assemblyMods = new List<AssemblyMod>();
             if (!string.IsNullOrEmpty(dllPath) && File.Exists(dllPath))
             {
-                var loaded = LoadModsFromAssembly(Assembly.LoadFile(dllPath));
+                var loaded = LoadModsFromAssembly(Assembly.UnsafeLoadFrom(dllPath));
                 loaded.ForEach(m => m.LoadDirectory = path);
 
                 assemblyMods.AddRange(loaded);
