@@ -55,6 +55,10 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetSpecialVariable(value); }
         }
 
+        public bool IsTool() => accessor is ToolAccessor;
+
+        public Tool ToTool() => new Tool(Parent, (ToolAccessor)accessor);
+
         public ItemAccessor Expose() => accessor;
     }
 }
