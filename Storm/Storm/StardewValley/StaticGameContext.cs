@@ -664,6 +664,7 @@ namespace Storm.StardewValley
 
         #endregion
 
+
         #region ShopMenu Events
 
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
