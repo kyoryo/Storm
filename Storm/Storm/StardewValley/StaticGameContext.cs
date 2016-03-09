@@ -621,42 +621,42 @@ namespace Storm.StardewValley
 
         public static DetourEvent BeforeDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
-            var @event = new BeforeDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            var @event = new BeforeDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
-            var @event = new AfterDayUpdateHoeDirtEvent(new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            var @event = new AfterDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent BeforeHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
-            var @event = new BeforeHoeDirtPlantEvent(objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            var @event = new BeforeHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent BeforeHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            var @event = new BeforeHoeDirtCanPlantEvent(objectIndex, tileX, tileY, isFertilizer);
+            var @event = new BeforeHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            var @event = new AfterHoeDirtCanPlantEvent(objectIndex, tileX, tileY, isFertilizer);
+            var @event = new AfterHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
             EventBus.Fire(@event);
             return @event;
         }
 
         public static DetourEvent AfterHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
-            var @event = new AfterHoeDirtPlantEvent(objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            var @event = new AfterHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
             EventBus.Fire(@event);
             return @event;
         }
@@ -715,25 +715,25 @@ namespace Storm.StardewValley
 
         #region ShopMenu Events
 
-        public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
+        public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shopMenu, IList list, int currency = 0, string who = null)
         {
             var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
-            var @event = new PreConstructShopViaListEvent(itemsForSale, currency, who);
+            var @event = new PreConstructShopViaListEvent(new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shop, IList list, int currency = 0, string who = null)
+        public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shopMenu, IList list, int currency = 0, string who = null)
         {
             var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
-            var @event = new PostConstructShopViaListEvent(itemsForSale, currency, who);
+            var @event = new PostConstructShopViaListEvent(new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
             EventBus.Fire(@event);
             return @event;
         }
 
-        public static DetourEvent SetUpShopOwnerCallback(ShopMenuAccessor shop, string who)
+        public static DetourEvent SetUpShopOwnerCallback(ShopMenuAccessor shopMenu, string who)
         {
-            var @event = new SetUpShopOwnerEvent(who);
+            var @event = new SetUpShopOwnerEvent(new ShopMenu(WrappedGame, shopMenu), who);
             EventBus.Fire(@event);
             return @event;
         }

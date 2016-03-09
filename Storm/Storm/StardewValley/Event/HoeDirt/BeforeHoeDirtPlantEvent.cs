@@ -15,12 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class BeforeHoeDirtPlantEvent : StaticContextEvent
     {
-        public BeforeHoeDirtPlantEvent(int objectIndex, int tileX, int tileY, Wrapper.Farmer farmer, bool isFertilizer = false)
+        public BeforeHoeDirtPlantEvent(HoeDirt hoeDirt, int objectIndex, int tileX, int tileY, Wrapper.Farmer farmer, bool isFertilizer = false)
         {
+            HoeDirt = hoeDirt;
             ObjectIndex = objectIndex;
             TileX = tileX;
             TileY = tileY;
@@ -28,6 +31,7 @@ namespace Storm.StardewValley.Event
             IsFertilizer = isFertilizer;
         }
 
+        public HoeDirt HoeDirt { get; }
         public int ObjectIndex { get; }
         public int TileX { get; }
         public int TileY { get; }
