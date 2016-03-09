@@ -15,14 +15,35 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public bool AddForSale(Item item, int price, int amount = int.MaxValue)
+        {
+            var list = ItemsForSale;
+            if (list == null) return false;
+            var dict = ItemsForSaleData;
+            if (dict == null) return false;
+            list.Add(item);
+            dict.Add(item, new int[] { price, amount });
+            return true;
+        }
+
         public ProxyList<ItemAccessor, Item> ItemsForSale
         {
-            get { return new ProxyList<ItemAccessor, Item>(accessor._GetForSale()); }
+            get
+            {
+                var tmp = accessor._GetForSale();
+                if (tmp == null) return null;
+                return new ProxyList<ItemAccessor, Item>(tmp);
+            }
         }
 
         public KeyProxyDictionary<Item, int[]> ItemsForSaleData
         {
-            get { return new KeyProxyDictionary<Item, int[]>(accessor._GetItemPriceAndStock()); }
+            get
+            {
+                var tmp = accessor._GetItemPriceAndStock();
+                if (tmp == null) return null;
+                return new KeyProxyDictionary<Item, int[]>(tmp);
+            }
         }
 
         public string DescriptionText
