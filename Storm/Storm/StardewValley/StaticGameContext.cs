@@ -679,6 +679,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PreObjectDropInActionCallback(ObjectAccessor accessor, ObjectAccessor dropAccessor, bool probe, FarmerAccessor who)
+        {
+            var @event = new PreObjectDropInActionEvent(new ObjectItem(WrappedGame, accessor), new ObjectItem(WrappedGame, dropAccessor), probe, new Farmer(WrappedGame, who));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostObjectDropInActionCallback(ObjectAccessor accessor, ObjectAccessor dropAccessor, bool probe, FarmerAccessor who)
+        {
+            var @event = new PostObjectDropInActionEvent(new ObjectItem(WrappedGame, accessor), new ObjectItem(WrappedGame, dropAccessor), probe, new Farmer(WrappedGame, who));
+            EventBus.Fire(@event);
+            return @event;
+        }
+
         #endregion
 
         #region FishingRod Events

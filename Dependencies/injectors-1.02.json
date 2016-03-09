@@ -8190,6 +8190,26 @@
       "PushParams": "true"
     },
     {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "performObjectDropInAction",
+      "OwnerMethodDesc": "(@(Object),System.Boolean,@(Farmer))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreObjectDropInActionCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean,Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "performObjectDropInAction",
+      "OwnerMethodDesc": "(@(Object),System.Boolean,@(Farmer))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostObjectDropInActionCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean,Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+      "InsertionIndex": [ 1 ]
+    },
+    {
       "OwnerAccessorType": "@BobberBar",
       "OwnerMethodName": "update",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
