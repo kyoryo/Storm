@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Start" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<!-- Variables -->
+	<PropertyGroup>
+
+		<!-- Release Folder -->
+		<!-- To change the output folder, use the following parameter: /p:BuildDir=C:\BuildTest-->
+		<!-- <MainReleaseDir>Builds</MainReleaseDir> -->
+		<!-- <ReleaseDir>$(MainReleaseDir)\$([System.DateTime]::Now.ToString(yyyyMMdd-HHmmss))</ReleaseDir> -->
+
+		<!-- Build Folder -->
+		<OutDir>Storm\Storm\bin\Release</OutDir>
+
+	</PropertyGroup>
+
+
+	<!-- "Autostart" -->
+	<Target Name="Start">
+		<CallTarget Targets="Build"/>
+		<CallTarget Targets="CopyRelease"/>
+	</Target>
+
+	<!-- compile solution as release -->
+	<Target Name="Build">
+		<!--<MSBuild Projects="Storm\Storm.sln" Properties="Configuration=Debug"/>-->
+		<MSBuild Projects="Storm\Storm.sln" Properties="Configuration=Release"/>
+	</Target>
+
+	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+	<!-- copy files to release folder -->
+	<Target Name="CopyRelease">
+		<GetAssemblyIdentity AssemblyFiles="$(OutDir)\StormLoader.exe">
+			<Output
+				TaskParameter="Assemblies"
+				ItemName="StormAssemblyIdentities"/>
+		</GetAssemblyIdentity>
+
+		<GitVersion LocalPath="$(MSBuildProjectDirectory)">
+			<Output TaskParameter="CommitHash" PropertyName="GitCommitHash" />
+		</GitVersion>
+
+		<PropertyGroup>
+			<ReleaseName>Storm-%(StormAssemblyIdentities.Version)_GIT-$(GitCommitHash)</ReleaseName>
+			<ReleaseDir>Builds\$(ReleaseName)</ReleaseDir>
+		</PropertyGroup>
+
+		<MakeDir Directories="$(ReleaseDir);$(ReleaseDir)\StardewValley\;$(ReleaseDir)\AppData\;$(ReleaseDir)\AppData\Mods;$(ReleaseDir)\AppData\Storm;"/>
+
+		<ItemGroup>
+			<ReleaseBinaryFiles
+				Include="$(OutDir)\**\*.*"
+				Exclude="$(OutDir)\*.pdb;
+					$(OutDir)\*.xml;
+					$(OutDir)\*.exe.config;
+					$(OutDir)\*.vshost.*;
+					$(OutDir)\Microsoft.Xna.*;">
+			</ReleaseBinaryFiles>
+		</ItemGroup>
+
+		<Copy SourceFiles="@(ReleaseBinaryFiles)" DestinationFiles="@(ReleaseBinaryFiles -> '$(ReleaseDir)\StardewValley\%(RecursiveDir)%(Filename)%(Extension)')"/>
+
+		<Copy SourceFiles="README.md;LICENSE" DestinationFolder="$(ReleaseDir)"/> 
+		<Copy SourceFiles="Dependencies/injectors-1.02.json" DestinationFolder="$(ReleaseDir)\AppData\Storm"/> 
+		<Move SourceFiles="$(ReleaseDir)\AppData\Storm\injectors-1.02.json" DestinationFiles="$(ReleaseDir)\AppData\Storm\injectors.json" />
+
+        	<CreateItem Include="$(ReleaseDir)\**" >
+        	        <Output ItemName="ZipFiles" TaskParameter="Include"/>
+        	</CreateItem>
+        	<Zip ZipFileName="Builds\$(ReleaseName).zip" WorkingDirectory="$(ReleaseDir)" Files="@(ZipFiles)" />
+
+		<Copy SourceFiles="Builds\$(ReleaseName).zip" DestinationFolder="C:\Development\StormReleases"/>
+	</Target>
+
+</Project>
