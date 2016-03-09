@@ -157,6 +157,7 @@
     <Compile Include="StardewValley\Event\Game\BeforeNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtCanPlantEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtPlantEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="ValueProxyDictionary.cs" />
