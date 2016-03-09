@@ -1,0 +1,8 @@
+{
+    "displayName": "ResourceExample",
+    "author": "mdbell",
+    "version": "1.0.0.0",
+    "description": "Replaces the title screen",
+
+    "assemblyFileName": "ResourceExample.dll"
+}
