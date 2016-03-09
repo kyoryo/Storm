@@ -20,10 +20,10 @@ namespace Storm.StardewValley
 
         public override T Load<T>(string assetName)
         {
-            DetourEvent @event = StaticGameContext.ContentLoadCallback(this,typeof(T), assetName);
-            if(@event.ReturnValue != null)
+            DetourEvent @event = StaticGameContext.ContentLoadCallback(this, typeof(T), assetName);
+            if (@event.ReturnValue != null)
             {
-                return (T) @event.ReturnValue;
+                return (T)@event.ReturnValue;
             }
             return base.Load<T>(assetName);
         }
