@@ -1,4 +1,4 @@
-/*
+﻿/*
     Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt), Matthew Bell (mdbell)
 
     Storm is free software: you can redistribute it and/or modify
@@ -27,7 +27,6 @@ using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
 using Microsoft.Xna.Framework.Content;
-using Storm.StardewValley.Event.Content;
 
 namespace Storm.StardewValley
 {

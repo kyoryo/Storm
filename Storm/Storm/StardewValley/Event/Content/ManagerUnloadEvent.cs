@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Storm.StardewValley.Event.Content
+namespace Storm.StardewValley.Event
 {
     class ManagerUnloadEvent : StaticContextEvent
     {
