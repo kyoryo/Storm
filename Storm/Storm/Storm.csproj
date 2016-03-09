@@ -375,6 +375,7 @@
     <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
+    <Folder Include="StardewValley\Event\ShopMenu\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />
     <Folder Include="StardewValley\Event\Utility\" />
   </ItemGroup>
