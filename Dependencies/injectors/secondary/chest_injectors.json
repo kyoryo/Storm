@@ -1,0 +1,67 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "currentLidFrame",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentLidFrame",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "frameCounter",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FrameCounter",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "coins",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Coins",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "items",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Items",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "opener",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "Opener",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "chestType",
+      "OwnerFieldType": "System.String",
+      "MethodName": "ChestType",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "tint",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Tint",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "playerChest",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PlayerChest",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerFieldName": "giftbox",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Giftbox",
+      "Type": "System.Boolean"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@TextBox",
+      "OwnerFieldName": "_text",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Text",
+      "Type": "System.String"
+    }
+  ]
+}

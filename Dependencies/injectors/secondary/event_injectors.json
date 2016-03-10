@@ -1,0 +1,424 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "eventCommands",
+      "OwnerFieldType": "System.String",
+      "MethodName": "EventCommands",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "currentCommand",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentCommand",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "oldPixelZoom",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OldPixelZoom",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "readyConfirmationTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ReadyConfirmationTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "actors",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Actors",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "props",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Props",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalProps",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "FestivalProps",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "messageToScreen",
+      "OwnerFieldType": "System.String",
+      "MethodName": "MessageToScreen",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "playerControlSequenceID",
+      "OwnerFieldType": "System.String",
+      "MethodName": "PlayerControlSequenceID",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "showActiveObject",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowActiveObject",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "continueAfterMove",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ContinueAfterMove",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "specialEventVariable1",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SpecialEventVariable1",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "forked",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Forked",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "wasBloomDay",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasBloomDay",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "wasBloomVisible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasBloomVisible",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "playerControlSequence",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PlayerControlSequence",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "eventSwitched",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EventSwitched",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "isFestival",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsFestival",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "sentReadyConfirmation",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SentReadyConfirmation",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "allPlayersReady",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "AllPlayersReady",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "playerWasMounted",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PlayerWasMounted",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "actorPositionsAfterMove",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "ActorPositionsAfterMove",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "timeAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "viewportXAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ViewportXAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "viewportYAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ViewportYAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "viewportTarget",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector3",
+      "MethodName": "ViewportTarget",
+      "Type": "Microsoft.Xna.Framework.Vector3"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "previousAmbientLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "PreviousAmbientLight",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "previousBloomSettings",
+      "OwnerFieldType": "StardewValley.BloomSettings",
+      "MethodName": "PreviousBloomSettings",
+      "Type": "StardewValley.BloomSettings"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "npcsWithUniquePortraits",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "NpcsWithUniquePortraits",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "temporaryContent",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Content.ContentManager",
+      "MethodName": "TemporaryContent",
+      "Type": "Microsoft.Xna.Framework.Content.ContentManager"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "temporaryLocation",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "TemporaryLocation",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "playerControlTargetTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "PlayerControlTargetTile",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "FestivalTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "npcControllers",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "NpcControllers",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "secretSantaRecipient",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "SecretSantaRecipient",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "mySecretSanta",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "MySecretSanta",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "skippable",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Skippable",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "id",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Id",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "characterWalkLocations",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "CharacterWalkLocations",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalData",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "FestivalData",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "oldShirt",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OldShirt",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "oldPants",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "OldPants",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "skipped",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Skipped",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "waitingForMenuClose",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WaitingForMenuClose",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "oldTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OldTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "underwaterSprites",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "UnderwaterSprites",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "aboveMapSprites",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "AboveMapSprites",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalHost",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "FestivalHost",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "hostMessage",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HostMessage",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FestivalTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "tempItemStash",
+      "OwnerFieldType": "@Item",
+      "MethodName": "TempItemStash",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "grangeScore",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GrangeScore",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "playerUsingGrangeDisplay",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "PlayerUsingGrangeDisplay",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "previousFacingDirection",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PreviousFacingDirection",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "festivalShops",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "FestivalShops",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "previousAnswerChoice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PreviousAnswerChoice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "startSecretSantaAfterDialogue",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "StartSecretSantaAfterDialogue",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "grangeDisplay",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "GrangeDisplay",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "specialEventVariable2",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SpecialEventVariable2",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Event",
+      "OwnerFieldName": "luauIngredients",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "LuauIngredients",
+      "Type": "System.Collections.IList"
+    }
+  ]
+}

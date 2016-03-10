@@ -1,0 +1,2332 @@
+{
+  "FieldAccessorParams": [
+    {
+      "OwnerAccessorType": "@Program",
+      "OwnerFieldName": "gamePtr",
+      "OwnerFieldType": "@StaticContext",
+      "MethodName": "_GetGame",
+      "ReturnType": "Storm.StardewValley.Accessor.StaticContextAccessor"
+    }
+  ],
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pixelZoom",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PixelZoom",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tileSize",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TileSize",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "version",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Version",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "graphics",
+      "OwnerFieldType": "Microsoft.Xna.Framework.GraphicsDeviceManager",
+      "MethodName": "Graphics",
+      "Type": "Microsoft.Xna.Framework.GraphicsDeviceManager"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "content",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Content.ContentManager",
+      "MethodName": "Content",
+      "Type": "Microsoft.Xna.Framework.Content.ContentManager"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "temporaryContent",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Content.ContentManager",
+      "MethodName": "TemporaryContent",
+      "Type": "Microsoft.Xna.Framework.Content.ContentManager"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "spriteBatch",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteBatch",
+      "MethodName": "SpriteBatch",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteBatch"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "oldPadState",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Input.GamePadState",
+      "MethodName": "OldPadState",
+      "Type": "Microsoft.Xna.Framework.Input.GamePadState"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "thumbStickSensitivity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ThumbStickSensitivity",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "runThreshold",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "RunThreshold",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "oldKBState",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Input.KeyboardState",
+      "MethodName": "OldKBState",
+      "Type": "Microsoft.Xna.Framework.Input.KeyboardState"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "oldMouseState",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Input.MouseState",
+      "MethodName": "OldMouseState",
+      "Type": "Microsoft.Xna.Framework.Input.MouseState"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "locations",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Locations",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentLocation",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "CurrentLocation",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "locationAfterWarp",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "LocationAfterWarp",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mapDisplayDevice",
+      "OwnerFieldType": "xTile.Display.IDisplayDevice",
+      "MethodName": "MapDisplayDevice",
+      "Type": "xTile.Display.IDisplayDevice"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "player",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "Player",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "serverHost",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "ServerHost",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewport",
+      "OwnerFieldType": "xTile.Dimensions.Rectangle",
+      "MethodName": "Viewport",
+      "Type": "xTile.Dimensions.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "objectSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "ObjectSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "toolSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "ToolSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "cropSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "CropSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mailboxTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "MailboxTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "emoteSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "EmoteSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debrisSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "DebrisSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "toolIconBox",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "ToolIconBox",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "rainTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "RainTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "bigCraftableSpriteSheet",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "BigCraftableSpriteSheet",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "swordSwipe",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "SwordSwipe",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "swordSwipeDark",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "SwordSwipeDark",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "buffsIcons",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "BuffsIcons",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "daybg",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Daybg",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "nightbg",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Nightbg",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "logoScreenTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "LogoScreenTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tvStationTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "TvStationTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "cloud",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Cloud",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "menuTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "MenuTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "lantern",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Lantern",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "windowLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "WindowLight",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "sconceLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "SconceLight",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "cauldronLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "CauldronLight",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "shadowTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "ShadowTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mouseCursors",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "MouseCursors",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "indoorWindowLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "IndoorWindowLight",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "animations",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Animations",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "titleScreenBG",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "TitleScreenBG",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "logo",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Logo",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "lightmap",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.RenderTarget2D",
+      "MethodName": "Lightmap",
+      "Type": "Microsoft.Xna.Framework.Graphics.RenderTarget2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "fadeToBlackRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "FadeToBlackRect",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "staminaRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "StaminaRect",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentCoopTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "CurrentCoopTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentBarnTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "CurrentBarnTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentHouseTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "CurrentHouseTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "greenhouseTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "GreenhouseTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "littleEffect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "LittleEffect",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueFont",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "DialogueFont",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "smallFont",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "SmallFont",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "borderFont",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "BorderFont",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tinyFont",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "TinyFont",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tinyFontBorder",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "TinyFontBorder",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "smoothFont",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.SpriteFont",
+      "MethodName": "SmoothFont",
+      "Type": "Microsoft.Xna.Framework.Graphics.SpriteFont"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "fadeToBlackAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FadeToBlackAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pickToolInterval",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "PickToolInterval",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ScreenGlowAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "flashAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FlashAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "starCropShimmerPause",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "StarCropShimmerPause",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "noteBlockTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "NoteBlockTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "globalFadeSpeed",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "GlobalFadeSpeed",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "fadeToBlack",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FadeToBlack",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "fadeIn",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FadeIn",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DialogueUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueTyping",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DialogueTyping",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pickingTool",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PickingTool",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isQuestion",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsQuestion",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "nonWarpFade",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "NonWarpFade",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "particleRaining",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ParticleRaining",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "newDay",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "NewDay",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "inMine",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "InMine",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isEating",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsEating",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "menuUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MenuUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "eventUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EventUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportFreeze",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ViewportFreeze",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "eventOver",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EventOver",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "nameSelectUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "NameSelectUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlow",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ScreenGlow",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowHold",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ScreenGlowHold",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ScreenGlowUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "progressBar",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ProgressBar",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isRaining",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsRaining",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isSnowing",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsSnowing",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "killScreen",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "KillScreen",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "coopDwellerBorn",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CoopDwellerBorn",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "messagePause",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MessagePause",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isDebrisWeather",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsDebrisWeather",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "boardingBus",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BoardingBus",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "listeningForKeyControlDefinitions",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ListeningForKeyControlDefinitions",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "weddingToday",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WeddingToday",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "exitToTitle",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ExitToTitle",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debugMode",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DebugMode",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isLightning",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsLightning",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "displayHUD",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DisplayHUD",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "displayFarmer",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DisplayFarmer",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "showKeyHelp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowKeyHelp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "inputMode",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "InputMode",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "shippingTax",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShippingTax",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueButtonShrinking",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DialogueButtonShrinking",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "jukeboxPlaying",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "JukeboxPlaying",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "drawLighting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawLighting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "bloomDay",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BloomDay",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "quit",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Quit",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isChatting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsChatting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "globalFade",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GlobalFade",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "drawGrid",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawGrid",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "freezeControls",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FreezeControls",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "saveOnNewDay",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SaveOnNewDay",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "panMode",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PanMode",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "showingEndOfNightStuff",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowingEndOfNightStuff",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "wasRainingYesterday",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasRainingYesterday",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "hasLoadedGame",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasLoadedGame",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isActionAtCurrentCursorTile",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsActionAtCurrentCursorTile",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isInspectionAtCurrentCursorTile",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsInspectionAtCurrentCursorTile",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "paused",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Paused",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "lastCursorMotionWasMouse",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "LastCursorMotionWasMouse",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentSeason",
+      "OwnerFieldType": "System.String",
+      "MethodName": "CurrentSeason",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debugOutput",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DebugOutput",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "nextMusicTrack",
+      "OwnerFieldType": "System.String",
+      "MethodName": "NextMusicTrack",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "selectedItemsType",
+      "OwnerFieldType": "System.String",
+      "MethodName": "SelectedItemsType",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "nameSelectType",
+      "OwnerFieldType": "System.String",
+      "MethodName": "NameSelectType",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "messageAfterPause",
+      "OwnerFieldType": "System.String",
+      "MethodName": "MessageAfterPause",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "fertilizer",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Fertilizer",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "samBandName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "SamBandName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "elliottBookName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "ElliottBookName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "slotResult",
+      "OwnerFieldType": "System.String",
+      "MethodName": "SlotResult",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "keyHelpString",
+      "OwnerFieldType": "System.String",
+      "MethodName": "KeyHelpString",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debugInput",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DebugInput",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "loadingMessage",
+      "OwnerFieldType": "System.String",
+      "MethodName": "LoadingMessage",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "errorMessage",
+      "OwnerFieldType": "System.String",
+      "MethodName": "ErrorMessage",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentObjectDialogue",
+      "OwnerFieldType": "System.Collections.Generic.Queue`1",
+      "MethodName": "CurrentObjectDialogue",
+      "Type": "System.Collections.ICollection"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mailbox",
+      "OwnerFieldType": "System.Collections.Generic.Queue`1",
+      "MethodName": "Mailbox",
+      "Type": "System.Collections.ICollection"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "questionChoices",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "QuestionChoices",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "xLocationAfterWarp",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "XLocationAfterWarp",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "yLocationAfterWarp",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "YLocationAfterWarp",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "gameTimeInterval",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GameTimeInterval",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentQuestionChoice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentQuestionChoice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentDialogueCharacterIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentDialogueCharacterIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueTypingInterval",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DialogueTypingInterval",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dayOfMonth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DayOfMonth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "year",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Year",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "timeOfDay",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimeOfDay",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "numberOfSelectedItems",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumberOfSelectedItems",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "priceOfSelectedItem",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PriceOfSelectedItem",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentWallpaper",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentWallpaper",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "farmerWallpaper",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FarmerWallpaper",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "wallpaperPrice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WallpaperPrice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentFloor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentFloor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "FarmerFloor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FarmerFloor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "floorPrice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FloorPrice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueWidth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DialogueWidth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "countdownToWedding",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CountdownToWedding",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "menuChoice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MenuChoice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tvStation",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TvStation",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentBillboard",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentBillboard",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "facingDirectionAfterWarp",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FacingDirectionAfterWarp",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "tmpTimeOfDay",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TmpTimeOfDay",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "percentageToWinStardewHero",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PercentageToWinStardewHero",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mouseClickPolling",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MouseClickPolling",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "weatherIcon",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WeatherIcon",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "hitShakeTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HitShakeTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "staminaShakeTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "StaminaShakeTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pauseThenDoFunctionTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PauseThenDoFunctionTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "weatherForTomorrow",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WeatherForTomorrow",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentSongIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentSongIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "cursorTileHintCheckTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CursorTileHintCheckTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "timerUntilMouseFade",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimerUntilMouseFade",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "minecartHighScore",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MinecartHighScore",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dealerCalicoJackTotal",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "DealerCalicoJackTotal",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "morningColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "MorningColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "eveningColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "EveningColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "unselectedOptionColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "UnselectedOptionColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "ScreenGlowColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentSpeaker",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "CurrentSpeaker",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "random",
+      "OwnerFieldType": "System.Random",
+      "MethodName": "Random",
+      "Type": "System.Random"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "recentMultiplayerRandom",
+      "OwnerFieldType": "System.Random",
+      "MethodName": "RecentMultiplayerRandom",
+      "Type": "System.Random"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "objectInformation",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "ObjectInformation",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "bigCraftablesInformation",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "BigCraftablesInformation",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "shippingBin",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ShippingBin",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mine",
+      "OwnerFieldType": "StardewValley.Locations.MineShaft",
+      "MethodName": "Mine",
+      "Type": "StardewValley.Locations.MineShaft"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "hudMessages",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "HudMessages",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "eventConditions",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "EventConditions",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "NPCGiftTastes",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "NPCGiftTastes",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "musicPlayerVolume",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MusicPlayerVolume",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pauseAccumulator",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "PauseAccumulator",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "pauseTime",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "PauseTime",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "upPolling",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "UpPolling",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "downPolling",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "DownPolling",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "rightPolling",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "RightPolling",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "leftPolling",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "LeftPolling",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debrisSoundInterval",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "DebrisSoundInterval",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "toolHold",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ToolHold",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "windGust",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "WindGust",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dialogueButtonScale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "DialogueButtonScale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "creditsTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CreditsTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "globalOutdoorLighting",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "GlobalOutdoorLighting",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "playerOneIndex",
+      "OwnerFieldType": "Microsoft.Xna.Framework.PlayerIndex",
+      "MethodName": "PlayerOneIndex",
+      "Type": "Microsoft.Xna.Framework.PlayerIndex"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "shiny",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "Shiny",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "previousViewportPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "PreviousViewportPosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentCursorTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "CurrentCursorTile",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "lastCursorTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastCursorTile",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "rainDrops",
+      "OwnerFieldType": "StardewValley.RainDrop",
+      "MethodName": "RainDrops",
+      "Type": "StardewValley.RainDrop"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "chanceToRainTomorrow",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "ChanceToRainTomorrow",
+      "Type": "System.Double"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dailyLuck",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "DailyLuck",
+      "Type": "System.Double"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "debrisWeather",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "DebrisWeather",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenOverlayTempSprites",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ScreenOverlayTempSprites",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "gameMode",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "GameMode",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "multiplayerMode",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "MultiplayerMode",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentLoader",
+      "OwnerFieldType": "System.Collections.Generic.IEnumerator`1",
+      "MethodName": "CurrentLoader",
+      "Type": "System.Collections.IEnumerator"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "uniqueIDForThisGame",
+      "OwnerFieldType": "System.UInt64",
+      "MethodName": "UniqueIDForThisGame",
+      "Type": "System.UInt64"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "loadGameScreen",
+      "OwnerFieldType": "StardewValley.LoadGameScreen",
+      "MethodName": "LoadGameScreen",
+      "Type": "StardewValley.LoadGameScreen"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "stats",
+      "OwnerFieldType": "StardewValley.Stats",
+      "MethodName": "Stats",
+      "Type": "StardewValley.Stats"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "cropsOfTheWeek",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CropsOfTheWeek",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "questOfTheDay",
+      "OwnerFieldType": "StardewValley.Quests.Quest",
+      "MethodName": "QuestOfTheDay",
+      "Type": "StardewValley.Quests.Quest"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "moneyMadeScreen",
+      "OwnerFieldType": "StardewValley.MoneyMadeScreen",
+      "MethodName": "MoneyMadeScreen",
+      "Type": "StardewValley.MoneyMadeScreen"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentLightSources",
+      "OwnerFieldType": "System.Collections.Generic.HashSet`1",
+      "MethodName": "CurrentLightSources",
+      "Type": "System.Collections.Generic.HashSet`1"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "ambientLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "AmbientLight",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "outdoorLight",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "OutdoorLight",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "textColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "TextColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "textShadowColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "TextShadowColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "activeClickableMenu",
+      "OwnerFieldType": "@ClickableMenu",
+      "MethodName": "ActiveClickableMenu",
+      "Type": "Storm.StardewValley.Accessor.ClickableMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentMinigame",
+      "OwnerFieldType": "StardewValley.Minigames.IMinigame",
+      "MethodName": "CurrentMinigame",
+      "Type": "StardewValley.Minigames.IMinigame"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "onScreenMenus",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "OnScreenMenus",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "framesThisSecond",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FramesThisSecond",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "secondCounter",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SecondCounter",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentfps",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Currentfps",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "bloom",
+      "OwnerFieldType": "StardewValley.BloomComponent",
+      "MethodName": "Bloom",
+      "Type": "StardewValley.BloomComponent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "achievements",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "Achievements",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dishOfTheDay",
+      "OwnerFieldType": "@Object",
+      "MethodName": "DishOfTheDay",
+      "Type": "Storm.StardewValley.Accessor.ObjectAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "buffsDisplay",
+      "OwnerFieldType": "StardewValley.Menus.BuffsDisplay",
+      "MethodName": "BuffsDisplay",
+      "Type": "StardewValley.Menus.BuffsDisplay"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "dayTimeMoneyBox",
+      "OwnerFieldType": "StardewValley.Menus.DayTimeMoneyBox",
+      "MethodName": "DayTimeMoneyBox",
+      "Type": "StardewValley.Menus.DayTimeMoneyBox"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "otherFarmers",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "OtherFarmers",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "server",
+      "OwnerFieldType": "StardewValley.Network.Server",
+      "MethodName": "Server",
+      "Type": "StardewValley.Network.Server"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "client",
+      "OwnerFieldType": "StardewValley.Network.Client",
+      "MethodName": "Client",
+      "Type": "StardewValley.Network.Client"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "keyboardDispatcher",
+      "OwnerFieldType": "StardewValley.KeyboardDispatcher",
+      "MethodName": "KeyboardDispatcher",
+      "Type": "StardewValley.KeyboardDispatcher"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "background",
+      "OwnerFieldType": "StardewValley.Background",
+      "MethodName": "Background",
+      "Type": "StardewValley.Background"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "farmEvent",
+      "OwnerFieldType": "StardewValley.Events.FarmEvent",
+      "MethodName": "FarmEvent",
+      "Type": "StardewValley.Events.FarmEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "afterFade",
+      "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
+      "MethodName": "PostFade",
+      "Type": "StardewValley.Game1/afterFadeFunction"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "afterDialogues",
+      "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
+      "MethodName": "PostDialogues",
+      "Type": "StardewValley.Game1/afterFadeFunction"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "afterViewport",
+      "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
+      "MethodName": "PostViewport",
+      "Type": "StardewValley.Game1/afterFadeFunction"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportReachedTarget",
+      "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
+      "MethodName": "ViewportReachedTarget",
+      "Type": "StardewValley.Game1/afterFadeFunction"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "afterPause",
+      "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
+      "MethodName": "PostPause",
+      "Type": "StardewValley.Game1/afterFadeFunction"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentGameTime",
+      "OwnerFieldType": "Microsoft.Xna.Framework.GameTime",
+      "MethodName": "CurrentGameTime",
+      "Type": "Microsoft.Xna.Framework.GameTime"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "delayedActions",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "DelayedActions",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "endOfNightMenus",
+      "OwnerFieldType": "System.Collections.Generic.Stack`1",
+      "MethodName": "EndOfNightMenus",
+      "Type": "System.Collections.Stack"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "options",
+      "OwnerFieldType": "StardewValley.Options",
+      "MethodName": "Options",
+      "Type": "StardewValley.Options"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "game1",
+      "OwnerFieldType": "@StaticContext",
+      "MethodName": "Game1",
+      "Type": "Storm.StardewValley.Accessor.StaticContextAccessor"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "lastMousePositionBeforeFade",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "LastMousePositionBeforeFade",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportCenter",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "ViewportCenter",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportTarget",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "ViewportTarget",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportSpeed",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ViewportSpeed",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportHold",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ViewportHold",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "thumbstickPollingTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ThumbstickPollingTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "toggleFullScreen",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ToggleFullScreen",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "isFullscreen",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsFullscreen",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "setToWindowedMode",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SetToWindowedMode",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "setToFullscreen",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SetToFullscreen",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "whereIsTodaysFest",
+      "OwnerFieldType": "System.String",
+      "MethodName": "WhereIsTodaysFest",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "farmerShouldPassOut",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FarmerShouldPassOut",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "currentViewportTarget",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "CurrentViewportTarget",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "viewportPositionLerp",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "ViewportPositionLerp",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowRate",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ScreenGlowRate",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "screenGlowMax",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ScreenGlowMax",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "haltAfterCheck",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HaltAfterCheck",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "panModeString",
+      "OwnerFieldType": "System.String",
+      "MethodName": "PanModeString",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "panFacingDirectionWait",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PanFacingDirectionWait",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "thumbstickMotionMargin",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ThumbstickMotionMargin",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "triggerPolling",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TriggerPolling",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "rightClickPolling",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RightClickPolling",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "scaleMatrix",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Matrix",
+      "MethodName": "ScaleMatrix",
+      "Type": "Microsoft.Xna.Framework.Matrix"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "bgColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "BgColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mouseCursor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MouseCursor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "mouseCursorTransparency",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MouseCursorTransparency",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "objectDialoguePortraitPerson",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "ObjectDialoguePortraitPerson",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    }
+  ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "getSteamAchievement",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "InvokerName": "_UnlockSteamAchievement",
+      "InvokerReturnParams": [
+        "System.String"
+      ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "true"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Initialize",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "InitializeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "LoadContent",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "LoadContentCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "UnloadContent",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "UnloadContentCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "UnloadContent",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "UnloadContentCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Draw",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreDrawCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Draw",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreUIDrawCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "ABSOLUTE",
+      "InsertionIndex": [
+        2266
+      ]
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Draw",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostDrawCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "ABSOLUTE",
+      "InsertionIndex": [
+        2837
+      ]
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "newSeason",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "SeasonChangeCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "newDayAfterFade",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PreNewDayCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "newDayAfterFade",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PostNewDayCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "performTenMinuteClockUpdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "Pre10MinuteClockUpdateCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "performTenMinuteClockUpdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "Post10MinuteClockUpdateCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "UpdateGameClock",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "UpdateGameClockCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "sellShippedItems",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "SellShippedItemsCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Update",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Update",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "warpFarmer",
+      "OwnerMethodDesc": "(@(GameLocation),System.Int32,System.Int32,System.Int32,System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "WarpFarmerCallback",
+      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.GameLocationAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "pressUseToolButton",
+      "OwnerMethodDesc": "()System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PressUseToolButtonCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "pressActionButton",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Input.KeyboardState,Microsoft.Xna.Framework.Input.MouseState,Microsoft.Xna.Framework.Input.GamePadState)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PressActionButtonCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "prepareSpouseForWedding",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PrepareSpouseForWeddingCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "playMorningSong",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PlayMorningSongCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "farmerTakeDamage",
+      "OwnerMethodDesc": "(System.Int32,System.Boolean,@(Monster))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "FarmerTakeDamageCallback",
+      "StaticCallbackDesc": "(System.Int32,System.Boolean,Storm.StardewValley.Accessor.MonsterAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "loadForNewGame",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PreGameLoadedCallback",
+      "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "loadForNewGame",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PostGameLoadedCallback",
+      "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "showEndOfNightStuff",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShowEndOfNightStuffCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "tryToBuySelectedItems",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "TryToBuySelectedItemsCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "updateMusic",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "UpdateMusicCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "UpdateTitleScreen",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "UpdateTitleScreenCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "showRedMessage",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShowRedMessageCallback",
+      "StaticCallbackDesc": "(System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "showGlobalMessage",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShowGlobalMessageCallback",
+      "StaticCallbackDesc": "(System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "exitEvent",
+      "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GameExitEventCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "Window_ClientSizeChanged",
+      "OwnerMethodDesc": "(System.Object,System.EventArgs)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ClientSizeChangedCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "pressAddItemToInventoryButton",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PressAddItemToInventoryButtonCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "playerEatObject",
+      "OwnerMethodDesc": "(@(Object),System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PlayerEatObjectCallback",
+      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "pressSwitchToolButton",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PressSwitchToolButtonCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "releaseUseToolButton",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ReleaseUseToolButtonCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "shouldTimePass",
+      "OwnerMethodDesc": "()System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShouldTimePassCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "isDarkOut",
+      "OwnerMethodDesc": "()System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "IsDarkOutCallback",
+      "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "shipObject",
+      "OwnerMethodDesc": "(@(Object))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "ShipObjectCallback",
+      "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    }
+  ]
+}

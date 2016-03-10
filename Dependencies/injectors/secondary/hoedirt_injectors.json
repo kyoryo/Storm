@@ -1,0 +1,152 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "lightTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "LightTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "darkTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "DarkTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "snowTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "SnowTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "crop",
+      "OwnerFieldType": "@Crop",
+      "MethodName": "Crop",
+      "Type": "Storm.StardewValley.Accessor.CropAccessor"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "drawGuide",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "DrawGuide",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "state",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "State",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "fertilizer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Fertilizer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "shakeLeft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShakeLeft",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "shakeRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "maxShake",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxShake",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "shakeRate",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeRate",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerFieldName": "c",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "C",
+      "Type": "Microsoft.Xna.Framework.Color"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "dayUpdate",
+      "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostDayUpdateHoeDirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "plant",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostHoeDirtPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+      "InsertionIndex": [ 1 ]
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "canPlantThisSeedHere",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreHoeDirtCanPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "canPlantThisSeedHere",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostHoeDirtCanPlantCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "FixJump": "true",
+      "InsertionIndex": [ 1 ]
+    }
+  ]
+}

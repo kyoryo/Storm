@@ -70,28 +70,25 @@ namespace Storm.StardewValley
                 Environment.Exit(1);
             }
 
-            using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read))
+            var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
+            var ctx = factory.ParseOfType(DataFormat.Json, "C:\\Users\\Cody\\Source\\Repos\\Storm\\Dependencies\\injectors\\");
+            if (factory is CecilInjectorFactory)
             {
-                var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
-                var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
-                if (factory is CecilInjectorFactory)
+                var casted = factory as CecilInjectorFactory;
+                ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
+                ctx.Injectors.Add(new CecilInstanceDetourInjector(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
                 {
-                    var casted = factory as CecilInjectorFactory;
-                    ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
-                    ctx.Injectors.Add(new CecilInstanceDetourInjector(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
-                    {
-                        FromClass = "Microsoft.Xna.Framework.Content.ContentManager",
-                        ToClass = "Storm.StardewValley.StormContentManager"
-                    }));
-                }
-
-                var @event = new PreInjectionEvent(factory, ctx.Injectors);
-                EventBus.Fire(@event);
-
-                ctx.Injectors.ForEach(injector => injector.Init());
-                ctx.Injectors.ForEach(injector => injector.Inject());
-                return ctx;
+                    FromClass = "Microsoft.Xna.Framework.Content.ContentManager",
+                    ToClass = "Storm.StardewValley.StormContentManager"
+                }));
             }
+
+            var @event = new PreInjectionEvent(factory, ctx.Injectors);
+            EventBus.Fire(@event);
+
+            ctx.Injectors.ForEach(injector => injector.Init());
+            ctx.Injectors.ForEach(injector => injector.Inject());
+            return ctx;
         }
 
         private void InitializeStaticContext(InjectionFactoryContext ctx)

@@ -1,0 +1,74 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fencePieceWidth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FencePieceWidth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fencePieceHeight",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FencePieceHeight",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fenceTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "FenceTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Health",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "maxHealth",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxHealth",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "whichType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "gatePosition",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GatePosition",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "gateMotion",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GateMotion",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "fenceDrawGuide",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "FenceDrawGuide",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Fence",
+      "OwnerFieldName": "isGate",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsGate",
+      "Type": "System.Boolean"
+    }
+  ]
+}

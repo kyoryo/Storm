@@ -1,0 +1,32 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Item",
+      "OwnerFieldName": "specialVariable",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SpecialVariable",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Item",
+      "OwnerFieldName": "category",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Category",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Item",
+      "OwnerFieldName": "specialItem",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SpecialItem",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Item",
+      "OwnerFieldName": "hasBeenInInventory",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasBeenInInventory",
+      "Type": "System.Boolean"
+    }
+  ]
+}
