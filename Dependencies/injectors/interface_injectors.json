@@ -239,6 +239,11 @@
       "SimpleName": "FruitTree",
       "OwnerType": "StardewValley.TerrainFeatures.FruitTree",
       "InterfaceType": "Storm.StardewValley.Accessor.FruitTreeAccessor"
+    },
+    {
+      "SimpleName": "OptionsPage",
+      "OwnerType": "StardewValley.Menus.OptionsPage",
+      "InterfaceType": "Storm.StardewValley.Accessor.OptionsPageAccessor"
     }
   ]
 }
