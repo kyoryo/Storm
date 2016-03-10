@@ -4218,6 +4218,13 @@
     },
     {
       "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "phaseDays",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "PhaseDays",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
       "OwnerFieldName": "dead",
       "OwnerFieldType": "System.Boolean",
       "MethodName": "IsDead",
