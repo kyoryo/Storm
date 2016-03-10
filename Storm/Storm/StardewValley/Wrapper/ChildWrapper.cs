@@ -32,17 +32,25 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public new T2 As<T2, A>() where T2 : ChildWrapper<T>
+        public override T2 As<T2, A>()
         {
             if (!Is<A>()) return null;
-            return (T2)Activator.CreateInstance(typeof(T2), new object[] { Parent, Cast<A>() });
+            var instance = base.As<T2, A>();
+            if (instance is ChildWrapper<T>)
+            {
+                (instance as ChildWrapper<T>).Parent = Parent;
+            }
+            return instance;
         }
 
-        public new T2 As<T2, A>(T2 instance) where T2 : ChildWrapper<T>
+        public override T2 As<T2, A>(T2 instance)
         {
             if (!Is<A>()) return null;
-            instance.Parent = (T)Parent;
-            instance.Accessor = Cast<A>();
+            base.As<T2, A>(instance);
+            if (instance is ChildWrapper<T>)
+            {
+                (instance as ChildWrapper<T>).Parent = Parent;
+            }
             return instance as T2;
         }
     }
