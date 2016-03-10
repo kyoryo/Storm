@@ -40,6 +40,11 @@ namespace Storm.StardewValley.Wrapper
             accessor._MakeHoeDirt(tileLocation);
         }
 
+        public string GetTileProperty(int tileX, int tileY, string propName, string layerName)
+        {
+            return accessor._GetTileProperty(tileX, tileY, propName, layerName);
+        }
+
         public Dictionary<Vector2, ObjectItem> Objects
         {
             get
