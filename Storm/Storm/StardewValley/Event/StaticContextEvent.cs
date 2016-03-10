@@ -28,36 +28,26 @@ namespace Storm.StardewValley
 {
     public class StaticContextEvent : DetourEvent
     {
-        public StaticContextEvent()
+        public delegate void InitDelegate(StaticContextEvent @this);
+
+        public void Init(InitDelegate init)
         {
-            GameAssembly = StaticGameContext.Assembly;
-            Root = StaticGameContext.WrappedGame;
-            EventBus = StaticGameContext.EventBus;
-            ToolType = StaticGameContext.ToolType;
-            ToolFactory = StaticGameContext.ToolFactory;
-            ObjectType = StaticGameContext.ObjectType;
-            ObjectFactory = StaticGameContext.ObjectFactory;
-            TextureComponentType = StaticGameContext.TextureComponentType;
-            TextureComponentFactory = StaticGameContext.TextureComponentFactory;
-            BillboardType = StaticGameContext.BillboardType;
-            BillboardFactory = StaticGameContext.BillboardFactory;
-            ClickableMenuType = StaticGameContext.ClickableMenuType;
-            ClickableMenuFactory = StaticGameContext.ClickableMenuFactory;
+            init(this);
         }
 
-        public Assembly GameAssembly { get; }
-        public StaticContext Root { get; }
-        public ModEventBus EventBus { get; }
-        public Type ToolType { get; }
-        public InterceptorFactory<ToolDelegate> ToolFactory { get; }
-        public Type ObjectType { get; }
-        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; }
-        public Type TextureComponentType { get; }
-        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; }
-        public Type BillboardType { get; }
-        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; }
-        public Type ClickableMenuType { get; }
-        public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; }
+        public Assembly GameAssembly { get; set; }
+        public StaticContext Root { get; set; }
+        public ModEventBus EventBus { get; set; }
+        public Type ToolType { get; set; }
+        public InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
+        public Type ObjectType { get; set; }
+        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
+        public Type TextureComponentType { get; set; }
+        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
+        public Type BillboardType { get; set; }
+        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
+        public Type ClickableMenuType { get; set; }
+        public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
 
         public Farmer LocalPlayer
         {

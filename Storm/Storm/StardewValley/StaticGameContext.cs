@@ -33,50 +33,97 @@ namespace Storm.StardewValley
 {
     public static class StaticGameContext
     {
-        /// <summary>
-        ///     The Stardew Valley assembly
-        /// </summary>
-        public static Assembly Assembly { internal get; set; }
+        private static Assembly Assembly { get; set; }
 
-        /// <summary>
-        ///     Wrapped Stardew Valley Program class.
-        /// </summary>
-        public static ProgramAccessor Root { internal get; set; }
+        private static ProgramAccessor Root { get; set; }
 
-        /// <summary>
-        ///     The Type of the Tool class within the game, cached here so we can proxy it later
-        /// </summary>
-        public static Type ToolType { internal get; set; }
+        private static Type ToolType { get; set; }
 
-        public static InterceptorFactory<ToolDelegate> ToolFactory { internal get; set; }
+        private static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
 
-        /// <summary>
-        ///     The Type of the Object class within the game, cached here so we can proxy it later
-        /// </summary>
-        public static Type ObjectType { internal get; set; }
+        private static Type ObjectType { get; set; }
 
-        public static InterceptorFactory<ObjectDelegate> ObjectFactory { internal get; set; }
+        private static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
 
-        public static Type TextureComponentType { internal get; set; }
-        public static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { internal get; set; }
+        private static Type TextureComponentType { get; set; }
+        private static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
 
-        public static Type BillboardType { internal get; set; }
-        public static InterceptorFactory<BillboardDelegate> BillboardFactory { internal get; set; }
+        private static Type BillboardType { get; set; }
+        private static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
 
-        public static Type ClickableMenuType { get; set; }
-        public static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
+        private static Type ClickableMenuType { get; set; }
+        private static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
 
-        /// <summary>
-        ///     Event handler for all Storm mods.
-        /// </summary>
-        public static ModEventBus EventBus { internal get; set; }
+        private static ModEventBus EventBus { get; set; }
 
-        /// <summary>
-        ///     Wrapped Stardew Valley Game class.
-        /// </summary>
-        public static StaticContext WrappedGame
+        private static StaticContext WrappedGame
         {
             get { return new StaticContext(Root._GetGame()); }
+        }
+
+        public static void Init(
+            Assembly assembly, ProgramAccessor root, 
+            Type toolType, InterceptorFactory<ToolDelegate> toolFactory, 
+            Type objectType, InterceptorFactory<ObjectDelegate> objectFactory, 
+            Type textureComponentType, InterceptorFactory<TextureComponentDelegate> textureComponentFactory,
+            Type billboardType, InterceptorFactory<BillboardDelegate> billboardFactory,
+            Type clickableMenuType, InterceptorFactory<ClickableMenuDelegate> clickableMenuFactory,
+            ModEventBus eventBus)
+        {
+            Assembly = assembly;
+            Root = root;
+            ToolType = toolType;
+            ToolFactory = toolFactory;
+            ObjectType = objectType;
+            ObjectFactory = objectFactory;
+            TextureComponentType = textureComponentType;
+            TextureComponentFactory = textureComponentFactory;
+            BillboardType = billboardType;
+            BillboardFactory = billboardFactory;
+            ClickableMenuType = clickableMenuType;
+            ClickableMenuFactory = clickableMenuFactory;
+            EventBus = eventBus;
+        }
+
+        private static void InitializeEvent(StaticContextEvent @event)
+        {
+            @event.GameAssembly = Assembly;
+            @event.Root = WrappedGame;
+            @event.EventBus = EventBus;
+            @event.ToolType = ToolType;
+            @event.ToolFactory = ToolFactory;
+            @event.ObjectType = ObjectType;
+            @event.ObjectFactory = ObjectFactory;
+            @event.TextureComponentType = TextureComponentType;
+            @event.TextureComponentFactory = TextureComponentFactory;
+            @event.BillboardType = BillboardType;
+            @event.BillboardFactory =BillboardFactory;
+            @event.ClickableMenuType = ClickableMenuType;
+            @event.ClickableMenuFactory = ClickableMenuFactory;
+        }
+
+        private static void CheckAccessRights()
+        {
+            // make calls to this in all properties if someone tries to bypass
+            // private access
+
+            // if (did not originate from this class)
+            //  throw new Exception("Invalid access rights!");
+        }
+
+        private static T HookEvent<T>(T @event) where T : DetourEvent
+        {
+            if (@event is StaticContextEvent)
+            {
+                (@event as StaticContextEvent).Init(InitializeEvent);
+            }
+            return @event;
+        }
+
+        private static void FireEvent<T>(T @event) where T : DetourEvent
+        {
+            HookEvent(@event);
+            EventBus.Fire(@event);
         }
 
         #region ContentManager Events
@@ -84,23 +131,14 @@ namespace Storm.StardewValley
         public static DetourEvent ContentLoadCallback(ContentManager manager, Type assetType, string assetName)
         {
             var @event = new AssetLoadEvent(manager, assetType, assetName);
-            EventBus.Fire(@event);
-
-            if (@event.ReturnValue == null)
-            {
-                if (assetType == typeof (Texture2D))
-                {
-                    @event.ReturnValue = StormContentManager.LookupTexture(EventBus.mods,assetName);
-                }
-            }
-
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ManagerUnloadCallback(ContentManager manager)
         {
             var @event = new ManagerUnloadEvent(manager);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -114,7 +152,7 @@ namespace Storm.StardewValley
 
             // just echo back for now, idk why
             @event.Root.ChatBox.ReceiveChatMessage(@event.ChatText, -1L);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -131,35 +169,35 @@ namespace Storm.StardewValley
             Logging.DebugLog("Game Initialized");
 
             var @event = new InitializeEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent LoadContentCallback(StaticContextAccessor context)
         {
             var @event = new LoadContentEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent UnloadContentCallback(StaticContextAccessor context)
         {
             var @event = new UnloadContentEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PreDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreRenderEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PreUIDrawCallback(StaticContextAccessor context)
         {
             var @event = new PreUIRenderEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -169,7 +207,7 @@ namespace Storm.StardewValley
             batch.Begin();
 
             var @event = new PostRenderEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
 
             batch.End();
             return @event;
@@ -178,63 +216,63 @@ namespace Storm.StardewValley
         public static DetourEvent SeasonChangeCallback()
         {
             var @event = new SeasonChangeEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeNewDayCallback()
         {
             var @event = new BeforeNewDayEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterNewDayCallback()
         {
             var @event = new AfterNewDayEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent Before10MinuteClockUpdateCallback()
         {
             var @event = new Before10MinuteClockUpdateEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent After10MinuteClockUpdateCallback()
         {
             var @event = new After10MinuteClockUpdateEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent UpdateGameClockCallback()
         {
             var @event = new UpdateGameClockEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent SellShippedItemsCallback()
         {
             var @event = new SellShippedItemsEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AddItemToInventoryCallback(FarmerAccessor farmer, ItemAccessor item)
         {
             var @event = new AddItemToInventoryEvent(new Farmer(WrappedGame, farmer), new Item(WrappedGame, item));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
         {
             var @event = new PreUpdateEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -252,28 +290,28 @@ namespace Storm.StardewValley
 
             foreach (var key in keyboardState.GetPressedKeys())
                 if (!oldKeyboardState.IsKeyDown(key))
-                    EventBus.Fire(new KeyPressedEvent(key));
+                    FireEvent(new KeyPressedEvent(key));
 
             foreach (var key in oldKeyboardState.GetPressedKeys())
                 if (!keyboardState.IsKeyDown(key))
-                    EventBus.Fire(new KeyReleasedEvent(key));
+                    FireEvent(new KeyReleasedEvent(key));
 
             /* probably a way to template this, but whatever, mouse events */
 
             if (mouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Left, mouseState));
+                FireEvent(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Left, mouseState));
             if (mouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Left, mouseState));
+                FireEvent(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Left, mouseState));
 
             if (mouseState.MiddleButton == ButtonState.Pressed && oldMouseState.MiddleButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Middle, mouseState));
+                FireEvent(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Middle, mouseState));
             if (mouseState.MiddleButton == ButtonState.Released && oldMouseState.MiddleButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Middle, mouseState));
+                FireEvent(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Middle, mouseState));
 
             if (mouseState.RightButton == ButtonState.Pressed && oldMouseState.RightButton == ButtonState.Released)
-                EventBus.Fire(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Right, mouseState));
+                FireEvent(new MouseButtonPressedEvent(MouseButtonPressedEvent.MouseButton.Right, mouseState));
             if (mouseState.RightButton == ButtonState.Released && oldMouseState.RightButton == ButtonState.Pressed)
-                EventBus.Fire(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right, mouseState));
+                FireEvent(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right, mouseState));
 
             /* todo: gamepad events */
 
@@ -282,163 +320,163 @@ namespace Storm.StardewValley
             oldGamepadState = gamepadState;
 
             var @event = new PostUpdateEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PressUseToolButtonCallback()
         {
             var @event = new PressUseToolButtonEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PressActionButtonCallback()
         {
             var @event = new PressActionButtonEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PrepareSpouseForWeddingCallback()
         {
             var @event = new PrepareSpouseForWeddingEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PlayMorningSongCallback()
         {
             var @event = new PlayMorningSongEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerTakeDamageCallback(int damage, bool overrideParry, MonsterAccessor damager)
         {
             var @event = new FarmerDamageEvent(damage, overrideParry, new Monster(WrappedGame, damager));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeGameLoadedCallback(bool loadedGame)
         {
-            var @event = new BeforeGameLoadedEvent(loadedGame);
+            var @event = HookEvent(new BeforeGameLoadedEvent(loadedGame));
             @event.Root.MultiplayerMode = 1; /* enables chatbox and nothing else, hacky, remove when proxies are done */
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterGameLoadedCallback(bool loadedGame)
         {
-            var @event = new AfterGameLoadedEvent(loadedGame);
+            var @event = HookEvent(new AfterGameLoadedEvent(loadedGame));
             @event.Root.MultiplayerMode = 0; /* enables chatbox and nothing else, hacky, remove when proxies are done */
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShowEndOfNightStuffCallback()
         {
             var @event = new ShowEndOfNightStuffEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent TryToBuySelectedItemsCallback()
         {
             var @event = new TryToBuySelectedItemsEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent UpdateMusicCallback()
         {
             var @event = new UpdateMusicEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent UpdateTitleScreenCallback(StaticContextAccessor context)
         {
             var @event = new UpdateTitleScreenEvent(context);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShowRedMessageCallback(string message)
         {
             var @event = new ShowRedMessageEvent(message);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShowGlobalMessageCallback(string message)
         {
             var @event = new ShowGlobalMessageEvent(message);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GameExitEventCallback(StaticContextAccessor context)
         {
             var @event = new GameExitEvent(context);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ClientSizeChangedCallback(StaticContextAccessor context)
         {
             var @event = new ClientSizeChangedEvent(context);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PressAddItemToInventoryButtonCallback()
         {
             var @event = new PressAddItemToInventoryButtonEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PlayerEatObjectCallback(ObjectAccessor o, bool overrideFullness)
         {
             var @event = new PlayerEatObjectEvent(new ObjectItem(WrappedGame, o), overrideFullness);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PressSwitchToolButtonCallback()
         {
             var @event = new PressSwitchToolButtonEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ReleaseUseToolButtonCallback()
         {
             var @event = new ReleaseUseToolButtonEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShouldTimePassCallback()
         {
             var @event = new ShouldTimePassEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent IsDarkOutCallback()
         {
             var @event = new IsDarkOutEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShipObjectCallback(ObjectAccessor accessor)
         {
             var @event = new ShipObjectEvent(new ObjectItem(WrappedGame, accessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -449,203 +487,203 @@ namespace Storm.StardewValley
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
         {
             var @event = new WarpFarmerEvent(new GameLocation(WrappedGame, location), tileX, tileY, facingDirection, isStructure);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index, int number)
         {
             var @event = new AfterFarmerShippedBasicEvent(index, number);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
             var @event = new AfterFarmerCaughtFishEvent(index, size);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
             var @event = new AfterFarmerCaughtFishEvent(index, number);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
             var @event = new AfterFarmerCookedRecipeEvent(index);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
         {
             var @event = new FarmerGainedExperienceEvent(which, howMuch);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
         {
             var @event = new AfterFarmerFoundMineralEvent(index);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
         {
             var @event = new AfterFarmerConsumObjectEvent(index, quantity);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
         {
             var @event = new FarmerIncreaseBackpackSizeEvent(howMuch);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerDismountHorseCallback(FarmerAccessor accessor)
         {
             var @event = new AfterFarmerDismountHorseEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedShirtCallback(FarmerAccessor accessor, int whichShirt)
         {
             var @event = new FarmerChangedShirtEvent(whichShirt);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHairCallback(FarmerAccessor accessor, int whichHair)
         {
             var @event = new FarmerChangedHairEvent(whichHair);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedShoeCallback(FarmerAccessor accessor, int which)
         {
             var @event = new FarmerChangedShoeEvent(which);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHairColorCallback(FarmerAccessor accessor, Color c)
         {
             var @event = new FarmerChangedHairColorEvent(c);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedPantsCallback(FarmerAccessor accessor, Color color)
         {
             var @event = new FarmerChangedPantsEvent(color);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHatCallback(FarmerAccessor accessor, int newHat)
         {
             var @event = new FarmerChangedHatEvent(newHat);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedAccessoryCallback(FarmerAccessor accessor, int which)
         {
             var @event = new FarmerChangedAccessoryEvent(which);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedSkinColorCallback(FarmerAccessor accessor, int which)
         {
             var @event = new FarmerChangedSkinColorEvent(which);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedEyeColorCallback(FarmerAccessor accessor, Color c)
         {
             var @event = new FarmerChangedEyeColorEvent(c);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedGenderCallback(FarmerAccessor accessor, bool male)
         {
             var @event = new FarmerChangedGenderEvent(male);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerCollideWithCallback(FarmerAccessor accessor, ObjectAccessor collisionObject)
         {
-            var @event = new FarmerCollideWithEvent(collisionObject);
-            EventBus.Fire(@event);
+            var @event = new FarmerCollideWithEvent(new ObjectItem(WrappedGame, collisionObject));
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShouldCollideWithBuildingLayerCallback(CharacterAccessor accessor, GameLocationAccessor gameLocationAccessor)
         {
-            var @event = new ShouldCollideWithBuildingLayerEvent(gameLocationAccessor);
-            EventBus.Fire(@event);
+            var @event = new ShouldCollideWithBuildingLayerEvent(new GameLocation(WrappedGame, gameLocationAccessor));
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerChangedIntoSwimsuitCallback(FarmerAccessor accessor)
         {
             var @event = new AfterFarmerChangeIntoSwimsuitEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerChangeOutOfSwimsuitCallback(FarmerAccessor accessor)
         {
             var @event = new AfterFarmerChangeOutOfSwimsuitEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterFarmerDayUpdateCallback(FarmerAccessor accessor)
         {
             var @event = new AfterFarmerDayUpdateEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetFarmerTextureCallback(FarmerAccessor accessor)
         {
             var @event = new GetFarmerTextureEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerMountHorseCallback(FarmerAccessor accessor, HorseAccessor mount)
         {
-            var @event = new FarmerMountHorseEvent(mount);
-            EventBus.Fire(@event);
+            var @event = new FarmerMountHorseEvent(new Horse(WrappedGame, mount));
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerGetHisHerCallback(FarmerAccessor accessor)
         {
             var @event = new FarmerGetHisHerEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerShipAllCallback(FarmerAccessor accessor)
         {
             var @event = new FarmerShipAllEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -657,21 +695,21 @@ namespace Storm.StardewValley
         public static DetourEvent CompleteGrowthCallback(CropAccessor accessor)
         {
             var @event = new CropCompleteGrowthEvent(new Crop(WrappedGame, accessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeHarvestCropCallback(CropAccessor accessor)
         {
             var @event = new BeforeHarvestCropEvent(new Crop(WrappedGame, accessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
         {
             var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -682,42 +720,42 @@ namespace Storm.StardewValley
         public static DetourEvent BeforeDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
             var @event = new BeforeDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
             var @event = new AfterDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
             var @event = new BeforeHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
             var @event = new BeforeHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
             var @event = new AfterHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
             var @event = new AfterHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -728,28 +766,28 @@ namespace Storm.StardewValley
         public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
             var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
             var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PreObjectDropInActionCallback(ObjectAccessor accessor, ObjectAccessor dropAccessor, bool probe, FarmerAccessor who)
         {
             var @event = new PreObjectDropInActionEvent(new ObjectItem(WrappedGame, accessor), new ObjectItem(WrappedGame, dropAccessor), probe, new Farmer(WrappedGame, who));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostObjectDropInActionCallback(ObjectAccessor accessor, ObjectAccessor dropAccessor, bool probe, FarmerAccessor who)
         {
             var @event = new PostObjectDropInActionEvent(new ObjectItem(WrappedGame, accessor), new ObjectItem(WrappedGame, dropAccessor), probe, new Farmer(WrappedGame, who));
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -760,28 +798,28 @@ namespace Storm.StardewValley
         public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
             var @event = new BeforePullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterPullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
             var @event = new AfterPullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
             var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent AfterDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
             var @event = new AfterDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -793,7 +831,7 @@ namespace Storm.StardewValley
         {
             var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
             var @event = new PreConstructShopViaListEvent(new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -801,14 +839,14 @@ namespace Storm.StardewValley
         {
             var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
             var @event = new PostConstructShopViaListEvent(new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent SetUpShopOwnerCallback(ShopMenuAccessor shopMenu, string who)
         {
             var @event = new SetUpShopOwnerEvent(new ShopMenu(WrappedGame, shopMenu), who);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -819,77 +857,77 @@ namespace Storm.StardewValley
         public static DetourEvent BeforeBuriedItemCheckCallback(MineShaftAccessor accessor, int xLocation, int yLocation, bool explosion, bool detectOnly)
         {
             var @event = new BeforeBuriedItemCheckEvent(xLocation, yLocation, explosion, detectOnly);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent BeforeStoneItemCheckCallback(MineShaftAccessor accessor, int tileIndexOfStone, int x, int y, Farmer who)
         {
             var @event = new BeforeStoneItemCheckEvent(tileIndexOfStone, x, y, who);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PlayMineSongCallback(MineShaftAccessor accessor)
         {
             var @event = new PlayMineSongEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ChooseLevelTypeCallback(MineShaftAccessor accessor)
         {
             var @event = new ChooseLevelTypeEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent LoadMineshaftLevelCallback(MineShaftAccessor accessor, int level)
         {
             var @event = new LoadMineshaftLevelEvent(level);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PrepareElevatorCallback(MineShaftAccessor accessor)
         {
             var @event = new PrepareElevatorEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent CreateLadderDownCallback(MineShaftAccessor accessor, int x, int y)
         {
             var @event = new CreateLadderDownEvent(x, y);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetOreIndexForLevelCallback(MineShaftAccessor accessor, int mineLevel, Random r)
         {
             var @event = new GetOreIndexForLevelEvent(mineLevel, r);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetMineAreaCallback(MineShaftAccessor accessor, int level)
         {
             var @event = new GetMineAreaEvent(level);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetMonsterForLevelCallback(MineShaftAccessor accessor, int level, int xTile, int yTile)
         {
             var @event = new GetMonsterForLevelEvent(level, xTile, yTile);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetExtraMineShaftMillisecondsCallback(MineShaftAccessor accessor)
         {
             var @event = new GetExtraMineShaftMillisecondsEvent();
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
@@ -900,7 +938,7 @@ namespace Storm.StardewValley
         public static DetourEvent BobberBarUpdateCallback(BobberBarAccessor bobberBar, Microsoft.Xna.Framework.GameTime time)
         {
             var @event = new BobberBarUpdateEvent(time);
-            EventBus.Fire(@event);
+            FireEvent(@event);
             return @event;
         }
 
