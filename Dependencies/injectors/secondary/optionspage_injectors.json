@@ -1,0 +1,81 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "optionSlots",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "OptionSlots",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "currentItemIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentItemIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "upArrow",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "UpArrow",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "downArrow",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "DownArrow",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "scrollBar",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "ScrollBar",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "scrolling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Scrolling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "options",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Options",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "scrollBarRunner",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "ScrollBarRunner",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@OptionsPage",
+      "OwnerFieldName": "optionsSlotHeld",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OptionsSlotHeld",
+      "Type": "System.Int32"
+    }
+  ]
+}

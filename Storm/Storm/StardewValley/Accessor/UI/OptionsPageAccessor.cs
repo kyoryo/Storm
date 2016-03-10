@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface OptionsPageAccessor
+    public interface OptionsPageAccessor : ClickableMenuAccessor
     {
         System.String _GetDescriptionText();
         void _SetDescriptionText(System.String val);
