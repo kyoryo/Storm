@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,82 +23,84 @@ namespace Storm.StardewValley.Wrapper
 {
     public class HoeDirt : TerrainFeature
     {
-        private readonly HoeDirtAccessor accessor;
-
-        public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) : base(parent, accessor)
+        public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public HoeDirt()
+        {
         }
 
         public Texture2D LightTexture
         {
-            get { return accessor._GetLightTexture(); }
-            set { accessor._SetLightTexture(value); }
+            get { return Cast<HoeDirtAccessor>()._GetLightTexture(); }
+            set { Cast<HoeDirtAccessor>()._SetLightTexture(value); }
         }
 
         public Texture2D DarkTexture
         {
-            get { return accessor._GetDarkTexture(); }
-            set { accessor._SetDarkTexture(value); }
+            get { return Cast<HoeDirtAccessor>()._GetDarkTexture(); }
+            set { Cast<HoeDirtAccessor>()._SetDarkTexture(value); }
         }
 
         public Texture2D SnowTexture
         {
-            get { return accessor._GetSnowTexture(); }
-            set { accessor._SetSnowTexture(value); }
+            get { return Cast<HoeDirtAccessor>()._GetSnowTexture(); }
+            set { Cast<HoeDirtAccessor>()._SetSnowTexture(value); }
         }
 
         public Crop Crop
         {
             get
             {
-                var tmp = accessor._GetCrop();
+                var tmp = Cast<HoeDirtAccessor>()._GetCrop();
                 if (tmp == null) return null;
                 return new Crop(Parent, tmp);
             }
-            set { accessor._SetCrop(value?.Cast<CropAccessor>()); }
+            set { Cast<HoeDirtAccessor>()._SetCrop(value?.Cast<CropAccessor>()); }
         }
 
         public int State
         {
-            get { return accessor._GetState(); }
-            set { accessor._SetState(value); }
+            get { return Cast<HoeDirtAccessor>()._GetState(); }
+            set { Cast<HoeDirtAccessor>()._SetState(value); }
         }
 
         public int Fertilizer
         {
-            get { return accessor._GetFertilizer(); }
-            set { accessor._SetFertilizer(value); }
+            get { return Cast<HoeDirtAccessor>()._GetFertilizer(); }
+            set { Cast<HoeDirtAccessor>()._SetFertilizer(value); }
         }
 
         public bool ShakeLeft
         {
-            get { return accessor._GetShakeLeft(); }
-            set { accessor._SetShakeLeft(value); }
+            get { return Cast<HoeDirtAccessor>()._GetShakeLeft(); }
+            set { Cast<HoeDirtAccessor>()._SetShakeLeft(value); }
         }
 
         public float ShakeRotation
         {
-            get { return accessor._GetShakeRotation(); }
-            set { accessor._SetShakeRotation(value); }
+            get { return Cast<HoeDirtAccessor>()._GetShakeRotation(); }
+            set { Cast<HoeDirtAccessor>()._SetShakeRotation(value); }
         }
 
         public float MaxShake
         {
-            get { return accessor._GetMaxShake(); }
-            set { accessor._SetMaxShake(value); }
+            get { return Cast<HoeDirtAccessor>()._GetMaxShake(); }
+            set { Cast<HoeDirtAccessor>()._SetMaxShake(value); }
         }
 
         public float ShakeRate
         {
-            get { return accessor._GetShakeRate(); }
-            set { accessor._SetShakeRate(value); }
+            get { return Cast<HoeDirtAccessor>()._GetShakeRate(); }
+            set { Cast<HoeDirtAccessor>()._SetShakeRate(value); }
         }
 
         public Color C
         {
-            get { return accessor._GetC(); }
-            set { accessor._SetC(value); }
+            get { return Cast<HoeDirtAccessor>()._GetC(); }
+            set { Cast<HoeDirtAccessor>()._SetC(value); }
         }
     }
 }

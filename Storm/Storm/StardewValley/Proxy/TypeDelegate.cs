@@ -19,6 +19,12 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class TypeDelegate<T>
     {
+        public virtual object[] ConstructorParams { get; set; }
+
+        public TypeDelegate() {
+            ConstructorParams = new object[0];
+        }
+
         public T Accessor { get; set; }
     }
 }

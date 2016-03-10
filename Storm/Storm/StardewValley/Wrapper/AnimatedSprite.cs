@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Inari
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,32 +20,33 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class AnimatedSprite : Wrapper
+    public class AnimatedSprite : StaticContextWrapper
     {
-        public StaticContext Parent { get; }
-        private readonly AnimatedSpriteAccessor accessor;
-
-        public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor)
+        public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor) : 
+            base(parent)
         {
-            this.Parent = parent;
-            this.accessor = accessor;
+            Accessor = accessor;
+        }
+
+        public AnimatedSprite()
+        {
         }
 
         public Texture2D SpriteTexture
         {
-            get { return accessor._GetSpriteTexture(); }
+            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteTexture(); }
         }
 
         public int SpriteWidth
         {
-            get { return accessor._GetSpriteWidth(); }
+            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteWidth(); }
         }
 
         public int SpriteHeight
         {
-            get { return accessor._GetSpriteHeight(); }
+            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteHeight(); }
         }
 
-        public object Expose() => accessor;
+        public override object Expose() => Accessor;
     }
 }

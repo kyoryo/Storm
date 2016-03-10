@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,18 +19,18 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableComponent : Wrapper
+    public class ClickableComponent : StaticContextWrapper
     {
-        private readonly ClickableComponentAccessor accessor;
-
-        public ClickableComponent(StaticContext parent, ClickableComponentAccessor accessor)
+        public ClickableComponent(StaticContext parent, ClickableComponentAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Accessor = accessor;
         }
 
-        private StaticContext Parent { get; }
+        public ClickableComponent()
+        {
+        }
 
-        public object Expose() => accessor;
+        public override object Expose() => Accessor;
     }
 }

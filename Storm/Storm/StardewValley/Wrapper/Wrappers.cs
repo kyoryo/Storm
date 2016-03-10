@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,12 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Storm.StardewValley.Wrapper
 {
     public static class Wrappers
@@ -34,7 +28,7 @@ namespace Storm.StardewValley.Wrapper
                 this.Object = o;
             }
 
-            public object Expose() => Object;
+            public override object Expose() => Object;
         }
 
         public class IntWrapper : Wrapper
@@ -46,7 +40,7 @@ namespace Storm.StardewValley.Wrapper
                 this.Int = i;
             }
 
-            public object Expose() => Int;
+            public override object Expose() => Int;
         }
 
         public static ObjectWrapper Wrap(object o) => new ObjectWrapper(o);

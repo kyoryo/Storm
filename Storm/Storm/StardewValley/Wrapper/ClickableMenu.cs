@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,39 +19,39 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableMenu : Wrapper
+    public class ClickableMenu : StaticContextWrapper
     {
-        private readonly ClickableMenuAccessor accessor;
-
-        public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor)
+        public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Accessor = accessor;
         }
 
-        public StaticContext Parent { get; }
+        public ClickableMenu()
+        {
+        }
 
-        public object Expose() => accessor;
+        public override object Expose() => Accessor;
 
-        public bool IsChatBox() => accessor is ChatBoxAccessor;
-        public ChatBox ToChatBox() => new ChatBox(Parent, accessor as ChatBoxAccessor);
+        public bool IsChatBox() => Cast<ClickableMenuAccessor>() is ChatBoxAccessor;
+        public ChatBox ToChatBox() => new ChatBox(Parent, Cast<ClickableMenuAccessor>() as ChatBoxAccessor);
 
-        public bool IsGameMenu() => accessor is GameMenuAccessor;
-        public GameMenu ToGameMenu() => new GameMenu(Parent, accessor as GameMenuAccessor);
+        public bool IsGameMenu() => Cast<ClickableMenuAccessor>() is GameMenuAccessor;
+        public GameMenu ToGameMenu() => new GameMenu(Parent, Cast<ClickableMenuAccessor>() as GameMenuAccessor);
 
-        public bool IsShopMenu() => accessor is ShopMenuAccessor;
-        public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
+        public bool IsShopMenu() => Cast<ClickableMenuAccessor>() is ShopMenuAccessor;
+        public ShopMenu ToShopMenu() => new ShopMenu(Parent, Cast<ClickableMenuAccessor>() as ShopMenuAccessor);
 
-        public bool IsInventoryMenu() => accessor is InventoryMenuAccessor;
-        public InventoryMenu ToInventoryMenu() => new InventoryMenu(Parent, accessor as InventoryMenuAccessor);
+        public bool IsInventoryMenu() => Cast<ClickableMenuAccessor>() is InventoryMenuAccessor;
+        public InventoryMenu ToInventoryMenu() => new InventoryMenu(Parent, Cast<ClickableMenuAccessor>() as InventoryMenuAccessor);
 
-        public bool IsInventoryPage() => accessor is InventoryPageAccessor;
-        public InventoryPage ToInventoryPage() => new InventoryPage(Parent, accessor as InventoryPageAccessor);
+        public bool IsInventoryPage() => Cast<ClickableMenuAccessor>() is InventoryPageAccessor;
+        public InventoryPage ToInventoryPage() => new InventoryPage(Parent, Cast<ClickableMenuAccessor>() as InventoryPageAccessor);
 
-        public bool IsBillboard() => accessor is BillboardAccessor;
-        public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
+        public bool IsBillboard() => Cast<ClickableMenuAccessor>() is BillboardAccessor;
+        public Billboard ToBillboard() => new Billboard(Parent, Cast<ClickableMenuAccessor>() as BillboardAccessor);
 
-        public bool IsBobberBar() => accessor is BobberBarAccessor;
-        public BobberBar ToBobberBar() => new BobberBar(Parent, accessor as BobberBarAccessor);
+        public bool IsBobberBar() => Cast<ClickableMenuAccessor>() is BobberBarAccessor;
+        public BobberBar ToBobberBar() => new BobberBar(Parent, Cast<ClickableMenuAccessor>() as BobberBarAccessor);
     }
 }

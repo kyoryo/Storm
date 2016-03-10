@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,82 +20,82 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Character : Wrapper
+    public class Character : StaticContextWrapper
     {
-        private readonly CharacterAccessor accessor;
-
-        public Character(StaticContext parent, CharacterAccessor accessor)
+        public Character(StaticContext parent, CharacterAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Accessor = accessor;
         }
 
-        public StaticContext Parent { get; }
+        public Character()
+        {
+        }
 
         public bool EmoteFading
         {
-            get { return accessor._GetEmoteFading(); }
+            get { return Cast<CharacterAccessor>()._GetEmoteFading(); }
         }
 
         public float EmoteInterval
         {
-            get { return accessor._GetEmoteInterval(); }
-            set { accessor._SetEmoteInterval(value); }
+            get { return Cast<CharacterAccessor>()._GetEmoteInterval(); }
+            set { Cast<CharacterAccessor>()._SetEmoteInterval(value); }
         }
 
         public Vector2 LastClick
         {
-            get { return accessor._GetLastClick(); }
-            set { accessor._SetLastClick(value); }
+            get { return Cast<CharacterAccessor>()._GetLastClick(); }
+            set { Cast<CharacterAccessor>()._SetLastClick(value); }
         }
 
         public string Name
         {
-            get { return accessor._GetName(); }
-            set { accessor._SetName(value); }
+            get { return Cast<CharacterAccessor>()._GetName(); }
+            set { Cast<CharacterAccessor>()._SetName(value); }
         }
 
         public Vector2 Position
         {
-            get { return accessor._GetPosition(); }
-            set { accessor._SetPosition(value); }
+            get { return Cast<CharacterAccessor>()._GetPosition(); }
+            set { Cast<CharacterAccessor>()._SetPosition(value); }
         }
 
         public float VelocityX
         {
-            get { return accessor._GetXVelocity(); }
-            set { accessor._SetXVelocity(value); }
+            get { return Cast<CharacterAccessor>()._GetXVelocity(); }
+            set { Cast<CharacterAccessor>()._SetXVelocity(value); }
         }
 
         public float VelocityY
         {
-            get { return accessor._GetYVelocity(); }
-            set { accessor._SetYVelocity(value); }
+            get { return Cast<CharacterAccessor>()._GetYVelocity(); }
+            set { Cast<CharacterAccessor>()._SetYVelocity(value); }
         }
 
         public float Scale
         {
-            get { return accessor._GetScale(); }
-            set { accessor._SetScale(value); }
+            get { return Cast<CharacterAccessor>()._GetScale(); }
+            set { Cast<CharacterAccessor>()._SetScale(value); }
         }
 
         public int Speed
         {
-            get { return accessor._GetSpeed(); }
-            set { accessor._SetSpeed(value); }
+            get { return Cast<CharacterAccessor>()._GetSpeed(); }
+            set { Cast<CharacterAccessor>()._SetSpeed(value); }
         }
 
         public AnimatedSprite Sprite
         {
             get
             {
-                var tmp = accessor._GetSprite();
+                var tmp = Cast<CharacterAccessor>()._GetSprite();
                 if (tmp == null) return null;
                 return new AnimatedSprite(Parent, tmp);
             }
-            set { accessor._SetSprite(value?.Cast<AnimatedSpriteAccessor>()); }
+            set { Cast<CharacterAccessor>()._SetSprite(value?.Cast<AnimatedSpriteAccessor>()); }
         }
 
-        public object Expose() => accessor;
+        public override object Expose() => Accessor;
     }
 }

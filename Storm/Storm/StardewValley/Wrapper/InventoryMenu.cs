@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,82 +21,84 @@ namespace Storm.StardewValley.Wrapper
 {
     public class InventoryMenu : ClickableMenu
     {
-        private readonly InventoryMenuAccessor accessor;
-
-        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) : base(parent, accessor)
+        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public InventoryMenu()
+        {
         }
 
         public string HoverText
         {
-            get { return accessor._GetHoverText(); }
-            set { accessor._SetHoverText(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetHoverText(); }
+            set { Cast<InventoryMenuAccessor>()._SetHoverText(value); }
         }
 
         public string HoverTitle
         {
-            get { return accessor._GetHoverTitle(); }
-            set { accessor._SetHoverTitle(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetHoverTitle(); }
+            set { Cast<InventoryMenuAccessor>()._SetHoverTitle(value); }
         }
 
         public string DescriptionTitle
         {
-            get { return accessor._GetDescriptionTitle(); }
-            set { accessor._SetDescriptionTitle(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetDescriptionTitle(); }
+            set { Cast<InventoryMenuAccessor>()._SetDescriptionTitle(value); }
         }
 
         public string DescriptionText
         {
-            get { return accessor._GetDescriptionText(); }
-            set { accessor._SetDescriptionText(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetDescriptionText(); }
+            set { Cast<InventoryMenuAccessor>()._SetDescriptionText(value); }
         }
 
         public bool PlayerInventory
         {
-            get { return accessor._GetPlayerInventory(); }
-            set { accessor._SetPlayerInventory(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetPlayerInventory(); }
+            set { Cast<InventoryMenuAccessor>()._SetPlayerInventory(value); }
         }
 
         public bool DrawSlots
         {
-            get { return accessor._GetDrawSlots(); }
-            set { accessor._SetDrawSlots(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetDrawSlots(); }
+            set { Cast<InventoryMenuAccessor>()._SetDrawSlots(value); }
         }
 
         public bool ShowGrayedOutSlots
         {
-            get { return accessor._GetShowGrayedOutSlots(); }
-            set { accessor._SetShowGrayedOutSlots(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetShowGrayedOutSlots(); }
+            set { Cast<InventoryMenuAccessor>()._SetShowGrayedOutSlots(value); }
         }
 
         public int Capacity
         {
-            get { return accessor._GetCapacity(); }
-            set { accessor._SetCapacity(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetCapacity(); }
+            set { Cast<InventoryMenuAccessor>()._SetCapacity(value); }
         }
 
         public int Rows
         {
-            get { return accessor._GetRows(); }
-            set { accessor._SetRows(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetRows(); }
+            set { Cast<InventoryMenuAccessor>()._SetRows(value); }
         }
 
         public int HorizontalGap
         {
-            get { return accessor._GetHorizontalGap(); }
-            set { accessor._SetHorizontalGap(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetHorizontalGap(); }
+            set { Cast<InventoryMenuAccessor>()._SetHorizontalGap(value); }
         }
 
         public int VerticalGap
         {
-            get { return accessor._GetVerticalGap(); }
-            set { accessor._SetVerticalGap(value); }
+            get { return Cast<InventoryMenuAccessor>()._GetVerticalGap(); }
+            set { Cast<InventoryMenuAccessor>()._SetVerticalGap(value); }
         }
 
         public Item GetItemAt(int mouseX, int mouseY)
         {
-            var tmp = accessor._GetItemAt(mouseX, mouseY);
+            var tmp = Cast<InventoryMenuAccessor>()._GetItemAt(mouseX, mouseY);
             if (tmp == null) return null;
             return new Item(Parent, tmp);
         }

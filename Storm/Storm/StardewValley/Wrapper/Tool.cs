@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,17 +23,19 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Tool : Item
     {
-        private readonly ToolAccessor accessor;
-
-        public Tool(StaticContext parent, ToolAccessor accessor) : base(parent, accessor)
+        public Tool(StaticContext parent, ToolAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Tool()
+        {
         }
 
         public ObjectItem[] Attachments
         {
-            get { return Array.ConvertAll(accessor._GetAttachments(), i => new ObjectItem(Parent, i)); }
-            set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
+            get { return Array.ConvertAll(Cast<ToolAccessor>()._GetAttachments(), i => new ObjectItem(Parent, i)); }
+            set { Cast<ToolAccessor>()._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
         }
 
         /// <summary>
@@ -42,8 +44,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The Name property gets/sets the value of the string field Name</value>
         public string Name
         {
-            get { return accessor._GetName(); }
-            set { accessor._SetName(value); }
+            get { return Cast<ToolAccessor>()._GetName(); }
+            set { Cast<ToolAccessor>()._SetName(value); }
         }
 
         /// <summary>
@@ -52,14 +54,14 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The Description propertly gets/sets the value of the string field Description</value>
         public string Description
         {
-            get { return accessor._GetDescription(); }
-            set { accessor._SetDescription(value); }
+            get { return Cast<ToolAccessor>()._GetDescription(); }
+            set { Cast<ToolAccessor>()._SetDescription(value); }
         }
 
         public bool IsStackable
         {
-            get { return accessor._GetIsStackable(); }
-            set { accessor._SetIsStackable(value); }
+            get { return Cast<ToolAccessor>()._GetIsStackable(); }
+            set { Cast<ToolAccessor>()._SetIsStackable(value); }
         }
 
         /// <summary>
@@ -73,26 +75,14 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The UpgradeLevel property sets/gets the value of the int field UpgradeLevel</value>
         public int UpgradeLevel
         {
-            get { return accessor._GetUpgradeLevel(); }
-            set { accessor._SetUpgradeLevel(value); }
+            get { return Cast<ToolAccessor>()._GetUpgradeLevel(); }
+            set { Cast<ToolAccessor>()._SetUpgradeLevel(value); }
         }
 
         public Texture2D WeaponTexture
         {
-            get { return accessor._GetWeaponTexture(); }
-            set { accessor._SetWeaponTexture(value); }
+            get { return Cast<ToolAccessor>()._GetWeaponTexture(); }
+            set { Cast<ToolAccessor>()._SetWeaponTexture(value); }
         }
-
-        /// <summary>
-        /// Whether this tool is fishing rod or not
-        /// </summary>
-        /// <returns>A boolean representing the fishing rod status of this tool</returns>
-        public bool IsFishingRod() => accessor is FishingRodAccessor;
-
-        /// <summary>
-        /// Turns this tool into a fishing rod
-        /// </summary>
-        /// <returns>A new Fishing Rod</returns>
-        public FishingRod ToFishingRod() => new FishingRod(Parent, (FishingRodAccessor) accessor);
     }
 }
