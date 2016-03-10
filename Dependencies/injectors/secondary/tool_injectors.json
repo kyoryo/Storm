@@ -42,5 +42,19 @@
       "MethodName": "WeaponTexture",
       "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
     }
+  ],
+  "MethodInfoParams": [
+    {
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
+	  "MethodName": "drawInMenu",
+	  "MethodDesc": "",
+	  "RefactoredName": "DrawInMenu"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
+	  "MethodName": "beginUsing",
+	  "MethodDesc": "",
+	  "RefactoredName": "BeginUsing"
+	}
   ]
 }

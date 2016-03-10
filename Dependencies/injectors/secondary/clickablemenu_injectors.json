@@ -105,6 +105,60 @@
 	  "MethodName": "emergencyShutDown",
 	  "MethodDesc": "",
 	  "RefactoredName": "EmergencyShutDown"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "draw",
+	  "MethodDesc": "",
+	  "RefactoredName": "Draw"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "performHoverAction",
+	  "MethodDesc": "",
+	  "RefactoredName": "PerformHoverAction"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "readyToClose",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReadyToClose"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveGamePadButton",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveGamePadButton"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveKeyPress",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveKeyPress"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveLeftClick",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveLeftClick"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveRightClick",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveRightClick"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveScrollWheelAction",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveScrollWheelAction"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "update",
+	  "MethodDesc": "",
+	  "RefactoredName": "Update"
 	}
   ]
 }
