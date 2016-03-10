@@ -1,0 +1,550 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "schedule",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "Schedule",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "dialogue",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "Dialogue",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "directionsToNewLocation",
+      "OwnerFieldType": "StardewValley.SchedulePathDescription",
+      "MethodName": "DirectionsToNewLocation",
+      "Type": "StardewValley.SchedulePathDescription"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "directionIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DirectionIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "lengthOfWalkingSquareX",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LengthOfWalkingSquareX",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "lengthOfWalkingSquareY",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LengthOfWalkingSquareY",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "squarePauseAccumulation",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SquarePauseAccumulation",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "squarePauseTotal",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SquarePauseTotal",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "squarePauseOffset",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SquarePauseOffset",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "lastCrossroad",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "LastCrossroad",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "defaultMap",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DefaultMap",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "loveInterest",
+      "OwnerFieldType": "System.String",
+      "MethodName": "LoveInterest",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "birthday_Season",
+      "OwnerFieldType": "System.String",
+      "MethodName": "BirthdaySeason",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "portrait",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Portrait",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "defaultPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "DefaultPosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "nextSquarePosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "NextSquarePosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "defaultFacingDirection",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DefaultFacingDirection",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "idForClones",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "IdForClones",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "shakeTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ShakeTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "isWalkingInSquare",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsWalkingInSquare",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "isWalkingTowardPlayer",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsWalkingTowardPlayer",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "currentDialogue",
+      "OwnerFieldType": "System.Collections.Generic.Stack`1",
+      "MethodName": "CurrentDialogue",
+      "Type": "System.Collections.Stack"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "routesFromLocationToLocation",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "RoutesFromLocationToLocation",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHead",
+      "OwnerFieldType": "System.String",
+      "MethodName": "TextAboveHead",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHeadPreTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TextAboveHeadPreTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHeadTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TextAboveHeadTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHeadStyle",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TextAboveHeadStyle",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHeadColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TextAboveHeadColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "textAboveHeadAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TextAboveHeadAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "age",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Age",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "manners",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Manners",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "socialAnxiety",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SocialAnxiety",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "optimism",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Optimism",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "gender",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Gender",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "id",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Id",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "homeRegion",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HomeRegion",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "daysUntilBirthing",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysUntilBirthing",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "daysAfterLastBirth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysAfterLastBirth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "birthday_Day",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BirthdayDay",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "extraDialogueMessageToAddThisMorning",
+      "OwnerFieldType": "System.String",
+      "MethodName": "ExtraDialogueMessageToAddThisMorning",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "temporaryController",
+      "OwnerFieldType": "StardewValley.PathFindController",
+      "MethodName": "TemporaryController",
+      "Type": "StardewValley.PathFindController"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "currentLocation",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "CurrentLocation",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "updatedDialogueYet",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UpdatedDialogueYet",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "uniqueSpriteActive",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UniqueSpriteActive",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "uniquePortraitActive",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UniquePortraitActive",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "breather",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Breather",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "hideShadow",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HideShadow",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "hasPartnerForDance",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasPartnerForDance",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "immediateSpeak",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ImmediateSpeak",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "ignoreScheduleToday",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreScheduleToday",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "moveTowardPlayerThreshold",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MoveTowardPlayerThreshold",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "rotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Rotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "yOffset",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "YOffset",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "swimTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "SwimTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "timerSinceLastMovement",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimerSinceLastMovement",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "mapBeforeEvent",
+      "OwnerFieldType": "System.String",
+      "MethodName": "MapBeforeEvent",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "positionBeforeEvent",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "PositionBeforeEvent",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "lastPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastPosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "isInvisible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsInvisible",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "followSchedule",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FollowSchedule",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "datable",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Datable",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "datingFarmer",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DatingFarmer",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "hasBeenKissedToday",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasBeenKissedToday",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "doingEndOfRouteAnimation",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DoingEndOfRouteAnimation",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "goingToDoEndOfRouteAnimation",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GoingToDoEndOfRouteAnimation",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "routeEndIntro",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RouteEndIntro",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "routeEndAnimation",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RouteEndAnimation",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "routeEndOutro",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RouteEndOutro",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "endOfRouteMessage",
+      "OwnerFieldType": "System.String",
+      "MethodName": "EndOfRouteMessage",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "nextEndOfRouteMessage",
+      "OwnerFieldType": "System.String",
+      "MethodName": "NextEndOfRouteMessage",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "endOfRouteBehaviorName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "EndOfRouteBehaviorName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "previousEndPoint",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "PreviousEndPoint",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "scheduleTimeToTry",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ScheduleTimeToTry",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "squareMovementFacingPreference",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SquareMovementFacingPreference",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "returningToEndPoint",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ReturningToEndPoint",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "hasSaidAfternoonDialogue",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasSaidAfternoonDialogue",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "married",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Married",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@NPC",
+      "OwnerFieldName": "daysMarried",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysMarried",
+      "Type": "System.Int32"
+    }
+  ]
+}

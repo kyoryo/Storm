@@ -22,6 +22,8 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ObjectAccessor : ItemAccessor
     {
+        int _GetSellToStorePrice();
+
         Vector2 _GetTileLocation();
         void _SetTileLocation(Vector2 val);
 

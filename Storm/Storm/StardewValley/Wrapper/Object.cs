@@ -29,6 +29,11 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public int SellToStorePrice
+        {
+            get { return accessor._GetSellToStorePrice(); }
+        }
+
         public Vector2 TileLocation
         {
             get { return accessor._GetTileLocation(); }
@@ -164,7 +169,12 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem HeldObject
         {
-            get { return accessor._GetHeldObject() == null ? null : new ObjectItem(Parent, accessor._GetHeldObject()); }
+            get
+            {
+                var tmp = accessor._GetHeldObject();
+                if (tmp == null) return null;
+                return new ObjectItem(Parent, tmp);
+            }
             set { accessor._SetHeldObject(value?.accessor); }
         }
 

@@ -1,0 +1,96 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "bgSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "BgSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "flairSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "FlairSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "messageSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "MessageSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "movingFlairSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "MovingFlairSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "bgDest",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "BgDest",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "yPosition",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "YPosition",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "durationAfterSwipe",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DurationAfterSwipe",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "originalBGSourceXLimit",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OriginalBGSourceXLimit",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "flairPositions",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "FlairPositions",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "messagePosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "MessagePosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "movingFlairPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "MovingFlairPosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "movingFlairMotion",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "MovingFlairMotion",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@ScreenSwipe",
+      "OwnerFieldName": "swipeVelocity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "SwipeVelocity",
+      "Type": "System.Single"
+    },
+    
+  ]
+}

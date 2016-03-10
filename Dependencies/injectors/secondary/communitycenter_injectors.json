@@ -1,0 +1,102 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "refurbishedLoaded",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "RefurbishedLoaded",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "warehouse",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Warehouse",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "bundles",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "Bundles",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "bundleRewards",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "BundleRewards",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "areasComplete",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "AreasComplete",
+      "Type": "System.Boolean[]"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "numberOfStarsOnPlaque",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumberOfStarsOnPlaque",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "messageAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MessageAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "junimoNotesViewportTargets",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "JunimoNotesViewportTargets",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "areaToBundleDictionary",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "AreaToBundleDictionary",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "bundleToAreaDictionary",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "BundleToAreaDictionary",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "restoreAreaTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RestoreAreaTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "restoreAreaPhase",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RestoreAreaPhase",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "restoreAreaIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RestoreAreaIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CommunityCenter",
+      "OwnerFieldName": "buildUpSound",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "BuildUpSound",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "descriptionTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoverTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "hoveredItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoveredItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "equipmentIcons",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "EquipmentIcons",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "portrait",
+      "OwnerFieldType": "StardewValley.Menus.ClickableComponent",
+      "MethodName": "Portrait",
+      "Type": "StardewValley.Menus.ClickableComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "trashCan",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "TrashCan",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "organizeButton",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "OrganizeButton",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "trashCanLidRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TrashCanLidRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@InventoryPage",
+      "OwnerFieldName": "horseName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HorseName",
+      "Type": "System.String"
+    }
+  ]
+}

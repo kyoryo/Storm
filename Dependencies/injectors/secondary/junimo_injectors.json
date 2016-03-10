@@ -1,0 +1,116 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "alpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Alpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "alphaChange",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "AlphaChange",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "farmerCloseCheckTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FarmerCloseCheckTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "whichArea",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichArea",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "friendly",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Friendly",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "holdingStar",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HoldingStar",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "holdingBundle",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HoldingBundle",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "temporaryJunimo",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "TemporaryJunimo",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "stayPut",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "StayPut",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "eventActor",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EventActor",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "motion",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "Motion",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "nextPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "NextPosition",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "color",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Color",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "bundleColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "BundleColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "soundTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SoundTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Junimo",
+      "OwnerFieldName": "sayingGoodbye",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SayingGoodbye",
+      "Type": "System.Boolean"
+    }
+  ]
+}

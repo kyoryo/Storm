@@ -17,7 +17,24 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface CatAccessor
+    public interface CatAccessor : PetAccessor
     {
+        int _GetCurrentBehavior();
+        void _SetCurrentBehavior(int val);
+
+        int _GetTimesOnCurrentAnimation();
+        void _SetTimesOnCurrentAnimation(int val);
+
+        System.String _GetKittyName();
+        void _SetKittyName(System.String val);
+
+        bool _GetWasPet();
+        void _SetWasPet(bool val);
+
+        bool _GetMadeSnoozeSoundLastFrame();
+        void _SetMadeSnoozeSoundLastFrame(bool val);
+
+        int _GetLoveForMaster();
+        void _SetLoveForMaster(int val);
     }
 }

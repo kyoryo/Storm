@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.Collections;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 
@@ -22,7 +23,7 @@ namespace Storm.StardewValley.Event
 {
     public class PostConstructShopViaListEvent : StaticContextEvent
     {
-        public PostConstructShopViaListEvent(ShopMenu shopMenu, ProxyList<ItemAccessor, Item> itemsForSale, int currency = 0, string who = null)
+        public PostConstructShopViaListEvent(ShopMenu shopMenu, WrappedProxyList<ItemAccessor, Item> itemsForSale, int currency = 0, string who = null)
         {
             ShopMenu = shopMenu;
             ItemsForSale = itemsForSale;
@@ -31,7 +32,7 @@ namespace Storm.StardewValley.Event
         }
 
         public ShopMenu ShopMenu { get; }
-        public ProxyList<ItemAccessor, Item> ItemsForSale { get; }
+        public WrappedProxyList<ItemAccessor, Item> ItemsForSale { get; }
         public int Currency { get; }
         public string Who { get; }
     }

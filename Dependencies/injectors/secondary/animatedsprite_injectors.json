@@ -1,0 +1,25 @@
+{
+  "FieldAccessorParams": [
+    {
+      "OwnerAccessorType": "@AnimatedSprite",
+      "OwnerFieldName": "spriteTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "_GetSpriteTexture",
+      "ReturnType": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@AnimatedSprite",
+      "OwnerFieldName": "spriteWidth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "_GetSpriteWidth",
+      "ReturnType": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@AnimatedSprite",
+      "OwnerFieldName": "spriteHeight",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "_GetSpriteHeight",
+      "ReturnType": "System.Int32"
+    }
+  ]
+}

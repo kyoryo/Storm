@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,12 +23,14 @@ using Storm.Manipulation;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
+using System.Collections.Generic;
 
 namespace Storm.StardewValley
 {
     public class StaticContextEvent : DetourEvent
     {
         public delegate void InitDelegate(StaticContextEvent @this);
+        public delegate InterceptorFactory<DType> CreateFactoryDelegate<AType, DType>();
 
         public void Init(InitDelegate init)
         {
@@ -38,16 +40,6 @@ namespace Storm.StardewValley
         public Assembly GameAssembly { get; set; }
         public StaticContext Root { get; set; }
         public ModEventBus EventBus { get; set; }
-        public Type ToolType { get; set; }
-        public InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
-        public Type ObjectType { get; set; }
-        public InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
-        public Type TextureComponentType { get; set; }
-        public InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
-        public Type BillboardType { get; set; }
-        public InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
-        public Type ClickableMenuType { get; set; }
-        public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
 
         public Farmer LocalPlayer
         {
@@ -61,10 +53,7 @@ namespace Storm.StardewValley
 
         public Tool ProxyTool(ToolDelegate @delegate)
         {
-            var generator = new ProxyGenerator();
-            var accessor = (ToolAccessor) generator.CreateClassProxy(
-                ToolType, ToolFactory.CreateInterceptor(@delegate));
-
+            var accessor = StaticGameContext.ProxyAccessor<ToolAccessor, ToolDelegate>(@delegate);
             var wrapped = new Tool(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
@@ -72,10 +61,7 @@ namespace Storm.StardewValley
 
         public ObjectItem ProxyObject(ObjectDelegate @delegate)
         {
-            var generator = new ProxyGenerator();
-            var accessor = (ObjectAccessor) generator.CreateClassProxy(
-                ObjectType, ObjectFactory.CreateInterceptor(@delegate));
-
+            var accessor = StaticGameContext.ProxyAccessor<ObjectAccessor, ObjectDelegate>(@delegate);
             var wrapped = new ObjectItem(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
@@ -83,33 +69,48 @@ namespace Storm.StardewValley
 
         public Billboard ProxyBillboard(BillboardDelegate @delegate)
         {
-            var generator = new ProxyGenerator();
-            var accessor = (BillboardAccessor) generator.CreateClassProxy(
-                BillboardType, BillboardFactory.CreateInterceptor(@delegate));
-
+            var accessor = StaticGameContext.ProxyAccessor<BillboardAccessor, BillboardDelegate>(@delegate);
             var wrapped = new Billboard(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }
 
-        public ClickableTextureComponentAccessor ProxyTexture(TextureComponentDelegate @delegate)
+        public ClickableTextureComponent ProxyTexture(TextureComponentDelegate @delegate)
         {
-            var generator = new ProxyGenerator();
-            var accessor = (ClickableTextureComponentAccessor) generator.CreateClassProxy(
-                TextureComponentType,
-                @delegate.GetConstructorParams(),
-                TextureComponentFactory.CreateInterceptor(@delegate));
-
-            return accessor;
+            var accessor = StaticGameContext.ProxyAccessor<ClickableTextureComponentAccessor, TextureComponentDelegate>(@delegate);
+            var wrapped = new ClickableTextureComponent(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
         }
 
         public ClickableMenu ProxyClickableMenu(ClickableMenuDelegate @delegate)
         {
-            var generator = new ProxyGenerator();
-            var accessor = (ClickableMenuAccessor) generator.CreateClassProxy(
-                ClickableMenuType, ClickableMenuFactory.CreateInterceptor(@delegate));
-
+            var accessor = StaticGameContext.ProxyAccessor<ClickableMenuAccessor, ClickableMenuDelegate>(@delegate);
             var wrapped = new ClickableMenu(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public AnimatedSprite ProxyAnimatedSprite(AnimatedSpriteDelegate @delegate)
+        {
+            var accessor = StaticGameContext.ProxyAccessor<AnimatedSpriteAccessor, AnimatedSpriteDelegate>(@delegate);
+            var wrapped = new AnimatedSprite(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public Character ProxyCharacter(CharacterDelegate @delegate)
+        {
+            var accessor = StaticGameContext.ProxyAccessor<CharacterAccessor, CharacterDelegate>(@delegate);
+            var wrapped = new Character(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public NPC ProxyNPC(NPCDelegate @delegate)
+        {
+            var accessor = StaticGameContext.ProxyAccessor<NPCAccessor, NPCDelegate>(@delegate);
+            var wrapped = new NPC(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }

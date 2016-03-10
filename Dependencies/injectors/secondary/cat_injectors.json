@@ -1,0 +1,46 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "currentBehavior",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentBehavior",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "timesOnCurrentAnimation",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimesOnCurrentAnimation",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "kittyName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "KittyName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "wasPet",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasPet",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "madeSnoozeSoundLastFrame",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MadeSnoozeSoundLastFrame",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Cat",
+      "OwnerFieldName": "loveForMaster",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LoveForMaster",
+      "Type": "System.Int32"
+    }
+  ]
+}

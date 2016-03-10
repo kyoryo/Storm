@@ -1,0 +1,221 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "permanentMineChanges",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "PermanentMineChanges",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "resourceClumps",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ResourceClumps",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "mineRandom",
+      "OwnerFieldType": "System.Random",
+      "MethodName": "MineRandom",
+      "Type": "System.Random"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "mineLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MineLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "nextLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NextLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "lowestLevelReached",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LowestLevelReached",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "mineLoader",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Content.ContentManager",
+      "MethodName": "MineLoader",
+      "Type": "Microsoft.Xna.Framework.Content.ContentManager"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "tileBeneathLadder",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "TileBeneathLadder",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "tileBeneathElevator",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "TileBeneathElevator",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "stonesLeftOnThisLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "StonesLeftOnThisLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "timeSinceLastMusic",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimeSinceLastMusic",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "timeUntilElevatorLightUp",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimeUntilElevatorLightUp",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "fogTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FogTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "ElevatorLightSpot",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "ElevatorLightSpot",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "ladderHasSpawned",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "LadderHasSpawned",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "ghostAdded",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GhostAdded",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "loadedDarkArea",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "LoadedDarkArea",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "isSlimeArea",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsSlimeArea",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "isMonsterArea",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsMonsterArea",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "isFallingDownShaft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsFallingDownShaft",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "ambientFog",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "AmbientFog",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "fogPos",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "FogPos",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "lighting",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Lighting",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "fogColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "FogColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "mostRecentLadder",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "MostRecentLadder",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "fogAlpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FogAlpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "bugLevelLoop",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "BugLevelLoop",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "rainbowLights",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "RainbowLights",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "isLightingDark",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsLightingDark",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "lastLevelsDownFallen",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LastLevelsDownFallen",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MineShaft",
+      "OwnerFieldName": "fogSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "FogSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    }
+  ]
+}

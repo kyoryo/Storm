@@ -38,11 +38,21 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                return new WrappedProxyList<ItemAccessor, Item>(accessor._GetItems(), i => i == null ? null : new Item(Parent, i));
+                var tmp = accessor._GetItems();
+                if (tmp == null) return null;
+                return new WrappedProxyList<ItemAccessor, Item>(tmp, i => i == null ? null : new Item(Parent, i));
             }
         }
 
-        public ProxyDictionary<string, int[]> Friendships => accessor._GetFriendships() == null ? null : new ProxyDictionary<string, int[]>(accessor._GetFriendships());
+        public ProxyDictionary<string, int[]> Friendships
+        {
+            get
+            {
+                var tmp = accessor._GetFriendships();
+                if (tmp == null) return null;
+                return new ProxyDictionary<string, int[]>(tmp);
+            }
+        }
 
         public int TileSlideThreshold
         {
@@ -59,10 +69,18 @@ namespace Storm.StardewValley.Wrapper
         public Item ActiveObject
         {
             get { return new Item(Parent, accessor._GetActiveObject()); }
-            set { accessor._SetActiveObject(value.Cast<ItemAccessor>()); }
+            set { accessor._SetActiveObject(value?.Cast<ItemAccessor>()); }
         }
 
-        public ProxyList<int, int> MovementDirections => accessor._GetMovementDirections() == null ? null : new ProxyList<int, int>(accessor._GetMovementDirections());
+        public ProxyList<int> MovementDirections
+        {
+            get
+            {
+                var tmp = accessor._GetMovementDirections();
+                if (tmp == null) return null;
+                return new ProxyList<int>(tmp);
+            }
+        }
 
         public Tool[] ToolBox
         {
@@ -76,8 +94,16 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem Cupboard
         {
-            get { return accessor._GetCupboard() == null ? null : new ObjectItem(Parent, accessor._GetCupboard()); }
-            set { accessor._SetCupboard(value.Cast<ObjectAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetCupboard();
+                if (tmp == null) return null;
+                return new ObjectItem(Parent, tmp);
+            }
+            set
+            {
+                accessor._SetCupboard(value?.Cast<ObjectAccessor>());
+            }
         }
 
         public string FarmName
@@ -94,8 +120,13 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation CurrentLocation
         {
-            get { return accessor._GetCurrentLocation() == null ? null : new GameLocation(Parent, accessor._GetCurrentLocation()); }
-            set { accessor._SetCurrentLocation(value.Cast<GameLocationAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetCurrentLocation();
+                if (tmp == null) return null;
+                return new GameLocation(Parent, tmp);
+            }
+            set { accessor._SetCurrentLocation(value?.Cast<GameLocationAccessor>()); }
         }
 
         public long UniqueMultiplayerID
@@ -124,13 +155,23 @@ namespace Storm.StardewValley.Wrapper
 
         public Item MostRecentlyGrabbedItem
         {
-            get { return accessor._GetMostRecentlyGrabbedItem() == null ? null : new Item(Parent, accessor._GetMostRecentlyGrabbedItem()); }
-            set { accessor._SetMostRecentlyGrabbedItem(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetMostRecentlyGrabbedItem();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { accessor._SetMostRecentlyGrabbedItem(value?.Cast<ItemAccessor>()); }
         }
 
         public Item ItemToEat
         {
-            get { return accessor._GetItemToEat() == null ? null : new Item(Parent, accessor._GetItemToEat()); }
+            get
+            {
+                var tmp = accessor._GetItemToEat();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
             set { accessor._SetItemToEat(value?.Cast<ItemAccessor>()); }
         }
 
@@ -226,8 +267,13 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC DancePartner
         {
-            get { return accessor._GetDancePartner() == null ? null : new NPC(Parent, accessor._GetDancePartner()); }
-            set { accessor._SetDancePartner(value.Cast<NPCAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetDancePartner();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
+            set { accessor._SetDancePartner(value?.Cast<NPCAccessor>()); }
         }
 
         public bool RidingMineElevator
@@ -508,8 +554,13 @@ namespace Storm.StardewValley.Wrapper
 
         public Tool ToolBeingUpgraded
         {
-            get { return accessor._GetToolBeingUpgraded() == null ? null : new Tool(Parent, accessor._GetToolBeingUpgraded()); }
-            set { accessor._SetToolBeingUpgraded(value.Cast<ToolAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetToolBeingUpgraded();
+                if (tmp == null) return null;
+                return new Tool(Parent, tmp);
+            }
+            set { accessor._SetToolBeingUpgraded(value?.Cast<ToolAccessor>()); }
         }
 
         public int DaysLeftForToolUpgrade
@@ -905,7 +956,7 @@ namespace Storm.StardewValley.Wrapper
         public NPC CollisionNPC
         {
             get { return accessor._GetCollisionNPC() == null ? null : new NPC(Parent, accessor._GetCollisionNPC()); }
-            set { accessor._SetCollisionNPC(value.Cast<NPCAccessor>()); }
+            set { accessor._SetCollisionNPC(value?.Cast<NPCAccessor>()); }
         }
 
         public float MovementMultiplier
@@ -922,7 +973,7 @@ namespace Storm.StardewValley.Wrapper
 
         public void SetToolInToolBox(int idx, Tool t)
         {
-            accessor._GetToolBox()[idx] = t == null ? null : t.Cast<ToolAccessor>();
+            accessor._GetToolBox()[idx] = t?.Cast<ToolAccessor>();
         }
 
         public void SetItem(int idx, Item item)

@@ -31,6 +31,7 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public StaticContext Parent { get; }
+
         /// <summary>
         /// The chance for this crop to drop extra products
         /// </summary>
@@ -40,6 +41,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetChanceForExtraCrops(); }
             set { accessor._SetChanceForExtraCrops(value); }
         }
+
         /// <summary>
         /// The current phase of this crops growth cycle
         /// Typical crops have 5 phases of growth, as visualised by their growing sprites
@@ -65,7 +67,15 @@ namespace Storm.StardewValley.Wrapper
         /// A list of phase days of the Crop.
         /// </summary>
         /// <value>The PhaseDays property gets/sets the value of the List<int> field phaseDays</value>
-        public IList PhaseDays => accessor._GetPhaseDays();
+        public ProxyList<int> PhaseDays
+        {
+            get
+            {
+                var tmp = accessor._GetPhaseDays();
+                if (tmp == null) return null;
+                return new ProxyList<int>(tmp);
+            }
+        }
 
         /// <summary>
         /// Whether this crop is dead or not
@@ -88,6 +98,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetForageCrop(); }
             set { accessor._SetForageCrop(value); }
         }
+
         /// <summary>
         /// Whether this crop is fully grown or not
         /// </summary>

@@ -1,0 +1,387 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "sprite",
+      "OwnerFieldType": "StardewValley.AnimatedSprite",
+      "MethodName": "Sprite",
+      "Type": "Storm.StardewValley.Accessor.AnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "position",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "Position",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "speed",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Speed",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "addedSpeed",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedSpeed",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "facingDirection",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FacingDirection",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "blockedInterval",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BlockedInterval",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "faceTowardFarmerRadius",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FaceTowardFarmerRadius",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "faceTowardFarmerTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FaceTowardFarmerTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "forceUpdateTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ForceUpdateTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "movementPause",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MovementPause",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "name",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Name",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "moveUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MoveUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "moveRight",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MoveRight",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "moveDown",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MoveDown",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "moveLeft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MoveLeft",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "freezeMotion",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FreezeMotion",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "isEmoting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsEmoting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "isCharging",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsCharging",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "willDestroyObjectsUnderfoot",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WillDestroyObjectsUnderfoot",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "isGlowing",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsGlowing",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "coloredBorder",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ColoredBorder",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "flip",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Flip",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "drawOnTop",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawOnTop",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "faceTowardFarmer",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FaceTowardFarmer",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "faceAwayFromFarmer",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FaceAwayFromFarmer",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "currentEmote",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentEmote",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "currentEmoteFrame",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentEmoteFrame",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "facingDirectionBeforeSpeakingToPlayer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FacingDirectionBeforeSpeakingToPlayer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "emoteInterval",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "EmoteInterval",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "xVelocity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "XVelocity",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "yVelocity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "YVelocity",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "lastClick",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastClick",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "positionToLerpTo",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "PositionToLerpTo",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "scale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Scale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "timeBeforeAIMovementAgain",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeBeforeAIMovementAgain",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "glowingTransparency",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "GlowingTransparency",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "glowRate",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "GlowRate",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "glowUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GlowUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "nextEventcommandAfterEmote",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "NextEventcommandAfterEmote",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "swimming",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Swimming",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "collidesWithOtherCharacters",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CollidesWithOtherCharacters",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "farmerPassesThrough",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FarmerPassesThrough",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "ignoreMultiplayerUpdates",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreMultiplayerUpdates",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "eventActor",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EventActor",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "ignoreMovementAnimations",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreMovementAnimations",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "yJumpOffset",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "YJumpOffset",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "yJumpVelocity",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "YJumpVelocity",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "whoToFace",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "WhoToFace",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "glowingColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "GlowingColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "controller",
+      "OwnerFieldType": "StardewValley.PathFindController",
+      "MethodName": "Controller",
+      "Type": "StardewValley.PathFindController"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "emoteFading",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "EmoteFading",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "originalSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "OriginalSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerFieldName": "drawOffset",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "DrawOffset",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@Character",
+      "OwnerMethodName": "shouldCollideWithBuildingLayer",
+      "OwnerMethodDesc": "(@(GameLocation))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ShouldCollideWithBuildingLayerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CharacterAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    }
+  ]
+}

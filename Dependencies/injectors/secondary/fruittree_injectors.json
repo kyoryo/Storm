@@ -1,0 +1,137 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "texture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Texture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "growthStage",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GrowthStage",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "treeType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TreeType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "indexOfFruit",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "IndexOfFruit",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "daysUntilMature",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysUntilMature",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "fruitsOnTree",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FruitsOnTree",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Health",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "flipped",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Flipped",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "stump",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Stump",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "greenHouseTree",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GreenHouseTree",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "shakeLeft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShakeLeft",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "falling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Falling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "shakeRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "maxShake",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxShake",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "alpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Alpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "leaves",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Leaves",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "lastPlayerToHit",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "LastPlayerToHit",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "fruitSeason",
+      "OwnerFieldType": "System.String",
+      "MethodName": "FruitSeason",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@FruitTree",
+      "OwnerFieldName": "shakeTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeTimer",
+      "Type": "System.Single"
+    }
+  ]
+}

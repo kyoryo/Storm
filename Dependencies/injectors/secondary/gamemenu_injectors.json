@@ -1,0 +1,60 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "currentTab",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentTab",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "tabs",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Tabs",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "pages",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Pages",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "invisible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Invisible",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "forcePreventClose",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ForcePreventClose",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameMenu",
+      "OwnerFieldName": "junimoNoteIcon",
+      "OwnerFieldType": "StardewValley.Menus.ClickableTextureComponent",
+      "MethodName": "JunimoNoteIcon",
+      "Type": "StardewValley.Menus.ClickableTextureComponent"
+    }
+  ]
+}

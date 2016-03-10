@@ -1,0 +1,164 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "borderWidth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BorderWidth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "tabYPositionRelativeToMenuY",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TabYPositionRelativeToMenuY",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "spaceToClearTopBorder",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SpaceToClearTopBorder",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "spaceToClearSideBorder",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SpaceToClearSideBorder",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "width",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Width",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "height",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Height",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "xPositionOnScreen",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "XPositionOnScreen",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "yPositionOnScreen",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "YPositionOnScreen",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "currentRegion",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentRegion",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "hoverBox",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "HoverBox",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "exitFunction",
+      "OwnerFieldType": "StardewValley.Menus.IClickableMenu/onExit",
+      "MethodName": "ExitFunction",
+      "Type": "StardewValley.Menus.IClickableMenu/onExit"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "upperRightCloseButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "UpperRightCloseButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "destroy",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Destroy",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@ClickableMenu",
+      "OwnerFieldName": "gamePadControlsImplemented",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GamePadControlsImplemented",
+      "Type": "System.Boolean"
+    }
+  ],
+  "MethodInfoParams": [
+    {
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "emergencyShutDown",
+	  "MethodDesc": "",
+	  "RefactoredName": "EmergencyShutDown"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "draw",
+	  "MethodDesc": "",
+	  "RefactoredName": "Draw"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "performHoverAction",
+	  "MethodDesc": "",
+	  "RefactoredName": "PerformHoverAction"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "readyToClose",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReadyToClose"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveGamePadButton",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveGamePadButton"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveKeyPress",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveKeyPress"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveLeftClick",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveLeftClick"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveRightClick",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveRightClick"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "receiveScrollWheelAction",
+	  "MethodDesc": "",
+	  "RefactoredName": "ReceiveScrollWheelAction"
+	},
+	{
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "update",
+	  "MethodDesc": "",
+	  "RefactoredName": "Update"
+	}
+  ]
+}

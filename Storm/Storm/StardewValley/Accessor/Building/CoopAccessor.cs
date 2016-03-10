@@ -17,7 +17,7 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface CoopAccessor
+    public interface CoopAccessor : BuildingAccessor
     {
     }
 }

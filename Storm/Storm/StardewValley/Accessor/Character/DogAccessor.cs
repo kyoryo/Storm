@@ -17,7 +17,12 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface DogAccessor
+    public interface DogAccessor : PetAccessor
     {
+        int _GetSprintTimer();
+        void _SetSprintTimer(int val);
+
+        bool _GetWagging();
+        void _SetWagging(bool val);
     }
 }

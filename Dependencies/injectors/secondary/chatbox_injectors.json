@@ -1,0 +1,27 @@
+{
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "receiveChatMessage",
+      "OwnerMethodDesc": "(System.String,System.Int64)System.Void",
+      "InvokerName": "_ReceiveChatMessage",
+      "InvokerReturnParams": [
+        "System.String",
+        "System.Int64"
+      ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@ChatBox",
+      "OwnerMethodName": "textBoxEnter",
+      "OwnerMethodDesc": "(@(TextBox))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "ChatboxTextEnteredCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ChatBoxAccessor,Storm.StardewValley.Accessor.TextBoxAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    }
+  ]
+}

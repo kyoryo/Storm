@@ -1,0 +1,172 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "indoors",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "Indoors",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "texture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Texture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "tileX",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TileX",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "tileY",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TileY",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "tilesWide",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TilesWide",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "tilesHigh",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TilesHigh",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "maxOccupants",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxOccupants",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "currentOccupants",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentOccupants",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "daysOfConstructionLeft",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysOfConstructionLeft",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "daysUntilUpgrade",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysUntilUpgrade",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "buildingType",
+      "OwnerFieldType": "System.String",
+      "MethodName": "BuildingType",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "nameOfIndoors",
+      "OwnerFieldType": "System.String",
+      "MethodName": "NameOfIndoors",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "baseNameOfIndoors",
+      "OwnerFieldType": "System.String",
+      "MethodName": "BaseNameOfIndoors",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "nameOfIndoorsWithoutUnique",
+      "OwnerFieldType": "System.String",
+      "MethodName": "NameOfIndoorsWithoutUnique",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "humanDoor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "HumanDoor",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "animalDoor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "AnimalDoor",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "color",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Color",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "animalDoorOpen",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "AnimalDoorOpen",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "owner",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "Owner",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "newConstructionTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NewConstructionTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "alpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Alpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "leftShadow",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "LeftShadow",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "middleShadow",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "MiddleShadow",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Building",
+      "OwnerFieldName": "rightShadow",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "RightShadow",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    }
+  ]
+}

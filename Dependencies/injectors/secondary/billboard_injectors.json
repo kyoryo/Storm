@@ -1,0 +1,39 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "billboardTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "BillboardTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "dailyQuestBoard",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DailyQuestBoard",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "acceptQuestButton",
+      "OwnerFieldType": "@ClickableComponent",
+      "MethodName": "AcceptQuestButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "calendarDays",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "CalendarDays",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Billboard",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    }
+  ]
+}

@@ -156,5 +156,9 @@ namespace Storm.StardewValley.Accessor
 
         int _GetClicks();
         void _SetClicks(int val);
+
+        void _MakeHoeDirt(Vector2 loc);
+
+        string _GetTileProperty(int tileX, int tileY, string propName, string layerName);
     }
 }

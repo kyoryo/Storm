@@ -94,9 +94,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetVerticalGap(value); }
         }
 
-        public ItemAccessor GetItemAt(int mouseX, int mouseY)
+        public Item GetItemAt(int mouseX, int mouseY)
         {
-            return accessor._GetItemAt(mouseX, mouseY);
+            var tmp = accessor._GetItemAt(mouseX, mouseY);
+            if (tmp == null) return null;
+            return new Item(Parent, tmp);
         }
     }
 }

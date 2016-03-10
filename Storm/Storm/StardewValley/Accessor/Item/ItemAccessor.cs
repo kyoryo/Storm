@@ -19,6 +19,12 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ItemAccessor
     {
+        int _GetSalePrice();
+
+        int _GetMaximumStackSize();
+
+        string _GetDescription();
+
         int _GetSpecialVariable();
         void _SetSpecialVariable(int val);
 

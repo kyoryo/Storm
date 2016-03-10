@@ -1,0 +1,39 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@ClickableComponent",
+      "OwnerFieldName": "bounds",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "Bounds",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ClickableComponent",
+      "OwnerFieldName": "name",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Name",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ClickableComponent",
+      "OwnerFieldName": "scale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Scale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@ClickableComponent",
+      "OwnerFieldName": "item",
+      "OwnerFieldType": "@Item",
+      "MethodName": "Item",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ClickableComponent",
+      "OwnerFieldName": "visible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Visible",
+      "Type": "System.Boolean"
+    }
+  ]
+}

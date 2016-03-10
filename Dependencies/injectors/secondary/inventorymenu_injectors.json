@@ -1,0 +1,123 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "hoverTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "descriptionTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Inventory",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "actualInventory",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ActualInventory",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "highlightMethod",
+      "OwnerFieldType": "StardewValley.Menus.InventoryMenu/highlightThisItem",
+      "MethodName": "HighlightMethod",
+      "Type": "StardewValley.Menus.InventoryMenu/highlightThisItem"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "onAddItem",
+      "OwnerFieldType": "StardewValley.Menus.ItemGrabMenu/behaviorOnItemSelect",
+      "MethodName": "OnAddItem",
+      "Type": "StardewValley.Menus.ItemGrabMenu/behaviorOnItemSelect"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "playerInventory",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PlayerInventory",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "drawSlots",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawSlots",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "showGrayedOutSlots",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowGrayedOutSlots",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "capacity",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Capacity",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "rows",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Rows",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "horizontalGap",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HorizontalGap",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerFieldName": "verticalGap",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "VerticalGap",
+      "Type": "System.Int32"
+    }
+  ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@InventoryMenu",
+      "OwnerMethodName": "getItemAt",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)@(Item)",
+      "InvokerName": "_GetItemAt",
+      "InvokerReturnParams": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "InvokerReturnType": "Storm.StardewValley.Accessor.ItemAccessor",
+      "IsStatic": "false"
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "FieldAccessorParams": [
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "objects",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "_GetObjects",
+      "ReturnType": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "characters",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "_GetCharacters",
+      "ReturnType": "System.Collections.IList"
+    }
+  ],
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "isOutdoors",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsOutdoors",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "afterQuestion",
+      "OwnerFieldType": "StardewValley.GameLocation/afterQuestionBehavior",
+      "MethodName": "PostQuestion",
+      "Type": "StardewValley.GameLocation/afterQuestionBehavior"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "map",
+      "OwnerFieldType": "xTile.Map",
+      "MethodName": "Map",
+      "Type": "xTile.Map"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "characters",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Characters",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "objects",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "Objects",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "temporarySprites",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "TemporarySprites",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "warps",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Warps",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "doors",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "Doors",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "doorSprites",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "DoorSprites",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "farmers",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Farmers",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "projectiles",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Projectiles",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "largeTerrainFeatures",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "LargeTerrainFeatures",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "critters",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Critters",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "terrainFeatures",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "TerrainFeatures",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "debris",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Debris",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "fishSplashPoint",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "FishSplashPoint",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "orePanPoint",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Point",
+      "MethodName": "OrePanPoint",
+      "Type": "Microsoft.Xna.Framework.Point"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "fishSplashAnimation",
+      "OwnerFieldType": "@TempAnimatedSprite",
+      "MethodName": "FishSplashAnimation",
+      "Type": "Storm.StardewValley.Accessor.TempAnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "orePanAnimation",
+      "OwnerFieldType": "@TempAnimatedSprite",
+      "MethodName": "OrePanAnimation",
+      "Type": "Storm.StardewValley.Accessor.TempAnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterTiles",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WaterTiles",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "uniqueName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "UniqueName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "name",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Name",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "WaterColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "lastQuestionKey",
+      "OwnerFieldType": "System.String",
+      "MethodName": "LastQuestionKey",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "lastTouchActionLocation",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastTouchActionLocation",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "lightLevel",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "LightLevel",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "isFarm",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsFarm",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "isOutdoors",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsOutdoors",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "isStructure",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsStructure",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "ignoreDebrisWeather",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreDebrisWeather",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "ignoreOutdoorLighting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreOutdoorLighting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "ignoreLights",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IgnoreLights",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "wasUpdated",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasUpdated",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "terrainFeaturesToRemoveList",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "TerrainFeaturesToRemoveList",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "numberOfSpawnedObjectsOnMap",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumberOfSpawnedObjectsOnMap",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "currentEvent",
+      "OwnerFieldType": "@Event",
+      "MethodName": "CurrentEvent",
+      "Type": "Storm.StardewValley.Accessor.EventAccessor"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "actionObjectForQuestionDialogue",
+      "OwnerFieldType": "@Object",
+      "MethodName": "ActionObjectForQuestionDialogue",
+      "Type": "Storm.StardewValley.Accessor.ObjectAccessor"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterAnimationIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WaterAnimationIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterAnimationTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WaterAnimationTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterTileFlip",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WaterTileFlip",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "forceViewportPlayerFollow",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ForceViewportPlayerFollow",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "waterPosition",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "WaterPosition",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "snowPos",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "SnowPos",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "lightGlows",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "LightGlows",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "fireIDBase",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FireIDBase",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerFieldName": "clicks",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Clicks",
+      "Type": "System.Int32"
+    }
+  ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "growWeedGrass",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "InvokerName": "_GrowWeedGrass",
+      "InvokerReturnParams": [
+        "System.Int32"
+      ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    },
+	{
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "makeHoeDirt",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Vector2)System.Void",
+      "InvokerName": "_MakeHoeDirt",
+      "InvokerReturnParams": [
+        "Microsoft.Xna.Framework.Vector2"
+      ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    },
+	{
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "doesTileHaveProperty",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.String,System.String)System.String",
+      "InvokerName": "_GetTileProperty",
+      "InvokerReturnParams": [
+        "System.Int32",
+		"System.Int32",
+		"System.String",
+		"System.String"
+      ],
+      "InvokerReturnType": "System.String",
+      "IsStatic": "false"
+    },
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "damageToFarmer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DamageToFarmer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Health",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "maxHealth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxHealth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "coinsToDrop",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CoinsToDrop",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "durationOfRandomMovements",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DurationOfRandomMovements",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "resilience",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Resilience",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "slipperiness",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Slipperiness",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "experienceGained",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ExperienceGained",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "jitteriness",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "Jitteriness",
+      "Type": "System.Double"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "missChance",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "MissChance",
+      "Type": "System.Double"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "isGlider",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsGlider",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "mineMonster",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MineMonster",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "hasSpecialItem",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasSpecialItem",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "objectsToDrop",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ObjectsToDrop",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "skipHorizontal",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SkipHorizontal",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "invincibleCountdown",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "InvincibleCountdown",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "skipHorizontalUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SkipHorizontalUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "defaultAnimationInterval",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DefaultAnimationInterval",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "focusedOnFarmers",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FocusedOnFarmers",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "onCollision",
+      "OwnerFieldType": "StardewValley.Monsters.Monster/collisionBehavior",
+      "MethodName": "OnCollision",
+      "Type": "StardewValley.Monsters.Monster/collisionBehavior"
+    },
+    {
+      "OwnerAccessorType": "@Monster",
+      "OwnerFieldName": "slideAnimationTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SlideAnimationTimer",
+      "Type": "System.Int32"
+    }
+  ]
+}

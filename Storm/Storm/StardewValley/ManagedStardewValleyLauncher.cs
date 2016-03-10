@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -64,34 +64,31 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
-            if (!File.Exists(InjectorsPath))
+            if (!File.Exists(StormAPI.GetResource("interface_injectors.json")))
             {
                 MessageBox.Show("Could not find injectors @\n" + InjectorsPath, "Error");
                 Environment.Exit(1);
             }
 
-            using (var injectorStream = new FileStream(InjectorsPath, FileMode.Open, FileAccess.Read))
+            var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
+            var ctx = factory.ParseOfType(DataFormat.Json, StormAPI.GetResource(""));
+            if (factory is CecilInjectorFactory)
             {
-                var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
-                var ctx = factory.ParseOfType(DataFormat.Json, injectorStream);
-                if (factory is CecilInjectorFactory)
+                var casted = factory as CecilInjectorFactory;
+                ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
+                ctx.Injectors.Add(new CecilInstanceDetourInjector(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
                 {
-                    var casted = factory as CecilInjectorFactory;
-                    ctx.Injectors.Add(new CecilRewriteEntryInjector(casted.SelfAssembly, casted.GameAssembly, new RewriteEntryInjectorParams()));
-                    ctx.Injectors.Add(new CecilInstanceDetourInjector(casted.SelfAssembly, casted.GameAssembly, new ConstructorReplacerParams
-                    {
-                        FromClass = "Microsoft.Xna.Framework.Content.ContentManager",
-                        ToClass = "Storm.StardewValley.StormContentManager"
-                    }));
-                }
-
-                var @event = new PreInjectionEvent(factory, ctx.Injectors);
-                EventBus.Fire(@event);
-
-                ctx.Injectors.ForEach(injector => injector.Init());
-                ctx.Injectors.ForEach(injector => injector.Inject());
-                return ctx;
+                    FromClass = "Microsoft.Xna.Framework.Content.ContentManager",
+                    ToClass = "Storm.StardewValley.StormContentManager"
+                }));
             }
+
+            var @event = new PreInjectionEvent(factory, ctx.Injectors);
+            EventBus.Fire(@event);
+
+            ctx.Injectors.ForEach(injector => injector.Init());
+            ctx.Injectors.ForEach(injector => injector.Inject());
+            return ctx;
         }
 
         private void InitializeStaticContext(InjectionFactoryContext ctx)
@@ -100,36 +97,21 @@ namespace Storm.StardewValley
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
             var constructor = entryType.GetConstructor(new Type[0]);
-            
-            var root = (ProgramAccessor) constructor.Invoke(new object[0]);
-            var toolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
-            var objectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
-            var billboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
 
-            var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
-            toolFactory.Map(typeof (ToolAccessor), typeof (ToolDelegate), ctx.Injectors);
+            var root = (ProgramAccessor)constructor.Invoke(new object[0]);
 
-            var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
-            objectFactory.Map(typeof (ObjectAccessor), typeof (ObjectDelegate), ctx.Injectors);
-
-            var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
-            billboardFactory.Map(typeof (BillboardAccessor), typeof (BillboardDelegate), ctx.Injectors);
-
-            var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
-            clickableMenuFactory.Map(typeof (ClickableMenuAccessor), typeof (ClickableMenuDelegate), ctx.Injectors);
-
-            StaticGameContext.Init(assembly, root, toolType, toolFactory, objectType, objectFactory, null, null, billboardType, billboardFactory, null, null, EventBus);
+            StaticGameContext.Init(assembly, root, EventBus, ctx.Injectors);
         }
 
         [MethodImpl(MethodImplOptions.NoOptimization)]
         private void ResolveDependencies()
         {
-            typeof (Vector2).GetType();
-            typeof (SpriteBatch).GetType();
-            typeof (AudioEngine).GetType();
-            typeof (GraphicsDeviceManager).GetType();
-            typeof (Keyboard).GetType();
-            typeof (Rectangle).GetType();
+            typeof(Vector2).GetType();
+            typeof(SpriteBatch).GetType();
+            typeof(AudioEngine).GetType();
+            typeof(GraphicsDeviceManager).GetType();
+            typeof(Keyboard).GetType();
+            typeof(Rectangle).GetType();
         }
 
         public void Launch()
@@ -148,7 +130,7 @@ namespace Storm.StardewValley
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
+            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
         }
     }
 }

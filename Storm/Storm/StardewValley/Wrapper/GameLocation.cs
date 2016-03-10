@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -34,31 +35,35 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
-        public Dictionary<Vector2, ObjectItem> Objects
+        public void AddHoeDirtAt(Vector2 tileLocation)
+        {
+            accessor._MakeHoeDirt(tileLocation);
+        }
+
+        public string GetTileProperty(int tileX, int tileY, string propName, string layerName)
+        {
+            return accessor._GetTileProperty(tileX, tileY, propName, layerName);
+        }
+
+        public ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem> Objects
         {
             get
             {
-                var orig = accessor._GetObjects();
-                var conv = new Dictionary<Vector2, ObjectItem>();
-                foreach (var vec in orig.Keys)
-                {
-                    conv.Add((Vector2) vec, new ObjectItem(Parent, (ObjectAccessor) orig[vec]));
-                }
-                return conv;
+                var tmp = accessor._GetObjects();
+                if (tmp == null) return null;
+                return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp, 
+                    o => o == null ? null : new ObjectItem(Parent, o));
             }
         }
 
-        public Dictionary<Vector2, TerrainFeature> TerrainFeatures
+        public ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature> TerrainFeatures
         {
             get
             {
-                var orig = accessor._GetTerrainFeatures();
-                var conv = new Dictionary<Vector2, TerrainFeature>();
-                foreach (var vec in orig.Keys)
-                {
-                    conv.Add((Vector2) vec, new TerrainFeature(Parent, (TerrainFeatureAccessor) orig[vec]));
-                }
-                return conv;
+                var tmp = accessor._GetTerrainFeatures();
+                if (tmp == null) return null;
+                return new ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature>(tmp, 
+                    tf => tf == null ? null : new TerrainFeature(Parent, tf));
             }
         }
 
@@ -74,41 +79,27 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetName(value); }
         }
 
-        public List<NPC> Characters
+        public WrappedProxyList<NPCAccessor, NPC> Characters
         {
             get
             {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
-                if (charList == null)
-                {
-                    return null;
-                }
-                return charList.Select(c => new NPC(Parent, c)).ToList();
-            }
-        }
-
-        public List<Monster> Monsters
-        {
-            get
-            {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
-                if (charList == null)
-                {
-                    return null;
-                }
-
-                var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(Parent, c as MonsterAccessor)).ToList();
-                return monsters;
+                var tmp = accessor._GetCharacters();
+                if (tmp == null) return null;
+                return new WrappedProxyList<NPCAccessor, NPC>(tmp, 
+                    c => c == null ? null : new NPC(Parent, c));
             }
         }
 
         public Event CurrentEvent
         {
-            get { return accessor._GetCurrentEvent() == null ? null : new Event(Parent, accessor._GetCurrentEvent()); }
-            set { accessor._SetCurrentEvent(value.Cast<EventAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetCurrentEvent();
+                if (tmp == null) return null;
+                return new Event(Parent, tmp);
+            }
+            set { accessor._SetCurrentEvent(value?.Cast<EventAccessor>()); }
         }
-
-        public object Expose() => accessor;
 
         public void GrowWeedGrass(int iterations)
         {
@@ -126,5 +117,6 @@ namespace Storm.StardewValley.Wrapper
             return null;
         }
 
+        public object Expose() => accessor;
     }
 }

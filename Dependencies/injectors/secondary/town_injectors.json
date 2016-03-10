@@ -1,0 +1,102 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "minecartSteam",
+      "OwnerFieldType": "@TempAnimatedSprite",
+      "MethodName": "MinecartSteam",
+      "Type": "Storm.StardewValley.Accessor.TempAnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "ccRefurbished",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CcRefurbished",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "ccJoja",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CcJoja",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "playerCheckedBoard",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "PlayerCheckedBoard",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "isShowingDestroyedJoja",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsShowingDestroyedJoja",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "garbageChecked",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "GarbageChecked",
+      "Type": "System.Boolean[]"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "clockCenter",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "ClockCenter",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "ccFacadePosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "CcFacadePosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "ccFacadePositionBottom",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "CcFacadePositionBottom",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "minuteHandSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "MinuteHandSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "hourHandSource",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "HourHandSource",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "clockNub",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "ClockNub",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "jojaFacadeTop",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "JojaFacadeTop",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Town",
+      "OwnerFieldName": "jojaFacadeBottom",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "JojaFacadeBottom",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    }
+  ]
+}

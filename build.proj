@@ -57,13 +57,15 @@
 					$(OutDir)\*.vshost.*;
 					$(OutDir)\Microsoft.Xna.*;">
 			</ReleaseBinaryFiles>
+			<ReleaseInjectorFiles
+				Include="Dependencies\injectors\**\*.*">
+			</ReleaseInjectorFiles>
 		</ItemGroup>
 
 		<Copy SourceFiles="@(ReleaseBinaryFiles)" DestinationFiles="@(ReleaseBinaryFiles -> '$(ReleaseDir)\StardewValley\%(RecursiveDir)%(Filename)%(Extension)')"/>
 
 		<Copy SourceFiles="README.md;LICENSE" DestinationFolder="$(ReleaseDir)"/> 
-		<Copy SourceFiles="Dependencies/injectors-1.02.json" DestinationFolder="$(ReleaseDir)\AppData\Storm"/> 
-		<Move SourceFiles="$(ReleaseDir)\AppData\Storm\injectors-1.02.json" DestinationFiles="$(ReleaseDir)\AppData\Storm\injectors.json" />
+		<Copy SourceFiles="@(ReleaseInjectorFiles)" DestinationFiles="@(ReleaseInjectorFiles -> '$(ReleaseDir)\AppData\Storm\injectors\%(RecursiveDir)%(Filename)%(Extension)')"/> 
 
         	<CreateItem Include="$(ReleaseDir)\**" >
         	        <Output ItemName="ZipFiles" TaskParameter="Include"/>

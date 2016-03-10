@@ -1,0 +1,46 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "texture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Texture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "sourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "SourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "baseScale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BaseScale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "drawLabel",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawLabel",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@ClickableTextureComponent",
+      "OwnerFieldName": "drawShadow",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawShadow",
+      "Type": "System.Boolean"
+    }
+  ]
+}

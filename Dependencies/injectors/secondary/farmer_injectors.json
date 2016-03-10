@@ -1,0 +1,1518 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "tileSlideThreshold",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TileSlideThreshold",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "questLog",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "QuestLog",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "professions",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Professions",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "newLevels",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "NewLevels",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "newLevelSparklingTexts",
+      "OwnerFieldType": "System.Collections.Generic.Queue`1",
+      "MethodName": "NewLevelSparklingTexts",
+      "Type": "System.Collections.ICollection"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "sparklingText",
+      "OwnerFieldType": "StardewValley.BellsAndWhistles.SparklingText",
+      "MethodName": "SparklingText",
+      "Type": "StardewValley.BellsAndWhistles.SparklingText"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "experiencePoints",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ExperiencePoints",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "activeObject",
+      "OwnerFieldType": "@Item",
+      "MethodName": "ActiveObject",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "items",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Items",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "dialogueQuestionsAnswered",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "DialogueQuestionsAnswered",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "furnitureOwned",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "FurnitureOwned",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "cookingRecipes",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "CookingRecipes",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "craftingRecipes",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "CraftingRecipes",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "activeDialogueEvents",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "ActiveDialogueEvents",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "eventsSeen",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "EventsSeen",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "songsHeard",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "SongsHeard",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "achievements",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Achievements",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "specialItems",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "SpecialItems",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "specialBigCraftables",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "SpecialBigCraftables",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mailReceived",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "MailReceived",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mailForTomorrow",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "MailForTomorrow",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "blueprints",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Blueprints",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "coopDwellers",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "CoopDwellers",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "barnDwellers",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "BarnDwellers",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolBox",
+      "OwnerFieldType": "@Tool",
+      "MethodName": "ToolBox",
+      "Type": "Storm.StardewValley.Accessor.ToolAccessor[]"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "cupboard",
+      "OwnerFieldType": "@Object",
+      "MethodName": "Cupboard",
+      "Type": "Storm.StardewValley.Accessor.ObjectAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "movementDirections",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "MovementDirections",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "farmName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "FarmName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "favoriteThing",
+      "OwnerFieldType": "System.String",
+      "MethodName": "FavoriteThing",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "buffs",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Buffs",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "multiplayerMessage",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "MultiplayerMessage",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "currentLocation",
+      "OwnerFieldType": "@GameLocation",
+      "MethodName": "CurrentLocation",
+      "Type": "Storm.StardewValley.Accessor.GameLocationAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "uniqueMultiplayerID",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "UniqueMultiplayerID",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "_tmpLocationName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "TmpLocationName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "previousLocationName",
+      "OwnerFieldType": "System.String",
+      "MethodName": "PreviousLocationName",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "catPerson",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CatPerson",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mostRecentlyGrabbedItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "MostRecentlyGrabbedItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "itemToEat",
+      "OwnerFieldType": "@Item",
+      "MethodName": "ItemToEat",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "farmerRenderer",
+      "OwnerFieldType": "StardewValley.FarmerRenderer",
+      "MethodName": "FarmerRenderer",
+      "Type": "StardewValley.FarmerRenderer"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolPower",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ToolPower",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolHold",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ToolHold",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mostRecentBed",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "MostRecentBed",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "shirt",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Shirt",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hair",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Hair",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "skin",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Skin",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "accessory",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Accessory",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "facialHair",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FacialHair",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "currentEyes",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentEyes",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "blinkTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BlinkTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "festivalScore",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FestivalScore",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "temporarySpeedBuff",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TemporarySpeedBuff",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hairstyleColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "HairstyleColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "pantsColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "PantsColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "newEyeColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "NewEyeColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hat",
+      "OwnerFieldType": "StardewValley.Objects.Hat",
+      "MethodName": "Hat",
+      "Type": "StardewValley.Objects.Hat"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "boots",
+      "OwnerFieldType": "StardewValley.Objects.Boots",
+      "MethodName": "Boots",
+      "Type": "StardewValley.Objects.Boots"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "leftRing",
+      "OwnerFieldType": "StardewValley.Objects.Ring",
+      "MethodName": "LeftRing",
+      "Type": "StardewValley.Objects.Ring"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "rightRing",
+      "OwnerFieldType": "StardewValley.Objects.Ring",
+      "MethodName": "RightRing",
+      "Type": "StardewValley.Objects.Ring"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "dancePartner",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "DancePartner",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "ridingMineElevator",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "RidingMineElevator",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mineMovementDirectionWasUp",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "MineMovementDirectionWasUp",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "cameFromDungeon",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CameFromDungeon",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "readyConfirmation",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ReadyConfirmation",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "exhausted",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Exhausted",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolOverrideFunction",
+      "OwnerFieldType": "StardewValley.AnimatedSprite/endOfAnimationBehavior",
+      "MethodName": "ToolOverrideFunction",
+      "Type": "StardewValley.AnimatedSprite/endOfAnimationBehavior"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "deepestMineLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DeepestMineLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "currentToolIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentToolIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "woodPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WoodPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "stonePieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "StonePieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "copperPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CopperPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "ironPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "IronPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "coalPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CoalPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "goldPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GoldPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "iridiumPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "IridiumPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "quartzPieces",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "QuartzPieces",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "caveChoice",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CaveChoice",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "feed",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Feed",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "farmingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FarmingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "miningLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MiningLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "combatLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CombatLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "foragingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ForagingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "fishingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "luckLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "LuckLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "newSkillPointsToSpend",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NewSkillPointsToSpend",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedFarmingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedFarmingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedMiningLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedMiningLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedCombatLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedCombatLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedForagingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedForagingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedFishingLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedFishingLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "addedLuckLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AddedLuckLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "maxStamina",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxStamina",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "maxItems",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxItems",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "stamina",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Stamina",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "resilience",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Resilience",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "attack",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Attack",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "immunity",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Immunity",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "attackIncreaseModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "AttackIncreaseModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "knockbackModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "KnockbackModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "weaponSpeedModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "WeaponSpeedModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "critChanceModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CritChanceModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "critPowerModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "CritPowerModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "weaponPrecisionModifier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "WeaponPrecisionModifier",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "money",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Money",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "clubCoins",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ClubCoins",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "totalMoneyEarned",
+      "OwnerFieldType": "System.UInt32",
+      "MethodName": "TotalMoneyEarned",
+      "Type": "System.UInt32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "millisecondsPlayed",
+      "OwnerFieldType": "System.UInt32",
+      "MethodName": "MillisecondsPlayed",
+      "Type": "System.UInt32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolBeingUpgraded",
+      "OwnerFieldType": "@Tool",
+      "MethodName": "ToolBeingUpgraded",
+      "Type": "Storm.StardewValley.Accessor.ToolAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "daysLeftForToolUpgrade",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysLeftForToolUpgrade",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "timeOfLastPositionPacket",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeOfLastPositionPacket",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "numUpdatesSinceLastDraw",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumUpdatesSinceLastDraw",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "houseUpgradeLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HouseUpgradeLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "daysUntilHouseUpgrade",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysUntilHouseUpgrade",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "coopUpgradeLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CoopUpgradeLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "barnUpgradeLevel",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BarnUpgradeLevel",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasGreenhouse",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasGreenhouse",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasRustyKey",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasRustyKey",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasSkullKey",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasSkullKey",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasUnlockedSkullDoor",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasUnlockedSkullDoor",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "magneticRadius",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MagneticRadius",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "temporaryInvincibilityTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TemporaryInvincibilityTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "rotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Rotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "craftingTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CraftingTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "raftPuddleCounter",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RaftPuddleCounter",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "raftBobCounter",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RaftBobCounter",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Health",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "maxHealth",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxHealth",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "timesReachedMineBottom",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimesReachedMineBottom",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "jitter",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "Jitter",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "lastPosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastPosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "lastGrabTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "LastGrabTile",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "jitterStrength",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "JitterStrength",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "xOffset",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "XOffset",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "isMale",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsMale",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "canMove",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CanMove",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "running",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Running",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "usingTool",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UsingTool",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "forceTimePass",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ForceTimePass",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "isRafting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsRafting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "usingSlingshot",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "UsingSlingshot",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "bathingClothes",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BathingClothes",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "canOnlyWalk",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CanOnlyWalk",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "temporarilyInvincible",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "TemporarilyInvincible",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasBusTicket",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasBusTicket",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "stardewHero",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "StardewHero",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasClubCard",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasClubCard",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hasSpecialCharm",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasSpecialCharm",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "canReleaseTool",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CanReleaseTool",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "isCrafting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsCrafting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "temporaryImpassableTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "TemporaryImpassableTile",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "canUnderstandDwarves",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CanUnderstandDwarves",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "basicShipped",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "BasicShipped",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mineralsFound",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "MineralsFound",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "recipesCooked",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "RecipesCooked",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "archaeologyFound",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "ArchaeologyFound",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "fishCaught",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "FishCaught",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "friendships",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "Friendships",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "positionBeforeEvent",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "PositionBeforeEvent",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "remotePosition",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "RemotePosition",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "orientationBeforeEvent",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OrientationBeforeEvent",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "swimTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SwimTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "timerSinceLastMovement",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimerSinceLastMovement",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "noMovementPause",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NoMovementPause",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "freezePause",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FreezePause",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "yOffset",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "YOffset",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "currentUpgrade",
+      "OwnerFieldType": "StardewValley.BuildingUpgrade",
+      "MethodName": "CurrentUpgrade",
+      "Type": "StardewValley.BuildingUpgrade"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "spouse",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Spouse",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "dateStringForSaveGame",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DateStringForSaveGame",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "overallsColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OverallsColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "shirtColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ShirtColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "skinColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SkinColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "hairColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HairColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "eyeColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "EyeColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "armOffset",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "ArmOffset",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "bobber",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Bobber",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "mount",
+      "OwnerFieldType": "StardewValley.Characters.Horse",
+      "MethodName": "Mount",
+      "Type": "StardewValley.Characters.Horse"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "farmerTextureManager",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Content.ContentManager",
+      "MethodName": "FarmerTextureManager",
+      "Type": "Microsoft.Xna.Framework.Content.ContentManager"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "saveTime",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SaveTime",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "daysMarried",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysMarried",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "toolPitchAccumulator",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ToolPitchAccumulator",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "charactercollisionTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CharactercollisionTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "collisionNPC",
+      "OwnerFieldType": "@NPC",
+      "MethodName": "CollisionNPC",
+      "Type": "Storm.StardewValley.Accessor.NPCAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "movementMultiplier",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MovementMultiplier",
+      "Type": "System.Single"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "addItemToInventory",
+      "OwnerMethodDesc": "(@(Item))@(Item)",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AddItemToInventoryCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "shippedBasic",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerShippedBasicCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "caughtFish",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerCaughtFishCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "foundArtifact",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerFoundArtifactCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "cookedRecipe",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerCookedRecipeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "increaseBackpackSize",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerIncreaseBackpackSizeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "gainExperience",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerGainedExperienceCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "foundMineral",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerFoundMineralCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "consumeObject",
+      "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerConsumeObjectCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeShirt",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedShirtCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHairStyle",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHairCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeShoeColor",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedShoeCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHairColor",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHairColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changePants",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedPantsCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeHat",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedHatCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeAccessory",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedAccessoryCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeSkinColor",
+      "OwnerMethodDesc": "(System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedSkinColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeEyeColor",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Color)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedEyeColorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Microsoft.Xna.Framework.Color)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeGender",
+      "OwnerMethodDesc": "(System.Boolean)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerChangedGenderCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "collideWith",
+      "OwnerMethodDesc": "(@(Object))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerCollideWithCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeIntoSwimsuit",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerChangedIntoSwimsuitCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "changeOutOfSwimSuit",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerChangeOutOfSwimsuitCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "dayupdate",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFarmerDayUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "getTexture",
+      "OwnerMethodDesc": "()Microsoft.Xna.Framework.Graphics.Texture2D",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "GetFarmerTextureCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "mountUp",
+      "OwnerMethodDesc": "(@(Horse))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerMountHorseCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,Storm.StardewValley.Accessor.HorseAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "getHisOrHer",
+      "OwnerMethodDesc": "()System.String",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerGetHisHerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Farmer",
+      "OwnerMethodName": "shipAll",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "FarmerShipAllCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
+    }
+  ]
+}

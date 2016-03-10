@@ -21,5 +21,19 @@ namespace Storm.StardewValley.Accessor
 {
     public interface HorseAccessor : NPCAccessor
     {
+        FarmerAccessor _GetRider();
+        void _SetRider(FarmerAccessor val);
+
+        bool _GetMounting();
+        void _SetMounting(bool val);
+
+        bool _GetDismounting();
+        void _SetDismounting(bool val);
+
+        Microsoft.Xna.Framework.Vector2 _GetDismountTile();
+        void _SetDismountTile(Microsoft.Xna.Framework.Vector2 val);
+
+        bool _GetSqueezingThroughGate();
+        void _SetSqueezingThroughGate(bool val);
     }
 }

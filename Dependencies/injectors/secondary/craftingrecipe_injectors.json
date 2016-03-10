@@ -1,0 +1,74 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "name",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Name",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "description",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Description",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "craftingRecipes",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "CraftingRecipes",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "cookingRecipes",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "CookingRecipes",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "recipeList",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "RecipeList",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "itemToProduce",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "ItemToProduce",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "bigCraftable",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BigCraftable",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "isCookingRecipe",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsCookingRecipe",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "timesCrafted",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TimesCrafted",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerFieldName": "numberProducedPerCraft",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumberProducedPerCraft",
+      "Type": "System.Int32"
+    }
+  ]
+}

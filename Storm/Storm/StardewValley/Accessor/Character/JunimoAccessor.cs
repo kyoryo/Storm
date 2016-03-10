@@ -17,7 +17,54 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface JunimoAccessor
+    public interface JunimoAccessor : NPCAccessor
     {
+        float _GetAlpha();
+        void _SetAlpha(float val);
+
+        float _GetAlphaChange();
+        void _SetAlphaChange(float val);
+
+        int _GetFarmerCloseCheckTimer();
+        void _SetFarmerCloseCheckTimer(int val);
+
+        int _GetWhichArea();
+        void _SetWhichArea(int val);
+
+        bool _GetFriendly();
+        void _SetFriendly(bool val);
+
+        bool _GetHoldingStar();
+        void _SetHoldingStar(bool val);
+
+        bool _GetHoldingBundle();
+        void _SetHoldingBundle(bool val);
+
+        bool _GetTemporaryJunimo();
+        void _SetTemporaryJunimo(bool val);
+
+        bool _GetStayPut();
+        void _SetStayPut(bool val);
+
+        bool _GetEventActor();
+        void _SetEventActor(bool val);
+
+        Microsoft.Xna.Framework.Vector2 _GetMotion();
+        void _SetMotion(Microsoft.Xna.Framework.Vector2 val);
+
+        Microsoft.Xna.Framework.Rectangle _GetNextPosition();
+        void _SetNextPosition(Microsoft.Xna.Framework.Rectangle val);
+
+        Microsoft.Xna.Framework.Color _GetColor();
+        void _SetColor(Microsoft.Xna.Framework.Color val);
+
+        Microsoft.Xna.Framework.Color _GetBundleColor();
+        void _SetBundleColor(Microsoft.Xna.Framework.Color val);
+
+        int _GetSoundTimer();
+        void _SetSoundTimer(int val);
+
+        bool _GetSayingGoodbye();
+        void _SetSayingGoodbye(bool val);
     }
 }

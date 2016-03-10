@@ -65,7 +65,7 @@ namespace Storm.Manipulation
 
         public abstract Assembly ToConcrete();
 
-        public InjectionFactoryContext ParseOfType(DataFormat format, Stream @in)
+        public InjectionFactoryContext ParseOfType(DataFormat format, string path)
         {
             var ctx = new InjectionFactoryContext();
             ctx.Injectors = new List<Injector>();
@@ -73,7 +73,7 @@ namespace Storm.Manipulation
             switch (format)
             {
                 case DataFormat.Json:
-                    ctx.Injectors = ParseJson(@in);
+                    ctx.Injectors = ParseJson(path);
                     break;
             }
 
@@ -107,17 +107,33 @@ namespace Storm.Manipulation
             return s;
         }
 
-        private List<Injector> ParseJson(Stream @in)
+        private List<Injector> ParseJson(string path)
+        {
+            var list = new List<Injector>();
+            var nameMap = new Dictionary<string, string>();
+            var accessorMap = new Dictionary<string, string>();
+
+            var primary = Path.Combine(path, "interface_injectors.json");
+            ParseJson(new FileStream(primary, FileMode.Open, FileAccess.Read), list, nameMap, accessorMap);
+
+            var secondaryFolder = Path.Combine(path, "secondary\\");
+            foreach (var child in Directory.GetFiles(secondaryFolder, "*"))
+            {
+                ParseJson(new FileStream(child, FileMode.Open, FileAccess.Read), list, nameMap, accessorMap);
+            }
+
+            Logging.DebugLogs("[{0}] Loaded {1} injectors.", GetType().Name, list.Count);
+            return list;
+        }
+
+        private void ParseJson(Stream @in, List<Injector> list, Dictionary<string, string> nameMap, Dictionary<string, string> accessorMap)
         {
             var reader = new StreamReader(@in);
             var json = reader.ReadToEnd();
             reader.Close();
-
-            var list = new List<Injector>();
+            
             var container = JsonConvert.DeserializeObject<JsonParamContainer>(json);
-
-            var nameMap = new Dictionary<string, string>();
-            var accessorMap = new Dictionary<string, string>();
+            if (container == null) return;
 
             foreach (var injector in container.InterfaceParams)
             {
@@ -231,8 +247,6 @@ namespace Storm.Manipulation
                 PushParams = injector.PushParams,
                 JumpFix = injector.JumpFix
             })));
-
-            return list;
         }
     }
 }

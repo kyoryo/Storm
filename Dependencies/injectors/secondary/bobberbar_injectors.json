@@ -1,0 +1,309 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "difficulty",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Difficulty",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "motionType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MotionType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "whichFish",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichFish",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberPosition",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberPosition",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberSpeed",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberSpeed",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberAcceleration",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberAcceleration",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberTargetPosition",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberTargetPosition",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "scale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Scale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "everythingShakeTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "EverythingShakeTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "floaterSinkerAcceleration",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "FloaterSinkerAcceleration",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasurePosition",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TreasurePosition",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasureCatchLevel",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TreasureCatchLevel",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasureAppearTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TreasureAppearTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasureScale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TreasureScale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberInBar",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BobberInBar",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "buttonPressed",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ButtonPressed",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "flipBubble",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FlipBubble",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fadeIn",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FadeIn",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fadeOut",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FadeOut",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasure",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Treasure",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasureCaught",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "TreasureCaught",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "perfect",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Perfect",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bossFish",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "BossFish",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberBarHeight",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BobberBarHeight",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fishSize",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishSize",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fishQuality",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishQuality",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "minFishSize",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MinFishSize",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "maxFishSize",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MaxFishSize",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fishSizeReductionTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FishSizeReductionTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "whichBobber",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichBobber",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "barShake",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "BarShake",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "fishShake",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "FishShake",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "everythingShake",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "EverythingShake",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "treasureShake",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "TreasureShake",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "reelRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ReelRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "sparkleText",
+      "OwnerFieldType": "StardewValley.BellsAndWhistles.SparklingText",
+      "MethodName": "SparkleText",
+      "Type": "StardewValley.BellsAndWhistles.SparklingText"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberBarPos",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberBarPos",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberBarSpeed",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberBarSpeed",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "bobberBarAcceleration",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BobberBarAcceleration",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "distanceFromCatching",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "DistanceFromCatching",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "reelSound",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "ReelSound",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    },
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerFieldName": "unReelSound",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.Cue",
+      "MethodName": "UnReelSound",
+      "Type": "Microsoft.Xna.Framework.Audio.Cue"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@BobberBar",
+      "OwnerMethodName": "update",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "BobberBarUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.BobberBarAccessor,Microsoft.Xna.Framework.GameTime)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    }
+  ]
+}

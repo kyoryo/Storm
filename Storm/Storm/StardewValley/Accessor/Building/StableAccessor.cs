@@ -17,7 +17,7 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface StableAccessor
+    public interface StableAccessor : BuildingAccessor
     {
     }
 }

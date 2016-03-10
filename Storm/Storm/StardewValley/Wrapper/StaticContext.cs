@@ -47,6 +47,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return accessor._GetViewport(); }
         }
+
         /// <summary>
         /// The Farmer accessor for this game
         /// </summary>
@@ -60,6 +61,7 @@ namespace Storm.StardewValley.Wrapper
                 return new Farmer(this, farmer);
             }
         }
+
         /// <summary>
         /// The current location of the player in the world
         /// </summary>
@@ -142,8 +144,13 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation LocationAfterWarp
         {
-            get { return accessor._GetLocationAfterWarp() == null ? null : new GameLocation(this, accessor._GetLocationAfterWarp()); }
-            set { accessor._SetLocationAfterWarp(value.Cast<GameLocationAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetLocationAfterWarp();
+                if (tmp == null) return null;
+                return new GameLocation(this, tmp);
+            }
+            set { accessor._SetLocationAfterWarp(value?.Cast<GameLocationAccessor>()); }
         }
 
         public IDisplayDevice MapDisplayDevice
@@ -154,8 +161,13 @@ namespace Storm.StardewValley.Wrapper
 
         public Farmer ServerHost
         {
-            get { return accessor._GetServerHost() == null ? null : new Farmer(this, accessor._GetServerHost()); }
-            set { accessor._SetServerHost(value.Cast<FarmerAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetServerHost();
+                if (tmp == null) return null;
+                return new Farmer(this, tmp);
+            }
+            set { accessor._SetServerHost(value?.Cast<FarmerAccessor>()); }
         }
 
         public Texture2D ObjectSpriteSheet
@@ -1102,7 +1114,12 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC CurrentSpeaker
         {
-            get { return accessor._GetCurrentSpeaker() == null ? null : new NPC(this, accessor._GetCurrentSpeaker()); }
+            get
+            {
+                var tmp = accessor._GetCurrentSpeaker();
+                if (tmp == null) return null;
+                return new NPC(this, tmp);
+            }
             set { accessor._SetCurrentSpeaker(value.Cast<NPCAccessor>()); }
         }
 
@@ -1290,12 +1307,11 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                return accessor._GetActiveClickableMenu() == null ? null : new ClickableMenu(this, accessor._GetActiveClickableMenu());
+                var tmp = accessor._GetActiveClickableMenu();
+                if (tmp == null) return null;
+                return new ClickableMenu(this, tmp);
             }
-            set
-            {
-                accessor._SetActiveClickableMenu(value.Cast<ClickableMenuAccessor>());
-            }
+            set { accessor._SetActiveClickableMenu(value?.Cast<ClickableMenuAccessor>()); }
         }
 
         public int FramesThisSecond
@@ -1318,8 +1334,13 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem DishOfTheDay
         {
-            get { return accessor._GetDishOfTheDay() == null ? null : new ObjectItem(this, accessor._GetDishOfTheDay()); }
-            set { accessor._SetDishOfTheDay(value.Cast<ObjectAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetDishOfTheDay();
+                if (tmp == null) return null;
+                return new ObjectItem(this, tmp);
+            }
+            set { accessor._SetDishOfTheDay(value?.Cast<ObjectAccessor>()); }
         }
 
         public GameTime CurrentGameTime
@@ -1492,7 +1513,12 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC ObjectDialoguePortraitPerson
         {
-            get { return accessor._GetObjectDialoguePortraitPerson() == null ? null : new NPC(this, accessor._GetObjectDialoguePortraitPerson()); }
+            get
+            {
+                var tmp = accessor._GetObjectDialoguePortraitPerson();
+                if (tmp == null) return null;
+                return new NPC(this, tmp);
+            }
             set { accessor._SetObjectDialoguePortraitPerson(value.Cast<NPCAccessor>()); }
         }
 
@@ -1500,16 +1526,16 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                foreach (var iclickableMenu in accessor._GetOnScreenMenus())
+                foreach (var menu in accessor._GetOnScreenMenus())
                 {
-                    if (iclickableMenu is ChatBoxAccessor)
-                        return new ChatBox(this, (ChatBoxAccessor) iclickableMenu);
+                    if (menu is ChatBoxAccessor)
+                    {
+                        return new ChatBox(this, (ChatBoxAccessor)menu);
+                    }
                 }
                 return null;
             }
         }
-
-        public object Expose() => accessor;
 
         public Texture2D LoadResource(string path)
         {
@@ -1525,5 +1551,7 @@ namespace Storm.StardewValley.Wrapper
             var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
+
+        public object Expose() => accessor;
     }
 }
