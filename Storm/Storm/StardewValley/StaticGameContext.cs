@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt), Matthew Bell (mdbell)
+    Copyright 2016 Cody R. (Demmonic), Zoey (Zoryn), Matt Stevens (Handsome Matt), Matthew Bell (mdbell), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -54,6 +54,15 @@ namespace Storm.StardewValley
         private static Type ClickableMenuType { get; set; }
         private static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
 
+        private static Type AnimatedSpriteType { get; set; }
+        private static InterceptorFactory<AnimatedSpriteDelegate> AnimatedSpriteFactory { get; set; }
+
+        private static Type CharacterType { get; set; }
+        private static InterceptorFactory<CharacterDelegate> CharacterFactory { get; set; }
+
+        private static Type NPCType { get; set; }
+        private static InterceptorFactory<NPCDelegate> NPCFactory { get; set; }
+
         private static ModEventBus EventBus { get; set; }
 
         private static StaticContext WrappedGame
@@ -68,6 +77,9 @@ namespace Storm.StardewValley
             Type textureComponentType, InterceptorFactory<TextureComponentDelegate> textureComponentFactory,
             Type billboardType, InterceptorFactory<BillboardDelegate> billboardFactory,
             Type clickableMenuType, InterceptorFactory<ClickableMenuDelegate> clickableMenuFactory,
+            Type animatedSpriteType, InterceptorFactory<AnimatedSpriteDelegate> animatedSpriteFactory,
+            Type characterType, InterceptorFactory<CharacterDelegate> characterFactory,
+            Type npcType, InterceptorFactory<NPCDelegate> npcFactory,
             ModEventBus eventBus)
         {
             Assembly = assembly;
@@ -82,6 +94,12 @@ namespace Storm.StardewValley
             BillboardFactory = billboardFactory;
             ClickableMenuType = clickableMenuType;
             ClickableMenuFactory = clickableMenuFactory;
+            AnimatedSpriteType = animatedSpriteType;
+            AnimatedSpriteFactory = animatedSpriteFactory;
+            CharacterType = characterType;
+            CharacterFactory = characterFactory;
+            NPCType = npcType;
+            NPCFactory = npcFactory;
             EventBus = eventBus;
         }
 
@@ -100,6 +118,12 @@ namespace Storm.StardewValley
             @event.BillboardFactory =BillboardFactory;
             @event.ClickableMenuType = ClickableMenuType;
             @event.ClickableMenuFactory = ClickableMenuFactory;
+            @event.AnimatedSpriteType = AnimatedSpriteType;
+            @event.AnimatedSpriteFactory = AnimatedSpriteFactory;
+            @event.CharacterType = CharacterType;
+            @event.CharacterFactory = CharacterFactory;
+            @event.NPCType = NPCType;
+            @event.NPCFactory = NPCFactory;
         }
 
         private static void CheckAccessRights()
