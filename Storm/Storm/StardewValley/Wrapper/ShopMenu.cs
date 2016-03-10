@@ -67,19 +67,19 @@ namespace Storm.StardewValley.Wrapper
 
         public InventoryMenu Inventory
         {
-            get { return new InventoryMenu(Parent, accessor._GetInventory()); }
+            get { return accessor._GetInventory() == null ? null : new InventoryMenu(Parent, accessor._GetInventory()); }
             set { accessor._SetInventory(value.Cast<InventoryMenuAccessor>()); }
         }
 
         public Item HeldItem
         {
-            get { return new Item(Parent, accessor._GetHeldItem()); }
+            get { return accessor._GetHeldItem() == null ? null : new Item(Parent, accessor._GetHeldItem()); }
             set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
-            get { return new Item(Parent, accessor._GetHoveredItem()); }
+            get { return accessor._GetHoveredItem() == null ? null : new Item(Parent, accessor._GetHoveredItem()); }
             set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
         }
 
@@ -139,25 +139,25 @@ namespace Storm.StardewValley.Wrapper
 
         public ClickableTextureComponent UpArrow
         {
-            get { return new ClickableTextureComponent(Parent, accessor._GetUpArrow()); }
+            get { return accessor._GetUpArrow() == null ? null : new ClickableTextureComponent(Parent, accessor._GetUpArrow()); }
             set { accessor._SetUpArrow(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent DownArrow
         {
-            get { return new ClickableTextureComponent(Parent, accessor._GetDownArrow()); }
+            get { return accessor._GetDownArrow() == null ? null : new ClickableTextureComponent(Parent, accessor._GetDownArrow()); }
             set { accessor._SetDownArrow(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent ScrollBar
         {
-            get { return new ClickableTextureComponent(Parent, accessor._GetScrollBar()); }
+            get { return accessor._GetScrollBar() == null ? null : new ClickableTextureComponent(Parent, accessor._GetScrollBar()); }
             set { accessor._SetScrollBar(value.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public NPC PortraitPerson
         {
-            get { return new NPC(Parent, accessor._GetPortraitPerson()); }
+            get { return accessor._GetPortraitPerson() == null ? null : new NPC(Parent, accessor._GetPortraitPerson()); }
             set { accessor._SetPortraitPerson(value.Cast<NPCAccessor>()); }
         }
 

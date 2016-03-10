@@ -44,7 +44,7 @@ namespace Storm.StardewValley.Wrapper
 
         public ClickableComponent AcceptQuestButton
         {
-            get { return new ClickableComponent(Parent, accessor._GetAcceptQuestButton()); }
+            get { return accessor._GetAcceptQuestButton() == null ? null : new ClickableComponent(Parent, accessor._GetAcceptQuestButton()); }
             set { accessor._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
         }
 

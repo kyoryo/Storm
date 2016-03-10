@@ -60,13 +60,13 @@ namespace Storm.StardewValley.Wrapper
 
         public Item HeldItem
         {
-            get { return new Item(Parent, accessor._GetHeldItem()); }
+            get { return accessor._GetHeldItem() == null ? null : new Item(Parent, accessor._GetHeldItem()); }
             set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
-            get { return new Item(Parent, accessor._GetHoveredItem()); }
+            get { return accessor._GetHoveredItem() == null ? null : new Item(Parent, accessor._GetHoveredItem()); }
             set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
         }
 

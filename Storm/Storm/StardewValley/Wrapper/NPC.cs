@@ -249,7 +249,7 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation CurrentLocation
         {
-            get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
+            get { return accessor._GetCurrentLocation() == null ? null : new GameLocation(Parent, accessor._GetCurrentLocation()); }
             set { accessor._SetCurrentLocation(value.Cast<GameLocationAccessor>()); }
         }
 

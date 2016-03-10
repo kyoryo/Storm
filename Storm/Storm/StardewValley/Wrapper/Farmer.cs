@@ -42,10 +42,7 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public ProxyDictionary<string, int[]> Friendships
-        {
-            get { return new ProxyDictionary<string, int[]>(accessor._GetFriendships()); }
-        }
+        public ProxyDictionary<string, int[]> Friendships => accessor._GetFriendships() == null ? null : new ProxyDictionary<string, int[]>(accessor._GetFriendships());
 
         public int TileSlideThreshold
         {
@@ -65,10 +62,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetActiveObject(value.Cast<ItemAccessor>()); }
         }
 
-        public ProxyList<int, int> MovementDirections
-        {
-            get { return new ProxyList<int, int>(accessor._GetMovementDirections()); }
-        }
+        public ProxyList<int, int> MovementDirections => accessor._GetMovementDirections() == null ? null : new ProxyList<int, int>(accessor._GetMovementDirections());
 
         public Tool[] ToolBox
         {
@@ -82,7 +76,7 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem Cupboard
         {
-            get { return new ObjectItem(Parent, accessor._GetCupboard()); }
+            get { return accessor._GetCupboard() == null ? null : new ObjectItem(Parent, accessor._GetCupboard()); }
             set { accessor._SetCupboard(value.Cast<ObjectAccessor>()); }
         }
 
@@ -100,7 +94,7 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation CurrentLocation
         {
-            get { return new GameLocation(Parent, accessor._GetCurrentLocation()); }
+            get { return accessor._GetCurrentLocation() == null ? null : new GameLocation(Parent, accessor._GetCurrentLocation()); }
             set { accessor._SetCurrentLocation(value.Cast<GameLocationAccessor>()); }
         }
 
@@ -130,14 +124,14 @@ namespace Storm.StardewValley.Wrapper
 
         public Item MostRecentlyGrabbedItem
         {
-            get { return new Item(Parent, accessor._GetMostRecentlyGrabbedItem()); }
+            get { return accessor._GetMostRecentlyGrabbedItem() == null ? null : new Item(Parent, accessor._GetMostRecentlyGrabbedItem()); }
             set { accessor._SetMostRecentlyGrabbedItem(value.Cast<ItemAccessor>()); }
         }
 
         public Item ItemToEat
         {
-            get { return new Item(Parent, accessor._GetItemToEat()); }
-            set { accessor._SetItemToEat(value == null ? null : value.Cast<ItemAccessor>()); }
+            get { return accessor._GetItemToEat() == null ? null : new Item(Parent, accessor._GetItemToEat()); }
+            set { accessor._SetItemToEat(value?.Cast<ItemAccessor>()); }
         }
 
         public int ToolPower
@@ -232,7 +226,7 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC DancePartner
         {
-            get { return new NPC(Parent, accessor._GetDancePartner()); }
+            get { return accessor._GetDancePartner() == null ? null : new NPC(Parent, accessor._GetDancePartner()); }
             set { accessor._SetDancePartner(value.Cast<NPCAccessor>()); }
         }
 
@@ -514,7 +508,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Tool ToolBeingUpgraded
         {
-            get { return new Tool(Parent, accessor._GetToolBeingUpgraded()); }
+            get { return accessor._GetToolBeingUpgraded() == null ? null : new Tool(Parent, accessor._GetToolBeingUpgraded()); }
             set { accessor._SetToolBeingUpgraded(value.Cast<ToolAccessor>()); }
         }
 
@@ -910,7 +904,7 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC CollisionNPC
         {
-            get { return new NPC(Parent, accessor._GetCollisionNPC()); }
+            get { return accessor._GetCollisionNPC() == null ? null : new NPC(Parent, accessor._GetCollisionNPC()); }
             set { accessor._SetCollisionNPC(value.Cast<NPCAccessor>()); }
         }
 

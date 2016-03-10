@@ -50,7 +50,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Crop Crop
         {
-            get { return new Crop(Parent, accessor._GetCrop()); }
+            get { return accessor._GetCrop() == null ? null : new Crop(Parent, accessor._GetCrop()); }
             set { accessor._SetCrop(value.Cast<CropAccessor>()); }
         }
 
