@@ -3001,9 +3001,9 @@
     {
       "OwnerAccessorType": "@Farmer",
       "OwnerFieldName": "temporarySpeedBuff",
-      "OwnerFieldType": "System.Int32",
+      "OwnerFieldType": "System.Single",
       "MethodName": "TemporarySpeedBuff",
-      "Type": "System.Int32"
+      "Type": "System.Single"
     },
     {
       "OwnerAccessorType": "@Farmer",
@@ -7440,7 +7440,7 @@
       "InstanceCallbackName": "PreDrawCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
-    {
+    /*{
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "Draw",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
@@ -7463,7 +7463,7 @@
       "InsertionIndex": [
         2627
       ]
-    },
+    },*/
     {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "newSeason",
@@ -8007,27 +8007,27 @@
       "StaticCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
-	{
+  {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-	  "InstanceCallbackName": "PreDayUpdateHoeDirtCallback",
+    "InstanceCallbackName": "PreDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
-	  "InsertionType": "BEGINNING"
+    "PushParams": "true",
+    "InsertionType": "BEGINNING"
     },
-	{
+  {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PostDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
-	  "InsertionType": "LAST"
+    "PushParams": "true",
+    "InsertionType": "LAST"
     },
-	{
+  {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "plant",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
@@ -8037,7 +8037,7 @@
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     },
-	{
+  {
       "OwnerAccessorType": "@HoeDirt",
       "OwnerMethodName": "plant",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
@@ -8046,7 +8046,7 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "FixJump": "true",
-	  "InsertionIndex": [ 1 ]
+    "InsertionIndex": [ 1 ]
     },
     {
       "OwnerAccessorType": "@HoeDirt",
@@ -8067,9 +8067,9 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "FixJump": "true",
-	  "InsertionIndex": [ 1 ]
+    "InsertionIndex": [ 1 ]
     },
-	{
+  {
       "OwnerAccessorType": "@ShopMenu",
       "OwnerMethodName": "setUpShopOwner",
       "OwnerMethodDesc": "(System.String)System.Void",
@@ -8078,7 +8078,7 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.String)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
     },
-	{
+  {
       "OwnerAccessorType": "@ShopMenu",
       "OwnerMethodName": ".ctor",
       "OwnerMethodDesc": "(System.Collections.Generic.List`1,System.Int32,System.String)System.Void",

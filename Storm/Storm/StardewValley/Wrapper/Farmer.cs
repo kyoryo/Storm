@@ -200,7 +200,7 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetFestivalScore(value); }
         }
 
-        public int TemporarySpeedBuff
+        public float TemporarySpeedBuff
         {
             get { return accessor._GetTemporarySpeedBuff(); }
             set { accessor._SetTemporarySpeedBuff(value); }

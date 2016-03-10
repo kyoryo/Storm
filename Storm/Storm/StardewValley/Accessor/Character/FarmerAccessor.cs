@@ -167,8 +167,8 @@ namespace Storm.StardewValley.Accessor
         int _GetFestivalScore();
         void _SetFestivalScore(int val);
 
-        int _GetTemporarySpeedBuff();
-        void _SetTemporarySpeedBuff(int val);
+        float _GetTemporarySpeedBuff();
+        void _SetTemporarySpeedBuff(float val);
 
         Color _GetHairstyleColor();
         void _SetHairstyleColor(Color val);
