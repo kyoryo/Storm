@@ -182,5 +182,36 @@
       "MethodName": "Scrolling",
       "Type": "System.Boolean"
     }
+  ],
+  "EventCallbackParams": [
+  {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": "setUpShopOwner",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "SetUpShopOwnerCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Collections.Generic.List`1,System.Int32,System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreConstructShopViaListCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.Collections.IList,System.Int32,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Collections.Generic.List`1,System.Int32,System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostConstructShopViaListCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.Collections.IList,System.Int32,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    }
   ]
 }
