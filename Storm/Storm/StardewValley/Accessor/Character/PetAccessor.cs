@@ -17,7 +17,7 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface PetAccessor
+    public interface PetAccessor : NPCAccessor
     {
     }
 }

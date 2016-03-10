@@ -1,0 +1,32 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Pet",
+      "OwnerFieldName": "currentBehavior",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentBehavior",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Pet",
+      "OwnerFieldName": "wasPetToday",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasPetToday",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Pet",
+      "OwnerFieldName": "friendshipTowardFarmer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FriendshipTowardFarmer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Pet",
+      "OwnerFieldName": "pushingTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PushingTimer",
+      "Type": "System.Int32"
+    }
+  ]
+}

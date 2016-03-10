@@ -1,0 +1,26 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Barn",
+      "OwnerFieldName": "openAnimalDoorPosition",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "OpenAnimalDoorPosition",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Barn",
+      "OwnerFieldName": "yPositionOfAnimalDoor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "YPositionOfAnimalDoor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Barn",
+      "OwnerFieldName": "animalDoorMotion",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "AnimalDoorMotion",
+      "Type": "System.Int32"
+    },
+    
+  ]
+}

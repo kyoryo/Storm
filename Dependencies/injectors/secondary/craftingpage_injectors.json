@@ -1,0 +1,109 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "hoverItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoverItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "lastCookingHover",
+      "OwnerFieldType": "@Item",
+      "MethodName": "LastCookingHover",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "pagesOfCraftingRecipes",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "PagesOfCraftingRecipes",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "currentCraftingPage",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentCraftingPage",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "hoverRecipe",
+      "OwnerFieldType": "@CraftingRecipe",
+      "MethodName": "HoverRecipe",
+      "Type": "Storm.StardewValley.Accessor.CraftingRecipeAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "upButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "UpButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "downButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "DownButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "cooking",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Cooking",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "trashCan",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "TrashCan",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "trashCanLidRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TrashCanLidRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@CraftingPage",
+      "OwnerFieldName": "hoverTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverTitle",
+      "Type": "System.String"
+    }
+  ]
+}

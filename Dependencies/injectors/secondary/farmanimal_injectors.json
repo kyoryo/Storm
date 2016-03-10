@@ -1,0 +1,291 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "defaultProduceIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DefaultProduceIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "deluxeProduceIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DeluxeProduceIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "currentProduce",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentProduce",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "friendshipTowardFarmer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FriendshipTowardFarmer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "daysSinceLastFed",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DaysSinceLastFed",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "pushAccumulator",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PushAccumulator",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "uniqueFrameAccumulator",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "UniqueFrameAccumulator",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "age",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Age",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "meatIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MeatIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Health",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "price",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Price",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "produceQuality",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "ProduceQuality",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "daysToLay",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "DaysToLay",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "daysSinceLastLay",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "DaysSinceLastLay",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "ageWhenMature",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "AgeWhenMature",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "harvestType",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "HarvestType",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "happiness",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "Happiness",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "fullness",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "Fullness",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "happinessDrain",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "HappinessDrain",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "fullnessDrain",
+      "OwnerFieldType": "System.Byte",
+      "MethodName": "FullnessDrain",
+      "Type": "System.Byte"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "wasPet",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "WasPet",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "showDifferentTextureWhenReadyForHarvest",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShowDifferentTextureWhenReadyForHarvest",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "allowReproduction",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "AllowReproduction",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "sound",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Sound",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "type",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Type",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "buildingTypeILiveIn",
+      "OwnerFieldType": "System.String",
+      "MethodName": "BuildingTypeILiveIn",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "toolUsedForHarvest",
+      "OwnerFieldType": "System.String",
+      "MethodName": "ToolUsedForHarvest",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "frontBackBoundingBox",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "FrontBackBoundingBox",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "sidewaysBoundingBox",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "SidewaysBoundingBox",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "frontBackSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "FrontBackSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "sidewaysSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "SidewaysSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "myID",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "MyID",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "ownerID",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "OwnerID",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "parentId",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "ParentId",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "home",
+      "OwnerFieldType": "@Building",
+      "MethodName": "Home",
+      "Type": "Storm.StardewValley.Accessor.BuildingAccessor"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "homeLocation",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "HomeLocation",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "noWarpTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NoWarpTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "hitGlowTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "HitGlowTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "pauseTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PauseTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "moodMessage",
+      "OwnerFieldType": "System.Int16",
+      "MethodName": "MoodMessage",
+      "Type": "System.Int16"
+    },
+    {
+      "OwnerAccessorType": "@FarmAnimal",
+      "OwnerFieldName": "isEating",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsEating",
+      "Type": "System.Boolean"
+    }
+  ]
+}

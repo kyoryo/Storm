@@ -133,6 +133,7 @@ namespace Storm.Manipulation
             reader.Close();
             
             var container = JsonConvert.DeserializeObject<JsonParamContainer>(json);
+            if (container == null) return;
 
             foreach (var injector in container.InterfaceParams)
             {

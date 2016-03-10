@@ -1,0 +1,39 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Horse",
+      "OwnerFieldName": "rider",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "Rider",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Horse",
+      "OwnerFieldName": "mounting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Mounting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Horse",
+      "OwnerFieldName": "dismounting",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Dismounting",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Horse",
+      "OwnerFieldName": "dismountTile",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Vector2",
+      "MethodName": "DismountTile",
+      "Type": "Microsoft.Xna.Framework.Vector2"
+    },
+    {
+      "OwnerAccessorType": "@Horse",
+      "OwnerFieldName": "squeezingThroughGate",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SqueezingThroughGate",
+      "Type": "System.Boolean"
+    }
+  ]
+}

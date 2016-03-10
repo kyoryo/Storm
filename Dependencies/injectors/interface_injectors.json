@@ -189,6 +189,26 @@
       "SimpleName": "Stable",
       "OwnerType": "StardewValley.Buildings.Stable",
       "InterfaceType": "Storm.StardewValley.Accessor.StableAccessor"
+    },
+    {
+      "SimpleName": "Pet",
+      "OwnerType": "StardewValley.Characters.Pet",
+      "InterfaceType": "Storm.StardewValley.Accessor.PetAccessor"
+    },
+    {
+      "SimpleName": "Cat",
+      "OwnerType": "StardewValley.Monsters.Cat",
+      "InterfaceType": "Storm.StardewValley.Accessor.CatAccessor"
+    },
+    {
+      "SimpleName": "Dog",
+      "OwnerType": "StardewValley.Characters.Dog",
+      "InterfaceType": "Storm.StardewValley.Accessor.DogAccessor"
+    },
+    {
+      "SimpleName": "FarmAnimal",
+      "OwnerType": "StardewValley.FarmAnimal",
+      "InterfaceType": "Storm.StardewValley.Accessor.FarmAnimalAccessor"
     }
   ]
 }

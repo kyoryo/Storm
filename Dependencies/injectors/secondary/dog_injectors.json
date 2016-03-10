@@ -1,0 +1,18 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Dog",
+      "OwnerFieldName": "sprintTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SprintTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Dog",
+      "OwnerFieldName": "wagging",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Wagging",
+      "Type": "System.Boolean"
+    }
+  ]
+}
