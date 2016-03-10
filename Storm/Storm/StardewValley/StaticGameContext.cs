@@ -220,30 +220,30 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent BeforeNewDayCallback()
+        public static DetourEvent PreNewDayCallback()
         {
-            var @event = new BeforeNewDayEvent();
+            var @event = new PreNewDayEvent();
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterNewDayCallback()
+        public static DetourEvent PostNewDayCallback()
         {
-            var @event = new AfterNewDayEvent();
+            var @event = new PostNewDayEvent();
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent Before10MinuteClockUpdateCallback()
+        public static DetourEvent Pre10MinuteClockUpdateCallback()
         {
-            var @event = new Before10MinuteClockUpdateEvent();
+            var @event = new Pre10MinuteClockUpdateEvent();
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent After10MinuteClockUpdateCallback()
+        public static DetourEvent Post10MinuteClockUpdateCallback()
         {
-            var @event = new After10MinuteClockUpdateEvent();
+            var @event = new Post10MinuteClockUpdateEvent();
             FireEvent(@event);
             return @event;
         }
@@ -359,17 +359,17 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent BeforeGameLoadedCallback(bool loadedGame)
+        public static DetourEvent PreGameLoadedCallback(bool loadedGame)
         {
-            var @event = HookEvent(new BeforeGameLoadedEvent(loadedGame));
+            var @event = HookEvent(new PreGameLoadedEvent(loadedGame));
             @event.Root.MultiplayerMode = 1; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterGameLoadedCallback(bool loadedGame)
+        public static DetourEvent PostGameLoadedCallback(bool loadedGame)
         {
-            var @event = HookEvent(new AfterGameLoadedEvent(loadedGame));
+            var @event = HookEvent(new PostGameLoadedEvent(loadedGame));
             @event.Root.MultiplayerMode = 0; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             FireEvent(@event);
             return @event;
@@ -491,30 +491,30 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterFarmerShippedBasicCallback(FarmerAccessor accessor, int index, int number)
+        public static DetourEvent PostFarmerShippedBasicCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new AfterFarmerShippedBasicEvent(index, number);
+            var @event = new PostFarmerShippedBasicEvent(index, number);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
+        public static DetourEvent PostFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
-            var @event = new AfterFarmerCaughtFishEvent(index, size);
+            var @event = new PostFarmerCaughtFishEvent(index, size);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
+        public static DetourEvent PostFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new AfterFarmerCaughtFishEvent(index, number);
+            var @event = new PostFarmerFoundArtifactEvent(index, number);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
+        public static DetourEvent PostFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new AfterFarmerCookedRecipeEvent(index);
+            var @event = new PostFarmerCookedRecipeEvent(index);
             FireEvent(@event);
             return @event;
         }
@@ -526,16 +526,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
+        public static DetourEvent PostFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new AfterFarmerFoundMineralEvent(index);
+            var @event = new PostFarmerFoundMineralEvent(index);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
+        public static DetourEvent PostFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
         {
-            var @event = new AfterFarmerConsumObjectEvent(index, quantity);
+            var @event = new PostFarmerConsumObjectEvent(index, quantity);
             FireEvent(@event);
             return @event;
         }
@@ -547,9 +547,9 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterFarmerDismountHorseCallback(FarmerAccessor accessor)
+        public static DetourEvent PostFarmerDismountHorseCallback(FarmerAccessor accessor)
         {
-            var @event = new AfterFarmerDismountHorseEvent();
+            var @event = new PostFarmerDismountHorseEvent();
             FireEvent(@event);
             return @event;
         }
@@ -638,23 +638,23 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent AfterFarmerChangedIntoSwimsuitCallback(FarmerAccessor accessor)
+        public static DetourEvent PostFarmerChangedIntoSwimsuitCallback(FarmerAccessor accessor)
         {
-            var @event = new AfterFarmerChangeIntoSwimsuitEvent();
+            var @event = new PostFarmerChangeIntoSwimsuitEvent();
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerChangeOutOfSwimsuitCallback(FarmerAccessor accessor)
+        public static DetourEvent PostFarmerChangeOutOfSwimsuitCallback(FarmerAccessor accessor)
         {
-            var @event = new AfterFarmerChangeOutOfSwimsuitEvent();
+            var @event = new PostFarmerChangeOutOfSwimsuitEvent();
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterFarmerDayUpdateCallback(FarmerAccessor accessor)
+        public static DetourEvent PostFarmerDayUpdateCallback(FarmerAccessor accessor)
         {
-            var @event = new AfterFarmerDayUpdateEvent();
+            var @event = new PostFarmerDayUpdateEvent();
             FireEvent(@event);
             return @event;
         }
@@ -699,16 +699,16 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent BeforeHarvestCropCallback(CropAccessor accessor)
+        public static DetourEvent PreHarvestCropCallback(CropAccessor accessor)
         {
-            var @event = new BeforeHarvestCropEvent(new Crop(WrappedGame, accessor));
+            var @event = new PreHarvestCropEvent(new Crop(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterHarvestCropCallback(CropAccessor accessor)
+        public static DetourEvent PostHarvestCropCallback(CropAccessor accessor)
         {
-            var @event = new AfterHarvestCropEvent(new Crop(WrappedGame, accessor));
+            var @event = new PreHarvestCropEvent(new Crop(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
@@ -717,44 +717,44 @@ namespace Storm.StardewValley
 
         #region HoeDirt Events
 
-        public static DetourEvent BeforeDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        public static DetourEvent PreDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
-            var @event = new BeforeDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            var @event = new PreDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
+        public static DetourEvent PostDayUpdateHoeDirtCallback(HoeDirtAccessor hoedirt, GameLocationAccessor locationaccessor, Vector2 tileLocation)
         {
-            var @event = new AfterDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
+            var @event = new PostDayUpdateHoeDirtEvent(new HoeDirt(WrappedGame, hoedirt), new GameLocation(WrappedGame, locationaccessor), tileLocation);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent BeforeHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
+        public static DetourEvent PreHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
-            var @event = new BeforeHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            var @event = new PreHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent BeforeHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
+        public static DetourEvent PreHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            var @event = new BeforeHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
+            var @event = new PreHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
+        public static DetourEvent PostHoeDirtCanPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, bool isFertilizer = false)
         {
-            var @event = new AfterHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
+            var @event = new PostHoeDirtCanPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, isFertilizer);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
+        public static DetourEvent PostHoeDirtPlantCallback(HoeDirtAccessor hoedirt, int objectIndex, int tileX, int tileY, FarmerAccessor farmeraccessor, bool isFertilizer = false)
         {
-            var @event = new AfterHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
+            var @event = new PostHoeDirtPlantEvent(new HoeDirt(WrappedGame, hoedirt), objectIndex, tileX, tileY, new Farmer(WrappedGame, farmeraccessor), isFertilizer);
             FireEvent(@event);
             return @event;
         }
@@ -763,16 +763,16 @@ namespace Storm.StardewValley
 
         #region Objects
 
-        public static DetourEvent BeforeObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
+        public static DetourEvent PreObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
-            var @event = new BeforeObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
+            var @event = new PreObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
+        public static DetourEvent PostObjectDayUpdateCallback(ObjectAccessor accessor, GameLocationAccessor locAccessor)
         {
-            var @event = new AfterObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
+            var @event = new PostObjectDayUpdateEvent(new ObjectItem(WrappedGame, accessor), new GameLocation(WrappedGame, locAccessor));
             FireEvent(@event);
             return @event;
         }
@@ -795,30 +795,30 @@ namespace Storm.StardewValley
 
         #region FishingRod Events
 
-        public static DetourEvent BeforePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        public static DetourEvent PrePullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
-            var @event = new BeforePullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            var @event = new PrePullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterPullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        public static DetourEvent PostPullFishFromWaterCallback(FishingRodAccessor accessor, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
-            var @event = new AfterPullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
+            var @event = new PostPullFishFromWaterEvent(new FishingRod(WrappedGame, accessor), whichFish, fishSize, fishQuality, fishDifficulty, treasureCaught, wasPerfect);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent BeforeDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
+        public static DetourEvent PreDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
-            var @event = new BeforeDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
+            var @event = new PreDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent AfterDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
+        public static DetourEvent PostDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
-            var @event = new AfterDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
+            var @event = new PostDoneFishingEvent(new Farmer(WrappedGame, who), new FishingRod(WrappedGame, accessor), consumeBaitAndTackle);
             FireEvent(@event);
             return @event;
         }
@@ -854,16 +854,16 @@ namespace Storm.StardewValley
 
         #region MineShaft Events
 
-        public static DetourEvent BeforeBuriedItemCheckCallback(MineShaftAccessor accessor, int xLocation, int yLocation, bool explosion, bool detectOnly)
+        public static DetourEvent PreBuriedItemCheckCallback(MineShaftAccessor accessor, int xLocation, int yLocation, bool explosion, bool detectOnly)
         {
-            var @event = new BeforeBuriedItemCheckEvent(xLocation, yLocation, explosion, detectOnly);
+            var @event = new PreBuriedItemCheckEvent(xLocation, yLocation, explosion, detectOnly);
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent BeforeStoneItemCheckCallback(MineShaftAccessor accessor, int tileIndexOfStone, int x, int y, Farmer who)
+        public static DetourEvent PreStoneItemCheckCallback(MineShaftAccessor accessor, int tileIndexOfStone, int x, int y, Farmer who)
         {
-            var @event = new BeforeStoneItemCheckEvent(tileIndexOfStone, x, y, who);
+            var @event = new PreStoneItemCheckEvent(tileIndexOfStone, x, y, who);
             FireEvent(@event);
             return @event;
         }
