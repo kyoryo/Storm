@@ -1,0 +1,81 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "rewardDescription",
+      "OwnerFieldType": "System.String",
+      "MethodName": "RewardDescription",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "ingredients",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Ingredients",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "bundleColor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BundleColor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "numberOfIngredientSlots",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumberOfIngredientSlots",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "bundleIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "BundleIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "completionTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CompletionTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "complete",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Complete",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "depositsAllowed",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DepositsAllowed",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "sprite",
+      "OwnerFieldType": "@TempAnimatedSprite",
+      "MethodName": "Sprite",
+      "Type": "Storm.StardewValley.Accessor.TempAnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "maxShake",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxShake",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Bundle",
+      "OwnerFieldName": "shakeLeft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShakeLeft",
+      "Type": "System.Boolean"
+    }
+  ]
+}
