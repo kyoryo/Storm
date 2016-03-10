@@ -7451,7 +7451,7 @@
       "InstanceCallbackName": "PreDrawCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent"
     },
-    /*{
+    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "Draw",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime)System.Void",
@@ -7460,7 +7460,7 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType": "ABSOLUTE",
       "InsertionIndex": [
-        2091
+        2266
       ]
     },
     {
@@ -7472,9 +7472,9 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.StaticContextAccessor)Storm.Manipulation.DetourEvent",
       "InsertionType": "ABSOLUTE",
       "InsertionIndex": [
-        2627
+        2837
       ]
-    },*/
+    },
     {
       "OwnerAccessorType": "@StaticContext",
       "OwnerMethodName": "newSeason",
