@@ -153,5 +153,7 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public object Expose() => accessor;
+
+        public bool IsNull() => accessor == null;
     }
 }
