@@ -31,6 +31,21 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
+        public int SalePrice
+        {
+            get { return accessor._GetSalePrice(); }
+        }
+
+        public int MaximumStackSize
+        {
+            get { return accessor._GetMaximumStackSize(); }
+        }
+
+        public string Description
+        {
+            get { return accessor._GetDescription(); }
+        }
+
         public int Category
         {
             get { return accessor._GetCategory(); }

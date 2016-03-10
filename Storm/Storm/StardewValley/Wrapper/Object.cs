@@ -29,6 +29,11 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
+        public int SellToStorePrice
+        {
+            get { return accessor._GetSellToStorePrice(); }
+        }
+
         public Vector2 TileLocation
         {
             get { return accessor._GetTileLocation(); }

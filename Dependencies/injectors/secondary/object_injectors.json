@@ -241,6 +241,17 @@
       "Type": "System.Int32"
     }
   ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@Object",
+      "OwnerMethodName": "sellToStorePrice",
+      "OwnerMethodDesc": "()System.Int32",
+      "InvokerName": "_GetSellToStorePrice",
+      "InvokerReturnParams": [ ],
+      "InvokerReturnType": "System.Int32",
+      "IsStatic": "false"
+    }
+  ],
   "EventCallbackParams": [
     {
       "OwnerAccessorType": "@Object",
