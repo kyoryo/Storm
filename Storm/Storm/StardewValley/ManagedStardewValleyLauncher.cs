@@ -64,7 +64,7 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
-            if (!File.Exists(InjectorsPath))
+            if (!File.Exists(StormAPI.GetResource("interface_injectors.json")))
             {
                 MessageBox.Show("Could not find injectors @\n" + InjectorsPath, "Error");
                 Environment.Exit(1);
