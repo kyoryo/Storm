@@ -79,6 +79,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetWeaponTexture(); }
             set { accessor._SetWeaponTexture(value); }
         }
+
         /// <summary>
         /// Whether this tool is fishing rod or not
         /// </summary>
@@ -89,9 +90,6 @@ namespace Storm.StardewValley.Wrapper
         /// Turns this tool into a fishing rod
         /// </summary>
         /// <returns>A new Fishing Rod</returns>
-        public FishingRod ToFishingRod()
-        {
-            return new FishingRod(Parent, (FishingRodAccessor) accessor);
-        }
+        public FishingRod ToFishingRod() => new FishingRod(Parent, (FishingRodAccessor) accessor);
     }
 }

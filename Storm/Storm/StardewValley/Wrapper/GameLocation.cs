@@ -104,7 +104,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Event CurrentEvent
         {
-            get { return new Event(Parent, accessor._GetCurrentEvent()); }
+            get { return accessor._GetCurrentEvent() == null ? null : new Event(Parent, accessor._GetCurrentEvent()); }
             set { accessor._SetCurrentEvent(value.Cast<EventAccessor>()); }
         }
 

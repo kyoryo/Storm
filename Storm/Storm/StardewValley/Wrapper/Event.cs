@@ -180,7 +180,7 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation TemporaryLocation
         {
-            get { return new GameLocation(Parent, accessor._GetTemporaryLocation()); }
+            get { return accessor._GetTemporaryLocation() == null ? null : new GameLocation(Parent, accessor._GetTemporaryLocation()); }
             set { accessor._SetTemporaryLocation(value.Cast<GameLocationAccessor>()); }
         }
 
@@ -198,13 +198,13 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC SecretSantaRecipient
         {
-            get { return new NPC(Parent, accessor._GetSecretSantaRecipient()); }
+            get { return accessor._GetSecretSantaRecipient() == null ? null : new NPC(Parent, accessor._GetSecretSantaRecipient()); }
             set { accessor._SetSecretSantaRecipient(value.Cast<NPCAccessor>()); }
         }
 
         public NPC MySecretSanta
         {
-            get { return new NPC(Parent, accessor._GetMySecretSanta()); }
+            get { return accessor._GetMySecretSanta() == null ? null : new NPC(Parent, accessor._GetMySecretSanta()); }
             set { accessor._SetMySecretSanta(value.Cast<NPCAccessor>()); }
         }
 
@@ -252,7 +252,7 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC FestivalHost
         {
-            get { return new NPC(Parent, accessor._GetFestivalHost()); }
+            get { return accessor._GetFestivalHost() == null ? null : new NPC(Parent, accessor._GetFestivalHost()); }
             set { accessor._SetFestivalHost(value.Cast<NPCAccessor>()); }
         }
 
@@ -270,7 +270,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Item TempItemStash
         {
-            get { return new Item(Parent, accessor._GetTempItemStash()); }
+            get { return accessor._GetTempItemStash() == null ? null : new Item(Parent, accessor._GetTempItemStash()); }
             set { accessor._SetTempItemStash(value.Cast<ItemAccessor>()); }
         }
 
@@ -282,7 +282,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Farmer PlayerUsingGrangeDisplay
         {
-            get { return new Farmer(Parent, accessor._GetPlayerUsingGrangeDisplay()); }
+            get { return accessor._GetPlayerUsingGrangeDisplay() == null ? null : new Farmer(Parent, accessor._GetPlayerUsingGrangeDisplay()); }
             set { accessor._SetPlayerUsingGrangeDisplay(value.Cast<FarmerAccessor>()); }
         }
 

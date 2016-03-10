@@ -64,14 +64,7 @@ namespace Storm.StardewValley.Wrapper
         /// The current location of the player in the world
         /// </summary>
         /// <value>The CurrentLocation property gets the value of the GameLocation field CurrentLocation</value>
-        public GameLocation CurrentLocation
-        {
-            get
-            {
-                var location = accessor._GetCurrentLocation();
-                return location == null ? null : new GameLocation(this, location);
-            }
-        }
+        public GameLocation CurrentLocation => accessor._GetCurrentLocation() == null ? null : new GameLocation(this, accessor._GetCurrentLocation());
 
         public IList Locations => accessor._GetLocations();
 
@@ -149,7 +142,7 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation LocationAfterWarp
         {
-            get { return new GameLocation(this, accessor._GetLocationAfterWarp()); }
+            get { return accessor._GetLocationAfterWarp() == null ? null : new GameLocation(this, accessor._GetLocationAfterWarp()); }
             set { accessor._SetLocationAfterWarp(value.Cast<GameLocationAccessor>()); }
         }
 
@@ -161,7 +154,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Farmer ServerHost
         {
-            get { return new Farmer(this, accessor._GetServerHost()); }
+            get { return accessor._GetServerHost() == null ? null : new Farmer(this, accessor._GetServerHost()); }
             set { accessor._SetServerHost(value.Cast<FarmerAccessor>()); }
         }
 
@@ -1109,7 +1102,7 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC CurrentSpeaker
         {
-            get { return new NPC(this, accessor._GetCurrentSpeaker()); }
+            get { return accessor._GetCurrentSpeaker() == null ? null : new NPC(this, accessor._GetCurrentSpeaker()); }
             set { accessor._SetCurrentSpeaker(value.Cast<NPCAccessor>()); }
         }
 
@@ -1297,9 +1290,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = accessor._GetActiveClickableMenu();
-                if (tmp == null) return null;
-                return new ClickableMenu(this, tmp);
+                return accessor._GetActiveClickableMenu() == null ? null : new ClickableMenu(this, accessor._GetActiveClickableMenu());
             }
             set
             {
@@ -1327,7 +1318,7 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem DishOfTheDay
         {
-            get { return new ObjectItem(this, accessor._GetDishOfTheDay()); }
+            get { return accessor._GetDishOfTheDay() == null ? null : new ObjectItem(this, accessor._GetDishOfTheDay()); }
             set { accessor._SetDishOfTheDay(value.Cast<ObjectAccessor>()); }
         }
 
@@ -1501,7 +1492,7 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC ObjectDialoguePortraitPerson
         {
-            get { return new NPC(this, accessor._GetObjectDialoguePortraitPerson()); }
+            get { return accessor._GetObjectDialoguePortraitPerson() == null ? null : new NPC(this, accessor._GetObjectDialoguePortraitPerson()); }
             set { accessor._SetObjectDialoguePortraitPerson(value.Cast<NPCAccessor>()); }
         }
 
