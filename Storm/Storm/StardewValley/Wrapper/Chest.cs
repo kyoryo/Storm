@@ -16,6 +16,7 @@
  */
 
 using Microsoft.Xna.Framework;
+using Storm.Collections;
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
@@ -27,6 +28,16 @@ namespace Storm.StardewValley.Wrapper
         public Chest(StaticContext parent, ChestAccessor accessor) : base(parent, accessor)
         {
             this.accessor = accessor;
+        }
+
+        public WrappedProxyList<ItemAccessor, Item> Items
+        {
+            get
+            {
+                var tmp = accessor._GetItems();
+                if (tmp == null) return null;
+                return new WrappedProxyList<ItemAccessor, Item>(tmp, i => new Item(Parent, i));
+            }
         }
 
         public int CurrentLidFrame
