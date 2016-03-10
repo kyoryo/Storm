@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
+using Storm;
 
 namespace Freeze_Time_Mod
 {
@@ -17,10 +18,10 @@ namespace Freeze_Time_Mod
     public class FreezeTimeMod : DiskResource
     {
         [Subscribe]
-        public void PerformClockUpdateCallback(PerformClockUpdateEvent @event)
+        public void PerformClockUpdateCallback(Before10MinuteClockUpdateEvent @event)
         {
-            var loc = @event.Root.CurrentLocation;
-            @event.ReturnEarly = (loc != null && !loc.IsOutdoors);
+            Logging.DebugLog("Stopping clock..");
+            @event.ReturnEarly = true;
         }
     }
 }

@@ -1,8 +1,0 @@
-{
-    "displayName": "Freeze Time Indoors",
-    "author": "Demmonic",
-    "version": "0.1",
-    "description": "Goes in %appdata% StardewValley/Mods/FreezeTimeMod with your dll.",
-
-    "assemblyFileName": "FreezeTimeMod.dll"
-}

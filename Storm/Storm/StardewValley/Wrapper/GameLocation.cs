@@ -117,8 +117,7 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem GetObjectAt(int tileX, int tileY)
         {
-            var game = StaticGameContext.WrappedGame;
-            var key = new Vector2(tileX / game.TileSize, tileY / game.TileSize);
+            var key = new Vector2(tileX / Parent.TileSize, tileY / Parent.TileSize);
             var objects = Objects;
             if (objects.ContainsKey(key))
             {

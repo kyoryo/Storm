@@ -22,9 +22,9 @@ namespace Storm.StardewValley.Event
 {
     public class FarmerMountHorseEvent : StaticContextEvent
     {
-        public FarmerMountHorseEvent(HorseAccessor mount)
+        public FarmerMountHorseEvent(Horse mount)
         {
-            Mount = new Horse(StaticGameContext.WrappedGame, mount);
+            Mount = mount;
         }
 
         public Horse Mount { get; }
