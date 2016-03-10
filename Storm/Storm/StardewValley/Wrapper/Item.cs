@@ -56,8 +56,10 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public bool IsTool() => accessor is ToolAccessor;
-
         public Tool ToTool() => new Tool(Parent, (ToolAccessor)accessor);
+
+        public bool IsObject() => accessor is ObjectAccessor;
+        public ObjectItem ToObject() => new ObjectItem(Parent, (ObjectAccessor)accessor);
 
         public object Expose() => accessor;
     }
