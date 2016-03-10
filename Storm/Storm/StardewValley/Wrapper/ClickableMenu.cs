@@ -33,16 +33,25 @@ namespace Storm.StardewValley.Wrapper
 
         public object Expose() => accessor;
 
-        public bool IsShopMenu() => accessor is ShopMenuAccessor;
+        public bool IsChatBox() => accessor is ChatBoxAccessor;
+        public ChatBox ToChatBox() => new ChatBox(Parent, accessor as ChatBoxAccessor);
 
+        public bool IsGameMenu() => accessor is GameMenuAccessor;
+        public GameMenu ToGameMenu() => new GameMenu(Parent, accessor as GameMenuAccessor);
+
+        public bool IsShopMenu() => accessor is ShopMenuAccessor;
         public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
 
-        public bool IsBillboard() => accessor is BillboardAccessor;
+        public bool IsInventoryMenu() => accessor is InventoryMenuAccessor;
+        public InventoryMenu ToInventoryMenu() => new InventoryMenu(Parent, accessor as InventoryMenuAccessor);
 
+        public bool IsInventoryPage() => accessor is InventoryPageAccessor;
+        public InventoryPage ToInventoryPage() => new InventoryPage(Parent, accessor as InventoryPageAccessor);
+
+        public bool IsBillboard() => accessor is BillboardAccessor;
         public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
 
         public bool IsBobberBar() => accessor is BobberBarAccessor;
-
         public BobberBar ToBobberBar() => new BobberBar(Parent, accessor as BobberBarAccessor);
     }
 }
