@@ -78,13 +78,18 @@ namespace Storm.StardewValley
             return factory;
         }
 
-        public static AType ProxyAccessor<AType, DType>(DType @delegate)
+        public static AType ProxyAccessor<AType, DType>(DType @delegate, params object[] constructor)
         {
             var type = InjectorMetaData.AccessorToGameType<AType>(Injectors, Assembly);
             var factory = CreateFactory<AType, DType>();
 
             var generator = new ProxyGenerator();
-            return (AType) generator.CreateClassProxy(type, factory.CreateInterceptor(@delegate));
+            return (AType) generator.CreateClassProxy(type, constructor, factory.CreateInterceptor(@delegate));
+        }
+
+        public static AType ProxyAccessor<AType, DType>(DType @delegate)
+        {
+            return ProxyAccessor<AType, DType>(@delegate, new object[0]);
         }
 
         private static void CheckAccessRights()
