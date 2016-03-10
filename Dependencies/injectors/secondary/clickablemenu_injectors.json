@@ -98,5 +98,13 @@
       "MethodName": "GamePadControlsImplemented",
       "Type": "System.Boolean"
     }
+  ],
+  "MethodInfoParams": [
+    {
+	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ClickableMenuAccessor",
+	  "MethodName": "emergencyShutDown",
+	  "MethodDesc": "",
+	  "RefactoredName": "EmergencyShutDown"
+	}
   ]
 }

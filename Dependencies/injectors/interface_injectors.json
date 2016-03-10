@@ -264,6 +264,11 @@
       "SimpleName": "ScreenSwipe",
       "OwnerType": "StardewValley.BellsAndWhistles.ScreenSwipe",
       "InterfaceType": "Storm.StardewValley.Accessor.ScreenSwipeAccessor"
+    },
+    {
+      "SimpleName": "MenuWithInventory",
+      "OwnerType": "StardewValley.Menus.MenuWithInventory",
+      "InterfaceType": "Storm.StardewValley.Accessor.MenuWithInventoryAccessor"
     }
   ]
 }

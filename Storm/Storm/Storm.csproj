@@ -158,6 +158,7 @@
     <Compile Include="StardewValley\Accessor\UI\BundleAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\ClickableAnimatedComponentAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\JunimoNoteMenuAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\MenuWithInventoryAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\OptionsPageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\ScreenSwipeAccessor.cs" />
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />

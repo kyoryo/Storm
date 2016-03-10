@@ -1,0 +1,74 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "descriptionTitle",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionTitle",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "hoveredItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoveredItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "wiggleWordsTimer",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WiggleWordsTimer",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "okButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "OkButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "trashCan",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "TrashCan",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@MenuWithInventory",
+      "OwnerFieldName": "trashCanLidRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TrashCanLidRotation",
+      "Type": "System.Single"
+    }
+  ]
+}
