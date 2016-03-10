@@ -168,6 +168,8 @@
     <Compile Include="StardewValley\Event\HoeDirt\AfterHoeDirtPlantEvent.cs" />
     <Compile Include="StardewValley\Event\Object\PostObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaDictEvent.cs" />
+    <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaDictEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />

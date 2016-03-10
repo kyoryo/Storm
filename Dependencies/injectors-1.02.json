@@ -8091,6 +8091,26 @@
       "PushParams": "true",
       "InsertionType": "LAST"
     },
+	{
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Collections.Generic.Dictionary`2,System.Int32,System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreConstructShopViaDictCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.Collections.IDictionary,System.Int32,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@ShopMenu",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Collections.Generic.Dictionary`2,System.Int32,System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostConstructShopViaDictCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ShopMenuAccessor,System.Collections.IDictionary,System.Int32,System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
     {
       "OwnerAccessorType": "@ChatBox",
       "OwnerMethodName": "textBoxEnter",
