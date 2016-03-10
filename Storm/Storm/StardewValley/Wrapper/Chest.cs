@@ -49,7 +49,7 @@ namespace Storm.StardewValley.Wrapper
 
         public Farmer Opener
         {
-            get { return new Farmer(Parent, accessor._GetOpener()); }
+            get { return accessor._GetOpener() == null ? null : new Farmer(Parent, accessor._GetOpener()); }
             set { accessor._SetOpener(value.Cast<FarmerAccessor>()); }
         }
 

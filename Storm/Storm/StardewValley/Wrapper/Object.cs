@@ -164,14 +164,8 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem HeldObject
         {
-            get {
-                    if (accessor._GetHeldObject() == null) return null;
-                    else return new ObjectItem(Parent, accessor._GetHeldObject());
-                }
-            set {
-                    if (value == null) accessor._SetHeldObject(null);
-                    else accessor._SetHeldObject(value.accessor);
-                }
+            get { return accessor._GetHeldObject() == null ? null : new ObjectItem(Parent, accessor._GetHeldObject()); }
+            set { accessor._SetHeldObject(value?.accessor); }
         }
 
         public int MinutesUntilReady
@@ -184,14 +178,9 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsChest() => accessor is ChestAccessor;
 
-        public Fence ToFence()
-        {
-            return new Fence(Parent, (FenceAccessor) accessor);
-        }
+        public Fence ToFence() => accessor == null ? null : new Fence(Parent, (FenceAccessor) accessor);
 
-        public Chest ToChest()
-        {
-            return new Chest(Parent, (ChestAccessor) accessor);
-        }
+        public Chest ToChest() => accessor == null ? null : new Chest(Parent, (ChestAccessor) accessor);
+        
     }
 }

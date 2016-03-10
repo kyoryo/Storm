@@ -35,14 +35,8 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsNull() => accessor == null;
 
-        public bool IsHoeDirt()
-        {
-            return accessor is HoeDirtAccessor;
-        }
+        public bool IsHoeDirt() => accessor is HoeDirtAccessor;
 
-        public HoeDirt AsHoeDirt()
-        {
-            return new HoeDirt(Parent, (HoeDirtAccessor) accessor);
-        }
+        public HoeDirt AsHoeDirt() => new HoeDirt(Parent, (HoeDirtAccessor) accessor);
     }
 }

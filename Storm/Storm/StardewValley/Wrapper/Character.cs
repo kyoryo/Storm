@@ -87,7 +87,7 @@ namespace Storm.StardewValley.Wrapper
 
         public AnimatedSprite Sprite
         {
-            get { return new AnimatedSprite(accessor._GetSprite()); }
+            get { return accessor._GetSprite() == null ? null : new AnimatedSprite(accessor._GetSprite()); }
             set { accessor._SetSprite(value.Cast<AnimatedSpriteAccessor>()); }
         }
 

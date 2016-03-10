@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 internal static class AssemblyInfo
 {
     public const string GUID = "3ae6190c-1cc7-4fa4-b859-5eabc8ec0614";
-    public const string VERSION = "0.1.0";
+    public const string VERSION = "0.1.1";
 
     public const string NICE_VERSION = "Storm " + "v" + VERSION;
 }

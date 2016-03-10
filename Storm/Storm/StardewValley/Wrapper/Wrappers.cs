@@ -32,14 +32,8 @@ namespace Storm.StardewValley.Wrapper
             public object Expose() => Int;
         }
 
-        public static ObjectWrapper Wrap(object o)
-        {
-            return new ObjectWrapper(o);
-        }
+        public static ObjectWrapper Wrap(object o) => new ObjectWrapper(o);
 
-        public static IntWrapper Wrap(int i)
-        {
-            return new IntWrapper(i);
-        }
+        public static IntWrapper Wrap(int i) => new IntWrapper(i);
     }
 }
