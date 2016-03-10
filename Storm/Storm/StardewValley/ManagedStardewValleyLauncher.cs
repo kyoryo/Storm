@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -105,6 +105,9 @@ namespace Storm.StardewValley
             var toolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             var objectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
             var billboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
+            var animatedSpriteType = InjectorMetaData.AccessorToGameType<AnimatedSpriteAccessor>(ctx.Injectors, assembly);
+            var characterType = InjectorMetaData.AccessorToGameType<CharacterAccessor>(ctx.Injectors, assembly);
+            var npcType = InjectorMetaData.AccessorToGameType<NPCAccessor>(ctx.Injectors, assembly);
 
             var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
             toolFactory.Map(typeof (ToolAccessor), typeof (ToolDelegate), ctx.Injectors);
@@ -118,7 +121,16 @@ namespace Storm.StardewValley
             var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
             clickableMenuFactory.Map(typeof (ClickableMenuAccessor), typeof (ClickableMenuDelegate), ctx.Injectors);
 
-            StaticGameContext.Init(assembly, root, toolType, toolFactory, objectType, objectFactory, null, null, billboardType, billboardFactory, null, null, EventBus);
+            var animatedSpriteFactory = new MappedInterceptorFactory<AnimatedSpriteDelegate>();
+            animatedSpriteFactory.Map(typeof(AnimatedSpriteAccessor), typeof(AnimatedSpriteDelegate), ctx.Injectors);
+
+            var characterFactory = new MappedInterceptorFactory<CharacterDelegate>();
+            characterFactory.Map(typeof(CharacterAccessor), typeof(CharacterDelegate), ctx.Injectors);
+
+            var npcFactory = new MappedInterceptorFactory<NPCDelegate>();
+            npcFactory.Map(typeof(NPCAccessor), typeof(NPCDelegate), ctx.Injectors);
+
+            StaticGameContext.Init(assembly, root, toolType, toolFactory, objectType, objectFactory, null, null, billboardType, billboardFactory, null, null, animatedSpriteType, animatedSpriteFactory, characterType, characterFactory, npcType, npcFactory, EventBus);
         }
 
         [MethodImpl(MethodImplOptions.NoOptimization)]

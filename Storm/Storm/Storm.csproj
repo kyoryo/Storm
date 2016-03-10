@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\..\..\Games\Steam\steamapps\common\Stardew Valley\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -169,6 +169,9 @@
     <Compile Include="StardewValley\Event\Object\PostObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
+    <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
