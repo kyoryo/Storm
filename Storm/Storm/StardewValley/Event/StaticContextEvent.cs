@@ -48,6 +48,12 @@ namespace Storm.StardewValley
         public InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
         public Type ClickableMenuType { get; set; }
         public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
+        public Type AnimatedSpriteType { get; set; }
+        public InterceptorFactory<AnimatedSpriteDelegate> AnimatedSpriteFactory { get; set; }
+        public Type CharacterType { get; set; }
+        public InterceptorFactory<CharacterDelegate> CharacterFactory { get; set; }
+        public Type NPCType { get; set; }
+        public InterceptorFactory<NPCDelegate> NPCFactory { get; set; }
 
         public Farmer LocalPlayer
         {
