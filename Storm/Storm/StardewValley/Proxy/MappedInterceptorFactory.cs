@@ -39,20 +39,25 @@ namespace Storm.StardewValley.Proxy
 
         public void Map(Type accessor, Type map, List<Injector> injectors)
         {
-            foreach (var method in map.GetMethods())
+            var cur = map;
+            while (cur != null && cur != typeof(object))
             {
-                var attr = method.GetCustomAttribute<ProxyMap>();
-                if (attr != null)
+                foreach (var method in cur.GetMethods())
                 {
-                    var name = InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name);
-                    if (name == null)
+                    var attr = method.GetCustomAttribute<ProxyMap>();
+                    if (attr != null)
                     {
-                        Logging.Logs("[{0}] Failed to find obfuscated name to map", GetType().Name);
-                        Logging.Logs("\t{0} {1} {2}", accessor.Name, attr.Name, method.Name);
-                        continue;
+                        var name = InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name);
+                        if (name == null)
+                        {
+                            Logging.Logs("[{0}] Failed to find obfuscated name to map", GetType().Name);
+                            Logging.Logs("\t{0} {1} {2}", accessor.Name, attr.Name, method.Name);
+                            continue;
+                        }
+                        callMap.Add(InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name), method);
                     }
-                    callMap.Add(InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name), method);
                 }
+                cur = cur.BaseType;
             }
         }
 
