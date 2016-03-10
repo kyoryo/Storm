@@ -15,6 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
+
 namespace Storm.StardewValley.Accessor
 {
     public interface CropAccessor
@@ -27,6 +29,9 @@ namespace Storm.StardewValley.Accessor
 
         int _GetDayOfCurrentPhase();
         void _SetDayOfCurrentPhase(int day);
+
+        IList _GetPhaseDays();
+        void _SetPhaseDays(IList days);
 
         bool _GetIsDead();
         void _SetIsDead(bool dead);

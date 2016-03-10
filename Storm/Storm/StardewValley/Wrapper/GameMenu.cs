@@ -16,6 +16,7 @@
  */
 
 using Storm.StardewValley.Accessor;
+using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -57,5 +58,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetForcePreventClose(); }
             set { accessor._SetForcePreventClose(value); }
         }
+
+        public IList Pages => accessor._GetPages();
     }
 }

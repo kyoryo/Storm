@@ -16,6 +16,7 @@
  */
 
 using Storm.StardewValley.Accessor;
+using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -43,12 +44,29 @@ namespace Storm.StardewValley.Wrapper
         /// The current phase of this crops growth cycle
         /// Typical crops have 5 phases of growth, as visualised by their growing sprites
         /// </summary>
-        /// <value>The CurrentPhase property gets/sets the value of the int field CurrentPhase</value>
+        /// <value>The CurrentPhase property gets/sets the value of the int field currentPhase</value>
         public int CurrentPhase
         {
             get { return accessor._GetCurrentPhase(); }
             set { accessor._SetCurrentPhase(value); }
         }
+
+        /// <summary>
+        /// The current day of the current phase of the Crop.
+        /// </summary>
+        /// <value>The DayOfCurrentPhase property gets/sets the value of the int field dayOfCurrentPhase</value>
+        public int DayOfCurrentPhase
+        {
+            get { return accessor._GetDayOfCurrentPhase(); }
+            set { accessor._SetCurrentPhase(value); }
+        }
+
+        /// <summary>
+        /// A list of phase days of the Crop.
+        /// </summary>
+        /// <value>The PhaseDays property gets/sets the value of the List<int> field phaseDays</value>
+        public IList PhaseDays => accessor._GetPhaseDays();
+
         /// <summary>
         /// Whether this crop is dead or not
         /// </summary>
@@ -135,5 +153,7 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public object Expose() => accessor;
+
+        public bool IsNull() => accessor == null;
     }
 }
