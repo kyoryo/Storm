@@ -2015,21 +2015,21 @@
       "OwnerAccessorType": "@StaticContext",
       "OwnerFieldName": "afterFade",
       "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
-      "MethodName": "AfterFade",
+      "MethodName": "PostFade",
       "Type": "StardewValley.Game1/afterFadeFunction"
     },
     {
       "OwnerAccessorType": "@StaticContext",
       "OwnerFieldName": "afterDialogues",
       "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
-      "MethodName": "AfterDialogues",
+      "MethodName": "PostDialogues",
       "Type": "StardewValley.Game1/afterFadeFunction"
     },
     {
       "OwnerAccessorType": "@StaticContext",
       "OwnerFieldName": "afterViewport",
       "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
-      "MethodName": "AfterViewport",
+      "MethodName": "PostViewport",
       "Type": "StardewValley.Game1/afterFadeFunction"
     },
     {
@@ -2043,7 +2043,7 @@
       "OwnerAccessorType": "@StaticContext",
       "OwnerFieldName": "afterPause",
       "OwnerFieldType": "StardewValley.Game1/afterFadeFunction",
-      "MethodName": "AfterPause",
+      "MethodName": "PostPause",
       "Type": "StardewValley.Game1/afterFadeFunction"
     },
     {
@@ -4458,7 +4458,7 @@
       "OwnerAccessorType": "@GameLocation",
       "OwnerFieldName": "afterQuestion",
       "OwnerFieldType": "StardewValley.GameLocation/afterQuestionBehavior",
-      "MethodName": "AfterQuestion",
+      "MethodName": "PostQuestion",
       "Type": "StardewValley.GameLocation/afterQuestionBehavior"
     },
     {
@@ -7470,7 +7470,7 @@
       "OwnerMethodName": "newDayAfterFade",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "BeforeNewDayCallback",
+      "StaticCallbackName": "PreNewDayCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
@@ -7478,7 +7478,7 @@
       "OwnerMethodName": "newDayAfterFade",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "AfterNewDayCallback",
+      "StaticCallbackName": "PostNewDayCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
       "InsertionType": "LAST"
     },
@@ -7487,7 +7487,7 @@
       "OwnerMethodName": "performTenMinuteClockUpdate",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "Before10MinuteClockUpdateCallback",
+      "StaticCallbackName": "Pre10MinuteClockUpdateCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
     },
     {
@@ -7495,7 +7495,7 @@
       "OwnerMethodName": "performTenMinuteClockUpdate",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "After10MinuteClockUpdateCallback",
+      "StaticCallbackName": "Post10MinuteClockUpdateCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent",
       "InsertionType": "LAST"
     },
@@ -7587,7 +7587,7 @@
       "OwnerMethodName": "loadForNewGame",
       "OwnerMethodDesc": "(System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "BeforeGameLoadedCallback",
+      "StaticCallbackName": "PreGameLoadedCallback",
       "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7596,7 +7596,7 @@
       "OwnerMethodName": "loadForNewGame",
       "OwnerMethodDesc": "(System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "StaticCallbackName": "AfterGameLoadedCallback",
+      "StaticCallbackName": "PostGameLoadedCallback",
       "StaticCallbackDesc": "(System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "LAST"
@@ -7732,7 +7732,7 @@
       "OwnerMethodName": "harvest",
       "OwnerMethodDesc": "(System.Int32,System.Int32,@(HoeDirt))System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeHarvestCropCallback",
+      "InstanceCallbackName": "PreHarvestCropCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
@@ -7740,7 +7740,7 @@
       "OwnerMethodName": "harvest",
       "OwnerMethodDesc": "(System.Int32,System.Int32,@(HoeDirt))System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterHarvestCropCallback",
+      "InstanceCallbackName": "PostHarvestCropCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
     {
@@ -7767,7 +7767,7 @@
       "OwnerMethodName": "shippedBasic",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerShippedBasicCallback",
+      "InstanceCallbackName": "PostFarmerShippedBasicCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7776,7 +7776,7 @@
       "OwnerMethodName": "caughtFish",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerCaughtFishCallback",
+      "InstanceCallbackName": "PostFarmerCaughtFishCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7785,7 +7785,7 @@
       "OwnerMethodName": "foundArtifact",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerFoundArtifactCallback",
+      "InstanceCallbackName": "PostFarmerFoundArtifactCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7794,7 +7794,7 @@
       "OwnerMethodName": "cookedRecipe",
       "OwnerMethodDesc": "(System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerCookedRecipeCallback",
+      "InstanceCallbackName": "PostFarmerCookedRecipeCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7821,7 +7821,7 @@
       "OwnerMethodName": "foundMineral",
       "OwnerMethodDesc": "(System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerFoundMineralCallback",
+      "InstanceCallbackName": "PostFarmerFoundMineralCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7830,7 +7830,7 @@
       "OwnerMethodName": "consumeObject",
       "OwnerMethodDesc": "(System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerConsumeObjectCallback",
+      "InstanceCallbackName": "PostFarmerConsumeObjectCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -7939,7 +7939,7 @@
       "OwnerMethodName": "changeIntoSwimsuit",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerChangedIntoSwimsuitCallback",
+      "InstanceCallbackName": "PostFarmerChangedIntoSwimsuitCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
     },
     {
@@ -7947,7 +7947,7 @@
       "OwnerMethodName": "changeOutOfSwimSuit",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerChangeOutOfSwimsuitCallback",
+      "InstanceCallbackName": "PostFarmerChangeOutOfSwimsuitCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
     },
     {
@@ -7955,7 +7955,7 @@
       "OwnerMethodName": "dayupdate",
       "OwnerMethodDesc": "()System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterFarmerDayUpdateCallback",
+      "InstanceCallbackName": "PostFarmerDayUpdateCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent"
     },
     {
@@ -8005,7 +8005,7 @@
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-	  "InstanceCallbackName": "BeforeDayUpdateHoeDirtCallback",
+	  "InstanceCallbackName": "PreDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
 	  "PushParams": "true",
 	  "InsertionType": "BEGINNING"
@@ -8015,7 +8015,7 @@
       "OwnerMethodName": "dayUpdate",
       "OwnerMethodDesc": "(@(GameLocation),Microsoft.Xna.Framework.Vector2)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterDayUpdateHoeDirtCallback",
+      "InstanceCallbackName": "PostDayUpdateHoeDirtCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,Storm.StardewValley.Accessor.GameLocationAccessor,Microsoft.Xna.Framework.Vector2)Storm.Manipulation.DetourEvent",
 	  "PushParams": "true",
 	  "InsertionType": "LAST"
@@ -8025,7 +8025,7 @@
       "OwnerMethodName": "plant",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeHoeDirtPlantCallback",
+      "InstanceCallbackName": "PreHoeDirtPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
@@ -8035,7 +8035,7 @@
       "OwnerMethodName": "plant",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer),System.Boolean)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterHoeDirtPlantCallback",
+      "InstanceCallbackName": "PostHoeDirtPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "FixJump": "true",
@@ -8046,7 +8046,7 @@
       "OwnerMethodName": "canPlantThisSeedHere",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeHoeDirtCanPlantCallback",
+      "InstanceCallbackName": "PreHoeDirtCanPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
@@ -8056,7 +8056,7 @@
       "OwnerMethodName": "canPlantThisSeedHere",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Boolean)System.Boolean",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterHoeDirtCanPlantCallback",
+      "InstanceCallbackName": "PostHoeDirtCanPlantCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.HoeDirtAccessor,System.Int32,System.Int32,System.Int32,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "FixJump": "true",
@@ -8105,7 +8105,7 @@
       "OwnerMethodName": "pullFishFromWater",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforePullFishFromWaterCallback",
+      "InstanceCallbackName": "PrePullFishFromWaterCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -8114,7 +8114,7 @@
       "OwnerMethodName": "pullFishFromWater",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterPullFishFromWaterCallback",
+      "InstanceCallbackName": "PostPullFishFromWaterCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "LAST"
@@ -8124,7 +8124,7 @@
       "OwnerMethodName": "doneFishing",
       "OwnerMethodDesc": "(@(Farmer),System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeDoneFishingCallback",
+      "InstanceCallbackName": "PreDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -8133,7 +8133,7 @@
       "OwnerMethodName": "doneFishing",
       "OwnerMethodDesc": "(@(Farmer),System.Boolean)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterDoneFishingCallback",
+      "InstanceCallbackName": "PostDoneFishingCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "LAST"
@@ -8143,7 +8143,7 @@
       "OwnerMethodName": "checkForBuriedItem",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Boolean,System.Boolean)System.String",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeBuriedItemCheckCallback",
+      "InstanceCallbackName": "PreBuriedItemCheckCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32,System.Boolean,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -8152,7 +8152,7 @@
       "OwnerMethodName": "checkStoneForItems",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32,@(Farmer))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeStoneItemCheckCallback",
+      "InstanceCallbackName": "PreStoneItemCheckCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.MineShaftAccessor,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Wrapper.Farmer)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -8238,7 +8238,7 @@
       "OwnerMethodName": "DayUpdate",
       "OwnerMethodDesc": "(@(GameLocation))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "BeforeObjectDayUpdateCallback",
+      "InstanceCallbackName": "PreObjectDayUpdateCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
@@ -8247,7 +8247,7 @@
       "OwnerMethodName": "DayUpdate",
       "OwnerMethodDesc": "(@(GameLocation))System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "AfterObjectDayUpdateCallback",
+      "InstanceCallbackName": "PostObjectDayUpdateCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ObjectAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true"
     },
