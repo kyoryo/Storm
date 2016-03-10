@@ -18,7 +18,7 @@ namespace Freeze_Time_Mod
     public class FreezeTimeMod : DiskResource
     {
         [Subscribe]
-        public void PerformClockUpdateCallback(Before10MinuteClockUpdateEvent @event)
+        public void PerformClockUpdateCallback(Pre10MinuteClockUpdateEvent @event)
         {
             Logging.DebugLog("Stopping clock..");
             @event.ReturnEarly = true;

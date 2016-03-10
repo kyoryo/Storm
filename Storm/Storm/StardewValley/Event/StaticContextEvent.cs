@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -48,6 +48,12 @@ namespace Storm.StardewValley
         public InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
         public Type ClickableMenuType { get; set; }
         public InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
+        public Type AnimatedSpriteType { get; set; }
+        public InterceptorFactory<AnimatedSpriteDelegate> AnimatedSpriteFactory { get; set; }
+        public Type CharacterType { get; set; }
+        public InterceptorFactory<CharacterDelegate> CharacterFactory { get; set; }
+        public Type NPCType { get; set; }
+        public InterceptorFactory<NPCDelegate> NPCFactory { get; set; }
 
         public Farmer LocalPlayer
         {
@@ -110,6 +116,45 @@ namespace Storm.StardewValley
                 ClickableMenuType, ClickableMenuFactory.CreateInterceptor(@delegate));
 
             var wrapped = new ClickableMenu(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public AnimatedSprite ProxyAnimatedSprite(AnimatedSpriteDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (AnimatedSpriteAccessor) generator.CreateClassProxy(
+                AnimatedSpriteType,
+                @delegate.GetConstructorParams(),
+                AnimatedSpriteFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new AnimatedSprite(accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public Character ProxyCharacter(CharacterDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (CharacterAccessor) generator.CreateClassProxy(
+                CharacterType,
+                @delegate.GetConstructorParams(),
+                CharacterFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new Character(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public NPC ProxyNPC(NPCDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (NPCAccessor) generator.CreateClassProxy(
+                NPCType,
+                @delegate.GetConstructorParams(),
+                NPCFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new NPC(Root, accessor);
             @delegate.Accessor = wrapped;
             return wrapped;
         }
