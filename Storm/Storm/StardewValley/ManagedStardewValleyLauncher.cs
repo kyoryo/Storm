@@ -97,8 +97,8 @@ namespace Storm.StardewValley
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
             var constructor = entryType.GetConstructor(new Type[0]);
-            
-            var root = (ProgramAccessor) constructor.Invoke(new object[0]);
+
+            var root = (ProgramAccessor)constructor.Invoke(new object[0]);
             var toolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
             var objectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
             var billboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
@@ -107,16 +107,16 @@ namespace Storm.StardewValley
             var npcType = InjectorMetaData.AccessorToGameType<NPCAccessor>(ctx.Injectors, assembly);
 
             var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
-            toolFactory.Map(typeof (ToolAccessor), typeof (ToolDelegate), ctx.Injectors);
+            toolFactory.Map(typeof(ToolAccessor), typeof(ToolDelegate), ctx.Injectors);
 
             var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
-            objectFactory.Map(typeof (ObjectAccessor), typeof (ObjectDelegate), ctx.Injectors);
+            objectFactory.Map(typeof(ObjectAccessor), typeof(ObjectDelegate), ctx.Injectors);
 
             var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
-            billboardFactory.Map(typeof (BillboardAccessor), typeof (BillboardDelegate), ctx.Injectors);
+            billboardFactory.Map(typeof(BillboardAccessor), typeof(BillboardDelegate), ctx.Injectors);
 
             var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
-            clickableMenuFactory.Map(typeof (ClickableMenuAccessor), typeof (ClickableMenuDelegate), ctx.Injectors);
+            clickableMenuFactory.Map(typeof(ClickableMenuAccessor), typeof(ClickableMenuDelegate), ctx.Injectors);
 
             var animatedSpriteFactory = new MappedInterceptorFactory<AnimatedSpriteDelegate>();
             animatedSpriteFactory.Map(typeof(AnimatedSpriteAccessor), typeof(AnimatedSpriteDelegate), ctx.Injectors);
@@ -133,12 +133,12 @@ namespace Storm.StardewValley
         [MethodImpl(MethodImplOptions.NoOptimization)]
         private void ResolveDependencies()
         {
-            typeof (Vector2).GetType();
-            typeof (SpriteBatch).GetType();
-            typeof (AudioEngine).GetType();
-            typeof (GraphicsDeviceManager).GetType();
-            typeof (Keyboard).GetType();
-            typeof (Rectangle).GetType();
+            typeof(Vector2).GetType();
+            typeof(SpriteBatch).GetType();
+            typeof(AudioEngine).GetType();
+            typeof(GraphicsDeviceManager).GetType();
+            typeof(Keyboard).GetType();
+            typeof(Rectangle).GetType();
         }
 
         public void Launch()
@@ -157,7 +157,7 @@ namespace Storm.StardewValley
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
+            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
         }
     }
 }
