@@ -65,7 +65,7 @@
 		<Copy SourceFiles="@(ReleaseBinaryFiles)" DestinationFiles="@(ReleaseBinaryFiles -> '$(ReleaseDir)\StardewValley\%(RecursiveDir)%(Filename)%(Extension)')"/>
 
 		<Copy SourceFiles="README.md;LICENSE" DestinationFolder="$(ReleaseDir)"/> 
-		<Copy SourceFiles="@(ReleaseInjectorFiles)" DestinationFiles="@(ReleaseInjectorFiles -> '$(ReleaseDir)\AppData\Storm\injectors\%(RecursiveDir)%(Filename)%(Extension)')"/> 
+		<Copy SourceFiles="@(ReleaseInjectorFiles)" DestinationFiles="@(ReleaseInjectorFiles -> '$(ReleaseDir)\AppData\Storm\%(RecursiveDir)%(Filename)%(Extension)')"/> 
 
         	<CreateItem Include="$(ReleaseDir)\**" >
         	        <Output ItemName="ZipFiles" TaskParameter="Include"/>
