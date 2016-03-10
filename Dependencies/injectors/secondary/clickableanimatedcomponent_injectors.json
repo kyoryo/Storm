@@ -1,0 +1,39 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@ClickableAnimatedComponent",
+      "OwnerFieldName": "sprite",
+      "OwnerFieldType": "@TempAnimatedSprite",
+      "MethodName": "Sprite",
+      "Type": "Storm.StardewValley.Accessor.TempAnimatedSpriteAccessor"
+    },
+    {
+      "OwnerAccessorType": "@ClickableAnimatedComponent",
+      "OwnerFieldName": "sourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "SourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@ClickableAnimatedComponent",
+      "OwnerFieldName": "baseScale",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "BaseScale",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@ClickableAnimatedComponent",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@ClickableAnimatedComponent",
+      "OwnerFieldName": "drawLabel",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "DrawLabel",
+      "Type": "System.Boolean"
+    }
+  ]
+}

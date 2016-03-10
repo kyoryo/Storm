@@ -244,6 +244,26 @@
       "SimpleName": "OptionsPage",
       "OwnerType": "StardewValley.Menus.OptionsPage",
       "InterfaceType": "Storm.StardewValley.Accessor.OptionsPageAccessor"
+    },
+    {
+      "SimpleName": "JunimoNoteMenu",
+      "OwnerType": "StardewValley.Menus.JunimoNoteMenu",
+      "InterfaceType": "Storm.StardewValley.Accessor.JunimoNoteMenuAccessor"
+    },
+    {
+      "SimpleName": "ClickableAnimatedComponent",
+      "OwnerType": "StardewValley.Menus.ClickableAnimatedComponent",
+      "InterfaceType": "Storm.StardewValley.Accessor.ClickableAnimatedComponentAccessor"
+    },
+    {
+      "SimpleName": "Bundle",
+      "OwnerType": "StardewValley.Menus.Bundle",
+      "InterfaceType": "Storm.StardewValley.Accessor.BundleAccessor"
+    },
+    {
+      "SimpleName": "ScreenSwipe",
+      "OwnerType": "StardewValley.BellsAndWhistles.ScreenSwipe",
+      "InterfaceType": "Storm.StardewValley.Accessor.ScreenSwipeAccessor"
     }
   ]
 }

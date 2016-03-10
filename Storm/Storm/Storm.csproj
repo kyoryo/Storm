@@ -155,7 +155,11 @@
     <Compile Include="StardewValley\Accessor\Terrain\FlooringAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Terrain\FruitTreeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Terrain\TreeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BundleAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ClickableAnimatedComponentAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\JunimoNoteMenuAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\OptionsPageAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\ScreenSwipeAccessor.cs" />
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />

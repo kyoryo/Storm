@@ -1,0 +1,158 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "noteTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "NoteTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "specificBundlePage",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "SpecificBundlePage",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "inventory",
+      "OwnerFieldType": "@InventoryMenu",
+      "MethodName": "Inventory",
+      "Type": "Storm.StardewValley.Accessor.InventoryMenuAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "heldItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HeldItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "hoveredItem",
+      "OwnerFieldType": "@Item",
+      "MethodName": "HoveredItem",
+      "Type": "Storm.StardewValley.Accessor.ItemAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "canClick",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "CanClick",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "whichArea",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichArea",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "screenSwipe",
+      "OwnerFieldType": "@ScreenSwipe",
+      "MethodName": "ScreenSwipe",
+      "Type": "Storm.StardewValley.Accessor.ScreenSwipeAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "bundles",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Bundles",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "tempSprites",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "TempSprites",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "ingredientSlots",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "IngredientSlots",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "ingredientList",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "IngredientList",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "otherClickableComponents",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "OtherClickableComponents",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "fromGameMenu",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FromGameMenu",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "scrambledText",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ScrambledText",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "backButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "BackButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "purchaseButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "PurchaseButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "areaNextButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "AreaNextButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "areaBackButton",
+      "OwnerFieldType": "@ClickableTextureComponent",
+      "MethodName": "AreaBackButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableTextureComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "presentButton",
+      "OwnerFieldType": "@ClickableAnimatedComponent",
+      "MethodName": "PresentButton",
+      "Type": "Storm.StardewValley.Accessor.ClickableAnimatedComponentAccessor"
+    },
+    {
+      "OwnerAccessorType": "@JunimoNoteMenu",
+      "OwnerFieldName": "currentPageBundle",
+      "OwnerFieldType": "@Bundle",
+      "MethodName": "CurrentPageBundle",
+      "Type": "Storm.StardewValley.Accessor.BundleAccessor"
+    }
+  ]
+}
