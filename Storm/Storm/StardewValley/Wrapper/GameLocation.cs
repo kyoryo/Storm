@@ -45,31 +45,25 @@ namespace Storm.StardewValley.Wrapper
             return accessor._GetTileProperty(tileX, tileY, propName, layerName);
         }
 
-        public Dictionary<Vector2, ObjectItem> Objects
+        public ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem> Objects
         {
             get
             {
-                var orig = accessor._GetObjects();
-                var conv = new Dictionary<Vector2, ObjectItem>();
-                foreach (var vec in orig.Keys)
-                {
-                    conv.Add((Vector2) vec, new ObjectItem(Parent, (ObjectAccessor) orig[vec]));
-                }
-                return conv;
+                var tmp = accessor._GetObjects();
+                if (tmp == null) return null;
+                return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp, 
+                    o => o == null ? null : new ObjectItem(Parent, o));
             }
         }
 
-        public Dictionary<Vector2, TerrainFeature> TerrainFeatures
+        public ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature> TerrainFeatures
         {
             get
             {
-                var orig = accessor._GetTerrainFeatures();
-                var conv = new Dictionary<Vector2, TerrainFeature>();
-                foreach (var vec in orig.Keys)
-                {
-                    conv.Add((Vector2) vec, new TerrainFeature(Parent, (TerrainFeatureAccessor) orig[vec]));
-                }
-                return conv;
+                var tmp = accessor._GetTerrainFeatures();
+                if (tmp == null) return null;
+                return new ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature>(tmp, 
+                    tf => tf == null ? null : new TerrainFeature(Parent, tf));
             }
         }
 
@@ -89,7 +83,10 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                return new WrappedProxyList<NPCAccessor, NPC>(accessor._GetCharacters(), c => c == null ? null : new NPC(Parent, c));
+                var tmp = accessor._GetCharacters();
+                if (tmp == null) return null;
+                return new WrappedProxyList<NPCAccessor, NPC>(tmp, 
+                    c => c == null ? null : new NPC(Parent, c));
             }
         }
 
