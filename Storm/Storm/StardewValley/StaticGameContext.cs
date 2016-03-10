@@ -29,6 +29,8 @@ using Storm.StardewValley.Wrapper;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.Collections;
+using System.Collections.Generic;
+using Castle.DynamicProxy;
 
 namespace Storm.StardewValley
 {
@@ -38,33 +40,10 @@ namespace Storm.StardewValley
 
         private static ProgramAccessor Root { get; set; }
 
-        private static Type ToolType { get; set; }
-
-        private static InterceptorFactory<ToolDelegate> ToolFactory { get; set; }
-
-        private static Type ObjectType { get; set; }
-
-        private static InterceptorFactory<ObjectDelegate> ObjectFactory { get; set; }
-
-        private static Type TextureComponentType { get; set; }
-        private static InterceptorFactory<TextureComponentDelegate> TextureComponentFactory { get; set; }
-
-        private static Type BillboardType { get; set; }
-        private static InterceptorFactory<BillboardDelegate> BillboardFactory { get; set; }
-
-        private static Type ClickableMenuType { get; set; }
-        private static InterceptorFactory<ClickableMenuDelegate> ClickableMenuFactory { get; set; }
-
-        private static Type AnimatedSpriteType { get; set; }
-        private static InterceptorFactory<AnimatedSpriteDelegate> AnimatedSpriteFactory { get; set; }
-
-        private static Type CharacterType { get; set; }
-        private static InterceptorFactory<CharacterDelegate> CharacterFactory { get; set; }
-
-        private static Type NPCType { get; set; }
-        private static InterceptorFactory<NPCDelegate> NPCFactory { get; set; }
-
         private static ModEventBus EventBus { get; set; }
+
+        private static List<Injector> Injectors;
+        private static Dictionary<Type, object> CachedFactories = new Dictionary<Type, object>();
 
         private static StaticContext WrappedGame
         {
@@ -72,36 +51,12 @@ namespace Storm.StardewValley
         }
 
         public static void Init(
-            Assembly assembly, ProgramAccessor root, 
-            Type toolType, InterceptorFactory<ToolDelegate> toolFactory, 
-            Type objectType, InterceptorFactory<ObjectDelegate> objectFactory, 
-            Type textureComponentType, InterceptorFactory<TextureComponentDelegate> textureComponentFactory,
-            Type billboardType, InterceptorFactory<BillboardDelegate> billboardFactory,
-            Type clickableMenuType, InterceptorFactory<ClickableMenuDelegate> clickableMenuFactory,
-            Type animatedSpriteType, InterceptorFactory<AnimatedSpriteDelegate> animatedSpriteFactory,
-            Type characterType, InterceptorFactory<CharacterDelegate> characterFactory,
-            Type npcType, InterceptorFactory<NPCDelegate> npcFactory,
-            ModEventBus eventBus)
+            Assembly assembly, ProgramAccessor root, ModEventBus eventBus, List<Injector> injectors)
         {
             Assembly = assembly;
             Root = root;
-            ToolType = toolType;
-            ToolFactory = toolFactory;
-            ObjectType = objectType;
-            ObjectFactory = objectFactory;
-            TextureComponentType = textureComponentType;
-            TextureComponentFactory = textureComponentFactory;
-            BillboardType = billboardType;
-            BillboardFactory = billboardFactory;
-            ClickableMenuType = clickableMenuType;
-            ClickableMenuFactory = clickableMenuFactory;
-            AnimatedSpriteType = animatedSpriteType;
-            AnimatedSpriteFactory = animatedSpriteFactory;
-            CharacterType = characterType;
-            CharacterFactory = characterFactory;
-            NPCType = npcType;
-            NPCFactory = npcFactory;
             EventBus = eventBus;
+            Injectors = injectors;
         }
 
         private static void InitializeEvent(StaticContextEvent @event)
@@ -109,22 +64,27 @@ namespace Storm.StardewValley
             @event.GameAssembly = Assembly;
             @event.Root = WrappedGame;
             @event.EventBus = EventBus;
-            @event.ToolType = ToolType;
-            @event.ToolFactory = ToolFactory;
-            @event.ObjectType = ObjectType;
-            @event.ObjectFactory = ObjectFactory;
-            @event.TextureComponentType = TextureComponentType;
-            @event.TextureComponentFactory = TextureComponentFactory;
-            @event.BillboardType = BillboardType;
-            @event.BillboardFactory =BillboardFactory;
-            @event.ClickableMenuType = ClickableMenuType;
-            @event.ClickableMenuFactory = ClickableMenuFactory;
-            @event.AnimatedSpriteType = AnimatedSpriteType;
-            @event.AnimatedSpriteFactory = AnimatedSpriteFactory;
-            @event.CharacterType = CharacterType;
-            @event.CharacterFactory = CharacterFactory;
-            @event.NPCType = NPCType;
-            @event.NPCFactory = NPCFactory;
+        }
+
+        public static InterceptorFactory<DType> CreateFactory<AType, DType>()
+        {
+            if (CachedFactories.ContainsKey(typeof(DType)))
+            {
+                return (InterceptorFactory<DType>)CachedFactories[typeof(DType)];
+            }
+            var factory = new MappedInterceptorFactory<DType>();
+            factory.Map(typeof(AType), typeof(DType), Injectors);
+            CachedFactories.Add(typeof(DType), factory);
+            return factory;
+        }
+
+        public static AType ProxyAccessor<AType, DType>(DType @delegate)
+        {
+            var type = InjectorMetaData.AccessorToGameType<AType>(Injectors, Assembly);
+            var factory = CreateFactory<AType, DType>();
+
+            var generator = new ProxyGenerator();
+            return (AType) generator.CreateClassProxy(type, factory.CreateInterceptor(@delegate));
         }
 
         private static void CheckAccessRights()

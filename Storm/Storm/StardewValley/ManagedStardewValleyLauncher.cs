@@ -99,35 +99,8 @@ namespace Storm.StardewValley
             var constructor = entryType.GetConstructor(new Type[0]);
 
             var root = (ProgramAccessor)constructor.Invoke(new object[0]);
-            var toolType = InjectorMetaData.AccessorToGameType<ToolAccessor>(ctx.Injectors, assembly);
-            var objectType = InjectorMetaData.AccessorToGameType<ObjectAccessor>(ctx.Injectors, assembly);
-            var billboardType = InjectorMetaData.AccessorToGameType<BillboardAccessor>(ctx.Injectors, assembly);
-            var animatedSpriteType = InjectorMetaData.AccessorToGameType<AnimatedSpriteAccessor>(ctx.Injectors, assembly);
-            var characterType = InjectorMetaData.AccessorToGameType<CharacterAccessor>(ctx.Injectors, assembly);
-            var npcType = InjectorMetaData.AccessorToGameType<NPCAccessor>(ctx.Injectors, assembly);
 
-            var toolFactory = new MappedInterceptorFactory<ToolDelegate>();
-            toolFactory.Map(typeof(ToolAccessor), typeof(ToolDelegate), ctx.Injectors);
-
-            var objectFactory = new MappedInterceptorFactory<ObjectDelegate>();
-            objectFactory.Map(typeof(ObjectAccessor), typeof(ObjectDelegate), ctx.Injectors);
-
-            var billboardFactory = new MappedInterceptorFactory<BillboardDelegate>();
-            billboardFactory.Map(typeof(BillboardAccessor), typeof(BillboardDelegate), ctx.Injectors);
-
-            var clickableMenuFactory = new MappedInterceptorFactory<ClickableMenuDelegate>();
-            clickableMenuFactory.Map(typeof(ClickableMenuAccessor), typeof(ClickableMenuDelegate), ctx.Injectors);
-
-            var animatedSpriteFactory = new MappedInterceptorFactory<AnimatedSpriteDelegate>();
-            animatedSpriteFactory.Map(typeof(AnimatedSpriteAccessor), typeof(AnimatedSpriteDelegate), ctx.Injectors);
-
-            var characterFactory = new MappedInterceptorFactory<CharacterDelegate>();
-            characterFactory.Map(typeof(CharacterAccessor), typeof(CharacterDelegate), ctx.Injectors);
-
-            var npcFactory = new MappedInterceptorFactory<NPCDelegate>();
-            npcFactory.Map(typeof(NPCAccessor), typeof(NPCDelegate), ctx.Injectors);
-
-            StaticGameContext.Init(assembly, root, toolType, toolFactory, objectType, objectFactory, null, null, billboardType, billboardFactory, null, null, animatedSpriteType, animatedSpriteFactory, characterType, characterFactory, npcType, npcFactory, EventBus);
+            StaticGameContext.Init(assembly, root, EventBus, ctx.Injectors);
         }
 
         [MethodImpl(MethodImplOptions.NoOptimization)]
