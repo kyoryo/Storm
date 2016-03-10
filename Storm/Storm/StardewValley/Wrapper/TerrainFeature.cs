@@ -33,6 +33,8 @@ namespace Storm.StardewValley.Wrapper
 
         public object Expose() => accessor;
 
+        public bool IsNull() => accessor == null;
+
         public bool IsHoeDirt()
         {
             return accessor is HoeDirtAccessor;
