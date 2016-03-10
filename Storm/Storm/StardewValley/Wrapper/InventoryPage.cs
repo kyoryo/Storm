@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    internal class InventoryPage : ClickableMenu
+    public class InventoryPage : ClickableMenu
     {
         private readonly InventoryPageAccessor accessor;
 
