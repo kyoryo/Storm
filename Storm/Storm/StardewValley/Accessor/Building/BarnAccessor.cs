@@ -17,7 +17,15 @@
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface BarnAccessor
+    public interface BarnAccessor : BuildingAccessor
     {
+        int _GetOpenAnimalDoorPosition();
+        void _SetOpenAnimalDoorPosition(int val);
+
+        int _GetYPositionOfAnimalDoor();
+        void _SetYPositionOfAnimalDoor(int val);
+
+        int _GetAnimalDoorMotion();
+        void _SetAnimalDoorMotion(int val);
     }
 }

@@ -169,6 +169,26 @@
       "SimpleName": "Horse",
       "OwnerType": "StardewValley.Characters.Horse",
       "InterfaceType": "Storm.StardewValley.Accessor.HorseAccessor"
+    },
+    {
+      "SimpleName": "Barn",
+      "OwnerType": "StardewValley.Buildings.Barn",
+      "InterfaceType": "Storm.StardewValley.Accessor.BarnAccessor"
+    },
+    {
+      "SimpleName": "Building",
+      "OwnerType": "StardewValley.Buildings.Building",
+      "InterfaceType": "Storm.StardewValley.Accessor.BuildingAccessor"
+    },
+    {
+      "SimpleName": "Coop",
+      "OwnerType": "StardewValley.Buildings.Coop",
+      "InterfaceType": "Storm.StardewValley.Accessor.CoopAccessor"
+    },
+    {
+      "SimpleName": "Stable",
+      "OwnerType": "StardewValley.Buildings.Stable",
+      "InterfaceType": "Storm.StardewValley.Accessor.StableAccessor"
     }
   ]
 }
