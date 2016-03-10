@@ -84,17 +84,20 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                return new WrappedProxyList<NPCAccessor, NPC>(accessor._GetCharacters(), (c => c == null ? null : new NPC(Parent, c)));
+                return new WrappedProxyList<NPCAccessor, NPC>(accessor._GetCharacters(), c => c == null ? null : new NPC(Parent, c));
             }
         }
 
         public Event CurrentEvent
         {
-            get { return accessor._GetCurrentEvent() == null ? null : new Event(Parent, accessor._GetCurrentEvent()); }
-            set { accessor._SetCurrentEvent(value.Cast<EventAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetCurrentEvent();
+                if (tmp == null) return null;
+                return new Event(Parent, tmp);
+            }
+            set { accessor._SetCurrentEvent(value?.Cast<EventAccessor>()); }
         }
-
-        public object Expose() => accessor;
 
         public void GrowWeedGrass(int iterations)
         {
@@ -112,5 +115,6 @@ namespace Storm.StardewValley.Wrapper
             return null;
         }
 
+        public object Expose() => accessor;
     }
 }

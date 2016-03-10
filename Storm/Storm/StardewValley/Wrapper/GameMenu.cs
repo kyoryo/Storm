@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.Collections;
 using Storm.StardewValley.Accessor;
 using System.Collections;
 
@@ -59,6 +60,14 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetForcePreventClose(value); }
         }
 
-        public IList Pages => accessor._GetPages();
+        public WrappedProxyList<ClickableMenuAccessor, ClickableMenu> Pages
+        {
+            get
+            {
+                var tmp = accessor._GetPages();
+                if (tmp == null) return null;
+                return new WrappedProxyList<ClickableMenuAccessor, ClickableMenu>(tmp, i => i == null ? null : new ClickableMenu(Parent, i));
+            }
+        }
     }
 }

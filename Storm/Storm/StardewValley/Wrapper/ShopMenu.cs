@@ -67,20 +67,35 @@ namespace Storm.StardewValley.Wrapper
 
         public InventoryMenu Inventory
         {
-            get { return accessor._GetInventory() == null ? null : new InventoryMenu(Parent, accessor._GetInventory()); }
-            set { accessor._SetInventory(value.Cast<InventoryMenuAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetInventory();
+                if (tmp == null) return null;
+                return new InventoryMenu(Parent, tmp);
+            }
+            set { accessor._SetInventory(value?.Cast<InventoryMenuAccessor>()); }
         }
 
         public Item HeldItem
         {
-            get { return accessor._GetHeldItem() == null ? null : new Item(Parent, accessor._GetHeldItem()); }
-            set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetHeldItem();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { accessor._SetHeldItem(value?.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
-            get { return accessor._GetHoveredItem() == null ? null : new Item(Parent, accessor._GetHoveredItem()); }
-            set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetHoveredItem();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { accessor._SetHoveredItem(value?.Cast<ItemAccessor>()); }
         }
 
         public Texture2D Wallpapers
@@ -139,26 +154,46 @@ namespace Storm.StardewValley.Wrapper
 
         public ClickableTextureComponent UpArrow
         {
-            get { return accessor._GetUpArrow() == null ? null : new ClickableTextureComponent(Parent, accessor._GetUpArrow()); }
-            set { accessor._SetUpArrow(value.Cast<ClickableTextureComponentAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetUpArrow();
+                if (tmp == null) return null;
+                return new ClickableTextureComponent(Parent, tmp);
+            }
+            set { accessor._SetUpArrow(value?.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent DownArrow
         {
-            get { return accessor._GetDownArrow() == null ? null : new ClickableTextureComponent(Parent, accessor._GetDownArrow()); }
-            set { accessor._SetDownArrow(value.Cast<ClickableTextureComponentAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetDownArrow();
+                if (tmp == null) return null;
+                return new ClickableTextureComponent(Parent, tmp);
+            }
+            set { accessor._SetDownArrow(value?.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public ClickableTextureComponent ScrollBar
         {
-            get { return accessor._GetScrollBar() == null ? null : new ClickableTextureComponent(Parent, accessor._GetScrollBar()); }
-            set { accessor._SetScrollBar(value.Cast<ClickableTextureComponentAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetScrollBar();
+                if (tmp == null) return null;
+                return new ClickableTextureComponent(Parent, tmp);
+            }
+            set { accessor._SetScrollBar(value?.Cast<ClickableTextureComponentAccessor>()); }
         }
 
         public NPC PortraitPerson
         {
-            get { return accessor._GetPortraitPerson() == null ? null : new NPC(Parent, accessor._GetPortraitPerson()); }
-            set { accessor._SetPortraitPerson(value.Cast<NPCAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetPortraitPerson();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
+            set { accessor._SetPortraitPerson(value?.Cast<NPCAccessor>()); }
         }
 
         public string PotraitPersonDialogue

@@ -35,6 +35,7 @@ namespace Storm.StardewValley.Wrapper
             get { return Array.ConvertAll(accessor._GetAttachments(), i => new ObjectItem(Parent, i)); }
             set { accessor._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
         }
+
         /// <summary>
         /// The name of this tool
         /// </summary>
@@ -44,6 +45,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetName(); }
             set { accessor._SetName(value); }
         }
+
         /// <summary>
         /// The description of this tool
         /// </summary>
@@ -59,6 +61,7 @@ namespace Storm.StardewValley.Wrapper
             get { return accessor._GetIsStackable(); }
             set { accessor._SetIsStackable(value); }
         }
+
         /// <summary>
         /// The upgrade level of this tool
         /// Default = 0

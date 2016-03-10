@@ -5,10 +5,8 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm
 {
-    public class ProxyList<TOValue, TValue> : System.Collections.Generic.IList<TValue>
+    public class ProxyList<TValue> : System.Collections.Generic.IList<TValue>
     {
-        public delegate W Wrap<V, W>(V val);
-
         private readonly IList real;
 
         public ProxyList(IList real)

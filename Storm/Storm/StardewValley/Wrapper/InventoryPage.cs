@@ -28,10 +28,15 @@ namespace Storm.StardewValley.Wrapper
             this.accessor = accessor;
         }
 
-        public InventoryMenuAccessor Inventory
+        public InventoryMenu Inventory
         {
-            get { return accessor._GetInventory(); }
-            set { accessor._SetInventory(value); }
+            get
+            {
+                var tmp = accessor._GetInventory();
+                if (tmp == null) return null;
+                return new InventoryMenu(Parent, tmp);
+            }
+            set { accessor._SetInventory((InventoryMenuAccessor)value?.Expose()); }
         }
 
         public string DescriptionText
@@ -60,14 +65,24 @@ namespace Storm.StardewValley.Wrapper
 
         public Item HeldItem
         {
-            get { return accessor._GetHeldItem() == null ? null : new Item(Parent, accessor._GetHeldItem()); }
-            set { accessor._SetHeldItem(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetHeldItem();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { accessor._SetHeldItem(value?.Cast<ItemAccessor>()); }
         }
 
         public Item HoveredItem
         {
-            get { return accessor._GetHoveredItem() == null ? null : new Item(Parent, accessor._GetHoveredItem()); }
-            set { accessor._SetHoveredItem(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = accessor._GetHoveredItem();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { accessor._SetHoveredItem(value?.Cast<ItemAccessor>()); }
         }
 
         public float TrashCanLidRotation

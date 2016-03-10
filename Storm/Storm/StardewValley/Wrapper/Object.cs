@@ -164,7 +164,12 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem HeldObject
         {
-            get { return accessor._GetHeldObject() == null ? null : new ObjectItem(Parent, accessor._GetHeldObject()); }
+            get
+            {
+                var tmp = accessor._GetHeldObject();
+                if (tmp == null) return null;
+                return new ObjectItem(Parent, tmp);
+            }
             set { accessor._SetHeldObject(value?.accessor); }
         }
 

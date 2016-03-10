@@ -16,6 +16,7 @@
  */
 
 using Microsoft.Xna.Framework.Graphics;
+using Storm.Collections;
 using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
@@ -48,11 +49,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
         }
 
-        public ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
+        public WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
         {
             get
             {
-                return new ProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(accessor._GetCalendarDays());
+                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(accessor._GetCalendarDays(), i => new ClickableTextureComponent(Parent, i));
             }
         }
 

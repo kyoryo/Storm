@@ -28,6 +28,7 @@ using Storm.StardewValley.Proxy;
 using Storm.StardewValley.Wrapper;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Storm.Collections;
 
 namespace Storm.StardewValley
 {
@@ -853,7 +854,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor shopMenu, IList list, int currency = 0, string who = null)
         {
-            var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
+            var itemsForSale = new WrappedProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
             var @event = new PreConstructShopViaListEvent(shopMenu == null ? null : new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
             FireEvent(@event);
             return @event;
@@ -861,7 +862,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent PostConstructShopViaListCallback(ShopMenuAccessor shopMenu, IList list, int currency = 0, string who = null)
         {
-            var itemsForSale = new ProxyList<ItemAccessor, Item>(list);
+            var itemsForSale = new WrappedProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
             var @event = new PostConstructShopViaListEvent(shopMenu == null ? null : new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
             FireEvent(@event);
             return @event;
