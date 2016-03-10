@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Storm.StardewValley.Accessor;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -79,31 +80,11 @@ namespace Storm.StardewValley.Wrapper
             set { accessor._SetName(value); }
         }
 
-        public List<NPC> Characters
+        public WrappedProxyList<NPCAccessor, NPC> Characters
         {
             get
             {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
-                if (charList == null)
-                {
-                    return null;
-                }
-                return charList.Select(c => new NPC(Parent, c)).ToList();
-            }
-        }
-
-        public List<Monster> Monsters
-        {
-            get
-            {
-                var charList = accessor._GetCharacters().Cast<NPCAccessor>().ToList();
-                if (charList == null)
-                {
-                    return null;
-                }
-
-                var monsters = charList.Where(c => c is MonsterAccessor).Select(c => new Monster(Parent, c as MonsterAccessor)).ToList();
-                return monsters;
+                return new WrappedProxyList<NPCAccessor, NPC>(accessor._GetCharacters(), (c => c == null ? null : new NPC(Parent, c)));
             }
         }
 
