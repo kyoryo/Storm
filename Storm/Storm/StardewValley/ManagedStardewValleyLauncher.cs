@@ -71,7 +71,7 @@ namespace Storm.StardewValley
             }
 
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
-            var ctx = factory.ParseOfType(DataFormat.Json, "C:\\Users\\Cody\\Source\\Repos\\Storm\\Dependencies\\injectors\\");
+            var ctx = factory.ParseOfType(DataFormat.Json, StormAPI.GetResource(""));
             if (factory is CecilInjectorFactory)
             {
                 var casted = factory as CecilInjectorFactory;
