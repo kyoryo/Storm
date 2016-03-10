@@ -153,6 +153,7 @@
     <Compile Include="StardewValley\Accessor\Location\CommunityCenterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Location\TownAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Terrain\FlooringAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\Terrain\FruitTreeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Terrain\TreeAccessor.cs" />
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />

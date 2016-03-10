@@ -234,6 +234,11 @@
       "SimpleName": "Flooring",
       "OwnerType": "StardewValley.TerrainFeatures.Flooring",
       "InterfaceType": "Storm.StardewValley.Accessor.FlooringAccessor"
+    },
+    {
+      "SimpleName": "FruitTree",
+      "OwnerType": "StardewValley.TerrainFeatures.FruitTree",
+      "InterfaceType": "Storm.StardewValley.Accessor.FruitTreeAccessor"
     }
   ]
 }
