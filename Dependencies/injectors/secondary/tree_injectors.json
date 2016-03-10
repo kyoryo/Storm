@@ -1,0 +1,144 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "texture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "Texture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "growthStage",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "GrowthStage",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "treeType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "TreeType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "health",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Health",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "flipped",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Flipped",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "stump",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Stump",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "tapped",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Tapped",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "hasSeed",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "HasSeed",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "shakeLeft",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ShakeLeft",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "falling",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Falling",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "destroy",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Destroy",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "shakeRotation",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeRotation",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "maxShake",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "MaxShake",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "alpha",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Alpha",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "leaves",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "Leaves",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "lastPlayerToHit",
+      "OwnerFieldType": "System.Int64",
+      "MethodName": "LastPlayerToHit",
+      "Type": "System.Int64"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "shakeTimer",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "ShakeTimer",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "treeTopSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "TreeTopSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "stumpSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "StumpSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    },
+    {
+      "OwnerAccessorType": "@Tree",
+      "OwnerFieldName": "shadowSourceRect",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Rectangle",
+      "MethodName": "ShadowSourceRect",
+      "Type": "Microsoft.Xna.Framework.Rectangle"
+    }
+  ]
+}

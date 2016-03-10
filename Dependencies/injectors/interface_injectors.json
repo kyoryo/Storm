@@ -224,6 +224,16 @@
       "SimpleName": "Town",
       "OwnerType": "StardewValley.Locations.Town",
       "InterfaceType": "Storm.StardewValley.Accessor.TownAccessor"
+    },
+    {
+      "SimpleName": "Tree",
+      "OwnerType": "StardewValley.TerrainFeatures.Tree",
+      "InterfaceType": "Storm.StardewValley.Accessor.TreeAccessor"
+    },
+    {
+      "SimpleName": "Flooring",
+      "OwnerType": "StardewValley.TerrainFeatures.Flooring",
+      "InterfaceType": "Storm.StardewValley.Accessor.FlooringAccessor"
     }
   ]
 }

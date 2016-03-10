@@ -1,0 +1,46 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "floorsTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "FloorsTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+    },
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "drawGuide",
+      "OwnerFieldType": "System.Collections.Generic.Dictionary`2",
+      "MethodName": "DrawGuide",
+      "Type": "System.Collections.IDictionary"
+    },
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "whichFloor",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichFloor",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "whichView",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhichView",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "isPathway",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsPathway",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Flooring",
+      "OwnerFieldName": "isSteppingStone",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "IsSteppingStone",
+      "Type": "System.Boolean"
+    }
+  ]
+}
