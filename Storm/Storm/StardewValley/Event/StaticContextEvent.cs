@@ -119,5 +119,44 @@ namespace Storm.StardewValley
             @delegate.Accessor = wrapped;
             return wrapped;
         }
+
+        public AnimatedSprite ProxyAnimatedSprite(AnimatedSpriteDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (AnimatedSpriteAccessor) generator.CreateClassProxy(
+                AnimatedSpriteType,
+                @delegate.GetConstructorParams(),
+                AnimatedSpriteFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new AnimatedSprite(accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public Character ProxyCharacter(CharacterDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (CharacterAccessor) generator.CreateClassProxy(
+                CharacterType,
+                @delegate.GetConstructorParams(),
+                CharacterFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new Character(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
+
+        public NPC ProxyNPC(NPCDelegate @delegate)
+        {
+            var generator = new ProxyGenerator();
+            var accessor = (NPCAccessor) generator.CreateClassProxy(
+                NPCType,
+                @delegate.GetConstructorParams(),
+                NPCFactory.CreateInterceptor(@delegate));
+
+            var wrapped = new NPC(Root, accessor);
+            @delegate.Accessor = wrapped;
+            return wrapped;
+        }
     }
 }
