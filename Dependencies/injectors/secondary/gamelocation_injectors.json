@@ -362,5 +362,19 @@
       "InvokerReturnType": "System.Void",
       "IsStatic": "false"
     },
+	{
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "doesTileHaveProperty",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.String,System.String)System.String",
+      "InvokerName": "_GetTileProperty",
+      "InvokerReturnParams": [
+        "System.Int32",
+		"System.Int32",
+		"System.String",
+		"System.String"
+      ],
+      "InvokerReturnType": "System.String",
+      "IsStatic": "false"
+    },
   ]
 }
