@@ -34,6 +34,11 @@ namespace Storm.StardewValley.Wrapper
 
         public StaticContext Parent { get; }
 
+        public void AddHoeDirtAt(Vector2 tileLocation)
+        {
+            accessor._MakeHoeDirt(tileLocation);
+        }
+
         public Dictionary<Vector2, ObjectItem> Objects
         {
             get

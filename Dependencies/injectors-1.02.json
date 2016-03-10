@@ -7369,6 +7369,17 @@
       "InvokerReturnType": "System.Void",
       "IsStatic": "false"
     },
+	{
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "makeHoeDirt",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.Vector2)System.Void",
+      "InvokerName": "_MakeHoeDirt",
+      "InvokerReturnParams": [
+        "Microsoft.Xna.Framework.Vector2"
+      ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    },
     {
       "OwnerAccessorType": "@InventoryMenu",
       "OwnerMethodName": "getItemAt",
