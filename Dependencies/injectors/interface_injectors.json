@@ -209,6 +209,21 @@
       "SimpleName": "FarmAnimal",
       "OwnerType": "StardewValley.FarmAnimal",
       "InterfaceType": "Storm.StardewValley.Accessor.FarmAnimalAccessor"
+    },
+    {
+      "SimpleName": "Junimo",
+      "OwnerType": "StardewValley.Characters.Junimo",
+      "InterfaceType": "Storm.StardewValley.Accessor.JunimoAccessor"
+    },
+    {
+      "SimpleName": "CommunityCenter",
+      "OwnerType": "StardewValley.Locations.CommunityCenter",
+      "InterfaceType": "Storm.StardewValley.Accessor.CommunityCenterAccessor"
+    },
+    {
+      "SimpleName": "Town",
+      "OwnerType": "StardewValley.Locations.Town",
+      "InterfaceType": "Storm.StardewValley.Accessor.TownAccessor"
     }
   ]
 }
