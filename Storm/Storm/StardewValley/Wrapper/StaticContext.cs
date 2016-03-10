@@ -70,6 +70,8 @@ namespace Storm.StardewValley.Wrapper
 
         public IList Locations => accessor._GetLocations();
 
+        public bool IsActive => ((Game) accessor)?.IsActive ?? false;
+
         public int PixelZoom
         {
             get { return accessor._GetPixelZoom(); }
