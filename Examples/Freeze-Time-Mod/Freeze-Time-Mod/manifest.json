@@ -4,5 +4,5 @@
     "version": "0.1",
     "description": "Goes in %appdata% StardewValley/Mods/FreezeTimeMod with your dll.",
 
-    "assemblyFileName": "FreezeTimeMod.dll"
+    "assemblyFileName": "Freeze-Time-Mod.dll"
 }
