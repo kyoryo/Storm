@@ -31,7 +31,7 @@ The following are pre-requisites to being able to download and build the Storm A
 
 There are different copies to be made: 
 
-* ./Dependencies/injectors.json should be copied to %APPDATA%/StardewValley/Storm/
+* `./Dependencies/injectors/interface_injectors.json` and `./Dependencies/injectors/secondary/` should be copied to `%APPDATA%/StardewValley/Storm/`
 * All files from `./Storm/Storm/bin/Debug/` should be copied to the StardewValley.exe installation folder.
 
 <h3>Other notes</h3>
