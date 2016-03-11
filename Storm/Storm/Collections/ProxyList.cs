@@ -135,7 +135,7 @@ namespace Storm.Collections
 
             object IEnumerator.Current
             {
-                get{ return curValue; }
+                get { return curValue; }
             }
 
             public void Dispose()

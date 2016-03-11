@@ -19,7 +19,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public abstract class StaticContextWrapper : ChildWrapper<StaticContext>
     {
-        public StaticContextWrapper(StaticContext parent) : 
+        public StaticContextWrapper(StaticContext parent) :
             base(parent)
         {
         }

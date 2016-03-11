@@ -19,7 +19,7 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableTextureComponent : 
+    public class ClickableTextureComponent :
         ClickableComponent
     {
         public ClickableTextureComponent(StaticContext parent, ClickableTextureComponentAccessor accessor) :

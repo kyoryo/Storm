@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class HoeDirt : TerrainFeature
     {
-        public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) : 
+        public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) :
             base(parent, accessor)
         {
         }

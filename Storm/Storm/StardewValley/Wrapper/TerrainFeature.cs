@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class TerrainFeature : StaticContextWrapper
     {
-        public TerrainFeature(StaticContext parent, TerrainFeatureAccessor accessor) : 
+        public TerrainFeature(StaticContext parent, TerrainFeatureAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;

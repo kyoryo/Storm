@@ -24,7 +24,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Event : StaticContextWrapper
     {
-        public Event(StaticContext parent, EventAccessor accessor) : 
+        public Event(StaticContext parent, EventAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;

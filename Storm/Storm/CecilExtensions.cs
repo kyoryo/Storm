@@ -110,7 +110,7 @@ namespace Storm
                     {
                         if (i.Operand != null && i.Operand is FieldReference)
                         {
-                            return ((FieldReference) i.Operand).Resolve() == fd;
+                            return ((FieldReference)i.Operand).Resolve() == fd;
                         }
                         return false;
                     }) != null);

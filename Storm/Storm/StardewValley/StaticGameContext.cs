@@ -84,7 +84,7 @@ namespace Storm.StardewValley
             var factory = CreateFactory<AType, DType>();
 
             var generator = new ProxyGenerator();
-            return (AType) generator.CreateClassProxy(type, constructor, factory.CreateInterceptor(@delegate));
+            return (AType)generator.CreateClassProxy(type, constructor, factory.CreateInterceptor(@delegate));
         }
 
         public static AType ProxyAccessor<AType, DType>(DType @delegate)
@@ -836,8 +836,8 @@ namespace Storm.StardewValley
         public static DetourEvent PostDoneFishingCallback(FishingRodAccessor accessor, FarmerAccessor who, bool consumeBaitAndTackle)
         {
             var @event = new PostDoneFishingEvent(
-                new FishingRod(WrappedGame, accessor), 
-                who == null ? null : new Farmer(WrappedGame, who), 
+                new FishingRod(WrappedGame, accessor),
+                who == null ? null : new Farmer(WrappedGame, who),
                 consumeBaitAndTackle);
 
             FireEvent(@event);

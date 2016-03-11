@@ -61,7 +61,7 @@ namespace Storm
         {
             if (!File.Exists(baseConfig.ConfigLocation))
             {
-                var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
+                var v = (Config)baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] { baseConfig });
                 v.WriteConfig();
             }
             else
@@ -71,7 +71,7 @@ namespace Storm
                 try
                 {
                     var j = JObject.Parse(Encoding.UTF8.GetString(File.ReadAllBytes(baseConfig.ConfigLocation)));
-                    baseConfig = (Config) j.ToObject(baseConfig.GetType());
+                    baseConfig = (Config)j.ToObject(baseConfig.GetType());
                     baseConfig.ConfigLocation = p;
                     baseConfig.JObject = j;
 
@@ -86,7 +86,7 @@ namespace Storm
                     Console.WriteLine("Invalid JSON Renamed: " + p);
                     if (File.Exists(p))
                         File.Move(p, Path.Combine(Path.GetDirectoryName(p), Path.GetFileNameWithoutExtension(p) + "." + Guid.NewGuid() + ".json")); //Get it out of the way for a new one
-                    var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
+                    var v = (Config)baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] { baseConfig });
                     v.WriteConfig();
                 }
             }
@@ -99,7 +99,7 @@ namespace Storm
             try
             {
                 //default config with all standard values
-                var b = JObject.FromObject(baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig}));
+                var b = JObject.FromObject(baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] { baseConfig }));
                 //user config with their values
                 var u = baseConfig.JObject;
 

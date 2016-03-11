@@ -40,7 +40,7 @@ namespace Storm.Manipulation.Cecil
 
         public void Init()
         {
-            
+
         }
 
         public void Inject()
@@ -72,7 +72,7 @@ namespace Storm.Manipulation.Cecil
             }
 
             var methods = def.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).Where(m => m.HasBody).ToList();
-            
+
             foreach (var method in methods)
             {
                 var body = method.Body;

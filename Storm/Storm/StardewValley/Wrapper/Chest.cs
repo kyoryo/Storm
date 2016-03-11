@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Chest : ObjectItem
     {
-        public Chest(StaticContext parent, ChestAccessor accessor) : 
+        public Chest(StaticContext parent, ChestAccessor accessor) :
             base(parent, accessor)
         {
         }

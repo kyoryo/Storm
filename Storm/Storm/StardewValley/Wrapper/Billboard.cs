@@ -50,7 +50,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 var tmp = Cast<BillboardAccessor>()._GetAcceptQuestButton();
                 if (tmp == null) return null;
-                return  new ClickableComponent(Parent, tmp);
+                return new ClickableComponent(Parent, tmp);
             }
             set { Cast<BillboardAccessor>()._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
         }
@@ -61,7 +61,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 var tmp = Cast<BillboardAccessor>()._GetCalendarDays();
                 if (tmp == null) return null;
-                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(tmp, 
+                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(tmp,
                     i => new ClickableTextureComponent(Parent, i));
             }
         }

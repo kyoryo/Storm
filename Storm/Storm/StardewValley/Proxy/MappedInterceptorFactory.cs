@@ -77,13 +77,13 @@ namespace Storm.StardewValley.Proxy
                 if (callMap.ContainsKey(invocation.Method.Name))
                 {
                     var method = callMap[invocation.Method.Name];
-                    var ret = method.Invoke(instance, new object[] {invocation.Arguments});
+                    var ret = method.Invoke(instance, new object[] { invocation.Arguments });
                     if (!(ret is OverrideEvent))
                     {
                         throw new InvalidOperationException("What the fuck?");
                     }
 
-                    var casted = (OverrideEvent) ret;
+                    var casted = (OverrideEvent)ret;
                     if (casted.ReturnEarly)
                     {
                         invocation.ReturnValue = casted.ReturnValue;

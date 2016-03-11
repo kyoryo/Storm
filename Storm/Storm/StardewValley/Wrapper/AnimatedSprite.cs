@@ -22,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class AnimatedSprite : StaticContextWrapper
     {
-        public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor) : 
+        public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;

@@ -22,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class GameMenu : ClickableMenu
     {
-        public GameMenu(StaticContext parent, GameMenuAccessor accessor) : 
+        public GameMenu(StaticContext parent, GameMenuAccessor accessor) :
             base(parent, accessor)
         {
         }
