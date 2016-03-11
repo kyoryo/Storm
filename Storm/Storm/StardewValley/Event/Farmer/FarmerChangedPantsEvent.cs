@@ -16,16 +16,19 @@
  */
 
 using Microsoft.Xna.Framework;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event
 {
     public class FarmerChangedPantsEvent : StaticContextEvent
     {
-        public FarmerChangedPantsEvent(Color color)
+        public FarmerChangedPantsEvent(Farmer farmer, Color color)
         {
+            Farmer = farmer;
             Color = color;
         }
 
+        public Farmer Farmer { get; }
         public Color Color { get; }
     }
 }

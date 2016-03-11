@@ -22,9 +22,9 @@ namespace Storm.StardewValley.Event
 {
     public class UpdateTitleScreenEvent : StaticContextEvent
     {
-        public UpdateTitleScreenEvent(StaticContextAccessor context)
+        public UpdateTitleScreenEvent(StaticContext context)
         {
-            Context = new StaticContext(context);
+            Context = context;
         }
 
         public StaticContext Context { get; }

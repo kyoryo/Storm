@@ -15,9 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class PostFarmerDismountHorseEvent : StaticContextEvent
     {
+        public PostFarmerDismountHorseEvent(Farmer farmer)
+        {
+            Farmer = farmer;
+        }
+
+        public Farmer Farmer { get; }
     }
 }

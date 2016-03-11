@@ -22,9 +22,9 @@ namespace Storm.StardewValley.Event
 {
     public class ClientSizeChangedEvent : StaticContextEvent
     {
-        public ClientSizeChangedEvent(StaticContextAccessor context)
+        public ClientSizeChangedEvent(StaticContext context)
         {
-            Context = new StaticContext(context);
+            Context = context;
         }
 
         public StaticContext Context { get; }

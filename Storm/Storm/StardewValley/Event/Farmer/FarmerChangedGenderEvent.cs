@@ -15,15 +15,19 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class FarmerChangedGenderEvent : StaticContextEvent
     {
-        public FarmerChangedGenderEvent(bool male)
+        public FarmerChangedGenderEvent(Farmer farmer, bool male)
         {
+            Farmer = farmer;
             Male = male;
         }
 
+        public Farmer Farmer { get; }
         public bool Male { get; }
     }
 }

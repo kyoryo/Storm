@@ -22,9 +22,9 @@ namespace Storm.StardewValley.Event
 {
     public class GameExitEvent : StaticContextEvent
     {
-        public GameExitEvent(StaticContextAccessor context)
+        public GameExitEvent(StaticContext context)
         {
-            Context = new StaticContext(context);
+            Context = context;
         }
 
         public StaticContext Context { get; }

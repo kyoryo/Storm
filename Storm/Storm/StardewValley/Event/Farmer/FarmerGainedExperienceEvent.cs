@@ -15,16 +15,20 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class FarmerGainedExperienceEvent : StaticContextEvent
     {
-        public FarmerGainedExperienceEvent(int which, int howMuch)
+        public FarmerGainedExperienceEvent(Farmer farmer, int which, int howMuch)
         {
+            Farmer = farmer;
             Which = which;
             HowMuch = howMuch;
         }
 
+        public Farmer Farmer { get; }
         public int Which { get; }
         public int HowMuch { get; }
     }

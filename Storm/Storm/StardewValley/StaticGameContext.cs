@@ -390,7 +390,7 @@ namespace Storm.StardewValley
 
         public static DetourEvent UpdateTitleScreenCallback(StaticContextAccessor accessor)
         {
-            var @event = new UpdateTitleScreenEvent(accessor);
+            var @event = new UpdateTitleScreenEvent(new StaticContext(accessor));
             FireEvent(@event);
             return @event;
         }
@@ -411,14 +411,14 @@ namespace Storm.StardewValley
 
         public static DetourEvent GameExitEventCallback(StaticContextAccessor accessor)
         {
-            var @event = new GameExitEvent(accessor);
+            var @event = new GameExitEvent(new StaticContext(accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ClientSizeChangedCallback(StaticContextAccessor accessor)
         {
-            var @event = new ClientSizeChangedEvent(accessor);
+            var @event = new ClientSizeChangedEvent(new StaticContext(accessor));
             FireEvent(@event);
             return @event;
         }
@@ -485,196 +485,200 @@ namespace Storm.StardewValley
 
         public static DetourEvent PostFarmerShippedBasicCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new PostFarmerShippedBasicEvent(index, number);
+            var @event = new PostFarmerShippedBasicEvent(new Farmer(WrappedGame, accessor), index, number);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerCaughtFishCallback(FarmerAccessor accessor, int index, int size)
         {
-            var @event = new PostFarmerCaughtFishEvent(index, size);
+            var @event = new PostFarmerCaughtFishEvent(new Farmer(WrappedGame, accessor), index, size);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerFoundArtifactCallback(FarmerAccessor accessor, int index, int number)
         {
-            var @event = new PostFarmerFoundArtifactEvent(index, number);
+            var @event = new PostFarmerFoundArtifactEvent(new Farmer(WrappedGame, accessor), index, number);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerCookedRecipeCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new PostFarmerCookedRecipeEvent(index);
+            var @event = new PostFarmerCookedRecipeEvent(new Farmer(WrappedGame, accessor), index);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerGainedExperienceCallback(FarmerAccessor accessor, int which, int howMuch)
         {
-            var @event = new FarmerGainedExperienceEvent(which, howMuch);
+            var @event = new FarmerGainedExperienceEvent(new Farmer(WrappedGame, accessor), which, howMuch);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerFoundMineralCallback(FarmerAccessor accessor, int index)
         {
-            var @event = new PostFarmerFoundMineralEvent(index);
+            var @event = new PostFarmerFoundMineralEvent(new Farmer(WrappedGame, accessor), index);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerConsumeObjectCallback(FarmerAccessor accessor, int index, int quantity)
         {
-            var @event = new PostFarmerConsumObjectEvent(index, quantity);
+            var @event = new PostFarmerConsumObjectEvent(new Farmer(WrappedGame, accessor), index, quantity);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerIncreaseBackpackSizeCallback(FarmerAccessor accessor, int howMuch)
         {
-            var @event = new FarmerIncreaseBackpackSizeEvent(howMuch);
+            var @event = new FarmerIncreaseBackpackSizeEvent(new Farmer(WrappedGame, accessor), howMuch);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerDismountHorseCallback(FarmerAccessor accessor)
         {
-            var @event = new PostFarmerDismountHorseEvent();
+            var @event = new PostFarmerDismountHorseEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedShirtCallback(FarmerAccessor accessor, int whichShirt)
         {
-            var @event = new FarmerChangedShirtEvent(whichShirt);
+            var @event = new FarmerChangedShirtEvent(new Farmer(WrappedGame, accessor), whichShirt);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHairCallback(FarmerAccessor accessor, int whichHair)
         {
-            var @event = new FarmerChangedHairEvent(whichHair);
+            var @event = new FarmerChangedHairEvent(new Farmer(WrappedGame, accessor), whichHair);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedShoeCallback(FarmerAccessor accessor, int which)
         {
-            var @event = new FarmerChangedShoeEvent(which);
+            var @event = new FarmerChangedShoeEvent(new Farmer(WrappedGame, accessor), which);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHairColorCallback(FarmerAccessor accessor, Color c)
         {
-            var @event = new FarmerChangedHairColorEvent(c);
+            var @event = new FarmerChangedHairColorEvent(new Farmer(WrappedGame, accessor), c);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedPantsCallback(FarmerAccessor accessor, Color color)
         {
-            var @event = new FarmerChangedPantsEvent(color);
+            var @event = new FarmerChangedPantsEvent(new Farmer(WrappedGame, accessor), color);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedHatCallback(FarmerAccessor accessor, int newHat)
         {
-            var @event = new FarmerChangedHatEvent(newHat);
+            var @event = new FarmerChangedHatEvent(new Farmer(WrappedGame, accessor), newHat);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedAccessoryCallback(FarmerAccessor accessor, int which)
         {
-            var @event = new FarmerChangedAccessoryEvent(which);
+            var @event = new FarmerChangedAccessoryEvent(new Farmer(WrappedGame, accessor), which);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedSkinColorCallback(FarmerAccessor accessor, int which)
         {
-            var @event = new FarmerChangedSkinColorEvent(which);
+            var @event = new FarmerChangedSkinColorEvent(new Farmer(WrappedGame, accessor), which);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedEyeColorCallback(FarmerAccessor accessor, Color c)
         {
-            var @event = new FarmerChangedEyeColorEvent(c);
+            var @event = new FarmerChangedEyeColorEvent(new Farmer(WrappedGame, accessor), c);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerChangedGenderCallback(FarmerAccessor accessor, bool male)
         {
-            var @event = new FarmerChangedGenderEvent(male);
+            var @event = new FarmerChangedGenderEvent(new Farmer(WrappedGame, accessor), male);
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerCollideWithCallback(FarmerAccessor accessor, ObjectAccessor collisionObject)
         {
-            var @event = new FarmerCollideWithEvent(new ObjectItem(WrappedGame, collisionObject));
+            var @event = new FarmerCollideWithEvent(new Farmer(WrappedGame, accessor), 
+                collisionObject == null ? null : new ObjectItem(WrappedGame, collisionObject));
+
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent ShouldCollideWithBuildingLayerCallback(CharacterAccessor accessor, GameLocationAccessor gameLocationAccessor)
         {
-            var @event = new ShouldCollideWithBuildingLayerEvent(new GameLocation(WrappedGame, gameLocationAccessor));
+            var @event = new ShouldCollideWithBuildingLayerEvent(new Character(WrappedGame, accessor),
+                gameLocationAccessor == null ? null : new GameLocation(WrappedGame, gameLocationAccessor));
+
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerChangedIntoSwimsuitCallback(FarmerAccessor accessor)
         {
-            var @event = new PostFarmerChangeIntoSwimsuitEvent();
+            var @event = new PostFarmerChangeIntoSwimsuitEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerChangeOutOfSwimsuitCallback(FarmerAccessor accessor)
         {
-            var @event = new PostFarmerChangeOutOfSwimsuitEvent();
+            var @event = new PostFarmerChangeOutOfSwimsuitEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent PostFarmerDayUpdateCallback(FarmerAccessor accessor)
         {
-            var @event = new PostFarmerDayUpdateEvent();
+            var @event = new PostFarmerDayUpdateEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent GetFarmerTextureCallback(FarmerAccessor accessor)
         {
-            var @event = new GetFarmerTextureEvent();
+            var @event = new GetFarmerTextureEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerMountHorseCallback(FarmerAccessor accessor, HorseAccessor mount)
         {
-            var @event = new FarmerMountHorseEvent(new Horse(WrappedGame, mount));
+            var @event = new FarmerMountHorseEvent(new Farmer(WrappedGame, accessor), new Horse(WrappedGame, mount));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerGetHisHerCallback(FarmerAccessor accessor)
         {
-            var @event = new FarmerGetHisHerEvent();
+            var @event = new FarmerGetHisHerEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
 
         public static DetourEvent FarmerShipAllCallback(FarmerAccessor accessor)
         {
-            var @event = new FarmerShipAllEvent();
+            var @event = new FarmerShipAllEvent(new Farmer(WrappedGame, accessor));
             FireEvent(@event);
             return @event;
         }
