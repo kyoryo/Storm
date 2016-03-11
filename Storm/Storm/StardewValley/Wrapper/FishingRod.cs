@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,278 +24,279 @@ namespace Storm.StardewValley.Wrapper
 {
     public class FishingRod : Tool
     {
-        private readonly FishingRodAccessor accessor;
-
         public FishingRod(StaticContext parent, FishingRodAccessor accessor) :
             base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public FishingRod()
+        {
         }
 
         public Vector2 Bobber
         {
-            get { return accessor._GetBobber(); }
-            set { accessor._SetBobber(value); }
+            get { return Cast<FishingRodAccessor>()._GetBobber(); }
+            set { Cast<FishingRodAccessor>()._SetBobber(value); }
         }
 
         public int MinFishingBiteTime
         {
-            get { return accessor._GetMinFishingBiteTime(); }
-            set { accessor._SetMinFishingBiteTime(value); }
+            get { return Cast<FishingRodAccessor>()._GetMinFishingBiteTime(); }
+            set { Cast<FishingRodAccessor>()._SetMinFishingBiteTime(value); }
         }
 
         public int MaxFishingBiteTime
         {
-            get { return accessor._GetMaxFishingBiteTime(); }
-            set { accessor._SetMaxFishingBiteTime(value); }
+            get { return Cast<FishingRodAccessor>()._GetMaxFishingBiteTime(); }
+            set { Cast<FishingRodAccessor>()._SetMaxFishingBiteTime(value); }
         }
 
         public int MinTimeToNibble
         {
-            get { return accessor._GetMinTimeToNibble(); }
-            set { accessor._SetMinTimeToNibble(value); }
+            get { return Cast<FishingRodAccessor>()._GetMinTimeToNibble(); }
+            set { Cast<FishingRodAccessor>()._SetMinTimeToNibble(value); }
         }
 
         public int MaxTimeToNibble
         {
-            get { return accessor._GetMaxTimeToNibble(); }
-            set { accessor._SetMaxTimeToNibble(value); }
+            get { return Cast<FishingRodAccessor>()._GetMaxTimeToNibble(); }
+            set { Cast<FishingRodAccessor>()._SetMaxTimeToNibble(value); }
         }
 
         public double BaseChanceForTreasure
         {
-            get { return accessor._GetBaseChanceForTreasure(); }
-            set { accessor._SetBaseChanceForTreasure(value); }
+            get { return Cast<FishingRodAccessor>()._GetBaseChanceForTreasure(); }
+            set { Cast<FishingRodAccessor>()._SetBaseChanceForTreasure(value); }
         }
 
         public int BobberBob
         {
-            get { return accessor._GetBobberBob(); }
-            set { accessor._SetBobberBob(value); }
+            get { return Cast<FishingRodAccessor>()._GetBobberBob(); }
+            set { Cast<FishingRodAccessor>()._SetBobberBob(value); }
         }
 
         public float BobberTimeAccumulator
         {
-            get { return accessor._GetBobberTimeAccumulator(); }
-            set { accessor._SetBobberTimeAccumulator(value); }
+            get { return Cast<FishingRodAccessor>()._GetBobberTimeAccumulator(); }
+            set { Cast<FishingRodAccessor>()._SetBobberTimeAccumulator(value); }
         }
 
         public float TimePerBobberBob
         {
-            get { return accessor._GetTimePerBobberBob(); }
-            set { accessor._SetTimePerBobberBob(value); }
+            get { return Cast<FishingRodAccessor>()._GetTimePerBobberBob(); }
+            set { Cast<FishingRodAccessor>()._SetTimePerBobberBob(value); }
         }
 
         public float TimeUntilFishingBite
         {
-            get { return accessor._GetTimeUntilFishingBite(); }
-            set { accessor._SetTimeUntilFishingBite(value); }
+            get { return Cast<FishingRodAccessor>()._GetTimeUntilFishingBite(); }
+            set { Cast<FishingRodAccessor>()._SetTimeUntilFishingBite(value); }
         }
 
         public float FishingBiteAccumulator
         {
-            get { return accessor._GetFishingBiteAccumulator(); }
-            set { accessor._SetFishingBiteAccumulator(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishingBiteAccumulator(); }
+            set { Cast<FishingRodAccessor>()._SetFishingBiteAccumulator(value); }
         }
 
         public float FishingNibbleAccumulator
         {
-            get { return accessor._GetFishingNibbleAccumulator(); }
-            set { accessor._SetFishingNibbleAccumulator(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishingNibbleAccumulator(); }
+            set { Cast<FishingRodAccessor>()._SetFishingNibbleAccumulator(value); }
         }
 
         public float TimeUntilFishingNibbleDone
         {
-            get { return accessor._GetTimeUntilFishingNibbleDone(); }
-            set { accessor._SetTimeUntilFishingNibbleDone(value); }
+            get { return Cast<FishingRodAccessor>()._GetTimeUntilFishingNibbleDone(); }
+            set { Cast<FishingRodAccessor>()._SetTimeUntilFishingNibbleDone(value); }
         }
 
         public float CastingPower
         {
-            get { return accessor._GetCastingPower(); }
-            set { accessor._SetCastingPower(value); }
+            get { return Cast<FishingRodAccessor>()._GetCastingPower(); }
+            set { Cast<FishingRodAccessor>()._SetCastingPower(value); }
         }
 
         public float CastingChosenCountdown
         {
-            get { return accessor._GetCastingChosenCountdown(); }
-            set { accessor._SetCastingChosenCountdown(value); }
+            get { return Cast<FishingRodAccessor>()._GetCastingChosenCountdown(); }
+            set { Cast<FishingRodAccessor>()._SetCastingChosenCountdown(value); }
         }
 
         public float CastingTimerSpeed
         {
-            get { return accessor._GetCastingTimerSpeed(); }
-            set { accessor._SetCastingTimerSpeed(value); }
+            get { return Cast<FishingRodAccessor>()._GetCastingTimerSpeed(); }
+            set { Cast<FishingRodAccessor>()._SetCastingTimerSpeed(value); }
         }
 
         public float FishWiggle
         {
-            get { return accessor._GetFishWiggle(); }
-            set { accessor._SetFishWiggle(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishWiggle(); }
+            set { Cast<FishingRodAccessor>()._SetFishWiggle(value); }
         }
 
         public float FishWiggleIntensity
         {
-            get { return accessor._GetFishWiggleIntensity(); }
-            set { accessor._SetFishWiggleIntensity(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishWiggleIntensity(); }
+            set { Cast<FishingRodAccessor>()._SetFishWiggleIntensity(value); }
         }
 
         public bool IsFishing
         {
-            get { return accessor._GetIsFishing(); }
-            set { accessor._SetIsFishing(value); }
+            get { return Cast<FishingRodAccessor>()._GetIsFishing(); }
+            set { Cast<FishingRodAccessor>()._SetIsFishing(value); }
         }
 
         public bool Hit
         {
-            get { return accessor._GetHit(); }
-            set { accessor._SetHit(value); }
+            get { return Cast<FishingRodAccessor>()._GetHit(); }
+            set { Cast<FishingRodAccessor>()._SetHit(value); }
         }
 
         public bool IsNibbling
         {
-            get { return accessor._GetIsNibbling(); }
-            set { accessor._SetIsNibbling(value); }
+            get { return Cast<FishingRodAccessor>()._GetIsNibbling(); }
+            set { Cast<FishingRodAccessor>()._SetIsNibbling(value); }
         }
 
         public bool FavBait
         {
-            get { return accessor._GetFavBait(); }
-            set { accessor._SetFavBait(value); }
+            get { return Cast<FishingRodAccessor>()._GetFavBait(); }
+            set { Cast<FishingRodAccessor>()._SetFavBait(value); }
         }
 
         public bool IsTimingCast
         {
-            get { return accessor._GetIsTimingCast(); }
-            set { accessor._SetIsTimingCast(value); }
+            get { return Cast<FishingRodAccessor>()._GetIsTimingCast(); }
+            set { Cast<FishingRodAccessor>()._SetIsTimingCast(value); }
         }
 
         public bool IsCasting
         {
-            get { return accessor._GetIsCasting(); }
-            set { accessor._SetIsCasting(value); }
+            get { return Cast<FishingRodAccessor>()._GetIsCasting(); }
+            set { Cast<FishingRodAccessor>()._SetIsCasting(value); }
         }
 
         public bool CastedButBobberStillInAir
         {
-            get { return accessor._GetCastedButBobberStillInAir(); }
-            set { accessor._SetCastedButBobberStillInAir(value); }
+            get { return Cast<FishingRodAccessor>()._GetCastedButBobberStillInAir(); }
+            set { Cast<FishingRodAccessor>()._SetCastedButBobberStillInAir(value); }
         }
 
         public bool DoneWithAnimation
         {
-            get { return accessor._GetDoneWithAnimation(); }
-            set { accessor._SetDoneWithAnimation(value); }
+            get { return Cast<FishingRodAccessor>()._GetDoneWithAnimation(); }
+            set { Cast<FishingRodAccessor>()._SetDoneWithAnimation(value); }
         }
 
         public bool HasDoneFucntionYet
         {
-            get { return accessor._GetHasDoneFucntionYet(); }
-            set { accessor._SetHasDoneFucntionYet(value); }
+            get { return Cast<FishingRodAccessor>()._GetHasDoneFucntionYet(); }
+            set { Cast<FishingRodAccessor>()._SetHasDoneFucntionYet(value); }
         }
 
         public bool PullingOutOfWater
         {
-            get { return accessor._GetPullingOutOfWater(); }
-            set { accessor._SetPullingOutOfWater(value); }
+            get { return Cast<FishingRodAccessor>()._GetPullingOutOfWater(); }
+            set { Cast<FishingRodAccessor>()._SetPullingOutOfWater(value); }
         }
 
         public bool IsReeling
         {
-            get { return accessor._GetIsReeling(); }
-            set { accessor._SetIsReeling(value); }
+            get { return Cast<FishingRodAccessor>()._GetIsReeling(); }
+            set { Cast<FishingRodAccessor>()._SetIsReeling(value); }
         }
 
         public bool FishCaught
         {
-            get { return accessor._GetFishCaught(); }
-            set { accessor._SetFishCaught(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishCaught(); }
+            set { Cast<FishingRodAccessor>()._SetFishCaught(value); }
         }
 
         public bool RecordSize
         {
-            get { return accessor._GetRecordSize(); }
-            set { accessor._SetRecordSize(value); }
+            get { return Cast<FishingRodAccessor>()._GetRecordSize(); }
+            set { Cast<FishingRodAccessor>()._SetRecordSize(value); }
         }
 
         public bool TreasureCaught
         {
-            get { return accessor._GetTreasureCaught(); }
-            set { accessor._SetTreasureCaught(value); }
+            get { return Cast<FishingRodAccessor>()._GetTreasureCaught(); }
+            set { Cast<FishingRodAccessor>()._SetTreasureCaught(value); }
         }
 
         public bool ShowingTreasure
         {
-            get { return accessor._GetShowingTreasure(); }
-            set { accessor._SetShowingTreasure(value); }
+            get { return Cast<FishingRodAccessor>()._GetShowingTreasure(); }
+            set { Cast<FishingRodAccessor>()._SetShowingTreasure(value); }
         }
 
         public bool HadBobber
         {
-            get { return accessor._GetHadBobber(); }
-            set { accessor._SetHadBobber(value); }
+            get { return Cast<FishingRodAccessor>()._GetHadBobber(); }
+            set { Cast<FishingRodAccessor>()._SetHadBobber(value); }
         }
 
         public bool BossFish
         {
-            get { return accessor._GetBossFish(); }
-            set { accessor._SetBossFish(value); }
+            get { return Cast<FishingRodAccessor>()._GetBossFish(); }
+            set { Cast<FishingRodAccessor>()._SetBossFish(value); }
         }
 
         public IList Animations
         {
-            get { return accessor._GetAnimations(); }
-            set { accessor._SetAnimations(value); }
+            get { return Cast<FishingRodAccessor>()._GetAnimations(); }
+            set { Cast<FishingRodAccessor>()._SetAnimations(value); }
         }
 
         public int FishSize
         {
-            get { return accessor._GetFishSize(); }
-            set { accessor._SetFishSize(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishSize(); }
+            set { Cast<FishingRodAccessor>()._SetFishSize(value); }
         }
 
         public int WhichFish
         {
-            get { return accessor._GetWhichFish(); }
-            set { accessor._SetWhichFish(value); }
+            get { return Cast<FishingRodAccessor>()._GetWhichFish(); }
+            set { Cast<FishingRodAccessor>()._SetWhichFish(value); }
         }
 
         public int FishQuality
         {
-            get { return accessor._GetFishQuality(); }
-            set { accessor._SetFishQuality(value); }
+            get { return Cast<FishingRodAccessor>()._GetFishQuality(); }
+            set { Cast<FishingRodAccessor>()._SetFishQuality(value); }
         }
 
         public int ClearWaterDistance
         {
-            get { return accessor._GetClearWaterDistance(); }
-            set { accessor._SetClearWaterDistance(value); }
+            get { return Cast<FishingRodAccessor>()._GetClearWaterDistance(); }
+            set { Cast<FishingRodAccessor>()._SetClearWaterDistance(value); }
         }
 
         public int OriginalFacingDirection
         {
-            get { return accessor._GetOriginalFacingDirection(); }
-            set { accessor._SetOriginalFacingDirection(value); }
+            get { return Cast<FishingRodAccessor>()._GetOriginalFacingDirection(); }
+            set { Cast<FishingRodAccessor>()._SetOriginalFacingDirection(value); }
         }
 
         public Cue ChargeSound
         {
-            get { return accessor._GetChargeSound(); }
-            set { accessor._SetChargeSound(value); }
+            get { return Cast<FishingRodAccessor>()._GetChargeSound(); }
+            set { Cast<FishingRodAccessor>()._SetChargeSound(value); }
         }
 
         public Cue ReelSound
         {
-            get { return accessor._GetReelSound(); }
-            set { accessor._SetReelSound(value); }
+            get { return Cast<FishingRodAccessor>()._GetReelSound(); }
+            set { Cast<FishingRodAccessor>()._SetReelSound(value); }
         }
 
         public bool UsedGamePadToCast
         {
-            get { return accessor._GetUsedGamePadToCast(); }
-            set { accessor._SetUsedGamePadToCast(value); }
+            get { return Cast<FishingRodAccessor>()._GetUsedGamePadToCast(); }
+            set { Cast<FishingRodAccessor>()._SetUsedGamePadToCast(value); }
         }
 
-        public new FishingRodAccessor Expose() => accessor;
+        public override object Expose() => Accessor;
     }
 }

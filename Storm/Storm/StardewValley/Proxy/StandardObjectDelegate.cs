@@ -26,11 +26,7 @@ namespace Storm.StardewValley.Proxy
         {
             this.parentSpriteSheetIndex = parentSpriteSheetIndex;
             this.initialStack = initialStack;
-        }
-
-        public override object[] GetConstructorParams()
-        {
-            return new object[] {parentSpriteSheetIndex, initialStack};
+            ConstructorParams = new object[] { parentSpriteSheetIndex, initialStack };
         }
     }
 }

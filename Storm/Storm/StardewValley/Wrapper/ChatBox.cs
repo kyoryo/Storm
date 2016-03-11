@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Matt Stevens (Handsome Matt)
+    Copyright 2016 Matt Stevens (Handsome Matt), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,16 +21,18 @@ namespace Storm.StardewValley.Wrapper
 {
     public class ChatBox : ClickableMenu
     {
-        private readonly ChatBoxAccessor accessor;
-
-        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) : base(parent, accessor)
+        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public ChatBox()
+        {
         }
 
         public void ReceiveChatMessage(string message, long who)
         {
-            accessor._ReceiveChatMessage(message, who);
+            Cast<ChatBoxAccessor>()._ReceiveChatMessage(message, who);
         }
     }
 }

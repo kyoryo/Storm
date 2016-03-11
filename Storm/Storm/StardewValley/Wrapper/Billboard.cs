@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,44 +23,45 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Billboard : ClickableMenu
     {
-        private readonly BillboardAccessor accessor;
-
         public Billboard(StaticContext parent, BillboardAccessor accessor) :
             base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Billboard()
+        {
         }
 
         public Texture2D BillboardTexture
         {
-            get { return accessor._GetBillboardTexture(); }
-            set { accessor._SetBillboardTexture(value); }
+            get { return Cast<BillboardAccessor>()._GetBillboardTexture(); }
+            set { Cast<BillboardAccessor>()._SetBillboardTexture(value); }
         }
 
         public bool DailyQuestBoard
         {
-            get { return accessor._GetDailyQuestBoard(); }
-            set { accessor._SetDailyQuestBoard(value); }
+            get { return Cast<BillboardAccessor>()._GetDailyQuestBoard(); }
+            set { Cast<BillboardAccessor>()._SetDailyQuestBoard(value); }
         }
 
         public ClickableComponent AcceptQuestButton
         {
-            get { return accessor._GetAcceptQuestButton() == null ? null : new ClickableComponent(Parent, accessor._GetAcceptQuestButton()); }
-            set { accessor._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
+            get { return Cast<BillboardAccessor>()._GetAcceptQuestButton() == null ? null : new ClickableComponent(Parent, Cast<BillboardAccessor>()._GetAcceptQuestButton()); }
+            set { Cast<BillboardAccessor>()._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
         }
 
         public WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
         {
             get
             {
-                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(accessor._GetCalendarDays(), i => new ClickableTextureComponent(Parent, i));
+                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(Cast<BillboardAccessor>()._GetCalendarDays(), i => new ClickableTextureComponent(Parent, i));
             }
         }
 
         public string HoverText
         {
-            get { return accessor._GetHoverText(); }
-            set { accessor._SetHoverText(value); }
+            get { return Cast<BillboardAccessor>()._GetHoverText(); }
+            set { Cast<BillboardAccessor>()._SetHoverText(value); }
         }
     }
 }

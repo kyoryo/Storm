@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,17 +19,17 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Item : Wrapper
+    public class Item : StaticContextWrapper
     {
-        private readonly ItemAccessor accessor;
-
-        public Item(StaticContext parent, ItemAccessor accessor)
+        public Item(StaticContext parent, ItemAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Accessor = accessor;
         }
 
-        public StaticContext Parent { get; }
+        public Item()
+        {
+        }
 
         public int SalePrice
         {
@@ -48,34 +48,34 @@ namespace Storm.StardewValley.Wrapper
 
         public int Category
         {
-            get { return accessor._GetCategory(); }
-            set { accessor._SetCategory(value); }
+            get { return Cast<ItemAccessor>()._GetCategory(); }
+            set { Cast<ItemAccessor>()._SetCategory(value); }
         }
 
         public bool HasBeenInInventory
         {
-            get { return accessor._GetHasBeenInInventory(); }
-            set { accessor._SetHasBeenInInventory(value); }
+            get { return Cast<ItemAccessor>()._GetHasBeenInInventory(); }
+            set { Cast<ItemAccessor>()._SetHasBeenInInventory(value); }
         }
 
         public bool IsSpecialItem
         {
-            get { return accessor._GetSpecialItem(); }
-            set { accessor._SetSpecialItem(value); }
+            get { return Cast<ItemAccessor>()._GetSpecialItem(); }
+            set { Cast<ItemAccessor>()._SetSpecialItem(value); }
         }
 
         public int SpecialVariable
         {
-            get { return accessor._GetSpecialVariable(); }
-            set { accessor._SetSpecialVariable(value); }
+            get { return Cast<ItemAccessor>()._GetSpecialVariable(); }
+            set { Cast<ItemAccessor>()._SetSpecialVariable(value); }
         }
 
-        public bool IsTool() => accessor is ToolAccessor;
-        public Tool ToTool() => accessor == null ? null : new Tool(Parent, (ToolAccessor)accessor);
+        public bool IsTool() => Cast<ItemAccessor>() is ToolAccessor;
+        public Tool ToTool() => Cast<ItemAccessor>() == null ? null : new Tool(Parent, (ToolAccessor)Cast<ItemAccessor>());
 
-        public bool IsObject() => accessor is ObjectAccessor;
-        public ObjectItem ToObject() => accessor == null ? null : new ObjectItem(Parent, (ObjectAccessor)accessor);
+        public bool IsObject() => Cast<ItemAccessor>() is ObjectAccessor;
+        public ObjectItem ToObject() => Cast<ItemAccessor>() == null ? null : new ObjectItem(Parent, (ObjectAccessor)Cast<ItemAccessor>());
 
-        public object Expose() => accessor;
+        public override object Expose() => Accessor;
     }
 }

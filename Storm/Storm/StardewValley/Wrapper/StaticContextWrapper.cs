@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,11 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
-namespace Storm.StardewValley.Proxy
+namespace Storm.StardewValley.Wrapper
 {
-    public abstract class CraftingRecipeDelegate : TypeDelegate<CraftingRecipeAccessor>
+    public abstract class StaticContextWrapper : ChildWrapper<StaticContext>
     {
+        public StaticContextWrapper(StaticContext parent) : 
+            base(parent)
+        {
+        }
+
+        public StaticContextWrapper()
+        {
+        }
     }
 }

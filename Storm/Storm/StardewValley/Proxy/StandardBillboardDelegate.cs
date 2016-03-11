@@ -24,11 +24,7 @@ namespace Storm.StardewValley.Proxy
         public StandardBillboardDelegate(bool dailyQuest = false)
         {
             this.dailyQuest = dailyQuest;
-        }
-
-        public override object[] GetConstructorParams()
-        {
-            return new object[] {dailyQuest};
+            ConstructorParams = new object[] { dailyQuest };
         }
     }
 }

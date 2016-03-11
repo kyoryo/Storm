@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,18 +23,20 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Chest : ObjectItem
     {
-        private readonly ChestAccessor accessor;
-
-        public Chest(StaticContext parent, ChestAccessor accessor) : base(parent, accessor)
+        public Chest(StaticContext parent, ChestAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Chest()
+        {
         }
 
         public WrappedProxyList<ItemAccessor, Item> Items
         {
             get
             {
-                var tmp = accessor._GetItems();
+                var tmp = Cast<ChestAccessor>()._GetItems();
                 if (tmp == null) return null;
                 return new WrappedProxyList<ItemAccessor, Item>(tmp, i => new Item(Parent, i));
             }
@@ -42,55 +44,55 @@ namespace Storm.StardewValley.Wrapper
 
         public int CurrentLidFrame
         {
-            get { return accessor._GetCurrentLidFrame(); }
-            set { accessor._SetCurrentLidFrame(value); }
+            get { return Cast<ChestAccessor>()._GetCurrentLidFrame(); }
+            set { Cast<ChestAccessor>()._SetCurrentLidFrame(value); }
         }
 
         public int FrameCounter
         {
-            get { return accessor._GetFrameCounter(); }
-            set { accessor._SetFrameCounter(value); }
+            get { return Cast<ChestAccessor>()._GetFrameCounter(); }
+            set { Cast<ChestAccessor>()._SetFrameCounter(value); }
         }
 
         public int Coins
         {
-            get { return accessor._GetCoins(); }
-            set { accessor._SetCoins(value); }
+            get { return Cast<ChestAccessor>()._GetCoins(); }
+            set { Cast<ChestAccessor>()._SetCoins(value); }
         }
 
         public Farmer Opener
         {
             get
             {
-                var tmp = accessor._GetOpener();
+                var tmp = Cast<ChestAccessor>()._GetOpener();
                 if (tmp == null) return null;
                 return new Farmer(Parent, tmp);
             }
-            set { accessor._SetOpener(value?.Cast<FarmerAccessor>()); }
+            set { Cast<ChestAccessor>()._SetOpener(value?.Cast<FarmerAccessor>()); }
         }
 
         public string ChestType
         {
-            get { return accessor._GetChestType(); }
-            set { accessor._SetChestType(value); }
+            get { return Cast<ChestAccessor>()._GetChestType(); }
+            set { Cast<ChestAccessor>()._SetChestType(value); }
         }
 
         public Color Tint
         {
-            get { return accessor._GetTint(); }
-            set { accessor._SetTint(value); }
+            get { return Cast<ChestAccessor>()._GetTint(); }
+            set { Cast<ChestAccessor>()._SetTint(value); }
         }
 
         public bool PlayerChest
         {
-            get { return accessor._GetPlayerChest(); }
-            set { accessor._SetPlayerChest(value); }
+            get { return Cast<ChestAccessor>()._GetPlayerChest(); }
+            set { Cast<ChestAccessor>()._SetPlayerChest(value); }
         }
 
         public bool Giftbox
         {
-            get { return accessor._GetGiftbox(); }
-            set { accessor._SetGiftbox(value); }
+            get { return Cast<ChestAccessor>()._GetGiftbox(); }
+            set { Cast<ChestAccessor>()._SetGiftbox(value); }
         }
     }
 }

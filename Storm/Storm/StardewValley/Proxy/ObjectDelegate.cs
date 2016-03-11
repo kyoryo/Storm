@@ -21,8 +21,6 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class ObjectDelegate : TypeDelegate<ObjectItem>
     {
-        public abstract object[] GetConstructorParams();
-
         public virtual OverrideEvent DrawInMenu(object[] @params)
         {
             return new OverrideEvent

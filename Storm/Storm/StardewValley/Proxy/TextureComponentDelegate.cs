@@ -21,6 +21,5 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class TextureComponentDelegate : TypeDelegate<ClickableTextureComponent>
     {
-        public abstract object[] GetConstructorParams();
     }
 }
