@@ -19,5 +19,19 @@ namespace Storm.StardewValley.Accessor
 {
     public interface RingAccessor
     {
+        System.String _GetDescription();
+        void _SetDescription(System.String val);
+
+        System.String _GetName();
+        void _SetName(System.String val);
+
+        int _GetPrice();
+        void _SetPrice(int val);
+
+        int _GetIndexInTileSheet();
+        void _SetIndexInTileSheet(int val);
+
+        int _GetUniqueID();
+        void _SetUniqueID(int val);
     }
 }

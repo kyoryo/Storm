@@ -15,23 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Storm.StardewValley.Accessor
 {
-    public interface HatAccessor
+    public interface WandAccessor : ToolAccessor
     {
-        int _GetWhich();
-        void _SetWhich(int val);
-
-        System.String _GetDescription();
-        void _SetDescription(System.String val);
-
-        System.String _GetName();
-        void _SetName(System.String val);
-
-        bool _GetSkipHairDraw();
-        void _SetSkipHairDraw(bool val);
-
-        bool _GetIgnoreHairstyleOffset();
-        void _SetIgnoreHairstyleOffset(bool val);
+        bool _GetCharged();
+        void _SetCharged(bool val);
     }
 }

@@ -19,5 +19,10 @@ namespace Storm.StardewValley.Accessor
 {
     public interface SeedsAccessor
     {
+        System.String _GetSeedType();
+        void _SetSeedType(System.String val);
+
+        int _GetNumberInStack();
+        void _SetNumberInStack(int val);
     }
 }

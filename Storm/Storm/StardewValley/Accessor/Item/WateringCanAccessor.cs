@@ -19,5 +19,10 @@ namespace Storm.StardewValley.Accessor
 {
     public interface WateringCanAccessor
     {
+        int _GetWaterCanMax();
+        void _SetWaterCanMax(int val);
+
+        int _GetWaterLeft();
+        void _SetWaterLeft(int val);
     }
 }

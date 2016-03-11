@@ -19,5 +19,31 @@ namespace Storm.StardewValley.Accessor
 {
     public interface CrabPotAccessor
     {
+        float _GetYBob();
+        void _SetYBob(float val);
+
+        Microsoft.Xna.Framework.Vector2 _GetDirectionOffset();
+        void _SetDirectionOffset(Microsoft.Xna.Framework.Vector2 val);
+
+        ObjectAccessor _GetBait();
+        void _SetBait(ObjectAccessor val);
+
+        int _GetTileIndexToShow();
+        void _SetTileIndexToShow(int val);
+
+        bool _GetLidFlapping();
+        void _SetLidFlapping(bool val);
+
+        bool _GetLidClosing();
+        void _SetLidClosing(bool val);
+
+        float _GetLidFlapTimer();
+        void _SetLidFlapTimer(float val);
+
+        float _GetShakeTimer();
+        void _SetShakeTimer(float val);
+
+        Microsoft.Xna.Framework.Vector2 _GetShake();
+        void _SetShake(Microsoft.Xna.Framework.Vector2 val);
     }
 }
