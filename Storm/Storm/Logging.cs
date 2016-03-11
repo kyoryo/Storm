@@ -31,7 +31,7 @@ namespace Storm
 
         public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
         {
-            LogToFile(e.ToString());
+            LogToFile(e.ExceptionObject.ToString());
             MessageBox.Show("Your game seems to have crashed! We've generated a crash log for you in\n" + StormAPI.GetResource("storm_log.txt"), "Oh no!");
         };
 
