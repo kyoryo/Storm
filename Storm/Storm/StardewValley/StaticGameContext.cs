@@ -22,7 +22,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
-using Storm.Collections;
 using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
 using Storm.StardewValley.Proxy;
@@ -830,22 +829,6 @@ namespace Storm.StardewValley
         {
             var itemsForSale = new WrappedProxyList<ItemAccessor, Item>(list, i => new Item(WrappedGame, i));
             var @event = new PostConstructShopViaListEvent(shopMenu == null ? null : new ShopMenu(WrappedGame, shopMenu), itemsForSale, currency, who);
-            FireEvent(@event);
-            return @event;
-        }
-
-        public static DetourEvent PreConstructShopViaDictCallback(ShopMenuAccessor shopMenu, IDictionary dict, int currency = 0, string who = null)
-        {
-            var itemPriceAndStock = new KeyProxyDictionary<Item, int[]>(dict);
-            var @event = new PreConstructShopViaDictEvent(new ShopMenu(WrappedGame, shopMenu), itemPriceAndStock, currency, who);
-            FireEvent(@event);
-            return @event;
-        }
-
-        public static DetourEvent PostConstructShopViaDictCallback(ShopMenuAccessor shopMenu, IDictionary dict, int currency = 0, string who = null)
-        {
-            var itemPriceAndStock = new KeyProxyDictionary<Item, int[]>(dict);
-            var @event = new PostConstructShopViaDictEvent(new ShopMenu(WrappedGame, shopMenu), itemPriceAndStock, currency, who);
             FireEvent(@event);
             return @event;
         }

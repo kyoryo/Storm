@@ -179,8 +179,6 @@
     <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtPlantEvent.cs" />
     <Compile Include="StardewValley\Event\Object\PostObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
-    <Compile Include="StardewValley\Event\ShopMenu\PostConstructShopViaDictEvent.cs" />
-    <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaDictEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
