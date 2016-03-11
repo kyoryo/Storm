@@ -15,15 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections.Generic;
+
 namespace Storm.StardewValley.Proxy
 {
     public abstract class TypeDelegate<T>
     {
-        public virtual object[] ConstructorParams { get; set; }
-
-        public TypeDelegate() {
-            ConstructorParams = new object[0];
-        }
+        public List<object> ConstructorParams { get; } = new List<object>();
 
         public T Accessor { get; set; }
     }

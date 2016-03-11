@@ -24,12 +24,15 @@ namespace Storm.StardewValley.Proxy
     {
         public AnimatedSpriteDelegate(Texture2D texture)
         {
-            ConstructorParams = new object[] { texture };
+            ConstructorParams.Add(texture);
         }
 
         public AnimatedSpriteDelegate(Texture2D texture, int currentFrame, int spriteWidth, int spriteHeight)
         {
-            ConstructorParams = new object[] { texture, currentFrame, spriteWidth, spriteHeight };
+            ConstructorParams.Add(texture);
+            ConstructorParams.Add(currentFrame);
+            ConstructorParams.Add(spriteWidth);
+            ConstructorParams.Add(spriteHeight);
         }
     }
 }
