@@ -844,14 +844,14 @@ namespace Storm.StardewValley
             return @event;
         }
 
-        public static DetourEvent PreFishingRodTickUpdateCallback(FishingRodAccessor accessor, Microsoft.Xna.Framework.GameTime time, FarmerAccessor who)
+        public static DetourEvent PreFishingRodTickUpdateCallback(FishingRodAccessor accessor, GameTime time, FarmerAccessor who)
         {
             var @event = new PreFishingRodTickUpdateEvent(new FishingRod(WrappedGame, accessor), time, who == null ? null : new Farmer(WrappedGame, who));
             FireEvent(@event);
             return @event;
         }
 
-        public static DetourEvent PostFishingRodTickUpdateCallback(FishingRodAccessor accessor, Microsoft.Xna.Framework.GameTime time, FarmerAccessor who)
+        public static DetourEvent PostFishingRodTickUpdateCallback(FishingRodAccessor accessor, GameTime time, FarmerAccessor who)
         {
             var @event = new PostFishingRodTickUpdateEvent(new FishingRod(WrappedGame, accessor), time, who == null ? null : new Farmer(WrappedGame, who));
             FireEvent(@event);
