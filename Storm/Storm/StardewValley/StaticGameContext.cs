@@ -698,7 +698,21 @@ namespace Storm.StardewValley
 
         public static DetourEvent PostHarvestCropCallback(CropAccessor accessor)
         {
-            var @event = new PreHarvestCropEvent(accessor == null ? null : new Crop(WrappedGame, accessor));
+            var @event = new PostHarvestCropEvent(accessor == null ? null : new Crop(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PreCropConstructorCallback(CropAccessor accessor, int seedIndex, int tileX, int tileY)
+        {
+            var @event = new PreCropConstructorEvent(accessor == null ? null : new Crop(WrappedGame, accessor), seedIndex, tileX, tileY);
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostCropConstructorCallback(CropAccessor accessor, int seedIndex, int tileX, int tileY)
+        {
+            var @event = new PostCropConstructorEvent(accessor == null ? null : new Crop(WrappedGame, accessor), seedIndex, tileX, tileY);
             FireEvent(@event);
             return @event;
         }
@@ -934,10 +948,5 @@ namespace Storm.StardewValley
 
         #endregion
 
-        public static DetourEvent PostCropConstructorCallback(CropAccessor accessor, int i1, int i2, int i3)
-        {
-            Logging.DebugLog("..");
-            return new DetourEvent();
-        }
     }
 }
