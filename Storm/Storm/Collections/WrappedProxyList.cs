@@ -38,6 +38,14 @@ namespace Storm.Collections
             this.wrapper = wrapper;
         }
 
+        internal IList Real
+        {
+            get
+            {
+                return real;
+            }
+        }
+
         public int Count
         {
             get
