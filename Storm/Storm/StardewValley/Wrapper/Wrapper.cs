@@ -31,6 +31,7 @@ namespace Storm.StardewValley.Wrapper
         }
 
         public bool Is<A>() => Underlying is A;
+
         public virtual T As<T, A>() where T : Wrapper
         {
             if (!Is<A>()) return null;

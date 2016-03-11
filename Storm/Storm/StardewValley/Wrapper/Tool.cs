@@ -52,7 +52,7 @@ namespace Storm.StardewValley.Wrapper
         /// The description of this tool
         /// </summary>
         /// <value>The Description propertly gets/sets the value of the string field Description</value>
-        public string Description
+        public new string Description
         {
             get { return Cast<ToolAccessor>()._GetDescription(); }
             set { Cast<ToolAccessor>()._SetDescription(value); }

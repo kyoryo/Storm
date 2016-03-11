@@ -27,7 +27,7 @@ namespace Storm.StardewValley.Accessor
         string _GetName();
         void _SetName(string name);
 
-        string _GetDescription();
+        new string _GetDescription();
         void _SetDescription(string desc);
 
         bool _GetIsStackable();
