@@ -25,7 +25,7 @@ namespace Storm.StardewValley.Wrapper
         public Character(StaticContext parent, CharacterAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public Character()
@@ -95,7 +95,5 @@ namespace Storm.StardewValley.Wrapper
             }
             set { Cast<CharacterAccessor>()._SetSprite(value?.Cast<AnimatedSpriteAccessor>()); }
         }
-
-        public override object Expose() => Accessor;
     }
 }

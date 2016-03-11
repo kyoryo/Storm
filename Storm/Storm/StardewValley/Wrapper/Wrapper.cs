@@ -21,17 +21,16 @@ namespace Storm.StardewValley.Wrapper
 {
     public abstract class Wrapper
     {
-        public abstract object Expose();
-        public object Accessor { get; set; }
+        public object Underlying { get; set; }
 
-        public bool IsNull() => Accessor == null;
+        public bool IsNull() => Underlying == null;
 
         public T Cast<T>()
         {
-            return (T)this.Expose();
+            return (T)this.Underlying;
         }
 
-        public bool Is<A>() => Accessor is A;
+        public bool Is<A>() => Underlying is A;
         public virtual T As<T, A>() where T : Wrapper
         {
             if (!Is<A>()) return null;
@@ -41,7 +40,7 @@ namespace Storm.StardewValley.Wrapper
 
         public virtual T As<T, A>(T instance) where T : Wrapper
         {
-            instance.Accessor = Cast<A>();
+            instance.Underlying = Cast<A>();
             return instance;
         }
     }

@@ -84,29 +84,29 @@ namespace Storm.Collections
         {
             get
             {
-                return valueWrapper((TOValue) real[key.Expose()]);
+                return valueWrapper((TOValue) real[key.Underlying]);
             }
 
             set
             {
-                real[key.Expose()] = value.Expose();
+                real[key.Underlying] = value.Underlying;
             }
         }
 
         public bool ContainsKey(TKey key)
         {
-            return real.Contains(key.Expose());
+            return real.Contains(key.Underlying);
         }
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key.Expose(), value.Expose());
+            real.Add(key.Underlying, value.Underlying);
         }
 
         public bool Remove(TKey key)
         {
             if (!ContainsKey(key)) return false;
-            real.Remove(key.Expose());
+            real.Remove(key.Underlying);
             return true;
         }
 
@@ -123,7 +123,7 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key.Expose(), item.Value.Expose());
+            real.Add(item.Key.Underlying, item.Value.Underlying);
         }
 
         public void Clear()
@@ -135,7 +135,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key.Expose()) && real[key].Equals(item.Value.Expose()))
+                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value.Underlying))
                 {
                     return true;
                 }
@@ -152,7 +152,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key.Expose()) && real[key].Equals(item.Value.Expose()))
+                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value.Underlying))
                 {
                     real.Remove(key);
                     return true;

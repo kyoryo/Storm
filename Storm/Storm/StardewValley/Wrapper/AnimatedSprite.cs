@@ -25,7 +25,7 @@ namespace Storm.StardewValley.Wrapper
         public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public AnimatedSprite()
@@ -46,7 +46,5 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return Cast<AnimatedSpriteAccessor>()._GetSpriteHeight(); }
         }
-
-        public override object Expose() => Accessor;
     }
 }

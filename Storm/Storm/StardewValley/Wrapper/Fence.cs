@@ -84,7 +84,5 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<FenceAccessor>()._GetIsGate(); }
             set { Cast<FenceAccessor>()._SetIsGate(value); }
         }
-
-        public override object Expose() => Accessor;
     }
 }

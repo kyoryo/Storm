@@ -24,13 +24,11 @@ namespace Storm.StardewValley.Wrapper
         public TerrainFeature(StaticContext parent, TerrainFeatureAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public TerrainFeature()
         {
         }
-
-        public override object Expose() => Accessor;
     }
 }

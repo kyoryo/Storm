@@ -24,14 +24,12 @@ namespace Storm.StardewValley.Wrapper
         public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public ClickableMenu()
         {
         }
-
-        public override object Expose() => Accessor;
 
         public bool IsChatBox() => Cast<ClickableMenuAccessor>() is ChatBoxAccessor;
         public ChatBox ToChatBox() => new ChatBox(Parent, Cast<ClickableMenuAccessor>() as ChatBoxAccessor);

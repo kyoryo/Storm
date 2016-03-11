@@ -54,7 +54,7 @@ namespace Storm.StardewValley
         public T Proxy<T, A>(TypeDelegate<T> @delegate, T instance) where T : StaticContextWrapper
         {
             instance.Parent = Root;
-            instance.Accessor = StaticGameContext.ProxyAccessor<A, TypeDelegate<T>>(@delegate, @delegate.ConstructorParams);
+            instance.Underlying = StaticGameContext.ProxyAccessor<A, TypeDelegate<T>>(@delegate, @delegate.ConstructorParams);
             @delegate.Accessor = instance;
             return instance;
         }

@@ -24,7 +24,7 @@ namespace Storm.StardewValley.Wrapper
         public Crop(StaticContext parent, CropAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public Crop()
@@ -161,7 +161,5 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
             set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
         }
-
-        public override object Expose() => Accessor;
     }
 }

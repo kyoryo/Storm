@@ -27,7 +27,7 @@ namespace Storm.StardewValley.Wrapper
         public Event(StaticContext parent, EventAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public Event()
@@ -309,7 +309,5 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<EventAccessor>()._GetSpecialEventVariable2(); }
             set { Cast<EventAccessor>()._SetSpecialEventVariable2(value); }
         }
-
-        public override object Expose() => Accessor;
     }
 }

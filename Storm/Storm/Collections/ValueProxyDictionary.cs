@@ -86,7 +86,7 @@ namespace Storm.Collections
 
             set
             {
-                real[key] = value.Expose();
+                real[key] = value.Underlying;
             }
         }
 
@@ -97,7 +97,7 @@ namespace Storm.Collections
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key, value.Expose());
+            real.Add(key, value.Underlying);
         }
 
         public bool Remove(TKey key)
@@ -120,7 +120,7 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key, item.Value.Expose());
+            real.Add(item.Key, item.Value.Underlying);
         }
 
         public void Clear()
@@ -132,7 +132,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value.Expose()))
+                if (key.Equals(item.Key) && real[key].Equals(item.Value.Underlying))
                 {
                     return true;
                 }
@@ -149,7 +149,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value.Expose()))
+                if (key.Equals(item.Key) && real[key].Equals(item.Value.Underlying))
                 {
                     real.Remove(item.Key);
                     return true;

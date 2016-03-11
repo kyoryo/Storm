@@ -26,7 +26,7 @@ namespace Storm.StardewValley.Wrapper
         public GameLocation(StaticContext parent, GameLocationAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public GameLocation()
@@ -115,7 +115,5 @@ namespace Storm.StardewValley.Wrapper
             }
             return null;
         }
-
-        public override object Expose() => Accessor;
     }
 }

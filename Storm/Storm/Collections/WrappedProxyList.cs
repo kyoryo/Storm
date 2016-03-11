@@ -63,18 +63,18 @@ namespace Storm.Collections
 
             set
             {
-                real[index] = value == null ? null : value.Expose();
+                real[index] = value == null ? null : value.Underlying;
             }
         }
 
         public int IndexOf(TValue item)
         {
-            return real.IndexOf(item.Expose());
+            return real.IndexOf(item.Underlying);
         }
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item == null ? null : item.Expose());
+            real.Insert(index, item == null ? null : item.Underlying);
         }
 
         public void RemoveAt(int index)
@@ -84,7 +84,7 @@ namespace Storm.Collections
 
         public void Add(TValue item)
         {
-            real.Add(item == null ? null : item.Expose());
+            real.Add(item == null ? null : item.Underlying);
         }
 
         public void Clear()
@@ -94,7 +94,7 @@ namespace Storm.Collections
 
         public bool Contains(TValue item)
         {
-            return real.Contains(item.Expose());
+            return real.Contains(item.Underlying);
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
@@ -105,7 +105,7 @@ namespace Storm.Collections
         public bool Remove(TValue item)
         {
             if (!Contains(item)) return false;
-            real.Remove(item.Expose());
+            real.Remove(item.Underlying);
             return true;
         }
 

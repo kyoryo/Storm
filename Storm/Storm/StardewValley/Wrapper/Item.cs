@@ -24,7 +24,7 @@ namespace Storm.StardewValley.Wrapper
         public Item(StaticContext parent, ItemAccessor accessor) : 
             base(parent)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public Item()
@@ -75,7 +75,5 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsObject() => Cast<ItemAccessor>() is ObjectAccessor;
         public ObjectItem ToObject() => Cast<ItemAccessor>() == null ? null : new ObjectItem(Parent, (ObjectAccessor)Cast<ItemAccessor>());
-
-        public override object Expose() => Accessor;
     }
 }

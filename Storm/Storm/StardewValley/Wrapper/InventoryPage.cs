@@ -38,7 +38,7 @@ namespace Storm.StardewValley.Wrapper
                 if (tmp == null) return null;
                 return new InventoryMenu(Parent, tmp);
             }
-            set { Cast<InventoryPageAccessor>()._SetInventory((InventoryMenuAccessor)value?.Expose()); }
+            set { Cast<InventoryPageAccessor>()._SetInventory((InventoryMenuAccessor)value?.Underlying); }
         }
 
         public string DescriptionText

@@ -26,6 +26,7 @@ using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Accessor;
 using xTile.Display;
 using Rectangle = xTile.Dimensions.Rectangle;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
@@ -33,7 +34,7 @@ namespace Storm.StardewValley.Wrapper
     {
         public StaticContext(StaticContextAccessor accessor)
         {
-            Accessor = accessor;
+            Underlying = accessor;
         }
 
         public StaticContext()
@@ -42,7 +43,7 @@ namespace Storm.StardewValley.Wrapper
 
         public GameWindow Window
         {
-            get { return ((Game) Cast<StaticContextAccessor>()).Window; }
+            get { return ((Game)Cast<StaticContextAccessor>()).Window; }
         }
 
         public Rectangle Viewport
@@ -68,9 +69,25 @@ namespace Storm.StardewValley.Wrapper
         /// The current location of the player in the world
         /// </summary>
         /// <value>The CurrentLocation property gets the value of the GameLocation field CurrentLocation</value>
-        public GameLocation CurrentLocation => Cast<StaticContextAccessor>()._GetCurrentLocation() == null ? null : new GameLocation(this, Cast<StaticContextAccessor>()._GetCurrentLocation());
+        public GameLocation CurrentLocation
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetCurrentLocation();
+                if (tmp == null) return null;
+                return new GameLocation(this, Cast<StaticContextAccessor>()._GetCurrentLocation());
+            }
+        }
 
-        public IList Locations => Cast<StaticContextAccessor>()._GetLocations();
+        public WrappedProxyList<GameLocationAccessor, GameLocation> Locations
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetLocations();
+                if (tmp == null) return null;
+                return new WrappedProxyList<GameLocationAccessor, GameLocation>(tmp, i => new GameLocation(this, i));
+            }
+        }
 
         public bool IsActive
         {
@@ -1558,7 +1575,5 @@ namespace Storm.StardewValley.Wrapper
             var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
-
-        public override object Expose() => Accessor;
     }
 }
