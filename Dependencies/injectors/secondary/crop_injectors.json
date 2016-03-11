@@ -144,6 +144,22 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PostHarvestCropCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
+    },
+	{
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreCropConstructorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": ".ctor",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostCropConstructorCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent"
     }
   ]
 }
