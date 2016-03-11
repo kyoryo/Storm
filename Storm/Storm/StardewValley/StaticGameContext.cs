@@ -933,5 +933,11 @@ namespace Storm.StardewValley
         }
 
         #endregion
+
+        public static DetourEvent PostCropConstructorCallback(CropAccessor accessor, int i1, int i2, int i3)
+        {
+            Logging.DebugLog("..");
+            return new DetourEvent();
+        }
     }
 }
