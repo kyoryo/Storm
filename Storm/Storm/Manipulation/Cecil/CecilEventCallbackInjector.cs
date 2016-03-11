@@ -261,13 +261,7 @@ namespace Storm.Manipulation.Cecil
                 {
                     foreach (var instruction in body.Instructions.Where(i => i != continueNormalJump))
                     {
-                        var oc = instruction.OpCode;
-                        if (oc == OpCodes.Brtrue || oc == OpCodes.Brtrue_S ||
-                            oc == OpCodes.Brfalse || oc == OpCodes.Brfalse_S ||
-                            oc == OpCodes.Br || oc == OpCodes.Br_S ||
-                            oc == OpCodes.Bne_Un || oc == OpCodes.Bne_Un_S ||
-                            oc == OpCodes.Ble || oc == OpCodes.Ble_S || 
-                            oc == OpCodes.Blt || oc == OpCodes.Blt_S)
+                        if (CecilUtils.IsJump(instruction.OpCode))
                         {
                             var idx = body.Instructions.IndexOf(instruction.Operand as Instruction);
                             var targetIdx = body.Instructions.IndexOf(jmpTarget);
