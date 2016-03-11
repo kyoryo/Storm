@@ -79,19 +79,24 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public bool IsActive
+        {
+            get { return Cast<Game>().IsActive; }
+        }
+
         public WrappedProxyList<GameLocationAccessor, GameLocation> Locations
         {
             get
             {
-                var tmp = Cast<StaticContextAccessor>()._GetLocations();
-                if (tmp == null) return null;
-                return new WrappedProxyList<GameLocationAccessor, GameLocation>(tmp, i => new GameLocation(this, i));
+                var locations = Cast<StaticContextAccessor>()._GetLocations();
+                if (locations == null) return null;
+                return new WrappedProxyList<GameLocationAccessor, GameLocation>(
+                    locations, c => new GameLocation(this, c));
             }
-        }
-
-        public bool IsActive
-        {
-            get { return Cast<Game>().IsActive; }
+            set
+            {
+                Cast<StaticContextAccessor>()._SetLocations(value.Real);
+            }
         }
 
         public int PixelZoom

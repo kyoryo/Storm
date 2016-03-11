@@ -19,12 +19,9 @@ namespace Storm.StardewValley.Proxy
 {
     public class StandardBillboardDelegate : BillboardDelegate
     {
-        private readonly bool dailyQuest;
-
         public StandardBillboardDelegate(bool dailyQuest = false)
         {
-            this.dailyQuest = dailyQuest;
-            ConstructorParams = new object[] { dailyQuest };
+            ConstructorParams.Add(dailyQuest);
         }
     }
 }
