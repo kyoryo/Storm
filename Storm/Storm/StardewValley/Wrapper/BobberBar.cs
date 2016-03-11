@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class BobberBar : ClickableMenu
     {
-        public BobberBar(StaticContext parent, BobberBarAccessor accessor) : 
+        public BobberBar(StaticContext parent, BobberBarAccessor accessor) :
             base(parent, accessor)
         {
         }

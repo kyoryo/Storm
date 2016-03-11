@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
+    Copyright 2016
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,20 +15,25 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.Collections;
 using Storm.StardewValley.Accessor;
+using Storm.StardewValley.Wrapper;
 
-namespace Storm.StardewValley.Wrapper
+namespace Storm.StardewValley.Event
 {
-    public class ClickableTextureComponent :
-        ClickableComponent
+    public class PostCropConstructorEvent : StaticContextEvent
     {
-        public ClickableTextureComponent(StaticContext parent, ClickableTextureComponentAccessor accessor) :
-            base(parent, accessor)
+        public PostCropConstructorEvent(Crop crop, int seedIndex = 0, int tileX = 0, int tileY = 0)
         {
+            Crop = crop;
+            SeedIndex = seedIndex;
+            TileX = tileX;
+            TileY = tileY;
         }
 
-        public ClickableTextureComponent()
-        {
-        }
+        public Crop Crop { get; }
+        public int SeedIndex { get; }
+        public int TileX { get; }
+        public int TileY { get; }
     }
 }

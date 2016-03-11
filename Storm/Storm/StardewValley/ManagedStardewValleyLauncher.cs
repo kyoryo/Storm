@@ -38,17 +38,11 @@ namespace Storm.StardewValley
     /// </summary>
     public class ManagedStardewValleyLauncher
     {
-        public ManagedStardewValleyLauncher(string injectorsPath, string gamePath, bool debug = false)
+        public ManagedStardewValleyLauncher(string gamePath, bool debug = false)
         {
-            InjectorsPath = injectorsPath;
             GamePath = gamePath;
             Debug = debug;
         }
-
-        /// <summary>
-        ///     The file path to the injectors json.
-        /// </summary>
-        public string InjectorsPath { get; set; }
 
         /// <summary>
         ///     The file  path to the game executable.
@@ -66,7 +60,10 @@ namespace Storm.StardewValley
         {
             if (!File.Exists(StormAPI.GetResource("interface_injectors.json")))
             {
-                MessageBox.Show("Could not find injectors @\n" + InjectorsPath, "Error");
+                MessageBox.Show("Could not find injectors @\n" +
+                    StormAPI.GetResource("interface_injectors.json") + " /\n" +
+                    StormAPI.GetResource("secondary") + "\\", "Error");
+
                 Environment.Exit(1);
             }
 

@@ -131,7 +131,7 @@ namespace Storm.Manipulation
             var reader = new StreamReader(@in);
             var json = reader.ReadToEnd();
             reader.Close();
-            
+
             var container = JsonConvert.DeserializeObject<JsonParamContainer>(json);
             if (container == null) return;
 

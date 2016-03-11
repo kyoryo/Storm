@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Horse : NPC
     {
-        public Horse(StaticContext parent, HorseAccessor accessor) : 
+        public Horse(StaticContext parent, HorseAccessor accessor) :
             base(parent, accessor)
         {
         }

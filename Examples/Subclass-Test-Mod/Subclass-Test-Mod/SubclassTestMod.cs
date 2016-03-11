@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Wrapper;
 using Storm.StardewValley.Proxy;
 
@@ -32,9 +33,9 @@ namespace Subclass_Test_Mod
 
         private class CustomObject : ObjectDelegate
         {
-            public override object[] GetConstructorParams()
+            public CustomObject()
             {
-                return new object[] { (int)3, (int)2, };
+                ConstructorParams = new object[] { Vector2.Zero, 3, 2 };
             }
         }
 
@@ -52,12 +53,12 @@ namespace Subclass_Test_Mod
                 {
                     pressedLast = true;
 
-                    var customTool = @event.ProxyTool(new CustomTool());
+                    var customTool = @event.Proxy<ToolAccessor, Tool>(new CustomTool());
                     customTool.Name = "Tool name!";
                     customTool.Description = "Tool Desc! Pretty gooood.";
                     farmer.SetItem(0, customTool);
 
-                    var customObject = @event.ProxyObject(new CustomObject());
+                    var customObject = @event.Proxy<ObjectAccessor, ObjectItem>(new CustomObject());
                     customObject.Name = "Object name!";
                     farmer.SetItem(1, customObject);
                 }
@@ -66,7 +67,6 @@ namespace Subclass_Test_Mod
                     pressedLast = false;
                 }
             }
-            
         }
     }
 }

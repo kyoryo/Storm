@@ -39,7 +39,7 @@ namespace Storm
 
             AppDomain.CurrentDomain.UnhandledException += Logging.UnhandledExceptionHandler;
 
-            var launcher = new ManagedStardewValleyLauncher(StormAPI.GetResource("injectors.json"), "Stardew Valley.exe", true);
+            var launcher = new ManagedStardewValleyLauncher("Stardew Valley.exe", true);
             launcher.Launch();
         }
     }

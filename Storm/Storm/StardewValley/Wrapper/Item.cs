@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Item : StaticContextWrapper
     {
-        public Item(StaticContext parent, ItemAccessor accessor) : 
+        public Item(StaticContext parent, ItemAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;

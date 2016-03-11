@@ -45,6 +45,6 @@ namespace Storm.ExternalEvent
         public string Path { get; set; }
 
         // a mapping of textures to load
-        public Dictionary<string,string> Textures{get; set; } 
+        public Dictionary<string, string> Textures { get; set; }
     }
 }

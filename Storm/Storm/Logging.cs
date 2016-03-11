@@ -22,7 +22,7 @@ using System.Windows.Forms;
 
 namespace Storm
 {
-    public sealed class Logging
+    public static class Logging
     {
         public delegate void Logger(string msg);
 
@@ -41,10 +41,6 @@ namespace Storm
             var sr = new StreamWriter(@out, true);
             sr.WriteLine(s);
             sr.Close();
-        }
-
-        private Logging()
-        {
         }
 
         public static void Logs(string format, params object[] values)

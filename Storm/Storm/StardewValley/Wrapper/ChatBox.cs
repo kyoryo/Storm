@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class ChatBox : ClickableMenu
     {
-        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) : 
+        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) :
             base(parent, accessor)
         {
         }

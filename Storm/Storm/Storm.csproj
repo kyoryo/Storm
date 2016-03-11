@@ -119,7 +119,6 @@
     <Compile Include="ExternalEvent\DiskResource.cs" />
     <Compile Include="ExternalEvent\JsonModManifest.cs" />
     <Compile Include="ExternalEvent\ModAttribute.cs" />
-    <Compile Include="ExternalEvent\StreamModLoader.cs" />
     <Compile Include="Collections\KeyProxyDictionary.cs" />
     <Compile Include="Manipulation\Cecil\CecilInstanceDetourInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
@@ -164,6 +163,8 @@
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreCropConstructorEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeIntoSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeOutOfSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerDayUpdateEvent.cs" />
@@ -193,7 +194,6 @@
     <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
     <Compile Include="Collections\ValueProxyDictionary.cs" />
-    <Compile Include="ProxyList.cs" />
     <Compile Include="StardewValley\Accessor\AnimatedSpriteAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\AxeAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Building\BarnAccessor.cs" />

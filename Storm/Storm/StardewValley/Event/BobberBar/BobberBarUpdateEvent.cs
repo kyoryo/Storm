@@ -15,15 +15,20 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework;
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class BobberBarUpdateEvent : StaticContextEvent
     {
-        public BobberBarUpdateEvent(Microsoft.Xna.Framework.GameTime time)
+        public BobberBarUpdateEvent(BobberBar bobberBar, GameTime time)
         {
+            BobberBar = bobberBar;
             Time = time;
         }
 
-        public Microsoft.Xna.Framework.GameTime Time { get; }
+        public BobberBar BobberBar { get; }
+        public GameTime Time { get; }
     }
 }

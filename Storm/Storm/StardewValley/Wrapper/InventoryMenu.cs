@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class InventoryMenu : ClickableMenu
     {
-        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) : 
+        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) :
             base(parent, accessor)
         {
         }

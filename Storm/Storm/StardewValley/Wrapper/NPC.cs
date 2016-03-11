@@ -24,7 +24,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class NPC : Character
     {
-        public NPC(StaticContext parent, NPCAccessor accessor) : 
+        public NPC(StaticContext parent, NPCAccessor accessor) :
             base(parent, accessor)
         {
         }

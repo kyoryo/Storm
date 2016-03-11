@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class ClickableComponent : StaticContextWrapper
     {
-        public ClickableComponent(StaticContext parent, ClickableComponentAccessor accessor) : 
+        public ClickableComponent(StaticContext parent, ClickableComponentAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;

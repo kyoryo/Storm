@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class GameLocation : StaticContextWrapper
     {
-        public GameLocation(StaticContext parent, GameLocationAccessor accessor) : 
+        public GameLocation(StaticContext parent, GameLocationAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;
@@ -40,7 +40,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 var tmp = Cast<GameLocationAccessor>()._GetObjects();
                 if (tmp == null) return null;
-                return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp, 
+                return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp,
                     o => o == null ? null : new ObjectItem(Parent, o));
             }
         }
@@ -62,7 +62,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 var tmp = Cast<GameLocationAccessor>()._GetTerrainFeatures();
                 if (tmp == null) return null;
-                return new ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature>(tmp, 
+                return new ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature>(tmp,
                     tf => tf == null ? null : new TerrainFeature(Parent, tf));
             }
         }

@@ -58,11 +58,11 @@ namespace Storm.Manipulation.Cecil
                     MethodAttributes.Public |
                     MethodAttributes.ReuseSlot |
                     MethodAttributes.RTSpecialName,
-                    entry.Module.Import(typeof (void)));
+                    entry.Module.Import(typeof(void)));
 
                 var processor = method.Body.GetILProcessor();
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
-                processor.Append(processor.Create(OpCodes.Call, entry.Module.Import(typeof (object).GetConstructor(new Type[0]))));
+                processor.Append(processor.Create(OpCodes.Call, entry.Module.Import(typeof(object).GetConstructor(new Type[0]))));
                 processor.Append(processor.Create(OpCodes.Ret));
                 entry.Methods.Add(method);
             }

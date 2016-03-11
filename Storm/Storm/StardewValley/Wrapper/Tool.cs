@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Tool : Item
     {
-        public Tool(StaticContext parent, ToolAccessor accessor) : 
+        public Tool(StaticContext parent, ToolAccessor accessor) :
             base(parent, accessor)
         {
         }

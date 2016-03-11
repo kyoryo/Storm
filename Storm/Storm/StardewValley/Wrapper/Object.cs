@@ -22,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class ObjectItem : Item
     {
-        public ObjectItem(StaticContext parent, ObjectAccessor accessor) : 
+        public ObjectItem(StaticContext parent, ObjectAccessor accessor) :
             base(parent, accessor)
         {
         }
@@ -184,6 +184,6 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return Cast<ObjectAccessor>()._GetMinutesUntilReady(); }
             set { Cast<ObjectAccessor>()._SetMinutesUntilReady(value); }
-        }      
+        }
     }
 }

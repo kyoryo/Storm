@@ -84,7 +84,7 @@ namespace Storm.Collections
         {
             get
             {
-                return valueWrapper((TOValue) real[key.Underlying]);
+                return valueWrapper((TOValue)real[key.Underlying]);
             }
 
             set

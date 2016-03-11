@@ -29,8 +29,8 @@ namespace Storm
 
         public static Command ParseCommand(string input)
         {
-            string[] spaces = input.Split(new[] {" "}, 2, StringSplitOptions.RemoveEmptyEntries);
-            return spaces[0] == input ? new Command(input) : new Command(spaces[0].TrimStart(new[] {'.', '/'}), spaces[1].Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries));
+            string[] spaces = input.Split(new[] { " " }, 2, StringSplitOptions.RemoveEmptyEntries);
+            return spaces[0] == input ? new Command(input) : new Command(spaces[0].TrimStart(new[] { '.', '/' }), spaces[1].Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries));
         }
 
         public Command(string name, string[] args = null)

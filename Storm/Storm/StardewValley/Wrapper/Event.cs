@@ -24,7 +24,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Event : StaticContextWrapper
     {
-        public Event(StaticContext parent, EventAccessor accessor) : 
+        public Event(StaticContext parent, EventAccessor accessor) :
             base(parent)
         {
             Underlying = accessor;
@@ -180,8 +180,13 @@ namespace Storm.StardewValley.Wrapper
 
         public GameLocation TemporaryLocation
         {
-            get { return Cast<EventAccessor>()._GetTemporaryLocation() == null ? null : new GameLocation(Parent, Cast<EventAccessor>()._GetTemporaryLocation()); }
-            set { Cast<EventAccessor>()._SetTemporaryLocation(value.Cast<GameLocationAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetTemporaryLocation();
+                if (tmp == null) return null;
+                return new GameLocation(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetTemporaryLocation(value?.Cast<GameLocationAccessor>()); }
         }
 
         public Point PlayerControlTargetTile
@@ -198,14 +203,24 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC SecretSantaRecipient
         {
-            get { return Cast<EventAccessor>()._GetSecretSantaRecipient() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetSecretSantaRecipient()); }
-            set { Cast<EventAccessor>()._SetSecretSantaRecipient(value.Cast<NPCAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetSecretSantaRecipient();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetSecretSantaRecipient(value?.Cast<NPCAccessor>()); }
         }
 
         public NPC MySecretSanta
         {
-            get { return Cast<EventAccessor>()._GetMySecretSanta() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetMySecretSanta()); }
-            set { Cast<EventAccessor>()._SetMySecretSanta(value.Cast<NPCAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetMySecretSanta();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetMySecretSanta(value?.Cast<NPCAccessor>()); }
         }
 
         public bool Skippable
@@ -252,8 +267,13 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC FestivalHost
         {
-            get { return Cast<EventAccessor>()._GetFestivalHost() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetFestivalHost()); }
-            set { Cast<EventAccessor>()._SetFestivalHost(value.Cast<NPCAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetFestivalHost();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetFestivalHost(value?.Cast<NPCAccessor>()); }
         }
 
         public string HostMessage
@@ -270,8 +290,13 @@ namespace Storm.StardewValley.Wrapper
 
         public Item TempItemStash
         {
-            get { return Cast<EventAccessor>()._GetTempItemStash() == null ? null : new Item(Parent, Cast<EventAccessor>()._GetTempItemStash()); }
-            set { Cast<EventAccessor>()._SetTempItemStash(value.Cast<ItemAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetTempItemStash();
+                if (tmp == null) return null;
+                return new Item(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetTempItemStash(value?.Cast<ItemAccessor>()); }
         }
 
         public int GrangeScore
@@ -282,8 +307,13 @@ namespace Storm.StardewValley.Wrapper
 
         public Farmer PlayerUsingGrangeDisplay
         {
-            get { return Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay() == null ? null : new Farmer(Parent, Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay()); }
-            set { Cast<EventAccessor>()._SetPlayerUsingGrangeDisplay(value.Cast<FarmerAccessor>()); }
+            get
+            {
+                var tmp = Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay();
+                if (tmp == null) return null;
+                return new Farmer(Parent, tmp);
+            }
+            set { Cast<EventAccessor>()._SetPlayerUsingGrangeDisplay(value?.Cast<FarmerAccessor>()); }
         }
 
         public int PreviousFacingDirection

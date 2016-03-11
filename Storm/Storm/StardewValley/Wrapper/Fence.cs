@@ -22,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Fence : ObjectItem
     {
-        public Fence(StaticContext parent, FenceAccessor accessor) : 
+        public Fence(StaticContext parent, FenceAccessor accessor) :
             base(parent, accessor)
         {
         }
