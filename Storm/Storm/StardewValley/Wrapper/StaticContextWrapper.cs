@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,19 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Storm.StardewValley.Wrapper
 {
-    public static class WrapperExtensions
+    public abstract class StaticContextWrapper : ChildWrapper<StaticContext>
     {
-        public static T Cast<T>(this Wrapper @this)
+        public StaticContextWrapper(StaticContext parent) : 
+            base(parent)
         {
-            return (T)@this.Expose();
+        }
+
+        public StaticContextWrapper()
+        {
         }
     }
 }

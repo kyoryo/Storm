@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,21 +16,18 @@
  */
 
 using Storm.StardewValley.Accessor;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Horse : NPC
     {
-        private readonly HorseAccessor accessor;
-
-        public Horse(StaticContext parent, HorseAccessor accessor) : base(parent, accessor)
+        public Horse(StaticContext parent, HorseAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Horse()
+        {
         }
     }
 }

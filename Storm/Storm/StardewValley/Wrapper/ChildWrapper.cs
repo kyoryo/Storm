@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,41 +16,40 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public static class Wrappers
+    public abstract class ChildWrapper<T> : Wrapper
     {
-        public class ObjectWrapper : Wrapper
+        public T Parent { get; set; }
+
+        public ChildWrapper(T parent)
         {
-            public object Object { get; set; }
-
-            public ObjectWrapper(object o)
-            {
-                this.Object = o;
-            }
-
-            public object Expose() => Object;
+            Parent = parent;
         }
 
-        public class IntWrapper : Wrapper
+        public ChildWrapper()
         {
-            public int Int { get; set; }
-
-            public IntWrapper(int i)
-            {
-                this.Int = i;
-            }
-
-            public object Expose() => Int;
         }
 
-        public static ObjectWrapper Wrap(object o) => new ObjectWrapper(o);
+        public override T2 As<A, T2>()
+        {
+            var instance = base.As<A, T2>();
+            if (instance is ChildWrapper<T>)
+            {
+                (instance as ChildWrapper<T>).Parent = Parent;
+            }
+            return instance;
+        }
 
-        public static IntWrapper Wrap(int i) => new IntWrapper(i);
+        public override T2 As<A, T2>(T2 instance)
+        {
+            base.As<A, T2>(instance);
+            if (instance is ChildWrapper<T>)
+            {
+                (instance as ChildWrapper<T>).Parent = Parent;
+            }
+            return instance as T2;
+        }
     }
 }

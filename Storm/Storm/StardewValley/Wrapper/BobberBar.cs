@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,258 +23,259 @@ namespace Storm.StardewValley.Wrapper
 {
     public class BobberBar : ClickableMenu
     {
-        private readonly BobberBarAccessor accessor;
-
         public BobberBar(StaticContext parent, BobberBarAccessor accessor) : 
             base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public BobberBar()
+        {
         }
 
         public float Difficulty
         {
-            get { return accessor._GetDifficulty(); }
-            set { accessor._SetDifficulty(value); }
+            get { return Cast<BobberBarAccessor>()._GetDifficulty(); }
+            set { Cast<BobberBarAccessor>()._SetDifficulty(value); }
         }
 
         public int MotionType
         {
-            get { return accessor._GetMotionType(); }
-            set { accessor._SetMotionType(value); }
+            get { return Cast<BobberBarAccessor>()._GetMotionType(); }
+            set { Cast<BobberBarAccessor>()._SetMotionType(value); }
         }
 
         public int WhichFish
         {
-            get { return accessor._GetWhichFish(); }
-            set { accessor._SetWhichFish(value); }
+            get { return Cast<BobberBarAccessor>()._GetWhichFish(); }
+            set { Cast<BobberBarAccessor>()._SetWhichFish(value); }
         }
 
         public float BobberPosition
         {
-            get { return accessor._GetBobberPosition(); }
-            set { accessor._SetBobberPosition(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberPosition(); }
+            set { Cast<BobberBarAccessor>()._SetBobberPosition(value); }
         }
 
         public float BobberSpeed
         {
-            get { return accessor._GetBobberSpeed(); }
-            set { accessor._SetBobberSpeed(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberSpeed(); }
+            set { Cast<BobberBarAccessor>()._SetBobberSpeed(value); }
         }
 
         public float BobberAcceleration
         {
-            get { return accessor._GetBobberAcceleration(); }
-            set { accessor._SetBobberAcceleration(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberAcceleration(); }
+            set { Cast<BobberBarAccessor>()._SetBobberAcceleration(value); }
         }
 
         public float BobberTargetPosition
         {
-            get { return accessor._GetBobberTargetPosition(); }
-            set { accessor._SetBobberTargetPosition(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberTargetPosition(); }
+            set { Cast<BobberBarAccessor>()._SetBobberTargetPosition(value); }
         }
 
         public float Scale
         {
-            get { return accessor._GetScale(); }
-            set { accessor._SetScale(value); }
+            get { return Cast<BobberBarAccessor>()._GetScale(); }
+            set { Cast<BobberBarAccessor>()._SetScale(value); }
         }
 
         public float EverythingShakeTimer
         {
-            get { return accessor._GetEverythingShakeTimer(); }
-            set { accessor._SetEverythingShakeTimer(value); }
+            get { return Cast<BobberBarAccessor>()._GetEverythingShakeTimer(); }
+            set { Cast<BobberBarAccessor>()._SetEverythingShakeTimer(value); }
         }
 
         public float FloaterSinkerAcceleration
         {
-            get { return accessor._GetFloaterSinkerAcceleration(); }
-            set { accessor._SetFloaterSinkerAcceleration(value); }
+            get { return Cast<BobberBarAccessor>()._GetFloaterSinkerAcceleration(); }
+            set { Cast<BobberBarAccessor>()._SetFloaterSinkerAcceleration(value); }
         }
 
         public float TreasurePosition
         {
-            get { return accessor._GetTreasurePosition(); }
-            set { accessor._SetTreasurePosition(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasurePosition(); }
+            set { Cast<BobberBarAccessor>()._SetTreasurePosition(value); }
         }
 
         public float TreasureCatchLevel
         {
-            get { return accessor._GetTreasureCatchLevel(); }
-            set { accessor._SetTreasureCatchLevel(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasureCatchLevel(); }
+            set { Cast<BobberBarAccessor>()._SetTreasureCatchLevel(value); }
         }
 
         public float TreasureAppearTimer
         {
-            get { return accessor._GetTreasureAppearTimer(); }
-            set { accessor._SetTreasureAppearTimer(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasureAppearTimer(); }
+            set { Cast<BobberBarAccessor>()._SetTreasureAppearTimer(value); }
         }
 
         public float TreasureScale
         {
-            get { return accessor._GetTreasureScale(); }
-            set { accessor._SetTreasureScale(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasureScale(); }
+            set { Cast<BobberBarAccessor>()._SetTreasureScale(value); }
         }
 
         public bool BobberInBar
         {
-            get { return accessor._GetBobberInBar(); }
-            set { accessor._SetBobberInBar(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberInBar(); }
+            set { Cast<BobberBarAccessor>()._SetBobberInBar(value); }
         }
 
         public bool ButtonPressed
         {
-            get { return accessor._GetButtonPressed(); }
-            set { accessor._SetButtonPressed(value); }
+            get { return Cast<BobberBarAccessor>()._GetButtonPressed(); }
+            set { Cast<BobberBarAccessor>()._SetButtonPressed(value); }
         }
 
         public bool FlipBubble
         {
-            get { return accessor._GetFlipBubble(); }
-            set { accessor._SetFlipBubble(value); }
+            get { return Cast<BobberBarAccessor>()._GetFlipBubble(); }
+            set { Cast<BobberBarAccessor>()._SetFlipBubble(value); }
         }
 
         public bool FadeIn
         {
-            get { return accessor._GetFadeIn(); }
-            set { accessor._SetFadeIn(value); }
+            get { return Cast<BobberBarAccessor>()._GetFadeIn(); }
+            set { Cast<BobberBarAccessor>()._SetFadeIn(value); }
         }
 
         public bool FadeOut
         {
-            get { return accessor._GetFadeOut(); }
-            set { accessor._SetFadeOut(value); }
+            get { return Cast<BobberBarAccessor>()._GetFadeOut(); }
+            set { Cast<BobberBarAccessor>()._SetFadeOut(value); }
         }
 
         public bool Treasure
         {
-            get { return accessor._GetTreasure(); }
-            set { accessor._SetTreasure(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasure(); }
+            set { Cast<BobberBarAccessor>()._SetTreasure(value); }
         }
 
         public bool TreasureCaught
         {
-            get { return accessor._GetTreasureCaught(); }
-            set { accessor._SetTreasureCaught(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasureCaught(); }
+            set { Cast<BobberBarAccessor>()._SetTreasureCaught(value); }
         }
 
         public bool Perfect
         {
-            get { return accessor._GetPerfect(); }
-            set { accessor._SetPerfect(value); }
+            get { return Cast<BobberBarAccessor>()._GetPerfect(); }
+            set { Cast<BobberBarAccessor>()._SetPerfect(value); }
         }
 
         public bool BossFish
         {
-            get { return accessor._GetBossFish(); }
-            set { accessor._SetBossFish(value); }
+            get { return Cast<BobberBarAccessor>()._GetBossFish(); }
+            set { Cast<BobberBarAccessor>()._SetBossFish(value); }
         }
 
         public int BobberBarHeight
         {
-            get { return accessor._GetBobberBarHeight(); }
-            set { accessor._SetBobberBarHeight(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberBarHeight(); }
+            set { Cast<BobberBarAccessor>()._SetBobberBarHeight(value); }
         }
 
         public int FishSize
         {
-            get { return accessor._GetFishSize(); }
-            set { accessor._SetFishSize(value); }
+            get { return Cast<BobberBarAccessor>()._GetFishSize(); }
+            set { Cast<BobberBarAccessor>()._SetFishSize(value); }
         }
 
         public int FishQuality
         {
-            get { return accessor._GetFishQuality(); }
-            set { accessor._SetFishQuality(value); }
+            get { return Cast<BobberBarAccessor>()._GetFishQuality(); }
+            set { Cast<BobberBarAccessor>()._SetFishQuality(value); }
         }
 
         public int MinFishSize
         {
-            get { return accessor._GetMinFishSize(); }
-            set { accessor._SetMinFishSize(value); }
+            get { return Cast<BobberBarAccessor>()._GetMinFishSize(); }
+            set { Cast<BobberBarAccessor>()._SetMinFishSize(value); }
         }
 
         public int MaxFishSize
         {
-            get { return accessor._GetMaxFishSize(); }
-            set { accessor._SetMaxFishSize(value); }
+            get { return Cast<BobberBarAccessor>()._GetMaxFishSize(); }
+            set { Cast<BobberBarAccessor>()._SetMaxFishSize(value); }
         }
 
         public int FishSizeReductionTimer
         {
-            get { return accessor._GetFishSizeReductionTimer(); }
-            set { accessor._SetFishSizeReductionTimer(value); }
+            get { return Cast<BobberBarAccessor>()._GetFishSizeReductionTimer(); }
+            set { Cast<BobberBarAccessor>()._SetFishSizeReductionTimer(value); }
         }
 
         public int WhichBobber
         {
-            get { return accessor._GetWhichBobber(); }
-            set { accessor._SetWhichBobber(value); }
+            get { return Cast<BobberBarAccessor>()._GetWhichBobber(); }
+            set { Cast<BobberBarAccessor>()._SetWhichBobber(value); }
         }
 
         public Vector2 BarShake
         {
-            get { return accessor._GetBarShake(); }
-            set { accessor._SetBarShake(value); }
+            get { return Cast<BobberBarAccessor>()._GetBarShake(); }
+            set { Cast<BobberBarAccessor>()._SetBarShake(value); }
         }
 
         public Vector2 FishShake
         {
-            get { return accessor._GetFishShake(); }
-            set { accessor._SetFishShake(value); }
+            get { return Cast<BobberBarAccessor>()._GetFishShake(); }
+            set { Cast<BobberBarAccessor>()._SetFishShake(value); }
         }
 
         public Vector2 EverythingShake
         {
-            get { return accessor._GetEverythingShake(); }
-            set { accessor._SetEverythingShake(value); }
+            get { return Cast<BobberBarAccessor>()._GetEverythingShake(); }
+            set { Cast<BobberBarAccessor>()._SetEverythingShake(value); }
         }
 
         public Vector2 TreasureShake
         {
-            get { return accessor._GetTreasureShake(); }
-            set { accessor._SetTreasureShake(value); }
+            get { return Cast<BobberBarAccessor>()._GetTreasureShake(); }
+            set { Cast<BobberBarAccessor>()._SetTreasureShake(value); }
         }
 
         public float ReelRotation
         {
-            get { return accessor._GetReelRotation(); }
-            set { accessor._SetReelRotation(value); }
+            get { return Cast<BobberBarAccessor>()._GetReelRotation(); }
+            set { Cast<BobberBarAccessor>()._SetReelRotation(value); }
         }
 
         public float BobberBarPos
         {
-            get { return accessor._GetBobberBarPos(); }
-            set { accessor._SetBobberBarPos(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberBarPos(); }
+            set { Cast<BobberBarAccessor>()._SetBobberBarPos(value); }
         }
 
         public float BobberBarSpeed
         {
-            get { return accessor._GetBobberBarSpeed(); }
-            set { accessor._SetBobberBarSpeed(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberBarSpeed(); }
+            set { Cast<BobberBarAccessor>()._SetBobberBarSpeed(value); }
         }
 
         public float BobberBarAcceleration
         {
-            get { return accessor._GetBobberBarAcceleration(); }
-            set { accessor._SetBobberBarAcceleration(value); }
+            get { return Cast<BobberBarAccessor>()._GetBobberBarAcceleration(); }
+            set { Cast<BobberBarAccessor>()._SetBobberBarAcceleration(value); }
         }
 
         public float DistanceFromCatching
         {
-            get { return accessor._GetDistanceFromCatching(); }
-            set { accessor._SetDistanceFromCatching(value); }
+            get { return Cast<BobberBarAccessor>()._GetDistanceFromCatching(); }
+            set { Cast<BobberBarAccessor>()._SetDistanceFromCatching(value); }
         }
 
         public Cue ReelSound
         {
-            get { return accessor._GetReelSound(); }
-            set { accessor._SetReelSound(value); }
+            get { return Cast<BobberBarAccessor>()._GetReelSound(); }
+            set { Cast<BobberBarAccessor>()._SetReelSound(value); }
         }
 
         public Cue UnReelSound
         {
-            get { return accessor._GetUnReelSound(); }
-            set { accessor._SetUnReelSound(value); }
+            get { return Cast<BobberBarAccessor>()._GetUnReelSound(); }
+            set { Cast<BobberBarAccessor>()._SetUnReelSound(value); }
         }
     }
 }

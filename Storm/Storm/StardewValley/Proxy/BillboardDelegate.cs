@@ -21,6 +21,5 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class BillboardDelegate : TypeDelegate<Billboard>
     {
-        public abstract object[] GetConstructorParams();
     }
 }

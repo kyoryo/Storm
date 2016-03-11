@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,294 +22,292 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Event : Wrapper
+    public class Event : StaticContextWrapper
     {
-        private readonly EventAccessor accessor;
-
-        public Event(StaticContext parent, EventAccessor accessor)
+        public Event(StaticContext parent, EventAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Underlying = accessor;
         }
 
-        private StaticContext Parent { get; }
+        public Event()
+        {
+        }
 
         public string EventCommands
         {
-            get { return accessor._GetEventCommands(); }
-            set { accessor._SetEventCommands(value); }
+            get { return Cast<EventAccessor>()._GetEventCommands(); }
+            set { Cast<EventAccessor>()._SetEventCommands(value); }
         }
 
         public int CurrentCommand
         {
-            get { return accessor._GetCurrentCommand(); }
-            set { accessor._SetCurrentCommand(value); }
+            get { return Cast<EventAccessor>()._GetCurrentCommand(); }
+            set { Cast<EventAccessor>()._SetCurrentCommand(value); }
         }
 
         public int OldPixelZoom
         {
-            get { return accessor._GetOldPixelZoom(); }
-            set { accessor._SetOldPixelZoom(value); }
+            get { return Cast<EventAccessor>()._GetOldPixelZoom(); }
+            set { Cast<EventAccessor>()._SetOldPixelZoom(value); }
         }
 
         public int ReadyConfirmationTimer
         {
-            get { return accessor._GetReadyConfirmationTimer(); }
-            set { accessor._SetReadyConfirmationTimer(value); }
+            get { return Cast<EventAccessor>()._GetReadyConfirmationTimer(); }
+            set { Cast<EventAccessor>()._SetReadyConfirmationTimer(value); }
         }
 
         public string MessageToScreen
         {
-            get { return accessor._GetMessageToScreen(); }
-            set { accessor._SetMessageToScreen(value); }
+            get { return Cast<EventAccessor>()._GetMessageToScreen(); }
+            set { Cast<EventAccessor>()._SetMessageToScreen(value); }
         }
 
         public string PlayerControlSequenceID
         {
-            get { return accessor._GetPlayerControlSequenceID(); }
-            set { accessor._SetPlayerControlSequenceID(value); }
+            get { return Cast<EventAccessor>()._GetPlayerControlSequenceID(); }
+            set { Cast<EventAccessor>()._SetPlayerControlSequenceID(value); }
         }
 
         public bool ShowActiveObject
         {
-            get { return accessor._GetShowActiveObject(); }
-            set { accessor._SetShowActiveObject(value); }
+            get { return Cast<EventAccessor>()._GetShowActiveObject(); }
+            set { Cast<EventAccessor>()._SetShowActiveObject(value); }
         }
 
         public bool ContinueAfterMove
         {
-            get { return accessor._GetContinueAfterMove(); }
-            set { accessor._SetContinueAfterMove(value); }
+            get { return Cast<EventAccessor>()._GetContinueAfterMove(); }
+            set { Cast<EventAccessor>()._SetContinueAfterMove(value); }
         }
 
         public bool SpecialEventVariable1
         {
-            get { return accessor._GetSpecialEventVariable1(); }
-            set { accessor._SetSpecialEventVariable1(value); }
+            get { return Cast<EventAccessor>()._GetSpecialEventVariable1(); }
+            set { Cast<EventAccessor>()._SetSpecialEventVariable1(value); }
         }
 
         public bool Forked
         {
-            get { return accessor._GetForked(); }
-            set { accessor._SetForked(value); }
+            get { return Cast<EventAccessor>()._GetForked(); }
+            set { Cast<EventAccessor>()._SetForked(value); }
         }
 
         public bool WasBloomDay
         {
-            get { return accessor._GetWasBloomDay(); }
-            set { accessor._SetWasBloomDay(value); }
+            get { return Cast<EventAccessor>()._GetWasBloomDay(); }
+            set { Cast<EventAccessor>()._SetWasBloomDay(value); }
         }
 
         public bool WasBloomVisible
         {
-            get { return accessor._GetWasBloomVisible(); }
-            set { accessor._SetWasBloomVisible(value); }
+            get { return Cast<EventAccessor>()._GetWasBloomVisible(); }
+            set { Cast<EventAccessor>()._SetWasBloomVisible(value); }
         }
 
         public bool PlayerControlSequence
         {
-            get { return accessor._GetPlayerControlSequence(); }
-            set { accessor._SetPlayerControlSequence(value); }
+            get { return Cast<EventAccessor>()._GetPlayerControlSequence(); }
+            set { Cast<EventAccessor>()._SetPlayerControlSequence(value); }
         }
 
         public bool EventSwitched
         {
-            get { return accessor._GetEventSwitched(); }
-            set { accessor._SetEventSwitched(value); }
+            get { return Cast<EventAccessor>()._GetEventSwitched(); }
+            set { Cast<EventAccessor>()._SetEventSwitched(value); }
         }
 
         public bool IsFestival
         {
-            get { return accessor._GetIsFestival(); }
-            set { accessor._SetIsFestival(value); }
+            get { return Cast<EventAccessor>()._GetIsFestival(); }
+            set { Cast<EventAccessor>()._SetIsFestival(value); }
         }
 
         public bool SentReadyConfirmation
         {
-            get { return accessor._GetSentReadyConfirmation(); }
-            set { accessor._SetSentReadyConfirmation(value); }
+            get { return Cast<EventAccessor>()._GetSentReadyConfirmation(); }
+            set { Cast<EventAccessor>()._SetSentReadyConfirmation(value); }
         }
 
         public bool AllPlayersReady
         {
-            get { return accessor._GetAllPlayersReady(); }
-            set { accessor._SetAllPlayersReady(value); }
+            get { return Cast<EventAccessor>()._GetAllPlayersReady(); }
+            set { Cast<EventAccessor>()._SetAllPlayersReady(value); }
         }
 
         public bool PlayerWasMounted
         {
-            get { return accessor._GetPlayerWasMounted(); }
-            set { accessor._SetPlayerWasMounted(value); }
+            get { return Cast<EventAccessor>()._GetPlayerWasMounted(); }
+            set { Cast<EventAccessor>()._SetPlayerWasMounted(value); }
         }
 
         public float TimeAccumulator
         {
-            get { return accessor._GetTimeAccumulator(); }
-            set { accessor._SetTimeAccumulator(value); }
+            get { return Cast<EventAccessor>()._GetTimeAccumulator(); }
+            set { Cast<EventAccessor>()._SetTimeAccumulator(value); }
         }
 
         public float ViewportXAccumulator
         {
-            get { return accessor._GetViewportXAccumulator(); }
-            set { accessor._SetViewportXAccumulator(value); }
+            get { return Cast<EventAccessor>()._GetViewportXAccumulator(); }
+            set { Cast<EventAccessor>()._SetViewportXAccumulator(value); }
         }
 
         public float ViewportYAccumulator
         {
-            get { return accessor._GetViewportYAccumulator(); }
-            set { accessor._SetViewportYAccumulator(value); }
+            get { return Cast<EventAccessor>()._GetViewportYAccumulator(); }
+            set { Cast<EventAccessor>()._SetViewportYAccumulator(value); }
         }
 
         public Vector3 ViewportTarget
         {
-            get { return accessor._GetViewportTarget(); }
-            set { accessor._SetViewportTarget(value); }
+            get { return Cast<EventAccessor>()._GetViewportTarget(); }
+            set { Cast<EventAccessor>()._SetViewportTarget(value); }
         }
 
         public Color PreviousAmbientLight
         {
-            get { return accessor._GetPreviousAmbientLight(); }
-            set { accessor._SetPreviousAmbientLight(value); }
+            get { return Cast<EventAccessor>()._GetPreviousAmbientLight(); }
+            set { Cast<EventAccessor>()._SetPreviousAmbientLight(value); }
         }
 
         public ContentManager TemporaryContent
         {
-            get { return accessor._GetTemporaryContent(); }
-            set { accessor._SetTemporaryContent(value); }
+            get { return Cast<EventAccessor>()._GetTemporaryContent(); }
+            set { Cast<EventAccessor>()._SetTemporaryContent(value); }
         }
 
         public GameLocation TemporaryLocation
         {
-            get { return accessor._GetTemporaryLocation() == null ? null : new GameLocation(Parent, accessor._GetTemporaryLocation()); }
-            set { accessor._SetTemporaryLocation(value.Cast<GameLocationAccessor>()); }
+            get { return Cast<EventAccessor>()._GetTemporaryLocation() == null ? null : new GameLocation(Parent, Cast<EventAccessor>()._GetTemporaryLocation()); }
+            set { Cast<EventAccessor>()._SetTemporaryLocation(value.Cast<GameLocationAccessor>()); }
         }
 
         public Point PlayerControlTargetTile
         {
-            get { return accessor._GetPlayerControlTargetTile(); }
-            set { accessor._SetPlayerControlTargetTile(value); }
+            get { return Cast<EventAccessor>()._GetPlayerControlTargetTile(); }
+            set { Cast<EventAccessor>()._SetPlayerControlTargetTile(value); }
         }
 
         public Texture2D FestivalTexture
         {
-            get { return accessor._GetFestivalTexture(); }
-            set { accessor._SetFestivalTexture(value); }
+            get { return Cast<EventAccessor>()._GetFestivalTexture(); }
+            set { Cast<EventAccessor>()._SetFestivalTexture(value); }
         }
 
         public NPC SecretSantaRecipient
         {
-            get { return accessor._GetSecretSantaRecipient() == null ? null : new NPC(Parent, accessor._GetSecretSantaRecipient()); }
-            set { accessor._SetSecretSantaRecipient(value.Cast<NPCAccessor>()); }
+            get { return Cast<EventAccessor>()._GetSecretSantaRecipient() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetSecretSantaRecipient()); }
+            set { Cast<EventAccessor>()._SetSecretSantaRecipient(value.Cast<NPCAccessor>()); }
         }
 
         public NPC MySecretSanta
         {
-            get { return accessor._GetMySecretSanta() == null ? null : new NPC(Parent, accessor._GetMySecretSanta()); }
-            set { accessor._SetMySecretSanta(value.Cast<NPCAccessor>()); }
+            get { return Cast<EventAccessor>()._GetMySecretSanta() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetMySecretSanta()); }
+            set { Cast<EventAccessor>()._SetMySecretSanta(value.Cast<NPCAccessor>()); }
         }
 
         public bool Skippable
         {
-            get { return accessor._GetSkippable(); }
-            set { accessor._SetSkippable(value); }
+            get { return Cast<EventAccessor>()._GetSkippable(); }
+            set { Cast<EventAccessor>()._SetSkippable(value); }
         }
 
         public int Id
         {
-            get { return accessor._GetId(); }
-            set { accessor._SetId(value); }
+            get { return Cast<EventAccessor>()._GetId(); }
+            set { Cast<EventAccessor>()._SetId(value); }
         }
 
         public int OldShirt
         {
-            get { return accessor._GetOldShirt(); }
-            set { accessor._SetOldShirt(value); }
+            get { return Cast<EventAccessor>()._GetOldShirt(); }
+            set { Cast<EventAccessor>()._SetOldShirt(value); }
         }
 
         public Color OldPants
         {
-            get { return accessor._GetOldPants(); }
-            set { accessor._SetOldPants(value); }
+            get { return Cast<EventAccessor>()._GetOldPants(); }
+            set { Cast<EventAccessor>()._SetOldPants(value); }
         }
 
         public bool Skipped
         {
-            get { return accessor._GetSkipped(); }
-            set { accessor._SetSkipped(value); }
+            get { return Cast<EventAccessor>()._GetSkipped(); }
+            set { Cast<EventAccessor>()._SetSkipped(value); }
         }
 
         public bool WaitingForMenuClose
         {
-            get { return accessor._GetWaitingForMenuClose(); }
-            set { accessor._SetWaitingForMenuClose(value); }
+            get { return Cast<EventAccessor>()._GetWaitingForMenuClose(); }
+            set { Cast<EventAccessor>()._SetWaitingForMenuClose(value); }
         }
 
         public int OldTime
         {
-            get { return accessor._GetOldTime(); }
-            set { accessor._SetOldTime(value); }
+            get { return Cast<EventAccessor>()._GetOldTime(); }
+            set { Cast<EventAccessor>()._SetOldTime(value); }
         }
 
         public NPC FestivalHost
         {
-            get { return accessor._GetFestivalHost() == null ? null : new NPC(Parent, accessor._GetFestivalHost()); }
-            set { accessor._SetFestivalHost(value.Cast<NPCAccessor>()); }
+            get { return Cast<EventAccessor>()._GetFestivalHost() == null ? null : new NPC(Parent, Cast<EventAccessor>()._GetFestivalHost()); }
+            set { Cast<EventAccessor>()._SetFestivalHost(value.Cast<NPCAccessor>()); }
         }
 
         public string HostMessage
         {
-            get { return accessor._GetHostMessage(); }
-            set { accessor._SetHostMessage(value); }
+            get { return Cast<EventAccessor>()._GetHostMessage(); }
+            set { Cast<EventAccessor>()._SetHostMessage(value); }
         }
 
         public int FestivalTimer
         {
-            get { return accessor._GetFestivalTimer(); }
-            set { accessor._SetFestivalTimer(value); }
+            get { return Cast<EventAccessor>()._GetFestivalTimer(); }
+            set { Cast<EventAccessor>()._SetFestivalTimer(value); }
         }
 
         public Item TempItemStash
         {
-            get { return accessor._GetTempItemStash() == null ? null : new Item(Parent, accessor._GetTempItemStash()); }
-            set { accessor._SetTempItemStash(value.Cast<ItemAccessor>()); }
+            get { return Cast<EventAccessor>()._GetTempItemStash() == null ? null : new Item(Parent, Cast<EventAccessor>()._GetTempItemStash()); }
+            set { Cast<EventAccessor>()._SetTempItemStash(value.Cast<ItemAccessor>()); }
         }
 
         public int GrangeScore
         {
-            get { return accessor._GetGrangeScore(); }
-            set { accessor._SetGrangeScore(value); }
+            get { return Cast<EventAccessor>()._GetGrangeScore(); }
+            set { Cast<EventAccessor>()._SetGrangeScore(value); }
         }
 
         public Farmer PlayerUsingGrangeDisplay
         {
-            get { return accessor._GetPlayerUsingGrangeDisplay() == null ? null : new Farmer(Parent, accessor._GetPlayerUsingGrangeDisplay()); }
-            set { accessor._SetPlayerUsingGrangeDisplay(value.Cast<FarmerAccessor>()); }
+            get { return Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay() == null ? null : new Farmer(Parent, Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay()); }
+            set { Cast<EventAccessor>()._SetPlayerUsingGrangeDisplay(value.Cast<FarmerAccessor>()); }
         }
 
         public int PreviousFacingDirection
         {
-            get { return accessor._GetPreviousFacingDirection(); }
-            set { accessor._SetPreviousFacingDirection(value); }
+            get { return Cast<EventAccessor>()._GetPreviousFacingDirection(); }
+            set { Cast<EventAccessor>()._SetPreviousFacingDirection(value); }
         }
 
         public int PreviousAnswerChoice
         {
-            get { return accessor._GetPreviousAnswerChoice(); }
-            set { accessor._SetPreviousAnswerChoice(value); }
+            get { return Cast<EventAccessor>()._GetPreviousAnswerChoice(); }
+            set { Cast<EventAccessor>()._SetPreviousAnswerChoice(value); }
         }
 
         public bool StartSecretSantaAfterDialogue
         {
-            get { return accessor._GetStartSecretSantaAfterDialogue(); }
-            set { accessor._SetStartSecretSantaAfterDialogue(value); }
+            get { return Cast<EventAccessor>()._GetStartSecretSantaAfterDialogue(); }
+            set { Cast<EventAccessor>()._SetStartSecretSantaAfterDialogue(value); }
         }
 
         public bool SpecialEventVariable2
         {
-            get { return accessor._GetSpecialEventVariable2(); }
-            set { accessor._SetSpecialEventVariable2(value); }
+            get { return Cast<EventAccessor>()._GetSpecialEventVariable2(); }
+            set { Cast<EventAccessor>()._SetSpecialEventVariable2(value); }
         }
-
-        public object Expose() => accessor;
     }
 }

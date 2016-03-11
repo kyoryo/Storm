@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Inari
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,127 +21,127 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Monster : NPC
     {
-        private readonly MonsterAccessor accessor;
-
-        public Monster(StaticContext parent, MonsterAccessor accessor) : base(parent, accessor)
+        public Monster(StaticContext parent, MonsterAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Monster()
+        {
         }
 
         public int DamageToFarmer
         {
-            get { return accessor._GetDamageToFarmer(); }
-            set { accessor._SetDamageToFarmer(value); }
+            get { return Cast<MonsterAccessor>()._GetDamageToFarmer(); }
+            set { Cast<MonsterAccessor>()._SetDamageToFarmer(value); }
         }
 
         public int Health
         {
-            get { return accessor._GetHealth(); }
-            set { accessor._SetHealth(value); }
+            get { return Cast<MonsterAccessor>()._GetHealth(); }
+            set { Cast<MonsterAccessor>()._SetHealth(value); }
         }
 
         public int MaxHealth
         {
-            get { return accessor._GetMaxHealth(); }
-            set { accessor._SetMaxHealth(value); }
+            get { return Cast<MonsterAccessor>()._GetMaxHealth(); }
+            set { Cast<MonsterAccessor>()._SetMaxHealth(value); }
         }
 
         public int CoinsToDrop
         {
-            get { return accessor._GetCoinsToDrop(); }
-            set { accessor._SetCoinsToDrop(value); }
+            get { return Cast<MonsterAccessor>()._GetCoinsToDrop(); }
+            set { Cast<MonsterAccessor>()._SetCoinsToDrop(value); }
         }
 
         public int DurationOfRandomMovements
         {
-            get { return accessor._GetDurationOfRandomMovements(); }
-            set { accessor._SetDurationOfRandomMovements(value); }
+            get { return Cast<MonsterAccessor>()._GetDurationOfRandomMovements(); }
+            set { Cast<MonsterAccessor>()._SetDurationOfRandomMovements(value); }
         }
 
         public int Resilience
         {
-            get { return accessor._GetResilience(); }
-            set { accessor._SetResilience(value); }
+            get { return Cast<MonsterAccessor>()._GetResilience(); }
+            set { Cast<MonsterAccessor>()._SetResilience(value); }
         }
 
         public int Slipperiness
         {
-            get { return accessor._GetSlipperiness(); }
-            set { accessor._SetSlipperiness(value); }
+            get { return Cast<MonsterAccessor>()._GetSlipperiness(); }
+            set { Cast<MonsterAccessor>()._SetSlipperiness(value); }
         }
 
         public int ExperienceGained
         {
-            get { return accessor._GetExperienceGained(); }
-            set { accessor._SetExperienceGained(value); }
+            get { return Cast<MonsterAccessor>()._GetExperienceGained(); }
+            set { Cast<MonsterAccessor>()._SetExperienceGained(value); }
         }
 
         public double Jitteriness
         {
-            get { return accessor._GetJitteriness(); }
-            set { accessor._SetJitteriness(value); }
+            get { return Cast<MonsterAccessor>()._GetJitteriness(); }
+            set { Cast<MonsterAccessor>()._SetJitteriness(value); }
         }
 
         public double MissChance
         {
-            get { return accessor._GetMissChance(); }
-            set { accessor._SetMissChance(value); }
+            get { return Cast<MonsterAccessor>()._GetMissChance(); }
+            set { Cast<MonsterAccessor>()._SetMissChance(value); }
         }
 
         public bool IsGlider
         {
-            get { return accessor._GetIsGlider(); }
-            set { accessor._SetIsGlider(value); }
+            get { return Cast<MonsterAccessor>()._GetIsGlider(); }
+            set { Cast<MonsterAccessor>()._SetIsGlider(value); }
         }
 
         public bool MineMonster
         {
-            get { return accessor._GetMineMonster(); }
-            set { accessor._SetMineMonster(value); }
+            get { return Cast<MonsterAccessor>()._GetMineMonster(); }
+            set { Cast<MonsterAccessor>()._SetMineMonster(value); }
         }
 
         public bool HasSpecialItem
         {
-            get { return accessor._GetHasSpecialItem(); }
-            set { accessor._SetHasSpecialItem(value); }
+            get { return Cast<MonsterAccessor>()._GetHasSpecialItem(); }
+            set { Cast<MonsterAccessor>()._SetHasSpecialItem(value); }
         }
 
         public int SkipHorizontal
         {
-            get { return accessor._GetSkipHorizontal(); }
-            set { accessor._SetSkipHorizontal(value); }
+            get { return Cast<MonsterAccessor>()._GetSkipHorizontal(); }
+            set { Cast<MonsterAccessor>()._SetSkipHorizontal(value); }
         }
 
         public int InvincibleCountdown
         {
-            get { return accessor._GetInvincibleCountdown(); }
-            set { accessor._SetInvincibleCountdown(value); }
+            get { return Cast<MonsterAccessor>()._GetInvincibleCountdown(); }
+            set { Cast<MonsterAccessor>()._SetInvincibleCountdown(value); }
         }
 
         public bool SkipHorizontalUp
         {
-            get { return accessor._GetSkipHorizontalUp(); }
-            set { accessor._SetSkipHorizontalUp(value); }
+            get { return Cast<MonsterAccessor>()._GetSkipHorizontalUp(); }
+            set { Cast<MonsterAccessor>()._SetSkipHorizontalUp(value); }
         }
 
         public int DefaultAnimationInterval
         {
-            get { return accessor._GetDefaultAnimationInterval(); }
-            set { accessor._SetDefaultAnimationInterval(value); }
+            get { return Cast<MonsterAccessor>()._GetDefaultAnimationInterval(); }
+            set { Cast<MonsterAccessor>()._SetDefaultAnimationInterval(value); }
         }
 
         public bool FocusedOnFarmers
         {
-            get { return accessor._GetFocusedOnFarmers(); }
-            set { accessor._SetFocusedOnFarmers(value); }
+            get { return Cast<MonsterAccessor>()._GetFocusedOnFarmers(); }
+            set { Cast<MonsterAccessor>()._SetFocusedOnFarmers(value); }
         }
 
         public int SlideAnimationTimer
         {
-            get { return accessor._GetSlideAnimationTimer(); }
-            set { accessor._SetSlideAnimationTimer(value); }
+            get { return Cast<MonsterAccessor>()._GetSlideAnimationTimer(); }
+            set { Cast<MonsterAccessor>()._SetSlideAnimationTimer(value); }
         }
-
-        public new MonsterAccessor Expose() => accessor;
     }
 }

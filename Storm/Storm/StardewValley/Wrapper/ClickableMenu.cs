@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,39 +19,16 @@ using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class ClickableMenu : Wrapper
+    public class ClickableMenu : StaticContextWrapper
     {
-        private readonly ClickableMenuAccessor accessor;
-
-        public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor)
+        public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Underlying = accessor;
         }
 
-        public StaticContext Parent { get; }
-
-        public object Expose() => accessor;
-
-        public bool IsChatBox() => accessor is ChatBoxAccessor;
-        public ChatBox ToChatBox() => new ChatBox(Parent, accessor as ChatBoxAccessor);
-
-        public bool IsGameMenu() => accessor is GameMenuAccessor;
-        public GameMenu ToGameMenu() => new GameMenu(Parent, accessor as GameMenuAccessor);
-
-        public bool IsShopMenu() => accessor is ShopMenuAccessor;
-        public ShopMenu ToShopMenu() => new ShopMenu(Parent, accessor as ShopMenuAccessor);
-
-        public bool IsInventoryMenu() => accessor is InventoryMenuAccessor;
-        public InventoryMenu ToInventoryMenu() => new InventoryMenu(Parent, accessor as InventoryMenuAccessor);
-
-        public bool IsInventoryPage() => accessor is InventoryPageAccessor;
-        public InventoryPage ToInventoryPage() => new InventoryPage(Parent, accessor as InventoryPageAccessor);
-
-        public bool IsBillboard() => accessor is BillboardAccessor;
-        public Billboard ToBillboard() => new Billboard(Parent, accessor as BillboardAccessor);
-
-        public bool IsBobberBar() => accessor is BobberBarAccessor;
-        public BobberBar ToBobberBar() => new BobberBar(Parent, accessor as BobberBarAccessor);
+        public ClickableMenu()
+        {
+        }
     }
 }

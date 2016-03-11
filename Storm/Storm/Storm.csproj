@@ -188,9 +188,9 @@
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
+    <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
-    <Compile Include="StardewValley\Wrapper\WrapperExtensions.cs" />
-    <Compile Include="StardewValley\Wrapper\Wrappers.cs" />
+    <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
     <Compile Include="Collections\ValueProxyDictionary.cs" />
     <Compile Include="ProxyList.cs" />

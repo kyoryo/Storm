@@ -51,68 +51,18 @@ namespace Storm.StardewValley
             get { return Root.CurrentLocation; }
         }
 
-        public Tool ProxyTool(ToolDelegate @delegate)
+        public T Proxy<A, T>(TypeDelegate<T> @delegate, T instance) where T : StaticContextWrapper
         {
-            var accessor = StaticGameContext.ProxyAccessor<ToolAccessor, ToolDelegate>(@delegate);
-            var wrapped = new Tool(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
+            instance.Parent = Root;
+            instance.Underlying = StaticGameContext.ProxyAccessor<A, TypeDelegate<T>>(@delegate, @delegate.ConstructorParams);
+            @delegate.Accessor = instance;
+            return instance;
         }
 
-        public ObjectItem ProxyObject(ObjectDelegate @delegate)
+        public T Proxy<A, T>(TypeDelegate<T> @delegate) where T : StaticContextWrapper
         {
-            var accessor = StaticGameContext.ProxyAccessor<ObjectAccessor, ObjectDelegate>(@delegate);
-            var wrapped = new ObjectItem(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public Billboard ProxyBillboard(BillboardDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<BillboardAccessor, BillboardDelegate>(@delegate);
-            var wrapped = new Billboard(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public ClickableTextureComponent ProxyTexture(TextureComponentDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<ClickableTextureComponentAccessor, TextureComponentDelegate>(@delegate);
-            var wrapped = new ClickableTextureComponent(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public ClickableMenu ProxyClickableMenu(ClickableMenuDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<ClickableMenuAccessor, ClickableMenuDelegate>(@delegate);
-            var wrapped = new ClickableMenu(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public AnimatedSprite ProxyAnimatedSprite(AnimatedSpriteDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<AnimatedSpriteAccessor, AnimatedSpriteDelegate>(@delegate);
-            var wrapped = new AnimatedSprite(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public Character ProxyCharacter(CharacterDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<CharacterAccessor, CharacterDelegate>(@delegate);
-            var wrapped = new Character(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
-        }
-
-        public NPC ProxyNPC(NPCDelegate @delegate)
-        {
-            var accessor = StaticGameContext.ProxyAccessor<NPCAccessor, NPCDelegate>(@delegate);
-            var wrapped = new NPC(Root, accessor);
-            @delegate.Accessor = wrapped;
-            return wrapped;
+            T instance = Activator.CreateInstance<T>();
+            return Proxy<A, T>(@delegate, instance);
         }
     }
 }

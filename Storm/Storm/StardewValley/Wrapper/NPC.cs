@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Inari
+    Copyright 2016 Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,454 +24,456 @@ namespace Storm.StardewValley.Wrapper
 {
     public class NPC : Character
     {
-        private readonly NPCAccessor accessor;
-
-        public NPC(StaticContext parent, NPCAccessor accessor) : base(parent, accessor)
+        public NPC(StaticContext parent, NPCAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public NPC()
+        {
         }
 
         public int DirectionIndex
         {
-            get { return accessor._GetDirectionIndex(); }
-            set { accessor._SetDirectionIndex(value); }
+            get { return Cast<NPCAccessor>()._GetDirectionIndex(); }
+            set { Cast<NPCAccessor>()._SetDirectionIndex(value); }
         }
 
         public int LengthOfWalkingSquareX
         {
-            get { return accessor._GetLengthOfWalkingSquareX(); }
-            set { accessor._SetLengthOfWalkingSquareX(value); }
+            get { return Cast<NPCAccessor>()._GetLengthOfWalkingSquareX(); }
+            set { Cast<NPCAccessor>()._SetLengthOfWalkingSquareX(value); }
         }
 
         public int LengthOfWalkingSquareY
         {
-            get { return accessor._GetLengthOfWalkingSquareY(); }
-            set { accessor._SetLengthOfWalkingSquareY(value); }
+            get { return Cast<NPCAccessor>()._GetLengthOfWalkingSquareY(); }
+            set { Cast<NPCAccessor>()._SetLengthOfWalkingSquareY(value); }
         }
 
         public int SquarePauseAccumulation
         {
-            get { return accessor._GetSquarePauseAccumulation(); }
-            set { accessor._SetSquarePauseAccumulation(value); }
+            get { return Cast<NPCAccessor>()._GetSquarePauseAccumulation(); }
+            set { Cast<NPCAccessor>()._SetSquarePauseAccumulation(value); }
         }
 
         public int SquarePauseTotal
         {
-            get { return accessor._GetSquarePauseTotal(); }
-            set { accessor._SetSquarePauseTotal(value); }
+            get { return Cast<NPCAccessor>()._GetSquarePauseTotal(); }
+            set { Cast<NPCAccessor>()._SetSquarePauseTotal(value); }
         }
 
         public int SquarePauseOffset
         {
-            get { return accessor._GetSquarePauseOffset(); }
-            set { accessor._SetSquarePauseOffset(value); }
+            get { return Cast<NPCAccessor>()._GetSquarePauseOffset(); }
+            set { Cast<NPCAccessor>()._SetSquarePauseOffset(value); }
         }
 
         public Rectangle LastCrossroad
         {
-            get { return accessor._GetLastCrossroad(); }
-            set { accessor._SetLastCrossroad(value); }
+            get { return Cast<NPCAccessor>()._GetLastCrossroad(); }
+            set { Cast<NPCAccessor>()._SetLastCrossroad(value); }
         }
 
         public string DefaultMap
         {
-            get { return accessor._GetDefaultMap(); }
-            set { accessor._SetDefaultMap(value); }
+            get { return Cast<NPCAccessor>()._GetDefaultMap(); }
+            set { Cast<NPCAccessor>()._SetDefaultMap(value); }
         }
 
         public string LoveInterest
         {
-            get { return accessor._GetLoveInterest(); }
-            set { accessor._SetLoveInterest(value); }
+            get { return Cast<NPCAccessor>()._GetLoveInterest(); }
+            set { Cast<NPCAccessor>()._SetLoveInterest(value); }
         }
 
         public string BirthdaySeason
         {
-            get { return accessor._GetBirthdaySeason(); }
-            set { accessor._SetBirthdaySeason(value); }
+            get { return Cast<NPCAccessor>()._GetBirthdaySeason(); }
+            set { Cast<NPCAccessor>()._SetBirthdaySeason(value); }
         }
 
         public Texture2D Portrait
         {
-            get { return accessor._GetPortrait(); }
-            set { accessor._SetPortrait(value); }
+            get { return Cast<NPCAccessor>()._GetPortrait(); }
+            set { Cast<NPCAccessor>()._SetPortrait(value); }
         }
 
         public Vector2 DefaultPosition
         {
-            get { return accessor._GetDefaultPosition(); }
-            set { accessor._SetDefaultPosition(value); }
+            get { return Cast<NPCAccessor>()._GetDefaultPosition(); }
+            set { Cast<NPCAccessor>()._SetDefaultPosition(value); }
         }
 
         public Vector2 NextSquarePosition
         {
-            get { return accessor._GetNextSquarePosition(); }
-            set { accessor._SetNextSquarePosition(value); }
+            get { return Cast<NPCAccessor>()._GetNextSquarePosition(); }
+            set { Cast<NPCAccessor>()._SetNextSquarePosition(value); }
         }
 
         public int DefaultFacingDirection
         {
-            get { return accessor._GetDefaultFacingDirection(); }
-            set { accessor._SetDefaultFacingDirection(value); }
+            get { return Cast<NPCAccessor>()._GetDefaultFacingDirection(); }
+            set { Cast<NPCAccessor>()._SetDefaultFacingDirection(value); }
         }
 
         public int IdForClones
         {
-            get { return accessor._GetIdForClones(); }
-            set { accessor._SetIdForClones(value); }
+            get { return Cast<NPCAccessor>()._GetIdForClones(); }
+            set { Cast<NPCAccessor>()._SetIdForClones(value); }
         }
 
         public int ShakeTimer
         {
-            get { return accessor._GetShakeTimer(); }
-            set { accessor._SetShakeTimer(value); }
+            get { return Cast<NPCAccessor>()._GetShakeTimer(); }
+            set { Cast<NPCAccessor>()._SetShakeTimer(value); }
         }
 
         public bool IsWalkingInSquare
         {
-            get { return accessor._GetIsWalkingInSquare(); }
-            set { accessor._SetIsWalkingInSquare(value); }
+            get { return Cast<NPCAccessor>()._GetIsWalkingInSquare(); }
+            set { Cast<NPCAccessor>()._SetIsWalkingInSquare(value); }
         }
 
         public bool IsWalkingTowardPlayer
         {
-            get { return accessor._GetIsWalkingTowardPlayer(); }
-            set { accessor._SetIsWalkingTowardPlayer(value); }
+            get { return Cast<NPCAccessor>()._GetIsWalkingTowardPlayer(); }
+            set { Cast<NPCAccessor>()._SetIsWalkingTowardPlayer(value); }
         }
 
         public Stack CurrentDialogue
         {
-            get { return accessor._GetCurrentDialogue(); }
-            set { accessor._SetCurrentDialogue(value); }
+            get { return Cast<NPCAccessor>()._GetCurrentDialogue(); }
+            set { Cast<NPCAccessor>()._SetCurrentDialogue(value); }
         }
 
         public string TextAboveHead
         {
-            get { return accessor._GetTextAboveHead(); }
-            set { accessor._SetTextAboveHead(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHead(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHead(value); }
         }
 
         public int TextAboveHeadPreTimer
         {
-            get { return accessor._GetTextAboveHeadPreTimer(); }
-            set { accessor._SetTextAboveHeadPreTimer(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHeadPreTimer(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHeadPreTimer(value); }
         }
 
         public int TextAboveHeadTimer
         {
-            get { return accessor._GetTextAboveHeadTimer(); }
-            set { accessor._SetTextAboveHeadTimer(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHeadTimer(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHeadTimer(value); }
         }
 
         public int TextAboveHeadStyle
         {
-            get { return accessor._GetTextAboveHeadStyle(); }
-            set { accessor._SetTextAboveHeadStyle(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHeadStyle(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHeadStyle(value); }
         }
 
         public int TextAboveHeadColor
         {
-            get { return accessor._GetTextAboveHeadColor(); }
-            set { accessor._SetTextAboveHeadColor(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHeadColor(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHeadColor(value); }
         }
 
         public float TextAboveHeadAlpha
         {
-            get { return accessor._GetTextAboveHeadAlpha(); }
-            set { accessor._SetTextAboveHeadAlpha(value); }
+            get { return Cast<NPCAccessor>()._GetTextAboveHeadAlpha(); }
+            set { Cast<NPCAccessor>()._SetTextAboveHeadAlpha(value); }
         }
 
         public int Age
         {
-            get { return accessor._GetAge(); }
-            set { accessor._SetAge(value); }
+            get { return Cast<NPCAccessor>()._GetAge(); }
+            set { Cast<NPCAccessor>()._SetAge(value); }
         }
 
         public int Manners
         {
-            get { return accessor._GetManners(); }
-            set { accessor._SetManners(value); }
+            get { return Cast<NPCAccessor>()._GetManners(); }
+            set { Cast<NPCAccessor>()._SetManners(value); }
         }
 
         public int SocialAnxiety
         {
-            get { return accessor._GetSocialAnxiety(); }
-            set { accessor._SetSocialAnxiety(value); }
+            get { return Cast<NPCAccessor>()._GetSocialAnxiety(); }
+            set { Cast<NPCAccessor>()._SetSocialAnxiety(value); }
         }
 
         public int Optimism
         {
-            get { return accessor._GetOptimism(); }
-            set { accessor._SetOptimism(value); }
+            get { return Cast<NPCAccessor>()._GetOptimism(); }
+            set { Cast<NPCAccessor>()._SetOptimism(value); }
         }
 
         public int Gender
         {
-            get { return accessor._GetGender(); }
-            set { accessor._SetGender(value); }
+            get { return Cast<NPCAccessor>()._GetGender(); }
+            set { Cast<NPCAccessor>()._SetGender(value); }
         }
 
         public int Id
         {
-            get { return accessor._GetId(); }
-            set { accessor._SetId(value); }
+            get { return Cast<NPCAccessor>()._GetId(); }
+            set { Cast<NPCAccessor>()._SetId(value); }
         }
 
         public int HomeRegion
         {
-            get { return accessor._GetHomeRegion(); }
-            set { accessor._SetHomeRegion(value); }
+            get { return Cast<NPCAccessor>()._GetHomeRegion(); }
+            set { Cast<NPCAccessor>()._SetHomeRegion(value); }
         }
 
         public int DaysUntilBirthing
         {
-            get { return accessor._GetDaysUntilBirthing(); }
-            set { accessor._SetDaysUntilBirthing(value); }
+            get { return Cast<NPCAccessor>()._GetDaysUntilBirthing(); }
+            set { Cast<NPCAccessor>()._SetDaysUntilBirthing(value); }
         }
 
         public int DaysAfterLastBirth
         {
-            get { return accessor._GetDaysAfterLastBirth(); }
-            set { accessor._SetDaysAfterLastBirth(value); }
+            get { return Cast<NPCAccessor>()._GetDaysAfterLastBirth(); }
+            set { Cast<NPCAccessor>()._SetDaysAfterLastBirth(value); }
         }
 
         public int BirthdayDay
         {
-            get { return accessor._GetBirthdayDay(); }
-            set { accessor._SetBirthdayDay(value); }
+            get { return Cast<NPCAccessor>()._GetBirthdayDay(); }
+            set { Cast<NPCAccessor>()._SetBirthdayDay(value); }
         }
 
         public string ExtraDialogueMessageToAddThisMorning
         {
-            get { return accessor._GetExtraDialogueMessageToAddThisMorning(); }
-            set { accessor._SetExtraDialogueMessageToAddThisMorning(value); }
+            get { return Cast<NPCAccessor>()._GetExtraDialogueMessageToAddThisMorning(); }
+            set { Cast<NPCAccessor>()._SetExtraDialogueMessageToAddThisMorning(value); }
         }
 
         public GameLocation CurrentLocation
         {
             get
             {
-                var tmp = accessor._GetCurrentLocation();
+                var tmp = Cast<NPCAccessor>()._GetCurrentLocation();
                 if (tmp == null) return null;
                 return new GameLocation(Parent, tmp);
             }
-            set { accessor._SetCurrentLocation(value?.Cast<GameLocationAccessor>()); }
+            set { Cast<NPCAccessor>()._SetCurrentLocation(value?.Cast<GameLocationAccessor>()); }
         }
 
         public bool UpdatedDialogueYet
         {
-            get { return accessor._GetUpdatedDialogueYet(); }
-            set { accessor._SetUpdatedDialogueYet(value); }
+            get { return Cast<NPCAccessor>()._GetUpdatedDialogueYet(); }
+            set { Cast<NPCAccessor>()._SetUpdatedDialogueYet(value); }
         }
 
         public bool UniqueSpriteActive
         {
-            get { return accessor._GetUniqueSpriteActive(); }
-            set { accessor._SetUniqueSpriteActive(value); }
+            get { return Cast<NPCAccessor>()._GetUniqueSpriteActive(); }
+            set { Cast<NPCAccessor>()._SetUniqueSpriteActive(value); }
         }
 
         public bool UniquePortraitActive
         {
-            get { return accessor._GetUniquePortraitActive(); }
-            set { accessor._SetUniquePortraitActive(value); }
+            get { return Cast<NPCAccessor>()._GetUniquePortraitActive(); }
+            set { Cast<NPCAccessor>()._SetUniquePortraitActive(value); }
         }
 
         public bool Breather
         {
-            get { return accessor._GetBreather(); }
-            set { accessor._SetBreather(value); }
+            get { return Cast<NPCAccessor>()._GetBreather(); }
+            set { Cast<NPCAccessor>()._SetBreather(value); }
         }
 
         public bool HideShadow
         {
-            get { return accessor._GetHideShadow(); }
-            set { accessor._SetHideShadow(value); }
+            get { return Cast<NPCAccessor>()._GetHideShadow(); }
+            set { Cast<NPCAccessor>()._SetHideShadow(value); }
         }
 
         public bool HasPartnerForDance
         {
-            get { return accessor._GetHasPartnerForDance(); }
-            set { accessor._SetHasPartnerForDance(value); }
+            get { return Cast<NPCAccessor>()._GetHasPartnerForDance(); }
+            set { Cast<NPCAccessor>()._SetHasPartnerForDance(value); }
         }
 
         public bool ImmediateSpeak
         {
-            get { return accessor._GetImmediateSpeak(); }
-            set { accessor._SetImmediateSpeak(value); }
+            get { return Cast<NPCAccessor>()._GetImmediateSpeak(); }
+            set { Cast<NPCAccessor>()._SetImmediateSpeak(value); }
         }
 
         public bool IgnoreScheduleToday
         {
-            get { return accessor._GetIgnoreScheduleToday(); }
-            set { accessor._SetIgnoreScheduleToday(value); }
+            get { return Cast<NPCAccessor>()._GetIgnoreScheduleToday(); }
+            set { Cast<NPCAccessor>()._SetIgnoreScheduleToday(value); }
         }
 
         public int MoveTowardPlayerThreshold
         {
-            get { return accessor._GetMoveTowardPlayerThreshold(); }
-            set { accessor._SetMoveTowardPlayerThreshold(value); }
+            get { return Cast<NPCAccessor>()._GetMoveTowardPlayerThreshold(); }
+            set { Cast<NPCAccessor>()._SetMoveTowardPlayerThreshold(value); }
         }
 
         public float Rotation
         {
-            get { return accessor._GetRotation(); }
-            set { accessor._SetRotation(value); }
+            get { return Cast<NPCAccessor>()._GetRotation(); }
+            set { Cast<NPCAccessor>()._SetRotation(value); }
         }
 
         public float YOffset
         {
-            get { return accessor._GetYOffset(); }
-            set { accessor._SetYOffset(value); }
+            get { return Cast<NPCAccessor>()._GetYOffset(); }
+            set { Cast<NPCAccessor>()._SetYOffset(value); }
         }
 
         public float SwimTimer
         {
-            get { return accessor._GetSwimTimer(); }
-            set { accessor._SetSwimTimer(value); }
+            get { return Cast<NPCAccessor>()._GetSwimTimer(); }
+            set { Cast<NPCAccessor>()._SetSwimTimer(value); }
         }
 
         public float TimerSinceLastMovement
         {
-            get { return accessor._GetTimerSinceLastMovement(); }
-            set { accessor._SetTimerSinceLastMovement(value); }
+            get { return Cast<NPCAccessor>()._GetTimerSinceLastMovement(); }
+            set { Cast<NPCAccessor>()._SetTimerSinceLastMovement(value); }
         }
 
         public string MapBeforeEvent
         {
-            get { return accessor._GetMapBeforeEvent(); }
-            set { accessor._SetMapBeforeEvent(value); }
+            get { return Cast<NPCAccessor>()._GetMapBeforeEvent(); }
+            set { Cast<NPCAccessor>()._SetMapBeforeEvent(value); }
         }
 
         public Vector2 PositionBeforeEvent
         {
-            get { return accessor._GetPositionBeforeEvent(); }
-            set { accessor._SetPositionBeforeEvent(value); }
+            get { return Cast<NPCAccessor>()._GetPositionBeforeEvent(); }
+            set { Cast<NPCAccessor>()._SetPositionBeforeEvent(value); }
         }
 
         public Vector2 LastPosition
         {
-            get { return accessor._GetLastPosition(); }
-            set { accessor._SetLastPosition(value); }
+            get { return Cast<NPCAccessor>()._GetLastPosition(); }
+            set { Cast<NPCAccessor>()._SetLastPosition(value); }
         }
 
         public bool IsInvisible
         {
-            get { return accessor._GetIsInvisible(); }
-            set { accessor._SetIsInvisible(value); }
+            get { return Cast<NPCAccessor>()._GetIsInvisible(); }
+            set { Cast<NPCAccessor>()._SetIsInvisible(value); }
         }
 
         public bool FollowSchedule
         {
-            get { return accessor._GetFollowSchedule(); }
-            set { accessor._SetFollowSchedule(value); }
+            get { return Cast<NPCAccessor>()._GetFollowSchedule(); }
+            set { Cast<NPCAccessor>()._SetFollowSchedule(value); }
         }
 
         public bool Datable
         {
-            get { return accessor._GetDatable(); }
-            set { accessor._SetDatable(value); }
+            get { return Cast<NPCAccessor>()._GetDatable(); }
+            set { Cast<NPCAccessor>()._SetDatable(value); }
         }
 
         public bool DatingFarmer
         {
-            get { return accessor._GetDatingFarmer(); }
-            set { accessor._SetDatingFarmer(value); }
+            get { return Cast<NPCAccessor>()._GetDatingFarmer(); }
+            set { Cast<NPCAccessor>()._SetDatingFarmer(value); }
         }
 
         public bool HasBeenKissedToday
         {
-            get { return accessor._GetHasBeenKissedToday(); }
-            set { accessor._SetHasBeenKissedToday(value); }
+            get { return Cast<NPCAccessor>()._GetHasBeenKissedToday(); }
+            set { Cast<NPCAccessor>()._SetHasBeenKissedToday(value); }
         }
 
         public bool DoingEndOfRouteAnimation
         {
-            get { return accessor._GetDoingEndOfRouteAnimation(); }
-            set { accessor._SetDoingEndOfRouteAnimation(value); }
+            get { return Cast<NPCAccessor>()._GetDoingEndOfRouteAnimation(); }
+            set { Cast<NPCAccessor>()._SetDoingEndOfRouteAnimation(value); }
         }
 
         public bool GoingToDoEndOfRouteAnimation
         {
-            get { return accessor._GetGoingToDoEndOfRouteAnimation(); }
-            set { accessor._SetGoingToDoEndOfRouteAnimation(value); }
+            get { return Cast<NPCAccessor>()._GetGoingToDoEndOfRouteAnimation(); }
+            set { Cast<NPCAccessor>()._SetGoingToDoEndOfRouteAnimation(value); }
         }
 
         public int RouteEndIntro
         {
-            get { return accessor._GetRouteEndIntro(); }
-            set { accessor._SetRouteEndIntro(value); }
+            get { return Cast<NPCAccessor>()._GetRouteEndIntro(); }
+            set { Cast<NPCAccessor>()._SetRouteEndIntro(value); }
         }
 
         public int RouteEndAnimation
         {
-            get { return accessor._GetRouteEndAnimation(); }
-            set { accessor._SetRouteEndAnimation(value); }
+            get { return Cast<NPCAccessor>()._GetRouteEndAnimation(); }
+            set { Cast<NPCAccessor>()._SetRouteEndAnimation(value); }
         }
 
         public int RouteEndOutro
         {
-            get { return accessor._GetRouteEndOutro(); }
-            set { accessor._SetRouteEndOutro(value); }
+            get { return Cast<NPCAccessor>()._GetRouteEndOutro(); }
+            set { Cast<NPCAccessor>()._SetRouteEndOutro(value); }
         }
 
         public string EndOfRouteMessage
         {
-            get { return accessor._GetEndOfRouteMessage(); }
-            set { accessor._SetEndOfRouteMessage(value); }
+            get { return Cast<NPCAccessor>()._GetEndOfRouteMessage(); }
+            set { Cast<NPCAccessor>()._SetEndOfRouteMessage(value); }
         }
 
         public string NextEndOfRouteMessage
         {
-            get { return accessor._GetNextEndOfRouteMessage(); }
-            set { accessor._SetNextEndOfRouteMessage(value); }
+            get { return Cast<NPCAccessor>()._GetNextEndOfRouteMessage(); }
+            set { Cast<NPCAccessor>()._SetNextEndOfRouteMessage(value); }
         }
 
         public string EndOfRouteBehaviorName
         {
-            get { return accessor._GetEndOfRouteBehaviorName(); }
-            set { accessor._SetEndOfRouteBehaviorName(value); }
+            get { return Cast<NPCAccessor>()._GetEndOfRouteBehaviorName(); }
+            set { Cast<NPCAccessor>()._SetEndOfRouteBehaviorName(value); }
         }
 
         public Point PreviousEndPoint
         {
-            get { return accessor._GetPreviousEndPoint(); }
-            set { accessor._SetPreviousEndPoint(value); }
+            get { return Cast<NPCAccessor>()._GetPreviousEndPoint(); }
+            set { Cast<NPCAccessor>()._SetPreviousEndPoint(value); }
         }
 
         public int ScheduleTimeToTry
         {
-            get { return accessor._GetScheduleTimeToTry(); }
-            set { accessor._SetScheduleTimeToTry(value); }
+            get { return Cast<NPCAccessor>()._GetScheduleTimeToTry(); }
+            set { Cast<NPCAccessor>()._SetScheduleTimeToTry(value); }
         }
 
         public int SquareMovementFacingPreference
         {
-            get { return accessor._GetSquareMovementFacingPreference(); }
-            set { accessor._SetSquareMovementFacingPreference(value); }
+            get { return Cast<NPCAccessor>()._GetSquareMovementFacingPreference(); }
+            set { Cast<NPCAccessor>()._SetSquareMovementFacingPreference(value); }
         }
 
         public bool ReturningToEndPoint
         {
-            get { return accessor._GetReturningToEndPoint(); }
-            set { accessor._SetReturningToEndPoint(value); }
+            get { return Cast<NPCAccessor>()._GetReturningToEndPoint(); }
+            set { Cast<NPCAccessor>()._SetReturningToEndPoint(value); }
         }
 
         public bool HasSaidAfternoonDialogue
         {
-            get { return accessor._GetHasSaidAfternoonDialogue(); }
-            set { accessor._SetHasSaidAfternoonDialogue(value); }
+            get { return Cast<NPCAccessor>()._GetHasSaidAfternoonDialogue(); }
+            set { Cast<NPCAccessor>()._SetHasSaidAfternoonDialogue(value); }
         }
 
         public int Married
         {
-            get { return accessor._GetMarried(); }
-            set { accessor._SetMarried(value); }
+            get { return Cast<NPCAccessor>()._GetMarried(); }
+            set { Cast<NPCAccessor>()._SetMarried(value); }
         }
 
         public int DaysMarried
         {
-            get { return accessor._GetDaysMarried(); }
-            set { accessor._SetDaysMarried(value); }
+            get { return Cast<NPCAccessor>()._GetDaysMarried(); }
+            set { Cast<NPCAccessor>()._SetDaysMarried(value); }
         }
     }
 }

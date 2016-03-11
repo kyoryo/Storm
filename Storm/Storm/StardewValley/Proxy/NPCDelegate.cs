@@ -23,21 +23,13 @@ namespace Storm.StardewValley.Proxy
 {
     public class NPCDelegate : TypeDelegate<NPC>
     {
-        private object[] constructorParams;
-
         public NPCDelegate()
         {
-            constructorParams = new object[] { };
         }
 
         /*public NPCDelegate(AnimatedSprite sprite, int facingDir, string name, SerializableDictionary<int, int[]> schedule, Texture2D portrait, int idForClones)
         {
             constructorParams = new object[] { sprite, facingDir, name, schedule, portrait, idForClones };
         }*/
-
-        public object[] GetConstructorParams()
-        {
-            return constructorParams;
-        }
     }
 }

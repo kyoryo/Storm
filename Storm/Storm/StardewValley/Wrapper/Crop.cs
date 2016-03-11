@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,21 +16,20 @@
  */
 
 using Storm.StardewValley.Accessor;
-using System.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class Crop : Wrapper
+    public class Crop : StaticContextWrapper
     {
-        private readonly CropAccessor accessor;
-
-        public Crop(StaticContext parent, CropAccessor accessor)
+        public Crop(StaticContext parent, CropAccessor accessor) : 
+            base(parent)
         {
-            Parent = parent;
-            this.accessor = accessor;
+            Underlying = accessor;
         }
 
-        public StaticContext Parent { get; }
+        public Crop()
+        {
+        }
 
         /// <summary>
         /// The chance for this crop to drop extra products
@@ -38,8 +37,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The ChanceForExtraCrops property gets/sets the value of the double field ChanceForExtraCrops </value>
         public double ChanceForExtraCrops
         {
-            get { return accessor._GetChanceForExtraCrops(); }
-            set { accessor._SetChanceForExtraCrops(value); }
+            get { return Cast<CropAccessor>()._GetChanceForExtraCrops(); }
+            set { Cast<CropAccessor>()._SetChanceForExtraCrops(value); }
         }
 
         /// <summary>
@@ -49,8 +48,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The CurrentPhase property gets/sets the value of the int field currentPhase</value>
         public int CurrentPhase
         {
-            get { return accessor._GetCurrentPhase(); }
-            set { accessor._SetCurrentPhase(value); }
+            get { return Cast<CropAccessor>()._GetCurrentPhase(); }
+            set { Cast<CropAccessor>()._SetCurrentPhase(value); }
         }
 
         /// <summary>
@@ -59,8 +58,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The DayOfCurrentPhase property gets/sets the value of the int field dayOfCurrentPhase</value>
         public int DayOfCurrentPhase
         {
-            get { return accessor._GetDayOfCurrentPhase(); }
-            set { accessor._SetCurrentPhase(value); }
+            get { return Cast<CropAccessor>()._GetDayOfCurrentPhase(); }
+            set { Cast<CropAccessor>()._SetCurrentPhase(value); }
         }
 
         /// <summary>
@@ -71,7 +70,7 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = accessor._GetPhaseDays();
+                var tmp = Cast<CropAccessor>()._GetPhaseDays();
                 if (tmp == null) return null;
                 return new ProxyList<int>(tmp);
             }
@@ -83,20 +82,20 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The IsDead property gets/sets the value of the bool field IsDead</value>
         public bool IsDead
         {
-            get { return accessor._GetIsDead(); }
-            set { accessor._SetIsDead(true); }
+            get { return Cast<CropAccessor>()._GetIsDead(); }
+            set { Cast<CropAccessor>()._SetIsDead(true); }
         }
 
         public bool Flip
         {
-            get { return accessor._GetFlip(); }
-            set { accessor._SetFlip(value); }
+            get { return Cast<CropAccessor>()._GetFlip(); }
+            set { Cast<CropAccessor>()._SetFlip(value); }
         }
 
         public bool ForageCrop
         {
-            get { return accessor._GetForageCrop(); }
-            set { accessor._SetForageCrop(value); }
+            get { return Cast<CropAccessor>()._GetForageCrop(); }
+            set { Cast<CropAccessor>()._SetForageCrop(value); }
         }
 
         /// <summary>
@@ -105,64 +104,62 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The IsFullyGrown property gets/sets the value of the bool field IsFullyGrown</value>
         public bool IsFullyGrown
         {
-            get { return accessor._GetIsFullyGrown(); }
-            set { accessor._SetIsFullyGrown(value); }
+            get { return Cast<CropAccessor>()._GetIsFullyGrown(); }
+            set { Cast<CropAccessor>()._SetIsFullyGrown(value); }
         }
 
         public int HarvestMethod
         {
-            get { return accessor._GetHarvestMethod(); }
-            set { accessor._SetHarvestMethod(value); }
+            get { return Cast<CropAccessor>()._GetHarvestMethod(); }
+            set { Cast<CropAccessor>()._SetHarvestMethod(value); }
         }
 
         public int IndexOfHarvest
         {
-            get { return accessor._GetIndexOfHarvest(); }
-            set { accessor._SetIndexOfHarvest(value); }
+            get { return Cast<CropAccessor>()._GetIndexOfHarvest(); }
+            set { Cast<CropAccessor>()._SetIndexOfHarvest(value); }
         }
 
         public int MaxHarvest
         {
-            get { return accessor._GetMaxHarvest(); }
-            set { accessor._SetMaxHarvest(value); }
+            get { return Cast<CropAccessor>()._GetMaxHarvest(); }
+            set { Cast<CropAccessor>()._SetMaxHarvest(value); }
         }
 
         public int MaxHarvestIncreasePerFarmingLevel
         {
-            get { return accessor._GetMaxHarvestIncreasePerFarmingLevel(); }
-            set { accessor._SetMaxHarvestIncreasePerFarmingLevel(value); }
+            get { return Cast<CropAccessor>()._GetMaxHarvestIncreasePerFarmingLevel(); }
+            set { Cast<CropAccessor>()._SetMaxHarvestIncreasePerFarmingLevel(value); }
         }
 
         public int MinHarvest
         {
-            get { return accessor._GetMinHarvest(); }
-            set { accessor._SetMinHarvest(value); }
+            get { return Cast<CropAccessor>()._GetMinHarvest(); }
+            set { Cast<CropAccessor>()._SetMinHarvest(value); }
         }
 
         public int PhaseToShow
         {
-            get { return accessor._GetPhaseToShow(); }
-            set { accessor._SetPhaseToShow(value); }
+            get { return Cast<CropAccessor>()._GetPhaseToShow(); }
+            set { Cast<CropAccessor>()._SetPhaseToShow(value); }
         }
 
         public bool ProgramColored
         {
-            get { return accessor._GetProgramColored(); }
-            set { accessor._SetProgramColored(value); }
+            get { return Cast<CropAccessor>()._GetProgramColored(); }
+            set { Cast<CropAccessor>()._SetProgramColored(value); }
         }
 
         public bool HasRaisedSeeds
         {
-            get { return accessor._GetHasRaisedSeeds(); }
-            set { accessor._SetHasRaisedSeeds(value); }
+            get { return Cast<CropAccessor>()._GetHasRaisedSeeds(); }
+            set { Cast<CropAccessor>()._SetHasRaisedSeeds(value); }
         }
 
         public int RegrowAfterHarvest
         {
-            get { return accessor._GetRegrowAfterHarvest(); }
-            set { accessor._SetRegrowAfterHarvest(value); }
+            get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
+            set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
         }
-
-        public object Expose() => accessor;
     }
 }

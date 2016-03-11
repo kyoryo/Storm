@@ -21,6 +21,5 @@ namespace Storm.StardewValley.Proxy
 {
     public abstract class CraftingRecipeDelegate : TypeDelegate<CraftingRecipeAccessor>
     {
-        public abstract object[] GetConstructorParams();
     }
 }

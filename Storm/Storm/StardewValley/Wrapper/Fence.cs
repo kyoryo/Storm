@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -22,67 +22,67 @@ namespace Storm.StardewValley.Wrapper
 {
     public class Fence : ObjectItem
     {
-        private readonly FenceAccessor accessor;
-
-        public Fence(StaticContext parent, FenceAccessor accessor) : base(parent, accessor)
+        public Fence(StaticContext parent, FenceAccessor accessor) : 
+            base(parent, accessor)
         {
-            this.accessor = accessor;
+        }
+
+        public Fence()
+        {
         }
 
         public int FencePieceWidth
         {
-            get { return accessor._GetFencePieceWidth(); }
-            set { accessor._SetFencePieceWidth(value); }
+            get { return Cast<FenceAccessor>()._GetFencePieceWidth(); }
+            set { Cast<FenceAccessor>()._SetFencePieceWidth(value); }
         }
 
         public int FencePieceHeight
         {
-            get { return accessor._GetFencePieceHeight(); }
-            set { accessor._SetFencePieceHeight(value); }
+            get { return Cast<FenceAccessor>()._GetFencePieceHeight(); }
+            set { Cast<FenceAccessor>()._SetFencePieceHeight(value); }
         }
 
         public Texture2D FenceTexture
         {
-            get { return accessor._GetFenceTexture(); }
-            set { accessor._SetFenceTexture(value); }
+            get { return Cast<FenceAccessor>()._GetFenceTexture(); }
+            set { Cast<FenceAccessor>()._SetFenceTexture(value); }
         }
 
         public float Health
         {
-            get { return accessor._GetHealth(); }
-            set { accessor._SetHealth(value); }
+            get { return Cast<FenceAccessor>()._GetHealth(); }
+            set { Cast<FenceAccessor>()._SetHealth(value); }
         }
 
         public float MaxHealth
         {
-            get { return accessor._GetMaxHealth(); }
-            set { accessor._SetMaxHealth(value); }
+            get { return Cast<FenceAccessor>()._GetMaxHealth(); }
+            set { Cast<FenceAccessor>()._SetMaxHealth(value); }
         }
 
         public int WhichType
         {
-            get { return accessor._GetWhichType(); }
-            set { accessor._SetWhichType(value); }
+            get { return Cast<FenceAccessor>()._GetWhichType(); }
+            set { Cast<FenceAccessor>()._SetWhichType(value); }
         }
 
         public int GatePosition
         {
-            get { return accessor._GetGatePosition(); }
-            set { accessor._SetGatePosition(value); }
+            get { return Cast<FenceAccessor>()._GetGatePosition(); }
+            set { Cast<FenceAccessor>()._SetGatePosition(value); }
         }
 
         public int GateMotion
         {
-            get { return accessor._GetGateMotion(); }
-            set { accessor._SetGateMotion(value); }
+            get { return Cast<FenceAccessor>()._GetGateMotion(); }
+            set { Cast<FenceAccessor>()._SetGateMotion(value); }
         }
 
         public bool IsGate
         {
-            get { return accessor._GetIsGate(); }
-            set { accessor._SetIsGate(value); }
+            get { return Cast<FenceAccessor>()._GetIsGate(); }
+            set { Cast<FenceAccessor>()._SetIsGate(value); }
         }
-
-        public new FenceAccessor Expose() => accessor;
     }
 }

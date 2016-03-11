@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic)
+    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,37 +26,40 @@ using Microsoft.Xna.Framework.Input;
 using Storm.StardewValley.Accessor;
 using xTile.Display;
 using Rectangle = xTile.Dimensions.Rectangle;
+using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class StaticContext : Wrapper
     {
-        private readonly StaticContextAccessor accessor;
-
         public StaticContext(StaticContextAccessor accessor)
         {
-            this.accessor = accessor;
+            Underlying = accessor;
+        }
+
+        public StaticContext()
+        {
         }
 
         public GameWindow Window
         {
-            get { return ((Game) accessor).Window; }
+            get { return ((Game)Cast<StaticContextAccessor>()).Window; }
         }
 
         public Rectangle Viewport
         {
-            get { return accessor._GetViewport(); }
+            get { return Cast<StaticContextAccessor>()._GetViewport(); }
         }
 
         /// <summary>
-        /// The Farmer accessor for this game
+        /// The Farmer Cast<StaticContextAccessor>() for this game
         /// </summary>
         /// <value>The Player property gets the value of the Farmer field Farmer</value>
         public Farmer Player
         {
             get
             {
-                var farmer = accessor._GetPlayer();
+                var farmer = Cast<StaticContextAccessor>()._GetPlayer();
                 if (farmer == null) return null;
                 return new Farmer(this, farmer);
             }
@@ -66,1467 +69,1488 @@ namespace Storm.StardewValley.Wrapper
         /// The current location of the player in the world
         /// </summary>
         /// <value>The CurrentLocation property gets the value of the GameLocation field CurrentLocation</value>
-        public GameLocation CurrentLocation => accessor._GetCurrentLocation() == null ? null : new GameLocation(this, accessor._GetCurrentLocation());
+        public GameLocation CurrentLocation
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetCurrentLocation();
+                if (tmp == null) return null;
+                return new GameLocation(this, Cast<StaticContextAccessor>()._GetCurrentLocation());
+            }
+        }
 
-        public IList Locations => accessor._GetLocations();
+        public WrappedProxyList<GameLocationAccessor, GameLocation> Locations
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetLocations();
+                if (tmp == null) return null;
+                return new WrappedProxyList<GameLocationAccessor, GameLocation>(tmp, i => new GameLocation(this, i));
+            }
+        }
+
+        public bool IsActive
+        {
+            get { return Cast<Game>().IsActive; }
+        }
 
         public int PixelZoom
         {
-            get { return accessor._GetPixelZoom(); }
-            set { accessor._SetPixelZoom(value); }
+            get { return Cast<StaticContextAccessor>()._GetPixelZoom(); }
+            set { Cast<StaticContextAccessor>()._SetPixelZoom(value); }
         }
 
         public int TileSize
         {
-            get { return accessor._GetTileSize(); }
-            set { accessor._SetTileSize(value); }
+            get { return Cast<StaticContextAccessor>()._GetTileSize(); }
+            set { Cast<StaticContextAccessor>()._SetTileSize(value); }
         }
 
         public string Version
         {
-            get { return accessor._GetVersion(); }
-            set { accessor._SetVersion(value); }
+            get { return Cast<StaticContextAccessor>()._GetVersion(); }
+            set { Cast<StaticContextAccessor>()._SetVersion(value); }
         }
 
         public GraphicsDeviceManager Graphics
         {
-            get { return accessor._GetGraphics(); }
-            set { accessor._SetGraphics(value); }
+            get { return Cast<StaticContextAccessor>()._GetGraphics(); }
+            set { Cast<StaticContextAccessor>()._SetGraphics(value); }
         }
 
         public ContentManager Content
         {
-            get { return accessor._GetContent(); }
-            set { accessor._SetContent(value); }
+            get { return Cast<StaticContextAccessor>()._GetContent(); }
+            set { Cast<StaticContextAccessor>()._SetContent(value); }
         }
 
         public ContentManager TemporaryContent
         {
-            get { return accessor._GetTemporaryContent(); }
-            set { accessor._SetTemporaryContent(value); }
+            get { return Cast<StaticContextAccessor>()._GetTemporaryContent(); }
+            set { Cast<StaticContextAccessor>()._SetTemporaryContent(value); }
         }
 
         public SpriteBatch SpriteBatch
         {
-            get { return accessor._GetSpriteBatch(); }
-            set { accessor._SetSpriteBatch(value); }
+            get { return Cast<StaticContextAccessor>()._GetSpriteBatch(); }
+            set { Cast<StaticContextAccessor>()._SetSpriteBatch(value); }
         }
 
         public GamePadState OldPadState
         {
-            get { return accessor._GetOldPadState(); }
-            set { accessor._SetOldPadState(value); }
+            get { return Cast<StaticContextAccessor>()._GetOldPadState(); }
+            set { Cast<StaticContextAccessor>()._SetOldPadState(value); }
         }
 
         public float ThumbStickSensitivity
         {
-            get { return accessor._GetThumbStickSensitivity(); }
-            set { accessor._SetThumbStickSensitivity(value); }
+            get { return Cast<StaticContextAccessor>()._GetThumbStickSensitivity(); }
+            set { Cast<StaticContextAccessor>()._SetThumbStickSensitivity(value); }
         }
 
         public float RunThreshold
         {
-            get { return accessor._GetRunThreshold(); }
-            set { accessor._SetRunThreshold(value); }
+            get { return Cast<StaticContextAccessor>()._GetRunThreshold(); }
+            set { Cast<StaticContextAccessor>()._SetRunThreshold(value); }
         }
 
         public KeyboardState OldKBState
         {
-            get { return accessor._GetOldKBState(); }
-            set { accessor._SetOldKBState(value); }
+            get { return Cast<StaticContextAccessor>()._GetOldKBState(); }
+            set { Cast<StaticContextAccessor>()._SetOldKBState(value); }
         }
 
         public MouseState OldMouseState
         {
-            get { return accessor._GetOldMouseState(); }
-            set { accessor._SetOldMouseState(value); }
+            get { return Cast<StaticContextAccessor>()._GetOldMouseState(); }
+            set { Cast<StaticContextAccessor>()._SetOldMouseState(value); }
         }
 
         public GameLocation LocationAfterWarp
         {
             get
             {
-                var tmp = accessor._GetLocationAfterWarp();
+                var tmp = Cast<StaticContextAccessor>()._GetLocationAfterWarp();
                 if (tmp == null) return null;
                 return new GameLocation(this, tmp);
             }
-            set { accessor._SetLocationAfterWarp(value?.Cast<GameLocationAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetLocationAfterWarp(value?.Cast<GameLocationAccessor>()); }
         }
 
         public IDisplayDevice MapDisplayDevice
         {
-            get { return accessor._GetMapDisplayDevice(); }
-            set { accessor._SetMapDisplayDevice(value); }
+            get { return Cast<StaticContextAccessor>()._GetMapDisplayDevice(); }
+            set { Cast<StaticContextAccessor>()._SetMapDisplayDevice(value); }
         }
 
         public Farmer ServerHost
         {
             get
             {
-                var tmp = accessor._GetServerHost();
+                var tmp = Cast<StaticContextAccessor>()._GetServerHost();
                 if (tmp == null) return null;
                 return new Farmer(this, tmp);
             }
-            set { accessor._SetServerHost(value?.Cast<FarmerAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetServerHost(value?.Cast<FarmerAccessor>()); }
         }
 
         public Texture2D ObjectSpriteSheet
         {
-            get { return accessor._GetObjectSpriteSheet(); }
-            set { accessor._SetObjectSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetObjectSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetObjectSpriteSheet(value); }
         }
 
         public Texture2D ToolSpriteSheet
         {
-            get { return accessor._GetToolSpriteSheet(); }
-            set { accessor._SetToolSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetToolSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetToolSpriteSheet(value); }
         }
 
         public Texture2D CropSpriteSheet
         {
-            get { return accessor._GetCropSpriteSheet(); }
-            set { accessor._SetCropSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetCropSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetCropSpriteSheet(value); }
         }
 
         public Texture2D MailboxTexture
         {
-            get { return accessor._GetMailboxTexture(); }
-            set { accessor._SetMailboxTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetMailboxTexture(); }
+            set { Cast<StaticContextAccessor>()._SetMailboxTexture(value); }
         }
 
         public Texture2D EmoteSpriteSheet
         {
-            get { return accessor._GetEmoteSpriteSheet(); }
-            set { accessor._SetEmoteSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetEmoteSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetEmoteSpriteSheet(value); }
         }
 
         public Texture2D DebrisSpriteSheet
         {
-            get { return accessor._GetDebrisSpriteSheet(); }
-            set { accessor._SetDebrisSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetDebrisSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetDebrisSpriteSheet(value); }
         }
 
         public Texture2D ToolIconBox
         {
-            get { return accessor._GetToolIconBox(); }
-            set { accessor._SetToolIconBox(value); }
+            get { return Cast<StaticContextAccessor>()._GetToolIconBox(); }
+            set { Cast<StaticContextAccessor>()._SetToolIconBox(value); }
         }
 
         public Texture2D RainTexture
         {
-            get { return accessor._GetRainTexture(); }
-            set { accessor._SetRainTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetRainTexture(); }
+            set { Cast<StaticContextAccessor>()._SetRainTexture(value); }
         }
 
         public Texture2D BigCraftableSpriteSheet
         {
-            get { return accessor._GetBigCraftableSpriteSheet(); }
-            set { accessor._SetBigCraftableSpriteSheet(value); }
+            get { return Cast<StaticContextAccessor>()._GetBigCraftableSpriteSheet(); }
+            set { Cast<StaticContextAccessor>()._SetBigCraftableSpriteSheet(value); }
         }
 
         public Texture2D SwordSwipe
         {
-            get { return accessor._GetSwordSwipe(); }
-            set { accessor._SetSwordSwipe(value); }
+            get { return Cast<StaticContextAccessor>()._GetSwordSwipe(); }
+            set { Cast<StaticContextAccessor>()._SetSwordSwipe(value); }
         }
 
         public Texture2D SwordSwipeDark
         {
-            get { return accessor._GetSwordSwipeDark(); }
-            set { accessor._SetSwordSwipeDark(value); }
+            get { return Cast<StaticContextAccessor>()._GetSwordSwipeDark(); }
+            set { Cast<StaticContextAccessor>()._SetSwordSwipeDark(value); }
         }
 
         public Texture2D BuffsIcons
         {
-            get { return accessor._GetBuffsIcons(); }
-            set { accessor._SetBuffsIcons(value); }
+            get { return Cast<StaticContextAccessor>()._GetBuffsIcons(); }
+            set { Cast<StaticContextAccessor>()._SetBuffsIcons(value); }
         }
 
         public Texture2D Daybg
         {
-            get { return accessor._GetDaybg(); }
-            set { accessor._SetDaybg(value); }
+            get { return Cast<StaticContextAccessor>()._GetDaybg(); }
+            set { Cast<StaticContextAccessor>()._SetDaybg(value); }
         }
 
         public Texture2D Nightbg
         {
-            get { return accessor._GetNightbg(); }
-            set { accessor._SetNightbg(value); }
+            get { return Cast<StaticContextAccessor>()._GetNightbg(); }
+            set { Cast<StaticContextAccessor>()._SetNightbg(value); }
         }
 
         public Texture2D LogoScreenTexture
         {
-            get { return accessor._GetLogoScreenTexture(); }
-            set { accessor._SetLogoScreenTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetLogoScreenTexture(); }
+            set { Cast<StaticContextAccessor>()._SetLogoScreenTexture(value); }
         }
 
         public Texture2D TvStationTexture
         {
-            get { return accessor._GetTvStationTexture(); }
-            set { accessor._SetTvStationTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetTvStationTexture(); }
+            set { Cast<StaticContextAccessor>()._SetTvStationTexture(value); }
         }
 
         public Texture2D Cloud
         {
-            get { return accessor._GetCloud(); }
-            set { accessor._SetCloud(value); }
+            get { return Cast<StaticContextAccessor>()._GetCloud(); }
+            set { Cast<StaticContextAccessor>()._SetCloud(value); }
         }
 
         public Texture2D MenuTexture
         {
-            get { return accessor._GetMenuTexture(); }
-            set { accessor._SetMenuTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetMenuTexture(); }
+            set { Cast<StaticContextAccessor>()._SetMenuTexture(value); }
         }
 
         public Texture2D Lantern
         {
-            get { return accessor._GetLantern(); }
-            set { accessor._SetLantern(value); }
+            get { return Cast<StaticContextAccessor>()._GetLantern(); }
+            set { Cast<StaticContextAccessor>()._SetLantern(value); }
         }
 
         public Texture2D WindowLight
         {
-            get { return accessor._GetWindowLight(); }
-            set { accessor._SetWindowLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetWindowLight(); }
+            set { Cast<StaticContextAccessor>()._SetWindowLight(value); }
         }
 
         public Texture2D SconceLight
         {
-            get { return accessor._GetSconceLight(); }
-            set { accessor._SetSconceLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetSconceLight(); }
+            set { Cast<StaticContextAccessor>()._SetSconceLight(value); }
         }
 
         public Texture2D CauldronLight
         {
-            get { return accessor._GetCauldronLight(); }
-            set { accessor._SetCauldronLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetCauldronLight(); }
+            set { Cast<StaticContextAccessor>()._SetCauldronLight(value); }
         }
 
         public Texture2D ShadowTexture
         {
-            get { return accessor._GetShadowTexture(); }
-            set { accessor._SetShadowTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetShadowTexture(); }
+            set { Cast<StaticContextAccessor>()._SetShadowTexture(value); }
         }
 
         public Texture2D MouseCursors
         {
-            get { return accessor._GetMouseCursors(); }
-            set { accessor._SetMouseCursors(value); }
+            get { return Cast<StaticContextAccessor>()._GetMouseCursors(); }
+            set { Cast<StaticContextAccessor>()._SetMouseCursors(value); }
         }
 
         public Texture2D IndoorWindowLight
         {
-            get { return accessor._GetIndoorWindowLight(); }
-            set { accessor._SetIndoorWindowLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetIndoorWindowLight(); }
+            set { Cast<StaticContextAccessor>()._SetIndoorWindowLight(value); }
         }
 
         public Texture2D Animations
         {
-            get { return accessor._GetAnimations(); }
-            set { accessor._SetAnimations(value); }
+            get { return Cast<StaticContextAccessor>()._GetAnimations(); }
+            set { Cast<StaticContextAccessor>()._SetAnimations(value); }
         }
 
         public Texture2D TitleScreenBG
         {
-            get { return accessor._GetTitleScreenBG(); }
-            set { accessor._SetTitleScreenBG(value); }
+            get { return Cast<StaticContextAccessor>()._GetTitleScreenBG(); }
+            set { Cast<StaticContextAccessor>()._SetTitleScreenBG(value); }
         }
 
         public Texture2D Logo
         {
-            get { return accessor._GetLogo(); }
-            set { accessor._SetLogo(value); }
+            get { return Cast<StaticContextAccessor>()._GetLogo(); }
+            set { Cast<StaticContextAccessor>()._SetLogo(value); }
         }
 
         public RenderTarget2D Lightmap
         {
-            get { return accessor._GetLightmap(); }
-            set { accessor._SetLightmap(value); }
+            get { return Cast<StaticContextAccessor>()._GetLightmap(); }
+            set { Cast<StaticContextAccessor>()._SetLightmap(value); }
         }
 
         public Texture2D FadeToBlackRect
         {
-            get { return accessor._GetFadeToBlackRect(); }
-            set { accessor._SetFadeToBlackRect(value); }
+            get { return Cast<StaticContextAccessor>()._GetFadeToBlackRect(); }
+            set { Cast<StaticContextAccessor>()._SetFadeToBlackRect(value); }
         }
 
         public Texture2D StaminaRect
         {
-            get { return accessor._GetStaminaRect(); }
-            set { accessor._SetStaminaRect(value); }
+            get { return Cast<StaticContextAccessor>()._GetStaminaRect(); }
+            set { Cast<StaticContextAccessor>()._SetStaminaRect(value); }
         }
 
         public Texture2D CurrentCoopTexture
         {
-            get { return accessor._GetCurrentCoopTexture(); }
-            set { accessor._SetCurrentCoopTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentCoopTexture(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentCoopTexture(value); }
         }
 
         public Texture2D CurrentBarnTexture
         {
-            get { return accessor._GetCurrentBarnTexture(); }
-            set { accessor._SetCurrentBarnTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentBarnTexture(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentBarnTexture(value); }
         }
 
         public Texture2D CurrentHouseTexture
         {
-            get { return accessor._GetCurrentHouseTexture(); }
-            set { accessor._SetCurrentHouseTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentHouseTexture(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentHouseTexture(value); }
         }
 
         public Texture2D GreenhouseTexture
         {
-            get { return accessor._GetGreenhouseTexture(); }
-            set { accessor._SetGreenhouseTexture(value); }
+            get { return Cast<StaticContextAccessor>()._GetGreenhouseTexture(); }
+            set { Cast<StaticContextAccessor>()._SetGreenhouseTexture(value); }
         }
 
         public Texture2D LittleEffect
         {
-            get { return accessor._GetLittleEffect(); }
-            set { accessor._SetLittleEffect(value); }
+            get { return Cast<StaticContextAccessor>()._GetLittleEffect(); }
+            set { Cast<StaticContextAccessor>()._SetLittleEffect(value); }
         }
 
         public SpriteFont DialogueFont
         {
-            get { return accessor._GetDialogueFont(); }
-            set { accessor._SetDialogueFont(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueFont(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueFont(value); }
         }
 
         public SpriteFont SmallFont
         {
-            get { return accessor._GetSmallFont(); }
-            set { accessor._SetSmallFont(value); }
+            get { return Cast<StaticContextAccessor>()._GetSmallFont(); }
+            set { Cast<StaticContextAccessor>()._SetSmallFont(value); }
         }
 
         public SpriteFont BorderFont
         {
-            get { return accessor._GetBorderFont(); }
-            set { accessor._SetBorderFont(value); }
+            get { return Cast<StaticContextAccessor>()._GetBorderFont(); }
+            set { Cast<StaticContextAccessor>()._SetBorderFont(value); }
         }
 
         public SpriteFont TinyFont
         {
-            get { return accessor._GetTinyFont(); }
-            set { accessor._SetTinyFont(value); }
+            get { return Cast<StaticContextAccessor>()._GetTinyFont(); }
+            set { Cast<StaticContextAccessor>()._SetTinyFont(value); }
         }
 
         public SpriteFont TinyFontBorder
         {
-            get { return accessor._GetTinyFontBorder(); }
-            set { accessor._SetTinyFontBorder(value); }
+            get { return Cast<StaticContextAccessor>()._GetTinyFontBorder(); }
+            set { Cast<StaticContextAccessor>()._SetTinyFontBorder(value); }
         }
 
         public SpriteFont SmoothFont
         {
-            get { return accessor._GetSmoothFont(); }
-            set { accessor._SetSmoothFont(value); }
+            get { return Cast<StaticContextAccessor>()._GetSmoothFont(); }
+            set { Cast<StaticContextAccessor>()._SetSmoothFont(value); }
         }
 
         public float FadeToBlackAlpha
         {
-            get { return accessor._GetFadeToBlackAlpha(); }
-            set { accessor._SetFadeToBlackAlpha(value); }
+            get { return Cast<StaticContextAccessor>()._GetFadeToBlackAlpha(); }
+            set { Cast<StaticContextAccessor>()._SetFadeToBlackAlpha(value); }
         }
 
         public float PickToolInterval
         {
-            get { return accessor._GetPickToolInterval(); }
-            set { accessor._SetPickToolInterval(value); }
+            get { return Cast<StaticContextAccessor>()._GetPickToolInterval(); }
+            set { Cast<StaticContextAccessor>()._SetPickToolInterval(value); }
         }
 
         public float ScreenGlowAlpha
         {
-            get { return accessor._GetScreenGlowAlpha(); }
-            set { accessor._SetScreenGlowAlpha(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowAlpha(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowAlpha(value); }
         }
 
         public float FlashAlpha
         {
-            get { return accessor._GetFlashAlpha(); }
-            set { accessor._SetFlashAlpha(value); }
+            get { return Cast<StaticContextAccessor>()._GetFlashAlpha(); }
+            set { Cast<StaticContextAccessor>()._SetFlashAlpha(value); }
         }
 
         public float StarCropShimmerPause
         {
-            get { return accessor._GetStarCropShimmerPause(); }
-            set { accessor._SetStarCropShimmerPause(value); }
+            get { return Cast<StaticContextAccessor>()._GetStarCropShimmerPause(); }
+            set { Cast<StaticContextAccessor>()._SetStarCropShimmerPause(value); }
         }
 
         public float NoteBlockTimer
         {
-            get { return accessor._GetNoteBlockTimer(); }
-            set { accessor._SetNoteBlockTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetNoteBlockTimer(); }
+            set { Cast<StaticContextAccessor>()._SetNoteBlockTimer(value); }
         }
 
         public float GlobalFadeSpeed
         {
-            get { return accessor._GetGlobalFadeSpeed(); }
-            set { accessor._SetGlobalFadeSpeed(value); }
+            get { return Cast<StaticContextAccessor>()._GetGlobalFadeSpeed(); }
+            set { Cast<StaticContextAccessor>()._SetGlobalFadeSpeed(value); }
         }
 
         public bool FadeToBlack
         {
-            get { return accessor._GetFadeToBlack(); }
-            set { accessor._SetFadeToBlack(value); }
+            get { return Cast<StaticContextAccessor>()._GetFadeToBlack(); }
+            set { Cast<StaticContextAccessor>()._SetFadeToBlack(value); }
         }
 
         public bool FadeIn
         {
-            get { return accessor._GetFadeIn(); }
-            set { accessor._SetFadeIn(value); }
+            get { return Cast<StaticContextAccessor>()._GetFadeIn(); }
+            set { Cast<StaticContextAccessor>()._SetFadeIn(value); }
         }
 
         public bool DialogueUp
         {
-            get { return accessor._GetDialogueUp(); }
-            set { accessor._SetDialogueUp(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueUp(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueUp(value); }
         }
 
         public bool DialogueTyping
         {
-            get { return accessor._GetDialogueTyping(); }
-            set { accessor._SetDialogueTyping(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueTyping(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueTyping(value); }
         }
 
         public bool PickingTool
         {
-            get { return accessor._GetPickingTool(); }
-            set { accessor._SetPickingTool(value); }
+            get { return Cast<StaticContextAccessor>()._GetPickingTool(); }
+            set { Cast<StaticContextAccessor>()._SetPickingTool(value); }
         }
 
         public bool IsQuestion
         {
-            get { return accessor._GetIsQuestion(); }
-            set { accessor._SetIsQuestion(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsQuestion(); }
+            set { Cast<StaticContextAccessor>()._SetIsQuestion(value); }
         }
 
         public bool NonWarpFade
         {
-            get { return accessor._GetNonWarpFade(); }
-            set { accessor._SetNonWarpFade(value); }
+            get { return Cast<StaticContextAccessor>()._GetNonWarpFade(); }
+            set { Cast<StaticContextAccessor>()._SetNonWarpFade(value); }
         }
 
         public bool ParticleRaining
         {
-            get { return accessor._GetParticleRaining(); }
-            set { accessor._SetParticleRaining(value); }
+            get { return Cast<StaticContextAccessor>()._GetParticleRaining(); }
+            set { Cast<StaticContextAccessor>()._SetParticleRaining(value); }
         }
 
         public bool NewDay
         {
-            get { return accessor._GetNewDay(); }
-            set { accessor._SetNewDay(value); }
+            get { return Cast<StaticContextAccessor>()._GetNewDay(); }
+            set { Cast<StaticContextAccessor>()._SetNewDay(value); }
         }
 
         public bool InMine
         {
-            get { return accessor._GetInMine(); }
-            set { accessor._SetInMine(value); }
+            get { return Cast<StaticContextAccessor>()._GetInMine(); }
+            set { Cast<StaticContextAccessor>()._SetInMine(value); }
         }
 
         public bool IsEating
         {
-            get { return accessor._GetIsEating(); }
-            set { accessor._SetIsEating(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsEating(); }
+            set { Cast<StaticContextAccessor>()._SetIsEating(value); }
         }
 
         public bool MenuUp
         {
-            get { return accessor._GetMenuUp(); }
-            set { accessor._SetMenuUp(value); }
+            get { return Cast<StaticContextAccessor>()._GetMenuUp(); }
+            set { Cast<StaticContextAccessor>()._SetMenuUp(value); }
         }
 
         public bool EventUp
         {
-            get { return accessor._GetEventUp(); }
-            set { accessor._SetEventUp(value); }
+            get { return Cast<StaticContextAccessor>()._GetEventUp(); }
+            set { Cast<StaticContextAccessor>()._SetEventUp(value); }
         }
 
         public bool ViewportFreeze
         {
-            get { return accessor._GetViewportFreeze(); }
-            set { accessor._SetViewportFreeze(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportFreeze(); }
+            set { Cast<StaticContextAccessor>()._SetViewportFreeze(value); }
         }
 
         public bool EventOver
         {
-            get { return accessor._GetEventOver(); }
-            set { accessor._SetEventOver(value); }
+            get { return Cast<StaticContextAccessor>()._GetEventOver(); }
+            set { Cast<StaticContextAccessor>()._SetEventOver(value); }
         }
 
         public bool NameSelectUp
         {
-            get { return accessor._GetNameSelectUp(); }
-            set { accessor._SetNameSelectUp(value); }
+            get { return Cast<StaticContextAccessor>()._GetNameSelectUp(); }
+            set { Cast<StaticContextAccessor>()._SetNameSelectUp(value); }
         }
 
         public bool ScreenGlow
         {
-            get { return accessor._GetScreenGlow(); }
-            set { accessor._SetScreenGlow(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlow(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlow(value); }
         }
 
         public bool ScreenGlowHold
         {
-            get { return accessor._GetScreenGlowHold(); }
-            set { accessor._SetScreenGlowHold(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowHold(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowHold(value); }
         }
 
         public bool ScreenGlowUp
         {
-            get { return accessor._GetScreenGlowUp(); }
-            set { accessor._SetScreenGlowUp(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowUp(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowUp(value); }
         }
 
         public bool ProgressBar
         {
-            get { return accessor._GetProgressBar(); }
-            set { accessor._SetProgressBar(value); }
+            get { return Cast<StaticContextAccessor>()._GetProgressBar(); }
+            set { Cast<StaticContextAccessor>()._SetProgressBar(value); }
         }
 
         public bool IsRaining
         {
-            get { return accessor._GetIsRaining(); }
-            set { accessor._SetIsRaining(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsRaining(); }
+            set { Cast<StaticContextAccessor>()._SetIsRaining(value); }
         }
 
         public bool IsSnowing
         {
-            get { return accessor._GetIsSnowing(); }
-            set { accessor._SetIsSnowing(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsSnowing(); }
+            set { Cast<StaticContextAccessor>()._SetIsSnowing(value); }
         }
 
         public bool KillScreen
         {
-            get { return accessor._GetKillScreen(); }
-            set { accessor._SetKillScreen(value); }
+            get { return Cast<StaticContextAccessor>()._GetKillScreen(); }
+            set { Cast<StaticContextAccessor>()._SetKillScreen(value); }
         }
 
         public bool CoopDwellerBorn
         {
-            get { return accessor._GetCoopDwellerBorn(); }
-            set { accessor._SetCoopDwellerBorn(value); }
+            get { return Cast<StaticContextAccessor>()._GetCoopDwellerBorn(); }
+            set { Cast<StaticContextAccessor>()._SetCoopDwellerBorn(value); }
         }
 
         public bool MessagePause
         {
-            get { return accessor._GetMessagePause(); }
-            set { accessor._SetMessagePause(value); }
+            get { return Cast<StaticContextAccessor>()._GetMessagePause(); }
+            set { Cast<StaticContextAccessor>()._SetMessagePause(value); }
         }
 
         public bool IsDebrisWeather
         {
-            get { return accessor._GetIsDebrisWeather(); }
-            set { accessor._SetIsDebrisWeather(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsDebrisWeather(); }
+            set { Cast<StaticContextAccessor>()._SetIsDebrisWeather(value); }
         }
 
         public bool BoardingBus
         {
-            get { return accessor._GetBoardingBus(); }
-            set { accessor._SetBoardingBus(value); }
+            get { return Cast<StaticContextAccessor>()._GetBoardingBus(); }
+            set { Cast<StaticContextAccessor>()._SetBoardingBus(value); }
         }
 
         public bool ListeningForKeyControlDefinitions
         {
-            get { return accessor._GetListeningForKeyControlDefinitions(); }
-            set { accessor._SetListeningForKeyControlDefinitions(value); }
+            get { return Cast<StaticContextAccessor>()._GetListeningForKeyControlDefinitions(); }
+            set { Cast<StaticContextAccessor>()._SetListeningForKeyControlDefinitions(value); }
         }
 
         public bool WeddingToday
         {
-            get { return accessor._GetWeddingToday(); }
-            set { accessor._SetWeddingToday(value); }
+            get { return Cast<StaticContextAccessor>()._GetWeddingToday(); }
+            set { Cast<StaticContextAccessor>()._SetWeddingToday(value); }
         }
 
         public bool ExitToTitle
         {
-            get { return accessor._GetExitToTitle(); }
-            set { accessor._SetExitToTitle(value); }
+            get { return Cast<StaticContextAccessor>()._GetExitToTitle(); }
+            set { Cast<StaticContextAccessor>()._SetExitToTitle(value); }
         }
 
         public bool DebugMode
         {
-            get { return accessor._GetDebugMode(); }
-            set { accessor._SetDebugMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetDebugMode(); }
+            set { Cast<StaticContextAccessor>()._SetDebugMode(value); }
         }
 
         public bool IsLightning
         {
-            get { return accessor._GetIsLightning(); }
-            set { accessor._SetIsLightning(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsLightning(); }
+            set { Cast<StaticContextAccessor>()._SetIsLightning(value); }
         }
 
         public bool DisplayHUD
         {
-            get { return accessor._GetDisplayHUD(); }
-            set { accessor._SetDisplayHUD(value); }
+            get { return Cast<StaticContextAccessor>()._GetDisplayHUD(); }
+            set { Cast<StaticContextAccessor>()._SetDisplayHUD(value); }
         }
 
         public bool DisplayFarmer
         {
-            get { return accessor._GetDisplayFarmer(); }
-            set { accessor._SetDisplayFarmer(value); }
+            get { return Cast<StaticContextAccessor>()._GetDisplayFarmer(); }
+            set { Cast<StaticContextAccessor>()._SetDisplayFarmer(value); }
         }
 
         public bool ShowKeyHelp
         {
-            get { return accessor._GetShowKeyHelp(); }
-            set { accessor._SetShowKeyHelp(value); }
+            get { return Cast<StaticContextAccessor>()._GetShowKeyHelp(); }
+            set { Cast<StaticContextAccessor>()._SetShowKeyHelp(value); }
         }
 
         public bool InputMode
         {
-            get { return accessor._GetInputMode(); }
-            set { accessor._SetInputMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetInputMode(); }
+            set { Cast<StaticContextAccessor>()._SetInputMode(value); }
         }
 
         public bool ShippingTax
         {
-            get { return accessor._GetShippingTax(); }
-            set { accessor._SetShippingTax(value); }
+            get { return Cast<StaticContextAccessor>()._GetShippingTax(); }
+            set { Cast<StaticContextAccessor>()._SetShippingTax(value); }
         }
 
         public bool DialogueButtonShrinking
         {
-            get { return accessor._GetDialogueButtonShrinking(); }
-            set { accessor._SetDialogueButtonShrinking(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueButtonShrinking(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueButtonShrinking(value); }
         }
 
         public bool JukeboxPlaying
         {
-            get { return accessor._GetJukeboxPlaying(); }
-            set { accessor._SetJukeboxPlaying(value); }
+            get { return Cast<StaticContextAccessor>()._GetJukeboxPlaying(); }
+            set { Cast<StaticContextAccessor>()._SetJukeboxPlaying(value); }
         }
 
         public bool DrawLighting
         {
-            get { return accessor._GetDrawLighting(); }
-            set { accessor._SetDrawLighting(value); }
+            get { return Cast<StaticContextAccessor>()._GetDrawLighting(); }
+            set { Cast<StaticContextAccessor>()._SetDrawLighting(value); }
         }
 
         public bool BloomDay
         {
-            get { return accessor._GetBloomDay(); }
-            set { accessor._SetBloomDay(value); }
+            get { return Cast<StaticContextAccessor>()._GetBloomDay(); }
+            set { Cast<StaticContextAccessor>()._SetBloomDay(value); }
         }
 
         public bool Quit
         {
-            get { return accessor._GetQuit(); }
-            set { accessor._SetQuit(value); }
+            get { return Cast<StaticContextAccessor>()._GetQuit(); }
+            set { Cast<StaticContextAccessor>()._SetQuit(value); }
         }
 
         public bool IsChatting
         {
-            get { return accessor._GetIsChatting(); }
-            set { accessor._SetIsChatting(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsChatting(); }
+            set { Cast<StaticContextAccessor>()._SetIsChatting(value); }
         }
 
         public bool GlobalFade
         {
-            get { return accessor._GetGlobalFade(); }
-            set { accessor._SetGlobalFade(value); }
+            get { return Cast<StaticContextAccessor>()._GetGlobalFade(); }
+            set { Cast<StaticContextAccessor>()._SetGlobalFade(value); }
         }
 
         public bool DrawGrid
         {
-            get { return accessor._GetDrawGrid(); }
-            set { accessor._SetDrawGrid(value); }
+            get { return Cast<StaticContextAccessor>()._GetDrawGrid(); }
+            set { Cast<StaticContextAccessor>()._SetDrawGrid(value); }
         }
 
         public bool FreezeControls
         {
-            get { return accessor._GetFreezeControls(); }
-            set { accessor._SetFreezeControls(value); }
+            get { return Cast<StaticContextAccessor>()._GetFreezeControls(); }
+            set { Cast<StaticContextAccessor>()._SetFreezeControls(value); }
         }
 
         public bool SaveOnNewDay
         {
-            get { return accessor._GetSaveOnNewDay(); }
-            set { accessor._SetSaveOnNewDay(value); }
+            get { return Cast<StaticContextAccessor>()._GetSaveOnNewDay(); }
+            set { Cast<StaticContextAccessor>()._SetSaveOnNewDay(value); }
         }
 
         public bool PanMode
         {
-            get { return accessor._GetPanMode(); }
-            set { accessor._SetPanMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetPanMode(); }
+            set { Cast<StaticContextAccessor>()._SetPanMode(value); }
         }
 
         public bool ShowingEndOfNightStuff
         {
-            get { return accessor._GetShowingEndOfNightStuff(); }
-            set { accessor._SetShowingEndOfNightStuff(value); }
+            get { return Cast<StaticContextAccessor>()._GetShowingEndOfNightStuff(); }
+            set { Cast<StaticContextAccessor>()._SetShowingEndOfNightStuff(value); }
         }
 
         public bool WasRainingYesterday
         {
-            get { return accessor._GetWasRainingYesterday(); }
-            set { accessor._SetWasRainingYesterday(value); }
+            get { return Cast<StaticContextAccessor>()._GetWasRainingYesterday(); }
+            set { Cast<StaticContextAccessor>()._SetWasRainingYesterday(value); }
         }
 
         public bool HasLoadedGame
         {
-            get { return accessor._GetHasLoadedGame(); }
-            set { accessor._SetHasLoadedGame(value); }
+            get { return Cast<StaticContextAccessor>()._GetHasLoadedGame(); }
+            set { Cast<StaticContextAccessor>()._SetHasLoadedGame(value); }
         }
 
         public bool IsActionAtCurrentCursorTile
         {
-            get { return accessor._GetIsActionAtCurrentCursorTile(); }
-            set { accessor._SetIsActionAtCurrentCursorTile(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsActionAtCurrentCursorTile(); }
+            set { Cast<StaticContextAccessor>()._SetIsActionAtCurrentCursorTile(value); }
         }
 
         public bool IsInspectionAtCurrentCursorTile
         {
-            get { return accessor._GetIsInspectionAtCurrentCursorTile(); }
-            set { accessor._SetIsInspectionAtCurrentCursorTile(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsInspectionAtCurrentCursorTile(); }
+            set { Cast<StaticContextAccessor>()._SetIsInspectionAtCurrentCursorTile(value); }
         }
 
         public bool Paused
         {
-            get { return accessor._GetPaused(); }
-            set { accessor._SetPaused(value); }
+            get { return Cast<StaticContextAccessor>()._GetPaused(); }
+            set { Cast<StaticContextAccessor>()._SetPaused(value); }
         }
 
         public bool LastCursorMotionWasMouse
         {
-            get { return accessor._GetLastCursorMotionWasMouse(); }
-            set { accessor._SetLastCursorMotionWasMouse(value); }
+            get { return Cast<StaticContextAccessor>()._GetLastCursorMotionWasMouse(); }
+            set { Cast<StaticContextAccessor>()._SetLastCursorMotionWasMouse(value); }
         }
 
         public string CurrentSeason
         {
-            get { return accessor._GetCurrentSeason(); }
-            set { accessor._SetCurrentSeason(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentSeason(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentSeason(value); }
         }
 
         public string DebugOutput
         {
-            get { return accessor._GetDebugOutput(); }
-            set { accessor._SetDebugOutput(value); }
+            get { return Cast<StaticContextAccessor>()._GetDebugOutput(); }
+            set { Cast<StaticContextAccessor>()._SetDebugOutput(value); }
         }
 
         public string NextMusicTrack
         {
-            get { return accessor._GetNextMusicTrack(); }
-            set { accessor._SetNextMusicTrack(value); }
+            get { return Cast<StaticContextAccessor>()._GetNextMusicTrack(); }
+            set { Cast<StaticContextAccessor>()._SetNextMusicTrack(value); }
         }
 
         public string SelectedItemsType
         {
-            get { return accessor._GetSelectedItemsType(); }
-            set { accessor._SetSelectedItemsType(value); }
+            get { return Cast<StaticContextAccessor>()._GetSelectedItemsType(); }
+            set { Cast<StaticContextAccessor>()._SetSelectedItemsType(value); }
         }
 
         public string NameSelectType
         {
-            get { return accessor._GetNameSelectType(); }
-            set { accessor._SetNameSelectType(value); }
+            get { return Cast<StaticContextAccessor>()._GetNameSelectType(); }
+            set { Cast<StaticContextAccessor>()._SetNameSelectType(value); }
         }
 
         public string MessageAfterPause
         {
-            get { return accessor._GetMessageAfterPause(); }
-            set { accessor._SetMessageAfterPause(value); }
+            get { return Cast<StaticContextAccessor>()._GetMessageAfterPause(); }
+            set { Cast<StaticContextAccessor>()._SetMessageAfterPause(value); }
         }
 
         public string Fertilizer
         {
-            get { return accessor._GetFertilizer(); }
-            set { accessor._SetFertilizer(value); }
+            get { return Cast<StaticContextAccessor>()._GetFertilizer(); }
+            set { Cast<StaticContextAccessor>()._SetFertilizer(value); }
         }
 
         public string SamBandName
         {
-            get { return accessor._GetSamBandName(); }
-            set { accessor._SetSamBandName(value); }
+            get { return Cast<StaticContextAccessor>()._GetSamBandName(); }
+            set { Cast<StaticContextAccessor>()._SetSamBandName(value); }
         }
 
         public string ElliottBookName
         {
-            get { return accessor._GetElliottBookName(); }
-            set { accessor._SetElliottBookName(value); }
+            get { return Cast<StaticContextAccessor>()._GetElliottBookName(); }
+            set { Cast<StaticContextAccessor>()._SetElliottBookName(value); }
         }
 
         public string SlotResult
         {
-            get { return accessor._GetSlotResult(); }
-            set { accessor._SetSlotResult(value); }
+            get { return Cast<StaticContextAccessor>()._GetSlotResult(); }
+            set { Cast<StaticContextAccessor>()._SetSlotResult(value); }
         }
 
         public string KeyHelpString
         {
-            get { return accessor._GetKeyHelpString(); }
-            set { accessor._SetKeyHelpString(value); }
+            get { return Cast<StaticContextAccessor>()._GetKeyHelpString(); }
+            set { Cast<StaticContextAccessor>()._SetKeyHelpString(value); }
         }
 
         public string DebugInput
         {
-            get { return accessor._GetDebugInput(); }
-            set { accessor._SetDebugInput(value); }
+            get { return Cast<StaticContextAccessor>()._GetDebugInput(); }
+            set { Cast<StaticContextAccessor>()._SetDebugInput(value); }
         }
 
         public string LoadingMessage
         {
-            get { return accessor._GetLoadingMessage(); }
-            set { accessor._SetLoadingMessage(value); }
+            get { return Cast<StaticContextAccessor>()._GetLoadingMessage(); }
+            set { Cast<StaticContextAccessor>()._SetLoadingMessage(value); }
         }
 
         public string ErrorMessage
         {
-            get { return accessor._GetErrorMessage(); }
-            set { accessor._SetErrorMessage(value); }
+            get { return Cast<StaticContextAccessor>()._GetErrorMessage(); }
+            set { Cast<StaticContextAccessor>()._SetErrorMessage(value); }
         }
 
         public int XLocationAfterWarp
         {
-            get { return accessor._GetXLocationAfterWarp(); }
-            set { accessor._SetXLocationAfterWarp(value); }
+            get { return Cast<StaticContextAccessor>()._GetXLocationAfterWarp(); }
+            set { Cast<StaticContextAccessor>()._SetXLocationAfterWarp(value); }
         }
 
         public int YLocationAfterWarp
         {
-            get { return accessor._GetYLocationAfterWarp(); }
-            set { accessor._SetYLocationAfterWarp(value); }
+            get { return Cast<StaticContextAccessor>()._GetYLocationAfterWarp(); }
+            set { Cast<StaticContextAccessor>()._SetYLocationAfterWarp(value); }
         }
 
         public int GameTimeInterval
         {
-            get { return accessor._GetGameTimeInterval(); }
-            set { accessor._SetGameTimeInterval(value); }
+            get { return Cast<StaticContextAccessor>()._GetGameTimeInterval(); }
+            set { Cast<StaticContextAccessor>()._SetGameTimeInterval(value); }
         }
 
         public int CurrentQuestionChoice
         {
-            get { return accessor._GetCurrentQuestionChoice(); }
-            set { accessor._SetCurrentQuestionChoice(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentQuestionChoice(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentQuestionChoice(value); }
         }
 
         public int CurrentDialogueCharacterIndex
         {
-            get { return accessor._GetCurrentDialogueCharacterIndex(); }
-            set { accessor._SetCurrentDialogueCharacterIndex(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentDialogueCharacterIndex(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentDialogueCharacterIndex(value); }
         }
 
         public int DialogueTypingInterval
         {
-            get { return accessor._GetDialogueTypingInterval(); }
-            set { accessor._SetDialogueTypingInterval(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueTypingInterval(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueTypingInterval(value); }
         }
 
         public int DayOfMonth
         {
-            get { return accessor._GetDayOfMonth(); }
-            set { accessor._SetDayOfMonth(value); }
+            get { return Cast<StaticContextAccessor>()._GetDayOfMonth(); }
+            set { Cast<StaticContextAccessor>()._SetDayOfMonth(value); }
         }
 
         public int Year
         {
-            get { return accessor._GetYear(); }
-            set { accessor._SetYear(value); }
+            get { return Cast<StaticContextAccessor>()._GetYear(); }
+            set { Cast<StaticContextAccessor>()._SetYear(value); }
         }
 
         public int TimeOfDay
         {
-            get { return accessor._GetTimeOfDay(); }
-            set { accessor._SetTimeOfDay(value); }
+            get { return Cast<StaticContextAccessor>()._GetTimeOfDay(); }
+            set { Cast<StaticContextAccessor>()._SetTimeOfDay(value); }
         }
 
         public int NumberOfSelectedItems
         {
-            get { return accessor._GetNumberOfSelectedItems(); }
-            set { accessor._SetNumberOfSelectedItems(value); }
+            get { return Cast<StaticContextAccessor>()._GetNumberOfSelectedItems(); }
+            set { Cast<StaticContextAccessor>()._SetNumberOfSelectedItems(value); }
         }
 
         public int PriceOfSelectedItem
         {
-            get { return accessor._GetPriceOfSelectedItem(); }
-            set { accessor._SetPriceOfSelectedItem(value); }
+            get { return Cast<StaticContextAccessor>()._GetPriceOfSelectedItem(); }
+            set { Cast<StaticContextAccessor>()._SetPriceOfSelectedItem(value); }
         }
 
         public int CurrentWallpaper
         {
-            get { return accessor._GetCurrentWallpaper(); }
-            set { accessor._SetCurrentWallpaper(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentWallpaper(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentWallpaper(value); }
         }
 
         public int FarmerWallpaper
         {
-            get { return accessor._GetFarmerWallpaper(); }
-            set { accessor._SetFarmerWallpaper(value); }
+            get { return Cast<StaticContextAccessor>()._GetFarmerWallpaper(); }
+            set { Cast<StaticContextAccessor>()._SetFarmerWallpaper(value); }
         }
 
         public int WallpaperPrice
         {
-            get { return accessor._GetWallpaperPrice(); }
-            set { accessor._SetWallpaperPrice(value); }
+            get { return Cast<StaticContextAccessor>()._GetWallpaperPrice(); }
+            set { Cast<StaticContextAccessor>()._SetWallpaperPrice(value); }
         }
 
         public int CurrentFloor
         {
-            get { return accessor._GetCurrentFloor(); }
-            set { accessor._SetCurrentFloor(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentFloor(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentFloor(value); }
         }
 
         public int FarmerFloor
         {
-            get { return accessor._GetFarmerFloor(); }
-            set { accessor._SetFarmerFloor(value); }
+            get { return Cast<StaticContextAccessor>()._GetFarmerFloor(); }
+            set { Cast<StaticContextAccessor>()._SetFarmerFloor(value); }
         }
 
         public int FloorPrice
         {
-            get { return accessor._GetFloorPrice(); }
-            set { accessor._SetFloorPrice(value); }
+            get { return Cast<StaticContextAccessor>()._GetFloorPrice(); }
+            set { Cast<StaticContextAccessor>()._SetFloorPrice(value); }
         }
 
         public int DialogueWidth
         {
-            get { return accessor._GetDialogueWidth(); }
-            set { accessor._SetDialogueWidth(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueWidth(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueWidth(value); }
         }
 
         public int CountdownToWedding
         {
-            get { return accessor._GetCountdownToWedding(); }
-            set { accessor._SetCountdownToWedding(value); }
+            get { return Cast<StaticContextAccessor>()._GetCountdownToWedding(); }
+            set { Cast<StaticContextAccessor>()._SetCountdownToWedding(value); }
         }
 
         public int MenuChoice
         {
-            get { return accessor._GetMenuChoice(); }
-            set { accessor._SetMenuChoice(value); }
+            get { return Cast<StaticContextAccessor>()._GetMenuChoice(); }
+            set { Cast<StaticContextAccessor>()._SetMenuChoice(value); }
         }
 
         public int TvStation
         {
-            get { return accessor._GetTvStation(); }
-            set { accessor._SetTvStation(value); }
+            get { return Cast<StaticContextAccessor>()._GetTvStation(); }
+            set { Cast<StaticContextAccessor>()._SetTvStation(value); }
         }
 
         public int CurrentBillboard
         {
-            get { return accessor._GetCurrentBillboard(); }
-            set { accessor._SetCurrentBillboard(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentBillboard(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentBillboard(value); }
         }
 
         public int FacingDirectionAfterWarp
         {
-            get { return accessor._GetFacingDirectionAfterWarp(); }
-            set { accessor._SetFacingDirectionAfterWarp(value); }
+            get { return Cast<StaticContextAccessor>()._GetFacingDirectionAfterWarp(); }
+            set { Cast<StaticContextAccessor>()._SetFacingDirectionAfterWarp(value); }
         }
 
         public int TmpTimeOfDay
         {
-            get { return accessor._GetTmpTimeOfDay(); }
-            set { accessor._SetTmpTimeOfDay(value); }
+            get { return Cast<StaticContextAccessor>()._GetTmpTimeOfDay(); }
+            set { Cast<StaticContextAccessor>()._SetTmpTimeOfDay(value); }
         }
 
         public int PercentageToWinStardewHero
         {
-            get { return accessor._GetPercentageToWinStardewHero(); }
-            set { accessor._SetPercentageToWinStardewHero(value); }
+            get { return Cast<StaticContextAccessor>()._GetPercentageToWinStardewHero(); }
+            set { Cast<StaticContextAccessor>()._SetPercentageToWinStardewHero(value); }
         }
 
         public int MouseClickPolling
         {
-            get { return accessor._GetMouseClickPolling(); }
-            set { accessor._SetMouseClickPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetMouseClickPolling(); }
+            set { Cast<StaticContextAccessor>()._SetMouseClickPolling(value); }
         }
 
         public int WeatherIcon
         {
-            get { return accessor._GetWeatherIcon(); }
-            set { accessor._SetWeatherIcon(value); }
+            get { return Cast<StaticContextAccessor>()._GetWeatherIcon(); }
+            set { Cast<StaticContextAccessor>()._SetWeatherIcon(value); }
         }
 
         public int HitShakeTimer
         {
-            get { return accessor._GetHitShakeTimer(); }
-            set { accessor._SetHitShakeTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetHitShakeTimer(); }
+            set { Cast<StaticContextAccessor>()._SetHitShakeTimer(value); }
         }
 
         public int StaminaShakeTimer
         {
-            get { return accessor._GetStaminaShakeTimer(); }
-            set { accessor._SetStaminaShakeTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetStaminaShakeTimer(); }
+            set { Cast<StaticContextAccessor>()._SetStaminaShakeTimer(value); }
         }
 
         public int PauseThenDoFunctionTimer
         {
-            get { return accessor._GetPauseThenDoFunctionTimer(); }
-            set { accessor._SetPauseThenDoFunctionTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetPauseThenDoFunctionTimer(); }
+            set { Cast<StaticContextAccessor>()._SetPauseThenDoFunctionTimer(value); }
         }
 
         public int WeatherForTomorrow
         {
-            get { return accessor._GetWeatherForTomorrow(); }
-            set { accessor._SetWeatherForTomorrow(value); }
+            get { return Cast<StaticContextAccessor>()._GetWeatherForTomorrow(); }
+            set { Cast<StaticContextAccessor>()._SetWeatherForTomorrow(value); }
         }
 
         public int CurrentSongIndex
         {
-            get { return accessor._GetCurrentSongIndex(); }
-            set { accessor._SetCurrentSongIndex(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentSongIndex(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentSongIndex(value); }
         }
 
         public int CursorTileHintCheckTimer
         {
-            get { return accessor._GetCursorTileHintCheckTimer(); }
-            set { accessor._SetCursorTileHintCheckTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetCursorTileHintCheckTimer(); }
+            set { Cast<StaticContextAccessor>()._SetCursorTileHintCheckTimer(value); }
         }
 
         public int TimerUntilMouseFade
         {
-            get { return accessor._GetTimerUntilMouseFade(); }
-            set { accessor._SetTimerUntilMouseFade(value); }
+            get { return Cast<StaticContextAccessor>()._GetTimerUntilMouseFade(); }
+            set { Cast<StaticContextAccessor>()._SetTimerUntilMouseFade(value); }
         }
 
         public int MinecartHighScore
         {
-            get { return accessor._GetMinecartHighScore(); }
-            set { accessor._SetMinecartHighScore(value); }
+            get { return Cast<StaticContextAccessor>()._GetMinecartHighScore(); }
+            set { Cast<StaticContextAccessor>()._SetMinecartHighScore(value); }
         }
 
         public Color MorningColor
         {
-            get { return accessor._GetMorningColor(); }
-            set { accessor._SetMorningColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetMorningColor(); }
+            set { Cast<StaticContextAccessor>()._SetMorningColor(value); }
         }
 
         public Color EveningColor
         {
-            get { return accessor._GetEveningColor(); }
-            set { accessor._SetEveningColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetEveningColor(); }
+            set { Cast<StaticContextAccessor>()._SetEveningColor(value); }
         }
 
         public Color UnselectedOptionColor
         {
-            get { return accessor._GetUnselectedOptionColor(); }
-            set { accessor._SetUnselectedOptionColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetUnselectedOptionColor(); }
+            set { Cast<StaticContextAccessor>()._SetUnselectedOptionColor(value); }
         }
 
         public Color ScreenGlowColor
         {
-            get { return accessor._GetScreenGlowColor(); }
-            set { accessor._SetScreenGlowColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowColor(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowColor(value); }
         }
 
         public NPC CurrentSpeaker
         {
             get
             {
-                var tmp = accessor._GetCurrentSpeaker();
+                var tmp = Cast<StaticContextAccessor>()._GetCurrentSpeaker();
                 if (tmp == null) return null;
                 return new NPC(this, tmp);
             }
-            set { accessor._SetCurrentSpeaker(value.Cast<NPCAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetCurrentSpeaker(value.Cast<NPCAccessor>()); }
         }
 
         public Random Random
         {
-            get { return accessor._GetRandom(); }
-            set { accessor._SetRandom(value); }
+            get { return Cast<StaticContextAccessor>()._GetRandom(); }
+            set { Cast<StaticContextAccessor>()._SetRandom(value); }
         }
 
         public Random RecentMultiplayerRandom
         {
-            get { return accessor._GetRecentMultiplayerRandom(); }
-            set { accessor._SetRecentMultiplayerRandom(value); }
+            get { return Cast<StaticContextAccessor>()._GetRecentMultiplayerRandom(); }
+            set { Cast<StaticContextAccessor>()._SetRecentMultiplayerRandom(value); }
         }
 
         public float MusicPlayerVolume
         {
-            get { return accessor._GetMusicPlayerVolume(); }
-            set { accessor._SetMusicPlayerVolume(value); }
+            get { return Cast<StaticContextAccessor>()._GetMusicPlayerVolume(); }
+            set { Cast<StaticContextAccessor>()._SetMusicPlayerVolume(value); }
         }
 
         public float PauseAccumulator
         {
-            get { return accessor._GetPauseAccumulator(); }
-            set { accessor._SetPauseAccumulator(value); }
+            get { return Cast<StaticContextAccessor>()._GetPauseAccumulator(); }
+            set { Cast<StaticContextAccessor>()._SetPauseAccumulator(value); }
         }
 
         public float PauseTime
         {
-            get { return accessor._GetPauseTime(); }
-            set { accessor._SetPauseTime(value); }
+            get { return Cast<StaticContextAccessor>()._GetPauseTime(); }
+            set { Cast<StaticContextAccessor>()._SetPauseTime(value); }
         }
 
         public float UpPolling
         {
-            get { return accessor._GetUpPolling(); }
-            set { accessor._SetUpPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetUpPolling(); }
+            set { Cast<StaticContextAccessor>()._SetUpPolling(value); }
         }
 
         public float DownPolling
         {
-            get { return accessor._GetDownPolling(); }
-            set { accessor._SetDownPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetDownPolling(); }
+            set { Cast<StaticContextAccessor>()._SetDownPolling(value); }
         }
 
         public float RightPolling
         {
-            get { return accessor._GetRightPolling(); }
-            set { accessor._SetRightPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetRightPolling(); }
+            set { Cast<StaticContextAccessor>()._SetRightPolling(value); }
         }
 
         public float LeftPolling
         {
-            get { return accessor._GetLeftPolling(); }
-            set { accessor._SetLeftPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetLeftPolling(); }
+            set { Cast<StaticContextAccessor>()._SetLeftPolling(value); }
         }
 
         public float DebrisSoundInterval
         {
-            get { return accessor._GetDebrisSoundInterval(); }
-            set { accessor._SetDebrisSoundInterval(value); }
+            get { return Cast<StaticContextAccessor>()._GetDebrisSoundInterval(); }
+            set { Cast<StaticContextAccessor>()._SetDebrisSoundInterval(value); }
         }
 
         public float ToolHold
         {
-            get { return accessor._GetToolHold(); }
-            set { accessor._SetToolHold(value); }
+            get { return Cast<StaticContextAccessor>()._GetToolHold(); }
+            set { Cast<StaticContextAccessor>()._SetToolHold(value); }
         }
 
         public float WindGust
         {
-            get { return accessor._GetWindGust(); }
-            set { accessor._SetWindGust(value); }
+            get { return Cast<StaticContextAccessor>()._GetWindGust(); }
+            set { Cast<StaticContextAccessor>()._SetWindGust(value); }
         }
 
         public float DialogueButtonScale
         {
-            get { return accessor._GetDialogueButtonScale(); }
-            set { accessor._SetDialogueButtonScale(value); }
+            get { return Cast<StaticContextAccessor>()._GetDialogueButtonScale(); }
+            set { Cast<StaticContextAccessor>()._SetDialogueButtonScale(value); }
         }
 
         public float CreditsTimer
         {
-            get { return accessor._GetCreditsTimer(); }
-            set { accessor._SetCreditsTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetCreditsTimer(); }
+            set { Cast<StaticContextAccessor>()._SetCreditsTimer(value); }
         }
 
         public float GlobalOutdoorLighting
         {
-            get { return accessor._GetGlobalOutdoorLighting(); }
-            set { accessor._SetGlobalOutdoorLighting(value); }
+            get { return Cast<StaticContextAccessor>()._GetGlobalOutdoorLighting(); }
+            set { Cast<StaticContextAccessor>()._SetGlobalOutdoorLighting(value); }
         }
 
         public PlayerIndex PlayerOneIndex
         {
-            get { return accessor._GetPlayerOneIndex(); }
-            set { accessor._SetPlayerOneIndex(value); }
+            get { return Cast<StaticContextAccessor>()._GetPlayerOneIndex(); }
+            set { Cast<StaticContextAccessor>()._SetPlayerOneIndex(value); }
         }
 
         public Vector2 Shiny
         {
-            get { return accessor._GetShiny(); }
-            set { accessor._SetShiny(value); }
+            get { return Cast<StaticContextAccessor>()._GetShiny(); }
+            set { Cast<StaticContextAccessor>()._SetShiny(value); }
         }
 
         public Vector2 PreviousViewportPosition
         {
-            get { return accessor._GetPreviousViewportPosition(); }
-            set { accessor._SetPreviousViewportPosition(value); }
+            get { return Cast<StaticContextAccessor>()._GetPreviousViewportPosition(); }
+            set { Cast<StaticContextAccessor>()._SetPreviousViewportPosition(value); }
         }
 
         public Vector2 CurrentCursorTile
         {
-            get { return accessor._GetCurrentCursorTile(); }
-            set { accessor._SetCurrentCursorTile(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentCursorTile(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentCursorTile(value); }
         }
 
         public Vector2 LastCursorTile
         {
-            get { return accessor._GetLastCursorTile(); }
-            set { accessor._SetLastCursorTile(value); }
+            get { return Cast<StaticContextAccessor>()._GetLastCursorTile(); }
+            set { Cast<StaticContextAccessor>()._SetLastCursorTile(value); }
         }
 
         public double ChanceToRainTomorrow
         {
-            get { return accessor._GetChanceToRainTomorrow(); }
-            set { accessor._SetChanceToRainTomorrow(value); }
+            get { return Cast<StaticContextAccessor>()._GetChanceToRainTomorrow(); }
+            set { Cast<StaticContextAccessor>()._SetChanceToRainTomorrow(value); }
         }
 
         public double DailyLuck
         {
-            get { return accessor._GetDailyLuck(); }
-            set { accessor._SetDailyLuck(value); }
+            get { return Cast<StaticContextAccessor>()._GetDailyLuck(); }
+            set { Cast<StaticContextAccessor>()._SetDailyLuck(value); }
         }
 
         public byte GameMode
         {
-            get { return accessor._GetGameMode(); }
-            set { accessor._SetGameMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetGameMode(); }
+            set { Cast<StaticContextAccessor>()._SetGameMode(value); }
         }
 
         public byte MultiplayerMode
         {
-            get { return accessor._GetMultiplayerMode(); }
-            set { accessor._SetMultiplayerMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetMultiplayerMode(); }
+            set { Cast<StaticContextAccessor>()._SetMultiplayerMode(value); }
         }
 
         public ulong UniqueIDForThisGame
         {
-            get { return accessor._GetUniqueIDForThisGame(); }
-            set { accessor._SetUniqueIDForThisGame(value); }
+            get { return Cast<StaticContextAccessor>()._GetUniqueIDForThisGame(); }
+            set { Cast<StaticContextAccessor>()._SetUniqueIDForThisGame(value); }
         }
 
         public int CropsOfTheWeek
         {
-            get { return accessor._GetCropsOfTheWeek(); }
-            set { accessor._SetCropsOfTheWeek(value); }
+            get { return Cast<StaticContextAccessor>()._GetCropsOfTheWeek(); }
+            set { Cast<StaticContextAccessor>()._SetCropsOfTheWeek(value); }
         }
 
         public Color AmbientLight
         {
-            get { return accessor._GetAmbientLight(); }
-            set { accessor._SetAmbientLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetAmbientLight(); }
+            set { Cast<StaticContextAccessor>()._SetAmbientLight(value); }
         }
 
         public Color OutdoorLight
         {
-            get { return accessor._GetOutdoorLight(); }
-            set { accessor._SetOutdoorLight(value); }
+            get { return Cast<StaticContextAccessor>()._GetOutdoorLight(); }
+            set { Cast<StaticContextAccessor>()._SetOutdoorLight(value); }
         }
 
         public Color TextColor
         {
-            get { return accessor._GetTextColor(); }
-            set { accessor._SetTextColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetTextColor(); }
+            set { Cast<StaticContextAccessor>()._SetTextColor(value); }
         }
 
         public Color TextShadowColor
         {
-            get { return accessor._GetTextShadowColor(); }
-            set { accessor._SetTextShadowColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetTextShadowColor(); }
+            set { Cast<StaticContextAccessor>()._SetTextShadowColor(value); }
         }
 
         public ClickableMenu ActiveClickableMenu
         {
             get
             {
-                var tmp = accessor._GetActiveClickableMenu();
+                var tmp = Cast<StaticContextAccessor>()._GetActiveClickableMenu();
                 if (tmp == null) return null;
                 return new ClickableMenu(this, tmp);
             }
-            set { accessor._SetActiveClickableMenu(value?.Cast<ClickableMenuAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetActiveClickableMenu(value?.Cast<ClickableMenuAccessor>()); }
         }
 
         public int FramesThisSecond
         {
-            get { return accessor._GetFramesThisSecond(); }
-            set { accessor._SetFramesThisSecond(value); }
+            get { return Cast<StaticContextAccessor>()._GetFramesThisSecond(); }
+            set { Cast<StaticContextAccessor>()._SetFramesThisSecond(value); }
         }
 
         public int SecondCounter
         {
-            get { return accessor._GetSecondCounter(); }
-            set { accessor._SetSecondCounter(value); }
+            get { return Cast<StaticContextAccessor>()._GetSecondCounter(); }
+            set { Cast<StaticContextAccessor>()._SetSecondCounter(value); }
         }
 
         public int Currentfps
         {
-            get { return accessor._GetCurrentfps(); }
-            set { accessor._SetCurrentfps(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentfps(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentfps(value); }
         }
 
         public ObjectItem DishOfTheDay
         {
             get
             {
-                var tmp = accessor._GetDishOfTheDay();
+                var tmp = Cast<StaticContextAccessor>()._GetDishOfTheDay();
                 if (tmp == null) return null;
                 return new ObjectItem(this, tmp);
             }
-            set { accessor._SetDishOfTheDay(value?.Cast<ObjectAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetDishOfTheDay(value?.Cast<ObjectAccessor>()); }
         }
 
         public GameTime CurrentGameTime
         {
-            get { return accessor._GetCurrentGameTime(); }
-            set { accessor._SetCurrentGameTime(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentGameTime(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentGameTime(value); }
         }
 
         public Stack EndOfNightMenus
         {
-            get { return accessor._GetEndOfNightMenus(); }
-            set { accessor._SetEndOfNightMenus(value); }
+            get { return Cast<StaticContextAccessor>()._GetEndOfNightMenus(); }
+            set { Cast<StaticContextAccessor>()._SetEndOfNightMenus(value); }
         }
 
         public Point LastMousePositionBeforeFade
         {
-            get { return accessor._GetLastMousePositionBeforeFade(); }
-            set { accessor._SetLastMousePositionBeforeFade(value); }
+            get { return Cast<StaticContextAccessor>()._GetLastMousePositionBeforeFade(); }
+            set { Cast<StaticContextAccessor>()._SetLastMousePositionBeforeFade(value); }
         }
 
         public Point ViewportCenter
         {
-            get { return accessor._GetViewportCenter(); }
-            set { accessor._SetViewportCenter(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportCenter(); }
+            set { Cast<StaticContextAccessor>()._SetViewportCenter(value); }
         }
 
         public Vector2 ViewportTarget
         {
-            get { return accessor._GetViewportTarget(); }
-            set { accessor._SetViewportTarget(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportTarget(); }
+            set { Cast<StaticContextAccessor>()._SetViewportTarget(value); }
         }
 
         public float ViewportSpeed
         {
-            get { return accessor._GetViewportSpeed(); }
-            set { accessor._SetViewportSpeed(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportSpeed(); }
+            set { Cast<StaticContextAccessor>()._SetViewportSpeed(value); }
         }
 
         public int ViewportHold
         {
-            get { return accessor._GetViewportHold(); }
-            set { accessor._SetViewportHold(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportHold(); }
+            set { Cast<StaticContextAccessor>()._SetViewportHold(value); }
         }
 
         public int ThumbstickPollingTimer
         {
-            get { return accessor._GetThumbstickPollingTimer(); }
-            set { accessor._SetThumbstickPollingTimer(value); }
+            get { return Cast<StaticContextAccessor>()._GetThumbstickPollingTimer(); }
+            set { Cast<StaticContextAccessor>()._SetThumbstickPollingTimer(value); }
         }
 
         public bool ToggleFullScreen
         {
-            get { return accessor._GetToggleFullScreen(); }
-            set { accessor._SetToggleFullScreen(value); }
+            get { return Cast<StaticContextAccessor>()._GetToggleFullScreen(); }
+            set { Cast<StaticContextAccessor>()._SetToggleFullScreen(value); }
         }
 
         public bool IsFullscreen
         {
-            get { return accessor._GetIsFullscreen(); }
-            set { accessor._SetIsFullscreen(value); }
+            get { return Cast<StaticContextAccessor>()._GetIsFullscreen(); }
+            set { Cast<StaticContextAccessor>()._SetIsFullscreen(value); }
         }
 
         public bool SetToWindowedMode
         {
-            get { return accessor._GetSetToWindowedMode(); }
-            set { accessor._SetSetToWindowedMode(value); }
+            get { return Cast<StaticContextAccessor>()._GetSetToWindowedMode(); }
+            set { Cast<StaticContextAccessor>()._SetSetToWindowedMode(value); }
         }
 
         public bool SetToFullscreen
         {
-            get { return accessor._GetSetToFullscreen(); }
-            set { accessor._SetSetToFullscreen(value); }
+            get { return Cast<StaticContextAccessor>()._GetSetToFullscreen(); }
+            set { Cast<StaticContextAccessor>()._SetSetToFullscreen(value); }
         }
 
         public string WhereIsTodaysFest
         {
-            get { return accessor._GetWhereIsTodaysFest(); }
-            set { accessor._SetWhereIsTodaysFest(value); }
+            get { return Cast<StaticContextAccessor>()._GetWhereIsTodaysFest(); }
+            set { Cast<StaticContextAccessor>()._SetWhereIsTodaysFest(value); }
         }
 
         public bool FarmerShouldPassOut
         {
-            get { return accessor._GetFarmerShouldPassOut(); }
-            set { accessor._SetFarmerShouldPassOut(value); }
+            get { return Cast<StaticContextAccessor>()._GetFarmerShouldPassOut(); }
+            set { Cast<StaticContextAccessor>()._SetFarmerShouldPassOut(value); }
         }
 
         public Vector2 CurrentViewportTarget
         {
-            get { return accessor._GetCurrentViewportTarget(); }
-            set { accessor._SetCurrentViewportTarget(value); }
+            get { return Cast<StaticContextAccessor>()._GetCurrentViewportTarget(); }
+            set { Cast<StaticContextAccessor>()._SetCurrentViewportTarget(value); }
         }
 
         public Vector2 ViewportPositionLerp
         {
-            get { return accessor._GetViewportPositionLerp(); }
-            set { accessor._SetViewportPositionLerp(value); }
+            get { return Cast<StaticContextAccessor>()._GetViewportPositionLerp(); }
+            set { Cast<StaticContextAccessor>()._SetViewportPositionLerp(value); }
         }
 
         public float ScreenGlowRate
         {
-            get { return accessor._GetScreenGlowRate(); }
-            set { accessor._SetScreenGlowRate(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowRate(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowRate(value); }
         }
 
         public float ScreenGlowMax
         {
-            get { return accessor._GetScreenGlowMax(); }
-            set { accessor._SetScreenGlowMax(value); }
+            get { return Cast<StaticContextAccessor>()._GetScreenGlowMax(); }
+            set { Cast<StaticContextAccessor>()._SetScreenGlowMax(value); }
         }
 
         public bool HaltAfterCheck
         {
-            get { return accessor._GetHaltAfterCheck(); }
-            set { accessor._SetHaltAfterCheck(value); }
+            get { return Cast<StaticContextAccessor>()._GetHaltAfterCheck(); }
+            set { Cast<StaticContextAccessor>()._SetHaltAfterCheck(value); }
         }
 
         public string PanModeString
         {
-            get { return accessor._GetPanModeString(); }
-            set { accessor._SetPanModeString(value); }
+            get { return Cast<StaticContextAccessor>()._GetPanModeString(); }
+            set { Cast<StaticContextAccessor>()._SetPanModeString(value); }
         }
 
         public bool PanFacingDirectionWait
         {
-            get { return accessor._GetPanFacingDirectionWait(); }
-            set { accessor._SetPanFacingDirectionWait(value); }
+            get { return Cast<StaticContextAccessor>()._GetPanFacingDirectionWait(); }
+            set { Cast<StaticContextAccessor>()._SetPanFacingDirectionWait(value); }
         }
 
         public int ThumbstickMotionMargin
         {
-            get { return accessor._GetThumbstickMotionMargin(); }
-            set { accessor._SetThumbstickMotionMargin(value); }
+            get { return Cast<StaticContextAccessor>()._GetThumbstickMotionMargin(); }
+            set { Cast<StaticContextAccessor>()._SetThumbstickMotionMargin(value); }
         }
 
         public int TriggerPolling
         {
-            get { return accessor._GetTriggerPolling(); }
-            set { accessor._SetTriggerPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetTriggerPolling(); }
+            set { Cast<StaticContextAccessor>()._SetTriggerPolling(value); }
         }
 
         public int RightClickPolling
         {
-            get { return accessor._GetRightClickPolling(); }
-            set { accessor._SetRightClickPolling(value); }
+            get { return Cast<StaticContextAccessor>()._GetRightClickPolling(); }
+            set { Cast<StaticContextAccessor>()._SetRightClickPolling(value); }
         }
 
         public Matrix ScaleMatrix
         {
-            get { return accessor._GetScaleMatrix(); }
-            set { accessor._SetScaleMatrix(value); }
+            get { return Cast<StaticContextAccessor>()._GetScaleMatrix(); }
+            set { Cast<StaticContextAccessor>()._SetScaleMatrix(value); }
         }
 
         public Color BgColor
         {
-            get { return accessor._GetBgColor(); }
-            set { accessor._SetBgColor(value); }
+            get { return Cast<StaticContextAccessor>()._GetBgColor(); }
+            set { Cast<StaticContextAccessor>()._SetBgColor(value); }
         }
 
         public int MouseCursor
         {
-            get { return accessor._GetMouseCursor(); }
-            set { accessor._SetMouseCursor(value); }
+            get { return Cast<StaticContextAccessor>()._GetMouseCursor(); }
+            set { Cast<StaticContextAccessor>()._SetMouseCursor(value); }
         }
 
         public float MouseCursorTransparency
         {
-            get { return accessor._GetMouseCursorTransparency(); }
-            set { accessor._SetMouseCursorTransparency(value); }
+            get { return Cast<StaticContextAccessor>()._GetMouseCursorTransparency(); }
+            set { Cast<StaticContextAccessor>()._SetMouseCursorTransparency(value); }
         }
 
         public NPC ObjectDialoguePortraitPerson
         {
             get
             {
-                var tmp = accessor._GetObjectDialoguePortraitPerson();
+                var tmp = Cast<StaticContextAccessor>()._GetObjectDialoguePortraitPerson();
                 if (tmp == null) return null;
                 return new NPC(this, tmp);
             }
-            set { accessor._SetObjectDialoguePortraitPerson(value.Cast<NPCAccessor>()); }
+            set { Cast<StaticContextAccessor>()._SetObjectDialoguePortraitPerson(value.Cast<NPCAccessor>()); }
         }
 
         public ChatBox ChatBox
         {
             get
             {
-                foreach (var menu in accessor._GetOnScreenMenus())
+                foreach (var menu in Cast<StaticContextAccessor>()._GetOnScreenMenus())
                 {
                     if (menu is ChatBoxAccessor)
                     {
@@ -1551,7 +1575,5 @@ namespace Storm.StardewValley.Wrapper
             var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
-
-        public object Expose() => accessor;
     }
 }

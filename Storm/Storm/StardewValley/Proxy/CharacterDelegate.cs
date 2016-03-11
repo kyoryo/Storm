@@ -22,21 +22,15 @@ namespace Storm.StardewValley.Proxy
 {
     public class CharacterDelegate : TypeDelegate<Character>
     {
-        private object[] constructorParams;
 
         public CharacterDelegate()
         {
-            constructorParams = new object[] { };
+            ConstructorParams = new object[] { };
         }
 
         public CharacterDelegate(AnimatedSprite sprite, Vector2 position, int speed, string name)
         {
-            constructorParams = new object[] { sprite.Expose(), position, speed, name };
-        }
-
-        public object[] GetConstructorParams()
-        {
-            return constructorParams;
+            ConstructorParams = new object[] { sprite.Underlying, position, speed, name };
         }
     }
 }

@@ -63,18 +63,18 @@ namespace Storm.Collections
 
             set
             {
-                real[index] = value == null ? null : value.Expose();
+                real[index] = value == null ? null : value.Underlying;
             }
         }
 
         public int IndexOf(TValue item)
         {
-            return real.IndexOf(item.Expose());
+            return real.IndexOf(item.Underlying);
         }
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item == null ? null : item.Expose());
+            real.Insert(index, item == null ? null : item.Underlying);
         }
 
         public void RemoveAt(int index)
@@ -84,7 +84,7 @@ namespace Storm.Collections
 
         public void Add(TValue item)
         {
-            real.Add(item == null ? null : item.Expose());
+            real.Add(item == null ? null : item.Underlying);
         }
 
         public void Clear()
@@ -94,7 +94,7 @@ namespace Storm.Collections
 
         public bool Contains(TValue item)
         {
-            return real.Contains(item.Expose());
+            return real.Contains(item.Underlying);
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
@@ -105,18 +105,67 @@ namespace Storm.Collections
         public bool Remove(TValue item)
         {
             if (!Contains(item)) return false;
-            real.Remove(item.Expose());
+            real.Remove(item.Underlying);
             return true;
         }
 
         public IEnumerator<TValue> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ProxyEnumerator<TOValue, TValue>(real, wrapper);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+
+        private class ProxyEnumerator<EOValue, EValue> : IEnumerator<EValue>
+        {
+            private IList real;
+            private Wrap<EOValue, EValue> wrapper;
+            private int curIndex;
+            private EOValue curValue;
+
+            public ProxyEnumerator(IList real, Wrap<EOValue, EValue> wrapper)
+            {
+                this.real = real;
+                this.wrapper = wrapper;
+                this.curIndex = -1;
+                this.curValue = default(EOValue);
+            }
+
+            public EValue Current
+            {
+                get { return wrapper(curValue); }
+            }
+
+            object IEnumerator.Current
+            {
+                get { return curValue; }
+            }
+
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool MoveNext()
+            {
+                if (++curIndex >= real.Count)
+                {
+                    return false;
+                }
+                else
+                {
+                    curValue = (EOValue)real[curIndex];
+                    return true;
+                }
+            }
+
+            public void Reset()
+            {
+                curIndex = -1;
+            }
         }
     }
 }

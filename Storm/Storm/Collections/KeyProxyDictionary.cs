@@ -35,12 +35,12 @@ namespace Storm.Collections
         {
             get
             {
-                return (TValue)real[key.Expose()];
+                return (TValue)real[key.Underlying];
             }
 
             set
             {
-                real[key.Expose()] = (TValue)value;
+                real[key.Underlying] = (TValue)value;
             }
         }
 
@@ -88,12 +88,12 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key.Expose(), item.Value);
+            real.Add(item.Key.Underlying, item.Value);
         }
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key.Expose(), value);
+            real.Add(key.Underlying, value);
         }
 
         public void Clear()
@@ -105,7 +105,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key.Expose()) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value))
                 {
                     return true;
                 }
@@ -115,7 +115,7 @@ namespace Storm.Collections
 
         public bool ContainsKey(TKey key)
         {
-            return real.Contains(key.Expose());
+            return real.Contains(key.Underlying);
         }
 
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
@@ -132,7 +132,7 @@ namespace Storm.Collections
         {
             foreach (var key in real.Keys)
             {
-                if (key.Equals(item.Key.Expose()) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value))
                 {
                     real.Remove(key);
                     return true;
@@ -144,7 +144,7 @@ namespace Storm.Collections
         public bool Remove(TKey key)
         {
             if (!ContainsKey(key)) return false;
-            real.Remove(key.Expose());
+            real.Remove(key.Underlying);
             return true;
         }
 
