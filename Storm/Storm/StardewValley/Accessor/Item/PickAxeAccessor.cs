@@ -19,5 +19,13 @@ namespace Storm.StardewValley.Accessor
 {
     public interface PickAxeAccessor
     {
+        int _GetBoulderTileX();
+        void _SetBoulderTileX(int val);
+
+        int _GetBoulderTileY();
+        void _SetBoulderTileY(int val);
+
+        int _GetHitsToBoulder();
+        void _SetHitsToBoulder(int val);
     }
 }

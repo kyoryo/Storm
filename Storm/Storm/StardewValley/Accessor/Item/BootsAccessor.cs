@@ -21,7 +21,7 @@ namespace Storm.StardewValley.Accessor
     {
         int _GetDefenseBonus();
 
-        string _GetDescription();
+        new string _GetDescription();
 
         int _GetImmunityBonus();
 

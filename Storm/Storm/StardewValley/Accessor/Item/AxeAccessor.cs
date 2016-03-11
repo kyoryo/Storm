@@ -19,5 +19,13 @@ namespace Storm.StardewValley.Accessor
 {
     public interface AxeAccessor
     {
+        int _GetStumpTileX();
+        void _SetStumpTileX(int val);
+
+        int _GetStumpTileY();
+        void _SetStumpTileY(int val);
+
+        int _GetHitsToStump();
+        void _SetHitsToStump(int val);
     }
 }
