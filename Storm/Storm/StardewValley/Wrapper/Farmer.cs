@@ -955,7 +955,12 @@ namespace Storm.StardewValley.Wrapper
 
         public NPC CollisionNPC
         {
-            get { return Cast<FarmerAccessor>()._GetCollisionNPC() == null ? null : new NPC(Parent, Cast<FarmerAccessor>()._GetCollisionNPC()); }
+            get
+            {
+                var tmp = Cast<FarmerAccessor>()._GetCollisionNPC();
+                if (tmp == null) return null;
+                return new NPC(Parent, tmp);
+            }
             set { Cast<FarmerAccessor>()._SetCollisionNPC(value?.Cast<NPCAccessor>()); }
         }
 

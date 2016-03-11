@@ -164,6 +164,8 @@
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreCropConstructorEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeIntoSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeOutOfSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerDayUpdateEvent.cs" />
