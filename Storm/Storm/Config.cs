@@ -62,7 +62,7 @@ namespace Storm
             if (!File.Exists(baseConfig.ConfigLocation))
             {
                 var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
-                WriteConfig(v);
+                v.WriteConfig();
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Storm
                     baseConfig.ConfigLocation = p;
                     baseConfig.JObject = j;
 
-                    WriteConfig(baseConfig);
+                    baseConfig.WriteConfig();
                 }
                 catch
                 {
@@ -87,7 +87,7 @@ namespace Storm
                     if (File.Exists(p))
                         File.Move(p, Path.Combine(Path.GetDirectoryName(p), Path.GetFileNameWithoutExtension(p) + "." + Guid.NewGuid() + ".json")); //Get it out of the way for a new one
                     var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
-                    WriteConfig(v);
+                    v.WriteConfig();
                 }
             }
 
@@ -114,7 +114,15 @@ namespace Storm
             return baseConfig;
         }
 
-        public virtual void WriteConfig(Config baseConfig)
+        public static string GetBasePath(DiskResource theMod)
+        {
+            return theMod.PathOnDisk + "\\config.json";
+        }
+    }
+
+    public static class ConfigExtensions
+    {
+        public static void WriteConfig(this Config baseConfig)
         {
             var toWrite = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings()));
             if (!File.Exists(baseConfig.ConfigLocation) || !File.ReadAllBytes(baseConfig.ConfigLocation).SequenceEqual(toWrite))
@@ -122,10 +130,9 @@ namespace Storm
             toWrite = null;
         }
 
-
-        public static string GetBasePath(DiskResource theMod)
+        public static Config ReloadConfig(this Config baseConfig)
         {
-            return theMod.PathOnDisk + "\\config.json";
+            return baseConfig.UpdateConfig(baseConfig);
         }
     }
 }
