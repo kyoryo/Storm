@@ -51,5 +51,34 @@ namespace Storm
         {
             return ins.OpCode == OpCodes.Stfld;
         }
+
+        public static bool IsNativeType(string returnName)
+        {
+            return returnName.Equals(typeof(long).FullName) ||
+                returnName.Equals(typeof(ulong).FullName) ||
+                returnName.Equals(typeof(int).FullName) ||
+                returnName.Equals(typeof(uint).FullName) ||
+                returnName.Equals(typeof(short).FullName) ||
+                returnName.Equals(typeof(ushort).FullName) ||
+                returnName.Equals(typeof(byte).FullName) ||
+                returnName.Equals(typeof(bool).FullName);
+        }
+
+        public static bool IsJump(OpCode oc)
+        {
+            return
+                oc == OpCodes.Br || oc == OpCodes.Br_S ||
+                oc == OpCodes.Brtrue || oc == OpCodes.Brtrue_S ||
+                oc == OpCodes.Brfalse || oc == OpCodes.Brfalse_S ||
+                oc == OpCodes.Bne_Un || oc == OpCodes.Bne_Un_S ||
+                oc == OpCodes.Blt_Un || oc == OpCodes.Blt_Un_S ||
+                oc == OpCodes.Ble_Un || oc == OpCodes.Ble_Un_S ||
+                oc == OpCodes.Bge_Un || oc == OpCodes.Bge_Un_S ||
+                oc == OpCodes.Bgt_Un || oc == OpCodes.Bge_Un_S ||
+                oc == OpCodes.Beq || oc == OpCodes.Beq_S ||
+                oc == OpCodes.Ble || oc == OpCodes.Ble_S ||
+                oc == OpCodes.Blt || oc == OpCodes.Blt_S
+                ;
+        }
     }
 }
