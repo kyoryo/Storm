@@ -15,12 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 using Storm.StardewValley.Wrapper;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Event
 {
     public class PreFishingRodTickUpdateEvent : StaticContextEvent
     {
-        public PreFishingRodTickUpdateEvent(FishingRod rod, Microsoft.Xna.Framework.GameTime time, Farmer who)
+        public PreFishingRodTickUpdateEvent(FishingRod rod, GameTime time, Farmer who)
         {
             Rod = rod;
             Time = time;
@@ -28,7 +29,7 @@ namespace Storm.StardewValley.Event
         }
 
         public FishingRod Rod { set; get; }
-        public Microsoft.Xna.Framework.GameTime Time { set; get; }
+        public GameTime Time { set; get; }
         public Farmer Who { set; get; }
     }
 }
