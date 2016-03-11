@@ -14,20 +14,21 @@
     You should have received a copy of the GNU General Public License
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.StardewValley.Event
 {
     public class PostFishingRodTickUpdateEvent : StaticContextEvent
     {
-        public PostFishingRodTickUpdateEvent(Wrapper.FishingRod rod, Microsoft.Xna.Framework.GameTime time, Wrapper.Farmer who)
+        public PostFishingRodTickUpdateEvent(FishingRod rod, Microsoft.Xna.Framework.GameTime time, Farmer who)
         {
             Rod = rod;
             Time = time;
             Who = who;
         }
 
-        public Wrapper.FishingRod Rod { set; get; }
+        public FishingRod Rod { set; get; }
         public Microsoft.Xna.Framework.GameTime Time { set; get; }
-        public Wrapper.Farmer Who { set; get; }
+        public Farmer Who { set; get; }
     }
 }
