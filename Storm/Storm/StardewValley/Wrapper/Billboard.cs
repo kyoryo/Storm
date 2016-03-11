@@ -64,10 +64,6 @@ namespace Storm.StardewValley.Wrapper
                 return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(tmp,
                     i => new ClickableTextureComponent(Parent, i));
             }
-            set
-            {
-                Cast<BillboardAccessor>()._SetCalendarDays(value.Real);
-            }
         }
 
         public string HoverText

@@ -42,10 +42,6 @@ namespace Storm.StardewValley.Wrapper
                 if (tmp == null) return null;
                 return new WrappedProxyList<ItemAccessor, Item>(tmp, i => i == null ? null : new Item(Parent, i));
             }
-            set
-            {
-                Cast<FarmerAccessor>()._SetItems(value.Real);
-            }
         }
 
         public ProxyDictionary<string, int[]> Friendships

@@ -53,10 +53,6 @@ namespace Storm.StardewValley.Wrapper
                 if (tmp == null) return null;
                 return new WrappedProxyList<ItemAccessor, Item>(tmp, i => new Item(Parent, i));
             }
-            set
-            {
-                Cast<ShopMenuAccessor>()._SetForSale(value.Real);
-            }
         }
 
         public KeyProxyDictionary<Item, int[]> ItemsForSaleData
