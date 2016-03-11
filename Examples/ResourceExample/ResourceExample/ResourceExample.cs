@@ -18,12 +18,10 @@ namespace ResourceDumper
         [Subscribe]
         public void onAssetLoad(AssetLoadEvent @event)
         {
-            ContentManager manager = @event.Manager;
-
-            if(@event.Name == "Minigames\\TitleButtons")
+            if (@event.Name == "Minigames\\TitleButtons")
             {
                 var path = Path.Combine(PathOnDisk, "TitleButtons.png");
-                @event.ReturnValue = StaticGameContext.WrappedGame.LoadResource(path);
+                @event.ReturnValue = @event.Root.LoadResource(path);
                 Console.WriteLine(@event.ReturnValue);
             }
         }

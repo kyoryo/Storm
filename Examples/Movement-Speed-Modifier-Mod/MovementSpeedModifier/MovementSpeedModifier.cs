@@ -70,7 +70,7 @@ namespace MovementSpeedModifier
                 player.Speed = ModConfig.PlayerWalkingSpeed;
 
             if (ModConfig.EnableDiagonalMovementSpeedFix)
-                player.ClearMovementDirections();
+                player.MovementDirections.Clear();
         }
     }
 
