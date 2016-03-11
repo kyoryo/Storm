@@ -31,11 +31,11 @@ namespace Subclass_Test_Mod
             }
         }
 
-        private class CustomObject : ObjectDelegate
+        private class CustomObject : StandardObjectDelegate
         {
-            public CustomObject()
+            public CustomObject() :
+                base(Vector2.Zero, 3, 2)
             {
-                ConstructorParams = new object[] { Vector2.Zero, 3, 2 };
             }
         }
 
