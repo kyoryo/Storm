@@ -69,11 +69,5 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<ItemAccessor>()._GetSpecialVariable(); }
             set { Cast<ItemAccessor>()._SetSpecialVariable(value); }
         }
-
-        public bool IsTool() => Cast<ItemAccessor>() is ToolAccessor;
-        public Tool ToTool() => Cast<ItemAccessor>() == null ? null : new Tool(Parent, (ToolAccessor)Cast<ItemAccessor>());
-
-        public bool IsObject() => Cast<ItemAccessor>() is ObjectAccessor;
-        public ObjectItem ToObject() => Cast<ItemAccessor>() == null ? null : new ObjectItem(Parent, (ObjectAccessor)Cast<ItemAccessor>());
     }
 }

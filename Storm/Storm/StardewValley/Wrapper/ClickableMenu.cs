@@ -30,26 +30,5 @@ namespace Storm.StardewValley.Wrapper
         public ClickableMenu()
         {
         }
-
-        public bool IsChatBox() => Cast<ClickableMenuAccessor>() is ChatBoxAccessor;
-        public ChatBox ToChatBox() => new ChatBox(Parent, Cast<ClickableMenuAccessor>() as ChatBoxAccessor);
-
-        public bool IsGameMenu() => Cast<ClickableMenuAccessor>() is GameMenuAccessor;
-        public GameMenu ToGameMenu() => new GameMenu(Parent, Cast<ClickableMenuAccessor>() as GameMenuAccessor);
-
-        public bool IsShopMenu() => Cast<ClickableMenuAccessor>() is ShopMenuAccessor;
-        public ShopMenu ToShopMenu() => new ShopMenu(Parent, Cast<ClickableMenuAccessor>() as ShopMenuAccessor);
-
-        public bool IsInventoryMenu() => Cast<ClickableMenuAccessor>() is InventoryMenuAccessor;
-        public InventoryMenu ToInventoryMenu() => new InventoryMenu(Parent, Cast<ClickableMenuAccessor>() as InventoryMenuAccessor);
-
-        public bool IsInventoryPage() => Cast<ClickableMenuAccessor>() is InventoryPageAccessor;
-        public InventoryPage ToInventoryPage() => new InventoryPage(Parent, Cast<ClickableMenuAccessor>() as InventoryPageAccessor);
-
-        public bool IsBillboard() => Cast<ClickableMenuAccessor>() is BillboardAccessor;
-        public Billboard ToBillboard() => new Billboard(Parent, Cast<ClickableMenuAccessor>() as BillboardAccessor);
-
-        public bool IsBobberBar() => Cast<ClickableMenuAccessor>() is BobberBarAccessor;
-        public BobberBar ToBobberBar() => new BobberBar(Parent, Cast<ClickableMenuAccessor>() as BobberBarAccessor);
     }
 }

@@ -143,7 +143,5 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<MonsterAccessor>()._GetSlideAnimationTimer(); }
             set { Cast<MonsterAccessor>()._SetSlideAnimationTimer(value); }
         }
-
-        //public override object MonsterAccessor Expose() => accessor;
     }
 }
