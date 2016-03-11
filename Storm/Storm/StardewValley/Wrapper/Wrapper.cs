@@ -34,7 +34,6 @@ namespace Storm.StardewValley.Wrapper
 
         public virtual T As<T, A>() where T : Wrapper
         {
-            if (!Is<A>()) return null;
             T instance = (T)Activator.CreateInstance(typeof(T));
             return As<T, A>(instance);
         }
