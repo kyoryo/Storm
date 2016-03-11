@@ -152,6 +152,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PreCropConstructorCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true"
     },
 	{
       "OwnerAccessorType": "@Crop",
@@ -160,6 +161,7 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PostCropConstructorCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true",
       "InsertionType": "LAST",
 	  "JumpFix": "true"
     }
