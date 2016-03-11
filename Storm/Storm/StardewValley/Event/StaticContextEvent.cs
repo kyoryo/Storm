@@ -51,7 +51,7 @@ namespace Storm.StardewValley
             get { return Root.CurrentLocation; }
         }
 
-        public T Proxy<T, A>(TypeDelegate<T> @delegate, T instance) where T : StaticContextWrapper
+        public T Proxy<A, T>(TypeDelegate<T> @delegate, T instance) where T : StaticContextWrapper
         {
             instance.Parent = Root;
             instance.Underlying = StaticGameContext.ProxyAccessor<A, TypeDelegate<T>>(@delegate, @delegate.ConstructorParams);
@@ -59,10 +59,10 @@ namespace Storm.StardewValley
             return instance;
         }
 
-        public T Proxy<T, A>(TypeDelegate<T> @delegate) where T : StaticContextWrapper
+        public T Proxy<A, T>(TypeDelegate<T> @delegate) where T : StaticContextWrapper
         {
             T instance = Activator.CreateInstance<T>();
-            return Proxy<T, A>(@delegate, instance);
+            return Proxy<A, T>(@delegate, instance);
         }
     }
 }
