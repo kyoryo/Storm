@@ -813,6 +813,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PreFishingRodTickUpdateCallback(FishingRodAccessor accessor, Microsoft.Xna.Framework.GameTime time, FarmerAccessor who)
+        {
+            var @event = new PreFishingRodTickUpdateEvent(accessor == null ? null : new FishingRod(WrappedGame, accessor), time, who == null ? null : new Farmer(WrappedGame, who));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostFishingRodTickUpdateCallback(FishingRodAccessor accessor, Microsoft.Xna.Framework.GameTime time, FarmerAccessor who)
+        {
+            var @event = new PostFishingRodTickUpdateEvent(accessor == null ? null : new FishingRod(WrappedGame, accessor), time, who == null ? null : new Farmer(WrappedGame, who));
+            FireEvent(@event);
+            return @event;
+        }
+
         #endregion
 
         #region ShopMenu Events

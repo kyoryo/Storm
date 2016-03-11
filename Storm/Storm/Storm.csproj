@@ -172,7 +172,9 @@
     <Compile Include="StardewValley\Event\Farmer\FarmerShipAllEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\GetFarmerTextureEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PostDoneFishingEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PostFishingRodTickUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PostPullFishFromWaterEvent.cs" />
+    <Compile Include="StardewValley\Event\FishingRod\PreFishingRodTickUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PreNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtCanPlantEvent.cs" />
