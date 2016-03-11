@@ -84,10 +84,6 @@ namespace Storm.StardewValley.Wrapper
                 if (tmp == null) return null;
                 return new ProxyList<int>(tmp);
             }
-            set
-            {
-                Cast<FarmerAccessor>()._SetMovementDirections(value.Real);
-            }
         }
 
         public Tool[] ToolBox
