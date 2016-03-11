@@ -34,6 +34,14 @@ namespace Storm.Collections
             this.real = real;
         }
 
+        internal IList Real
+        {
+            get
+            {
+                return real;
+            }
+        }
+
         public int Count
         {
             get

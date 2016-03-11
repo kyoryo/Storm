@@ -75,6 +75,10 @@ namespace Storm.StardewValley.Wrapper
                 if (tmp == null) return null;
                 return new ProxyList<int>(tmp);
             }
+            set
+            {
+                Cast<CropAccessor>()._SetPhaseDays(value.Real);
+            }
         }
 
         /// <summary>
@@ -161,6 +165,19 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
             set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
+        }
+        public ProxyList<string> SeasonsToGrowIn
+        {
+            get
+            {
+                var tmp = Cast<CropAccessor>()._GetSeasonsToGrowIn();
+                if (tmp == null) return null;
+                return new ProxyList<string>(tmp);
+            }
+            set
+            {
+                Cast<CropAccessor>()._SetSeasonsToGrowIn(value.Real);
+            }
         }
     }
 }

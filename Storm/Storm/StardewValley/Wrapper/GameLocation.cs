@@ -76,6 +76,10 @@ namespace Storm.StardewValley.Wrapper
                 return new WrappedProxyList<NPCAccessor, NPC>(tmp,
                     c => c == null ? null : new NPC(Parent, c));
             }
+            set
+            {
+                Cast<GameLocationAccessor>()._SetCharacters(value.Real);
+            }
         }
 
         public void AddHoeDirtAt(Vector2 tileLocation)
