@@ -23,7 +23,7 @@ namespace Storm.StardewValley.Event
 {
     public class PostCropConstructorEvent : StaticContextEvent
     {
-        public PostCropConstructorEvent(Crop crop, int seedIndex = 0, int tileX = 0, int tileY = 0)
+        public PostCropConstructorEvent(Crop crop, int seedIndex, int tileX, int tileY)
         {
             Crop = crop;
             SeedIndex = seedIndex;

@@ -15,11 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class PrePullFishFromWaterEvent : StaticContextEvent
     {
-        public PrePullFishFromWaterEvent(Wrapper.FishingRod rod, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
+        public PrePullFishFromWaterEvent(FishingRod rod, int whichFish, int fishSize, int fishQuality, int fishDifficulty, bool treasureCaught, bool wasPerfect)
         {
             Rod = rod;
             WhichFish = whichFish;
@@ -30,7 +32,7 @@ namespace Storm.StardewValley.Event
             WasPerfect = wasPerfect;
         }
 
-        public Wrapper.FishingRod Rod { get; set; }
+        public FishingRod Rod { get; set; }
         public int WhichFish { get; }
         public int FishSize { get; }
         public int FishQuality { get; }

@@ -15,15 +15,17 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Storm.StardewValley.Wrapper;
+
 namespace Storm.StardewValley.Event
 {
     public class PreHarvestCropEvent : StaticContextEvent
     {
-        public PreHarvestCropEvent(Wrapper.Crop crop)
+        public PreHarvestCropEvent(Crop crop)
         {
             Crop = crop;
         }
 
-        public Wrapper.Crop Crop { get; }
+        public Crop Crop { get; }
     }
 }

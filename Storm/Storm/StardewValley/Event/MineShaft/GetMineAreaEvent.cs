@@ -19,7 +19,7 @@ namespace Storm.StardewValley.Event
 {
     public class GetMineAreaEvent : StaticContextEvent
     {
-        public GetMineAreaEvent(int level = -1)
+        public GetMineAreaEvent(int level)
         {
             Level = level;
         }
