@@ -347,6 +347,25 @@
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Storm.StardewValley.Accessor.FarmerAccessor,System.Boolean)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "tickUpdate",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime,@(Farmer))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreFishingRodTickUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Microsoft.Xna.Framework.GameTime,Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
+    },
+    {
+      "OwnerAccessorType": "@FishingRod",
+      "OwnerMethodName": "tickUpdate",
+      "OwnerMethodDesc": "(Microsoft.Xna.Framework.GameTime,@(Farmer))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostFishingRodTickUpdateCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FishingRodAccessor,Microsoft.Xna.Framework.GameTime,Storm.StardewValley.Accessor.FarmerAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
     }
   ]
 }
