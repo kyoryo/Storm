@@ -34,16 +34,6 @@ namespace Storm.StardewValley.Wrapper
 
         }
 
-        public void AddHoeDirtAt(Vector2 tileLocation)
-        {
-            Cast<GameLocationAccessor>()._MakeHoeDirt(tileLocation);
-        }
-
-        public string GetTileProperty(int tileX, int tileY, string propName, string layerName)
-        {
-            return Cast<GameLocationAccessor>()._GetTileProperty(tileX, tileY, propName, layerName);
-        }
-
         public ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem> Objects
         {
             get
@@ -53,6 +43,17 @@ namespace Storm.StardewValley.Wrapper
                 return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp, 
                     o => o == null ? null : new ObjectItem(Parent, o));
             }
+        }
+
+        public ObjectItem GetObjectAt(int tileX, int tileY)
+        {
+            var key = new Vector2(tileX / Parent.TileSize, tileY / Parent.TileSize);
+            var objects = Objects;
+            if (objects.ContainsKey(key))
+            {
+                return objects[key];
+            }
+            return null;
         }
 
         public ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature> TerrainFeatures
@@ -66,6 +67,27 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public WrappedProxyList<NPCAccessor, NPC> Characters
+        {
+            get
+            {
+                var tmp = Cast<GameLocationAccessor>()._GetCharacters();
+                if (tmp == null) return null;
+                return new WrappedProxyList<NPCAccessor, NPC>(tmp,
+                    c => c == null ? null : new NPC(Parent, c));
+            }
+        }
+
+        public void AddHoeDirtAt(Vector2 tileLocation)
+        {
+            Cast<GameLocationAccessor>()._MakeHoeDirt(tileLocation);
+        }
+
+        public string GetTileProperty(int tileX, int tileY, string propName, string layerName)
+        {
+            return Cast<GameLocationAccessor>()._GetTileProperty(tileX, tileY, propName, layerName);
+        }
+
         public bool IsOutdoors
         {
             get { return Cast<GameLocationAccessor>()._GetIsOutdoors(); }
@@ -76,17 +98,6 @@ namespace Storm.StardewValley.Wrapper
         {
             get { return Cast<GameLocationAccessor>()._GetName(); }
             set { Cast<GameLocationAccessor>()._SetName(value); }
-        }
-
-        public WrappedProxyList<NPCAccessor, NPC> Characters
-        {
-            get
-            {
-                var tmp = Cast<GameLocationAccessor>()._GetCharacters();
-                if (tmp == null) return null;
-                return new WrappedProxyList<NPCAccessor, NPC>(tmp, 
-                    c => c == null ? null : new NPC(Parent, c));
-            }
         }
 
         public Event CurrentEvent
@@ -103,17 +114,6 @@ namespace Storm.StardewValley.Wrapper
         public void GrowWeedGrass(int iterations)
         {
             Cast<GameLocationAccessor>()._GrowWeedGrass(iterations);
-        }
-
-        public ObjectItem GetObjectAt(int tileX, int tileY)
-        {
-            var key = new Vector2(tileX / Parent.TileSize, tileY / Parent.TileSize);
-            var objects = Objects;
-            if (objects.ContainsKey(key))
-            {
-                return objects[key];
-            }
-            return null;
         }
     }
 }

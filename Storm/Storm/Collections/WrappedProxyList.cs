@@ -111,12 +111,61 @@ namespace Storm.Collections
 
         public IEnumerator<TValue> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ProxyEnumerator<TOValue, TValue>(real, wrapper);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+
+        private class ProxyEnumerator<EOValue, EValue> : IEnumerator<EValue>
+        {
+            private IList real;
+            private Wrap<EOValue, EValue> wrapper;
+            private int curIndex;
+            private EOValue curValue;
+
+            public ProxyEnumerator(IList real, Wrap<EOValue, EValue> wrapper)
+            {
+                this.real = real;
+                this.wrapper = wrapper;
+                this.curIndex = -1;
+                this.curValue = default(EOValue);
+            }
+
+            public EValue Current
+            {
+                get { return wrapper(curValue); }
+            }
+
+            object IEnumerator.Current
+            {
+                get { return curValue; }
+            }
+
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool MoveNext()
+            {
+                if (++curIndex >= real.Count)
+                {
+                    return false;
+                }
+                else
+                {
+                    curValue = (EOValue)real[curIndex];
+                    return true;
+                }
+            }
+
+            public void Reset()
+            {
+                curIndex = -1;
+            }
         }
     }
 }
