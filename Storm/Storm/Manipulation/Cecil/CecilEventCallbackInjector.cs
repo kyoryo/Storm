@@ -155,27 +155,19 @@ namespace Storm.Manipulation.Cecil
         {
             if (invalid) return;
 
-            var hasReturnValue = typeof (DetourEvent).GetProperty("ReturnEarly");
+            var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");
             var hasReturnValueImport = def.MainModule.Import(hasReturnValue.GetMethod);
 
-            var eventReturnValue = typeof (DetourEvent).GetProperty("ReturnValue");
+            var eventReturnValue = typeof(DetourEvent).GetProperty("ReturnValue");
             var eventReturnValueImport = def.MainModule.Import(eventReturnValue.GetMethod);
 
             var body = injectee.Body;
             var processor = body.GetILProcessor();
 
             var returnName = injectee.ReturnType.FullName;
-            var returnsVoid = returnName.Equals(typeof (void).FullName);
+            var returnsVoid = returnName.Equals(typeof(void).FullName);
 
-            var returnsPrimitive =
-                returnName.Equals(typeof (long).FullName) ||
-                returnName.Equals(typeof (ulong).FullName) ||
-                returnName.Equals(typeof (int).FullName) ||
-                returnName.Equals(typeof (uint).FullName) ||
-                returnName.Equals(typeof (short).FullName) ||
-                returnName.Equals(typeof (ushort).FullName) ||
-                returnName.Equals(typeof (byte).FullName) ||
-                returnName.Equals(typeof (bool).FullName);
+            var returnsPrimitive = CecilUtils.IsNativeType(returnName);
 
             foreach (var injectionPoint in injectionPoints)
             {
@@ -194,43 +186,43 @@ namespace Storm.Manipulation.Cecil
                         switch (i)
                         {
                             case 0:
-                            {
-                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
-                                if (initial == null) initial = ins;
-                                processor.InsertBefore(injectionPoint, ins);
-                            }
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
 
                             case 1:
-                            {
-                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
-                                if (initial == null) initial = ins;
-                                processor.InsertBefore(injectionPoint, ins);
-                            }
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
 
                             case 2:
-                            {
-                                var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
-                                if (initial == null) initial = ins;
-                                processor.InsertBefore(injectionPoint, ins);
-                            }
+                                {
+                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
 
                             case 3:
-                            {
-                                var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                if (initial == null) initial = ins;
-                                processor.InsertBefore(injectionPoint, ins);
-                            }
+                                {
+                                    var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
 
                             default:
-                            {
-                                var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                if (initial == null) initial = ins;
-                                processor.InsertBefore(injectionPoint, ins);
-                            }
+                                {
+                                    var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
+                                    if (initial == null) initial = ins;
+                                    processor.InsertBefore(injectionPoint, ins);
+                                }
                                 break;
                         }
                     }
@@ -286,11 +278,6 @@ namespace Storm.Manipulation.Cecil
             }
         }
 
-        public object GetParams()
-        {
-            return @params;
-        }
-
         private Instruction GetReturnByRelativity(MethodDefinition md, int index)
         {
             var instructions = md.Body.Instructions;
@@ -308,6 +295,11 @@ namespace Storm.Manipulation.Cecil
                 }
             }
             return null;
+        }
+
+        public object GetParams()
+        {
+            return @params;
         }
     }
 }

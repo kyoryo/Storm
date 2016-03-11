@@ -51,5 +51,17 @@ namespace Storm
         {
             return ins.OpCode == OpCodes.Stfld;
         }
+
+        public static bool IsNativeType(string returnName)
+        {
+            return returnName.Equals(typeof(long).FullName) ||
+                returnName.Equals(typeof(ulong).FullName) ||
+                returnName.Equals(typeof(int).FullName) ||
+                returnName.Equals(typeof(uint).FullName) ||
+                returnName.Equals(typeof(short).FullName) ||
+                returnName.Equals(typeof(ushort).FullName) ||
+                returnName.Equals(typeof(byte).FullName) ||
+                returnName.Equals(typeof(bool).FullName);
+        }
     }
 }
