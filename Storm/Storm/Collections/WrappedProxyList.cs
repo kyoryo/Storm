@@ -38,7 +38,7 @@ namespace Storm.Collections
             this.wrapper = wrapper;
         }
 
-        public IList Real
+        internal IList Real
         {
             get
             {
