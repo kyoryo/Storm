@@ -18,7 +18,7 @@ namespace Storm
         {
             get
             {
-                throw new NotImplementedException();
+                return real.Count;
             }
         }
 
