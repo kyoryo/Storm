@@ -77,7 +77,7 @@ namespace Storm.Manipulation.Cecil
             callback = injectee.Module.Import(recv);
             if (paramCount != callback.Parameters.Count)
             {
-                Logging.DebugLog("[CecilEventCallbackInjector] Invalid param count on callback!");
+                Logging.DebugLogs("[{0}] Invalid param count on callback!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
                 Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
                 Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
@@ -86,15 +86,18 @@ namespace Storm.Manipulation.Cecil
                 return;
             }
 
+            var injecteeBody = injectee.Body;
+            var injecteeInstructions = injecteeBody.Instructions;
+            var injecteeInsCount = injecteeInstructions.Count;
             if (@params.InsertionType == InsertionType.BEGINNING)
             {
-                injectionPoints.Add(injectee.Body.Instructions[0]);
+                injectionPoints.Add(injecteeInstructions[0]);
                 return;
             }
 
             if (@params.InsertionType == InsertionType.LAST && @params.InsertionIndex == null)
             {
-                injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1]);
+                injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1]);
                 return;
             }
 
@@ -103,13 +106,46 @@ namespace Storm.Manipulation.Cecil
                 switch (@params.InsertionType)
                 {
                     case InsertionType.ABSOLUTE:
-                        injectionPoints.Add(injectee.Body.Instructions[i]);
+                        if (i < 0 || i >= injecteeInsCount)
+                        {
+                            Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
+                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
+                            invalid = true;
+                            return;
+                        }
+
+                        injectionPoints.Add(injecteeInstructions[i]);
                         break;
                     case InsertionType.LAST:
-                        injectionPoints.Add(injectee.Body.Instructions[injectee.Body.Instructions.Count - 1 - i]);
+                        if ((injecteeInsCount - 1 - i) < 0 || (injecteeInsCount - 1 - i) >= injecteeInsCount)
+                        {
+                            Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
+                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
+                            invalid = true;
+                            return;
+                        }
+
+                        injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1 - i]);
                         break;
                     case InsertionType.RETURNS:
-                        injectionPoints.Add(GetReturnByRelativity(injectee, i));
+                        var relative = GetReturnByRelativity(injectee, i);
+                        if (relative == null)
+                        {
+                            Logging.DebugLogs("[{0}] Unable to find return {1}", GetType().Name, i);
+                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
+                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
+                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
+                            invalid = true;
+                            return;
+                        }
+                        injectionPoints.Add(relative);
                         break;
                 }
             }
