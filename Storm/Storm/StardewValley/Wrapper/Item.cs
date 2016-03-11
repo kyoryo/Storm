@@ -33,17 +33,17 @@ namespace Storm.StardewValley.Wrapper
 
         public int SalePrice
         {
-            get { return accessor._GetSalePrice(); }
+            get { return Cast<ItemAccessor>()._GetSalePrice(); }
         }
 
         public int MaximumStackSize
         {
-            get { return accessor._GetMaximumStackSize(); }
+            get { return Cast<ItemAccessor>()._GetMaximumStackSize(); }
         }
 
         public string Description
         {
-            get { return accessor._GetDescription(); }
+            get { return Cast<ItemAccessor>()._GetDescription(); }
         }
 
         public int Category

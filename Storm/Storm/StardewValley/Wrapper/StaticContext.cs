@@ -72,7 +72,10 @@ namespace Storm.StardewValley.Wrapper
 
         public IList Locations => Cast<StaticContextAccessor>()._GetLocations();
 
-        public bool IsActive => ((Game) accessor)?.IsActive ?? false;
+        public bool IsActive
+        {
+            get { return Cast<Game>().IsActive; }
+        }
 
         public int PixelZoom
         {

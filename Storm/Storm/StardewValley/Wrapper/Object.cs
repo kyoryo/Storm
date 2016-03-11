@@ -33,7 +33,7 @@ namespace Storm.StardewValley.Wrapper
 
         public int SellToStorePrice
         {
-            get { return accessor._GetSellToStorePrice(); }
+            get { return Cast<ObjectAccessor>()._GetSellToStorePrice(); }
         }
 
         public Vector2 TileLocation
