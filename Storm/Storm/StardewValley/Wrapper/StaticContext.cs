@@ -1566,6 +1566,16 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public WrappedProxyList<ClickableMenuAccessor, ClickableMenu> OnScreenMenus
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetOnScreenMenus();
+                if (tmp == null) return null;
+                return new WrappedProxyList<ClickableMenuAccessor, ClickableMenu>(tmp, i => new ClickableMenu(this, i));
+            }
+        }
+
         public Texture2D LoadResource(string path)
         {
             var fs = new FileStream(path, FileMode.Open);
