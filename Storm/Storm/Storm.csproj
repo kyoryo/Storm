@@ -197,6 +197,7 @@
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
     <Compile Include="StardewValley\Proxy\MonsterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
