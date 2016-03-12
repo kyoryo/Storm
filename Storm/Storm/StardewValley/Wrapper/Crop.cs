@@ -162,5 +162,14 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
             set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
         }
+        public ProxyList<string> SeasonsToGrowIn
+        {
+            get
+            {
+                var tmp = Cast<CropAccessor>()._GetSeasonsToGrowIn();
+                if (tmp == null) return null;
+                return new ProxyList<string>(tmp);
+            }
+        }
     }
 }

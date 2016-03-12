@@ -71,5 +71,8 @@ namespace Storm.StardewValley.Accessor
 
         int _GetRegrowAfterHarvest();
         void _SetRegrowAfterHarvest(int regrow);
+
+        IList _GetSeasonsToGrowIn();
+        void _SetSeasonsToGrowIn(IList seasons);
     }
 }
