@@ -25,6 +25,8 @@ namespace Storm.StardewValley.Accessor
 
         string _GetDescription();
 
+        string _GetCategoryName();
+
         int _GetSpecialVariable();
         void _SetSpecialVariable(int val);
 

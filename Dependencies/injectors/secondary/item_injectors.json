@@ -56,6 +56,15 @@
       "InvokerReturnParams": [ ],
       "InvokerReturnType": "System.String",
       "IsStatic": "false"
+    },
+	{
+      "OwnerAccessorType": "@Item",
+      "OwnerMethodName": "getCategoryName",
+      "OwnerMethodDesc": "()System.String",
+      "InvokerName": "_GetCategoryName",
+      "InvokerReturnParams": [ ],
+      "InvokerReturnType": "System.String",
+      "IsStatic": "false"
     }
   ]
 }
