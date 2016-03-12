@@ -83,8 +83,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The IsDead property gets/sets the value of the bool field IsDead</value>
         public bool IsDead
         {
-            get { return Cast<CropAccessor>()._GetIsDead(); }
-            set { Cast<CropAccessor>()._SetIsDead(true); }
+            get { return Cast<CropAccessor>()._GetDead(); }
+            set { Cast<CropAccessor>()._SetDead(true); }
         }
 
         public bool Flip
@@ -105,8 +105,8 @@ namespace Storm.StardewValley.Wrapper
         /// <value>The IsFullyGrown property gets/sets the value of the bool field IsFullyGrown</value>
         public bool IsFullyGrown
         {
-            get { return Cast<CropAccessor>()._GetIsFullyGrown(); }
-            set { Cast<CropAccessor>()._SetIsFullyGrown(value); }
+            get { return Cast<CropAccessor>()._GetFullyGrown(); }
+            set { Cast<CropAccessor>()._SetFullyGrown(value); }
         }
 
         public int HarvestMethod
@@ -153,8 +153,8 @@ namespace Storm.StardewValley.Wrapper
 
         public bool HasRaisedSeeds
         {
-            get { return Cast<CropAccessor>()._GetHasRaisedSeeds(); }
-            set { Cast<CropAccessor>()._SetHasRaisedSeeds(value); }
+            get { return Cast<CropAccessor>()._GetRaisedSeeds(); }
+            set { Cast<CropAccessor>()._SetRaisedSeeds(value); }
         }
 
         public int RegrowAfterHarvest
@@ -162,6 +162,13 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
             set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
         }
+
+        public int RowInSpriteSheet
+        {
+            get { return Cast<CropAccessor>()._GetRowInSpriteSheet(); }
+            set { Cast<CropAccessor>()._SetRowInSpriteSheet(value); }
+        }
+
         public ProxyList<string> SeasonsToGrowIn
         {
             get

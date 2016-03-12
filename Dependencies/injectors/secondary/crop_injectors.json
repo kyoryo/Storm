@@ -2,27 +2,6 @@
   "FieldAccessorMutatorParams": [
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "chanceForExtraCrops",
-      "OwnerFieldType": "System.Double",
-      "MethodName": "ChanceForExtraCrops",
-      "Type": "System.Double"
-    },
-    {
-      "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "currentPhase",
-      "OwnerFieldType": "System.Int32",
-      "MethodName": "CurrentPhase",
-      "Type": "System.Int32"
-    },
-    {
-      "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "dayOfCurrentPhase",
-      "OwnerFieldType": "System.Int32",
-      "MethodName": "DayOfCurrentPhase",
-      "Type": "System.Int32"
-    },
-    {
-      "OwnerAccessorType": "@Crop",
       "OwnerFieldName": "phaseDays",
       "OwnerFieldType": "System.Collections.Generic.List`1",
       "MethodName": "PhaseDays",
@@ -30,31 +9,24 @@
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "dead",
-      "OwnerFieldType": "System.Boolean",
-      "MethodName": "IsDead",
-      "Type": "System.Boolean"
+      "OwnerFieldName": "rowInSpriteSheet",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RowInSpriteSheet",
+      "Type": "System.Int32"
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "flip",
-      "OwnerFieldType": "System.Boolean",
-      "MethodName": "Flip",
-      "Type": "System.Boolean"
+      "OwnerFieldName": "phaseToShow",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "PhaseToShow",
+      "Type": "System.Int32"
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "forageCrop",
-      "OwnerFieldType": "System.Boolean",
-      "MethodName": "ForageCrop",
-      "Type": "System.Boolean"
-    },
-    {
-      "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "fullyGrown",
-      "OwnerFieldType": "System.Boolean",
-      "MethodName": "IsFullyGrown",
-      "Type": "System.Boolean"
+      "OwnerFieldName": "currentPhase",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentPhase",
+      "Type": "System.Int32"
     },
     {
       "OwnerAccessorType": "@Crop",
@@ -68,6 +40,27 @@
       "OwnerFieldName": "indexOfHarvest",
       "OwnerFieldType": "System.Int32",
       "MethodName": "IndexOfHarvest",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "regrowAfterHarvest",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "RegrowAfterHarvest",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "dayOfCurrentPhase",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "DayOfCurrentPhase",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "minHarvest",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MinHarvest",
       "Type": "System.Int32"
     },
     {
@@ -86,17 +79,52 @@
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "minHarvest",
+      "OwnerFieldName": "daysOfUnclutteredGrowth",
       "OwnerFieldType": "System.Int32",
-      "MethodName": "MinHarvest",
+      "MethodName": "DaysOfUnclutteredGrowth",
       "Type": "System.Int32"
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "phaseToShow",
+      "OwnerFieldName": "whichForageCrop",
       "OwnerFieldType": "System.Int32",
-      "MethodName": "PhaseToShow",
+      "MethodName": "WhichForageCrop",
       "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "seasonsToGrowIn",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "SeasonsToGrowIn",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "tintColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "TintColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "flip",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Flip",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "fullyGrown",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FullyGrown",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerFieldName": "raisedSeeds",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "RaisedSeeds",
+      "Type": "System.Boolean"
     },
     {
       "OwnerAccessorType": "@Crop",
@@ -107,24 +135,24 @@
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "raisedSeeds",
+      "OwnerFieldName": "dead",
       "OwnerFieldType": "System.Boolean",
-      "MethodName": "HasRaisedSeeds",
+      "MethodName": "Dead",
       "Type": "System.Boolean"
     },
     {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "regrowAfterHarvest",
-      "OwnerFieldType": "System.Int32",
-      "MethodName": "RegrowAfterHarvest",
-      "Type": "System.Int32"
+      "OwnerFieldName": "forageCrop",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "ForageCrop",
+      "Type": "System.Boolean"
     },
-	{
+    {
       "OwnerAccessorType": "@Crop",
-      "OwnerFieldName": "seasonsToGrowIn",
-      "OwnerFieldType": "System.Collections.Generic.List`1",
-      "MethodName": "SeasonsToGrowIn",
-      "Type": "System.Collections.IList"
+      "OwnerFieldName": "chanceForExtraCrops",
+      "OwnerFieldType": "System.Double",
+      "MethodName": "ChanceForExtraCrops",
+      "Type": "System.Double"
     }
   ],
   "EventCallbackParams": [
@@ -152,25 +180,25 @@
       "InstanceCallbackName": "PostHarvestCropCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor)Storm.Manipulation.DetourEvent"
     },
-	{
+    {
       "OwnerAccessorType": "@Crop",
       "OwnerMethodName": ".ctor",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PreCropConstructorCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true"
+      "PushParams": "true"
     },
-	{
+    {
       "OwnerAccessorType": "@Crop",
       "OwnerMethodName": ".ctor",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PostCropConstructorCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
-	  "PushParams": "true",
+      "PushParams": "true",
       "InsertionType": "LAST",
-	  "JumpFix": "true"
+      "JumpFix": "true"
     }
   ]
 }
