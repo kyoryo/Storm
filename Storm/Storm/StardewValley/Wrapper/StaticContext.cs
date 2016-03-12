@@ -1540,6 +1540,11 @@ namespace Storm.StardewValley.Wrapper
             set { Cast<StaticContextAccessor>()._SetMouseCursorTransparency(value); }
         }
 
+        public IDictionary ObjectInformation
+        {
+            get { return Cast<StaticContextAccessor>()._GetObjectInformation(); }
+        }
+
         public NPC ObjectDialoguePortraitPerson
         {
             get
