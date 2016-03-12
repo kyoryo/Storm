@@ -160,12 +160,71 @@ namespace Storm.Collections
 
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return new ProxyEnumerator<TKey, TOValue, TValue>(real, wrapper);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+
+        private class ProxyEnumerator<EKey, EOValue, EValue> : IEnumerator<KeyValuePair<EKey, EValue>>
+        {
+            private IDictionary real;
+            private Wrap<EOValue, EValue> wrapper;
+            private int curIndex;
+
+            private IList keys;
+            private EKey curKey;
+            private EOValue curValue;
+
+            public ProxyEnumerator(IDictionary real, Wrap<EOValue, EValue> wrapper)
+            {
+                this.real = real;
+                this.wrapper = wrapper;
+                this.keys = new ArrayList();
+                foreach (var key in real.Keys)
+                {
+                    this.keys.Add(key);
+                }
+                this.curIndex = -1;
+                this.curKey = default(EKey);
+                this.curValue = default(EOValue);
+            }
+
+            public KeyValuePair<EKey, EValue> Current
+            {
+                get { return new KeyValuePair<EKey, EValue>(curKey, wrapper(curValue)); }
+            }
+
+            object IEnumerator.Current
+            {
+                get { return curValue; }
+            }
+
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public bool MoveNext()
+            {
+                if (++curIndex >= keys.Count)
+                {
+                    return false;
+                }
+                else
+                {
+                    curKey = (EKey)keys[curIndex];
+                    curValue = (EOValue)real[curKey];
+                    return true;
+                }
+            }
+
+            public void Reset()
+            {
+                curIndex = -1;
+            }
         }
     }
 }

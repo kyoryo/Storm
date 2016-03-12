@@ -41,10 +41,7 @@ namespace Storm.ExternalEvent
 
         public string AssemblyFileName { get; set; }
 
-        //the director the manifest was loaded from
-        public string Path { get; set; }
-
         // a mapping of textures to load
-        public Dictionary<string, string> Textures { get; set; }
+        public dynamic Properties { get; set; }
     }
 }

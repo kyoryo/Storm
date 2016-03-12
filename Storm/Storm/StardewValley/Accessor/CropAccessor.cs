@@ -21,55 +21,70 @@ namespace Storm.StardewValley.Accessor
 {
     public interface CropAccessor
     {
-        double _GetChanceForExtraCrops();
-        void _SetChanceForExtraCrops(double chance);
+        System.Collections.IList _GetPhaseDays();
+        void _SetPhaseDays(System.Collections.IList val);
 
-        int _GetCurrentPhase();
-        void _SetCurrentPhase(int phase);
-
-        int _GetDayOfCurrentPhase();
-        void _SetDayOfCurrentPhase(int day);
-
-        IList _GetPhaseDays();
-        void _SetPhaseDays(IList days);
-
-        bool _GetIsDead();
-        void _SetIsDead(bool dead);
-
-        bool _GetFlip();
-        void _SetFlip(bool flip);
-
-        bool _GetForageCrop();
-        void _SetForageCrop(bool forageCrop);
-
-        bool _GetIsFullyGrown();
-        void _SetIsFullyGrown(bool fullyGrown);
-
-        int _GetHarvestMethod();
-        void _SetHarvestMethod(int harvestMethod);
-
-        int _GetIndexOfHarvest();
-        void _SetIndexOfHarvest(int index);
-
-        int _GetMaxHarvest();
-        void _SetMaxHarvest(int max);
-
-        int _GetMaxHarvestIncreasePerFarmingLevel();
-        void _SetMaxHarvestIncreasePerFarmingLevel(int max);
-
-        int _GetMinHarvest();
-        void _SetMinHarvest(int min);
+        int _GetRowInSpriteSheet();
+        void _SetRowInSpriteSheet(int val);
 
         int _GetPhaseToShow();
-        void _SetPhaseToShow(int phase);
+        void _SetPhaseToShow(int val);
 
-        bool _GetProgramColored();
-        void _SetProgramColored(bool colored);
+        int _GetCurrentPhase();
+        void _SetCurrentPhase(int val);
 
-        bool _GetHasRaisedSeeds();
-        void _SetHasRaisedSeeds(bool has);
+        int _GetHarvestMethod();
+        void _SetHarvestMethod(int val);
+
+        int _GetIndexOfHarvest();
+        void _SetIndexOfHarvest(int val);
 
         int _GetRegrowAfterHarvest();
-        void _SetRegrowAfterHarvest(int regrow);
+        void _SetRegrowAfterHarvest(int val);
+
+        int _GetDayOfCurrentPhase();
+        void _SetDayOfCurrentPhase(int val);
+
+        int _GetMinHarvest();
+        void _SetMinHarvest(int val);
+
+        int _GetMaxHarvest();
+        void _SetMaxHarvest(int val);
+
+        int _GetMaxHarvestIncreasePerFarmingLevel();
+        void _SetMaxHarvestIncreasePerFarmingLevel(int val);
+
+        int _GetDaysOfUnclutteredGrowth();
+        void _SetDaysOfUnclutteredGrowth(int val);
+
+        int _GetWhichForageCrop();
+        void _SetWhichForageCrop(int val);
+
+        System.Collections.IList _GetSeasonsToGrowIn();
+        void _SetSeasonsToGrowIn(System.Collections.IList val);
+
+        Microsoft.Xna.Framework.Color _GetTintColor();
+        void _SetTintColor(Microsoft.Xna.Framework.Color val);
+
+        bool _GetFlip();
+        void _SetFlip(bool val);
+
+        bool _GetFullyGrown();
+        void _SetFullyGrown(bool val);
+
+        bool _GetRaisedSeeds();
+        void _SetRaisedSeeds(bool val);
+
+        bool _GetProgramColored();
+        void _SetProgramColored(bool val);
+
+        bool _GetDead();
+        void _SetDead(bool val);
+
+        bool _GetForageCrop();
+        void _SetForageCrop(bool val);
+
+        double _GetChanceForExtraCrops();
+        void _SetChanceForExtraCrops(double val);
     }
 }

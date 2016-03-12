@@ -152,7 +152,7 @@
     <Compile Include="StardewValley\Accessor\InputButtonAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\SlingshotAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\SwordAccessor.cs" />
-    <Compile Include="StardewValley\Accessor\Item\Torch.cs" />
+    <Compile Include="StardewValley\Accessor\Item\TorchAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\WandAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Location\CommunityCenterAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Location\ForestAccessor.cs" />

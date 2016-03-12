@@ -54,8 +54,10 @@ namespace Storm.ExternalEvent
 
             var manifest = JsonConvert.DeserializeObject<JsonModManifest>(File.ReadAllText(manifestPath));
 
-            /* adapt all textures to their actual locations */
-            manifest.Path = path;
+            if (manifest.Properties != null && manifest.Properties.Path == null)
+            {
+                manifest.Properties.Path = path;
+            }
 
             var dllPath = string.Empty;
             if (!string.IsNullOrEmpty(manifest.AssemblyFileName))

@@ -21,22 +21,52 @@ namespace Storm.StardewValley.Accessor
 {
     public interface ToolAccessor : ItemAccessor
     {
-        ObjectAccessor[] _GetAttachments();
-        void _SetAttachments(ObjectAccessor[] attachments);
+        Microsoft.Xna.Framework.Graphics.Texture2D _GetWeaponsTexture();
+        void _SetWeaponsTexture(Microsoft.Xna.Framework.Graphics.Texture2D val);
 
-        string _GetName();
-        void _SetName(string name);
+        System.String _GetName();
+        void _SetName(System.String val);
 
-        new string _GetDescription();
-        void _SetDescription(string desc);
+        System.String _GetDescription();
+        void _SetDescription(System.String val);
 
-        bool _GetIsStackable();
-        void _SetIsStackable(bool stackable);
+        int _GetInitialParentTileIndex();
+        void _SetInitialParentTileIndex(int val);
+
+        int _GetCurrentParentTileIndex();
+        void _SetCurrentParentTileIndex(int val);
+
+        int _GetIndexOfMenuItemView();
+        void _SetIndexOfMenuItemView(int val);
+
+        bool _GetStackable();
+        void _SetStackable(bool val);
+
+        bool _GetInstantUse();
+        void _SetInstantUse(bool val);
+
+        Microsoft.Xna.Framework.Color _GetCopperColor();
+        void _SetCopperColor(Microsoft.Xna.Framework.Color val);
+
+        Microsoft.Xna.Framework.Color _GetSteelColor();
+        void _SetSteelColor(Microsoft.Xna.Framework.Color val);
+
+        Microsoft.Xna.Framework.Color _GetGoldColor();
+        void _SetGoldColor(Microsoft.Xna.Framework.Color val);
+
+        Microsoft.Xna.Framework.Color _GetIridiumColor();
+        void _SetIridiumColor(Microsoft.Xna.Framework.Color val);
 
         int _GetUpgradeLevel();
-        void _SetUpgradeLevel(int level);
+        void _SetUpgradeLevel(int val);
 
-        Texture2D _GetWeaponTexture();
-        void _SetWeaponTexture(Texture2D tex);
+        int _GetNumAttachmentSlots();
+        void _SetNumAttachmentSlots(int val);
+
+        FarmerAccessor _GetLastUser();
+        void _SetLastUser(FarmerAccessor val);
+
+        ObjectAccessor[] _GetAttachments();
+        void _SetAttachments(ObjectAccessor[] val);
     }
 }

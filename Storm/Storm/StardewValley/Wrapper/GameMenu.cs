@@ -27,6 +27,10 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
+        public GameMenu()
+        {
+        }
+
         public int CurrentTab
         {
             get { return Cast<GameMenuAccessor>()._GetCurrentTab(); }

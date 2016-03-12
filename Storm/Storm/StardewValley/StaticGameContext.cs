@@ -125,7 +125,11 @@ namespace Storm.StardewValley
         public static DetourEvent ContentLoadCallback(ContentManager manager, Type assetType, string assetName)
         {
             var @event = new AssetLoadEvent(manager, assetType, assetName);
-            FireEvent(@event);
+            HookEvent(@event);
+            @event.ReturnValue = EventBus.MapContent(@event);
+            //this workaround gives mods priority over manifest resources
+            EventBus.Fire(@event);
+            //FireEvent(@event);
             return @event;
         }
 

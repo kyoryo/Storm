@@ -15,12 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework;
+
 namespace Storm.StardewValley.Proxy
 {
     public class StandardObjectDelegate : ObjectDelegate
     {
-        public StandardObjectDelegate(int parentSpriteSheetIndex, int initialStack)
+        public StandardObjectDelegate(Vector2 tileLocation, int parentSpriteSheetIndex, int initialStack)
         {
+            ConstructorParams.Add(tileLocation);
             ConstructorParams.Add(parentSpriteSheetIndex);
             ConstructorParams.Add(initialStack);
         }

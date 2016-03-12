@@ -102,5 +102,10 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<HoeDirtAccessor>()._GetC(); }
             set { Cast<HoeDirtAccessor>()._SetC(value); }
         }
+
+        public bool IsReadyForHarvest
+        {
+            get { return Cast<HoeDirtAccessor>()._IsReadyForHarvest(); }
+        }
     }
 }

@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Accessor
 {
-    public interface Torch : ObjectAccessor
+    public interface TorchAccessor : ObjectAccessor
     {
         float _GetColor();
         void _SetColor(float val);

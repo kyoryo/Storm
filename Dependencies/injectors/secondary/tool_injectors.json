@@ -2,10 +2,10 @@
   "FieldAccessorMutatorParams": [
     {
       "OwnerAccessorType": "@Tool",
-      "OwnerFieldName": "attachments",
-      "OwnerFieldType": "@Object",
-      "MethodName": "Attachments",
-      "Type": "Storm.StardewValley.Accessor.ObjectAccessor[]"
+      "OwnerFieldName": "weaponsTexture",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
+      "MethodName": "WeaponsTexture",
+      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
     },
     {
       "OwnerAccessorType": "@Tool",
@@ -23,10 +23,66 @@
     },
     {
       "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "initialParentTileIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "InitialParentTileIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "currentParentTileIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "CurrentParentTileIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "indexOfMenuItemView",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "IndexOfMenuItemView",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
       "OwnerFieldName": "stackable",
       "OwnerFieldType": "System.Boolean",
-      "MethodName": "IsStackable",
+      "MethodName": "Stackable",
       "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "instantUse",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "InstantUse",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "copperColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "CopperColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "steelColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "SteelColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "goldColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "GoldColor",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "iridiumColor",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "IridiumColor",
+      "Type": "Microsoft.Xna.Framework.Color"
     },
     {
       "OwnerAccessorType": "@Tool",
@@ -37,24 +93,38 @@
     },
     {
       "OwnerAccessorType": "@Tool",
-      "OwnerFieldName": "weaponsTexture",
-      "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
-      "MethodName": "WeaponTexture",
-      "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
+      "OwnerFieldName": "numAttachmentSlots",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "NumAttachmentSlots",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "lastUser",
+      "OwnerFieldType": "@Farmer",
+      "MethodName": "LastUser",
+      "Type": "Storm.StardewValley.Accessor.FarmerAccessor"
+    },
+    {
+      "OwnerAccessorType": "@Tool",
+      "OwnerFieldName": "attachments",
+      "OwnerFieldType": "@Object",
+      "MethodName": "Attachments",
+      "Type": "Storm.StardewValley.Accessor.ObjectAccessor[]"
     }
   ],
   "MethodInfoParams": [
     {
-	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
-	  "MethodName": "drawInMenu",
-	  "MethodDesc": "",
-	  "RefactoredName": "DrawInMenu"
-	},
-	{
-	  "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
-	  "MethodName": "beginUsing",
-	  "MethodDesc": "",
-	  "RefactoredName": "BeginUsing"
-	}
+      "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
+      "MethodName": "drawInMenu",
+      "MethodDesc": "",
+      "RefactoredName": "DrawInMenu"
+    },
+    {
+      "OwnerAccessorType": "Storm.StardewValley.Accessor.ToolAccessor",
+      "MethodName": "beginUsing",
+      "MethodDesc": "",
+      "RefactoredName": "BeginUsing"
+    }
   ]
 }
