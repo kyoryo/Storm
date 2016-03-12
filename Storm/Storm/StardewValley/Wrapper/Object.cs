@@ -185,5 +185,12 @@ namespace Storm.StardewValley.Wrapper
             get { return Cast<ObjectAccessor>()._GetMinutesUntilReady(); }
             set { Cast<ObjectAccessor>()._SetMinutesUntilReady(value); }
         }
+
+        public Rectangle BoundingBox
+        {
+            get { return Cast<ObjectAccessor>()._GetBoundingBox(); }
+            set { Cast<ObjectAccessor>()._SetBoundingBox(value); }
+        }
+
     }
 }
