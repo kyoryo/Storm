@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
 namespace Storm.StardewValley.Proxy
 {
-    public class NPCDelegate : TypeDelegate<NPC>
+    public class NPCDelegate : CharacterDelegate
     {
         public NPCDelegate()
         {

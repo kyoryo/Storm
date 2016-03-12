@@ -15,6 +15,7 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,18 @@ using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Proxy
 {
-    public abstract class MonsterDelegate
+    public abstract class MonsterDelegate : NPCDelegate
     {
+        public MonsterDelegate(string name, Vector2 position)
+        {
+            ConstructorParams.Add(name);
+            ConstructorParams.Add(position);
+        }
+
+        public MonsterDelegate()
+        {
+        }
+
         [ProxyMap(Name = "BehaviourAtGameTick")]
         public virtual OverrideEvent BehaviourAtGameTick(object[] @params)
         {
