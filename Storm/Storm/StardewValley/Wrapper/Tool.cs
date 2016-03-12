@@ -60,8 +60,8 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsStackable
         {
-            get { return Cast<ToolAccessor>()._GetIsStackable(); }
-            set { Cast<ToolAccessor>()._SetIsStackable(value); }
+            get { return Cast<ToolAccessor>()._GetStackable(); }
+            set { Cast<ToolAccessor>()._SetStackable(value); }
         }
 
         /// <summary>
@@ -81,8 +81,19 @@ namespace Storm.StardewValley.Wrapper
 
         public Texture2D WeaponTexture
         {
-            get { return Cast<ToolAccessor>()._GetWeaponTexture(); }
-            set { Cast<ToolAccessor>()._SetWeaponTexture(value); }
+            get { return Cast<ToolAccessor>()._GetWeaponsTexture(); }
+            set { Cast<ToolAccessor>()._SetWeaponsTexture(value); }
+        }
+
+        public Farmer LastUser
+        {
+            get
+            {
+                var tmp = Cast<ToolAccessor>()._GetLastUser();
+                if (tmp == null) return null;
+                return new Farmer(Parent, tmp);
+            }
+            set { Cast<ToolAccessor>()._SetLastUser(value == null ? null : value.Cast<FarmerAccessor>()); }
         }
     }
 }
