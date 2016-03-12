@@ -22,12 +22,45 @@ using System.IO;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.StardewValley.Event;
+using System.Reflection;
 
 namespace Storm.ExternalEvent
 {
     public class ModEventBus
     {
         public List<LoadedMod> mods = new List<LoadedMod>();
+        private Dictionary<Type, List<ReceiverSwitch>> receivers = new Dictionary<Type, List<ReceiverSwitch>>();
+
+        private void AddReceiver(LoadedMod parent, Type eventType, MethodInfo receiver, int priority)
+        {
+            List<ReceiverSwitch> list;
+            if (!receivers.TryGetValue(eventType, out list))
+            {
+                list = new List<ReceiverSwitch>();
+                receivers.Add(eventType, list);
+            }
+
+            var idx = -1;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (priority > list[i].priority)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+
+            var @switch = new ReceiverSwitch
+            {
+                mod = parent,
+                info = receiver,
+                priority = priority,
+                enabled = true
+            };
+
+            if (idx == -1) list.Add(@switch);
+            else list.Insert(idx, @switch);
+        }
 
         public void AddReceiver(LoadedMod mod)
         {
@@ -88,19 +121,25 @@ namespace Storm.ExternalEvent
             }
             try
             {
-                if (@event.Type == typeof (Texture2D))
+                if (@event.Type == typeof(Texture2D))
                 {
                     return @event.Root.LoadResource(resource);
                 }
-                //TODO map other types
-
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("Unable to map:" + @event.Name + " To:" + resource);
                 Console.WriteLine(e.ToString());
             }
             return null;
+        }
+
+        private struct ReceiverSwitch
+        {
+            public LoadedMod mod;
+            public MethodInfo info;
+            public int priority;
+            public bool enabled;
         }
     }
 }
