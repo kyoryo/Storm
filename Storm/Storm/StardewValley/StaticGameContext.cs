@@ -357,7 +357,6 @@ namespace Storm.StardewValley
         public static DetourEvent PreGameLoadedCallback(bool loadedGame)
         {
             var @event = HookEvent(new PreGameLoadedEvent(loadedGame));
-            @event.Root.MultiplayerMode = 1; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             FireEvent(@event);
             return @event;
         }
@@ -365,7 +364,11 @@ namespace Storm.StardewValley
         public static DetourEvent PostGameLoadedCallback(bool loadedGame)
         {
             var @event = HookEvent(new PostGameLoadedEvent(loadedGame));
-            @event.Root.MultiplayerMode = 0; /* enables chatbox and nothing else, hacky, remove when proxies are done */
+
+            /* Create chatbox if there is not one */
+            if (@event.Root.ChatBox == null)
+                @event.Root.OnScreenMenus.Add(@event.Proxy<ChatBoxAccessor, ChatBox>(new ChatBoxDelegate()));
+
             FireEvent(@event);
             return @event;
         }
