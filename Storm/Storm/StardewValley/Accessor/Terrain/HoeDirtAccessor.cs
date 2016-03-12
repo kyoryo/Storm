@@ -58,5 +58,7 @@ namespace Storm.StardewValley.Accessor
 
         Color _GetC();
         void _SetC(Color val);
+
+        bool _IsReadyForHarvest();
     }
 }

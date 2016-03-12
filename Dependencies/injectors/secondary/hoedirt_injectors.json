@@ -85,6 +85,17 @@
       "Type": "Microsoft.Xna.Framework.Color"
     }
   ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@HoeDirt",
+      "OwnerMethodName": "readyForHarvest",
+      "OwnerMethodDesc": "()System.Boolean",
+      "InvokerName": "_IsReadyForHarvest",
+      "InvokerReturnParams": [ ],
+      "InvokerReturnType": "System.Boolean",
+      "IsStatic": "false"
+    }
+  ],
   "EventCallbackParams": [
     {
       "OwnerAccessorType": "@HoeDirt",
