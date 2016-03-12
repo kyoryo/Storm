@@ -310,7 +310,16 @@ namespace Storm.StardewValley
             if (mouseState.RightButton == ButtonState.Released && oldMouseState.RightButton == ButtonState.Pressed)
                 FireEvent(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right, mouseState));
 
-            /* todo: gamepad events */
+            /* gamepad events */
+
+            foreach (Buttons button in Enum.GetValues(typeof(Buttons)))
+            {
+                if (gamepadState.IsButtonDown(button) && oldGamepadState.IsButtonUp(button))
+                    FireEvent(new GamepadButtonPressedEvent(button));
+                if (gamepadState.IsButtonUp(button) && oldGamepadState.IsButtonDown(button))
+                    FireEvent(new GamepadButtonReleasedEvent(button));
+            }
+
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
