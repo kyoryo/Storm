@@ -1,9 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storm", "Storm\Storm.csproj", "{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freeze-Time-Mod", "..\Examples\Freeze-Time-Mod\Freeze-Time-Mod\Freeze-Time-Mod.csproj", "{C357775C-6839-4BBD-886B-A6CE0EA89016}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614} = {3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementSpeedModifier", "..\Examples\Movement-Speed-Modifier-Mod\MovementSpeedModifier\MovementSpeedModifier.csproj", "{CC1C6DB7-7259-4280-83F1-766A31DAFEC2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614} = {3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceExample", "..\Examples\ResourceExample\ResourceExample\ResourceExample.csproj", "{956D18E7-548D-42F5-B82F-57BD5B86900D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614} = {3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subclass-Test-Mod", "..\Examples\Subclass-Test-Mod\Subclass-Test-Mod\Subclass-Test-Mod.csproj", "{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614} = {3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{4BFCFB68-A908-4C2E-982E-9C44296D3ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StormTestMod", "..\Examples\Example-Config-Mod\StormTestMod\StormTestMod.csproj", "{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614} = {3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +42,35 @@ Global
 		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AE6190C-1CC7-4FA4-B859-5EABC8EC0614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C357775C-6839-4BBD-886B-A6CE0EA89016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C357775C-6839-4BBD-886B-A6CE0EA89016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C357775C-6839-4BBD-886B-A6CE0EA89016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C357775C-6839-4BBD-886B-A6CE0EA89016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC1C6DB7-7259-4280-83F1-766A31DAFEC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1C6DB7-7259-4280-83F1-766A31DAFEC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1C6DB7-7259-4280-83F1-766A31DAFEC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1C6DB7-7259-4280-83F1-766A31DAFEC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956D18E7-548D-42F5-B82F-57BD5B86900D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956D18E7-548D-42F5-B82F-57BD5B86900D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956D18E7-548D-42F5-B82F-57BD5B86900D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956D18E7-548D-42F5-B82F-57BD5B86900D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C197732-69CA-464D-8E9B-C1AECF0C4A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C357775C-6839-4BBD-886B-A6CE0EA89016} = {4BFCFB68-A908-4C2E-982E-9C44296D3ED8}
+		{CC1C6DB7-7259-4280-83F1-766A31DAFEC2} = {4BFCFB68-A908-4C2E-982E-9C44296D3ED8}
+		{956D18E7-548D-42F5-B82F-57BD5B86900D} = {4BFCFB68-A908-4C2E-982E-9C44296D3ED8}
+		{4C197732-69CA-464D-8E9B-C1AECF0C4A2D} = {4BFCFB68-A908-4C2E-982E-9C44296D3ED8}
+		{BFCCF83F-6394-4BF6-BA76-F7AAD79EAFCD} = {4BFCFB68-A908-4C2E-982E-9C44296D3ED8}
 	EndGlobalSection
 EndGlobal
