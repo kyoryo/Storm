@@ -25,16 +25,20 @@ namespace Storm.StardewValley.Proxy
 {
     public class MappedInterceptorFactory<T> : InterceptorFactory<T>
     {
-        private readonly Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
+        private readonly Dictionary<NameDescCombo, MethodInfo> callMap = new Dictionary<NameDescCombo, MethodInfo>();
 
         public IInterceptor CreateInterceptor(T t)
         {
             return new ReflectionInterceptor<T>(t, callMap);
         }
 
-        public void MapCall(string name, MethodInfo mi)
+        public void MapCall(string name, string desc, MethodInfo mi)
         {
-            callMap.Add(name, mi);
+            callMap.Add(new NameDescCombo
+            {
+                name = name,
+                desc = desc,
+            }, mi);
         }
 
         public void Map(Type accessor, Type map, List<Injector> injectors)
@@ -47,14 +51,15 @@ namespace Storm.StardewValley.Proxy
                     var attr = method.GetCustomAttribute<ProxyMap>();
                     if (attr != null)
                     {
-                        var name = InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name);
+                        var desc = InjectorMetaData.FilterTags(injectors, attr.Desc);
+                        var name = InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name, attr.Desc);
                         if (name == null)
                         {
                             Logging.Logs("[{0}] Failed to find obfuscated name to map", GetType().Name);
-                            Logging.Logs("\t{0} {1} {2}", accessor.Name, attr.Name, method.Name);
+                            Logging.Logs("\t{0} {1} {2} {3}", accessor.Name, attr.Name, attr.Desc, method.Name);
                             continue;
                         }
-                        callMap.Add(InjectorMetaData.NameOfMethod(accessor, injectors, attr.Name), method);
+                        MapCall(name, desc, method);
                     }
                 }
                 cur = cur.BaseType;
@@ -63,20 +68,33 @@ namespace Storm.StardewValley.Proxy
 
         private class ReflectionInterceptor<K> : IInterceptor
         {
-            private readonly Dictionary<string, MethodInfo> callMap = new Dictionary<string, MethodInfo>();
+            private readonly Dictionary<NameDescCombo, MethodInfo> callMap = new Dictionary<NameDescCombo, MethodInfo>();
             private readonly K instance;
 
-            public ReflectionInterceptor(K instance, Dictionary<string, MethodInfo> callMap)
+            public ReflectionInterceptor(K instance, Dictionary<NameDescCombo, MethodInfo> callMap)
             {
                 this.instance = instance;
                 this.callMap = callMap;
             }
 
+            private MethodInfo GetMapped(MethodInfo calling)
+            {
+                var desc = ReflectionUtils.DescriptionOf(calling);
+                foreach (var entry in callMap)
+                {
+                    if (entry.Key.name == calling.Name && entry.Key.desc == desc)
+                    {
+                        return entry.Value;
+                    }
+                }
+                return null;
+            }
+
             public void Intercept(IInvocation invocation)
             {
-                if (callMap.ContainsKey(invocation.Method.Name))
+                var method = GetMapped(invocation.Method);
+                if (method != null)
                 {
-                    var method = callMap[invocation.Method.Name];
                     var ret = method.Invoke(instance, new object[] { invocation.Arguments });
                     if (!(ret is OverrideEvent))
                     {
@@ -92,6 +110,12 @@ namespace Storm.StardewValley.Proxy
                 }
                 invocation.Proceed();
             }
+        }
+
+        private struct NameDescCombo
+        {
+            public string name;
+            public string desc;
         }
     }
 }

@@ -160,6 +160,9 @@ namespace Storm.StardewValley
 
         public static DetourEvent InitializeCallback(StaticContextAccessor accesor)
         {
+            var obj = ProxyAccessor<ObjectAccessor, ObjectDelegate>(new StandardObjectDelegate(Vector2.Zero, 3, 1));
+            Logging.DebugLog("???");
+
             WrappedGame.Version += ", " + AssemblyInfo.NICE_VERSION;
             WrappedGame.Version += ", mods loaded: " + EventBus.mods.Count;
             WrappedGame.Window.Title = "Stardew Valley - Version " + WrappedGame.Version;

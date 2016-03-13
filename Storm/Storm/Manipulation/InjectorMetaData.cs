@@ -52,7 +52,7 @@ namespace Storm.Manipulation
         }
 
 
-        public static string NameOfMethod(List<Injector> list, string type, string refactored)
+        public static string NameOfMethod(List<Injector> list, string type, string refactored, string desc)
         {
             foreach (var injector in list)
             {
@@ -60,7 +60,7 @@ namespace Storm.Manipulation
                 if (@params is MethodInfoParams)
                 {
                     var casted = (MethodInfoParams) @params;
-                    if (casted.OwnerAccessorType == type && casted.RefactoredName == refactored)
+                    if (casted.OwnerAccessorType == type && casted.RefactoredName == refactored && casted.MethodDesc == desc)
                     {
                         return casted.MethodName;
                     }
@@ -69,14 +69,60 @@ namespace Storm.Manipulation
             return null;
         }
 
-        public static string NameOfMethod<T>(List<Injector> list, string refactored)
+        public static string NameOfMethod<T>(List<Injector> list, string refactored, string desc)
         {
-            return NameOfMethod(list, typeof (T).FullName, refactored);
+            return NameOfMethod(list, typeof(T).FullName, refactored, desc);
         }
 
-        public static string NameOfMethod(Type t, List<Injector> list, string refactored)
+        public static string NameOfMethod(Type t, List<Injector> list, string refactored, string desc)
         {
-            return NameOfMethod(list, t.FullName, refactored);
+            return NameOfMethod(list, t.FullName, refactored, desc);
+        }
+        
+        public static Dictionary<string, string> BuildTags(List<Injector> injectors)
+        {
+            var nameMap = new Dictionary<string, string>();
+            foreach (var injector in injectors)
+            {
+                var @params = injector.GetParams();
+                if (@params is InterfaceParams)
+                {
+                    var casted = (InterfaceParams)@params;
+                    nameMap.Add(casted.SimpleName, casted.OwnerType);
+                }
+            }
+            return nameMap;
+        }
+
+        public static string FilterTags(Dictionary<string, string> map, string s)
+        {
+            while (s.IndexOf("@") != -1)
+            {
+                var start = s.IndexOf('@');
+                var end = -1;
+                if (s[start + 1] == '(')
+                {
+                    end = s.IndexOf(')', start);
+                    if (end == -1) end = s.Length;
+                    else end += 1;
+                    var key = s.Substring(start + 2, end - start - 3);
+                    s = s.Replace(s.Substring(start, end - start), map[key]);
+                }
+                else
+                {
+                    end = s.IndexOf(' ', start);
+                    if (end == -1) end = s.Length;
+                    else end += 1;
+                    var key = s.Substring(start + 1, end - start - 1);
+                    s = s.Replace(s.Substring(start, end - start), map[key]);
+                }
+            }
+            return s;
+        }
+
+        public static string FilterTags(List<Injector> injectors, string s)
+        {
+            return FilterTags(BuildTags(injectors), s);
         }
     }
 }

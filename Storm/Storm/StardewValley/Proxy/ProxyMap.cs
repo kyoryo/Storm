@@ -22,5 +22,6 @@ namespace Storm.StardewValley.Proxy
     public class ProxyMap : Attribute
     {
         public string Name { get; set; }
+        public string Desc { get; set; }
     }
 }

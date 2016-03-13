@@ -19,6 +19,7 @@ namespace Storm.Manipulation
 {
     public struct InterfaceParams
     {
+        public string SimpleName { get; set; }
         public string OwnerType { get; set; }
         public string InterfaceType { get; set; }
     }
