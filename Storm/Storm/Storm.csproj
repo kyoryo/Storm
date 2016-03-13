@@ -176,7 +176,9 @@
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PostCropNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PreCropConstructorEvent.cs" />
+    <Compile Include="StardewValley\Event\Crop\PreCropNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeIntoSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerChangeOutOfSwimsuitEvent.cs" />
     <Compile Include="StardewValley\Event\Farmer\PostFarmerDayUpdateEvent.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ChestDelegate.cs" />
     <Compile Include="StardewValley\Proxy\MonsterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
