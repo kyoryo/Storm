@@ -182,6 +182,26 @@
     },
     {
       "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": "newDay",
+      "OwnerMethodDesc": "(@(Crop),System.Int32,System.Int32,System.Int32,System.Int32,@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreCropNewDayCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "BEGINNING"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": "newDay",
+      "OwnerMethodDesc": "(@(Crop),System.Int32,System.Int32,System.Int32,System.Int32,@(GameLocation))System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PostCropNewDayCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CropAccessor,System.Int32,System.Int32,System.Int32,System.Int32,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+      "InsertionType": "LAST"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
       "OwnerMethodName": ".ctor",
       "OwnerMethodDesc": "(System.Int32,System.Int32,System.Int32)System.Void",
       "CallbackType": "Storm.StardewValley.StaticGameContext",

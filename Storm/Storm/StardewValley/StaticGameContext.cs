@@ -730,6 +730,20 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent PreCropNewDayCallback(CropAccessor accessor, int state, int fertilizer, int xTile, int yTile, GameLocationAccessor environment)
+        {
+            var @event = new PreCropNewDayEvent(new Crop(WrappedGame, accessor), state, fertilizer, xTile, yTile, new GameLocation(WrappedGame, environment));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostCropNewDayCallback(CropAccessor accessor, int state, int fertilizer, int xTile, int yTile, GameLocationAccessor environment)
+        {
+            var @event = new PostCropNewDayEvent(new Crop(WrappedGame, accessor), state, fertilizer, xTile, yTile, new GameLocation(WrappedGame, environment));
+            FireEvent(@event);
+            return @event;
+        }
+
         public static DetourEvent PreCropConstructorCallback(CropAccessor accessor, int seedIndex, int tileX, int tileY)
         {
             var @event = new PreCropConstructorEvent(new Crop(WrappedGame, accessor), seedIndex, tileX, tileY);
