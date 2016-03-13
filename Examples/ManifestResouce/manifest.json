@@ -1,12 +1,12 @@
 {
-    "displayName": "Title Screen Replace",
+    "displayName": "Map Screen Replace",
     "author": "matt123337",
     "version": "1.0.0.0",
     "description": "An example mod that doesn't use dlls!",
 
     "Properties" : {
 		"Resources" : {
-			"Minigames\\TitleButtons": "Content/Minigames/TitleButtons.png"
+			"LooseSprites\\map": "Content/LooseSprites/map.png"
 		}
 	}
 }
