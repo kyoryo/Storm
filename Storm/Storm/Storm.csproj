@@ -203,6 +203,7 @@
     <Compile Include="StardewValley\Proxy\MonsterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\StandardToolDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />

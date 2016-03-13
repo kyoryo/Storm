@@ -30,7 +30,7 @@ namespace Storm.StardewValley.Proxy
             };
         }
 
-        [ProxyMap(Name = "BeginUsing")]
+        [ProxyMap(Name = "BeginUsing", Desc = "(@(GameLocation),System.Int32,System.Int32,@(Farmer))System.Void")]
         public virtual OverrideEvent BeginUsing(object[] @params)
         {
             return new OverrideEvent
