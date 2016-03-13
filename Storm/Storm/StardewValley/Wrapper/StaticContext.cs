@@ -1540,6 +1540,11 @@ namespace Storm.StardewValley.Wrapper
             set { Cast<StaticContextAccessor>()._SetMouseCursorTransparency(value); }
         }
 
+        public IDictionary ObjectInformation
+        {
+            get { return Cast<StaticContextAccessor>()._GetObjectInformation(); }
+        }
+
         public NPC ObjectDialoguePortraitPerson
         {
             get
@@ -1563,6 +1568,16 @@ namespace Storm.StardewValley.Wrapper
                     }
                 }
                 return null;
+            }
+        }
+
+        public WrappedProxyList<ClickableMenuAccessor, ClickableMenu> OnScreenMenus
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetOnScreenMenus();
+                if (tmp == null) return null;
+                return new WrappedProxyList<ClickableMenuAccessor, ClickableMenu>(tmp, i => new ClickableMenu(this, i));
             }
         }
 

@@ -188,6 +188,8 @@
     <Compile Include="StardewValley\Event\FishingRod\PostFishingRodTickUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PostPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PreFishingRodTickUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\GamepadButtonPressedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\GamepadButtonReleasedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PreNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtCanPlantEvent.cs" />
@@ -197,6 +199,7 @@
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
     <Compile Include="StardewValley\Proxy\MonsterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />

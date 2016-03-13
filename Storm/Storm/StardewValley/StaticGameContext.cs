@@ -313,7 +313,16 @@ namespace Storm.StardewValley
             if (mouseState.RightButton == ButtonState.Released && oldMouseState.RightButton == ButtonState.Pressed)
                 FireEvent(new MouseButtonReleasedEvent(MouseButtonReleasedEvent.MouseButton.Right, mouseState));
 
-            /* todo: gamepad events */
+            /* gamepad events */
+
+            foreach (Buttons button in Enum.GetValues(typeof(Buttons)))
+            {
+                if (gamepadState.IsButtonDown(button) && oldGamepadState.IsButtonUp(button))
+                    FireEvent(new GamepadButtonPressedEvent(button));
+                if (gamepadState.IsButtonUp(button) && oldGamepadState.IsButtonDown(button))
+                    FireEvent(new GamepadButtonReleasedEvent(button));
+            }
+
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
@@ -364,7 +373,6 @@ namespace Storm.StardewValley
         public static DetourEvent PreGameLoadedCallback(bool loadedGame)
         {
             var @event = HookEvent(new PreGameLoadedEvent(loadedGame));
-            @event.Root.MultiplayerMode = 1; /* enables chatbox and nothing else, hacky, remove when proxies are done */
             FireEvent(@event);
             return @event;
         }
@@ -372,7 +380,11 @@ namespace Storm.StardewValley
         public static DetourEvent PostGameLoadedCallback(bool loadedGame)
         {
             var @event = HookEvent(new PostGameLoadedEvent(loadedGame));
-            @event.Root.MultiplayerMode = 0; /* enables chatbox and nothing else, hacky, remove when proxies are done */
+
+            /* Create chatbox if there is not one */
+            if (@event.Root.ChatBox == null)
+                @event.Root.OnScreenMenus.Add(@event.Proxy<ChatBoxAccessor, ChatBox>(new ChatBoxDelegate()));
+
             FireEvent(@event);
             return @event;
         }
