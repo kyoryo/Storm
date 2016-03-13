@@ -361,7 +361,6 @@ namespace Storm.StardewValley
 		public static DetourEvent PlaySoundCallback( string soundCue )
 		{
 			var @event = new PlaySoundEvent( soundCue );
-            //Logging.DebugLog("Sound played");
             FireEvent(@event);
 			return @event;
 		}
