@@ -208,6 +208,7 @@
     <Compile Include="StardewValley\Proxy\NPCDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardObjectDelegate.cs" />
     <Compile Include="StardewValley\Proxy\StandardToolDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\TextBoxDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
@@ -415,6 +416,7 @@
     <Compile Include="StardewValley\Proxy\TypeDelegate.cs" />
     <Compile Include="StardewValley\Wrapper\AnimatedSprite.cs" />
     <Compile Include="StardewValley\Wrapper\ShopMenu.cs" />
+    <Compile Include="StardewValley\Wrapper\TextBox.cs" />
     <Compile Include="StardewValley\Wrapper\Wrapper.cs" />
     <Compile Include="StardewValley\Wrapper\BobberBar.cs" />
     <Compile Include="StardewValley\Wrapper\Character.cs" />

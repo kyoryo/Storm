@@ -86,5 +86,9 @@ namespace Storm.StardewValley.Accessor
 
         double _GetChanceForExtraCrops();
         void _SetChanceForExtraCrops(double val);
+
+        void _GrowCompletely();
+
+        bool _Harvest(int xTile, int yTile, HoeDirtAccessor soil);
     }
 }
