@@ -119,7 +119,7 @@ namespace Storm.Manipulation.Cecil
 
             processor.Append(processor.Create(OpCodes.Call, invoking));
             processor.Append(processor.Create(OpCodes.Ret));
-            invoking.DeclaringType.Methods.Add(invoker);
+            invokerType.Methods.Add(invoker);
         }
 
         public object GetParams()
