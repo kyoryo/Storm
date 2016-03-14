@@ -178,5 +178,23 @@ namespace Storm.StardewValley.Wrapper
                 return new ProxyList<string>(tmp);
             }
         }
+
+        /// <summary>
+        /// Grows the crop completely instantly
+        /// </summary>
+        public void GrowCompletely()
+        {
+            Cast<CropAccessor>()._GrowCompletely();
+        }
+
+        public bool Harvest(int xTile, int yTile, HoeDirtAccessor soil)
+        {
+            return Cast<CropAccessor>()._Harvest(xTile, yTile, soil);
+        }
+
+        public bool Harvest(int xTile, int yTile, HoeDirt soil)
+        {
+            return Harvest(xTile, yTile, soil.Cast<HoeDirtAccessor>());
+        }
     }
 }

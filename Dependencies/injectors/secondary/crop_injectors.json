@@ -155,6 +155,30 @@
       "Type": "System.Double"
     }
   ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": "growCompletely",
+      "OwnerMethodDesc": "()System.Void",
+      "InvokerName": "_GrowCompletely",
+      "InvokerReturnParams": [ ],
+      "InvokerReturnType": "System.Void",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@Crop",
+      "OwnerMethodName": "harvest",
+      "OwnerMethodDesc": "(System.Int32,System.Int32,@(HoeDirt))System.Boolean",
+      "InvokerName": "_Harvest",
+      "InvokerReturnParams": [
+        "System.Int32",
+        "System.Int32",
+        "Storm.StardewValley.Accessor.HoeDirtAccessor"
+      ],
+      "InvokerReturnType": "System.Boolean",
+      "IsStatic": "false"
+    }
+  ],
   "EventCallbackParams": [
     {
       "OwnerAccessorType": "@Crop",
