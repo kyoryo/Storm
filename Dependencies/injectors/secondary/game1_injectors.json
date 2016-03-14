@@ -178,6 +178,22 @@
       "Type": "Microsoft.Xna.Framework.Graphics.Texture2D"
     },
     {
+
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "soundBank",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.SoundBank",
+      "MethodName": "SoundBank",
+      "Type": "Microsoft.Xna.Framework.Audio.SoundBank"
+    },
+    {
+    
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerFieldName": "waveBank",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Audio.WaveBank",
+      "MethodName": "WaveBank",
+      "Type": "Microsoft.Xna.Framework.Audio.WaveBank"
+    },
+    {
       "OwnerAccessorType": "@StaticContext",
       "OwnerFieldName": "debrisSpriteSheet",
       "OwnerFieldType": "Microsoft.Xna.Framework.Graphics.Texture2D",
@@ -2172,6 +2188,15 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "StaticCallbackName": "PlayMorningSongCallback",
       "StaticCallbackDesc": "()Storm.Manipulation.DetourEvent"
+    },
+	{
+      "OwnerAccessorType": "@StaticContext",
+      "OwnerMethodName": "playSound",
+      "OwnerMethodDesc": "(System.String)System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "StaticCallbackName": "PlaySoundCallback",
+      "StaticCallbackDesc": "(System.String)Storm.Manipulation.DetourEvent",
+      "PushParams": "true"
     },
     {
       "OwnerAccessorType": "@StaticContext",

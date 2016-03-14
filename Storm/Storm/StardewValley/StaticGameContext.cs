@@ -366,6 +366,13 @@ namespace Storm.StardewValley
             return @event;
         }
 
+		public static DetourEvent PlaySoundCallback( string soundCue )
+		{
+			var @event = new PlaySoundEvent( soundCue );
+            FireEvent(@event);
+			return @event;
+		}
+
         public static DetourEvent FarmerTakeDamageCallback(int damage, bool overrideParry, MonsterAccessor damager)
         {
             var @event = new FarmerDamageEvent(damage, overrideParry, 

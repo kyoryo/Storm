@@ -193,6 +193,7 @@
     <Compile Include="StardewValley\Event\FishingRod\PreFishingRodTickUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GamepadButtonPressedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GamepadButtonReleasedEvent.cs" />
+    <Compile Include="StardewValley\Event\Game\PlaySoundEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PostNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PreNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\HoeDirt\PostHoeDirtCanPlantEvent.cs" />
