@@ -270,6 +270,14 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        public static DetourEvent AddItemToChestCallback(ItemAccessor item)
+        {
+            var @event = new AddItemToChestEvent(
+                item == null ? null : new Item(WrappedGame, item));
+            FireEvent(@event);
+            return @event;
+        }
+
         public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
         {
             var @event = new PreUpdateEvent();

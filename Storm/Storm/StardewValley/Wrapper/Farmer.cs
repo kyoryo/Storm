@@ -53,6 +53,26 @@ namespace Storm.StardewValley.Wrapper
                 return new ProxyDictionary<string, int[]>(tmp);
             }
         }
+        
+        public ProxyList<string> GetMailReceived
+        {
+            get
+            {
+                var tmp = Cast<FarmerAccessor>()._GetMailReceived();
+                if (tmp == null) return null;
+                return new ProxyList<string>(tmp);
+            }        
+        }
+
+        public ProxyList<string> GetMailForTomorrow
+        {
+            get
+            {
+                var tmp = Cast<FarmerAccessor>()._GetMailForTomorrow();
+                if (tmp == null) return null;
+                return new ProxyList<string>(tmp);
+            }
+        }
 
         public int TileSlideThreshold
         {

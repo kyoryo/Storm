@@ -1,4 +1,15 @@
 {
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@Chest",
+      "OwnerMethodName": "addItem",
+      "OwnerMethodDesc": "(@(Item))@(Item)",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AddItemToChestCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "false"
+    }
+  ],
   "FieldAccessorMutatorParams": [
     {
       "OwnerAccessorType": "@Chest",
