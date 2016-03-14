@@ -16,6 +16,11 @@
       "InterfaceType": "Storm.StardewValley.Accessor.StaticContextAccessor"
     },
     {
+      "SimpleName": "Utility",
+      "OwnerType": "StardewValley.Utility",
+      "InterfaceType": "Storm.StardewValley.Accessor.UtilityAccessor"
+    },
+    {
       "SimpleName": "GameLocation",
       "OwnerType": "StardewValley.GameLocation",
       "InterfaceType": "Storm.StardewValley.Accessor.GameLocationAccessor"
