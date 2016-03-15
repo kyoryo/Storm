@@ -1273,6 +1273,13 @@
       "OwnerFieldType": "System.Single",
       "MethodName": "MovementMultiplier",
       "Type": "System.Single"
+    },
+	{
+      "OwnerAccessorType": "@Farmer",
+      "OwnerFieldName": "fishCaught",
+      "OwnerFieldType": "StardewValley.SerializableDictionary`2",
+      "MethodName": "FishCaught",
+      "Type": "System.Collections.IDictionary"
     }
   ],
   "EventCallbackParams": [
@@ -1301,7 +1308,10 @@
       "CallbackType": "Storm.StardewValley.StaticGameContext",
       "InstanceCallbackName": "PostFarmerCaughtFishCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmerAccessor,System.Int32,System.Int32)Storm.Manipulation.DetourEvent",
-      "PushParams": "true"
+      "PushParams": "true",
+	  "InsertionType": "LAST",
+	  "JumpFix": "true",
+	  "InsertionIndex": [ 1 ]
     },
     {
       "OwnerAccessorType": "@Farmer",

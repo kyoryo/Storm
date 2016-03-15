@@ -1006,5 +1006,15 @@ namespace Storm.StardewValley.Wrapper
             var set = item == null ? null : item.Underlying;
             Cast<FarmerAccessor>()._GetItems()[idx] = set;
         }
+
+        public ProxyDictionary<int, int[]> FishCaught
+        {
+            get
+            {
+                var tmp = Cast<FarmerAccessor>()._GetFishCaught();
+                if (tmp == null) return null;
+                return new ProxyDictionary<int, int[]>(tmp);
+            }
+        }
     }
 }
