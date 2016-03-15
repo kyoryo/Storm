@@ -1596,20 +1596,37 @@ namespace Storm.StardewValley.Wrapper
             return map != null && map.ContainsKey(key);
         }
 
-
+        /// <summary>
+        /// Draws bolded text at the specified location.
+        /// </summary>
         public void DrawBoldText(SpriteBatch b, string text, SpriteFont font, Vector2 position, Color color, float scale = 1f, float layerDepth = -1f, int boldnessOffset = 1)
         {
             Cast<StaticContextAccessor>()._DrawBoldText(b, text, font, position, color, scale, layerDepth, boldnessOffset);
         }
 
+        /// <summary>
+        /// Draws a texture at the specified location with a shadow.
+        /// </summary>
         public void DrawWithShadow(SpriteBatch b, Texture2D texture, Vector2 position, Microsoft.Xna.Framework.Rectangle sourceRect, Color color, float rotation, Vector2 origin, float scale = -1f, bool flipped = false, float layerDepth = -1f, int horizontalShadowOffset = -1, int verticalShadowOffset = -1, float shadowIntensity = 0.35f)
         {
             Cast<StaticContextAccessor>()._DrawWithShadow(b, texture, position, sourceRect, color, rotation, origin, scale, flipped, layerDepth, horizontalShadowOffset, verticalShadowOffset, shadowIntensity);
         }
 
+        /// <summary>
+        /// Draws text with a shadow underlayed at the specified location.
+        /// </summary>
         public void DrawTextWithShadow(SpriteBatch b, string text, SpriteFont font, Vector2 position, Color color, float scale = 1f, float layerDepth = -1f, int horizontalShadowOffset = -1, int verticalShadowOffset = -1, float shadowIntensity = 1f, int numShadows = 3)
         {
             Cast<StaticContextAccessor>()._DrawTextWithShadow(b, text, font, position, color, scale, layerDepth, horizontalShadowOffset, verticalShadowOffset, shadowIntensity, numShadows);
+        }
+
+        /// <summary>
+        /// Draws hovered text at the specified relative offset to the mouse cursor.
+        /// Position can be overridden with overrideX and overrideY
+        /// </summary>
+        public void DrawHoverText(SpriteBatch b, string text, SpriteFont font, int xOffset = 0, int yOffset = 0, int moneyAmountToDisplayAtBottom = -1, string boldTitleText = null, int healAmountToDisplay = -1, string[] buffIconsToDisplay = null, ItemAccessor hoveredItem = null, int currencySymbol = 0, int extraItemToShowIndex = -1, int extraItemToShowAmount = -1, int overrideX = -1, int overrideY = -1, float alpha = 1f, CraftingRecipeAccessor craftingIngredients = null)
+        {
+            Cast<StaticContextAccessor>()._DrawHoverText(b, text, font, xOffset, yOffset, moneyAmountToDisplayAtBottom, boldTitleText, healAmountToDisplay, buffIconsToDisplay, hoveredItem, currencySymbol, extraItemToShowIndex, extraItemToShowAmount, overrideX, overrideY, alpha, craftingIngredients);
         }
 
     }
