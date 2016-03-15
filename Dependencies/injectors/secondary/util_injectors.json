@@ -5,6 +5,7 @@
       "OwnerMethodName": "drawBoldText",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.String,Microsoft.Xna.Framework.Graphics.SpriteFont,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Single,System.Int32)System.Void",
       "InvokerName": "_DrawBoldText",
+      "InvokerType": "@StaticContext",
       "InvokerReturnParams": [
         "Microsoft.Xna.Framework.Graphics.SpriteBatch",
         "System.String",
@@ -23,6 +24,7 @@
       "OwnerMethodName": "drawWithShadow",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.Graphics.SpriteBatch,Microsoft.Xna.Framework.Graphics.Texture2D,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,System.Single,Microsoft.Xna.Framework.Vector2,System.Single,System.Boolean,System.Single,System.Int32,System.Int32,System.Single)System.Void",
       "InvokerName": "_DrawWithShadow",
+      "InvokerType": "@StaticContext",
       "InvokerReturnParams": [
         "Microsoft.Xna.Framework.Graphics.SpriteBatch",
         "Microsoft.Xna.Framework.Graphics.Texture2D",
@@ -46,6 +48,7 @@
       "OwnerMethodName": "drawTextWithShadow",
       "OwnerMethodDesc": "(Microsoft.Xna.Framework.Graphics.SpriteBatch,System.String,Microsoft.Xna.Framework.Graphics.SpriteFont,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32)System.Void",
       "InvokerName": "_DrawTextWithShadow",
+      "InvokerType": "@StaticContext",
       "InvokerReturnParams": [
         "Microsoft.Xna.Framework.Graphics.SpriteBatch",
         "System.String",
