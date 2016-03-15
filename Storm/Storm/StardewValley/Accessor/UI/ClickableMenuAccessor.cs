@@ -59,5 +59,7 @@ namespace Storm.StardewValley.Accessor
 
         bool _GetGamePadControlsImplemented();
         void _SetGamePadControlsImplemented(bool val);
+
+        void _ExitThisMenu(bool playSound);
     }
 }

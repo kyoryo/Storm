@@ -30,5 +30,10 @@ namespace Storm.StardewValley.Wrapper
         public ClickableMenu()
         {
         }
+
+        public void ExitThisMenu(bool playSound = true)
+        {
+            Cast<ClickableMenuAccessor>()._ExitThisMenu(playSound);
+        }
     }
 }
