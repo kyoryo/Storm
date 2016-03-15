@@ -1595,5 +1595,22 @@ namespace Storm.StardewValley.Wrapper
             var map = TemporaryContent?.Load<Dictionary<string, string>>(@"Data\Festivals\FestivalDates");
             return map != null && map.ContainsKey(key);
         }
+
+
+        public void DrawBoldText(SpriteBatch b, string text, SpriteFont font, Vector2 position, Color color, float scale = 1f, float layerDepth = -1f, int boldnessOffset = 1)
+        {
+            Cast<StaticContextAccessor>()._DrawBoldText(b, text, font, position, color, scale, layerDepth, boldnessOffset);
+        }
+
+        public void DrawWithShadow(SpriteBatch b, Texture2D texture, Vector2 position, Microsoft.Xna.Framework.Rectangle sourceRect, Color color, float rotation, Vector2 origin, float scale = -1f, bool flipped = false, float layerDepth = -1f, int horizontalShadowOffset = -1, int verticalShadowOffset = -1, float shadowIntensity = 0.35f)
+        {
+            Cast<StaticContextAccessor>()._DrawWithShadow(b, texture, position, sourceRect, color, rotation, origin, scale, flipped, layerDepth, horizontalShadowOffset, verticalShadowOffset, shadowIntensity);
+        }
+
+        public void DrawTextWithShadow(SpriteBatch b, string text, SpriteFont font, Vector2 position, Color color, float scale = 1f, float layerDepth = -1f, int horizontalShadowOffset = -1, int verticalShadowOffset = -1, float shadowIntensity = 1f, int numShadows = 3)
+        {
+            Cast<StaticContextAccessor>()._DrawTextWithShadow(b, text, font, position, color, scale, layerDepth, horizontalShadowOffset, verticalShadowOffset, shadowIntensity, numShadows);
+        }
+
     }
 }
