@@ -1,0 +1,81 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "message",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Message",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "type",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Type",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "color",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Color",
+      "Type": "Microsoft.Xna.Framework.Color"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "timeLeft",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "TimeLeft",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "transparency",
+      "OwnerFieldType": "System.Single",
+      "MethodName": "Transparency",
+      "Type": "System.Single"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "number",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Number",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "whatType",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "WhatType",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "add",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Add",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "achievement",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "Achievement",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "fadeIn",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "FadeIn",
+      "Type": "System.Boolean"
+    },
+    {
+      "OwnerAccessorType": "@HUDMessage",
+      "OwnerFieldName": "noIcon",
+      "OwnerFieldType": "System.Boolean",
+      "MethodName": "NoIcon",
+      "Type": "System.Boolean"
+    }
+  ]
+}

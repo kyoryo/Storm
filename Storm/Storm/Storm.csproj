@@ -149,6 +149,7 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Accessor\UI\HUDMessageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\InputButtonAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\SlingshotAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\SwordAccessor.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\HUDMessageDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ChestDelegate.cs" />
@@ -212,6 +214,7 @@
     <Compile Include="StardewValley\Proxy\TextBoxDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
