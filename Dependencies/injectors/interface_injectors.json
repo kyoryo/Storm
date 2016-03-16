@@ -46,6 +46,11 @@
       "InterfaceType": "Storm.StardewValley.Accessor.FarmerAccessor"
     },
     {
+      "SimpleName": "HUDMessage",
+      "OwnerType": "StardewValley.HUDMessage",
+      "InterfaceType": "Storm.StardewValley.Accessor.HUDMessageAccessor"
+    },
+    {
       "SimpleName": "Item",
       "OwnerType": "StardewValley.Item",
       "InterfaceType": "Storm.StardewValley.Accessor.ItemAccessor"

@@ -28,6 +28,8 @@ namespace Storm.StardewValley.Accessor
 {
     public interface StaticContextAccessor
     {
+        void _AddHUDMessage(HUDMessageAccessor val);
+
         int _GetPixelZoom();
         void _SetPixelZoom(int val);
 

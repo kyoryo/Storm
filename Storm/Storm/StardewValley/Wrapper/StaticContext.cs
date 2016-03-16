@@ -79,6 +79,11 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
+        public void AddHUDMessage(HUDMessage value)
+        {
+            Cast<StaticContextAccessor>()._AddHUDMessage(value?.Cast<HUDMessageAccessor>());
+        }
+
         public bool IsActive
         {
             get { return Cast<Game>().IsActive; }
