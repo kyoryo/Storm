@@ -175,6 +175,7 @@
     <Compile Include="StardewValley\Accessor\UI\ScreenSwipeAccessor.cs" />
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Chest\AddItemToChestEvent.cs" />
+    <Compile Include="StardewValley\Event\Chest\PerformToolActionOnChestEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
@@ -192,6 +193,8 @@
     <Compile Include="StardewValley\Event\FishingRod\PostFishingRodTickUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PostPullFishFromWaterEvent.cs" />
     <Compile Include="StardewValley\Event\FishingRod\PreFishingRodTickUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\GameLocation\PreMailboxActionEvent.cs" />
+    <Compile Include="StardewValley\Event\GameLocation\ResetForPlayerEntryEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GamepadButtonPressedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\GamepadButtonReleasedEvent.cs" />
     <Compile Include="StardewValley\Event\Game\PlaySoundEvent.cs" />
@@ -443,7 +446,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StardewValley\Event\ClickableMenu\" />
-    <Folder Include="StardewValley\Event\GameLocation\" />
     <Folder Include="StardewValley\Event\NPC\" />
     <Folder Include="StardewValley\Event\SeedShop\" />
     <Folder Include="StardewValley\Event\TerrainFeature\" />

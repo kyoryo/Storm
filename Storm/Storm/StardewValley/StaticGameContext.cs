@@ -142,6 +142,22 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region GameLocation Events
+        public static DetourEvent PreMailboxActionCallback(GameLocationAccessor accessor)
+        {
+            var @event = new PreMailboxActionEvent(new GameLocation(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+        public static DetourEvent OnLoadNewAreaCallback(GameLocationAccessor accessor)
+        {
+            var @event = new OnLoadNewAreaEvent(new GameLocation(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+
+        #endregion
+
         #region Chatbox
 
         public static DetourEvent ChatboxTextEnteredCallback(ChatBoxAccessor accessor, TextBoxAccessor textbox)
@@ -277,6 +293,15 @@ namespace Storm.StardewValley
             FireEvent(@event);
             return @event;
         }
+
+        public static DetourEvent PerformToolActionOnChestCallback(ChestAccessor chest)
+        {
+            var @event = new PeformToolActionOnChestEvent(
+                chest == null ? null : new Chest(WrappedGame, chest));
+            FireEvent(@event);
+            return @event;
+        }
+
 
         public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
         {

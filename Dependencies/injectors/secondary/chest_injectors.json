@@ -8,6 +8,15 @@
       "InstanceCallbackName": "AddItemToChestCallback",
       "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ItemAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "false"
+    },
+	{
+      "OwnerAccessorType": "@Chest",
+      "OwnerMethodName": "performToolAction",
+      "OwnerMethodDesc": "(@(Tool))System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PerformToolActionOnChestCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.ChestAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "false",
     }
   ],
   "FieldAccessorMutatorParams": [
