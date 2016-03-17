@@ -1,0 +1,111 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "food",
+      "OwnerFieldType": "StardewValley.Buff",
+      "MethodName": "Food",
+      "Type": "Storm.StardewValley.Accessor.BuffAccessor"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "drink",
+      "OwnerFieldType": "StardewValley.Buff",
+      "MethodName": "Drink",
+      "Type": "Storm.StardewValley.Accessor.BuffAccessor"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "otherBuffs",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "OtherBuffs",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "fullnessLeft",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "FullnessLeft",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "quenchedLeft",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "QuenchedLeft",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    }
+  ],
+  "InvokerParams": [
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "tryToAddFoodBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff,System.Int32)System.Boolean",
+      "InvokerName": "_TryToAddFoodBuff",
+      "InvokerReturnParams": [
+        "Storm.StardewValley.Accessor.BuffAccessor",
+        "System.Int32"
+      ],
+      "InvokerReturnType": "System.Boolean",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "tryToAddDrinkBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff)System.Boolean",
+      "InvokerName": "_TryToAddDrinkBuff",
+      "InvokerReturnParams": [
+        "Storm.StardewValley.Accessor.BuffAccessor",
+      ],
+      "InvokerReturnType": "System.Boolean",
+      "IsStatic": "false"
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "addOtherBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff)System.Boolean",
+      "InvokerName": "_AddOtherBuff",
+      "InvokerReturnParams": [
+        "Storm.StardewValley.Accessor.BuffAccessor",
+      ],
+      "InvokerReturnType": "System.Boolean",
+      "IsStatic": "false"
+    }
+  ],
+  "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "tryToAddFoodBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff,System.Int32)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "TryToAddFoodBuffCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.BuffsDisplayAccessor,Storm.StardewValley.Accessor.BuffAccessor,System.Int32)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "tryToAddDrinkBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "TryToAddDrinkBuffCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.BuffsDisplayAccessor,Storm.StardewValley.Accessor.BuffAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+    },
+    {
+      "OwnerAccessorType": "@BuffsDisplay",
+      "OwnerMethodName": "addOtherBuff",
+      "OwnerMethodDesc": "(StardewValley.Buff)System.Boolean",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "AddOtherBuffCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.BuffsDisplayAccessor,Storm.StardewValley.Accessor.BuffAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "true",
+    }
+  ]
+}

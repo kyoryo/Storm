@@ -1682,7 +1682,7 @@
       "OwnerFieldName": "buffsDisplay",
       "OwnerFieldType": "StardewValley.Menus.BuffsDisplay",
       "MethodName": "BuffsDisplay",
-      "Type": "StardewValley.Menus.BuffsDisplay"
+      "Type": "Storm.StardewValley.Accessor.BuffsDisplayAccessor"
     },
     {
       "OwnerAccessorType": "@StaticContext",

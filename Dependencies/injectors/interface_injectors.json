@@ -166,6 +166,16 @@
       "InterfaceType": "Storm.StardewValley.Accessor.ShopMenuAccessor"
     },
     {
+      "SimpleName": "Buff",
+      "OwnerType": "StardewValley.Buff",
+      "InterfaceType": "Storm.StardewValley.Accessor.BuffAccessor"
+    },
+    {
+      "SimpleName": "BuffsDisplay",
+      "OwnerType": "StardewValley.Menus.BuffsDisplay",
+      "InterfaceType": "Storm.StardewValley.Accessor.BuffsDisplayAccessor"
+    },
+    {
       "SimpleName": "MineShaft",
       "OwnerType": "StardewValley.Locations.MineShaft",
       "InterfaceType": "Storm.StardewValley.Accessor.MineShaftAccessor"
