@@ -533,6 +533,22 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region Character Events
+        public static DetourEvent PostFarmAnimalConstructedCallback(FarmAnimalAccessor accessor)
+        {
+            var @event = new PostFarmAnimalConstructedEvent(new FarmAnimal(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostFarmAnimalDayUpdateCallback(FarmAnimalAccessor accessor)
+        {
+            var @event = new PostFarmAnimalDayUpdateEvent(new FarmAnimal(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+        #endregion
+
         #region CraftingRecipe Events
         public static DetourEvent OnCreateCraftingRecipeItemCallback(CraftingRecipeAccessor recipe)
         {

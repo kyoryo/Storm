@@ -70,5 +70,25 @@
       "MethodName": "NumberProducedPerCraft",
       "Type": "System.Int32"
     }
+  ],
+    "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerMethodName": "createItem",
+      "OwnerMethodDesc": "()@(Item)",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "OnCreateCraftingRecipeItemCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CraftingRecipeAccessor)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true"
+    },
+	{
+      "OwnerAccessorType": "@CraftingRecipe",
+      "OwnerMethodName": "consumeIngredients",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "OnConsumeCraftingIngredientCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CraftingRecipeAccessor)Storm.Manipulation.DetourEvent",
+	  "PushParams": "true"
+    }
   ]
 }

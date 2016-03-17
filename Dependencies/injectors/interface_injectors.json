@@ -274,6 +274,11 @@
       "SimpleName": "MenuWithInventory",
       "OwnerType": "StardewValley.Menus.MenuWithInventory",
       "InterfaceType": "Storm.StardewValley.Accessor.MenuWithInventoryAccessor"
+    },
+    {
+      "SimpleName": "Utility",
+      "OwnerType": "StardewValley.Game1",
+      "InterfaceType": "Storm.StardewValley.Accessor.UtilityAccessor"
     }
   ]
 }
