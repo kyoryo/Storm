@@ -178,6 +178,8 @@
     <Compile Include="StardewValley\Event\Chest\PerformToolActionOnChestEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
     <Compile Include="StardewValley\Event\Content\ManagerUnloadEvent.cs" />
+    <Compile Include="StardewValley\Event\CraftingRecipe\OnConsumeCraftingIngredientEvent.cs" />
+    <Compile Include="StardewValley\Event\CraftingRecipe\OnCreateCraftingRecipeItemEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PostCropConstructorEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PostCropNewDayEvent.cs" />
     <Compile Include="StardewValley\Event\Crop\PreCropConstructorEvent.cs" />
@@ -217,6 +219,7 @@
     <Compile Include="StardewValley\Proxy\TextBoxDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\CraftingRecipe.cs" />
     <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />

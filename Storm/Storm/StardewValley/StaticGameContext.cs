@@ -533,6 +533,22 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region CraftingRecipe Events
+        public static DetourEvent OnCreateCraftingRecipeItemCallback(CraftingRecipeAccessor recipe)
+        {
+            var @event = new OnCreateCraftingRecipeItemEvent(new CraftingRecipe(WrappedGame, recipe));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent OnConsumeCraftingIngredientCallback(CraftingRecipeAccessor recipe)
+        {
+            var @event = new OnConsumeCraftingIngredientEvent(new CraftingRecipe(WrappedGame, recipe));
+            FireEvent(@event);
+            return @event;
+        }
+        #endregion
+
         #region Farmer Events
 
         public static DetourEvent WarpFarmerCallback(GameLocationAccessor location, int tileX, int tileY, int facingDirection, bool isStructure)
