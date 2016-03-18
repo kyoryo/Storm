@@ -276,6 +276,15 @@ namespace Storm.StardewValley.Wrapper
             set { Cast<StaticContextAccessor>()._SetBuffsIcons(value); }
         }
 
+        public BuffsDisplay BuffsDisplay
+        {
+            get {
+                var tmp = Cast<StaticContextAccessor>()._GetBuffsDisplay();
+                if (tmp == null) return null;
+                return new BuffsDisplay(this, tmp);
+            }
+        }
+
         public Texture2D Daybg
         {
             get { return Cast<StaticContextAccessor>()._GetDaybg(); }

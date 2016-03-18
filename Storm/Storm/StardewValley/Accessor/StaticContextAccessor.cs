@@ -123,6 +123,9 @@ namespace Storm.StardewValley.Accessor
         Texture2D _GetBuffsIcons();
         void _SetBuffsIcons(Texture2D val);
 
+        BuffsDisplayAccessor _GetBuffsDisplay();
+        void _SetBuffsDisplay(BuffsDisplayAccessor val);
+
         Texture2D _GetDaybg();
         void _SetDaybg(Texture2D val);
 

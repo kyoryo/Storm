@@ -149,6 +149,7 @@
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BuffAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\HUDMessageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\InputButtonAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Item\SlingshotAccessor.cs" />
@@ -177,6 +178,11 @@
     <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Character\PostFarmAnimalConstructedEvent.cs" />
     <Compile Include="StardewValley\Event\Character\PostFarmAnimalDayUpdateEvent.cs" />
+    <Compile Include="StardewValley\Accessor\UI\BuffsDisplayAccessor.cs" />
+    <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\AddOtherBuffCallbackEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\TryToAddFoodBuffCallbackEvent.cs" />
+    <Compile Include="StardewValley\Event\BuffsDisplay\TryToAddDrinkBuffCallbackEvent.cs" />
     <Compile Include="StardewValley\Event\Chest\AddItemToChestEvent.cs" />
     <Compile Include="StardewValley\Event\Chest\PerformToolActionOnChestEvent.cs" />
     <Compile Include="StardewValley\Event\Content\AssetLoadEvent.cs" />
@@ -211,7 +217,8 @@
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
-    <Compile Include="StardewValley\Proxy\FarmAnimalDelegate.cs" />
+	<Compile Include="StardewValley\Proxy\FarmAnimalDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\BuffDelegate.cs" />
     <Compile Include="StardewValley\Proxy\HUDMessageDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
     <Compile Include="StardewValley\Proxy\ChatBoxDelegate.cs" />
@@ -222,11 +229,13 @@
     <Compile Include="StardewValley\Proxy\StandardToolDelegate.cs" />
     <Compile Include="StardewValley\Proxy\TextBoxDelegate.cs" />
     <Compile Include="StardewValley\StormContentManager.cs" />
+    <Compile Include="StardewValley\Wrapper\Buff.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
     <Compile Include="StardewValley\Wrapper\CraftingRecipe.cs" />
     <Compile Include="StardewValley\Wrapper\FarmAnimal.cs" />
     <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
+    <Compile Include="StardewValley\Wrapper\BuffsDisplay.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
     <Compile Include="Collections\ValueProxyDictionary.cs" />

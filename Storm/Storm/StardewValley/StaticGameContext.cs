@@ -1011,6 +1011,31 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region BuffsDisplay Events
+        
+        public static DetourEvent TryToAddFoodBuffCallback(BuffsDisplayAccessor accessor, BuffAccessor buff, int duration)
+        {
+            var @event = new TryToAddFoodBuffCallbackEvent(new BuffsDisplay(WrappedGame, accessor), new Buff(WrappedGame, buff), duration);
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent TryToAddDrinkBuffCallback(BuffsDisplayAccessor accessor, BuffAccessor buff)
+        {
+            var @event = new TryToAddDrinkBuffCallbackEvent(new BuffsDisplay(WrappedGame, accessor), new Buff(WrappedGame, buff));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent AddOtherBuffCallback(BuffsDisplayAccessor accessor, BuffAccessor buff)
+        {
+            var @event = new AddOtherBuffCallbackEvent(new BuffsDisplay(WrappedGame, accessor), new Buff(WrappedGame, buff));
+            FireEvent(@event);
+            return @event;
+        }
+
+        #endregion
+
         #region ShopMenu Events
 
         public static DetourEvent PreConstructShopViaListCallback(ShopMenuAccessor accessor, IList list, int currency, string who)
