@@ -1,0 +1,53 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "millisecondsDuration",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "MillisecondsDuration",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "description",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Description",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "source",
+      "OwnerFieldType": "System.String",
+      "MethodName": "Source",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "total",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Total",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "sheetIndex",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SheetIndex",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "which",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "Which",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@Buff",
+      "OwnerFieldName": "glow",
+      "OwnerFieldType": "Microsoft.Xna.Framework.Color",
+      "MethodName": "Glow",
+      "Type": "Microsoft.Xna.Framework.Color"
+    }
+  ]
+}

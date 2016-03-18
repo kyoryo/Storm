@@ -16,11 +16,27 @@
  */
 
 using Storm.StardewValley.Wrapper;
+using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Proxy
 {
-    public abstract class ObjectDelegate : TypeDelegate<ObjectItem>
+    public class ObjectDelegate : TypeDelegate<ObjectItem>
     {
+        public ObjectDelegate()
+        {
+        }
+
+        public ObjectDelegate(Vector2 tileLocation, int parentSheetIndex, string name, bool canBeSetDown, bool canBeGrabbed, bool isHoedirt, bool isSpawnedObject)
+        {
+            ConstructorParams.Add(tileLocation);
+            ConstructorParams.Add(parentSheetIndex);
+            ConstructorParams.Add(name);
+            ConstructorParams.Add(canBeSetDown);
+            ConstructorParams.Add(canBeGrabbed);
+            ConstructorParams.Add(isHoedirt);
+            ConstructorParams.Add(isSpawnedObject);
+        }
+
         public virtual OverrideEvent DrawInMenu(object[] @params)
         {
             return new OverrideEvent
