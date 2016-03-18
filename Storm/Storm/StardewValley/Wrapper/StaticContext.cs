@@ -1643,5 +1643,15 @@ namespace Storm.StardewValley.Wrapper
             Cast<StaticContextAccessor>()._DrawHoverText(b, text, font, xOffset, yOffset, moneyAmountToDisplayAtBottom, boldTitleText, healAmountToDisplay, buffIconsToDisplay, hoveredItem, currencySymbol, extraItemToShowIndex, extraItemToShowAmount, overrideX, overrideY, alpha, craftingIngredients);
         }
 
+        public ProxyList<ObjectItem> PurchaseAnimalStock
+        {
+            get
+            {
+                var tmp = Cast<StaticContextAccessor>()._GetPurchaseAnimalStock();
+                if (tmp == null) return null;
+                return new ProxyList<ObjectItem>(tmp);
+            }
+        }
+
     }
 }

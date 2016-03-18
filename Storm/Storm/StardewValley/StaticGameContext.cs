@@ -142,6 +142,22 @@ namespace Storm.StardewValley
 
         #endregion
 
+        #region GameLocation Events
+        public static DetourEvent PreMailboxActionCallback(GameLocationAccessor accessor)
+        {
+            var @event = new PreMailboxActionEvent(new GameLocation(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+        public static DetourEvent OnLoadNewAreaCallback(GameLocationAccessor accessor)
+        {
+            var @event = new OnLoadNewAreaEvent(new GameLocation(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+
+        #endregion
+
         #region Chatbox
 
         public static DetourEvent ChatboxTextEnteredCallback(ChatBoxAccessor accessor, TextBoxAccessor textbox)
@@ -277,6 +293,15 @@ namespace Storm.StardewValley
             FireEvent(@event);
             return @event;
         }
+
+        public static DetourEvent PerformToolActionOnChestCallback(ChestAccessor chest)
+        {
+            var @event = new PeformToolActionOnChestEvent(
+                chest == null ? null : new Chest(WrappedGame, chest));
+            FireEvent(@event);
+            return @event;
+        }
+
 
         public static DetourEvent PreUpdateCallback(StaticContextAccessor accessor)
         {
@@ -506,6 +531,38 @@ namespace Storm.StardewValley
             return @event;
         }
 
+        #endregion
+
+        #region Character Events
+        public static DetourEvent PostFarmAnimalConstructedCallback(FarmAnimalAccessor accessor)
+        {
+            var @event = new PostFarmAnimalConstructedEvent(new FarmAnimal(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent PostFarmAnimalDayUpdateCallback(FarmAnimalAccessor accessor)
+        {
+            var @event = new PostFarmAnimalDayUpdateEvent(new FarmAnimal(WrappedGame, accessor));
+            FireEvent(@event);
+            return @event;
+        }
+        #endregion
+
+        #region CraftingRecipe Events
+        public static DetourEvent OnCreateCraftingRecipeItemCallback(CraftingRecipeAccessor recipe)
+        {
+            var @event = new OnCreateCraftingRecipeItemEvent(new CraftingRecipe(WrappedGame, recipe));
+            FireEvent(@event);
+            return @event;
+        }
+
+        public static DetourEvent OnConsumeCraftingIngredientCallback(CraftingRecipeAccessor recipe)
+        {
+            var @event = new OnConsumeCraftingIngredientEvent(new CraftingRecipe(WrappedGame, recipe));
+            FireEvent(@event);
+            return @event;
+        }
         #endregion
 
         #region Farmer Events
