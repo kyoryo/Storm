@@ -17,8 +17,8 @@
 
 using System;
 using System.IO;
-using Storm.StardewValley;
 using System.Windows.Forms;
+using Storm.StardewValley;
 
 namespace Storm
 {
@@ -32,12 +32,12 @@ namespace Storm
         public static UnhandledExceptionEventHandler UnhandledExceptionHandler = (s, e) =>
         {
             LogToFile(e.ExceptionObject.ToString());
-            MessageBox.Show("Your game seems to have crashed! We've generated a crash log for you in\n" + StormAPI.GetResource("storm_log.txt"), "Oh no!");
+            MessageBox.Show("Your game seems to have crashed! We've generated a crash log for you in\n" + StormApi.GetResource("storm_log.txt"), "Oh no!");
         };
 
         public static void LogToFile(string s)
         {
-            var @out = StormAPI.GetResource("storm_log.txt");
+            var @out = StormApi.GetResource("storm_log.txt");
             var sr = new StreamWriter(@out, true);
             sr.WriteLine(s);
             sr.Close();

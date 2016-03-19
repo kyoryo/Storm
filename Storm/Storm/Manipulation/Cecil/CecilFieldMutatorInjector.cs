@@ -22,15 +22,15 @@ namespace Storm.Manipulation.Cecil
 {
     public class CecilFieldMutatorInjector : Injector
     {
-        private readonly AssemblyDefinition def;
-        private FieldMutatorParams @params;
-        private AssemblyDefinition self;
+        private readonly AssemblyDefinition _def;
+        private FieldMutatorParams _params;
+        private AssemblyDefinition _self;
 
         public CecilFieldMutatorInjector(AssemblyDefinition self, AssemblyDefinition def, FieldMutatorParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
@@ -39,34 +39,34 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var paramType = def.GetTypeRef(@params.ParamType, true);
+            var paramType = _def.GetTypeRef(_params.ParamType, true);
             if (paramType == null)
             {
                 Logging.DebugLogs("[{0}] Could not find paramType!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.MethodName, @params.ParamType, @params.IsStatic);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerFieldName, _params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.MethodName, _params.ParamType, _params.IsStatic);
                 return;
             }
 
-            var field = def.GetField(@params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
+            var field = _def.GetField(_params.OwnerType, _params.OwnerFieldName, _params.OwnerFieldType);
             if (field == null)
             {
                 Logging.DebugLogs("[{0}] Could not find field!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerFieldName, @params.OwnerFieldType);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.MethodName, @params.ParamType, @params.IsStatic);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerFieldName, _params.OwnerFieldType);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.MethodName, _params.ParamType, _params.IsStatic);
                 return;
             }
 
-            var method = new MethodDefinition(@params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(void)));
-            method.Parameters.Add(new ParameterDefinition(def.Import(paramType)));
+            var method = new MethodDefinition(_params.MethodName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, _def.Import(typeof(void)));
+            method.Parameters.Add(new ParameterDefinition(_def.Import(paramType)));
 
             var instructions = method.Body.Instructions;
             var processor = method.Body.GetILProcessor();
-            if (!@params.IsStatic)
+            if (!_params.IsStatic)
             {
                 instructions.Add(processor.Create(OpCodes.Ldarg_0));
             }
-            instructions.Add(processor.Create(@params.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
+            instructions.Add(processor.Create(_params.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1));
             instructions.Add(processor.Create(OpCodes.Stfld, field));
             instructions.Add(processor.Create(OpCodes.Ret));
             field.DeclaringType.Methods.Add(method);
@@ -74,7 +74,7 @@ namespace Storm.Manipulation.Cecil
 
         public object GetParams()
         {
-            return @params;
+            return _params;
         }
     }
 }

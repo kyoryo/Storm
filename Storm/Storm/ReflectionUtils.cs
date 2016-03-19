@@ -16,6 +16,7 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -46,6 +47,11 @@ namespace Storm
         public static Type DynamicResolve(string name)
         {
             return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).FirstOrDefault(t => t.FullName.Equals(name));
+        }
+
+        public static List<Type> DynamicResolveAll(string substring)
+        {
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(a => a.GetTypes()).Where(t => t.FullName.Contains(substring)).ToList();
         }
     }
 }

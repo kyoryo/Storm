@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2016 Cody R. (Demmonic), Inari-Whitebear
+    Copyright 2016 Cody R. (Demmonic)
 
     Storm is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,17 +15,28 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Storm.StardewValley.Wrapper
+namespace Storm.Manipulation
 {
-    public class TerrainFeature : StaticContextWrapper
+    public class ClassInfoInjector : Injector
     {
-        public TerrainFeature(StaticContext parent, object accessor) : base(parent)
+        private readonly ClassInfoParams @params;
+
+        public ClassInfoInjector(ClassInfoParams @params)
         {
-            Underlying = accessor;
+            this.@params = @params;
         }
 
-        public TerrainFeature()
+        public void Init()
         {
+        }
+
+        public void Inject()
+        {
+        }
+
+        public object GetParams()
+        {
+            return @params;
         }
     }
 }

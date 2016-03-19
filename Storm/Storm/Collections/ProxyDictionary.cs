@@ -18,17 +18,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Storm.StardewValley.Wrapper;
 
 namespace Storm.Collections
 {
-    public class ProxyDictionary<TKey, TValue> : System.Collections.Generic.IDictionary<TKey, TValue>
+    public class ProxyDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
-        private readonly IDictionary real;
+        private readonly IDictionary _real;
 
         public ProxyDictionary(IDictionary real)
         {
-            this.real = real;
+            _real = real;
         }
 
         public ICollection<TKey> Keys
@@ -36,9 +35,9 @@ namespace Storm.Collections
             get
             {
                 var list = new List<TKey>();
-                foreach (var key in real.Keys)
+                foreach (var key in _real.Keys)
                 {
-                    list.Add((TKey)key);
+                    list.Add((TKey) key);
                 }
                 return list;
             }
@@ -49,57 +48,39 @@ namespace Storm.Collections
             get
             {
                 var list = new List<TValue>();
-                foreach (var value in real.Values)
+                foreach (var value in _real.Values)
                 {
-                    list.Add((TValue)value);
+                    list.Add((TValue) value);
                 }
                 return list;
             }
         }
 
-        public int Count
-        {
-            get
-            {
-                return real.Count;
-            }
-        }
+        public int Count => _real.Count;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         public TValue this[TKey key]
         {
-            get
-            {
-                return (TValue)real[key];
-            }
+            get { return (TValue) _real[key]; }
 
-            set
-            {
-                real[key] = value;
-            }
+            set { _real[key] = value; }
         }
 
         public bool ContainsKey(TKey key)
         {
-            return real.Contains(key);
+            return _real.Contains(key);
         }
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key, value);
+            _real.Add(key, value);
         }
 
         public bool Remove(TKey key)
         {
             if (!ContainsKey(key)) return false;
-            real.Remove(key);
+            _real.Remove(key);
             return true;
         }
 
@@ -116,19 +97,19 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key, item.Value);
+            _real.Add(item.Key, item.Value);
         }
 
         public void Clear()
         {
-            real.Clear();
+            _real.Clear();
         }
 
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key) && _real[key].Equals(item.Value))
                 {
                     return true;
                 }
@@ -143,11 +124,11 @@ namespace Storm.Collections
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key) && _real[key].Equals(item.Value))
                 {
-                    real.Remove(item.Key);
+                    _real.Remove(item.Key);
                 }
             }
             return false;

@@ -15,17 +15,8 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.Manipulation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Storm.ExternalEvent;
+using Storm.StardewValley.Event;
 
 namespace Storm.StardewValley
 {
@@ -33,17 +24,19 @@ namespace Storm.StardewValley
     {
         public static T Load<T>(ContentManager manager, string assetName)
         {
-            DetourEvent @event = StaticGameContext.ContentLoadCallback(manager, typeof(T), assetName);
+            var @event = new StaticContextEvent(manager, assetName);
+            StaticGameContext.FireEvent("content_on_load", @event);
             if (@event.ReturnValue != null)
             {
-                return (T)@event.ReturnValue;
+                return (T) @event.ReturnValue;
             }
             return manager.Load<T>(assetName);
         }
 
         public static void Unload(ContentManager manager)
         {
-            StaticGameContext.ManagerUnloadCallback(manager);
+            var @event = new StaticContextEvent();
+            StaticGameContext.FireEvent("content_on_unload", @event);
             manager.Unload();
         }
     }

@@ -16,14 +16,12 @@
  */
 
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Fence : ObjectItem
     {
-        public Fence(StaticContext parent, FenceAccessor accessor) :
-            base(parent, accessor)
+        public Fence(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -33,56 +31,56 @@ namespace Storm.StardewValley.Wrapper
 
         public int FencePieceWidth
         {
-            get { return Cast<FenceAccessor>()._GetFencePieceWidth(); }
-            set { Cast<FenceAccessor>()._SetFencePieceWidth(value); }
+            get { return AsDynamic._GetFencePieceWidth(); }
+            set { AsDynamic._SetFencePieceWidth(value); }
         }
 
         public int FencePieceHeight
         {
-            get { return Cast<FenceAccessor>()._GetFencePieceHeight(); }
-            set { Cast<FenceAccessor>()._SetFencePieceHeight(value); }
+            get { return AsDynamic._GetFencePieceHeight(); }
+            set { AsDynamic._SetFencePieceHeight(value); }
         }
 
         public Texture2D FenceTexture
         {
-            get { return Cast<FenceAccessor>()._GetFenceTexture(); }
-            set { Cast<FenceAccessor>()._SetFenceTexture(value); }
+            get { return AsDynamic._GetFenceTexture(); }
+            set { AsDynamic._SetFenceTexture(value); }
         }
 
         public float Health
         {
-            get { return Cast<FenceAccessor>()._GetHealth(); }
-            set { Cast<FenceAccessor>()._SetHealth(value); }
+            get { return AsDynamic._GetHealth(); }
+            set { AsDynamic._SetHealth(value); }
         }
 
         public float MaxHealth
         {
-            get { return Cast<FenceAccessor>()._GetMaxHealth(); }
-            set { Cast<FenceAccessor>()._SetMaxHealth(value); }
+            get { return AsDynamic._GetMaxHealth(); }
+            set { AsDynamic._SetMaxHealth(value); }
         }
 
         public int WhichType
         {
-            get { return Cast<FenceAccessor>()._GetWhichType(); }
-            set { Cast<FenceAccessor>()._SetWhichType(value); }
+            get { return AsDynamic._GetWhichType(); }
+            set { AsDynamic._SetWhichType(value); }
         }
 
         public int GatePosition
         {
-            get { return Cast<FenceAccessor>()._GetGatePosition(); }
-            set { Cast<FenceAccessor>()._SetGatePosition(value); }
+            get { return AsDynamic._GetGatePosition(); }
+            set { AsDynamic._SetGatePosition(value); }
         }
 
         public int GateMotion
         {
-            get { return Cast<FenceAccessor>()._GetGateMotion(); }
-            set { Cast<FenceAccessor>()._SetGateMotion(value); }
+            get { return AsDynamic._GetGateMotion(); }
+            set { AsDynamic._SetGateMotion(value); }
         }
 
         public bool IsGate
         {
-            get { return Cast<FenceAccessor>()._GetIsGate(); }
-            set { Cast<FenceAccessor>()._SetIsGate(value); }
+            get { return AsDynamic._GetIsGate(); }
+            set { AsDynamic._SetIsGate(value); }
         }
     }
 }

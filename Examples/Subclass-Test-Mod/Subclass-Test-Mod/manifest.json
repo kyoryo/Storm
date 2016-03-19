@@ -1,8 +1,0 @@
-{
-    "displayName": "Subclass Test Mod",
-    "author": "Demmonic",
-    "version": "0.1",
-    "description": "Goes in %appdata% StardewValley/Mods/Subclass-Test-Mod with your dll.",
-
-    "assemblyFileName": "Subclass-Test-Mod.dll"
-}

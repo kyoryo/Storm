@@ -16,14 +16,12 @@
  */
 
 using Microsoft.Xna.Framework;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class ObjectItem : Item
     {
-        public ObjectItem(StaticContext parent, ObjectAccessor accessor) :
-            base(parent, accessor)
+        public ObjectItem(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -31,166 +29,162 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public int SellToStorePrice
-        {
-            get { return Cast<ObjectAccessor>()._GetSellToStorePrice(); }
-        }
+        public int SellToStorePrice => AsDynamic._GetSellToStorePrice();
 
         public Vector2 TileLocation
         {
-            get { return Cast<ObjectAccessor>()._GetTileLocation(); }
-            set { Cast<ObjectAccessor>()._SetTileLocation(value); }
+            get { return AsDynamic._GetTileLocation(); }
+            set { AsDynamic._SetTileLocation(value); }
         }
 
         public bool CanBeGrabbed
         {
-            get { return Cast<ObjectAccessor>()._GetCanBeGrabbed(); }
-            set { Cast<ObjectAccessor>()._SetCanBeGrabbed(value); }
+            get { return AsDynamic._GetCanBeGrabbed(); }
+            set { AsDynamic._SetCanBeGrabbed(value); }
         }
 
         public bool CanBeSetDown
         {
-            get { return Cast<ObjectAccessor>()._GetCanBeSetDown(); }
-            set { Cast<ObjectAccessor>()._SetCanBeSetDown(value); }
+            get { return AsDynamic._GetCanBeSetDown(); }
+            set { AsDynamic._SetCanBeSetDown(value); }
         }
 
         public int Edibility
         {
-            get { return Cast<ObjectAccessor>()._GetEdibility(); }
-            set { Cast<ObjectAccessor>()._SetEdibility(value); }
+            get { return AsDynamic._GetEdibility(); }
+            set { AsDynamic._SetEdibility(value); }
         }
 
         public bool Flipped
         {
-            get { return Cast<ObjectAccessor>()._GetFlipped(); }
-            set { Cast<ObjectAccessor>()._SetFlipped(value); }
+            get { return AsDynamic._GetFlipped(); }
+            set { AsDynamic._SetFlipped(value); }
         }
 
         public int Fragility
         {
-            get { return Cast<ObjectAccessor>()._GetFragility(); }
-            set { Cast<ObjectAccessor>()._SetFragility(value); }
+            get { return AsDynamic._GetFragility(); }
+            set { AsDynamic._SetFragility(value); }
         }
 
         public bool HasBeenPickedUpByFarmer
         {
-            get { return Cast<ObjectAccessor>()._GetHasBeenPickedUpByFarmer(); }
-            set { Cast<ObjectAccessor>()._SetHasBeenPickedUpByFarmer(value); }
+            get { return AsDynamic._GetHasBeenPickedUpByFarmer(); }
+            set { AsDynamic._SetHasBeenPickedUpByFarmer(value); }
         }
 
         public bool IsActive
         {
-            get { return Cast<ObjectAccessor>()._GetIsActive(); }
-            set { Cast<ObjectAccessor>()._SetIsActive(value); }
+            get { return AsDynamic._GetIsActive(); }
+            set { AsDynamic._SetIsActive(value); }
         }
 
         public bool IsHoeDirt
         {
-            get { return Cast<ObjectAccessor>()._GetIsHoedirt(); }
-            set { Cast<ObjectAccessor>()._SetIsHoedirt(value); }
+            get { return AsDynamic._GetIsHoedirt(); }
+            set { AsDynamic._SetIsHoedirt(value); }
         }
 
         public bool IsLamp
         {
-            get { return Cast<ObjectAccessor>()._GetIsLamp(); }
-            set { Cast<ObjectAccessor>()._SetIsLamp(true); }
+            get { return AsDynamic._GetIsLamp(); }
+            set { AsDynamic._SetIsLamp(true); }
         }
 
         public bool IsOn
         {
-            get { return Cast<ObjectAccessor>()._GetIsOn(); }
-            set { Cast<ObjectAccessor>()._SetIsOn(value); }
+            get { return AsDynamic._GetIsOn(); }
+            set { AsDynamic._SetIsOn(value); }
         }
 
         public bool IsRecipe
         {
-            get { return Cast<ObjectAccessor>()._GetIsRecipe(); }
-            set { Cast<ObjectAccessor>()._SetIsRecipe(value); }
+            get { return AsDynamic._GetIsRecipe(); }
+            set { AsDynamic._SetIsRecipe(value); }
         }
 
         public bool IsSpawned
         {
-            get { return Cast<ObjectAccessor>()._GetIsSpawnedObject(); }
-            set { Cast<ObjectAccessor>()._SetIsSpawnedObject(value); }
+            get { return AsDynamic._GetIsSpawnedObject(); }
+            set { AsDynamic._SetIsSpawnedObject(value); }
         }
 
         public string Name
         {
-            get { return Cast<ObjectAccessor>()._GetName(); }
-            set { Cast<ObjectAccessor>()._SetName(value); }
+            get { return AsDynamic._GetName(); }
+            set { AsDynamic._SetName(value); }
         }
 
         public long Owner
         {
-            get { return Cast<ObjectAccessor>()._GetOwner(); }
-            set { Cast<ObjectAccessor>()._SetOwner(value); }
+            get { return AsDynamic._GetOwner(); }
+            set { AsDynamic._SetOwner(value); }
         }
 
         public int Price
         {
-            get { return Cast<ObjectAccessor>()._GetPrice(); }
-            set { Cast<ObjectAccessor>()._SetPrice(value); }
+            get { return AsDynamic._GetPrice(); }
+            set { AsDynamic._SetPrice(value); }
         }
 
         public int Quality
         {
-            get { return Cast<ObjectAccessor>()._GetQuality(); }
-            set { Cast<ObjectAccessor>()._SetQuality(value); }
+            get { return AsDynamic._GetQuality(); }
+            set { AsDynamic._SetQuality(value); }
         }
 
         public int Stack
         {
-            get { return Cast<ObjectAccessor>()._GetStack(); }
-            set { Cast<ObjectAccessor>()._SetStack(value); }
+            get { return AsDynamic._GetStack(); }
+            set { AsDynamic._SetStack(value); }
         }
 
 
         public bool IsQuestItem
         {
-            get { return Cast<ObjectAccessor>()._GetQuestItem(); }
-            set { Cast<ObjectAccessor>()._SetQuestItem(value); }
+            get { return AsDynamic._GetQuestItem(); }
+            set { AsDynamic._SetQuestItem(value); }
         }
 
         public bool ReadyForHarvest
         {
-            get { return Cast<ObjectAccessor>()._GetReadyForHarvest(); }
-            set { Cast<ObjectAccessor>()._SetReadyForHarvest(value); }
+            get { return AsDynamic._GetReadyForHarvest(); }
+            set { AsDynamic._SetReadyForHarvest(value); }
         }
 
         public Vector2 Scale
         {
-            get { return Cast<ObjectAccessor>()._GetScale(); }
-            set { Cast<ObjectAccessor>()._SetScale(value); }
+            get { return AsDynamic._GetScale(); }
+            set { AsDynamic._SetScale(value); }
         }
 
         public string Type
         {
-            get { return Cast<ObjectAccessor>()._GetType(); }
-            set { Cast<ObjectAccessor>()._SetType(value); }
+            get { return AsDynamic._GetType(); }
+            set { AsDynamic._SetType(value); }
         }
 
         public ObjectItem HeldObject
         {
             get
             {
-                var tmp = Cast<ObjectAccessor>()._GetHeldObject();
+                var tmp = AsDynamic._GetHeldObject();
                 if (tmp == null) return null;
                 return new ObjectItem(Parent, tmp);
             }
-            set { Cast<ObjectAccessor>()._SetHeldObject(value?.Cast<ObjectAccessor>()); }
+            set { AsDynamic._SetHeldObject(value?.Underlying); }
         }
 
         public int MinutesUntilReady
         {
-            get { return Cast<ObjectAccessor>()._GetMinutesUntilReady(); }
-            set { Cast<ObjectAccessor>()._SetMinutesUntilReady(value); }
+            get { return AsDynamic._GetMinutesUntilReady(); }
+            set { AsDynamic._SetMinutesUntilReady(value); }
         }
 
         public Rectangle BoundingBox
         {
-            get { return Cast<ObjectAccessor>()._GetBoundingBox(); }
-            set { Cast<ObjectAccessor>()._SetBoundingBox(value); }
+            get { return AsDynamic._GetBoundingBox(); }
+            set { AsDynamic._SetBoundingBox(value); }
         }
-
     }
 }

@@ -22,6 +22,7 @@ namespace Storm.ExternalEvent
     [AttributeUsage(AttributeTargets.Method)]
     public class Subscribe : Attribute
     {
+        public string Name { get; set; } = "NA";
         public int CallPriority { get; set; } = 0;
     }
 }

@@ -34,11 +34,13 @@ namespace Storm.ExternalEvent
                 var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof(Mod)) != null);
                 foreach (var mod in mods)
                 {
-                    var map = new Dictionary<Type, List<MethodInfo>>();
+                    var map = new Dictionary<string, List<MethodInfo>>();
 
                     var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof(Subscribe)) != null);
                     foreach (var handler in handlers)
                     {
+                        var attr = (Subscribe) handler.GetCustomAttribute(typeof(Subscribe));
+
                         var @params = handler.GetParameters();
                         if (@params.Length != 1)
                         {
@@ -47,19 +49,15 @@ namespace Storm.ExternalEvent
                         }
 
                         List<MethodInfo> list;
-                        if (!map.TryGetValue(@params[0].ParameterType, out list))
+                        if (!map.TryGetValue(attr.Name, out list))
                         {
                             list = new List<MethodInfo>();
-                            map.Add(@params[0].ParameterType, list);
+                            map.Add(attr.Name, list);
                         }
                         list.Add(handler);
                     }
 
-                    result.Add(new AssemblyMod
-                    {
-                        Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null),
-                        CallMap = map
-                    });
+                    result.Add(new AssemblyMod {Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null), CallMap = map});
                 }
             }
             catch (Exception e)

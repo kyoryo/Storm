@@ -15,18 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System.Collections;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
-using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Buff : StaticContextWrapper
     {
-        public Buff(StaticContext parent, BuffAccessor accessor) :
-            base(parent)
+        public Buff(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -37,44 +32,44 @@ namespace Storm.StardewValley.Wrapper
 
         public int MillisecondsDuration
         {
-            get { return Cast<BuffAccessor>()._GetMillisecondsDuration(); }
-            set { Cast<BuffAccessor>()._SetMillisecondsDuration(value); }
+            get { return AsDynamic._GetMillisecondsDuration(); }
+            set { AsDynamic._SetMillisecondsDuration(value); }
         }
 
         public string Description
         {
-            get { return Cast<BuffAccessor>()._GetDescription(); }
-            set { Cast<BuffAccessor>()._SetDescription(value); }
+            get { return AsDynamic._GetDescription(); }
+            set { AsDynamic._SetDescription(value); }
         }
 
         public string Source
         {
-            get { return Cast<BuffAccessor>()._GetSource(); }
-            set { Cast<BuffAccessor>()._SetSource(value); }
+            get { return AsDynamic._GetSource(); }
+            set { AsDynamic._SetSource(value); }
         }
 
         public int Total
         {
-            get { return Cast<BuffAccessor>()._GetTotal(); }
-            set { Cast<BuffAccessor>()._SetTotal(value); }
+            get { return AsDynamic._GetTotal(); }
+            set { AsDynamic._SetTotal(value); }
         }
 
         public int SheetIndex
         {
-            get { return Cast<BuffAccessor>()._GetSheetIndex(); }
-            set { Cast<BuffAccessor>()._SetSheetIndex(value); }
+            get { return AsDynamic._GetSheetIndex(); }
+            set { AsDynamic._SetSheetIndex(value); }
         }
 
         public int Which
         {
-            get { return Cast<BuffAccessor>()._GetWhich(); }
-            set { Cast<BuffAccessor>()._SetWhich(value); }
+            get { return AsDynamic._GetWhich(); }
+            set { AsDynamic._SetWhich(value); }
         }
 
         public Color Glow
         {
-            get { return Cast<BuffAccessor>()._GetGlow(); }
-            set { Cast<BuffAccessor>()._SetGlow(value); }
+            get { return AsDynamic._GetGlow(); }
+            set { AsDynamic._SetGlow(value); }
         }
     }
 }

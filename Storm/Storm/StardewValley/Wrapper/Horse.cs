@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class Horse : NPC
     {
-        public Horse(StaticContext parent, HorseAccessor accessor) :
-            base(parent, accessor)
+        public Horse(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 

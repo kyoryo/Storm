@@ -33,36 +33,21 @@ namespace Storm.ExternalEvent
             Enabled = true;
         }
 
-        public string Name
-        {
-            get { return Manifest.DisplayName; }
-        }
+        public string Name => Manifest.DisplayName;
 
-        public string Author
-        {
-            get { return Manifest.Author; }
-        }
+        public string Author => Manifest.Author;
 
-        public string Description
-        {
-            get { return Manifest.Description; }
-        }
+        public string Description => Manifest.Description;
 
-        public string Version
-        {
-            get { return Manifest.Version; }
-        }
+        public string Version => Manifest.Version;
 
-        public dynamic Properties
-        {
-            get { return Manifest.Properties; }
-        }
+        public dynamic Properties => Manifest.Properties;
 
-        public void Fire<T>(T @event) where T : DetourEvent
+        public void Fire<T>(string name, T @event) where T : DetourEvent
         {
             if (!Enabled) return;
             foreach (var mod in AssemblyMods)
-                mod.Fire(@event);
+                mod.Fire(name, @event);
         }
     }
 }

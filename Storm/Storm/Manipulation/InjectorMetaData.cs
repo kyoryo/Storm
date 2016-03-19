@@ -17,40 +17,44 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace Storm.Manipulation
 {
-    public sealed class InjectorMetaData
+    public static class InjectorMetaData
     {
-        private InjectorMetaData()
-        {
-        }
-
-        public static string AccessorToGameType<T>(List<Injector> list)
+        public static Type TypeForSimpleName(List<Injector> list, string name)
         {
             foreach (var injector in list)
             {
                 var @params = injector.GetParams();
-                if (@params is InterfaceParams)
+                if (@params is ClassInfoParams)
                 {
-                    var casted = (InterfaceParams) @params;
-                    if (casted.InterfaceType == typeof (T).FullName)
+                    var casted = (ClassInfoParams) @params;
+                    if (casted.SimpleName == name)
                     {
-                        return casted.OwnerType;
+                        return ReflectionUtils.DynamicResolve(casted.OwnerType);
                     }
                 }
             }
             return null;
         }
 
-        public static Type AccessorToGameType<T>(List<Injector> list, Assembly asm)
+        public static string TypeToSimpleName(List<Injector> list, Type t)
         {
-            var matching = AccessorToGameType<T>(list);
-            if (matching == null) return null;
-            return asm.GetType(matching);
+            foreach (var injector in list)
+            {
+                var @params = injector.GetParams();
+                if (@params is ClassInfoParams)
+                {
+                    var casted = (ClassInfoParams) @params;
+                    if (casted.OwnerType == t.FullName)
+                    {
+                        return casted.SimpleName;
+                    }
+                }
+            }
+            return null;
         }
-
 
         public static string NameOfMethod(List<Injector> list, string type, string refactored, string desc)
         {
@@ -78,16 +82,16 @@ namespace Storm.Manipulation
         {
             return NameOfMethod(list, t.FullName, refactored, desc);
         }
-        
+
         public static Dictionary<string, string> BuildTags(List<Injector> injectors)
         {
             var nameMap = new Dictionary<string, string>();
             foreach (var injector in injectors)
             {
                 var @params = injector.GetParams();
-                if (@params is InterfaceParams)
+                if (@params is ClassInfoParams)
                 {
-                    var casted = (InterfaceParams)@params;
+                    var casted = (ClassInfoParams) @params;
                     nameMap.Add(casted.SimpleName, casted.OwnerType);
                 }
             }
@@ -96,7 +100,7 @@ namespace Storm.Manipulation
 
         public static string FilterTags(Dictionary<string, string> map, string s)
         {
-            while (s.IndexOf("@") != -1)
+            while (s.IndexOf("@", StringComparison.Ordinal) != -1)
             {
                 var start = s.IndexOf('@');
                 var end = -1;

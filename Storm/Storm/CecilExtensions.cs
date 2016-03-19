@@ -18,20 +18,27 @@ namespace Storm
 
             TypeReference first = null;
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (tds.Count() == 0)
+            var typeDefinitions = tds as IList<TypeDefinition> ?? tds.ToList();
+            if (!typeDefinitions.Any())
             {
                 if (dynamicFallback)
                 {
-                    first = asm.MainModule.Import(ReflectionUtils.DynamicResolve(type));
+                    var refRef = ReflectionUtils.DynamicResolve(type);
+                    if (refRef == null)
+                    {
+                        Logging.DebugLogs("Eek! can't find {0}", type);
+                        return asm.MainModule.Import(typeof(object));
+                    }
+                    first = asm.MainModule.Import(refRef);
                 }
             }
-            else if (tds.Count() > 1)
+            else if (typeDefinitions.Count() > 1)
             {
                 throw new TypeCollisionException();
             }
             else
             {
-                first = tds.First();
+                first = typeDefinitions.First();
             }
 
             if (arrayDepth > 0)
@@ -44,7 +51,7 @@ namespace Storm
         public static TypeDefinition GetTypeDef(this AssemblyDefinition asm, string type)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (tds.Count() == 0)
+            if (!tds.Any())
             {
                 return null;
             }
@@ -58,7 +65,7 @@ namespace Storm
         public static FieldDefinition GetField(this AssemblyDefinition asm, string type, string name, string fieldType)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (tds.Count() == 0)
+            if (!tds.Any())
             {
                 return null;
             }
@@ -73,7 +80,7 @@ namespace Storm
         public static MethodDefinition GetMethod(this AssemblyDefinition asm, string type, string name, string desc)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (tds.Count() == 0)
+            if (!tds.Any())
             {
                 return null;
             }
@@ -102,18 +109,14 @@ namespace Storm
 
         public static IEnumerable<MethodDefinition> FindRefences(this AssemblyDefinition asm, FieldDefinition fd, MethodDefinition exclude = null)
         {
-            return asm.Modules.
-                SelectMany(m => m.Types).
-                SelectMany(t => t.Methods).
-                Where(m => m.HasBody && m != exclude && m.Body.Instructions.
-                    FirstOrDefault(i =>
-                    {
-                        if (i.Operand != null && i.Operand is FieldReference)
-                        {
-                            return ((FieldReference)i.Operand).Resolve() == fd;
-                        }
-                        return false;
-                    }) != null);
+            return asm.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).Where(m => m.HasBody && m != exclude && m.Body.Instructions.FirstOrDefault(i =>
+            {
+                if (i.Operand is FieldReference)
+                {
+                    return ((FieldReference) i.Operand).Resolve() == fd;
+                }
+                return false;
+            }) != null);
         }
     }
 }

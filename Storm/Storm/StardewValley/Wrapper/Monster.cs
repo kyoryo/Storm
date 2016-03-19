@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class Monster : NPC
     {
-        public Monster(StaticContext parent, MonsterAccessor accessor) :
-            base(parent, accessor)
+        public Monster(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -32,116 +29,116 @@ namespace Storm.StardewValley.Wrapper
 
         public int DamageToFarmer
         {
-            get { return Cast<MonsterAccessor>()._GetDamageToFarmer(); }
-            set { Cast<MonsterAccessor>()._SetDamageToFarmer(value); }
+            get { return AsDynamic._GetDamageToFarmer(); }
+            set { AsDynamic._SetDamageToFarmer(value); }
         }
 
         public int Health
         {
-            get { return Cast<MonsterAccessor>()._GetHealth(); }
-            set { Cast<MonsterAccessor>()._SetHealth(value); }
+            get { return AsDynamic._GetHealth(); }
+            set { AsDynamic._SetHealth(value); }
         }
 
         public int MaxHealth
         {
-            get { return Cast<MonsterAccessor>()._GetMaxHealth(); }
-            set { Cast<MonsterAccessor>()._SetMaxHealth(value); }
+            get { return AsDynamic._GetMaxHealth(); }
+            set { AsDynamic._SetMaxHealth(value); }
         }
 
         public int CoinsToDrop
         {
-            get { return Cast<MonsterAccessor>()._GetCoinsToDrop(); }
-            set { Cast<MonsterAccessor>()._SetCoinsToDrop(value); }
+            get { return AsDynamic._GetCoinsToDrop(); }
+            set { AsDynamic._SetCoinsToDrop(value); }
         }
 
         public int DurationOfRandomMovements
         {
-            get { return Cast<MonsterAccessor>()._GetDurationOfRandomMovements(); }
-            set { Cast<MonsterAccessor>()._SetDurationOfRandomMovements(value); }
+            get { return AsDynamic._GetDurationOfRandomMovements(); }
+            set { AsDynamic._SetDurationOfRandomMovements(value); }
         }
 
         public int Resilience
         {
-            get { return Cast<MonsterAccessor>()._GetResilience(); }
-            set { Cast<MonsterAccessor>()._SetResilience(value); }
+            get { return AsDynamic._GetResilience(); }
+            set { AsDynamic._SetResilience(value); }
         }
 
         public int Slipperiness
         {
-            get { return Cast<MonsterAccessor>()._GetSlipperiness(); }
-            set { Cast<MonsterAccessor>()._SetSlipperiness(value); }
+            get { return AsDynamic._GetSlipperiness(); }
+            set { AsDynamic._SetSlipperiness(value); }
         }
 
         public int ExperienceGained
         {
-            get { return Cast<MonsterAccessor>()._GetExperienceGained(); }
-            set { Cast<MonsterAccessor>()._SetExperienceGained(value); }
+            get { return AsDynamic._GetExperienceGained(); }
+            set { AsDynamic._SetExperienceGained(value); }
         }
 
         public double Jitteriness
         {
-            get { return Cast<MonsterAccessor>()._GetJitteriness(); }
-            set { Cast<MonsterAccessor>()._SetJitteriness(value); }
+            get { return AsDynamic._GetJitteriness(); }
+            set { AsDynamic._SetJitteriness(value); }
         }
 
         public double MissChance
         {
-            get { return Cast<MonsterAccessor>()._GetMissChance(); }
-            set { Cast<MonsterAccessor>()._SetMissChance(value); }
+            get { return AsDynamic._GetMissChance(); }
+            set { AsDynamic._SetMissChance(value); }
         }
 
         public bool IsGlider
         {
-            get { return Cast<MonsterAccessor>()._GetIsGlider(); }
-            set { Cast<MonsterAccessor>()._SetIsGlider(value); }
+            get { return AsDynamic._GetIsGlider(); }
+            set { AsDynamic._SetIsGlider(value); }
         }
 
         public bool MineMonster
         {
-            get { return Cast<MonsterAccessor>()._GetMineMonster(); }
-            set { Cast<MonsterAccessor>()._SetMineMonster(value); }
+            get { return AsDynamic._GetMineMonster(); }
+            set { AsDynamic._SetMineMonster(value); }
         }
 
         public bool HasSpecialItem
         {
-            get { return Cast<MonsterAccessor>()._GetHasSpecialItem(); }
-            set { Cast<MonsterAccessor>()._SetHasSpecialItem(value); }
+            get { return AsDynamic._GetHasSpecialItem(); }
+            set { AsDynamic._SetHasSpecialItem(value); }
         }
 
         public int SkipHorizontal
         {
-            get { return Cast<MonsterAccessor>()._GetSkipHorizontal(); }
-            set { Cast<MonsterAccessor>()._SetSkipHorizontal(value); }
+            get { return AsDynamic._GetSkipHorizontal(); }
+            set { AsDynamic._SetSkipHorizontal(value); }
         }
 
         public int InvincibleCountdown
         {
-            get { return Cast<MonsterAccessor>()._GetInvincibleCountdown(); }
-            set { Cast<MonsterAccessor>()._SetInvincibleCountdown(value); }
+            get { return AsDynamic._GetInvincibleCountdown(); }
+            set { AsDynamic._SetInvincibleCountdown(value); }
         }
 
         public bool SkipHorizontalUp
         {
-            get { return Cast<MonsterAccessor>()._GetSkipHorizontalUp(); }
-            set { Cast<MonsterAccessor>()._SetSkipHorizontalUp(value); }
+            get { return AsDynamic._GetSkipHorizontalUp(); }
+            set { AsDynamic._SetSkipHorizontalUp(value); }
         }
 
         public int DefaultAnimationInterval
         {
-            get { return Cast<MonsterAccessor>()._GetDefaultAnimationInterval(); }
-            set { Cast<MonsterAccessor>()._SetDefaultAnimationInterval(value); }
+            get { return AsDynamic._GetDefaultAnimationInterval(); }
+            set { AsDynamic._SetDefaultAnimationInterval(value); }
         }
 
         public bool FocusedOnFarmers
         {
-            get { return Cast<MonsterAccessor>()._GetFocusedOnFarmers(); }
-            set { Cast<MonsterAccessor>()._SetFocusedOnFarmers(value); }
+            get { return AsDynamic._GetFocusedOnFarmers(); }
+            set { AsDynamic._SetFocusedOnFarmers(value); }
         }
 
         public int SlideAnimationTimer
         {
-            get { return Cast<MonsterAccessor>()._GetSlideAnimationTimer(); }
-            set { Cast<MonsterAccessor>()._SetSlideAnimationTimer(value); }
+            get { return AsDynamic._GetSlideAnimationTimer(); }
+            set { AsDynamic._SetSlideAnimationTimer(value); }
         }
     }
 }

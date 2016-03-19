@@ -15,22 +15,20 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
-
 namespace Storm.StardewValley.Wrapper
 {
     public abstract class ChildWrapper<T> : Wrapper
     {
-        public T Parent { get; set; }
-
-        public ChildWrapper(T parent)
+        protected ChildWrapper(T parent)
         {
             Parent = parent;
         }
 
-        public ChildWrapper()
+        protected ChildWrapper()
         {
         }
+
+        public T Parent { get; set; }
 
         public override T2 As<A, T2>()
         {
@@ -49,7 +47,7 @@ namespace Storm.StardewValley.Wrapper
             {
                 (instance as ChildWrapper<T>).Parent = Parent;
             }
-            return instance as T2;
+            return instance;
         }
     }
 }

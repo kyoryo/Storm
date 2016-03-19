@@ -16,14 +16,12 @@
  */
 
 using Storm.Collections;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Crop : StaticContextWrapper
     {
-        public Crop(StaticContext parent, CropAccessor accessor) :
-            base(parent)
+        public Crop(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -33,168 +31,168 @@ namespace Storm.StardewValley.Wrapper
         }
 
         /// <summary>
-        /// The chance for this crop to drop extra products
+        ///     The chance for this crop to drop extra products
         /// </summary>
         /// <value>The ChanceForExtraCrops property gets/sets the value of the double field ChanceForExtraCrops </value>
         public double ChanceForExtraCrops
         {
-            get { return Cast<CropAccessor>()._GetChanceForExtraCrops(); }
-            set { Cast<CropAccessor>()._SetChanceForExtraCrops(value); }
+            get { return AsDynamic._GetChanceForExtraCrops(); }
+            set { AsDynamic._SetChanceForExtraCrops(value); }
         }
 
         /// <summary>
-        /// The current phase of this crops growth cycle
-        /// Typical crops have 5 phases of growth, as visualised by their growing sprites
+        ///     The current phase of this crops growth cycle
+        ///     Typical crops have 5 phases of growth, as visualised by their growing sprites
         /// </summary>
         /// <value>The CurrentPhase property gets/sets the value of the int field currentPhase</value>
         public int CurrentPhase
         {
-            get { return Cast<CropAccessor>()._GetCurrentPhase(); }
-            set { Cast<CropAccessor>()._SetCurrentPhase(value); }
+            get { return AsDynamic._GetCurrentPhase(); }
+            set { AsDynamic._SetCurrentPhase(value); }
         }
 
         /// <summary>
-        /// The current day of the current phase of the Crop.
+        ///     The current day of the current phase of the Crop.
         /// </summary>
         /// <value>The DayOfCurrentPhase property gets/sets the value of the int field dayOfCurrentPhase</value>
         public int DayOfCurrentPhase
         {
-            get { return Cast<CropAccessor>()._GetDayOfCurrentPhase(); }
-            set { Cast<CropAccessor>()._SetCurrentPhase(value); }
+            get { return AsDynamic._GetDayOfCurrentPhase(); }
+            set { AsDynamic._SetCurrentPhase(value); }
         }
 
         /// <summary>
-        /// A list of phase days of the Crop.
+        ///     A list of phase days of the Crop.
         /// </summary>
         /// <value>The PhaseDays property gets/sets the value of the List<int> field phaseDays</value>
         public ProxyList<int> PhaseDays
         {
             get
             {
-                var tmp = Cast<CropAccessor>()._GetPhaseDays();
+                var tmp = AsDynamic._GetPhaseDays();
                 if (tmp == null) return null;
                 return new ProxyList<int>(tmp);
             }
         }
 
         /// <summary>
-        /// Whether this crop is dead or not
+        ///     Whether this crop is dead or not
         /// </summary>
         /// <value>The IsDead property gets/sets the value of the bool field IsDead</value>
         public bool IsDead
         {
-            get { return Cast<CropAccessor>()._GetDead(); }
-            set { Cast<CropAccessor>()._SetDead(true); }
+            get { return AsDynamic._GetDead(); }
+            set { AsDynamic._SetDead(true); }
         }
 
         public bool Flip
         {
-            get { return Cast<CropAccessor>()._GetFlip(); }
-            set { Cast<CropAccessor>()._SetFlip(value); }
+            get { return AsDynamic._GetFlip(); }
+            set { AsDynamic._SetFlip(value); }
         }
 
         public bool ForageCrop
         {
-            get { return Cast<CropAccessor>()._GetForageCrop(); }
-            set { Cast<CropAccessor>()._SetForageCrop(value); }
+            get { return AsDynamic._GetForageCrop(); }
+            set { AsDynamic._SetForageCrop(value); }
         }
 
         /// <summary>
-        /// Whether this crop is fully grown or not
+        ///     Whether this crop is fully grown or not
         /// </summary>
         /// <value>The IsFullyGrown property gets/sets the value of the bool field IsFullyGrown</value>
         public bool IsFullyGrown
         {
-            get { return Cast<CropAccessor>()._GetFullyGrown(); }
-            set { Cast<CropAccessor>()._SetFullyGrown(value); }
+            get { return AsDynamic._GetFullyGrown(); }
+            set { AsDynamic._SetFullyGrown(value); }
         }
 
         public int HarvestMethod
         {
-            get { return Cast<CropAccessor>()._GetHarvestMethod(); }
-            set { Cast<CropAccessor>()._SetHarvestMethod(value); }
+            get { return AsDynamic._GetHarvestMethod(); }
+            set { AsDynamic._SetHarvestMethod(value); }
         }
 
         public int IndexOfHarvest
         {
-            get { return Cast<CropAccessor>()._GetIndexOfHarvest(); }
-            set { Cast<CropAccessor>()._SetIndexOfHarvest(value); }
+            get { return AsDynamic._GetIndexOfHarvest(); }
+            set { AsDynamic._SetIndexOfHarvest(value); }
         }
 
         public int MaxHarvest
         {
-            get { return Cast<CropAccessor>()._GetMaxHarvest(); }
-            set { Cast<CropAccessor>()._SetMaxHarvest(value); }
+            get { return AsDynamic._GetMaxHarvest(); }
+            set { AsDynamic._SetMaxHarvest(value); }
         }
 
         public int MaxHarvestIncreasePerFarmingLevel
         {
-            get { return Cast<CropAccessor>()._GetMaxHarvestIncreasePerFarmingLevel(); }
-            set { Cast<CropAccessor>()._SetMaxHarvestIncreasePerFarmingLevel(value); }
+            get { return AsDynamic._GetMaxHarvestIncreasePerFarmingLevel(); }
+            set { AsDynamic._SetMaxHarvestIncreasePerFarmingLevel(value); }
         }
 
         public int MinHarvest
         {
-            get { return Cast<CropAccessor>()._GetMinHarvest(); }
-            set { Cast<CropAccessor>()._SetMinHarvest(value); }
+            get { return AsDynamic._GetMinHarvest(); }
+            set { AsDynamic._SetMinHarvest(value); }
         }
 
         public int PhaseToShow
         {
-            get { return Cast<CropAccessor>()._GetPhaseToShow(); }
-            set { Cast<CropAccessor>()._SetPhaseToShow(value); }
+            get { return AsDynamic._GetPhaseToShow(); }
+            set { AsDynamic._SetPhaseToShow(value); }
         }
 
         public bool ProgramColored
         {
-            get { return Cast<CropAccessor>()._GetProgramColored(); }
-            set { Cast<CropAccessor>()._SetProgramColored(value); }
+            get { return AsDynamic._GetProgramColored(); }
+            set { AsDynamic._SetProgramColored(value); }
         }
 
         public bool HasRaisedSeeds
         {
-            get { return Cast<CropAccessor>()._GetRaisedSeeds(); }
-            set { Cast<CropAccessor>()._SetRaisedSeeds(value); }
+            get { return AsDynamic._GetRaisedSeeds(); }
+            set { AsDynamic._SetRaisedSeeds(value); }
         }
 
         public int RegrowAfterHarvest
         {
-            get { return Cast<CropAccessor>()._GetRegrowAfterHarvest(); }
-            set { Cast<CropAccessor>()._SetRegrowAfterHarvest(value); }
+            get { return AsDynamic._GetRegrowAfterHarvest(); }
+            set { AsDynamic._SetRegrowAfterHarvest(value); }
         }
 
         public int RowInSpriteSheet
         {
-            get { return Cast<CropAccessor>()._GetRowInSpriteSheet(); }
-            set { Cast<CropAccessor>()._SetRowInSpriteSheet(value); }
+            get { return AsDynamic._GetRowInSpriteSheet(); }
+            set { AsDynamic._SetRowInSpriteSheet(value); }
         }
 
         public ProxyList<string> SeasonsToGrowIn
         {
             get
             {
-                var tmp = Cast<CropAccessor>()._GetSeasonsToGrowIn();
+                var tmp = AsDynamic._GetSeasonsToGrowIn();
                 if (tmp == null) return null;
                 return new ProxyList<string>(tmp);
             }
         }
 
         /// <summary>
-        /// Grows the crop completely instantly
+        ///     Grows the crop completely instantly
         /// </summary>
         public void GrowCompletely()
         {
-            Cast<CropAccessor>()._GrowCompletely();
+            AsDynamic._GrowCompletely();
         }
 
-        public bool Harvest(int xTile, int yTile, HoeDirtAccessor soil)
+        public bool Harvest(int xTile, int yTile, object soil)
         {
-            return Cast<CropAccessor>()._Harvest(xTile, yTile, soil);
+            return AsDynamic._Harvest(xTile, yTile, soil);
         }
 
         public bool Harvest(int xTile, int yTile, HoeDirt soil)
         {
-            return Harvest(xTile, yTile, soil.Cast<HoeDirtAccessor>());
+            return Harvest(xTile, yTile, soil.Underlying);
         }
     }
 }

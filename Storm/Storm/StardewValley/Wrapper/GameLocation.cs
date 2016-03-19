@@ -15,39 +15,79 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using Microsoft.Xna.Framework;
-using Storm.StardewValley.Accessor;
 using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class GameLocation : StaticContextWrapper
     {
-        public GameLocation(StaticContext parent, GameLocationAccessor accessor) :
-            base(parent)
+        public GameLocation(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
 
         public GameLocation()
         {
-
         }
 
-        public ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem> Objects
+        public ValueProxyDictionary<Vector2, object, ObjectItem> Objects
         {
             get
             {
-                var tmp = Cast<GameLocationAccessor>()._GetObjects();
+                var tmp = AsDynamic._GetObjects();
                 if (tmp == null) return null;
-                return new ValueProxyDictionary<Vector2, ObjectAccessor, ObjectItem>(tmp,
-                    o => o == null ? null : new ObjectItem(Parent, o));
+                return new ValueProxyDictionary<Vector2, object, ObjectItem>((IDictionary) tmp, o => o == null ? null : new ObjectItem(Parent, o));
             }
+        }
+
+        public ValueProxyDictionary<Vector2, object, TerrainFeature> TerrainFeatures
+        {
+            get
+            {
+                var tmp = AsDynamic._GetTerrainFeatures();
+                if (tmp == null) return null;
+                return new ValueProxyDictionary<Vector2, object, TerrainFeature>((IDictionary) tmp, tf => tf == null ? null : new TerrainFeature(Parent, tf));
+            }
+        }
+
+        public WrappedProxyList<object, NPC> Characters
+        {
+            get
+            {
+                var tmp = AsDynamic._GetCharacters();
+                if (tmp == null) return null;
+                return new WrappedProxyList<object, NPC>((IList) tmp, c => c == null ? null : new NPC(Parent, c));
+            }
+        }
+
+        public bool IsOutdoors
+        {
+            get { return AsDynamic._GetIsOutdoors(); }
+            set { AsDynamic._SetIsOutdoors(value); }
+        }
+
+        public string Name
+        {
+            get { return AsDynamic._GetName(); }
+            set { AsDynamic._SetName(value); }
+        }
+
+        public Event CurrentEvent
+        {
+            get
+            {
+                var tmp = AsDynamic._GetCurrentEvent();
+                if (tmp == null) return null;
+                return new Event(Parent, tmp);
+            }
+            set { AsDynamic._SetCurrentEvent(value?.Underlying); }
         }
 
         public ObjectItem GetObjectAt(int tileX, int tileY)
         {
-            var key = new Vector2(tileX / Parent.TileSize, tileY / Parent.TileSize);
+            var key = new Vector2(tileX/Parent.TileSize, tileY/Parent.TileSize);
             var objects = Objects;
             if (objects.ContainsKey(key))
             {
@@ -56,64 +96,19 @@ namespace Storm.StardewValley.Wrapper
             return null;
         }
 
-        public ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature> TerrainFeatures
-        {
-            get
-            {
-                var tmp = Cast<GameLocationAccessor>()._GetTerrainFeatures();
-                if (tmp == null) return null;
-                return new ValueProxyDictionary<Vector2, TerrainFeatureAccessor, TerrainFeature>(tmp,
-                    tf => tf == null ? null : new TerrainFeature(Parent, tf));
-            }
-        }
-
-        public WrappedProxyList<NPCAccessor, NPC> Characters
-        {
-            get
-            {
-                var tmp = Cast<GameLocationAccessor>()._GetCharacters();
-                if (tmp == null) return null;
-                return new WrappedProxyList<NPCAccessor, NPC>(tmp,
-                    c => c == null ? null : new NPC(Parent, c));
-            }
-        }
-
         public void AddHoeDirtAt(Vector2 tileLocation)
         {
-            Cast<GameLocationAccessor>()._MakeHoeDirt(tileLocation);
+            AsDynamic._MakeHoeDirt(tileLocation);
         }
 
         public string GetTileProperty(int tileX, int tileY, string propName, string layerName)
         {
-            return Cast<GameLocationAccessor>()._GetTileProperty(tileX, tileY, propName, layerName);
-        }
-
-        public bool IsOutdoors
-        {
-            get { return Cast<GameLocationAccessor>()._GetIsOutdoors(); }
-            set { Cast<GameLocationAccessor>()._SetIsOutdoors(value); }
-        }
-
-        public string Name
-        {
-            get { return Cast<GameLocationAccessor>()._GetName(); }
-            set { Cast<GameLocationAccessor>()._SetName(value); }
-        }
-
-        public Event CurrentEvent
-        {
-            get
-            {
-                var tmp = Cast<GameLocationAccessor>()._GetCurrentEvent();
-                if (tmp == null) return null;
-                return new Event(Parent, tmp);
-            }
-            set { Cast<GameLocationAccessor>()._SetCurrentEvent(value?.Cast<EventAccessor>()); }
+            return AsDynamic._GetTileProperty(tileX, tileY, propName, layerName);
         }
 
         public void GrowWeedGrass(int iterations)
         {
-            Cast<GameLocationAccessor>()._GrowWeedGrass(iterations);
+            AsDynamic._GrowWeedGrass(iterations);
         }
     }
 }

@@ -16,17 +16,16 @@
  */
 
 using System;
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Storm.StardewValley.Accessor;
 using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Farmer : Character
     {
-        public Farmer(StaticContext parent, FarmerAccessor accessor) :
-            base(parent, accessor)
+        public Farmer(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -34,13 +33,13 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public WrappedProxyList<ItemAccessor, Item> Items
+        public WrappedProxyList<object, Item> Items
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetItems();
+                var tmp = AsDynamic._GetItems();
                 if (tmp == null) return null;
-                return new WrappedProxyList<ItemAccessor, Item>(tmp, i => i == null ? null : new Item(Parent, i));
+                return new WrappedProxyList<object, Item>((IList) tmp, i => i == null ? null : new Item(Parent, i));
             }
         }
 
@@ -48,27 +47,27 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetFriendships();
+                var tmp = AsDynamic._GetFriendships();
                 if (tmp == null) return null;
                 return new ProxyDictionary<string, int[]>(tmp);
             }
         }
-        
+
         public ProxyList<string> GetMailReceived
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetMailReceived();
+                var tmp = AsDynamic._GetMailReceived();
                 if (tmp == null) return null;
                 return new ProxyList<string>(tmp);
-            }        
+            }
         }
 
         public ProxyList<string> GetMailForTomorrow
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetMailForTomorrow();
+                var tmp = AsDynamic._GetMailForTomorrow();
                 if (tmp == null) return null;
                 return new ProxyList<string>(tmp);
             }
@@ -76,27 +75,27 @@ namespace Storm.StardewValley.Wrapper
 
         public int TileSlideThreshold
         {
-            get { return Cast<FarmerAccessor>()._GetTileSlideThreshold(); }
-            set { Cast<FarmerAccessor>()._SetTileSlideThreshold(value); }
+            get { return AsDynamic._GetTileSlideThreshold(); }
+            set { AsDynamic._SetTileSlideThreshold(value); }
         }
 
         public int ExperiencePoints
         {
-            get { return Cast<FarmerAccessor>()._GetExperiencePoints(); }
-            set { Cast<FarmerAccessor>()._SetExperiencePoints(value); }
+            get { return AsDynamic._GetExperiencePoints(); }
+            set { AsDynamic._SetExperiencePoints(value); }
         }
 
         public Item ActiveObject
         {
-            get { return new Item(Parent, Cast<FarmerAccessor>()._GetActiveObject()); }
-            set { Cast<FarmerAccessor>()._SetActiveObject(value?.Cast<ItemAccessor>()); }
+            get { return new Item(Parent, AsDynamic._GetActiveObject()); }
+            set { AsDynamic._SetActiveObject(value?.Underlying); }
         }
 
         public ProxyList<int> MovementDirections
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetMovementDirections();
+                var tmp = AsDynamic._GetMovementDirections();
                 if (tmp == null) return null;
                 return new ProxyList<int>(tmp);
             }
@@ -106,915 +105,912 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var arr = Cast<FarmerAccessor>()._GetToolBox();
-                return Array.ConvertAll(arr, i => new Tool(Parent, i));
+                var arr = AsDynamic._GetToolBox();
+                return Array.ConvertAll((object[]) arr, i => new Tool(Parent, i));
             }
-            set { Cast<FarmerAccessor>()._SetToolBox(Array.ConvertAll(value, i => i.Cast<ToolAccessor>())); }
+            set { AsDynamic._SetToolBox(Array.ConvertAll(value, i => i.Underlying)); }
         }
 
         public ObjectItem Cupboard
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetCupboard();
+                var tmp = AsDynamic._GetCupboard();
                 if (tmp == null) return null;
                 return new ObjectItem(Parent, tmp);
             }
-            set
-            {
-                Cast<FarmerAccessor>()._SetCupboard(value?.Cast<ObjectAccessor>());
-            }
+            set { AsDynamic._SetCupboard(value?.Underlying); }
         }
 
         public string FarmName
         {
-            get { return Cast<FarmerAccessor>()._GetFarmName(); }
-            set { Cast<FarmerAccessor>()._SetFarmName(value); }
+            get { return AsDynamic._GetFarmName(); }
+            set { AsDynamic._SetFarmName(value); }
         }
 
         public string FavoriteThing
         {
-            get { return Cast<FarmerAccessor>()._GetFavoriteThing(); }
-            set { Cast<FarmerAccessor>()._SetFavoriteThing(value); }
+            get { return AsDynamic._GetFavoriteThing(); }
+            set { AsDynamic._SetFavoriteThing(value); }
         }
 
         public GameLocation CurrentLocation
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetCurrentLocation();
+                var tmp = AsDynamic._GetCurrentLocation();
                 if (tmp == null) return null;
                 return new GameLocation(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetCurrentLocation(value?.Cast<GameLocationAccessor>()); }
+            set { AsDynamic._SetCurrentLocation(value?.Underlying); }
         }
 
         public long UniqueMultiplayerID
         {
-            get { return Cast<FarmerAccessor>()._GetUniqueMultiplayerID(); }
-            set { Cast<FarmerAccessor>()._SetUniqueMultiplayerID(value); }
+            get { return AsDynamic._GetUniqueMultiplayerID(); }
+            set { AsDynamic._SetUniqueMultiplayerID(value); }
         }
 
         public string TmpLocationName
         {
-            get { return Cast<FarmerAccessor>()._GetTmpLocationName(); }
-            set { Cast<FarmerAccessor>()._SetTmpLocationName(value); }
+            get { return AsDynamic._GetTmpLocationName(); }
+            set { AsDynamic._SetTmpLocationName(value); }
         }
 
         public string PreviousLocationName
         {
-            get { return Cast<FarmerAccessor>()._GetPreviousLocationName(); }
-            set { Cast<FarmerAccessor>()._SetPreviousLocationName(value); }
+            get { return AsDynamic._GetPreviousLocationName(); }
+            set { AsDynamic._SetPreviousLocationName(value); }
         }
 
         public bool CatPerson
         {
-            get { return Cast<FarmerAccessor>()._GetCatPerson(); }
-            set { Cast<FarmerAccessor>()._SetCatPerson(value); }
+            get { return AsDynamic._GetCatPerson(); }
+            set { AsDynamic._SetCatPerson(value); }
         }
 
         public Item MostRecentlyGrabbedItem
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetMostRecentlyGrabbedItem();
+                var tmp = AsDynamic._GetMostRecentlyGrabbedItem();
                 if (tmp == null) return null;
                 return new Item(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetMostRecentlyGrabbedItem(value?.Cast<ItemAccessor>()); }
+            set { AsDynamic._SetMostRecentlyGrabbedItem(value?.Underlying); }
         }
 
         public Item ItemToEat
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetItemToEat();
+                var tmp = AsDynamic._GetItemToEat();
                 if (tmp == null) return null;
                 return new Item(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetItemToEat(value?.Cast<ItemAccessor>()); }
+            set { AsDynamic._SetItemToEat(value?.Underlying); }
         }
 
         public int ToolPower
         {
-            get { return Cast<FarmerAccessor>()._GetToolPower(); }
-            set { Cast<FarmerAccessor>()._SetToolPower(value); }
+            get { return AsDynamic._GetToolPower(); }
+            set { AsDynamic._SetToolPower(value); }
         }
 
         public int ToolHold
         {
-            get { return Cast<FarmerAccessor>()._GetToolHold(); }
-            set { Cast<FarmerAccessor>()._SetToolHold(value); }
+            get { return AsDynamic._GetToolHold(); }
+            set { AsDynamic._SetToolHold(value); }
         }
 
         public Vector2 MostRecentBed
         {
-            get { return Cast<FarmerAccessor>()._GetMostRecentBed(); }
-            set { Cast<FarmerAccessor>()._SetMostRecentBed(value); }
+            get { return AsDynamic._GetMostRecentBed(); }
+            set { AsDynamic._SetMostRecentBed(value); }
         }
 
         public int Shirt
         {
-            get { return Cast<FarmerAccessor>()._GetShirt(); }
-            set { Cast<FarmerAccessor>()._SetShirt(value); }
+            get { return AsDynamic._GetShirt(); }
+            set { AsDynamic._SetShirt(value); }
         }
 
         public int Hair
         {
-            get { return Cast<FarmerAccessor>()._GetHair(); }
-            set { Cast<FarmerAccessor>()._SetHair(value); }
+            get { return AsDynamic._GetHair(); }
+            set { AsDynamic._SetHair(value); }
         }
 
         public int Skin
         {
-            get { return Cast<FarmerAccessor>()._GetSkin(); }
-            set { Cast<FarmerAccessor>()._SetSkin(value); }
+            get { return AsDynamic._GetSkin(); }
+            set { AsDynamic._SetSkin(value); }
         }
 
         public int Accessory
         {
-            get { return Cast<FarmerAccessor>()._GetAccessory(); }
-            set { Cast<FarmerAccessor>()._SetAccessory(value); }
+            get { return AsDynamic._GetAccessory(); }
+            set { AsDynamic._SetAccessory(value); }
         }
 
         public int FacialHair
         {
-            get { return Cast<FarmerAccessor>()._GetFacialHair(); }
-            set { Cast<FarmerAccessor>()._SetFacialHair(value); }
+            get { return AsDynamic._GetFacialHair(); }
+            set { AsDynamic._SetFacialHair(value); }
         }
 
         public int CurrentEyes
         {
-            get { return Cast<FarmerAccessor>()._GetCurrentEyes(); }
-            set { Cast<FarmerAccessor>()._SetCurrentEyes(value); }
+            get { return AsDynamic._GetCurrentEyes(); }
+            set { AsDynamic._SetCurrentEyes(value); }
         }
 
         public int BlinkTimer
         {
-            get { return Cast<FarmerAccessor>()._GetBlinkTimer(); }
-            set { Cast<FarmerAccessor>()._SetBlinkTimer(value); }
+            get { return AsDynamic._GetBlinkTimer(); }
+            set { AsDynamic._SetBlinkTimer(value); }
         }
 
         public int FestivalScore
         {
-            get { return Cast<FarmerAccessor>()._GetFestivalScore(); }
-            set { Cast<FarmerAccessor>()._SetFestivalScore(value); }
+            get { return AsDynamic._GetFestivalScore(); }
+            set { AsDynamic._SetFestivalScore(value); }
         }
 
         public float TemporarySpeedBuff
         {
-            get { return Cast<FarmerAccessor>()._GetTemporarySpeedBuff(); }
-            set { Cast<FarmerAccessor>()._SetTemporarySpeedBuff(value); }
+            get { return AsDynamic._GetTemporarySpeedBuff(); }
+            set { AsDynamic._SetTemporarySpeedBuff(value); }
         }
 
         public Color HairstyleColor
         {
-            get { return Cast<FarmerAccessor>()._GetHairstyleColor(); }
-            set { Cast<FarmerAccessor>()._SetHairstyleColor(value); }
+            get { return AsDynamic._GetHairstyleColor(); }
+            set { AsDynamic._SetHairstyleColor(value); }
         }
 
         public Color PantsColor
         {
-            get { return Cast<FarmerAccessor>()._GetPantsColor(); }
-            set { Cast<FarmerAccessor>()._SetPantsColor(value); }
+            get { return AsDynamic._GetPantsColor(); }
+            set { AsDynamic._SetPantsColor(value); }
         }
 
         public Color NewEyeColor
         {
-            get { return Cast<FarmerAccessor>()._GetNewEyeColor(); }
-            set { Cast<FarmerAccessor>()._SetNewEyeColor(value); }
+            get { return AsDynamic._GetNewEyeColor(); }
+            set { AsDynamic._SetNewEyeColor(value); }
         }
 
         public NPC DancePartner
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetDancePartner();
+                var tmp = AsDynamic._GetDancePartner();
                 if (tmp == null) return null;
                 return new NPC(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetDancePartner(value?.Cast<NPCAccessor>()); }
+            set { AsDynamic._SetDancePartner(value?.Underlying); }
         }
 
         public bool RidingMineElevator
         {
-            get { return Cast<FarmerAccessor>()._GetRidingMineElevator(); }
-            set { Cast<FarmerAccessor>()._SetRidingMineElevator(value); }
+            get { return AsDynamic._GetRidingMineElevator(); }
+            set { AsDynamic._SetRidingMineElevator(value); }
         }
 
         public bool MineMovementDirectionWasUp
         {
-            get { return Cast<FarmerAccessor>()._GetMineMovementDirectionWasUp(); }
-            set { Cast<FarmerAccessor>()._SetMineMovementDirectionWasUp(value); }
+            get { return AsDynamic._GetMineMovementDirectionWasUp(); }
+            set { AsDynamic._SetMineMovementDirectionWasUp(value); }
         }
 
         public bool CameFromDungeon
         {
-            get { return Cast<FarmerAccessor>()._GetCameFromDungeon(); }
-            set { Cast<FarmerAccessor>()._SetCameFromDungeon(value); }
+            get { return AsDynamic._GetCameFromDungeon(); }
+            set { AsDynamic._SetCameFromDungeon(value); }
         }
 
         public bool ReadyConfirmation
         {
-            get { return Cast<FarmerAccessor>()._GetReadyConfirmation(); }
-            set { Cast<FarmerAccessor>()._SetReadyConfirmation(value); }
+            get { return AsDynamic._GetReadyConfirmation(); }
+            set { AsDynamic._SetReadyConfirmation(value); }
         }
 
         public bool Exhausted
         {
-            get { return Cast<FarmerAccessor>()._GetExhausted(); }
-            set { Cast<FarmerAccessor>()._SetExhausted(value); }
+            get { return AsDynamic._GetExhausted(); }
+            set { AsDynamic._SetExhausted(value); }
         }
 
         public int DeepestMineLevel
         {
-            get { return Cast<FarmerAccessor>()._GetDeepestMineLevel(); }
-            set { Cast<FarmerAccessor>()._SetDeepestMineLevel(value); }
+            get { return AsDynamic._GetDeepestMineLevel(); }
+            set { AsDynamic._SetDeepestMineLevel(value); }
         }
 
         public int CurrentToolIndex
         {
-            get { return Cast<FarmerAccessor>()._GetCurrentToolIndex(); }
-            set { Cast<FarmerAccessor>()._SetCurrentToolIndex(value); }
+            get { return AsDynamic._GetCurrentToolIndex(); }
+            set { AsDynamic._SetCurrentToolIndex(value); }
         }
 
         public int WoodPieces
         {
-            get { return Cast<FarmerAccessor>()._GetWoodPieces(); }
-            set { Cast<FarmerAccessor>()._SetWoodPieces(value); }
+            get { return AsDynamic._GetWoodPieces(); }
+            set { AsDynamic._SetWoodPieces(value); }
         }
 
         public int StonePieces
         {
-            get { return Cast<FarmerAccessor>()._GetStonePieces(); }
-            set { Cast<FarmerAccessor>()._SetStonePieces(value); }
+            get { return AsDynamic._GetStonePieces(); }
+            set { AsDynamic._SetStonePieces(value); }
         }
 
         public int CopperPieces
         {
-            get { return Cast<FarmerAccessor>()._GetCopperPieces(); }
-            set { Cast<FarmerAccessor>()._SetCopperPieces(value); }
+            get { return AsDynamic._GetCopperPieces(); }
+            set { AsDynamic._SetCopperPieces(value); }
         }
 
         public int IronPieces
         {
-            get { return Cast<FarmerAccessor>()._GetIronPieces(); }
-            set { Cast<FarmerAccessor>()._SetIronPieces(value); }
+            get { return AsDynamic._GetIronPieces(); }
+            set { AsDynamic._SetIronPieces(value); }
         }
 
         public int CoalPieces
         {
-            get { return Cast<FarmerAccessor>()._GetCoalPieces(); }
-            set { Cast<FarmerAccessor>()._SetCoalPieces(value); }
+            get { return AsDynamic._GetCoalPieces(); }
+            set { AsDynamic._SetCoalPieces(value); }
         }
 
         public int GoldPieces
         {
-            get { return Cast<FarmerAccessor>()._GetGoldPieces(); }
-            set { Cast<FarmerAccessor>()._SetGoldPieces(value); }
+            get { return AsDynamic._GetGoldPieces(); }
+            set { AsDynamic._SetGoldPieces(value); }
         }
 
         public int IridiumPieces
         {
-            get { return Cast<FarmerAccessor>()._GetIridiumPieces(); }
-            set { Cast<FarmerAccessor>()._SetIridiumPieces(value); }
+            get { return AsDynamic._GetIridiumPieces(); }
+            set { AsDynamic._SetIridiumPieces(value); }
         }
 
         public int QuartzPieces
         {
-            get { return Cast<FarmerAccessor>()._GetQuartzPieces(); }
-            set { Cast<FarmerAccessor>()._SetQuartzPieces(value); }
+            get { return AsDynamic._GetQuartzPieces(); }
+            set { AsDynamic._SetQuartzPieces(value); }
         }
 
         public int CaveChoice
         {
-            get { return Cast<FarmerAccessor>()._GetCaveChoice(); }
-            set { Cast<FarmerAccessor>()._SetCaveChoice(value); }
+            get { return AsDynamic._GetCaveChoice(); }
+            set { AsDynamic._SetCaveChoice(value); }
         }
 
         public int Feed
         {
-            get { return Cast<FarmerAccessor>()._GetFeed(); }
-            set { Cast<FarmerAccessor>()._SetFeed(value); }
+            get { return AsDynamic._GetFeed(); }
+            set { AsDynamic._SetFeed(value); }
         }
 
         public int FarmingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetFarmingLevel(); }
-            set { Cast<FarmerAccessor>()._SetFarmingLevel(value); }
+            get { return AsDynamic._GetFarmingLevel(); }
+            set { AsDynamic._SetFarmingLevel(value); }
         }
 
         public int MiningLevel
         {
-            get { return Cast<FarmerAccessor>()._GetMiningLevel(); }
-            set { Cast<FarmerAccessor>()._SetMiningLevel(value); }
+            get { return AsDynamic._GetMiningLevel(); }
+            set { AsDynamic._SetMiningLevel(value); }
         }
 
         public int CombatLevel
         {
-            get { return Cast<FarmerAccessor>()._GetCombatLevel(); }
-            set { Cast<FarmerAccessor>()._SetCombatLevel(value); }
+            get { return AsDynamic._GetCombatLevel(); }
+            set { AsDynamic._SetCombatLevel(value); }
         }
 
         public int ForagingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetForagingLevel(); }
-            set { Cast<FarmerAccessor>()._SetForagingLevel(value); }
+            get { return AsDynamic._GetForagingLevel(); }
+            set { AsDynamic._SetForagingLevel(value); }
         }
 
         public int FishingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetFishingLevel(); }
-            set { Cast<FarmerAccessor>()._SetFishingLevel(value); }
+            get { return AsDynamic._GetFishingLevel(); }
+            set { AsDynamic._SetFishingLevel(value); }
         }
 
         public int LuckLevel
         {
-            get { return Cast<FarmerAccessor>()._GetLuckLevel(); }
-            set { Cast<FarmerAccessor>()._SetLuckLevel(value); }
+            get { return AsDynamic._GetLuckLevel(); }
+            set { AsDynamic._SetLuckLevel(value); }
         }
 
         public int NewSkillPointsToSpend
         {
-            get { return Cast<FarmerAccessor>()._GetNewSkillPointsToSpend(); }
-            set { Cast<FarmerAccessor>()._SetNewSkillPointsToSpend(value); }
+            get { return AsDynamic._GetNewSkillPointsToSpend(); }
+            set { AsDynamic._SetNewSkillPointsToSpend(value); }
         }
 
         public int AddedFarmingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedFarmingLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedFarmingLevel(value); }
+            get { return AsDynamic._GetAddedFarmingLevel(); }
+            set { AsDynamic._SetAddedFarmingLevel(value); }
         }
 
         public int AddedMiningLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedMiningLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedMiningLevel(value); }
+            get { return AsDynamic._GetAddedMiningLevel(); }
+            set { AsDynamic._SetAddedMiningLevel(value); }
         }
 
         public int AddedCombatLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedCombatLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedCombatLevel(value); }
+            get { return AsDynamic._GetAddedCombatLevel(); }
+            set { AsDynamic._SetAddedCombatLevel(value); }
         }
 
         public int AddedForagingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedForagingLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedForagingLevel(value); }
+            get { return AsDynamic._GetAddedForagingLevel(); }
+            set { AsDynamic._SetAddedForagingLevel(value); }
         }
 
         public int AddedFishingLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedFishingLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedFishingLevel(value); }
+            get { return AsDynamic._GetAddedFishingLevel(); }
+            set { AsDynamic._SetAddedFishingLevel(value); }
         }
 
         public int AddedLuckLevel
         {
-            get { return Cast<FarmerAccessor>()._GetAddedLuckLevel(); }
-            set { Cast<FarmerAccessor>()._SetAddedLuckLevel(value); }
+            get { return AsDynamic._GetAddedLuckLevel(); }
+            set { AsDynamic._SetAddedLuckLevel(value); }
         }
 
         public int MaxStamina
         {
-            get { return Cast<FarmerAccessor>()._GetMaxStamina(); }
-            set { Cast<FarmerAccessor>()._SetMaxStamina(value); }
+            get { return AsDynamic._GetMaxStamina(); }
+            set { AsDynamic._SetMaxStamina(value); }
         }
 
         public int MaxItems
         {
-            get { return Cast<FarmerAccessor>()._GetMaxItems(); }
-            set { Cast<FarmerAccessor>()._SetMaxItems(value); }
+            get { return AsDynamic._GetMaxItems(); }
+            set { AsDynamic._SetMaxItems(value); }
         }
 
         public float Stamina
         {
-            get { return Cast<FarmerAccessor>()._GetStamina(); }
-            set { Cast<FarmerAccessor>()._SetStamina(value); }
+            get { return AsDynamic._GetStamina(); }
+            set { AsDynamic._SetStamina(value); }
         }
 
         public int Resilience
         {
-            get { return Cast<FarmerAccessor>()._GetResilience(); }
-            set { Cast<FarmerAccessor>()._SetResilience(value); }
+            get { return AsDynamic._GetResilience(); }
+            set { AsDynamic._SetResilience(value); }
         }
 
         public int Attack
         {
-            get { return Cast<FarmerAccessor>()._GetAttack(); }
-            set { Cast<FarmerAccessor>()._SetAttack(value); }
+            get { return AsDynamic._GetAttack(); }
+            set { AsDynamic._SetAttack(value); }
         }
 
         public int Immunity
         {
-            get { return Cast<FarmerAccessor>()._GetImmunity(); }
-            set { Cast<FarmerAccessor>()._SetImmunity(value); }
+            get { return AsDynamic._GetImmunity(); }
+            set { AsDynamic._SetImmunity(value); }
         }
 
         public float AttackIncreaseModifier
         {
-            get { return Cast<FarmerAccessor>()._GetAttackIncreaseModifier(); }
-            set { Cast<FarmerAccessor>()._SetAttackIncreaseModifier(value); }
+            get { return AsDynamic._GetAttackIncreaseModifier(); }
+            set { AsDynamic._SetAttackIncreaseModifier(value); }
         }
 
         public float KnockbackModifier
         {
-            get { return Cast<FarmerAccessor>()._GetKnockbackModifier(); }
-            set { Cast<FarmerAccessor>()._SetKnockbackModifier(value); }
+            get { return AsDynamic._GetKnockbackModifier(); }
+            set { AsDynamic._SetKnockbackModifier(value); }
         }
 
         public float WeaponSpeedModifier
         {
-            get { return Cast<FarmerAccessor>()._GetWeaponSpeedModifier(); }
-            set { Cast<FarmerAccessor>()._SetWeaponSpeedModifier(value); }
+            get { return AsDynamic._GetWeaponSpeedModifier(); }
+            set { AsDynamic._SetWeaponSpeedModifier(value); }
         }
 
         public float CritChanceModifier
         {
-            get { return Cast<FarmerAccessor>()._GetCritChanceModifier(); }
-            set { Cast<FarmerAccessor>()._SetCritChanceModifier(value); }
+            get { return AsDynamic._GetCritChanceModifier(); }
+            set { AsDynamic._SetCritChanceModifier(value); }
         }
 
         public float CritPowerModifier
         {
-            get { return Cast<FarmerAccessor>()._GetCritPowerModifier(); }
-            set { Cast<FarmerAccessor>()._SetCritPowerModifier(value); }
+            get { return AsDynamic._GetCritPowerModifier(); }
+            set { AsDynamic._SetCritPowerModifier(value); }
         }
 
         public float WeaponPrecisionModifier
         {
-            get { return Cast<FarmerAccessor>()._GetWeaponPrecisionModifier(); }
-            set { Cast<FarmerAccessor>()._SetWeaponPrecisionModifier(value); }
+            get { return AsDynamic._GetWeaponPrecisionModifier(); }
+            set { AsDynamic._SetWeaponPrecisionModifier(value); }
         }
 
         public int Money
         {
-            get { return Cast<FarmerAccessor>()._GetMoney(); }
-            set { Cast<FarmerAccessor>()._SetMoney(value); }
+            get { return AsDynamic._GetMoney(); }
+            set { AsDynamic._SetMoney(value); }
         }
 
         public int ClubCoins
         {
-            get { return Cast<FarmerAccessor>()._GetClubCoins(); }
-            set { Cast<FarmerAccessor>()._SetClubCoins(value); }
+            get { return AsDynamic._GetClubCoins(); }
+            set { AsDynamic._SetClubCoins(value); }
         }
 
         public uint TotalMoneyEarned
         {
-            get { return Cast<FarmerAccessor>()._GetTotalMoneyEarned(); }
-            set { Cast<FarmerAccessor>()._SetTotalMoneyEarned(value); }
+            get { return AsDynamic._GetTotalMoneyEarned(); }
+            set { AsDynamic._SetTotalMoneyEarned(value); }
         }
 
         public uint MillisecondsPlayed
         {
-            get { return Cast<FarmerAccessor>()._GetMillisecondsPlayed(); }
-            set { Cast<FarmerAccessor>()._SetMillisecondsPlayed(value); }
+            get { return AsDynamic._GetMillisecondsPlayed(); }
+            set { AsDynamic._SetMillisecondsPlayed(value); }
         }
 
         public Tool ToolBeingUpgraded
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetToolBeingUpgraded();
+                var tmp = AsDynamic._GetToolBeingUpgraded();
                 if (tmp == null) return null;
                 return new Tool(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetToolBeingUpgraded(value?.Cast<ToolAccessor>()); }
+            set { AsDynamic._SetToolBeingUpgraded(value?.Underlying); }
         }
 
         public int DaysLeftForToolUpgrade
         {
-            get { return Cast<FarmerAccessor>()._GetDaysLeftForToolUpgrade(); }
-            set { Cast<FarmerAccessor>()._SetDaysLeftForToolUpgrade(value); }
+            get { return AsDynamic._GetDaysLeftForToolUpgrade(); }
+            set { AsDynamic._SetDaysLeftForToolUpgrade(value); }
         }
 
         public float TimeOfLastPositionPacket
         {
-            get { return Cast<FarmerAccessor>()._GetTimeOfLastPositionPacket(); }
-            set { Cast<FarmerAccessor>()._SetTimeOfLastPositionPacket(value); }
+            get { return AsDynamic._GetTimeOfLastPositionPacket(); }
+            set { AsDynamic._SetTimeOfLastPositionPacket(value); }
         }
 
         public int NumUpdatesSinceLastDraw
         {
-            get { return Cast<FarmerAccessor>()._GetNumUpdatesSinceLastDraw(); }
-            set { Cast<FarmerAccessor>()._SetNumUpdatesSinceLastDraw(value); }
+            get { return AsDynamic._GetNumUpdatesSinceLastDraw(); }
+            set { AsDynamic._SetNumUpdatesSinceLastDraw(value); }
         }
 
         public int HouseUpgradeLevel
         {
-            get { return Cast<FarmerAccessor>()._GetHouseUpgradeLevel(); }
-            set { Cast<FarmerAccessor>()._SetHouseUpgradeLevel(value); }
+            get { return AsDynamic._GetHouseUpgradeLevel(); }
+            set { AsDynamic._SetHouseUpgradeLevel(value); }
         }
 
         public int DaysUntilHouseUpgrade
         {
-            get { return Cast<FarmerAccessor>()._GetDaysUntilHouseUpgrade(); }
-            set { Cast<FarmerAccessor>()._SetDaysUntilHouseUpgrade(value); }
+            get { return AsDynamic._GetDaysUntilHouseUpgrade(); }
+            set { AsDynamic._SetDaysUntilHouseUpgrade(value); }
         }
 
         public int CoopUpgradeLevel
         {
-            get { return Cast<FarmerAccessor>()._GetCoopUpgradeLevel(); }
-            set { Cast<FarmerAccessor>()._SetCoopUpgradeLevel(value); }
+            get { return AsDynamic._GetCoopUpgradeLevel(); }
+            set { AsDynamic._SetCoopUpgradeLevel(value); }
         }
 
         public int BarnUpgradeLevel
         {
-            get { return Cast<FarmerAccessor>()._GetBarnUpgradeLevel(); }
-            set { Cast<FarmerAccessor>()._SetBarnUpgradeLevel(value); }
+            get { return AsDynamic._GetBarnUpgradeLevel(); }
+            set { AsDynamic._SetBarnUpgradeLevel(value); }
         }
 
         public bool HasGreenhouse
         {
-            get { return Cast<FarmerAccessor>()._GetHasGreenhouse(); }
-            set { Cast<FarmerAccessor>()._SetHasGreenhouse(value); }
+            get { return AsDynamic._GetHasGreenhouse(); }
+            set { AsDynamic._SetHasGreenhouse(value); }
         }
 
         public bool HasRustyKey
         {
-            get { return Cast<FarmerAccessor>()._GetHasRustyKey(); }
-            set { Cast<FarmerAccessor>()._SetHasRustyKey(value); }
+            get { return AsDynamic._GetHasRustyKey(); }
+            set { AsDynamic._SetHasRustyKey(value); }
         }
 
         public bool HasSkullKey
         {
-            get { return Cast<FarmerAccessor>()._GetHasSkullKey(); }
-            set { Cast<FarmerAccessor>()._SetHasSkullKey(value); }
+            get { return AsDynamic._GetHasSkullKey(); }
+            set { AsDynamic._SetHasSkullKey(value); }
         }
 
         public bool HasUnlockedSkullDoor
         {
-            get { return Cast<FarmerAccessor>()._GetHasUnlockedSkullDoor(); }
-            set { Cast<FarmerAccessor>()._SetHasUnlockedSkullDoor(value); }
+            get { return AsDynamic._GetHasUnlockedSkullDoor(); }
+            set { AsDynamic._SetHasUnlockedSkullDoor(value); }
         }
 
         public int MagneticRadius
         {
-            get { return Cast<FarmerAccessor>()._GetMagneticRadius(); }
-            set { Cast<FarmerAccessor>()._SetMagneticRadius(value); }
+            get { return AsDynamic._GetMagneticRadius(); }
+            set { AsDynamic._SetMagneticRadius(value); }
         }
 
         public int TemporaryInvincibilityTimer
         {
-            get { return Cast<FarmerAccessor>()._GetTemporaryInvincibilityTimer(); }
-            set { Cast<FarmerAccessor>()._SetTemporaryInvincibilityTimer(value); }
+            get { return AsDynamic._GetTemporaryInvincibilityTimer(); }
+            set { AsDynamic._SetTemporaryInvincibilityTimer(value); }
         }
 
         public float Rotation
         {
-            get { return Cast<FarmerAccessor>()._GetRotation(); }
-            set { Cast<FarmerAccessor>()._SetRotation(value); }
+            get { return AsDynamic._GetRotation(); }
+            set { AsDynamic._SetRotation(value); }
         }
 
         public int CraftingTime
         {
-            get { return Cast<FarmerAccessor>()._GetCraftingTime(); }
-            set { Cast<FarmerAccessor>()._SetCraftingTime(value); }
+            get { return AsDynamic._GetCraftingTime(); }
+            set { AsDynamic._SetCraftingTime(value); }
         }
 
         public int RaftPuddleCounter
         {
-            get { return Cast<FarmerAccessor>()._GetRaftPuddleCounter(); }
-            set { Cast<FarmerAccessor>()._SetRaftPuddleCounter(value); }
+            get { return AsDynamic._GetRaftPuddleCounter(); }
+            set { AsDynamic._SetRaftPuddleCounter(value); }
         }
 
         public int RaftBobCounter
         {
-            get { return Cast<FarmerAccessor>()._GetRaftBobCounter(); }
-            set { Cast<FarmerAccessor>()._SetRaftBobCounter(value); }
+            get { return AsDynamic._GetRaftBobCounter(); }
+            set { AsDynamic._SetRaftBobCounter(value); }
         }
 
         public int Health
         {
-            get { return Cast<FarmerAccessor>()._GetHealth(); }
-            set { Cast<FarmerAccessor>()._SetHealth(value); }
+            get { return AsDynamic._GetHealth(); }
+            set { AsDynamic._SetHealth(value); }
         }
 
         public int MaxHealth
         {
-            get { return Cast<FarmerAccessor>()._GetMaxHealth(); }
-            set { Cast<FarmerAccessor>()._SetMaxHealth(value); }
+            get { return AsDynamic._GetMaxHealth(); }
+            set { AsDynamic._SetMaxHealth(value); }
         }
 
         public int TimesReachedMineBottom
         {
-            get { return Cast<FarmerAccessor>()._GetTimesReachedMineBottom(); }
-            set { Cast<FarmerAccessor>()._SetTimesReachedMineBottom(value); }
+            get { return AsDynamic._GetTimesReachedMineBottom(); }
+            set { AsDynamic._SetTimesReachedMineBottom(value); }
         }
 
         public Vector2 Jitter
         {
-            get { return Cast<FarmerAccessor>()._GetJitter(); }
-            set { Cast<FarmerAccessor>()._SetJitter(value); }
+            get { return AsDynamic._GetJitter(); }
+            set { AsDynamic._SetJitter(value); }
         }
 
         public Vector2 LastPosition
         {
-            get { return Cast<FarmerAccessor>()._GetLastPosition(); }
-            set { Cast<FarmerAccessor>()._SetLastPosition(value); }
+            get { return AsDynamic._GetLastPosition(); }
+            set { AsDynamic._SetLastPosition(value); }
         }
 
         public Vector2 LastGrabTile
         {
-            get { return Cast<FarmerAccessor>()._GetLastGrabTile(); }
-            set { Cast<FarmerAccessor>()._SetLastGrabTile(value); }
+            get { return AsDynamic._GetLastGrabTile(); }
+            set { AsDynamic._SetLastGrabTile(value); }
         }
 
         public float JitterStrength
         {
-            get { return Cast<FarmerAccessor>()._GetJitterStrength(); }
-            set { Cast<FarmerAccessor>()._SetJitterStrength(value); }
+            get { return AsDynamic._GetJitterStrength(); }
+            set { AsDynamic._SetJitterStrength(value); }
         }
 
         public float XOffset
         {
-            get { return Cast<FarmerAccessor>()._GetXOffset(); }
-            set { Cast<FarmerAccessor>()._SetXOffset(value); }
+            get { return AsDynamic._GetXOffset(); }
+            set { AsDynamic._SetXOffset(value); }
         }
 
         public bool IsMale
         {
-            get { return Cast<FarmerAccessor>()._GetIsMale(); }
-            set { Cast<FarmerAccessor>()._SetIsMale(value); }
+            get { return AsDynamic._GetIsMale(); }
+            set { AsDynamic._SetIsMale(value); }
         }
 
         public bool CanMove
         {
-            get { return Cast<FarmerAccessor>()._GetCanMove(); }
-            set { Cast<FarmerAccessor>()._SetCanMove(value); }
+            get { return AsDynamic._GetCanMove(); }
+            set { AsDynamic._SetCanMove(value); }
         }
 
         public bool Running
         {
-            get { return Cast<FarmerAccessor>()._GetRunning(); }
-            set { Cast<FarmerAccessor>()._SetRunning(value); }
+            get { return AsDynamic._GetRunning(); }
+            set { AsDynamic._SetRunning(value); }
         }
 
         public bool UsingTool
         {
-            get { return Cast<FarmerAccessor>()._GetUsingTool(); }
-            set { Cast<FarmerAccessor>()._SetUsingTool(value); }
+            get { return AsDynamic._GetUsingTool(); }
+            set { AsDynamic._SetUsingTool(value); }
         }
 
         public bool ForceTimePass
         {
-            get { return Cast<FarmerAccessor>()._GetForceTimePass(); }
-            set { Cast<FarmerAccessor>()._SetForceTimePass(value); }
+            get { return AsDynamic._GetForceTimePass(); }
+            set { AsDynamic._SetForceTimePass(value); }
         }
 
         public bool IsRafting
         {
-            get { return Cast<FarmerAccessor>()._GetIsRafting(); }
-            set { Cast<FarmerAccessor>()._SetIsRafting(value); }
+            get { return AsDynamic._GetIsRafting(); }
+            set { AsDynamic._SetIsRafting(value); }
         }
 
         public bool UsingSlingshot
         {
-            get { return Cast<FarmerAccessor>()._GetUsingSlingshot(); }
-            set { Cast<FarmerAccessor>()._SetUsingSlingshot(value); }
+            get { return AsDynamic._GetUsingSlingshot(); }
+            set { AsDynamic._SetUsingSlingshot(value); }
         }
 
         public bool BathingClothes
         {
-            get { return Cast<FarmerAccessor>()._GetBathingClothes(); }
-            set { Cast<FarmerAccessor>()._SetBathingClothes(value); }
+            get { return AsDynamic._GetBathingClothes(); }
+            set { AsDynamic._SetBathingClothes(value); }
         }
 
         public bool CanOnlyWalk
         {
-            get { return Cast<FarmerAccessor>()._GetCanOnlyWalk(); }
-            set { Cast<FarmerAccessor>()._SetCanOnlyWalk(value); }
+            get { return AsDynamic._GetCanOnlyWalk(); }
+            set { AsDynamic._SetCanOnlyWalk(value); }
         }
 
         public bool TemporarilyInvincible
         {
-            get { return Cast<FarmerAccessor>()._GetTemporarilyInvincible(); }
-            set { Cast<FarmerAccessor>()._SetTemporarilyInvincible(value); }
+            get { return AsDynamic._GetTemporarilyInvincible(); }
+            set { AsDynamic._SetTemporarilyInvincible(value); }
         }
 
         public bool HasBusTicket
         {
-            get { return Cast<FarmerAccessor>()._GetHasBusTicket(); }
-            set { Cast<FarmerAccessor>()._SetHasBusTicket(value); }
+            get { return AsDynamic._GetHasBusTicket(); }
+            set { AsDynamic._SetHasBusTicket(value); }
         }
 
         public bool StardewHero
         {
-            get { return Cast<FarmerAccessor>()._GetStardewHero(); }
-            set { Cast<FarmerAccessor>()._SetStardewHero(value); }
+            get { return AsDynamic._GetStardewHero(); }
+            set { AsDynamic._SetStardewHero(value); }
         }
 
         public bool HasClubCard
         {
-            get { return Cast<FarmerAccessor>()._GetHasClubCard(); }
-            set { Cast<FarmerAccessor>()._SetHasClubCard(value); }
+            get { return AsDynamic._GetHasClubCard(); }
+            set { AsDynamic._SetHasClubCard(value); }
         }
 
         public bool HasSpecialCharm
         {
-            get { return Cast<FarmerAccessor>()._GetHasSpecialCharm(); }
-            set { Cast<FarmerAccessor>()._SetHasSpecialCharm(value); }
+            get { return AsDynamic._GetHasSpecialCharm(); }
+            set { AsDynamic._SetHasSpecialCharm(value); }
         }
 
         public bool CanReleaseTool
         {
-            get { return Cast<FarmerAccessor>()._GetCanReleaseTool(); }
-            set { Cast<FarmerAccessor>()._SetCanReleaseTool(value); }
+            get { return AsDynamic._GetCanReleaseTool(); }
+            set { AsDynamic._SetCanReleaseTool(value); }
         }
 
         public bool IsCrafting
         {
-            get { return Cast<FarmerAccessor>()._GetIsCrafting(); }
-            set { Cast<FarmerAccessor>()._SetIsCrafting(value); }
+            get { return AsDynamic._GetIsCrafting(); }
+            set { AsDynamic._SetIsCrafting(value); }
         }
 
         public Rectangle TemporaryImpassableTile
         {
-            get { return Cast<FarmerAccessor>()._GetTemporaryImpassableTile(); }
-            set { Cast<FarmerAccessor>()._SetTemporaryImpassableTile(value); }
+            get { return AsDynamic._GetTemporaryImpassableTile(); }
+            set { AsDynamic._SetTemporaryImpassableTile(value); }
         }
 
         public bool CanUnderstandDwarves
         {
-            get { return Cast<FarmerAccessor>()._GetCanUnderstandDwarves(); }
-            set { Cast<FarmerAccessor>()._SetCanUnderstandDwarves(value); }
+            get { return AsDynamic._GetCanUnderstandDwarves(); }
+            set { AsDynamic._SetCanUnderstandDwarves(value); }
         }
 
         public Vector2 PositionBeforeEvent
         {
-            get { return Cast<FarmerAccessor>()._GetPositionBeforeEvent(); }
-            set { Cast<FarmerAccessor>()._SetPositionBeforeEvent(value); }
+            get { return AsDynamic._GetPositionBeforeEvent(); }
+            set { AsDynamic._SetPositionBeforeEvent(value); }
         }
 
         public Vector2 RemotePosition
         {
-            get { return Cast<FarmerAccessor>()._GetRemotePosition(); }
-            set { Cast<FarmerAccessor>()._SetRemotePosition(value); }
+            get { return AsDynamic._GetRemotePosition(); }
+            set { AsDynamic._SetRemotePosition(value); }
         }
 
         public int OrientationBeforeEvent
         {
-            get { return Cast<FarmerAccessor>()._GetOrientationBeforeEvent(); }
-            set { Cast<FarmerAccessor>()._SetOrientationBeforeEvent(value); }
+            get { return AsDynamic._GetOrientationBeforeEvent(); }
+            set { AsDynamic._SetOrientationBeforeEvent(value); }
         }
 
         public int SwimTimer
         {
-            get { return Cast<FarmerAccessor>()._GetSwimTimer(); }
-            set { Cast<FarmerAccessor>()._SetSwimTimer(value); }
+            get { return AsDynamic._GetSwimTimer(); }
+            set { AsDynamic._SetSwimTimer(value); }
         }
 
         public int TimerSinceLastMovement
         {
-            get { return Cast<FarmerAccessor>()._GetTimerSinceLastMovement(); }
-            set { Cast<FarmerAccessor>()._SetTimerSinceLastMovement(value); }
+            get { return AsDynamic._GetTimerSinceLastMovement(); }
+            set { AsDynamic._SetTimerSinceLastMovement(value); }
         }
 
         public int NoMovementPause
         {
-            get { return Cast<FarmerAccessor>()._GetNoMovementPause(); }
-            set { Cast<FarmerAccessor>()._SetNoMovementPause(value); }
+            get { return AsDynamic._GetNoMovementPause(); }
+            set { AsDynamic._SetNoMovementPause(value); }
         }
 
         public int FreezePause
         {
-            get { return Cast<FarmerAccessor>()._GetFreezePause(); }
-            set { Cast<FarmerAccessor>()._SetFreezePause(value); }
+            get { return AsDynamic._GetFreezePause(); }
+            set { AsDynamic._SetFreezePause(value); }
         }
 
         public float YOffset
         {
-            get { return Cast<FarmerAccessor>()._GetYOffset(); }
-            set { Cast<FarmerAccessor>()._SetYOffset(value); }
+            get { return AsDynamic._GetYOffset(); }
+            set { AsDynamic._SetYOffset(value); }
         }
 
         public string Spouse
         {
-            get { return Cast<FarmerAccessor>()._GetSpouse(); }
-            set { Cast<FarmerAccessor>()._SetSpouse(value); }
+            get { return AsDynamic._GetSpouse(); }
+            set { AsDynamic._SetSpouse(value); }
         }
 
         public string DateStringForSaveGame
         {
-            get { return Cast<FarmerAccessor>()._GetDateStringForSaveGame(); }
-            set { Cast<FarmerAccessor>()._SetDateStringForSaveGame(value); }
+            get { return AsDynamic._GetDateStringForSaveGame(); }
+            set { AsDynamic._SetDateStringForSaveGame(value); }
         }
 
         public int OverallsColor
         {
-            get { return Cast<FarmerAccessor>()._GetOverallsColor(); }
-            set { Cast<FarmerAccessor>()._SetOverallsColor(value); }
+            get { return AsDynamic._GetOverallsColor(); }
+            set { AsDynamic._SetOverallsColor(value); }
         }
 
         public int ShirtColor
         {
-            get { return Cast<FarmerAccessor>()._GetShirtColor(); }
-            set { Cast<FarmerAccessor>()._SetShirtColor(value); }
+            get { return AsDynamic._GetShirtColor(); }
+            set { AsDynamic._SetShirtColor(value); }
         }
 
         public int SkinColor
         {
-            get { return Cast<FarmerAccessor>()._GetSkinColor(); }
-            set { Cast<FarmerAccessor>()._SetSkinColor(value); }
+            get { return AsDynamic._GetSkinColor(); }
+            set { AsDynamic._SetSkinColor(value); }
         }
 
         public int HairColor
         {
-            get { return Cast<FarmerAccessor>()._GetHairColor(); }
-            set { Cast<FarmerAccessor>()._SetHairColor(value); }
+            get { return AsDynamic._GetHairColor(); }
+            set { AsDynamic._SetHairColor(value); }
         }
 
         public int EyeColor
         {
-            get { return Cast<FarmerAccessor>()._GetEyeColor(); }
-            set { Cast<FarmerAccessor>()._SetEyeColor(value); }
+            get { return AsDynamic._GetEyeColor(); }
+            set { AsDynamic._SetEyeColor(value); }
         }
 
         public Vector2 ArmOffset
         {
-            get { return Cast<FarmerAccessor>()._GetArmOffset(); }
-            set { Cast<FarmerAccessor>()._SetArmOffset(value); }
+            get { return AsDynamic._GetArmOffset(); }
+            set { AsDynamic._SetArmOffset(value); }
         }
 
         public string Bobber
         {
-            get { return Cast<FarmerAccessor>()._GetBobber(); }
-            set { Cast<FarmerAccessor>()._SetBobber(value); }
+            get { return AsDynamic._GetBobber(); }
+            set { AsDynamic._SetBobber(value); }
         }
 
         public ContentManager FarmerTextureManager
         {
-            get { return Cast<FarmerAccessor>()._GetFarmerTextureManager(); }
-            set { Cast<FarmerAccessor>()._SetFarmerTextureManager(value); }
+            get { return AsDynamic._GetFarmerTextureManager(); }
+            set { AsDynamic._SetFarmerTextureManager(value); }
         }
 
         public int SaveTime
         {
-            get { return Cast<FarmerAccessor>()._GetSaveTime(); }
-            set { Cast<FarmerAccessor>()._SetSaveTime(value); }
+            get { return AsDynamic._GetSaveTime(); }
+            set { AsDynamic._SetSaveTime(value); }
         }
 
         public int DaysMarried
         {
-            get { return Cast<FarmerAccessor>()._GetDaysMarried(); }
-            set { Cast<FarmerAccessor>()._SetDaysMarried(value); }
+            get { return AsDynamic._GetDaysMarried(); }
+            set { AsDynamic._SetDaysMarried(value); }
         }
 
         public int ToolPitchAccumulator
         {
-            get { return Cast<FarmerAccessor>()._GetToolPitchAccumulator(); }
-            set { Cast<FarmerAccessor>()._SetToolPitchAccumulator(value); }
+            get { return AsDynamic._GetToolPitchAccumulator(); }
+            set { AsDynamic._SetToolPitchAccumulator(value); }
         }
 
         public int CharacterCollisionTimer
         {
-            get { return Cast<FarmerAccessor>()._GetCharactercollisionTimer(); }
-            set { Cast<FarmerAccessor>()._SetCharactercollisionTimer(value); }
+            get { return AsDynamic._GetCharactercollisionTimer(); }
+            set { AsDynamic._SetCharactercollisionTimer(value); }
         }
 
         public NPC CollisionNPC
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetCollisionNPC();
+                var tmp = AsDynamic._GetCollisionNPC();
                 if (tmp == null) return null;
                 return new NPC(Parent, tmp);
             }
-            set { Cast<FarmerAccessor>()._SetCollisionNPC(value?.Cast<NPCAccessor>()); }
+            set { AsDynamic._SetCollisionNPC(value?.Underlying); }
         }
 
         public float MovementMultiplier
         {
-            get { return Cast<FarmerAccessor>()._GetMovementMultiplier(); }
-            set { Cast<FarmerAccessor>()._SetMovementMultiplier(value); }
+            get { return AsDynamic._GetMovementMultiplier(); }
+            set { AsDynamic._SetMovementMultiplier(value); }
         }
 
         public int AddedSpeed
         {
-            get { return Cast<FarmerAccessor>()._GetAddedSpeed(); }
-            set { Cast<FarmerAccessor>()._SetAddedSpeed(value); }
-        }
-
-        public void SetToolInToolBox(int idx, Tool t)
-        {
-            Cast<FarmerAccessor>()._GetToolBox()[idx] = t?.Cast<ToolAccessor>();
-        }
-
-        public void SetItem(int idx, Item item)
-        {
-            var set = item == null ? null : item.Underlying;
-            Cast<FarmerAccessor>()._GetItems()[idx] = set;
+            get { return AsDynamic._GetAddedSpeed(); }
+            set { AsDynamic._SetAddedSpeed(value); }
         }
 
         public ProxyDictionary<int, int[]> FishCaught
         {
             get
             {
-                var tmp = Cast<FarmerAccessor>()._GetFishCaught();
+                var tmp = AsDynamic._GetFishCaught();
                 if (tmp == null) return null;
                 return new ProxyDictionary<int, int[]>(tmp);
             }
+        }
+
+        public void SetToolInToolBox(int idx, Tool t)
+        {
+            AsDynamic._GetToolBox()[idx] = t?.Underlying;
+        }
+
+        public void SetItem(int idx, Item item)
+        {
+            var set = item?.Underlying;
+            AsDynamic._GetItems()[idx] = set;
         }
     }
 }

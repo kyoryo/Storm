@@ -24,8 +24,6 @@ namespace Storm.Manipulation
         public string OwnerMethodDesc { get; set; }
         public string InvokerType { get; set; }
         public string InvokerName { get; set; }
-        public string[] InvokerReturnParams { get; set; }
-        public string InvokerReturnType { get; set; }
         public bool IsStatic { get; set; }
     }
 }

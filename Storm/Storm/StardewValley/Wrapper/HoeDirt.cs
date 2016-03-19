@@ -17,14 +17,12 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class HoeDirt : TerrainFeature
     {
-        public HoeDirt(StaticContext parent, HoeDirtAccessor accessor) :
-            base(parent, accessor)
+        public HoeDirt(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -34,78 +32,75 @@ namespace Storm.StardewValley.Wrapper
 
         public Texture2D LightTexture
         {
-            get { return Cast<HoeDirtAccessor>()._GetLightTexture(); }
-            set { Cast<HoeDirtAccessor>()._SetLightTexture(value); }
+            get { return AsDynamic._GetLightTexture(); }
+            set { AsDynamic._SetLightTexture(value); }
         }
 
         public Texture2D DarkTexture
         {
-            get { return Cast<HoeDirtAccessor>()._GetDarkTexture(); }
-            set { Cast<HoeDirtAccessor>()._SetDarkTexture(value); }
+            get { return AsDynamic._GetDarkTexture(); }
+            set { AsDynamic._SetDarkTexture(value); }
         }
 
         public Texture2D SnowTexture
         {
-            get { return Cast<HoeDirtAccessor>()._GetSnowTexture(); }
-            set { Cast<HoeDirtAccessor>()._SetSnowTexture(value); }
+            get { return AsDynamic._GetSnowTexture(); }
+            set { AsDynamic._SetSnowTexture(value); }
         }
 
         public Crop Crop
         {
             get
             {
-                var tmp = Cast<HoeDirtAccessor>()._GetCrop();
+                var tmp = AsDynamic._GetCrop();
                 if (tmp == null) return null;
                 return new Crop(Parent, tmp);
             }
-            set { Cast<HoeDirtAccessor>()._SetCrop(value?.Cast<CropAccessor>()); }
+            set { AsDynamic._SetCrop(value?.Underlying); }
         }
 
         public int State
         {
-            get { return Cast<HoeDirtAccessor>()._GetState(); }
-            set { Cast<HoeDirtAccessor>()._SetState(value); }
+            get { return AsDynamic._GetState(); }
+            set { AsDynamic._SetState(value); }
         }
 
         public int Fertilizer
         {
-            get { return Cast<HoeDirtAccessor>()._GetFertilizer(); }
-            set { Cast<HoeDirtAccessor>()._SetFertilizer(value); }
+            get { return AsDynamic._GetFertilizer(); }
+            set { AsDynamic._SetFertilizer(value); }
         }
 
         public bool ShakeLeft
         {
-            get { return Cast<HoeDirtAccessor>()._GetShakeLeft(); }
-            set { Cast<HoeDirtAccessor>()._SetShakeLeft(value); }
+            get { return AsDynamic._GetShakeLeft(); }
+            set { AsDynamic._SetShakeLeft(value); }
         }
 
         public float ShakeRotation
         {
-            get { return Cast<HoeDirtAccessor>()._GetShakeRotation(); }
-            set { Cast<HoeDirtAccessor>()._SetShakeRotation(value); }
+            get { return AsDynamic._GetShakeRotation(); }
+            set { AsDynamic._SetShakeRotation(value); }
         }
 
         public float MaxShake
         {
-            get { return Cast<HoeDirtAccessor>()._GetMaxShake(); }
-            set { Cast<HoeDirtAccessor>()._SetMaxShake(value); }
+            get { return AsDynamic._GetMaxShake(); }
+            set { AsDynamic._SetMaxShake(value); }
         }
 
         public float ShakeRate
         {
-            get { return Cast<HoeDirtAccessor>()._GetShakeRate(); }
-            set { Cast<HoeDirtAccessor>()._SetShakeRate(value); }
+            get { return AsDynamic._GetShakeRate(); }
+            set { AsDynamic._SetShakeRate(value); }
         }
 
         public Color C
         {
-            get { return Cast<HoeDirtAccessor>()._GetC(); }
-            set { Cast<HoeDirtAccessor>()._SetC(value); }
+            get { return AsDynamic._GetC(); }
+            set { AsDynamic._SetC(value); }
         }
 
-        public bool IsReadyForHarvest
-        {
-            get { return Cast<HoeDirtAccessor>()._IsReadyForHarvest(); }
-        }
+        public bool IsReadyForHarvest => AsDynamic._IsReadyForHarvest();
     }
 }

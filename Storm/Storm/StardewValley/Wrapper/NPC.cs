@@ -18,14 +18,12 @@
 using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class NPC : Character
     {
-        public NPC(StaticContext parent, NPCAccessor accessor) :
-            base(parent, accessor)
+        public NPC(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -35,445 +33,445 @@ namespace Storm.StardewValley.Wrapper
 
         public int DirectionIndex
         {
-            get { return Cast<NPCAccessor>()._GetDirectionIndex(); }
-            set { Cast<NPCAccessor>()._SetDirectionIndex(value); }
+            get { return AsDynamic._GetDirectionIndex(); }
+            set { AsDynamic._SetDirectionIndex(value); }
         }
 
         public int LengthOfWalkingSquareX
         {
-            get { return Cast<NPCAccessor>()._GetLengthOfWalkingSquareX(); }
-            set { Cast<NPCAccessor>()._SetLengthOfWalkingSquareX(value); }
+            get { return AsDynamic._GetLengthOfWalkingSquareX(); }
+            set { AsDynamic._SetLengthOfWalkingSquareX(value); }
         }
 
         public int LengthOfWalkingSquareY
         {
-            get { return Cast<NPCAccessor>()._GetLengthOfWalkingSquareY(); }
-            set { Cast<NPCAccessor>()._SetLengthOfWalkingSquareY(value); }
+            get { return AsDynamic._GetLengthOfWalkingSquareY(); }
+            set { AsDynamic._SetLengthOfWalkingSquareY(value); }
         }
 
         public int SquarePauseAccumulation
         {
-            get { return Cast<NPCAccessor>()._GetSquarePauseAccumulation(); }
-            set { Cast<NPCAccessor>()._SetSquarePauseAccumulation(value); }
+            get { return AsDynamic._GetSquarePauseAccumulation(); }
+            set { AsDynamic._SetSquarePauseAccumulation(value); }
         }
 
         public int SquarePauseTotal
         {
-            get { return Cast<NPCAccessor>()._GetSquarePauseTotal(); }
-            set { Cast<NPCAccessor>()._SetSquarePauseTotal(value); }
+            get { return AsDynamic._GetSquarePauseTotal(); }
+            set { AsDynamic._SetSquarePauseTotal(value); }
         }
 
         public int SquarePauseOffset
         {
-            get { return Cast<NPCAccessor>()._GetSquarePauseOffset(); }
-            set { Cast<NPCAccessor>()._SetSquarePauseOffset(value); }
+            get { return AsDynamic._GetSquarePauseOffset(); }
+            set { AsDynamic._SetSquarePauseOffset(value); }
         }
 
         public Rectangle LastCrossroad
         {
-            get { return Cast<NPCAccessor>()._GetLastCrossroad(); }
-            set { Cast<NPCAccessor>()._SetLastCrossroad(value); }
+            get { return AsDynamic._GetLastCrossroad(); }
+            set { AsDynamic._SetLastCrossroad(value); }
         }
 
         public string DefaultMap
         {
-            get { return Cast<NPCAccessor>()._GetDefaultMap(); }
-            set { Cast<NPCAccessor>()._SetDefaultMap(value); }
+            get { return AsDynamic._GetDefaultMap(); }
+            set { AsDynamic._SetDefaultMap(value); }
         }
 
         public string LoveInterest
         {
-            get { return Cast<NPCAccessor>()._GetLoveInterest(); }
-            set { Cast<NPCAccessor>()._SetLoveInterest(value); }
+            get { return AsDynamic._GetLoveInterest(); }
+            set { AsDynamic._SetLoveInterest(value); }
         }
 
         public string BirthdaySeason
         {
-            get { return Cast<NPCAccessor>()._GetBirthdaySeason(); }
-            set { Cast<NPCAccessor>()._SetBirthdaySeason(value); }
+            get { return AsDynamic._GetBirthdaySeason(); }
+            set { AsDynamic._SetBirthdaySeason(value); }
         }
 
         public Texture2D Portrait
         {
-            get { return Cast<NPCAccessor>()._GetPortrait(); }
-            set { Cast<NPCAccessor>()._SetPortrait(value); }
+            get { return AsDynamic._GetPortrait(); }
+            set { AsDynamic._SetPortrait(value); }
         }
 
         public Vector2 DefaultPosition
         {
-            get { return Cast<NPCAccessor>()._GetDefaultPosition(); }
-            set { Cast<NPCAccessor>()._SetDefaultPosition(value); }
+            get { return AsDynamic._GetDefaultPosition(); }
+            set { AsDynamic._SetDefaultPosition(value); }
         }
 
         public Vector2 NextSquarePosition
         {
-            get { return Cast<NPCAccessor>()._GetNextSquarePosition(); }
-            set { Cast<NPCAccessor>()._SetNextSquarePosition(value); }
+            get { return AsDynamic._GetNextSquarePosition(); }
+            set { AsDynamic._SetNextSquarePosition(value); }
         }
 
         public int DefaultFacingDirection
         {
-            get { return Cast<NPCAccessor>()._GetDefaultFacingDirection(); }
-            set { Cast<NPCAccessor>()._SetDefaultFacingDirection(value); }
+            get { return AsDynamic._GetDefaultFacingDirection(); }
+            set { AsDynamic._SetDefaultFacingDirection(value); }
         }
 
         public int IdForClones
         {
-            get { return Cast<NPCAccessor>()._GetIdForClones(); }
-            set { Cast<NPCAccessor>()._SetIdForClones(value); }
+            get { return AsDynamic._GetIdForClones(); }
+            set { AsDynamic._SetIdForClones(value); }
         }
 
         public int ShakeTimer
         {
-            get { return Cast<NPCAccessor>()._GetShakeTimer(); }
-            set { Cast<NPCAccessor>()._SetShakeTimer(value); }
+            get { return AsDynamic._GetShakeTimer(); }
+            set { AsDynamic._SetShakeTimer(value); }
         }
 
         public bool IsWalkingInSquare
         {
-            get { return Cast<NPCAccessor>()._GetIsWalkingInSquare(); }
-            set { Cast<NPCAccessor>()._SetIsWalkingInSquare(value); }
+            get { return AsDynamic._GetIsWalkingInSquare(); }
+            set { AsDynamic._SetIsWalkingInSquare(value); }
         }
 
         public bool IsWalkingTowardPlayer
         {
-            get { return Cast<NPCAccessor>()._GetIsWalkingTowardPlayer(); }
-            set { Cast<NPCAccessor>()._SetIsWalkingTowardPlayer(value); }
+            get { return AsDynamic._GetIsWalkingTowardPlayer(); }
+            set { AsDynamic._SetIsWalkingTowardPlayer(value); }
         }
 
         public Stack CurrentDialogue
         {
-            get { return Cast<NPCAccessor>()._GetCurrentDialogue(); }
-            set { Cast<NPCAccessor>()._SetCurrentDialogue(value); }
+            get { return AsDynamic._GetCurrentDialogue(); }
+            set { AsDynamic._SetCurrentDialogue(value); }
         }
 
         public string TextAboveHead
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHead(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHead(value); }
+            get { return AsDynamic._GetTextAboveHead(); }
+            set { AsDynamic._SetTextAboveHead(value); }
         }
 
         public int TextAboveHeadPreTimer
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHeadPreTimer(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHeadPreTimer(value); }
+            get { return AsDynamic._GetTextAboveHeadPreTimer(); }
+            set { AsDynamic._SetTextAboveHeadPreTimer(value); }
         }
 
         public int TextAboveHeadTimer
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHeadTimer(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHeadTimer(value); }
+            get { return AsDynamic._GetTextAboveHeadTimer(); }
+            set { AsDynamic._SetTextAboveHeadTimer(value); }
         }
 
         public int TextAboveHeadStyle
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHeadStyle(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHeadStyle(value); }
+            get { return AsDynamic._GetTextAboveHeadStyle(); }
+            set { AsDynamic._SetTextAboveHeadStyle(value); }
         }
 
         public int TextAboveHeadColor
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHeadColor(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHeadColor(value); }
+            get { return AsDynamic._GetTextAboveHeadColor(); }
+            set { AsDynamic._SetTextAboveHeadColor(value); }
         }
 
         public float TextAboveHeadAlpha
         {
-            get { return Cast<NPCAccessor>()._GetTextAboveHeadAlpha(); }
-            set { Cast<NPCAccessor>()._SetTextAboveHeadAlpha(value); }
+            get { return AsDynamic._GetTextAboveHeadAlpha(); }
+            set { AsDynamic._SetTextAboveHeadAlpha(value); }
         }
 
         public int Age
         {
-            get { return Cast<NPCAccessor>()._GetAge(); }
-            set { Cast<NPCAccessor>()._SetAge(value); }
+            get { return AsDynamic._GetAge(); }
+            set { AsDynamic._SetAge(value); }
         }
 
         public int Manners
         {
-            get { return Cast<NPCAccessor>()._GetManners(); }
-            set { Cast<NPCAccessor>()._SetManners(value); }
+            get { return AsDynamic._GetManners(); }
+            set { AsDynamic._SetManners(value); }
         }
 
         public int SocialAnxiety
         {
-            get { return Cast<NPCAccessor>()._GetSocialAnxiety(); }
-            set { Cast<NPCAccessor>()._SetSocialAnxiety(value); }
+            get { return AsDynamic._GetSocialAnxiety(); }
+            set { AsDynamic._SetSocialAnxiety(value); }
         }
 
         public int Optimism
         {
-            get { return Cast<NPCAccessor>()._GetOptimism(); }
-            set { Cast<NPCAccessor>()._SetOptimism(value); }
+            get { return AsDynamic._GetOptimism(); }
+            set { AsDynamic._SetOptimism(value); }
         }
 
         public int Gender
         {
-            get { return Cast<NPCAccessor>()._GetGender(); }
-            set { Cast<NPCAccessor>()._SetGender(value); }
+            get { return AsDynamic._GetGender(); }
+            set { AsDynamic._SetGender(value); }
         }
 
         public int Id
         {
-            get { return Cast<NPCAccessor>()._GetId(); }
-            set { Cast<NPCAccessor>()._SetId(value); }
+            get { return AsDynamic._GetId(); }
+            set { AsDynamic._SetId(value); }
         }
 
         public int HomeRegion
         {
-            get { return Cast<NPCAccessor>()._GetHomeRegion(); }
-            set { Cast<NPCAccessor>()._SetHomeRegion(value); }
+            get { return AsDynamic._GetHomeRegion(); }
+            set { AsDynamic._SetHomeRegion(value); }
         }
 
         public int DaysUntilBirthing
         {
-            get { return Cast<NPCAccessor>()._GetDaysUntilBirthing(); }
-            set { Cast<NPCAccessor>()._SetDaysUntilBirthing(value); }
+            get { return AsDynamic._GetDaysUntilBirthing(); }
+            set { AsDynamic._SetDaysUntilBirthing(value); }
         }
 
         public int DaysAfterLastBirth
         {
-            get { return Cast<NPCAccessor>()._GetDaysAfterLastBirth(); }
-            set { Cast<NPCAccessor>()._SetDaysAfterLastBirth(value); }
+            get { return AsDynamic._GetDaysAfterLastBirth(); }
+            set { AsDynamic._SetDaysAfterLastBirth(value); }
         }
 
         public int BirthdayDay
         {
-            get { return Cast<NPCAccessor>()._GetBirthdayDay(); }
-            set { Cast<NPCAccessor>()._SetBirthdayDay(value); }
+            get { return AsDynamic._GetBirthdayDay(); }
+            set { AsDynamic._SetBirthdayDay(value); }
         }
 
         public string ExtraDialogueMessageToAddThisMorning
         {
-            get { return Cast<NPCAccessor>()._GetExtraDialogueMessageToAddThisMorning(); }
-            set { Cast<NPCAccessor>()._SetExtraDialogueMessageToAddThisMorning(value); }
+            get { return AsDynamic._GetExtraDialogueMessageToAddThisMorning(); }
+            set { AsDynamic._SetExtraDialogueMessageToAddThisMorning(value); }
         }
 
         public GameLocation CurrentLocation
         {
             get
             {
-                var tmp = Cast<NPCAccessor>()._GetCurrentLocation();
+                var tmp = AsDynamic._GetCurrentLocation();
                 if (tmp == null) return null;
                 return new GameLocation(Parent, tmp);
             }
-            set { Cast<NPCAccessor>()._SetCurrentLocation(value?.Cast<GameLocationAccessor>()); }
+            set { AsDynamic._SetCurrentLocation(value?.Underlying); }
         }
 
         public bool UpdatedDialogueYet
         {
-            get { return Cast<NPCAccessor>()._GetUpdatedDialogueYet(); }
-            set { Cast<NPCAccessor>()._SetUpdatedDialogueYet(value); }
+            get { return AsDynamic._GetUpdatedDialogueYet(); }
+            set { AsDynamic._SetUpdatedDialogueYet(value); }
         }
 
         public bool UniqueSpriteActive
         {
-            get { return Cast<NPCAccessor>()._GetUniqueSpriteActive(); }
-            set { Cast<NPCAccessor>()._SetUniqueSpriteActive(value); }
+            get { return AsDynamic._GetUniqueSpriteActive(); }
+            set { AsDynamic._SetUniqueSpriteActive(value); }
         }
 
         public bool UniquePortraitActive
         {
-            get { return Cast<NPCAccessor>()._GetUniquePortraitActive(); }
-            set { Cast<NPCAccessor>()._SetUniquePortraitActive(value); }
+            get { return AsDynamic._GetUniquePortraitActive(); }
+            set { AsDynamic._SetUniquePortraitActive(value); }
         }
 
         public bool Breather
         {
-            get { return Cast<NPCAccessor>()._GetBreather(); }
-            set { Cast<NPCAccessor>()._SetBreather(value); }
+            get { return AsDynamic._GetBreather(); }
+            set { AsDynamic._SetBreather(value); }
         }
 
         public bool HideShadow
         {
-            get { return Cast<NPCAccessor>()._GetHideShadow(); }
-            set { Cast<NPCAccessor>()._SetHideShadow(value); }
+            get { return AsDynamic._GetHideShadow(); }
+            set { AsDynamic._SetHideShadow(value); }
         }
 
         public bool HasPartnerForDance
         {
-            get { return Cast<NPCAccessor>()._GetHasPartnerForDance(); }
-            set { Cast<NPCAccessor>()._SetHasPartnerForDance(value); }
+            get { return AsDynamic._GetHasPartnerForDance(); }
+            set { AsDynamic._SetHasPartnerForDance(value); }
         }
 
         public bool ImmediateSpeak
         {
-            get { return Cast<NPCAccessor>()._GetImmediateSpeak(); }
-            set { Cast<NPCAccessor>()._SetImmediateSpeak(value); }
+            get { return AsDynamic._GetImmediateSpeak(); }
+            set { AsDynamic._SetImmediateSpeak(value); }
         }
 
         public bool IgnoreScheduleToday
         {
-            get { return Cast<NPCAccessor>()._GetIgnoreScheduleToday(); }
-            set { Cast<NPCAccessor>()._SetIgnoreScheduleToday(value); }
+            get { return AsDynamic._GetIgnoreScheduleToday(); }
+            set { AsDynamic._SetIgnoreScheduleToday(value); }
         }
 
         public int MoveTowardPlayerThreshold
         {
-            get { return Cast<NPCAccessor>()._GetMoveTowardPlayerThreshold(); }
-            set { Cast<NPCAccessor>()._SetMoveTowardPlayerThreshold(value); }
+            get { return AsDynamic._GetMoveTowardPlayerThreshold(); }
+            set { AsDynamic._SetMoveTowardPlayerThreshold(value); }
         }
 
         public float Rotation
         {
-            get { return Cast<NPCAccessor>()._GetRotation(); }
-            set { Cast<NPCAccessor>()._SetRotation(value); }
+            get { return AsDynamic._GetRotation(); }
+            set { AsDynamic._SetRotation(value); }
         }
 
         public float YOffset
         {
-            get { return Cast<NPCAccessor>()._GetYOffset(); }
-            set { Cast<NPCAccessor>()._SetYOffset(value); }
+            get { return AsDynamic._GetYOffset(); }
+            set { AsDynamic._SetYOffset(value); }
         }
 
         public float SwimTimer
         {
-            get { return Cast<NPCAccessor>()._GetSwimTimer(); }
-            set { Cast<NPCAccessor>()._SetSwimTimer(value); }
+            get { return AsDynamic._GetSwimTimer(); }
+            set { AsDynamic._SetSwimTimer(value); }
         }
 
         public float TimerSinceLastMovement
         {
-            get { return Cast<NPCAccessor>()._GetTimerSinceLastMovement(); }
-            set { Cast<NPCAccessor>()._SetTimerSinceLastMovement(value); }
+            get { return AsDynamic._GetTimerSinceLastMovement(); }
+            set { AsDynamic._SetTimerSinceLastMovement(value); }
         }
 
         public string MapBeforeEvent
         {
-            get { return Cast<NPCAccessor>()._GetMapBeforeEvent(); }
-            set { Cast<NPCAccessor>()._SetMapBeforeEvent(value); }
+            get { return AsDynamic._GetMapBeforeEvent(); }
+            set { AsDynamic._SetMapBeforeEvent(value); }
         }
 
         public Vector2 PositionBeforeEvent
         {
-            get { return Cast<NPCAccessor>()._GetPositionBeforeEvent(); }
-            set { Cast<NPCAccessor>()._SetPositionBeforeEvent(value); }
+            get { return AsDynamic._GetPositionBeforeEvent(); }
+            set { AsDynamic._SetPositionBeforeEvent(value); }
         }
 
         public Vector2 LastPosition
         {
-            get { return Cast<NPCAccessor>()._GetLastPosition(); }
-            set { Cast<NPCAccessor>()._SetLastPosition(value); }
+            get { return AsDynamic._GetLastPosition(); }
+            set { AsDynamic._SetLastPosition(value); }
         }
 
         public bool IsInvisible
         {
-            get { return Cast<NPCAccessor>()._GetIsInvisible(); }
-            set { Cast<NPCAccessor>()._SetIsInvisible(value); }
+            get { return AsDynamic._GetIsInvisible(); }
+            set { AsDynamic._SetIsInvisible(value); }
         }
 
         public bool FollowSchedule
         {
-            get { return Cast<NPCAccessor>()._GetFollowSchedule(); }
-            set { Cast<NPCAccessor>()._SetFollowSchedule(value); }
+            get { return AsDynamic._GetFollowSchedule(); }
+            set { AsDynamic._SetFollowSchedule(value); }
         }
 
         public bool Datable
         {
-            get { return Cast<NPCAccessor>()._GetDatable(); }
-            set { Cast<NPCAccessor>()._SetDatable(value); }
+            get { return AsDynamic._GetDatable(); }
+            set { AsDynamic._SetDatable(value); }
         }
 
         public bool DatingFarmer
         {
-            get { return Cast<NPCAccessor>()._GetDatingFarmer(); }
-            set { Cast<NPCAccessor>()._SetDatingFarmer(value); }
+            get { return AsDynamic._GetDatingFarmer(); }
+            set { AsDynamic._SetDatingFarmer(value); }
         }
 
         public bool HasBeenKissedToday
         {
-            get { return Cast<NPCAccessor>()._GetHasBeenKissedToday(); }
-            set { Cast<NPCAccessor>()._SetHasBeenKissedToday(value); }
+            get { return AsDynamic._GetHasBeenKissedToday(); }
+            set { AsDynamic._SetHasBeenKissedToday(value); }
         }
 
         public bool DoingEndOfRouteAnimation
         {
-            get { return Cast<NPCAccessor>()._GetDoingEndOfRouteAnimation(); }
-            set { Cast<NPCAccessor>()._SetDoingEndOfRouteAnimation(value); }
+            get { return AsDynamic._GetDoingEndOfRouteAnimation(); }
+            set { AsDynamic._SetDoingEndOfRouteAnimation(value); }
         }
 
         public bool GoingToDoEndOfRouteAnimation
         {
-            get { return Cast<NPCAccessor>()._GetGoingToDoEndOfRouteAnimation(); }
-            set { Cast<NPCAccessor>()._SetGoingToDoEndOfRouteAnimation(value); }
+            get { return AsDynamic._GetGoingToDoEndOfRouteAnimation(); }
+            set { AsDynamic._SetGoingToDoEndOfRouteAnimation(value); }
         }
 
         public int RouteEndIntro
         {
-            get { return Cast<NPCAccessor>()._GetRouteEndIntro(); }
-            set { Cast<NPCAccessor>()._SetRouteEndIntro(value); }
+            get { return AsDynamic._GetRouteEndIntro(); }
+            set { AsDynamic._SetRouteEndIntro(value); }
         }
 
         public int RouteEndAnimation
         {
-            get { return Cast<NPCAccessor>()._GetRouteEndAnimation(); }
-            set { Cast<NPCAccessor>()._SetRouteEndAnimation(value); }
+            get { return AsDynamic._GetRouteEndAnimation(); }
+            set { AsDynamic._SetRouteEndAnimation(value); }
         }
 
         public int RouteEndOutro
         {
-            get { return Cast<NPCAccessor>()._GetRouteEndOutro(); }
-            set { Cast<NPCAccessor>()._SetRouteEndOutro(value); }
+            get { return AsDynamic._GetRouteEndOutro(); }
+            set { AsDynamic._SetRouteEndOutro(value); }
         }
 
         public string EndOfRouteMessage
         {
-            get { return Cast<NPCAccessor>()._GetEndOfRouteMessage(); }
-            set { Cast<NPCAccessor>()._SetEndOfRouteMessage(value); }
+            get { return AsDynamic._GetEndOfRouteMessage(); }
+            set { AsDynamic._SetEndOfRouteMessage(value); }
         }
 
         public string NextEndOfRouteMessage
         {
-            get { return Cast<NPCAccessor>()._GetNextEndOfRouteMessage(); }
-            set { Cast<NPCAccessor>()._SetNextEndOfRouteMessage(value); }
+            get { return AsDynamic._GetNextEndOfRouteMessage(); }
+            set { AsDynamic._SetNextEndOfRouteMessage(value); }
         }
 
         public string EndOfRouteBehaviorName
         {
-            get { return Cast<NPCAccessor>()._GetEndOfRouteBehaviorName(); }
-            set { Cast<NPCAccessor>()._SetEndOfRouteBehaviorName(value); }
+            get { return AsDynamic._GetEndOfRouteBehaviorName(); }
+            set { AsDynamic._SetEndOfRouteBehaviorName(value); }
         }
 
         public Point PreviousEndPoint
         {
-            get { return Cast<NPCAccessor>()._GetPreviousEndPoint(); }
-            set { Cast<NPCAccessor>()._SetPreviousEndPoint(value); }
+            get { return AsDynamic._GetPreviousEndPoint(); }
+            set { AsDynamic._SetPreviousEndPoint(value); }
         }
 
         public int ScheduleTimeToTry
         {
-            get { return Cast<NPCAccessor>()._GetScheduleTimeToTry(); }
-            set { Cast<NPCAccessor>()._SetScheduleTimeToTry(value); }
+            get { return AsDynamic._GetScheduleTimeToTry(); }
+            set { AsDynamic._SetScheduleTimeToTry(value); }
         }
 
         public int SquareMovementFacingPreference
         {
-            get { return Cast<NPCAccessor>()._GetSquareMovementFacingPreference(); }
-            set { Cast<NPCAccessor>()._SetSquareMovementFacingPreference(value); }
+            get { return AsDynamic._GetSquareMovementFacingPreference(); }
+            set { AsDynamic._SetSquareMovementFacingPreference(value); }
         }
 
         public bool ReturningToEndPoint
         {
-            get { return Cast<NPCAccessor>()._GetReturningToEndPoint(); }
-            set { Cast<NPCAccessor>()._SetReturningToEndPoint(value); }
+            get { return AsDynamic._GetReturningToEndPoint(); }
+            set { AsDynamic._SetReturningToEndPoint(value); }
         }
 
         public bool HasSaidAfternoonDialogue
         {
-            get { return Cast<NPCAccessor>()._GetHasSaidAfternoonDialogue(); }
-            set { Cast<NPCAccessor>()._SetHasSaidAfternoonDialogue(value); }
+            get { return AsDynamic._GetHasSaidAfternoonDialogue(); }
+            set { AsDynamic._SetHasSaidAfternoonDialogue(value); }
         }
 
         public int Married
         {
-            get { return Cast<NPCAccessor>()._GetMarried(); }
-            set { Cast<NPCAccessor>()._SetMarried(value); }
+            get { return AsDynamic._GetMarried(); }
+            set { AsDynamic._SetMarried(value); }
         }
 
         public int DaysMarried
         {
-            get { return Cast<NPCAccessor>()._GetDaysMarried(); }
-            set { Cast<NPCAccessor>()._SetDaysMarried(value); }
+            get { return AsDynamic._GetDaysMarried(); }
+            set { AsDynamic._SetDaysMarried(value); }
         }
     }
 }

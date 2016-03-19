@@ -18,6 +18,7 @@
 using System;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,11 +26,9 @@ using Microsoft.Xna.Framework.Input;
 using Storm.ExternalEvent;
 using Storm.Manipulation;
 using Storm.Manipulation.Cecil;
-using Storm.StardewValley.Accessor;
 using Storm.StardewValley.Event;
-using Storm.StardewValley.Proxy;
+using Storm.StardewValley.Wrapper;
 using Rectangle = xTile.Dimensions.Rectangle;
-using System.Windows.Forms;
 
 namespace Storm.StardewValley
 {
@@ -58,17 +57,17 @@ namespace Storm.StardewValley
 
         private InjectionFactoryContext Inject()
         {
-            if (!File.Exists(StormAPI.GetResource("interface_injectors.json")))
+            if (!File.Exists(StormApi.GetResource("interface_injectors.json")))
             {
-                MessageBox.Show("Could not find injectors @\n" +
-                    StormAPI.GetResource("interface_injectors.json") + " /\n" +
-                    StormAPI.GetResource("secondary") + "\\", "Error");
+                MessageBox.Show("Could not find injectors @\n" + 
+                    StormApi.GetResource("interface_injectors.json") + " /\n" + 
+                    StormApi.GetResource("secondary") + "\\", "Error");
 
                 Environment.Exit(1);
             }
 
             var factory = InjectorFactories.Create(InjectorFactoryType.Cecil, GamePath);
-            var ctx = factory.ParseOfType(DataFormat.Json, StormAPI.GetResource(""));
+            var ctx = factory.ParseOfType(DataFormat.Json, StormApi.GetResource(""));
             if (factory is CecilInjectorFactory)
             {
                 var casted = factory as CecilInjectorFactory;
@@ -81,7 +80,7 @@ namespace Storm.StardewValley
             }
 
             var @event = new PreInjectionEvent(factory, ctx.Injectors);
-            EventBus.Fire(@event);
+            EventBus.Fire("core_pre_injection", @event);
 
             ctx.Injectors.ForEach(injector => injector.Init());
             ctx.Injectors.ForEach(injector => injector.Inject());
@@ -95,7 +94,7 @@ namespace Storm.StardewValley
             var entryType = entry.DeclaringType;
             var constructor = entryType.GetConstructor(new Type[0]);
 
-            var root = (ProgramAccessor)constructor.Invoke(new object[0]);
+            var root = new ProgramWrapper(constructor.Invoke(new object[0]));
 
             StaticGameContext.Init(assembly, root, EventBus, ctx.Injectors);
         }
@@ -115,11 +114,11 @@ namespace Storm.StardewValley
         {
             ResolveDependencies();
 
-            if (!Directory.Exists(StormAPI.ModsPath))
+            if (!Directory.Exists(StormApi.ModsPath))
             {
-                Directory.CreateDirectory(StormAPI.ModsPath);
+                Directory.CreateDirectory(StormApi.ModsPath);
             }
-            var modLoader = new LocalModLoader(StormAPI.ModsPath);
+            var modLoader = new LocalModLoader(StormApi.ModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods) EventBus.AddReceiver(mod);
 
@@ -127,7 +126,7 @@ namespace Storm.StardewValley
             InitializeStaticContext(ctx);
 
             var assembly = ctx.GetConcreteAssembly();
-            assembly.EntryPoint.Invoke(null, new object[] { new string[] { } });
+            assembly.EntryPoint.Invoke(null, new object[] {new string[] {}});
         }
     }
 }

@@ -20,9 +20,10 @@ using System.IO;
 
 namespace Storm.StardewValley
 {
-    public static class StormAPI
+    public static class StormApi
     {
         public static readonly string AppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\";
+
         public static readonly string StardewPath = AppDataPath + "StardewValley\\";
         public static readonly string StormPath = StardewPath + "Storm\\";
         public static readonly string ModsPath = StardewPath + "Mods\\";

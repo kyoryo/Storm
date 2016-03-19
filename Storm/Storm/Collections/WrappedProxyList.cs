@@ -15,94 +15,66 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm.Collections
 {
-    public class WrappedProxyList<TOValue, TValue> : System.Collections.Generic.IList<TValue> where TValue : Wrapper
+    public class WrappedProxyList<TOValue, TValue> : IList<TValue> where TValue : Wrapper
     {
-        public delegate W Wrap<V, W>(V val);
+        public delegate TW Wrap<in TV, out TW>(TV val);
 
-        private readonly IList real;
-        private readonly Wrap<TOValue, TValue> wrapper;
+        private readonly Wrap<TOValue, TValue> _wrapper;
 
         public WrappedProxyList(IList real, Wrap<TOValue, TValue> wrapper)
         {
-            this.real = real;
-            this.wrapper = wrapper;
+            Real = real;
+            _wrapper = wrapper;
         }
 
-        internal IList Real
-        {
-            get
-            {
-                return real;
-            }
-        }
+        internal IList Real { get; }
 
-        public int Count
-        {
-            get
-            {
-                return real.Count;
-            }
-        }
+        public int Count => Real.Count;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         public TValue this[int index]
         {
-            get
-            {
-                return wrapper((TOValue)real[index]);
-            }
+            get { return _wrapper((TOValue) Real[index]); }
 
-            set
-            {
-                real[index] = value == null ? null : value.Underlying;
-            }
+            set { Real[index] = value?.Underlying; }
         }
 
         public int IndexOf(TValue item)
         {
-            return real.IndexOf(item.Underlying);
+            return Real.IndexOf(item.Underlying);
         }
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item == null ? null : item.Underlying);
+            Real.Insert(index, item?.Underlying);
         }
 
         public void RemoveAt(int index)
         {
-            real.RemoveAt(index);
+            Real.RemoveAt(index);
         }
 
         public void Add(TValue item)
         {
-            real.Add(item == null ? null : item.Underlying);
+            Real.Add(item?.Underlying);
         }
 
         public void Clear()
         {
-            real.Clear();
+            Real.Clear();
         }
 
         public bool Contains(TValue item)
         {
-            return real.Contains(item.Underlying);
+            return Real.Contains(item.Underlying);
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
@@ -113,13 +85,13 @@ namespace Storm.Collections
         public bool Remove(TValue item)
         {
             if (!Contains(item)) return false;
-            real.Remove(item.Underlying);
+            Real.Remove(item.Underlying);
             return true;
         }
 
         public IEnumerator<TValue> GetEnumerator()
         {
-            return new ProxyEnumerator<TOValue, TValue>(real, wrapper);
+            return new ProxyEnumerator<TOValue, TValue>(Real, _wrapper);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -127,30 +99,24 @@ namespace Storm.Collections
             throw new NotImplementedException();
         }
 
-        private class ProxyEnumerator<EOValue, EValue> : IEnumerator<EValue>
+        private class ProxyEnumerator<TOValue, TEValue> : IEnumerator<TEValue>
         {
-            private IList real;
-            private Wrap<EOValue, EValue> wrapper;
-            private int curIndex;
-            private EOValue curValue;
+            private readonly IList _real;
+            private readonly Wrap<TOValue, TEValue> _wrapper;
+            private int _curIndex;
+            private TOValue _curValue;
 
-            public ProxyEnumerator(IList real, Wrap<EOValue, EValue> wrapper)
+            public ProxyEnumerator(IList real, Wrap<TOValue, TEValue> wrapper)
             {
-                this.real = real;
-                this.wrapper = wrapper;
-                this.curIndex = -1;
-                this.curValue = default(EOValue);
+                _real = real;
+                _wrapper = wrapper;
+                _curIndex = -1;
+                _curValue = default(TOValue);
             }
 
-            public EValue Current
-            {
-                get { return wrapper(curValue); }
-            }
+            public TEValue Current => _wrapper(_curValue);
 
-            object IEnumerator.Current
-            {
-                get { return curValue; }
-            }
+            object IEnumerator.Current => _curValue;
 
             public void Dispose()
             {
@@ -159,20 +125,17 @@ namespace Storm.Collections
 
             public bool MoveNext()
             {
-                if (++curIndex >= real.Count)
+                if (++_curIndex >= _real.Count)
                 {
                     return false;
                 }
-                else
-                {
-                    curValue = (EOValue)real[curIndex];
-                    return true;
-                }
+                _curValue = (TOValue) _real[_curIndex];
+                return true;
             }
 
             public void Reset()
             {
-                curIndex = -1;
+                _curIndex = -1;
             }
         }
     }

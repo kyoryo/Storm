@@ -18,7 +18,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Castle.Core.Internal;
 using Newtonsoft.Json;
 
 namespace Storm.ExternalEvent

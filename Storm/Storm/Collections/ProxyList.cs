@@ -15,17 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Wrapper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.Collections
 {
-    public class ProxyList<TValue> : System.Collections.Generic.IList<TValue>
+    public class ProxyList<TValue> : IList<TValue>
     {
         private readonly IList real;
 
@@ -34,33 +30,15 @@ namespace Storm.Collections
             this.real = real;
         }
 
-        public int Count
-        {
-            get
-            {
-                return real.Count;
-            }
-        }
+        public int Count => real.Count;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         public TValue this[int index]
         {
-            get
-            {
-                return (TValue)real[index];
-            }
+            get { return (TValue) real[index]; }
 
-            set
-            {
-                real[index] = value;
-            }
+            set { real[index] = value; }
         }
 
         public int IndexOf(TValue item)
@@ -117,26 +95,19 @@ namespace Storm.Collections
 
         private class ProxyEnumerator<EValue> : IEnumerator<EValue>
         {
-            private IList real;
+            private readonly IList real;
             private int curIndex;
-            private EValue curValue;
 
             public ProxyEnumerator(IList real)
             {
                 this.real = real;
-                this.curIndex = -1;
-                this.curValue = default(EValue);
+                curIndex = -1;
+                Current = default(EValue);
             }
 
-            public EValue Current
-            {
-                get { return curValue; }
-            }
+            public EValue Current { get; private set; }
 
-            object IEnumerator.Current
-            {
-                get { return curValue; }
-            }
+            object IEnumerator.Current => Current;
 
             public void Dispose()
             {
@@ -149,11 +120,8 @@ namespace Storm.Collections
                 {
                     return false;
                 }
-                else
-                {
-                    curValue = (EValue)real[curIndex];
-                    return true;
-                }
+                Current = (EValue) real[curIndex];
+                return true;
             }
 
             public void Reset()

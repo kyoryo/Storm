@@ -23,8 +23,8 @@ namespace Storm.Manipulation.Cecil
     public class CecilInvokerInjector : Injector
     {
         private readonly AssemblyDefinition def;
-        private InvokerParams @params;
         private readonly AssemblyDefinition self;
+        private InvokerParams @params;
 
         public CecilInvokerInjector(AssemblyDefinition self, AssemblyDefinition def, InvokerParams @params)
         {
@@ -39,21 +39,12 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var returnType = def.GetTypeRef(@params.InvokerReturnType, true);
-            if (returnType == null)
-            {
-                Logging.DebugLogs("[{0}] Could not find returnType!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.InvokerType, @params.InvokerName, @params.InvokerReturnType);
-                return;
-            }
-
             var invoking = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
             if (invoking == null)
             {
                 Logging.DebugLogs("[{0}] Could not find invoking!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.InvokerType, @params.InvokerName, @params.InvokerReturnType);
+                Logging.DebugLogs("\t{0} {1}", @params.InvokerType, @params.InvokerName);
                 return;
             }
 
@@ -61,35 +52,21 @@ namespace Storm.Manipulation.Cecil
             var invokerType = invokingParent;
             if (@params.InvokerType != null)
             {
-                invokerType = def.GetTypeDef(@params.InvokerType);
-                if (invokerType == null)
-                {
-                    invokerType = self.GetTypeDef(@params.InvokerType);
-                }
+                invokerType = def.GetTypeDef(@params.InvokerType) ?? self.GetTypeDef(@params.InvokerType);
             }
 
             if (invokerType == null)
             {
                 Logging.DebugLogs("[{0}] Could not find invokerType!", GetType().Name);
                 Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.InvokerType, @params.InvokerName, @params.InvokerReturnType);
+                Logging.DebugLogs("\t{0} {1}", @params.InvokerType, @params.InvokerName);
                 return;
             }
 
-            var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, returnType);
-            var paramTypes = new TypeReference[@params.InvokerReturnParams.Length];
-            for (var i = 0; i < paramTypes.Length; i++)
+            var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(object)));
+            for (var i = 0; i < invoking.Parameters.Count; i++)
             {
-                var paramType = def.GetTypeRef(@params.InvokerReturnParams[i], true);
-                if (paramType == null)
-                {
-                    Logging.DebugLogs("[{0}] Could not find param {1}!", GetType().Name, i);
-                    Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                    Logging.DebugLogs("\t{0} {1} {2}", @params.InvokerType, @params.InvokerName, @params.InvokerReturnType);
-                    return;
-                }
-
-                invoker.Parameters.Add(new ParameterDefinition(paramType));
+                invoker.Parameters.Add(new ParameterDefinition(invoking.Parameters[i].ParameterType));
             }
 
             var processor = invoker.Body.GetILProcessor();
@@ -98,7 +75,7 @@ namespace Storm.Manipulation.Cecil
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
             }
 
-            for (var i = 0; i < paramTypes.Length; i++)
+            for (var i = 0; i < invoking.Parameters.Count; i++)
             {
                 switch (i)
                 {

@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class ClickableComponent : StaticContextWrapper
     {
-        public ClickableComponent(StaticContext parent, ClickableComponentAccessor accessor) :
-            base(parent)
+        public ClickableComponent(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }

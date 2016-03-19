@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class InventoryMenu : ClickableMenu
     {
-        public InventoryMenu(StaticContext parent, InventoryMenuAccessor accessor) :
-            base(parent, accessor)
+        public InventoryMenu(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -32,73 +29,73 @@ namespace Storm.StardewValley.Wrapper
 
         public string HoverText
         {
-            get { return Cast<InventoryMenuAccessor>()._GetHoverText(); }
-            set { Cast<InventoryMenuAccessor>()._SetHoverText(value); }
+            get { return AsDynamic._GetHoverText(); }
+            set { AsDynamic._SetHoverText(value); }
         }
 
         public string HoverTitle
         {
-            get { return Cast<InventoryMenuAccessor>()._GetHoverTitle(); }
-            set { Cast<InventoryMenuAccessor>()._SetHoverTitle(value); }
+            get { return AsDynamic._GetHoverTitle(); }
+            set { AsDynamic._SetHoverTitle(value); }
         }
 
         public string DescriptionTitle
         {
-            get { return Cast<InventoryMenuAccessor>()._GetDescriptionTitle(); }
-            set { Cast<InventoryMenuAccessor>()._SetDescriptionTitle(value); }
+            get { return AsDynamic._GetDescriptionTitle(); }
+            set { AsDynamic._SetDescriptionTitle(value); }
         }
 
         public string DescriptionText
         {
-            get { return Cast<InventoryMenuAccessor>()._GetDescriptionText(); }
-            set { Cast<InventoryMenuAccessor>()._SetDescriptionText(value); }
+            get { return AsDynamic._GetDescriptionText(); }
+            set { AsDynamic._SetDescriptionText(value); }
         }
 
         public bool PlayerInventory
         {
-            get { return Cast<InventoryMenuAccessor>()._GetPlayerInventory(); }
-            set { Cast<InventoryMenuAccessor>()._SetPlayerInventory(value); }
+            get { return AsDynamic._GetPlayerInventory(); }
+            set { AsDynamic._SetPlayerInventory(value); }
         }
 
         public bool DrawSlots
         {
-            get { return Cast<InventoryMenuAccessor>()._GetDrawSlots(); }
-            set { Cast<InventoryMenuAccessor>()._SetDrawSlots(value); }
+            get { return AsDynamic._GetDrawSlots(); }
+            set { AsDynamic._SetDrawSlots(value); }
         }
 
         public bool ShowGrayedOutSlots
         {
-            get { return Cast<InventoryMenuAccessor>()._GetShowGrayedOutSlots(); }
-            set { Cast<InventoryMenuAccessor>()._SetShowGrayedOutSlots(value); }
+            get { return AsDynamic._GetShowGrayedOutSlots(); }
+            set { AsDynamic._SetShowGrayedOutSlots(value); }
         }
 
         public int Capacity
         {
-            get { return Cast<InventoryMenuAccessor>()._GetCapacity(); }
-            set { Cast<InventoryMenuAccessor>()._SetCapacity(value); }
+            get { return AsDynamic._GetCapacity(); }
+            set { AsDynamic._SetCapacity(value); }
         }
 
         public int Rows
         {
-            get { return Cast<InventoryMenuAccessor>()._GetRows(); }
-            set { Cast<InventoryMenuAccessor>()._SetRows(value); }
+            get { return AsDynamic._GetRows(); }
+            set { AsDynamic._SetRows(value); }
         }
 
         public int HorizontalGap
         {
-            get { return Cast<InventoryMenuAccessor>()._GetHorizontalGap(); }
-            set { Cast<InventoryMenuAccessor>()._SetHorizontalGap(value); }
+            get { return AsDynamic._GetHorizontalGap(); }
+            set { AsDynamic._SetHorizontalGap(value); }
         }
 
         public int VerticalGap
         {
-            get { return Cast<InventoryMenuAccessor>()._GetVerticalGap(); }
-            set { Cast<InventoryMenuAccessor>()._SetVerticalGap(value); }
+            get { return AsDynamic._GetVerticalGap(); }
+            set { AsDynamic._SetVerticalGap(value); }
         }
 
         public Item GetItemAt(int mouseX, int mouseY)
         {
-            var tmp = Cast<InventoryMenuAccessor>()._GetItemAt(mouseX, mouseY);
+            var tmp = AsDynamic._GetItemAt(mouseX, mouseY);
             if (tmp == null) return null;
             return new Item(Parent, tmp);
         }

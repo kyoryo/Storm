@@ -19,11 +19,13 @@ namespace Storm.Manipulation.Json
 {
     public class JsonParamContainer
     {
-        public JsonInterfaceParams[] InterfaceParams { get; set; } = new JsonInterfaceParams[0];
+        public JsonClassInfoParams[] ClassInfoParams { get; set; } = new JsonClassInfoParams[0];
         public JsonFieldDetourParams[] FieldDetourParams { get; set; } = new JsonFieldDetourParams[0];
         public JsonFieldAccessorParams[] FieldAccessorParams { get; set; } = new JsonFieldAccessorParams[0];
         public JsonFieldMutatorParams[] FieldMutatorParams { get; set; } = new JsonFieldMutatorParams[0];
+
         public JsonFieldAccessorMutatorParams[] FieldAccessorMutatorParams { get; set; } = new JsonFieldAccessorMutatorParams[0];
+
         public JsonAbsoluteCallParams[] AbsoluteCallParams { get; set; } = new JsonAbsoluteCallParams[0];
         public JsonFieldInfoParams[] FieldInfoParams { get; set; } = new JsonFieldInfoParams[0];
         public JsonInvokerParams[] InvokerParams { get; set; } = new JsonInvokerParams[0];

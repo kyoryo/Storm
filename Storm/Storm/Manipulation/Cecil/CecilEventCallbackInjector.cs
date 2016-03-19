@@ -19,133 +19,94 @@ using System.Collections.Generic;
 using System.Linq;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
+using Storm.StardewValley;
+using Storm.StardewValley.Event;
 
 namespace Storm.Manipulation.Cecil
 {
     public class CecilEventCallbackInjector : Injector
     {
-        private readonly AssemblyDefinition def;
+        private readonly AssemblyDefinition _def;
 
-        private readonly List<Instruction> injectionPoints = new List<Instruction>();
-        private readonly EventCallbackParams @params;
-        private readonly AssemblyDefinition self;
-        private MethodReference callback;
-        private MethodDefinition injectee;
-        private bool invalid;
+        private readonly List<Instruction> _injectionPoints = new List<Instruction>();
+        private readonly EventCallbackParams _params;
+        private readonly AssemblyDefinition _self;
+        private MethodDefinition _injectee;
+        private bool _invalid;
 
         public CecilEventCallbackInjector(AssemblyDefinition self, AssemblyDefinition def, EventCallbackParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
         {
-            injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-            if (injectee == null)
+            _injectee = _def.GetMethod(_params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+            if (_injectee == null)
             {
                 Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                invalid = true;
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0}", _params.InsertionIndex);
+                _invalid = true;
                 return;
             }
 
-            MethodDefinition recv = null;
-            if (injectee.IsStatic) recv = self.GetMethod(@params.CallbackType, @params.StaticCallbackName, @params.StaticCallbackDesc);
-            else recv = self.GetMethod(@params.CallbackType, @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-            if (recv == null)
-            {
-                Logging.DebugLogs("[{0}] Could not find receiver!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                invalid = true;
-                return;
-            }
-
-            var paramCount = injectee.IsStatic ? 0 : 1;
-            if (@params.PushParams)
-            {
-                paramCount += injectee.Parameters.Count;
-            }
-
-            callback = injectee.Module.Import(recv);
-            if (paramCount != callback.Parameters.Count)
-            {
-                Logging.DebugLogs("[{0}] Invalid param count on callback!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                invalid = true;
-                return;
-            }
-
-            var injecteeBody = injectee.Body;
+            var injecteeBody = _injectee.Body;
             var injecteeInstructions = injecteeBody.Instructions;
             var injecteeInsCount = injecteeInstructions.Count;
-            if (@params.InsertionType == InsertionType.BEGINNING)
+            if (_params.InsertionType == InsertionType.BEGINNING)
             {
-                injectionPoints.Add(injecteeInstructions[0]);
+                _injectionPoints.Add(injecteeInstructions[0]);
                 return;
             }
 
-            if (@params.InsertionType == InsertionType.LAST && @params.InsertionIndex == null)
+            if (_params.InsertionType == InsertionType.LAST && _params.InsertionIndex == null)
             {
-                injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1]);
+                _injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1]);
                 return;
             }
 
-            foreach (var i in @params.InsertionIndex)
+            foreach (var i in _params.InsertionIndex)
             {
-                switch (@params.InsertionType)
+                switch (_params.InsertionType)
                 {
                     case InsertionType.ABSOLUTE:
                         if (i < 0 || i >= injecteeInsCount)
                         {
                             Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
-                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                            invalid = true;
+                            Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0}", _params.InsertionIndex);
+                            _invalid = true;
                             return;
                         }
 
-                        injectionPoints.Add(injecteeInstructions[i]);
+                        _injectionPoints.Add(injecteeInstructions[i]);
                         break;
                     case InsertionType.LAST:
-                        if ((injecteeInsCount - 1 - i) < 0 || (injecteeInsCount - 1 - i) >= injecteeInsCount)
+                        if (injecteeInsCount - 1 - i < 0 || injecteeInsCount - 1 - i >= injecteeInsCount)
                         {
                             Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
-                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                            invalid = true;
+                            Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0}", _params.InsertionIndex);
+                            _invalid = true;
                             return;
                         }
 
-                        injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1 - i]);
+                        _injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1 - i]);
                         break;
                     case InsertionType.RETURNS:
-                        var relative = GetReturnByRelativity(injectee, i);
+                        var relative = GetReturnByRelativity(_injectee, i);
                         if (relative == null)
                         {
                             Logging.DebugLogs("[{0}] Unable to find return {1}", GetType().Name, i);
-                            Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.InstanceCallbackName, @params.InstanceCallbackDesc);
-                            Logging.DebugLogs("\t{0} {1}", @params.StaticCallbackName, @params.StaticCallbackDesc);
-                            Logging.DebugLogs("\t{0}", @params.InsertionIndex);
-                            invalid = true;
+                            Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                            Logging.DebugLogs("\t{0}", _params.InsertionIndex);
+                            _invalid = true;
                             return;
                         }
-                        injectionPoints.Add(relative);
+                        _injectionPoints.Add(relative);
                         break;
                 }
             }
@@ -153,85 +114,144 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            if (invalid) return;
+            if (_invalid) return;
 
             var hasReturnValue = typeof(DetourEvent).GetProperty("ReturnEarly");
-            var hasReturnValueImport = def.MainModule.Import(hasReturnValue.GetMethod);
+            var hasReturnValueImport = _def.MainModule.Import(hasReturnValue.GetMethod);
 
             var eventReturnValue = typeof(DetourEvent).GetProperty("ReturnValue");
-            var eventReturnValueImport = def.MainModule.Import(eventReturnValue.GetMethod);
+            var eventReturnValueImport = _def.MainModule.Import(eventReturnValue.GetMethod);
 
-            var body = injectee.Body;
+            var wrapperMethod = typeof(StaticGameContext).GetMethod("Wrap");
+            var wrapperMethodImport = _def.MainModule.Import(wrapperMethod);
+
+            var fireEventMethod = typeof(StaticGameContext).GetMethod("FireEvent");
+            var fireEventMethodImport = _def.MainModule.Import(fireEventMethod);
+
+            var createEventMethod = typeof(StaticContextEvent).GetConstructor(new[] {typeof(object[])});
+            var createEventMethodImport = _def.MainModule.Import(createEventMethod);
+
+            var body = _injectee.Body;
             var processor = body.GetILProcessor();
 
-            var returnName = injectee.ReturnType.FullName;
+            var returnName = _injectee.ReturnType.FullName;
             var returnsVoid = returnName.Equals(typeof(void).FullName);
 
             var returnsPrimitive = CecilUtils.IsNativeType(returnName);
 
-            foreach (var injectionPoint in injectionPoints)
+            var paramCount = 0;
+            if (_params.PushParams)
+            {
+                paramCount += _injectee.Parameters.Count;
+            }
+            if (!_injectee.IsStatic)
+            {
+                paramCount++;
+            }
+
+            foreach (var injectionPoint in _injectionPoints)
             {
                 var jmpTarget = returnsVoid ? injectionPoint : processor.Create(OpCodes.Pop);
 
                 Instruction initial = null;
-                if (!injectee.IsStatic)
+
+                var eventId = processor.Create(OpCodes.Ldstr, _params.EventId);
+                if (initial == null) initial = eventId;
+                processor.InsertBefore(injectionPoint, eventId);
+
+                var arraySize = processor.Create(OpCodes.Ldc_I4, paramCount);
+                if (initial == null) initial = arraySize;
+                processor.InsertBefore(injectionPoint, arraySize);
+
+                var arrayCreator = processor.Create(OpCodes.Newarr, _def.MainModule.Import(typeof(object)));
+                if (initial == null) initial = arrayCreator;
+                processor.InsertBefore(injectionPoint, arrayCreator);
+
+                var arrayPointer = 0;
+
+                for (var i = 0; i < paramCount; i++)
                 {
-                    processor.InsertBefore(injectionPoint, initial = processor.Create(OpCodes.Ldarg_0));
+                    var dupIns = processor.Create(OpCodes.Dup);
+                    if (initial == null) initial = dupIns;
+                    processor.InsertBefore(injectionPoint, dupIns);
                 }
 
-                if (@params.PushParams)
+                if (!_injectee.IsStatic)
                 {
-                    for (var i = 0; i < injectee.Parameters.Count(); i++)
+                    var thisPush = processor.Create(OpCodes.Ldarg_0);
+                    if (initial == null) initial = thisPush;
+
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldc_I4, arrayPointer++));
+                    processor.InsertBefore(injectionPoint, thisPush);
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Call, wrapperMethodImport));
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Stelem_Ref));
+                }
+
+                if (_params.PushParams)
+                {
+                    for (var i = 0; i < _injectee.Parameters.Count(); i++)
                     {
+                        var param = _injectee.Parameters[i];
+
+                        processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ldc_I4, arrayPointer++));
+
                         switch (i)
                         {
                             case 0:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(_injectee.IsStatic ? OpCodes.Ldarg_0 : OpCodes.Ldarg_1);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 1:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(_injectee.IsStatic ? OpCodes.Ldarg_1 : OpCodes.Ldarg_2);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 2:
-                                {
-                                    var ins = processor.Create(injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(_injectee.IsStatic ? OpCodes.Ldarg_2 : OpCodes.Ldarg_3);
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             case 3:
-                                {
-                                    var ins = injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = _injectee.IsStatic ? processor.Create(OpCodes.Ldarg_3) : processor.Create(OpCodes.Ldarg, i + (_injectee.IsStatic ? 0 : 1));
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
 
                             default:
-                                {
-                                    var ins = processor.Create(OpCodes.Ldarg, i + (injectee.IsStatic ? 0 : 1));
-                                    if (initial == null) initial = ins;
-                                    processor.InsertBefore(injectionPoint, ins);
-                                }
+                            {
+                                var ins = processor.Create(OpCodes.Ldarg, i + (_injectee.IsStatic ? 0 : 1));
+                                if (initial == null) initial = ins;
+                                processor.InsertBefore(injectionPoint, ins);
+                            }
                                 break;
                         }
+
+                        processor.InsertBefore(injectionPoint, !CecilUtils.IsNativeType(param.ParameterType) ? processor.Create(OpCodes.Call, wrapperMethodImport) : processor.Create(OpCodes.Box, param.ParameterType));
+
+                        processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Stelem_Ref));
                     }
                 }
 
-                var callbackCall = processor.Create(OpCodes.Call, callback);
-                if (initial == null) initial = callbackCall;
+                var ctorCall = processor.Create(OpCodes.Newobj, createEventMethodImport);
+                if (initial == null) initial = ctorCall;
+                processor.InsertBefore(injectionPoint, ctorCall);
 
+                var callbackCall = processor.Create(OpCodes.Call, fireEventMethodImport);
+                if (initial == null) initial = callbackCall;
                 processor.InsertBefore(injectionPoint, callbackCall);
+
                 if (!returnsVoid)
                 {
                     processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Dup));
@@ -248,7 +268,7 @@ namespace Storm.Manipulation.Cecil
 
                 if (returnsPrimitive)
                 {
-                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Unbox_Any, injectee.ReturnType));
+                    processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Unbox_Any, _injectee.ReturnType));
                 }
 
                 processor.InsertBefore(injectionPoint, processor.Create(OpCodes.Ret));
@@ -257,14 +277,12 @@ namespace Storm.Manipulation.Cecil
                     processor.InsertBefore(injectionPoint, jmpTarget);
                 }
 
-                if (@params.JumpFix)
+                if (_params.RedirectBranching)
                 {
                     foreach (var instruction in body.Instructions.Where(i => i != continueNormalJump))
                     {
                         if (CecilUtils.IsJump(instruction.OpCode))
                         {
-                            var idx = body.Instructions.IndexOf(instruction.Operand as Instruction);
-                            var targetIdx = body.Instructions.IndexOf(jmpTarget);
                             if (instruction.Operand == injectionPoint)
                             {
                                 instruction.Operand = initial;
@@ -275,13 +293,17 @@ namespace Storm.Manipulation.Cecil
             }
         }
 
+        public object GetParams()
+        {
+            return _params;
+        }
+
         private Instruction GetReturnByRelativity(MethodDefinition md, int index)
         {
             var instructions = md.Body.Instructions;
             var counter = 0;
-            for (var i = 0; i < instructions.Count; i++)
+            foreach (var ins in instructions)
             {
-                var ins = instructions[i];
                 if (ins.OpCode == OpCodes.Ret)
                 {
                     if (counter == index)
@@ -292,11 +314,6 @@ namespace Storm.Manipulation.Cecil
                 }
             }
             return null;
-        }
-
-        public object GetParams()
-        {
-            return @params;
         }
     }
 }

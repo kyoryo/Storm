@@ -15,10 +15,10 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System;
 using System.IO;
 using System.Reflection;
 using Mono.Cecil;
-using System;
 
 namespace Storm.Manipulation.Cecil
 {
@@ -48,12 +48,6 @@ namespace Storm.Manipulation.Cecil
         protected override void UpdatePath(string path)
         {
             GameAssembly = AssemblyDefinition.ReadAssembly(path);
-        }
-
-        public override Injector CreateInterfaceInjector(InterfaceParams @params)
-        {
-            CheckSelf();
-            return new CecilInterfaceInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override Injector CreateFieldDetourInjector(FieldDetourParams @params)

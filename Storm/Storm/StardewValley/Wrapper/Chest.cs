@@ -15,16 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Storm.Collections;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Chest : ObjectItem
     {
-        public Chest(StaticContext parent, ChestAccessor accessor) :
-            base(parent, accessor)
+        public Chest(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -32,67 +31,67 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public WrappedProxyList<ItemAccessor, Item> Items
+        public WrappedProxyList<object, Item> Items
         {
             get
             {
-                var tmp = Cast<ChestAccessor>()._GetItems();
+                var tmp = AsDynamic._GetItems();
                 if (tmp == null) return null;
-                return new WrappedProxyList<ItemAccessor, Item>(tmp, i => new Item(Parent, i));
+                return new WrappedProxyList<object, Item>((IList) tmp, i => new Item(Parent, i));
             }
         }
 
         public int CurrentLidFrame
         {
-            get { return Cast<ChestAccessor>()._GetCurrentLidFrame(); }
-            set { Cast<ChestAccessor>()._SetCurrentLidFrame(value); }
+            get { return AsDynamic._GetCurrentLidFrame(); }
+            set { AsDynamic._SetCurrentLidFrame(value); }
         }
 
         public int FrameCounter
         {
-            get { return Cast<ChestAccessor>()._GetFrameCounter(); }
-            set { Cast<ChestAccessor>()._SetFrameCounter(value); }
+            get { return AsDynamic._GetFrameCounter(); }
+            set { AsDynamic._SetFrameCounter(value); }
         }
 
         public int Coins
         {
-            get { return Cast<ChestAccessor>()._GetCoins(); }
-            set { Cast<ChestAccessor>()._SetCoins(value); }
+            get { return AsDynamic._GetCoins(); }
+            set { AsDynamic._SetCoins(value); }
         }
 
         public Farmer Opener
         {
             get
             {
-                var tmp = Cast<ChestAccessor>()._GetOpener();
+                var tmp = AsDynamic._GetOpener();
                 if (tmp == null) return null;
                 return new Farmer(Parent, tmp);
             }
-            set { Cast<ChestAccessor>()._SetOpener(value?.Cast<FarmerAccessor>()); }
+            set { AsDynamic._SetOpener(value?.Underlying); }
         }
 
         public string ChestType
         {
-            get { return Cast<ChestAccessor>()._GetChestType(); }
-            set { Cast<ChestAccessor>()._SetChestType(value); }
+            get { return AsDynamic._GetChestType(); }
+            set { AsDynamic._SetChestType(value); }
         }
 
         public Color Tint
         {
-            get { return Cast<ChestAccessor>()._GetTint(); }
-            set { Cast<ChestAccessor>()._SetTint(value); }
+            get { return AsDynamic._GetTint(); }
+            set { AsDynamic._SetTint(value); }
         }
 
         public bool PlayerChest
         {
-            get { return Cast<ChestAccessor>()._GetPlayerChest(); }
-            set { Cast<ChestAccessor>()._SetPlayerChest(value); }
+            get { return AsDynamic._GetPlayerChest(); }
+            set { AsDynamic._SetPlayerChest(value); }
         }
 
         public bool Giftbox
         {
-            get { return Cast<ChestAccessor>()._GetGiftbox(); }
-            set { Cast<ChestAccessor>()._SetGiftbox(value); }
+            get { return AsDynamic._GetGiftbox(); }
+            set { AsDynamic._SetGiftbox(value); }
         }
     }
 }

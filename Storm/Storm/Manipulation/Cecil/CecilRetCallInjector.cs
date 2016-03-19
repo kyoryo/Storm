@@ -61,9 +61,8 @@ namespace Storm.Manipulation.Cecil
             var body = injectee.Body;
             var processor = body.GetILProcessor();
             var instructions = body.Instructions;
-            for (var i = 0; i < instructions.Count; i++)
+            foreach (var ins in instructions)
             {
-                var ins = instructions[i];
                 if (ins.OpCode == OpCodes.Ret)
                 {
                     processor.InsertBefore(ins, processor.Create(OpCodes.Call, import));

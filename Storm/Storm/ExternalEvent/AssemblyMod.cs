@@ -15,7 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Storm.Manipulation;
@@ -27,9 +26,9 @@ namespace Storm.ExternalEvent
         public LoadedMod ParentMod;
 
         public object Instance;
-        public Dictionary<Type, List<MethodInfo>> CallMap;
+        public Dictionary<string, List<MethodInfo>> CallMap;
 
-        public AssemblyMod(LoadedMod parent, object instance, Dictionary<Type, List<MethodInfo>> callMap)
+        public AssemblyMod(LoadedMod parent, object instance, Dictionary<string, List<MethodInfo>> callMap)
         {
             ParentMod = parent;
             Instance = instance;
@@ -52,14 +51,14 @@ namespace Storm.ExternalEvent
             }
         }
 
-        public void Fire<T>(T @event) where T : DetourEvent
+        public void Fire<T>(string name, T @event) where T : DetourEvent
         {
             List<MethodInfo> handlers;
-            if (CallMap.TryGetValue(typeof(T), out handlers))
+            if (CallMap.TryGetValue(name, out handlers))
             {
                 foreach (var info in handlers)
                 {
-                    info.Invoke(Instance, new object[] { @event });
+                    info.Invoke(Instance, new object[] {@event});
                 }
             }
         }

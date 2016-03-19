@@ -16,17 +16,13 @@
  */
 
 using System.Collections;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class BuffsDisplay : ClickableMenu
     {
-        public BuffsDisplay(StaticContext parent, BuffsDisplayAccessor accessor) :
-            base(parent, accessor)
+        public BuffsDisplay(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -38,65 +34,65 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = Cast<BuffsDisplayAccessor>()._GetFood();
+                var tmp = AsDynamic._GetFood();
                 if (tmp == null) return null;
                 return new Buff(Parent, tmp);
             }
-            set { Cast<BuffsDisplayAccessor>()._SetFood(value?.Cast<BuffAccessor>()); }
+            set { AsDynamic._SetFood(value?.Underlying); }
         }
 
         public Buff Drink
         {
             get
             {
-                var tmp = Cast<BuffsDisplayAccessor>()._GetDrink();
+                var tmp = AsDynamic._GetDrink();
                 if (tmp == null) return null;
                 return new Buff(Parent, tmp);
             }
-            set { Cast<BuffsDisplayAccessor>()._SetDrink(value?.Cast<BuffAccessor>()); }
+            set { AsDynamic._SetDrink(value?.Underlying); }
         }
 
-        public WrappedProxyList<BuffAccessor, Buff> OtherBuffs
+        public WrappedProxyList<object, Buff> OtherBuffs
         {
             get
             {
-                var tmp = Cast<BuffsDisplayAccessor>()._GetOtherBuffs();
+                var tmp = AsDynamic._GetOtherBuffs();
                 if (tmp == null) return null;
-                return new WrappedProxyList<BuffAccessor, Buff>(tmp, i => i == null ? null : new Buff(Parent, i));
+                return new WrappedProxyList<object, Buff>((IList) tmp, i => new Buff(Parent, i));
             }
         }
 
         public int FullnessLeft
         {
-            get { return Cast<BuffsDisplayAccessor>()._GetFullnessLeft(); }
-            set { Cast<BuffsDisplayAccessor>()._SetFullnessLeft(value); }
+            get { return AsDynamic._GetFullnessLeft(); }
+            set { AsDynamic._SetFullnessLeft(value); }
         }
 
         public int QuenchedLeft
         {
-            get { return Cast<BuffsDisplayAccessor>()._GetQuenchedLeft(); }
-            set { Cast<BuffsDisplayAccessor>()._SetQuenchedLeft(value); }
+            get { return AsDynamic._GetQuenchedLeft(); }
+            set { AsDynamic._SetQuenchedLeft(value); }
         }
 
         public string HoverText
         {
-            get { return Cast<BuffsDisplayAccessor>()._GetHoverText(); }
-            set { Cast<BuffsDisplayAccessor>()._SetHoverText(value); }
+            get { return AsDynamic._GetHoverText(); }
+            set { AsDynamic._SetHoverText(value); }
         }
-        
+
         public bool TryToAddFoodBuff(Buff buff, int duration)
         {
-            return Cast<BuffsDisplayAccessor>()._TryToAddFoodBuff(buff?.Cast<BuffAccessor>(), duration);
+            return AsDynamic._TryToAddFoodBuff(buff?.Underlying, duration);
         }
 
         public bool TryToAddDrinkBuff(Buff buff)
         {
-            return Cast<BuffsDisplayAccessor>()._TryToAddDrinkBuff(buff?.Cast<BuffAccessor>());
+            return AsDynamic._TryToAddDrinkBuff(buff?.Underlying);
         }
 
         public bool AddOtherBuff(Buff buff)
         {
-            return Cast<BuffsDisplayAccessor>()._AddOtherBuff(buff?.Cast<BuffAccessor>());
+            return AsDynamic._AddOtherBuff(buff?.Underlying);
         }
     }
 }

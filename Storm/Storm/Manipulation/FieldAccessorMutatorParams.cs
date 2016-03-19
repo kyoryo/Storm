@@ -23,7 +23,6 @@ namespace Storm.Manipulation
         public string OwnerFieldType { get; set; }
         public string OwnerFieldName { get; set; }
         public string MethodName { get; set; }
-        public string Type { get; set; }
         public bool IsStatic { get; set; }
         public string OwnerAccessorType { get; set; }
     }

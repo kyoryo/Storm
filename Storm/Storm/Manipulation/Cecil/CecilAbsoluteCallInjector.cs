@@ -39,11 +39,8 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
-            if (callingDefinition == null)
-            {
-                callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
-            }
+            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc) ?? self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+
             if (callingDefinition == null)
             {
                 Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);

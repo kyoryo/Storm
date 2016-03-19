@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class Item : StaticContextWrapper
     {
-        public Item(StaticContext parent, ItemAccessor accessor) :
-            base(parent)
+        public Item(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -31,43 +28,34 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public int SalePrice
-        {
-            get { return Cast<ItemAccessor>()._GetSalePrice(); }
-        }
+        public int SalePrice => AsDynamic._GetSalePrice();
 
-        public int MaximumStackSize
-        {
-            get { return Cast<ItemAccessor>()._GetMaximumStackSize(); }
-        }
+        public int MaximumStackSize => AsDynamic._GetMaximumStackSize();
 
-        public string Description
-        {
-            get { return Cast<ItemAccessor>()._GetDescription(); }
-        }
+        public string Description => AsDynamic._GetDescription();
 
         public int Category
         {
-            get { return Cast<ItemAccessor>()._GetCategory(); }
-            set { Cast<ItemAccessor>()._SetCategory(value); }
+            get { return AsDynamic._GetCategory(); }
+            set { AsDynamic._SetCategory(value); }
         }
 
         public bool HasBeenInInventory
         {
-            get { return Cast<ItemAccessor>()._GetHasBeenInInventory(); }
-            set { Cast<ItemAccessor>()._SetHasBeenInInventory(value); }
+            get { return AsDynamic._GetHasBeenInInventory(); }
+            set { AsDynamic._SetHasBeenInInventory(value); }
         }
 
         public bool IsSpecialItem
         {
-            get { return Cast<ItemAccessor>()._GetSpecialItem(); }
-            set { Cast<ItemAccessor>()._SetSpecialItem(value); }
+            get { return AsDynamic._GetSpecialItem(); }
+            set { AsDynamic._SetSpecialItem(value); }
         }
 
         public int SpecialVariable
         {
-            get { return Cast<ItemAccessor>()._GetSpecialVariable(); }
-            set { Cast<ItemAccessor>()._SetSpecialVariable(value); }
+            get { return AsDynamic._GetSpecialVariable(); }
+            set { AsDynamic._SetSpecialVariable(value); }
         }
     }
 }

@@ -23,9 +23,6 @@ namespace Storm.ExternalEvent
     {
         public string PathOnDisk { get; set; }
 
-        public string ParentPathOnDisk
-        {
-            get { return Directory.GetParent(PathOnDisk).FullName; }
-        }
+        public string ParentPathOnDisk => Directory.GetParent(PathOnDisk).FullName;
     }
 }

@@ -15,17 +15,13 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
-using Storm.StardewValley.Accessor;
-using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class HUDMessage : StaticContextWrapper
     {
-        public HUDMessage(StaticContext parent, HUDMessageAccessor accessor) : base(parent)
+        public HUDMessage(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -34,70 +30,70 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public System.String Message
+        public string Message
         {
-            get { return Cast<HUDMessageAccessor>()._GetMessage(); }
-            set { Cast<HUDMessageAccessor>()._SetMessage(value); }
+            get { return AsDynamic._GetMessage(); }
+            set { AsDynamic._SetMessage(value); }
         }
 
-        public System.String Type
+        public string Type
         {
-            get { return Cast<HUDMessageAccessor>()._GetType(); }
-            set { Cast<HUDMessageAccessor>()._SetType(value); }
+            get { return AsDynamic._GetType(); }
+            set { AsDynamic._SetType(value); }
         }
 
         public Color Color
         {
-            get { return Cast<HUDMessageAccessor>()._GetColor(); }
-            set { Cast<HUDMessageAccessor>()._SetColor(value); }
+            get { return AsDynamic._GetColor(); }
+            set { AsDynamic._SetColor(value); }
         }
 
         public float TimeLeft
         {
-            get { return Cast<HUDMessageAccessor>()._GetTimeLeft(); }
-            set { Cast<HUDMessageAccessor>()._SetTimeLeft(value); }
+            get { return AsDynamic._GetTimeLeft(); }
+            set { AsDynamic._SetTimeLeft(value); }
         }
 
         public float Transparency
         {
-            get { return Cast<HUDMessageAccessor>()._GetTransparency(); }
-            set { Cast<HUDMessageAccessor>()._SetTransparency(value); }
+            get { return AsDynamic._GetTransparency(); }
+            set { AsDynamic._SetTransparency(value); }
         }
 
         public int Number
         {
-            get { return Cast<HUDMessageAccessor>()._GetNumber(); }
-            set { Cast<HUDMessageAccessor>()._SetNumber(value); }
+            get { return AsDynamic._GetNumber(); }
+            set { AsDynamic._SetNumber(value); }
         }
 
         public int WhatType
         {
-            get { return Cast<HUDMessageAccessor>()._GetWhatType(); }
-            set { Cast<HUDMessageAccessor>()._SetWhatType(value); }
+            get { return AsDynamic._GetWhatType(); }
+            set { AsDynamic._SetWhatType(value); }
         }
 
         public bool Add
         {
-            get { return Cast<HUDMessageAccessor>()._GetAdd(); }
-            set { Cast<HUDMessageAccessor>()._SetAdd(value); }
+            get { return AsDynamic._GetAdd(); }
+            set { AsDynamic._SetAdd(value); }
         }
 
         public bool Achievement
         {
-            get { return Cast<HUDMessageAccessor>()._GetAchievement(); }
-            set { Cast<HUDMessageAccessor>()._SetAchievement(value); }
+            get { return AsDynamic._GetAchievement(); }
+            set { AsDynamic._SetAchievement(value); }
         }
 
         public bool FadeIn
         {
-            get { return Cast<HUDMessageAccessor>()._GetFadeIn(); }
-            set { Cast<HUDMessageAccessor>()._SetFadeIn(value); }
+            get { return AsDynamic._GetFadeIn(); }
+            set { AsDynamic._SetFadeIn(value); }
         }
 
         public bool NoIcon
         {
-            get { return Cast<HUDMessageAccessor>()._GetNoIcon(); }
-            set { Cast<HUDMessageAccessor>()._SetNoIcon(value); }
+            get { return AsDynamic._GetNoIcon(); }
+            set { AsDynamic._SetNoIcon(value); }
         }
     }
 }

@@ -39,11 +39,8 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
-            if (callingDefinition == null)
-            {
-                callingDefinition = def.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
-            }
+            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc) ?? def.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+
             if (callingDefinition == null)
             {
                 Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
@@ -72,7 +69,7 @@ namespace Storm.Manipulation.Cecil
                     var ins = instructions[i];
                     if (CecilUtils.IsGettingField(ins) && ins.Operand is FieldReference)
                     {
-                        var casted = ins.Operand as FieldReference;
+                        var casted = (FieldReference) ins.Operand;
                         if (casted.Resolve() == fieldRef.Resolve())
                         {
                             instructions[i] = processor.Create(OpCodes.Call, import);

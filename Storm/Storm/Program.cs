@@ -16,6 +16,7 @@
  */
 
 using System;
+using Microsoft.Xna.Framework;
 using Storm.StardewValley;
 
 namespace Storm
@@ -24,14 +25,17 @@ namespace Storm
     {
         private static void Main(string[] args)
         {
+            var c = new Color(255, 1, 1, 255);
+            object[] obj = {c};
+            Logging.DebugLog(obj.ToString());
+
             /* allow window resizing on osx & *nix */
             if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
                 Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
 
-
 #if DEBUG
-            Logging.Log = msg => Console.WriteLine(msg);
-            Logging.DebugLog = msg => Console.WriteLine(msg);
+            Logging.Log = Console.WriteLine;
+            Logging.DebugLog = Console.WriteLine;
 #else
             Logging.Log = Logging.LogToFile;
             Logging.DebugLog = Logging.LogToFile;

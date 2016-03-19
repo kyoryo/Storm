@@ -42,23 +42,12 @@ namespace Storm.Manipulation.Cecil
         public void Inject()
         {
             var entry = def.EntryPoint.DeclaringType;
-            entry.Attributes = TypeAttributes.Class |
-                               TypeAttributes.AutoLayout |
-                               TypeAttributes.BeforeFieldInit |
-                               TypeAttributes.Public |
-                               TypeAttributes.AnsiClass;
+            entry.Attributes = TypeAttributes.Class | TypeAttributes.AutoLayout | TypeAttributes.BeforeFieldInit | TypeAttributes.Public | TypeAttributes.AnsiClass;
 
             var hasConstructor = entry.Methods.SingleOrDefault(m => m.Name.Equals(".ctor")) != null;
             if (!hasConstructor)
             {
-                var method = new MethodDefinition(".ctor",
-                    MethodAttributes.SpecialName |
-                    MethodAttributes.HideBySig |
-                    MethodAttributes.Family |
-                    MethodAttributes.Public |
-                    MethodAttributes.ReuseSlot |
-                    MethodAttributes.RTSpecialName,
-                    entry.Module.Import(typeof(void)));
+                var method = new MethodDefinition(".ctor", MethodAttributes.SpecialName | MethodAttributes.HideBySig | MethodAttributes.Family | MethodAttributes.Public | MethodAttributes.ReuseSlot | MethodAttributes.RTSpecialName, entry.Module.Import(typeof(void)));
 
                 var processor = method.Body.GetILProcessor();
                 processor.Append(processor.Create(OpCodes.Ldarg_0));

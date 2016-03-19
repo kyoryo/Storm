@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class ChatBox : ClickableMenu
     {
-        public ChatBox(StaticContext parent, ChatBoxAccessor accessor) :
-            base(parent, accessor)
+        public ChatBox(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -32,7 +29,7 @@ namespace Storm.StardewValley.Wrapper
 
         public void ReceiveChatMessage(string message, long who)
         {
-            Cast<ChatBoxAccessor>()._ReceiveChatMessage(message, who);
+            AsDynamic._ReceiveChatMessage(message, who);
         }
     }
 }

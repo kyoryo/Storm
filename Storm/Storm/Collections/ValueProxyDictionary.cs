@@ -22,17 +22,17 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm.Collections
 {
-    public class ValueProxyDictionary<TKey, TOValue, TValue> : System.Collections.Generic.IDictionary<TKey, TValue> where TValue : Wrapper
+    public class ValueProxyDictionary<TKey, TOValue, TValue> : IDictionary<TKey, TValue> where TValue : Wrapper
     {
-        public delegate W Wrap<V, W>(V val);
+        public delegate TW Wrap<in TV, out TW>(TV val);
 
-        private readonly IDictionary real;
-        private readonly Wrap<TOValue, TValue> wrapper;
+        private readonly IDictionary _real;
+        private readonly Wrap<TOValue, TValue> _wrapper;
 
         public ValueProxyDictionary(IDictionary real, Wrap<TOValue, TValue> wrapper)
         {
-            this.real = real;
-            this.wrapper = wrapper;
+            _real = real;
+            _wrapper = wrapper;
         }
 
         public ICollection<TKey> Keys
@@ -40,9 +40,9 @@ namespace Storm.Collections
             get
             {
                 var list = new List<TKey>();
-                foreach (var key in real.Keys)
+                foreach (var key in _real.Keys)
                 {
-                    list.Add((TKey)key);
+                    list.Add((TKey) key);
                 }
                 return list;
             }
@@ -53,57 +53,39 @@ namespace Storm.Collections
             get
             {
                 var list = new List<TValue>();
-                foreach (var value in real.Values)
+                foreach (var value in _real.Values)
                 {
-                    list.Add(wrapper((TOValue)value));
+                    list.Add(_wrapper((TOValue) value));
                 }
                 return list;
             }
         }
 
-        public int Count
-        {
-            get
-            {
-                return real.Count;
-            }
-        }
+        public int Count => _real.Count;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         public TValue this[TKey key]
         {
-            get
-            {
-                return wrapper((TOValue)real[key]);
-            }
+            get { return _wrapper((TOValue) _real[key]); }
 
-            set
-            {
-                real[key] = value.Underlying;
-            }
+            set { _real[key] = value.Underlying; }
         }
 
         public bool ContainsKey(TKey key)
         {
-            return real.Contains(key);
+            return _real.Contains(key);
         }
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key, value.Underlying);
+            _real.Add(key, value.Underlying);
         }
 
         public bool Remove(TKey key)
         {
             if (!ContainsKey(key)) return false;
-            real.Remove(key);
+            _real.Remove(key);
             return true;
         }
 
@@ -120,19 +102,19 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key, item.Value.Underlying);
+            _real.Add(item.Key, item.Value.Underlying);
         }
 
         public void Clear()
         {
-            real.Clear();
+            _real.Clear();
         }
 
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value.Underlying))
+                if (key.Equals(item.Key) && _real[key].Equals(item.Value.Underlying))
                 {
                     return true;
                 }
@@ -147,11 +129,11 @@ namespace Storm.Collections
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key) && real[key].Equals(item.Value.Underlying))
+                if (key.Equals(item.Key) && _real[key].Equals(item.Value.Underlying))
                 {
-                    real.Remove(item.Key);
+                    _real.Remove(item.Key);
                     return true;
                 }
             }
@@ -160,7 +142,7 @@ namespace Storm.Collections
 
         public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
         {
-            return new ProxyEnumerator<TKey, TOValue, TValue>(real, wrapper);
+            return new ProxyEnumerator<TKey, TOValue, TValue>(_real, _wrapper);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -168,39 +150,32 @@ namespace Storm.Collections
             throw new NotImplementedException();
         }
 
-        private class ProxyEnumerator<EKey, EOValue, EValue> : IEnumerator<KeyValuePair<EKey, EValue>>
+        private class ProxyEnumerator<TEKey, TEoValue, TEValue> : IEnumerator<KeyValuePair<TEKey, TEValue>>
         {
-            private IDictionary real;
-            private Wrap<EOValue, EValue> wrapper;
-            private int curIndex;
+            private readonly IList _keys;
+            private readonly IDictionary _real;
+            private readonly Wrap<TEoValue, TEValue> _wrapper;
+            private int _curIndex;
+            private TEKey _curKey;
+            private TEoValue _curValue;
 
-            private IList keys;
-            private EKey curKey;
-            private EOValue curValue;
-
-            public ProxyEnumerator(IDictionary real, Wrap<EOValue, EValue> wrapper)
+            public ProxyEnumerator(IDictionary real, Wrap<TEoValue, TEValue> wrapper)
             {
-                this.real = real;
-                this.wrapper = wrapper;
-                this.keys = new ArrayList();
+                _real = real;
+                _wrapper = wrapper;
+                _keys = new ArrayList();
                 foreach (var key in real.Keys)
                 {
-                    this.keys.Add(key);
+                    _keys.Add(key);
                 }
-                this.curIndex = -1;
-                this.curKey = default(EKey);
-                this.curValue = default(EOValue);
+                _curIndex = -1;
+                _curKey = default(TEKey);
+                _curValue = default(TEoValue);
             }
 
-            public KeyValuePair<EKey, EValue> Current
-            {
-                get { return new KeyValuePair<EKey, EValue>(curKey, wrapper(curValue)); }
-            }
+            public KeyValuePair<TEKey, TEValue> Current => new KeyValuePair<TEKey, TEValue>(_curKey, _wrapper(_curValue));
 
-            object IEnumerator.Current
-            {
-                get { return curValue; }
-            }
+            object IEnumerator.Current => _curValue;
 
             public void Dispose()
             {
@@ -209,21 +184,18 @@ namespace Storm.Collections
 
             public bool MoveNext()
             {
-                if (++curIndex >= keys.Count)
+                if (++_curIndex >= _keys.Count)
                 {
                     return false;
                 }
-                else
-                {
-                    curKey = (EKey)keys[curIndex];
-                    curValue = (EOValue)real[curKey];
-                    return true;
-                }
+                _curKey = (TEKey) _keys[_curIndex];
+                _curValue = (TEoValue) _real[_curKey];
+                return true;
             }
 
             public void Reset()
             {
-                curIndex = -1;
+                _curIndex = -1;
             }
         }
     }

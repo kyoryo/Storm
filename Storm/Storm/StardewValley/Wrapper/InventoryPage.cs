@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class InventoryPage : ClickableMenu
     {
-        public InventoryPage(StaticContext parent, InventoryPageAccessor accessor) :
-            base(parent, accessor)
+        public InventoryPage(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -34,69 +31,69 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = Cast<InventoryPageAccessor>()._GetInventory();
+                var tmp = AsDynamic._GetInventory();
                 if (tmp == null) return null;
                 return new InventoryMenu(Parent, tmp);
             }
-            set { Cast<InventoryPageAccessor>()._SetInventory((InventoryMenuAccessor)value?.Underlying); }
+            set { AsDynamic._SetInventory(value?.Underlying); }
         }
 
         public string DescriptionText
         {
-            get { return Cast<InventoryPageAccessor>()._GetDescriptionText(); }
-            set { Cast<InventoryPageAccessor>()._SetDescriptionText(value); }
+            get { return AsDynamic._GetDescriptionText(); }
+            set { AsDynamic._SetDescriptionText(value); }
         }
 
         public string HoverText
         {
-            get { return Cast<InventoryPageAccessor>()._GetHoverText(); }
-            set { Cast<InventoryPageAccessor>()._SetHoverText(value); }
+            get { return AsDynamic._GetHoverText(); }
+            set { AsDynamic._SetHoverText(value); }
         }
 
         public string DescriptionTitle
         {
-            get { return Cast<InventoryPageAccessor>()._GetDescriptionTitle(); }
-            set { Cast<InventoryPageAccessor>()._SetDescriptionTitle(value); }
+            get { return AsDynamic._GetDescriptionTitle(); }
+            set { AsDynamic._SetDescriptionTitle(value); }
         }
 
         public string HoverTitle
         {
-            get { return Cast<InventoryPageAccessor>()._GetHoverTitle(); }
-            set { Cast<InventoryPageAccessor>()._SetHoverTitle(value); }
+            get { return AsDynamic._GetHoverTitle(); }
+            set { AsDynamic._SetHoverTitle(value); }
         }
 
         public Item HeldItem
         {
             get
             {
-                var tmp = Cast<InventoryPageAccessor>()._GetHeldItem();
+                var tmp = AsDynamic._GetHeldItem();
                 if (tmp == null) return null;
                 return new Item(Parent, tmp);
             }
-            set { Cast<InventoryPageAccessor>()._SetHeldItem(value?.Cast<ItemAccessor>()); }
+            set { AsDynamic._SetHeldItem(value?.Underlying); }
         }
 
         public Item HoveredItem
         {
             get
             {
-                var tmp = Cast<InventoryPageAccessor>()._GetHoveredItem();
+                var tmp = AsDynamic._GetHoveredItem();
                 if (tmp == null) return null;
                 return new Item(Parent, tmp);
             }
-            set { Cast<InventoryPageAccessor>()._SetHoveredItem(value?.Cast<ItemAccessor>()); }
+            set { AsDynamic._SetHoveredItem(value?.Underlying); }
         }
 
         public float TrashCanLidRotation
         {
-            get { return Cast<InventoryPageAccessor>()._GetTrashCanLidRotation(); }
-            set { Cast<InventoryPageAccessor>()._SetTrashCanLidRotation(value); }
+            get { return AsDynamic._GetTrashCanLidRotation(); }
+            set { AsDynamic._SetTrashCanLidRotation(value); }
         }
 
         public string HorseName
         {
-            get { return Cast<InventoryPageAccessor>()._GetHorseName(); }
-            set { Cast<InventoryPageAccessor>()._SetHorseName(value); }
+            get { return AsDynamic._GetHorseName(); }
+            set { AsDynamic._SetHorseName(value); }
         }
     }
 }

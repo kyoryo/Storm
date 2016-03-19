@@ -23,24 +23,19 @@ namespace Storm.StardewValley.Wrapper
     {
         public object Underlying { get; set; }
 
+        public dynamic AsDynamic => Underlying;
+
         public bool IsNull() => Underlying == null;
-
-        public T Cast<T>()
-        {
-            return (T)this.Underlying;
-        }
-
-        public bool Is<A>() => Underlying is A;
 
         public virtual T As<A, T>() where T : Wrapper
         {
-            T instance = (T)Activator.CreateInstance(typeof(T));
+            var instance = (T) Activator.CreateInstance(typeof(T));
             return As<A, T>(instance);
         }
 
         public virtual T As<A, T>(T instance) where T : Wrapper
         {
-            instance.Underlying = Cast<A>();
+            instance.Underlying = Underlying;
             return instance;
         }
     }

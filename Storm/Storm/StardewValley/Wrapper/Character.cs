@@ -16,14 +16,12 @@
  */
 
 using Microsoft.Xna.Framework;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Character : StaticContextWrapper
     {
-        public Character(StaticContext parent, CharacterAccessor accessor) :
-            base(parent)
+        public Character(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -32,68 +30,65 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public bool EmoteFading
-        {
-            get { return Cast<CharacterAccessor>()._GetEmoteFading(); }
-        }
+        public bool EmoteFading => AsDynamic._GetEmoteFading();
 
         public float EmoteInterval
         {
-            get { return Cast<CharacterAccessor>()._GetEmoteInterval(); }
-            set { Cast<CharacterAccessor>()._SetEmoteInterval(value); }
+            get { return AsDynamic._GetEmoteInterval(); }
+            set { AsDynamic._SetEmoteInterval(value); }
         }
 
         public Vector2 LastClick
         {
-            get { return Cast<CharacterAccessor>()._GetLastClick(); }
-            set { Cast<CharacterAccessor>()._SetLastClick(value); }
+            get { return AsDynamic._GetLastClick(); }
+            set { AsDynamic._SetLastClick(value); }
         }
 
         public string Name
         {
-            get { return Cast<CharacterAccessor>()._GetName(); }
-            set { Cast<CharacterAccessor>()._SetName(value); }
+            get { return AsDynamic._GetName(); }
+            set { AsDynamic._SetName(value); }
         }
 
         public Vector2 Position
         {
-            get { return Cast<CharacterAccessor>()._GetPosition(); }
-            set { Cast<CharacterAccessor>()._SetPosition(value); }
+            get { return AsDynamic._GetPosition(); }
+            set { AsDynamic._SetPosition(value); }
         }
 
         public float VelocityX
         {
-            get { return Cast<CharacterAccessor>()._GetXVelocity(); }
-            set { Cast<CharacterAccessor>()._SetXVelocity(value); }
+            get { return AsDynamic._GetXVelocity(); }
+            set { AsDynamic._SetXVelocity(value); }
         }
 
         public float VelocityY
         {
-            get { return Cast<CharacterAccessor>()._GetYVelocity(); }
-            set { Cast<CharacterAccessor>()._SetYVelocity(value); }
+            get { return AsDynamic._GetYVelocity(); }
+            set { AsDynamic._SetYVelocity(value); }
         }
 
         public float Scale
         {
-            get { return Cast<CharacterAccessor>()._GetScale(); }
-            set { Cast<CharacterAccessor>()._SetScale(value); }
+            get { return AsDynamic._GetScale(); }
+            set { AsDynamic._SetScale(value); }
         }
 
         public int Speed
         {
-            get { return Cast<CharacterAccessor>()._GetSpeed(); }
-            set { Cast<CharacterAccessor>()._SetSpeed(value); }
+            get { return AsDynamic._GetSpeed(); }
+            set { AsDynamic._SetSpeed(value); }
         }
 
         public AnimatedSprite Sprite
         {
             get
             {
-                var tmp = Cast<CharacterAccessor>()._GetSprite();
+                var tmp = AsDynamic._GetSprite();
                 if (tmp == null) return null;
                 return new AnimatedSprite(Parent, tmp);
             }
-            set { Cast<CharacterAccessor>()._SetSprite(value?.Cast<AnimatedSpriteAccessor>()); }
+            set { AsDynamic._SetSprite(value?.Underlying); }
         }
     }
 }

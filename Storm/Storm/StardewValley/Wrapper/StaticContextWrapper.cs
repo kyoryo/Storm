@@ -15,18 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public abstract class StaticContextWrapper : ChildWrapper<StaticContext>
     {
-        public StaticContextWrapper(StaticContext parent) :
-            base(parent)
+        protected StaticContextWrapper(StaticContext parent) : base(parent)
         {
         }
 
-        public StaticContextWrapper()
+        protected StaticContextWrapper()
         {
         }
     }

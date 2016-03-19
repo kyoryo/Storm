@@ -15,15 +15,14 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using Storm.Collections;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class GameMenu : ClickableMenu
     {
-        public GameMenu(StaticContext parent, GameMenuAccessor accessor) :
-            base(parent, accessor)
+        public GameMenu(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -33,41 +32,41 @@ namespace Storm.StardewValley.Wrapper
 
         public int CurrentTab
         {
-            get { return Cast<GameMenuAccessor>()._GetCurrentTab(); }
-            set { Cast<GameMenuAccessor>()._SetCurrentTab(value); }
+            get { return AsDynamic._GetCurrentTab(); }
+            set { AsDynamic._SetCurrentTab(value); }
         }
 
         public string HoverText
         {
-            get { return Cast<GameMenuAccessor>()._GetHoverText(); }
-            set { Cast<GameMenuAccessor>()._SetHoverText(value); }
+            get { return AsDynamic._GetHoverText(); }
+            set { AsDynamic._SetHoverText(value); }
         }
 
         public string DescriptionText
         {
-            get { return Cast<GameMenuAccessor>()._GetDescriptionText(); }
-            set { Cast<GameMenuAccessor>()._SetDescriptionText(value); }
+            get { return AsDynamic._GetDescriptionText(); }
+            set { AsDynamic._SetDescriptionText(value); }
         }
 
         public bool Invisible
         {
-            get { return Cast<GameMenuAccessor>()._GetInvisible(); }
-            set { Cast<GameMenuAccessor>()._SetInvisible(value); }
+            get { return AsDynamic._GetInvisible(); }
+            set { AsDynamic._SetInvisible(value); }
         }
 
         public bool ForcePreventClose
         {
-            get { return Cast<GameMenuAccessor>()._GetForcePreventClose(); }
-            set { Cast<GameMenuAccessor>()._SetForcePreventClose(value); }
+            get { return AsDynamic._GetForcePreventClose(); }
+            set { AsDynamic._SetForcePreventClose(value); }
         }
 
-        public WrappedProxyList<ClickableMenuAccessor, ClickableMenu> Pages
+        public WrappedProxyList<object, ClickableMenu> Pages
         {
             get
             {
-                var tmp = Cast<GameMenuAccessor>()._GetPages();
+                var tmp = AsDynamic._GetPages();
                 if (tmp == null) return null;
-                return new WrappedProxyList<ClickableMenuAccessor, ClickableMenu>(tmp, i => i == null ? null : new ClickableMenu(Parent, i));
+                return new WrappedProxyList<object, ClickableMenu>((IList) tmp, i => i == null ? null : new ClickableMenu(Parent, i));
             }
         }
     }

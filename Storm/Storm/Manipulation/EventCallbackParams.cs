@@ -22,13 +22,9 @@ namespace Storm.Manipulation
         public string OwnerType { get; set; }
         public string OwnerMethodName { get; set; }
         public string OwnerMethodDesc { get; set; }
-        public string CallbackType { get; set; }
-        public string InstanceCallbackName { get; set; }
-        public string InstanceCallbackDesc { get; set; }
-        public string StaticCallbackName { get; set; }
-        public string StaticCallbackDesc { get; set; }
+        public string EventId { get; set; }
         public bool PushParams { get; set; }
-        public bool JumpFix { get; set; }
+        public bool RedirectBranching { get; set; }
         public InsertionType InsertionType { get; set; }
         public int[] InsertionIndex { get; set; }
     }

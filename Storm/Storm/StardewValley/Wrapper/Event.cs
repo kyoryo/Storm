@@ -18,14 +18,12 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Event : StaticContextWrapper
     {
-        public Event(StaticContext parent, EventAccessor accessor) :
-            base(parent)
+        public Event(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -36,308 +34,308 @@ namespace Storm.StardewValley.Wrapper
 
         public string EventCommands
         {
-            get { return Cast<EventAccessor>()._GetEventCommands(); }
-            set { Cast<EventAccessor>()._SetEventCommands(value); }
+            get { return AsDynamic._GetEventCommands(); }
+            set { AsDynamic._SetEventCommands(value); }
         }
 
         public int CurrentCommand
         {
-            get { return Cast<EventAccessor>()._GetCurrentCommand(); }
-            set { Cast<EventAccessor>()._SetCurrentCommand(value); }
+            get { return AsDynamic._GetCurrentCommand(); }
+            set { AsDynamic._SetCurrentCommand(value); }
         }
 
         public int OldPixelZoom
         {
-            get { return Cast<EventAccessor>()._GetOldPixelZoom(); }
-            set { Cast<EventAccessor>()._SetOldPixelZoom(value); }
+            get { return AsDynamic._GetOldPixelZoom(); }
+            set { AsDynamic._SetOldPixelZoom(value); }
         }
 
         public int ReadyConfirmationTimer
         {
-            get { return Cast<EventAccessor>()._GetReadyConfirmationTimer(); }
-            set { Cast<EventAccessor>()._SetReadyConfirmationTimer(value); }
+            get { return AsDynamic._GetReadyConfirmationTimer(); }
+            set { AsDynamic._SetReadyConfirmationTimer(value); }
         }
 
         public string MessageToScreen
         {
-            get { return Cast<EventAccessor>()._GetMessageToScreen(); }
-            set { Cast<EventAccessor>()._SetMessageToScreen(value); }
+            get { return AsDynamic._GetMessageToScreen(); }
+            set { AsDynamic._SetMessageToScreen(value); }
         }
 
         public string PlayerControlSequenceID
         {
-            get { return Cast<EventAccessor>()._GetPlayerControlSequenceID(); }
-            set { Cast<EventAccessor>()._SetPlayerControlSequenceID(value); }
+            get { return AsDynamic._GetPlayerControlSequenceID(); }
+            set { AsDynamic._SetPlayerControlSequenceID(value); }
         }
 
         public bool ShowActiveObject
         {
-            get { return Cast<EventAccessor>()._GetShowActiveObject(); }
-            set { Cast<EventAccessor>()._SetShowActiveObject(value); }
+            get { return AsDynamic._GetShowActiveObject(); }
+            set { AsDynamic._SetShowActiveObject(value); }
         }
 
         public bool ContinueAfterMove
         {
-            get { return Cast<EventAccessor>()._GetContinueAfterMove(); }
-            set { Cast<EventAccessor>()._SetContinueAfterMove(value); }
+            get { return AsDynamic._GetContinueAfterMove(); }
+            set { AsDynamic._SetContinueAfterMove(value); }
         }
 
         public bool SpecialEventVariable1
         {
-            get { return Cast<EventAccessor>()._GetSpecialEventVariable1(); }
-            set { Cast<EventAccessor>()._SetSpecialEventVariable1(value); }
+            get { return AsDynamic._GetSpecialEventVariable1(); }
+            set { AsDynamic._SetSpecialEventVariable1(value); }
         }
 
         public bool Forked
         {
-            get { return Cast<EventAccessor>()._GetForked(); }
-            set { Cast<EventAccessor>()._SetForked(value); }
+            get { return AsDynamic._GetForked(); }
+            set { AsDynamic._SetForked(value); }
         }
 
         public bool WasBloomDay
         {
-            get { return Cast<EventAccessor>()._GetWasBloomDay(); }
-            set { Cast<EventAccessor>()._SetWasBloomDay(value); }
+            get { return AsDynamic._GetWasBloomDay(); }
+            set { AsDynamic._SetWasBloomDay(value); }
         }
 
         public bool WasBloomVisible
         {
-            get { return Cast<EventAccessor>()._GetWasBloomVisible(); }
-            set { Cast<EventAccessor>()._SetWasBloomVisible(value); }
+            get { return AsDynamic._GetWasBloomVisible(); }
+            set { AsDynamic._SetWasBloomVisible(value); }
         }
 
         public bool PlayerControlSequence
         {
-            get { return Cast<EventAccessor>()._GetPlayerControlSequence(); }
-            set { Cast<EventAccessor>()._SetPlayerControlSequence(value); }
+            get { return AsDynamic._GetPlayerControlSequence(); }
+            set { AsDynamic._SetPlayerControlSequence(value); }
         }
 
         public bool EventSwitched
         {
-            get { return Cast<EventAccessor>()._GetEventSwitched(); }
-            set { Cast<EventAccessor>()._SetEventSwitched(value); }
+            get { return AsDynamic._GetEventSwitched(); }
+            set { AsDynamic._SetEventSwitched(value); }
         }
 
         public bool IsFestival
         {
-            get { return Cast<EventAccessor>()._GetIsFestival(); }
-            set { Cast<EventAccessor>()._SetIsFestival(value); }
+            get { return AsDynamic._GetIsFestival(); }
+            set { AsDynamic._SetIsFestival(value); }
         }
 
         public bool SentReadyConfirmation
         {
-            get { return Cast<EventAccessor>()._GetSentReadyConfirmation(); }
-            set { Cast<EventAccessor>()._SetSentReadyConfirmation(value); }
+            get { return AsDynamic._GetSentReadyConfirmation(); }
+            set { AsDynamic._SetSentReadyConfirmation(value); }
         }
 
         public bool AllPlayersReady
         {
-            get { return Cast<EventAccessor>()._GetAllPlayersReady(); }
-            set { Cast<EventAccessor>()._SetAllPlayersReady(value); }
+            get { return AsDynamic._GetAllPlayersReady(); }
+            set { AsDynamic._SetAllPlayersReady(value); }
         }
 
         public bool PlayerWasMounted
         {
-            get { return Cast<EventAccessor>()._GetPlayerWasMounted(); }
-            set { Cast<EventAccessor>()._SetPlayerWasMounted(value); }
+            get { return AsDynamic._GetPlayerWasMounted(); }
+            set { AsDynamic._SetPlayerWasMounted(value); }
         }
 
         public float TimeAccumulator
         {
-            get { return Cast<EventAccessor>()._GetTimeAccumulator(); }
-            set { Cast<EventAccessor>()._SetTimeAccumulator(value); }
+            get { return AsDynamic._GetTimeAccumulator(); }
+            set { AsDynamic._SetTimeAccumulator(value); }
         }
 
         public float ViewportXAccumulator
         {
-            get { return Cast<EventAccessor>()._GetViewportXAccumulator(); }
-            set { Cast<EventAccessor>()._SetViewportXAccumulator(value); }
+            get { return AsDynamic._GetViewportXAccumulator(); }
+            set { AsDynamic._SetViewportXAccumulator(value); }
         }
 
         public float ViewportYAccumulator
         {
-            get { return Cast<EventAccessor>()._GetViewportYAccumulator(); }
-            set { Cast<EventAccessor>()._SetViewportYAccumulator(value); }
+            get { return AsDynamic._GetViewportYAccumulator(); }
+            set { AsDynamic._SetViewportYAccumulator(value); }
         }
 
         public Vector3 ViewportTarget
         {
-            get { return Cast<EventAccessor>()._GetViewportTarget(); }
-            set { Cast<EventAccessor>()._SetViewportTarget(value); }
+            get { return AsDynamic._GetViewportTarget(); }
+            set { AsDynamic._SetViewportTarget(value); }
         }
 
         public Color PreviousAmbientLight
         {
-            get { return Cast<EventAccessor>()._GetPreviousAmbientLight(); }
-            set { Cast<EventAccessor>()._SetPreviousAmbientLight(value); }
+            get { return AsDynamic._GetPreviousAmbientLight(); }
+            set { AsDynamic._SetPreviousAmbientLight(value); }
         }
 
         public ContentManager TemporaryContent
         {
-            get { return Cast<EventAccessor>()._GetTemporaryContent(); }
-            set { Cast<EventAccessor>()._SetTemporaryContent(value); }
+            get { return AsDynamic._GetTemporaryContent(); }
+            set { AsDynamic._SetTemporaryContent(value); }
         }
 
         public GameLocation TemporaryLocation
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetTemporaryLocation();
+                var tmp = AsDynamic._GetTemporaryLocation();
                 if (tmp == null) return null;
                 return new GameLocation(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetTemporaryLocation(value?.Cast<GameLocationAccessor>()); }
+            set { AsDynamic._SetTemporaryLocation(value?.Underlying); }
         }
 
         public Point PlayerControlTargetTile
         {
-            get { return Cast<EventAccessor>()._GetPlayerControlTargetTile(); }
-            set { Cast<EventAccessor>()._SetPlayerControlTargetTile(value); }
+            get { return AsDynamic._GetPlayerControlTargetTile(); }
+            set { AsDynamic._SetPlayerControlTargetTile(value); }
         }
 
         public Texture2D FestivalTexture
         {
-            get { return Cast<EventAccessor>()._GetFestivalTexture(); }
-            set { Cast<EventAccessor>()._SetFestivalTexture(value); }
+            get { return AsDynamic._GetFestivalTexture(); }
+            set { AsDynamic._SetFestivalTexture(value); }
         }
 
         public NPC SecretSantaRecipient
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetSecretSantaRecipient();
+                var tmp = AsDynamic._GetSecretSantaRecipient();
                 if (tmp == null) return null;
                 return new NPC(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetSecretSantaRecipient(value?.Cast<NPCAccessor>()); }
+            set { AsDynamic._SetSecretSantaRecipient(value?.Underlying); }
         }
 
         public NPC MySecretSanta
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetMySecretSanta();
+                var tmp = AsDynamic._GetMySecretSanta();
                 if (tmp == null) return null;
                 return new NPC(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetMySecretSanta(value?.Cast<NPCAccessor>()); }
+            set { AsDynamic._SetMySecretSanta(value?.Underlying); }
         }
 
         public bool Skippable
         {
-            get { return Cast<EventAccessor>()._GetSkippable(); }
-            set { Cast<EventAccessor>()._SetSkippable(value); }
+            get { return AsDynamic._GetSkippable(); }
+            set { AsDynamic._SetSkippable(value); }
         }
 
         public int Id
         {
-            get { return Cast<EventAccessor>()._GetId(); }
-            set { Cast<EventAccessor>()._SetId(value); }
+            get { return AsDynamic._GetId(); }
+            set { AsDynamic._SetId(value); }
         }
 
         public int OldShirt
         {
-            get { return Cast<EventAccessor>()._GetOldShirt(); }
-            set { Cast<EventAccessor>()._SetOldShirt(value); }
+            get { return AsDynamic._GetOldShirt(); }
+            set { AsDynamic._SetOldShirt(value); }
         }
 
         public Color OldPants
         {
-            get { return Cast<EventAccessor>()._GetOldPants(); }
-            set { Cast<EventAccessor>()._SetOldPants(value); }
+            get { return AsDynamic._GetOldPants(); }
+            set { AsDynamic._SetOldPants(value); }
         }
 
         public bool Skipped
         {
-            get { return Cast<EventAccessor>()._GetSkipped(); }
-            set { Cast<EventAccessor>()._SetSkipped(value); }
+            get { return AsDynamic._GetSkipped(); }
+            set { AsDynamic._SetSkipped(value); }
         }
 
         public bool WaitingForMenuClose
         {
-            get { return Cast<EventAccessor>()._GetWaitingForMenuClose(); }
-            set { Cast<EventAccessor>()._SetWaitingForMenuClose(value); }
+            get { return AsDynamic._GetWaitingForMenuClose(); }
+            set { AsDynamic._SetWaitingForMenuClose(value); }
         }
 
         public int OldTime
         {
-            get { return Cast<EventAccessor>()._GetOldTime(); }
-            set { Cast<EventAccessor>()._SetOldTime(value); }
+            get { return AsDynamic._GetOldTime(); }
+            set { AsDynamic._SetOldTime(value); }
         }
 
         public NPC FestivalHost
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetFestivalHost();
+                var tmp = AsDynamic._GetFestivalHost();
                 if (tmp == null) return null;
                 return new NPC(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetFestivalHost(value?.Cast<NPCAccessor>()); }
+            set { AsDynamic._SetFestivalHost(value?.Underlying); }
         }
 
         public string HostMessage
         {
-            get { return Cast<EventAccessor>()._GetHostMessage(); }
-            set { Cast<EventAccessor>()._SetHostMessage(value); }
+            get { return AsDynamic._GetHostMessage(); }
+            set { AsDynamic._SetHostMessage(value); }
         }
 
         public int FestivalTimer
         {
-            get { return Cast<EventAccessor>()._GetFestivalTimer(); }
-            set { Cast<EventAccessor>()._SetFestivalTimer(value); }
+            get { return AsDynamic._GetFestivalTimer(); }
+            set { AsDynamic._SetFestivalTimer(value); }
         }
 
         public Item TempItemStash
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetTempItemStash();
+                var tmp = AsDynamic._GetTempItemStash();
                 if (tmp == null) return null;
                 return new Item(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetTempItemStash(value?.Cast<ItemAccessor>()); }
+            set { AsDynamic._SetTempItemStash(value?.Underlying); }
         }
 
         public int GrangeScore
         {
-            get { return Cast<EventAccessor>()._GetGrangeScore(); }
-            set { Cast<EventAccessor>()._SetGrangeScore(value); }
+            get { return AsDynamic._GetGrangeScore(); }
+            set { AsDynamic._SetGrangeScore(value); }
         }
 
         public Farmer PlayerUsingGrangeDisplay
         {
             get
             {
-                var tmp = Cast<EventAccessor>()._GetPlayerUsingGrangeDisplay();
+                var tmp = AsDynamic._GetPlayerUsingGrangeDisplay();
                 if (tmp == null) return null;
                 return new Farmer(Parent, tmp);
             }
-            set { Cast<EventAccessor>()._SetPlayerUsingGrangeDisplay(value?.Cast<FarmerAccessor>()); }
+            set { AsDynamic._SetPlayerUsingGrangeDisplay(value?.Underlying); }
         }
 
         public int PreviousFacingDirection
         {
-            get { return Cast<EventAccessor>()._GetPreviousFacingDirection(); }
-            set { Cast<EventAccessor>()._SetPreviousFacingDirection(value); }
+            get { return AsDynamic._GetPreviousFacingDirection(); }
+            set { AsDynamic._SetPreviousFacingDirection(value); }
         }
 
         public int PreviousAnswerChoice
         {
-            get { return Cast<EventAccessor>()._GetPreviousAnswerChoice(); }
-            set { Cast<EventAccessor>()._SetPreviousAnswerChoice(value); }
+            get { return AsDynamic._GetPreviousAnswerChoice(); }
+            set { AsDynamic._SetPreviousAnswerChoice(value); }
         }
 
         public bool StartSecretSantaAfterDialogue
         {
-            get { return Cast<EventAccessor>()._GetStartSecretSantaAfterDialogue(); }
-            set { Cast<EventAccessor>()._SetStartSecretSantaAfterDialogue(value); }
+            get { return AsDynamic._GetStartSecretSantaAfterDialogue(); }
+            set { AsDynamic._SetStartSecretSantaAfterDialogue(value); }
         }
 
         public bool SpecialEventVariable2
         {
-            get { return Cast<EventAccessor>()._GetSpecialEventVariable2(); }
-            set { Cast<EventAccessor>()._SetSpecialEventVariable2(value); }
+            get { return AsDynamic._GetSpecialEventVariable2(); }
+            set { AsDynamic._SetSpecialEventVariable2(value); }
         }
     }
 }

@@ -1,8 +1,0 @@
-{
-    "displayName": "Sound Callback Test",
-    "author": "Svered",
-    "version": "1",
-    "description": "Goes in %appdata% StardewValley/Mods/SoundCallbackTest with your dll.",
-
-    "assemblyFileName": "SoundCallbackTest.dll"
-}

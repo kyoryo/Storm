@@ -23,7 +23,6 @@ namespace Storm.Manipulation.Json
         public string OwnerFieldType { get; set; }
         public string OwnerFieldName { get; set; }
         public string MethodName { get; set; }
-        public string ReturnType { get; set; }
         public bool IsStatic { get; set; }
     }
 }

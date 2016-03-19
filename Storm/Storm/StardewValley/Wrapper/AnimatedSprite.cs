@@ -16,14 +16,12 @@
  */
 
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class AnimatedSprite : StaticContextWrapper
     {
-        public AnimatedSprite(StaticContext parent, AnimatedSpriteAccessor accessor) :
-            base(parent)
+        public AnimatedSprite(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -32,19 +30,10 @@ namespace Storm.StardewValley.Wrapper
         {
         }
 
-        public Texture2D SpriteTexture
-        {
-            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteTexture(); }
-        }
+        public Texture2D SpriteTexture => AsDynamic._GetSpriteTexture();
 
-        public int SpriteWidth
-        {
-            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteWidth(); }
-        }
+        public int SpriteWidth => AsDynamic._GetSpriteWidth();
 
-        public int SpriteHeight
-        {
-            get { return Cast<AnimatedSpriteAccessor>()._GetSpriteHeight(); }
-        }
+        public int SpriteHeight => AsDynamic._GetSpriteHeight();
     }
 }

@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class TextBox : StaticContextWrapper
     {
-        public TextBox(StaticContext parent, TextBoxAccessor accessor) :
-            base(parent)
+        public TextBox(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -33,8 +30,8 @@ namespace Storm.StardewValley.Wrapper
 
         public string Text
         {
-            get { return Cast<TextBoxAccessor>()._GetText(); }
-            set { Cast<TextBoxAccessor>()._SetText(value); }
+            get { return AsDynamic._GetText(); }
+            set { AsDynamic._SetText(value); }
         }
     }
 }

@@ -15,16 +15,15 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using System.Collections;
 using Microsoft.Xna.Framework.Graphics;
 using Storm.Collections;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Billboard : ClickableMenu
     {
-        public Billboard(StaticContext parent, BillboardAccessor accessor) :
-            base(parent, accessor)
+        public Billboard(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -34,42 +33,41 @@ namespace Storm.StardewValley.Wrapper
 
         public Texture2D BillboardTexture
         {
-            get { return Cast<BillboardAccessor>()._GetBillboardTexture(); }
-            set { Cast<BillboardAccessor>()._SetBillboardTexture(value); }
+            get { return AsDynamic._GetBillboardTexture(); }
+            set { AsDynamic._SetBillboardTexture(value); }
         }
 
         public bool DailyQuestBoard
         {
-            get { return Cast<BillboardAccessor>()._GetDailyQuestBoard(); }
-            set { Cast<BillboardAccessor>()._SetDailyQuestBoard(value); }
+            get { return AsDynamic._GetDailyQuestBoard(); }
+            set { AsDynamic._SetDailyQuestBoard(value); }
         }
 
         public ClickableComponent AcceptQuestButton
         {
             get
             {
-                var tmp = Cast<BillboardAccessor>()._GetAcceptQuestButton();
+                var tmp = AsDynamic._GetAcceptQuestButton();
                 if (tmp == null) return null;
                 return new ClickableComponent(Parent, tmp);
             }
-            set { Cast<BillboardAccessor>()._SetAcceptQuestButton(value.Cast<ClickableComponentAccessor>()); }
+            set { AsDynamic._SetAcceptQuestButton(value.Underlying); }
         }
 
-        public WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent> CalendarDays
+        public WrappedProxyList<object, ClickableTextureComponent> CalendarDays
         {
             get
             {
-                var tmp = Cast<BillboardAccessor>()._GetCalendarDays();
+                var tmp = AsDynamic._GetCalendarDays();
                 if (tmp == null) return null;
-                return new WrappedProxyList<ClickableTextureComponentAccessor, ClickableTextureComponent>(tmp,
-                    i => new ClickableTextureComponent(Parent, i));
+                return new WrappedProxyList<object, ClickableTextureComponent>((IList) tmp, i => new ClickableTextureComponent(Parent, i));
             }
         }
 
         public string HoverText
         {
-            get { return Cast<BillboardAccessor>()._GetHoverText(); }
-            set { Cast<BillboardAccessor>()._SetHoverText(value); }
+            get { return AsDynamic._GetHoverText(); }
+            set { AsDynamic._SetHoverText(value); }
         }
     }
 }

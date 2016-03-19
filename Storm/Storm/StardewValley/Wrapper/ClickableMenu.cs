@@ -15,14 +15,11 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Storm.StardewValley.Accessor;
-
 namespace Storm.StardewValley.Wrapper
 {
     public class ClickableMenu : StaticContextWrapper
     {
-        public ClickableMenu(StaticContext parent, ClickableMenuAccessor accessor) :
-            base(parent)
+        public ClickableMenu(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
@@ -33,7 +30,7 @@ namespace Storm.StardewValley.Wrapper
 
         public void ExitThisMenu(bool playSound = true)
         {
-            Cast<ClickableMenuAccessor>()._ExitThisMenu(playSound);
+            AsDynamic._ExitThisMenu(playSound);
         }
     }
 }

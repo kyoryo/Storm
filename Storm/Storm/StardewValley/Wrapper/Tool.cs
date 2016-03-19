@@ -17,14 +17,12 @@
 
 using System;
 using Microsoft.Xna.Framework.Graphics;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class Tool : Item
     {
-        public Tool(StaticContext parent, ToolAccessor accessor) :
-            base(parent, accessor)
+        public Tool(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
@@ -34,66 +32,66 @@ namespace Storm.StardewValley.Wrapper
 
         public ObjectItem[] Attachments
         {
-            get { return Array.ConvertAll(Cast<ToolAccessor>()._GetAttachments(), i => new ObjectItem(Parent, i)); }
-            set { Cast<ToolAccessor>()._SetAttachments(Array.ConvertAll(value, i => i.Cast<ObjectAccessor>())); }
+            get { return Array.ConvertAll((object[]) AsDynamic._GetAttachments(), i => new ObjectItem(Parent, i)); }
+            set { AsDynamic._SetAttachments(Array.ConvertAll(value, i => i.Underlying)); }
         }
 
         /// <summary>
-        /// The name of this tool
+        ///     The name of this tool
         /// </summary>
         /// <value>The Name property gets/sets the value of the string field Name</value>
         public string Name
         {
-            get { return Cast<ToolAccessor>()._GetName(); }
-            set { Cast<ToolAccessor>()._SetName(value); }
+            get { return AsDynamic._GetName(); }
+            set { AsDynamic._SetName(value); }
         }
 
         /// <summary>
-        /// The description of this tool
+        ///     The description of this tool
         /// </summary>
         /// <value>The Description propertly gets/sets the value of the string field Description</value>
         public new string Description
         {
-            get { return Cast<ToolAccessor>()._GetDescription(); }
-            set { Cast<ToolAccessor>()._SetDescription(value); }
+            get { return AsDynamic._GetDescription(); }
+            set { AsDynamic._SetDescription(value); }
         }
 
         public bool IsStackable
         {
-            get { return Cast<ToolAccessor>()._GetStackable(); }
-            set { Cast<ToolAccessor>()._SetStackable(value); }
+            get { return AsDynamic._GetStackable(); }
+            set { AsDynamic._SetStackable(value); }
         }
 
         /// <summary>
-        /// The upgrade level of this tool
-        /// Default = 0
-        /// Copper = 1
-        /// Iron = 2
-        /// Gold = 3
-        /// Iridium = 4
+        ///     The upgrade level of this tool
+        ///     Default = 0
+        ///     Copper = 1
+        ///     Iron = 2
+        ///     Gold = 3
+        ///     Iridium = 4
         /// </summary>
         /// <value>The UpgradeLevel property sets/gets the value of the int field UpgradeLevel</value>
         public int UpgradeLevel
         {
-            get { return Cast<ToolAccessor>()._GetUpgradeLevel(); }
-            set { Cast<ToolAccessor>()._SetUpgradeLevel(value); }
+            get { return AsDynamic._GetUpgradeLevel(); }
+            set { AsDynamic._SetUpgradeLevel(value); }
         }
 
         public Texture2D WeaponTexture
         {
-            get { return Cast<ToolAccessor>()._GetWeaponsTexture(); }
-            set { Cast<ToolAccessor>()._SetWeaponsTexture(value); }
+            get { return AsDynamic._GetWeaponsTexture(); }
+            set { AsDynamic._SetWeaponsTexture(value); }
         }
 
         public Farmer LastUser
         {
             get
             {
-                var tmp = Cast<ToolAccessor>()._GetLastUser();
+                var tmp = AsDynamic._GetLastUser();
                 if (tmp == null) return null;
                 return new Farmer(Parent, tmp);
             }
-            set { Cast<ToolAccessor>()._SetLastUser(value == null ? null : value.Cast<FarmerAccessor>()); }
+            set { AsDynamic._SetLastUser(value?.Underlying); }
         }
     }
 }

@@ -20,12 +20,8 @@ using Storm.Manipulation.Cecil;
 
 namespace Storm.Manipulation
 {
-    public sealed class InjectorFactories
+    public static class InjectorFactories
     {
-        private InjectorFactories()
-        {
-        }
-
         public static InjectorFactory Create(InjectorFactoryType type, string path)
         {
             switch (type)
@@ -33,7 +29,7 @@ namespace Storm.Manipulation
                 case InjectorFactoryType.Cecil:
                     return new CecilInjectorFactory(path);
             }
-            throw new NotSupportedException(string.Format("Unsupported factory type {0}", type));
+            throw new NotSupportedException($"Unsupported factory type {type}");
         }
     }
 }

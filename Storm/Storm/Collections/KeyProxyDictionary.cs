@@ -22,52 +22,34 @@ using Storm.StardewValley.Wrapper;
 
 namespace Storm.Collections
 {
-    public class KeyProxyDictionary<TKey, TValue> : System.Collections.Generic.IDictionary<TKey, TValue> where TKey : Wrapper
+    public class KeyProxyDictionary<TKey, TValue> : IDictionary<TKey, TValue> where TKey : Wrapper
     {
-        private readonly IDictionary real;
+        private readonly IDictionary _real;
 
         public KeyProxyDictionary(IDictionary real)
         {
-            this.real = real;
+            _real = real;
         }
 
         public TValue this[TKey key]
         {
-            get
-            {
-                return (TValue)real[key.Underlying];
-            }
+            get { return (TValue) _real[key.Underlying]; }
 
-            set
-            {
-                real[key.Underlying] = (TValue)value;
-            }
+            set { _real[key.Underlying] = value; }
         }
 
-        public int Count
-        {
-            get
-            {
-                return real.Count;
-            }
-        }
+        public int Count => _real.Count;
 
-        public bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public bool IsReadOnly => false;
 
         public ICollection<TKey> Keys
         {
             get
             {
                 var list = new List<TKey>();
-                foreach (var key in real.Keys)
+                foreach (var key in _real.Keys)
                 {
-                    list.Add((TKey)key);
+                    list.Add((TKey) key);
                 }
                 return list;
             }
@@ -78,9 +60,9 @@ namespace Storm.Collections
             get
             {
                 var list = new List<TValue>();
-                foreach (var value in real.Values)
+                foreach (var value in _real.Values)
                 {
-                    list.Add((TValue)value);
+                    list.Add((TValue) value);
                 }
                 return list;
             }
@@ -88,24 +70,24 @@ namespace Storm.Collections
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
-            real.Add(item.Key.Underlying, item.Value);
+            _real.Add(item.Key.Underlying, item.Value);
         }
 
         public void Add(TKey key, TValue value)
         {
-            real.Add(key.Underlying, value);
+            _real.Add(key.Underlying, value);
         }
 
         public void Clear()
         {
-            real.Clear();
+            _real.Clear();
         }
 
         public bool Contains(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key.Underlying) && _real[key].Equals(item.Value))
                 {
                     return true;
                 }
@@ -115,7 +97,7 @@ namespace Storm.Collections
 
         public bool ContainsKey(TKey key)
         {
-            return real.Contains(key.Underlying);
+            return _real.Contains(key.Underlying);
         }
 
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
@@ -130,11 +112,11 @@ namespace Storm.Collections
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            foreach (var key in real.Keys)
+            foreach (var key in _real.Keys)
             {
-                if (key.Equals(item.Key.Underlying) && real[key].Equals(item.Value))
+                if (key.Equals(item.Key.Underlying) && _real[key].Equals(item.Value))
                 {
-                    real.Remove(key);
+                    _real.Remove(key);
                     return true;
                 }
             }
@@ -144,7 +126,7 @@ namespace Storm.Collections
         public bool Remove(TKey key)
         {
             if (!ContainsKey(key)) return false;
-            real.Remove(key.Underlying);
+            _real.Remove(key.Underlying);
             return true;
         }
 
