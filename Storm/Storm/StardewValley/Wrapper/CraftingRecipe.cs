@@ -17,13 +17,12 @@
 
 using Microsoft.Xna.Framework;
 using Storm.Collections;
-using Storm.StardewValley.Accessor;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class CraftingRecipe : StaticContextWrapper
     {
-        public CraftingRecipe(StaticContext parent, CraftingRecipeAccessor accessor) :
+        public CraftingRecipe(StaticContext parent, object accessor) :
             base(parent)        
         {
             Underlying = accessor;
@@ -35,23 +34,22 @@ namespace Storm.StardewValley.Wrapper
 
         public string Name
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetName(); }
-            set { Cast<CraftingRecipeAccessor>()._SetName(value); }
+            get { return AsDynamic._GetName(); }
+            set { AsDynamic._SetName(value); }
         }
 
         public string Description
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetDescription(); }
-            set { Cast<CraftingRecipeAccessor>()._SetDescription(value); }
+            get { return AsDynamic._GetDescription(); }
+            set { AsDynamic._SetDescription(value); }
         }
 
         public ProxyDictionary<string, string> CraftingRecipes
         {
             get
             {
-                var tmp = Cast<CraftingRecipeAccessor>()._GetCraftingRecipes();
-                if (tmp == null) return null;
-                return new ProxyDictionary<string, string>(tmp);
+                var tmp = AsDynamic._GetCraftingRecipes();
+                return tmp == null ? null : new ProxyDictionary<string, string>(tmp);
             }
         }
 
@@ -59,18 +57,16 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = Cast<CraftingRecipeAccessor>()._GetCookingRecipes();
-                if (tmp == null) return null;
-                return new ProxyDictionary<string, string>(tmp);
+                var tmp = AsDynamic._GetCookingRecipes();
+                return tmp == null ? null : new ProxyDictionary<string, string>(tmp);
             }
         }
         public ProxyDictionary<int, int> RecipeList
         {
             get
             {
-                var tmp = Cast<CraftingRecipeAccessor>()._GetRecipeList();
-                if (tmp == null) return null;
-                return new ProxyDictionary<int, int>(tmp);
+                var tmp = AsDynamic._GetRecipeList();
+                return tmp == null ? null : new ProxyDictionary<int, int>(tmp);
             }
         }
 
@@ -78,34 +74,33 @@ namespace Storm.StardewValley.Wrapper
         {
             get
             {
-                var tmp = Cast<CraftingRecipeAccessor>()._GetItemToProduce();
-                if (tmp == null) return null;
-                return new ProxyList<int>(tmp);
+                var tmp = AsDynamic._GetItemToProduce();
+                return tmp == null ? null : new ProxyList<int>(tmp);
             }
         }
 
         public bool BigCraftable
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetBigCraftable();  }
-            set { Cast<CraftingRecipeAccessor>()._SetBigCraftable(value); }
+            get { return AsDynamic._GetBigCraftable();  }
+            set { AsDynamic._SetBigCraftable(value); }
         }
 
         public bool IsCookingRecipe
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetIsCookingRecipe(); }
-            set { Cast<CraftingRecipeAccessor>()._SetIsCookingRecipe(value); }
+            get { return AsDynamic._GetIsCookingRecipe(); }
+            set { AsDynamic._SetIsCookingRecipe(value); }
         }
 
         public int TimesCrafted
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetTimesCrafted(); }
-            set { Cast<CraftingRecipeAccessor>()._SetTimesCrafted(value); }
+            get { return AsDynamic._GetTimesCrafted(); }
+            set { AsDynamic._SetTimesCrafted(value); }
         }
 
         public int NumberProducedPerCraft
         {
-            get { return Cast<CraftingRecipeAccessor>()._GetNumberProducedPerCraft(); }
-            set { Cast<CraftingRecipeAccessor>()._SetNumberProducedPerCraft(value); }
+            get { return AsDynamic._GetNumberProducedPerCraft(); }
+            set { AsDynamic._SetNumberProducedPerCraft(value); }
         }
     }
 }

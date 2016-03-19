@@ -153,6 +153,8 @@
     <Compile Include="StardewValley\WrappedAccessor.cs" />
     <Compile Include="StardewValley\Wrapper\Buff.cs" />
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
+    <Compile Include="StardewValley\Wrapper\CraftingRecipe.cs" />
+    <Compile Include="StardewValley\Wrapper\FarmAnimal.cs" />
     <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\BuffsDisplay.cs" />
