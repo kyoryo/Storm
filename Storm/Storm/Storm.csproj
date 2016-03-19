@@ -155,7 +155,7 @@
     <Compile Include="StardewValley\Wrapper\ChildWrapper.cs" />
     <Compile Include="StardewValley\Wrapper\CraftingRecipe.cs" />
     <Compile Include="StardewValley\Wrapper\FarmAnimal.cs" />
-    <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
+    <Compile Include="StardewValley\Wrapper\HudMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\BuffsDisplay.cs" />
     <Compile Include="StardewValley\Wrapper\ProgramWrapper.cs" />
@@ -164,7 +164,7 @@
     <Compile Include="Collections\ValueProxyDictionary.cs" />
     <Compile Include="StardewValley\Event\PreInjectionEvent.cs" />
     <Compile Include="StardewValley\HookResourceMod.cs" />
-    <Compile Include="StardewValley\StormAPI.cs" />
+    <Compile Include="StardewValley\StormApi.cs" />
     <Compile Include="StardewValley\Wrapper\Billboard.cs" />
     <Compile Include="StardewValley\Wrapper\ChatBox.cs" />
     <Compile Include="StardewValley\Wrapper\ClickableComponent.cs" />
@@ -220,7 +220,7 @@
     <Compile Include="StardewValley\Wrapper\Farmer.cs" />
     <Compile Include="StardewValley\Wrapper\Item.cs" />
     <Compile Include="StardewValley\Wrapper\Monster.cs" />
-    <Compile Include="StardewValley\Wrapper\NPC.cs" />
+    <Compile Include="StardewValley\Wrapper\Npc.cs" />
     <Compile Include="StardewValley\Wrapper\Object.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContext.cs" />
     <Compile Include="StardewValley\Wrapper\GameLocation.cs" />
