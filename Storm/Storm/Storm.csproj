@@ -174,8 +174,8 @@
     <Compile Include="StardewValley\Accessor\UI\MenuWithInventoryAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\OptionsPageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\UI\ScreenSwipeAccessor.cs" />
+    <Compile Include="StardewValley\Accessor\UI\SocialPageAccessor.cs" />
     <Compile Include="StardewValley\Accessor\Utility\UtilityAccessor.cs" />
-    <Compile Include="StardewValley\Event\BobberBar\BobberBarUpdateEvent.cs" />
     <Compile Include="StardewValley\Event\Character\PostFarmAnimalConstructedEvent.cs" />
     <Compile Include="StardewValley\Event\Character\PostFarmAnimalDayUpdateEvent.cs" />
     <Compile Include="StardewValley\Accessor\UI\BuffsDisplayAccessor.cs" />
@@ -217,7 +217,7 @@
     <Compile Include="StardewValley\Event\Object\PreObjectDropInActionEvent.cs" />
     <Compile Include="StardewValley\Event\ShopMenu\PreConstructShopViaListEvent.cs" />
     <Compile Include="StardewValley\Proxy\AnimatedSpriteDelegate.cs" />
-	<Compile Include="StardewValley\Proxy\FarmAnimalDelegate.cs" />
+    <Compile Include="StardewValley\Proxy\FarmAnimalDelegate.cs" />
     <Compile Include="StardewValley\Proxy\BuffDelegate.cs" />
     <Compile Include="StardewValley\Proxy\HUDMessageDelegate.cs" />
     <Compile Include="StardewValley\Proxy\CharacterDelegate.cs" />
@@ -236,6 +236,7 @@
     <Compile Include="StardewValley\Wrapper\HUDMessage.cs" />
     <Compile Include="StardewValley\Wrapper\Horse.cs" />
     <Compile Include="StardewValley\Wrapper\BuffsDisplay.cs" />
+    <Compile Include="StardewValley\Wrapper\SocialPage.cs" />
     <Compile Include="StardewValley\Wrapper\StaticContextWrapper.cs" />
     <Compile Include="Collections\ProxyDictionary.cs" />
     <Compile Include="Collections\ValueProxyDictionary.cs" />

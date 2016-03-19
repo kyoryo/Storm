@@ -289,6 +289,11 @@
       "SimpleName": "Utility",
       "OwnerType": "StardewValley.Game1",
       "InterfaceType": "Storm.StardewValley.Accessor.UtilityAccessor"
+    },
+    {
+      "SimpleName": "SocialPage",
+      "OwnerType": "StardewValley.Menus.SocialPage",
+      "InterfaceType": "Storm.StardewValley.Accessor.SocialPageAccessor"
     }
   ]
 }
