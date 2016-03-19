@@ -22,17 +22,17 @@ using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilRewriteEntryInjector : Injector
+    public class CecilRewriteEntryInjector : IInjector
     {
-        private readonly AssemblyDefinition def;
-        private readonly RewriteEntryInjectorParams @params;
-        private AssemblyDefinition self;
+        private readonly AssemblyDefinition _def;
+        private readonly RewriteEntryInjectorParams _params;
+        private AssemblyDefinition _self;
 
         public CecilRewriteEntryInjector(AssemblyDefinition self, AssemblyDefinition def, RewriteEntryInjectorParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
@@ -41,7 +41,7 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var entry = def.EntryPoint.DeclaringType;
+            var entry = _def.EntryPoint.DeclaringType;
             entry.Attributes = TypeAttributes.Class | TypeAttributes.AutoLayout | TypeAttributes.BeforeFieldInit | TypeAttributes.Public | TypeAttributes.AnsiClass;
 
             var hasConstructor = entry.Methods.SingleOrDefault(m => m.Name.Equals(".ctor")) != null;
@@ -59,7 +59,7 @@ namespace Storm.Manipulation.Cecil
 
         public object GetParams()
         {
-            return @params;
+            return _params;
         }
     }
 }

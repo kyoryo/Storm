@@ -38,31 +38,31 @@ namespace Storm.Manipulation
 
         protected abstract void UpdatePath(string path);
 
-        public Injector CreateClassInfoInjector(ClassInfoParams @params)
+        public IInjector CreateClassInfoInjector(ClassInfoParams @params)
         {
             return new ClassInfoInjector(@params);
         }
 
-        public abstract Injector CreateFieldDetourInjector(FieldDetourParams @params);
+        public abstract IInjector CreateFieldDetourInjector(FieldDetourParams @params);
 
-        public abstract Injector CreateFieldAccessorInjector(FieldAccessorParams @params);
+        public abstract IInjector CreateFieldAccessorInjector(FieldAccessorParams @params);
 
-        public abstract Injector CreateFieldMutatorInjector(FieldMutatorParams @params);
+        public abstract IInjector CreateFieldMutatorInjector(FieldMutatorParams @params);
 
-        public abstract Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params);
+        public abstract IInjector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params);
 
-        public abstract Injector CreateInvokerInjector(InvokerParams @params);
+        public abstract IInjector CreateInvokerInjector(InvokerParams @params);
 
-        public abstract Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
+        public abstract IInjector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
 
-        public abstract Injector CreateEventCallbackInjector(EventCallbackParams @params);
+        public abstract IInjector CreateEventCallbackInjector(EventCallbackParams @params);
 
-        public virtual Injector CreateFieldInfoInjector(FieldInfoParams @params)
+        public virtual IInjector CreateFieldInfoInjector(FieldInfoParams @params)
         {
             return new FieldInfoInjector(@params);
         }
 
-        public virtual Injector CreateMethodInfoInjector(MethodInfoParams @params)
+        public virtual IInjector CreateMethodInfoInjector(MethodInfoParams @params)
         {
             return new MethodInfoInjector(@params);
         }
@@ -71,7 +71,7 @@ namespace Storm.Manipulation
 
         public InjectionFactoryContext ParseOfType(DataFormat format, string path)
         {
-            var ctx = new InjectionFactoryContext {Injectors = new List<Injector>()};
+            var ctx = new InjectionFactoryContext {Injectors = new List<IInjector>()};
 
             switch (format)
             {
@@ -88,9 +88,9 @@ namespace Storm.Manipulation
             return ctx;
         }
 
-        private List<Injector> ParseJson(string path)
+        private List<IInjector> ParseJson(string path)
         {
-            var list = new List<Injector>();
+            var list = new List<IInjector>();
             var nameMap = new Dictionary<string, string>();
 
             var primary = Path.Combine(path, "interface_injectors.json");
@@ -106,7 +106,7 @@ namespace Storm.Manipulation
             return list;
         }
 
-        private void ParseJson(Stream @in, List<Injector> list, Dictionary<string, string> nameMap)
+        private void ParseJson(Stream @in, List<IInjector> list, Dictionary<string, string> nameMap)
         {
             var reader = new StreamReader(@in);
             var json = reader.ReadToEnd();

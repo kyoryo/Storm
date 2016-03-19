@@ -62,7 +62,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetMessageToScreen(value); }
         }
 
-        public string PlayerControlSequenceID
+        public string PlayerControlSequenceId
         {
             get { return AsDynamic._GetPlayerControlSequenceID(); }
             set { AsDynamic._SetPlayerControlSequenceID(value); }
@@ -199,24 +199,24 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetFestivalTexture(value); }
         }
 
-        public NPC SecretSantaRecipient
+        public Npc SecretSantaRecipient
         {
             get
             {
                 var tmp = AsDynamic._GetSecretSantaRecipient();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetSecretSantaRecipient(value?.Underlying); }
         }
 
-        public NPC MySecretSanta
+        public Npc MySecretSanta
         {
             get
             {
                 var tmp = AsDynamic._GetMySecretSanta();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetMySecretSanta(value?.Underlying); }
         }
@@ -263,13 +263,13 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetOldTime(value); }
         }
 
-        public NPC FestivalHost
+        public Npc FestivalHost
         {
             get
             {
                 var tmp = AsDynamic._GetFestivalHost();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetFestivalHost(value?.Underlying); }
         }

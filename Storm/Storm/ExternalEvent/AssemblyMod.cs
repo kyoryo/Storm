@@ -39,15 +39,17 @@ namespace Storm.ExternalEvent
         {
             get
             {
-                if (Instance is DiskResource)
-                    return (Instance as DiskResource).PathOnDisk;
+                var resource = Instance as DiskResource;
+                if (resource != null)
+                    return resource.PathOnDisk;
 
                 return string.Empty;
             }
             set
             {
-                if (Instance is DiskResource)
-                    (Instance as DiskResource).PathOnDisk = value;
+                var resource = Instance as DiskResource;
+                if (resource != null)
+                    resource.PathOnDisk = value;
             }
         }
 

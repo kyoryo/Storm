@@ -24,29 +24,29 @@ namespace Storm.ExternalEvent
 {
     public class ModEventBus
     {
-        private readonly Dictionary<Type, List<ReceiverSwitch>> receivers = new Dictionary<Type, List<ReceiverSwitch>>();
-        public List<LoadedMod> mods = new List<LoadedMod>();
+        private readonly Dictionary<Type, List<ReceiverSwitch>> _receivers = new Dictionary<Type, List<ReceiverSwitch>>();
+        public List<LoadedMod> Mods = new List<LoadedMod>();
 
         private void AddReceiver(LoadedMod parent, Type eventType, MethodInfo receiver, int priority)
         {
             List<ReceiverSwitch> list;
-            if (!receivers.TryGetValue(eventType, out list))
+            if (!_receivers.TryGetValue(eventType, out list))
             {
                 list = new List<ReceiverSwitch>();
-                receivers.Add(eventType, list);
+                _receivers.Add(eventType, list);
             }
 
             var idx = -1;
             for (var i = 0; i < list.Count; i++)
             {
-                if (priority > list[i].priority)
+                if (priority > list[i].Priority)
                 {
                     idx = i;
                     break;
                 }
             }
 
-            var @switch = new ReceiverSwitch {mod = parent, info = receiver, priority = priority, enabled = true};
+            var @switch = new ReceiverSwitch {Mod = parent, Info = receiver, Priority = priority, Enabled = true};
 
             if (idx == -1) list.Add(@switch);
             else list.Insert(idx, @switch);
@@ -54,19 +54,19 @@ namespace Storm.ExternalEvent
 
         public void AddReceiver(LoadedMod mod)
         {
-            mods.Add(mod);
+            Mods.Add(mod);
         }
 
         public void RemoveReceiver(LoadedMod mod)
         {
-            mods.Remove(mod);
+            Mods.Remove(mod);
         }
 
         public void Fire<T>(string name, T val) where T : DetourEvent
         {
-            for (var i = 0; i < mods.Count; i++)
+            for (var i = 0; i < Mods.Count; i++)
             {
-                var lm = mods[i];
+                var lm = Mods[i];
                 try
                 {
                     lm.Fire(name, val);
@@ -81,10 +81,10 @@ namespace Storm.ExternalEvent
 
         private struct ReceiverSwitch
         {
-            public LoadedMod mod;
-            public MethodInfo info;
-            public int priority;
-            public bool enabled;
+            public LoadedMod Mod;
+            public MethodInfo Info;
+            public int Priority;
+            public bool Enabled;
         }
     }
 }

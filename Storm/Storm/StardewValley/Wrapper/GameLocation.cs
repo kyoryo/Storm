@@ -52,13 +52,13 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public WrappedProxyList<object, NPC> Characters
+        public WrappedProxyList<object, Npc> Characters
         {
             get
             {
                 var tmp = AsDynamic._GetCharacters();
                 if (tmp == null) return null;
-                return new WrappedProxyList<object, NPC>((IList) tmp, c => c == null ? null : new NPC(Parent, c));
+                return new WrappedProxyList<object, Npc>((IList) tmp, c => c == null ? null : new Npc(Parent, c));
             }
         }
 
@@ -89,11 +89,7 @@ namespace Storm.StardewValley.Wrapper
         {
             var key = new Vector2(tileX/Parent.TileSize, tileY/Parent.TileSize);
             var objects = Objects;
-            if (objects.ContainsKey(key))
-            {
-                return objects[key];
-            }
-            return null;
+            return objects.ContainsKey(key) ? objects[key] : null;
         }
 
         public void AddHoeDirtAt(Vector2 tileLocation)

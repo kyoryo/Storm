@@ -30,9 +30,9 @@ namespace Storm.StardewValley.Wrapper
 
         public T Parent { get; set; }
 
-        public override T2 As<A, T2>()
+        public override T2 As<TA, T2>()
         {
-            var instance = base.As<A, T2>();
+            var instance = base.As<TA, T2>();
             if (instance is ChildWrapper<T>)
             {
                 (instance as ChildWrapper<T>).Parent = Parent;
@@ -40,9 +40,9 @@ namespace Storm.StardewValley.Wrapper
             return instance;
         }
 
-        public override T2 As<A, T2>(T2 instance)
+        public override T2 As<TA, T2>(T2 instance)
         {
-            base.As<A, T2>(instance);
+            base.As<TA, T2>(instance);
             if (instance is ChildWrapper<T>)
             {
                 (instance as ChildWrapper<T>).Parent = Parent;

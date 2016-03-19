@@ -24,16 +24,16 @@ namespace Storm.ExternalEvent
 {
     public class LocalModLoader : AssemblyModLoader
     {
-        private readonly string path;
+        private readonly string _path;
 
         public LocalModLoader(string path = "./")
         {
-            this.path = path;
+            _path = path;
         }
 
         public override List<LoadedMod> Load()
         {
-            var dirs = Directory.GetDirectories(path);
+            var dirs = Directory.GetDirectories(_path);
             var result = new List<LoadedMod>();
             foreach (var str in dirs)
             {

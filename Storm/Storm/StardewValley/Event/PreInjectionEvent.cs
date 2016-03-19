@@ -22,13 +22,13 @@ namespace Storm.StardewValley.Event
 {
     public class PreInjectionEvent : DetourEvent
     {
-        public PreInjectionEvent(InjectorFactory factory, List<Injector> injectors)
+        public PreInjectionEvent(InjectorFactory factory, List<IInjector> injectors)
         {
             InjectorFactory = factory;
             Injectors = injectors;
         }
 
         public InjectorFactory InjectorFactory { get; }
-        public List<Injector> Injectors { get; }
+        public List<IInjector> Injectors { get; }
     }
 }

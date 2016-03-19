@@ -27,13 +27,13 @@ namespace Storm.StardewValley.Wrapper
 
         public bool IsNull() => Underlying == null;
 
-        public virtual T As<A, T>() where T : Wrapper
+        public virtual T As<TA, T>() where T : Wrapper
         {
             var instance = (T) Activator.CreateInstance(typeof(T));
-            return As<A, T>(instance);
+            return As<TA, T>(instance);
         }
 
-        public virtual T As<A, T>(T instance) where T : Wrapper
+        public virtual T As<TA, T>(T instance) where T : Wrapper
         {
             instance.Underlying = Underlying;
             return instance;

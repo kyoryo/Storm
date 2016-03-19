@@ -17,13 +17,13 @@
 
 namespace Storm.Manipulation
 {
-    public class FieldInfoInjector : Injector
+    public class FieldInfoInjector : IInjector
     {
-        private readonly FieldInfoParams @params;
+        private readonly FieldInfoParams _params;
 
         public FieldInfoInjector(FieldInfoParams @params)
         {
-            this.@params = @params;
+            _params = @params;
         }
 
         public void Init()
@@ -36,7 +36,7 @@ namespace Storm.Manipulation
 
         public object GetParams()
         {
-            return @params;
+            return _params;
         }
     }
 }

@@ -17,7 +17,7 @@
 
 namespace Storm.Manipulation
 {
-    public interface Injector
+    public interface IInjector
     {
         void Init();
 

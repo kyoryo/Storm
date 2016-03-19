@@ -21,7 +21,7 @@ using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilInstanceDetourInjector : Injector
+    public class CecilInstanceDetourInjector : IInjector
     {
         private readonly AssemblyDefinition _def;
         private readonly ConstructorReplacerParams _params;
@@ -78,10 +78,10 @@ namespace Storm.Manipulation.Cecil
                             if (redirect != null)
                             {
                                 var call = _def.Import(redirect);
-                                if (@ref is GenericInstanceMethod)
+                                var gim = @ref as GenericInstanceMethod;
+                                if (gim != null)
                                 {
                                     var genericCall = new GenericInstanceMethod(_def.Import(redirect));
-                                    var gim = (GenericInstanceMethod) @ref;
                                     foreach (var arg in gim.GenericArguments)
                                     {
                                         genericCall.GenericArguments.Add(arg);

@@ -24,7 +24,7 @@ using Storm.StardewValley.Event;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilEventCallbackInjector : Injector
+    public class CecilEventCallbackInjector : IInjector
     {
         private readonly AssemblyDefinition _def;
 
@@ -56,13 +56,13 @@ namespace Storm.Manipulation.Cecil
             var injecteeBody = _injectee.Body;
             var injecteeInstructions = injecteeBody.Instructions;
             var injecteeInsCount = injecteeInstructions.Count;
-            if (_params.InsertionType == InsertionType.BEGINNING)
+            if (_params.InsertionType == InsertionType.Beginning)
             {
                 _injectionPoints.Add(injecteeInstructions[0]);
                 return;
             }
 
-            if (_params.InsertionType == InsertionType.LAST && _params.InsertionIndex == null)
+            if (_params.InsertionType == InsertionType.Last && _params.InsertionIndex == null)
             {
                 _injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1]);
                 return;
@@ -72,7 +72,7 @@ namespace Storm.Manipulation.Cecil
             {
                 switch (_params.InsertionType)
                 {
-                    case InsertionType.ABSOLUTE:
+                    case InsertionType.Absolute:
                         if (i < 0 || i >= injecteeInsCount)
                         {
                             Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
@@ -84,7 +84,7 @@ namespace Storm.Manipulation.Cecil
 
                         _injectionPoints.Add(injecteeInstructions[i]);
                         break;
-                    case InsertionType.LAST:
+                    case InsertionType.Last:
                         if (injecteeInsCount - 1 - i < 0 || injecteeInsCount - 1 - i >= injecteeInsCount)
                         {
                             Logging.DebugLogs("[{0}] Instruction {1} out of bounds", GetType().Name, i);
@@ -96,7 +96,7 @@ namespace Storm.Manipulation.Cecil
 
                         _injectionPoints.Add(injecteeInstructions[injecteeInsCount - 1 - i]);
                         break;
-                    case InsertionType.RETURNS:
+                    case InsertionType.Returns:
                         var relative = GetReturnByRelativity(_injectee, i);
                         if (relative == null)
                         {
@@ -189,7 +189,7 @@ namespace Storm.Manipulation.Cecil
 
                 if (_params.PushParams)
                 {
-                    for (var i = 0; i < _injectee.Parameters.Count(); i++)
+                    for (var i = 0; i < _injectee.Parameters.Count; i++)
                     {
                         var param = _injectee.Parameters[i];
 

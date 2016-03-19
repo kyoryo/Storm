@@ -28,7 +28,7 @@ namespace Storm.StardewValley
     public static class StaticGameContext
     {
         private static readonly Dictionary<Type, Type> CachedAccessorWrapperTypes = new Dictionary<Type, Type>();
-        private static List<Injector> Injectors { get; set; }
+        private static List<IInjector> Injectors { get; set; }
         private static Dictionary<Type, object> CachedFactories { get; set; } = new Dictionary<Type, object>();
         private static List<Type> CachedWrappers { get; set; }
         private static Assembly Assembly { get; set; }
@@ -39,7 +39,7 @@ namespace Storm.StardewValley
 
         private static StaticContext WrappedGame => Root.GetGame();
 
-        public static void Init(Assembly assembly, ProgramWrapper root, ModEventBus eventBus, List<Injector> injectors)
+        public static void Init(Assembly assembly, ProgramWrapper root, ModEventBus eventBus, List<IInjector> injectors)
         {
             Assembly = assembly;
             Root = root;

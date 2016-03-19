@@ -190,13 +190,13 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetScrollBar(value?.Underlying); }
         }
 
-        public NPC PortraitPerson
+        public Npc PortraitPerson
         {
             get
             {
                 var tmp = AsDynamic._GetPortraitPerson();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetPortraitPerson(value?.Underlying); }
         }

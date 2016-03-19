@@ -19,14 +19,14 @@ using Microsoft.Xna.Framework;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class HUDMessage : StaticContextWrapper
+    public class HudMessage : StaticContextWrapper
     {
-        public HUDMessage(StaticContext parent, object accessor) : base(parent)
+        public HudMessage(StaticContext parent, object accessor) : base(parent)
         {
             Underlying = accessor;
         }
 
-        public HUDMessage()
+        public HudMessage()
         {
         }
 

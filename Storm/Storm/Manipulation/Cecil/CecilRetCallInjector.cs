@@ -22,15 +22,15 @@ namespace Storm.Manipulation.Cecil
 {
     public class CecilRetCallInjector
     {
-        private readonly AssemblyDefinition self;
-        private AssemblyDefinition def;
-        private RetCallParams @params;
+        private readonly AssemblyDefinition _self;
+        private AssemblyDefinition _def;
+        private RetCallParams _params;
 
         public CecilRetCallInjector(AssemblyDefinition self, AssemblyDefinition def, RetCallParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
@@ -39,21 +39,21 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+            var callingDefinition = _self.GetMethod(_params.DetourType, _params.DetourMethodName, _params.DetourMethodDesc);
             if (callingDefinition == null)
             {
                 Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.DetourType, _params.DetourMethodName, _params.DetourMethodDesc);
                 return;
             }
 
-            var injectee = self.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+            var injectee = _self.GetMethod(_params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
             if (injectee == null)
             {
                 Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.DetourType, _params.DetourMethodName, _params.DetourMethodDesc);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace Storm.Manipulation.Cecil
 
         public object Params()
         {
-            return @params;
+            return _params;
         }
     }
 }

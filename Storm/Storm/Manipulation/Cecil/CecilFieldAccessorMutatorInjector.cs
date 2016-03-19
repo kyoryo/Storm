@@ -20,7 +20,7 @@ using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilFieldAccessorMutatorInjector : Injector
+    public class CecilFieldAccessorMutatorInjector : IInjector
     {
         private readonly AssemblyDefinition _def;
         private FieldAccessorMutatorParams _params;

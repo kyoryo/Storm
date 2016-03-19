@@ -145,7 +145,7 @@
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
     <Compile Include="Manipulation\MethodInfoParams.cs" />
     <Compile Include="ExternalEvent\ModEventBus.cs" />
-    <Compile Include="ExternalEvent\ModLoader.cs" />
+    <Compile Include="ExternalEvent\IModLoader.cs" />
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />
     <Compile Include="ExternalEvent\Subscribe.cs" />
@@ -193,7 +193,7 @@
     <Compile Include="Manipulation\FieldAccessorParams.cs" />
     <Compile Include="Manipulation\FieldDetourParams.cs" />
     <Compile Include="Manipulation\InjectionFactoryContext.cs" />
-    <Compile Include="Manipulation\Injector.cs" />
+    <Compile Include="Manipulation\IInjector.cs" />
     <Compile Include="Manipulation\InjectorFactories.cs" />
     <Compile Include="Manipulation\InjectorFactory.cs" />
     <Compile Include="Manipulation\InjectorFactoryType.cs" />

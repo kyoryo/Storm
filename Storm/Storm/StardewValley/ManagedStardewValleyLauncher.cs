@@ -92,7 +92,16 @@ namespace Storm.StardewValley
             var assembly = ctx.GetConcreteAssembly();
             var entry = assembly.EntryPoint;
             var entryType = entry.DeclaringType;
+            if (entryType == null)
+            {
+                throw new InvalidProgramException("Unable to find game enty type!");
+            }
+
             var constructor = entryType.GetConstructor(new Type[0]);
+            if (constructor == null)
+            {
+                throw new InvalidProgramException("Unable to find game entry constructor!");
+            }
 
             var root = new ProgramWrapper(constructor.Invoke(new object[0]));
 

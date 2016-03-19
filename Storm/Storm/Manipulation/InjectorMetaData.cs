@@ -22,7 +22,7 @@ namespace Storm.Manipulation
 {
     public static class InjectorMetaData
     {
-        public static Type TypeForSimpleName(List<Injector> list, string name)
+        public static Type TypeForSimpleName(List<IInjector> list, string name)
         {
             foreach (var injector in list)
             {
@@ -39,7 +39,7 @@ namespace Storm.Manipulation
             return null;
         }
 
-        public static string TypeToSimpleName(List<Injector> list, Type t)
+        public static string TypeToSimpleName(List<IInjector> list, Type t)
         {
             foreach (var injector in list)
             {
@@ -56,7 +56,7 @@ namespace Storm.Manipulation
             return null;
         }
 
-        public static string NameOfMethod(List<Injector> list, string type, string refactored, string desc)
+        public static string NameOfMethod(List<IInjector> list, string type, string refactored, string desc)
         {
             foreach (var injector in list)
             {
@@ -73,17 +73,17 @@ namespace Storm.Manipulation
             return null;
         }
 
-        public static string NameOfMethod<T>(List<Injector> list, string refactored, string desc)
+        public static string NameOfMethod<T>(List<IInjector> list, string refactored, string desc)
         {
             return NameOfMethod(list, typeof(T).FullName, refactored, desc);
         }
 
-        public static string NameOfMethod(Type t, List<Injector> list, string refactored, string desc)
+        public static string NameOfMethod(Type t, List<IInjector> list, string refactored, string desc)
         {
             return NameOfMethod(list, t.FullName, refactored, desc);
         }
 
-        public static Dictionary<string, string> BuildTags(List<Injector> injectors)
+        public static Dictionary<string, string> BuildTags(List<IInjector> injectors)
         {
             var nameMap = new Dictionary<string, string>();
             foreach (var injector in injectors)
@@ -103,10 +103,9 @@ namespace Storm.Manipulation
             while (s.IndexOf("@", StringComparison.Ordinal) != -1)
             {
                 var start = s.IndexOf('@');
-                var end = -1;
                 if (s[start + 1] == '(')
                 {
-                    end = s.IndexOf(')', start);
+                    int end = s.IndexOf(')', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
                     var key = s.Substring(start + 2, end - start - 3);
@@ -114,7 +113,7 @@ namespace Storm.Manipulation
                 }
                 else
                 {
-                    end = s.IndexOf(' ', start);
+                    int end = s.IndexOf(' ', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
                     var key = s.Substring(start + 1, end - start - 1);
@@ -124,7 +123,7 @@ namespace Storm.Manipulation
             return s;
         }
 
-        public static string FilterTags(List<Injector> injectors, string s)
+        public static string FilterTags(List<IInjector> injectors, string s)
         {
             return FilterTags(BuildTags(injectors), s);
         }

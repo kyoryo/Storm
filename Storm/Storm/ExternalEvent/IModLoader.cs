@@ -19,7 +19,7 @@ using System.Collections.Generic;
 
 namespace Storm.ExternalEvent
 {
-    public interface ModLoader
+    public interface IModLoader
     {
         List<LoadedMod> Load();
     }

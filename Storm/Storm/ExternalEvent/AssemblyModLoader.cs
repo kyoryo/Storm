@@ -22,7 +22,7 @@ using System.Reflection;
 
 namespace Storm.ExternalEvent
 {
-    public abstract class AssemblyModLoader : ModLoader
+    public abstract class AssemblyModLoader : IModLoader
     {
         public abstract List<LoadedMod> Load();
 
@@ -57,7 +57,17 @@ namespace Storm.ExternalEvent
                         list.Add(handler);
                     }
 
-                    result.Add(new AssemblyMod {Instance = mod.GetConstructor(Type.EmptyTypes).Invoke(null), CallMap = map});
+                    var constructor = mod.GetConstructor(Type.EmptyTypes);
+                    if (constructor == null)
+                    {
+                        Logging.DebugLogs("Unable to find empty constructor for mod {0}", mod.FullName);
+                        continue;
+                    }
+
+                    result.Add(new AssemblyMod
+                    {
+                        Instance = constructor.Invoke(null), CallMap = map
+                    });
                 }
             }
             catch (Exception e)

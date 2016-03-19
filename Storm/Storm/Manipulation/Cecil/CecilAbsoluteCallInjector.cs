@@ -20,17 +20,17 @@ using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilAbsoluteCallInjector : Injector
+    public class CecilAbsoluteCallInjector : IInjector
     {
-        private readonly AssemblyDefinition def;
-        private readonly AssemblyDefinition self;
-        private AbsoluteCallParams @params;
+        private readonly AssemblyDefinition _def;
+        private readonly AssemblyDefinition _self;
+        private AbsoluteCallParams _params;
 
         public CecilAbsoluteCallInjector(AssemblyDefinition self, AssemblyDefinition def, AbsoluteCallParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
@@ -39,39 +39,39 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var callingDefinition = self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc) ?? self.GetMethod(@params.DetourType, @params.DetourMethodName, @params.DetourMethodDesc);
+            var callingDefinition = _self.GetMethod(_params.DetourType, _params.DetourMethodName, _params.DetourMethodDesc) ?? _self.GetMethod(_params.DetourType, _params.DetourMethodName, _params.DetourMethodDesc);
 
             if (callingDefinition == null)
             {
                 Logging.DebugLogs("[{0}] Could not find callingDefinition!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc);
-                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.DetourType, _params.DetourMethodDesc, _params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0}", _params.InsertionIndex);
                 return;
             }
 
-            var injectee = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+            var injectee = _def.GetMethod(_params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
             if (injectee == null)
             {
                 Logging.DebugLogs("[{0}] Could not find injectee!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.DetourType, @params.DetourMethodDesc, @params.DetourMethodDesc);
-                Logging.DebugLogs("\t{0}", @params.InsertionIndex);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.DetourType, _params.DetourMethodDesc, _params.DetourMethodDesc);
+                Logging.DebugLogs("\t{0}", _params.InsertionIndex);
                 return;
             }
 
             var import = injectee.Module.Import(callingDefinition);
             var processor = injectee.Body.GetILProcessor();
             var instructions = injectee.Body.Instructions;
-            switch (@params.InsertionType)
+            switch (_params.InsertionType)
             {
-                case InsertionType.BEGINNING:
+                case InsertionType.Beginning:
                     processor.InsertBefore(instructions[0], processor.Create(OpCodes.Call, import));
                     break;
-                case InsertionType.ABSOLUTE:
-                    processor.InsertBefore(instructions[@params.InsertionIndex], processor.Create(OpCodes.Call, import));
+                case InsertionType.Absolute:
+                    processor.InsertBefore(instructions[_params.InsertionIndex], processor.Create(OpCodes.Call, import));
                     break;
-                case InsertionType.LAST:
+                case InsertionType.Last:
                     processor.InsertBefore(instructions[instructions.Count - 1], processor.Create(OpCodes.Call, import));
                     break;
             }
@@ -79,7 +79,7 @@ namespace Storm.Manipulation.Cecil
 
         public object GetParams()
         {
-            return @params;
+            return _params;
         }
     }
 }

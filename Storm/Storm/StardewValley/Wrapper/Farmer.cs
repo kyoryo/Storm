@@ -145,7 +145,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetCurrentLocation(value?.Underlying); }
         }
 
-        public long UniqueMultiplayerID
+        public long UniqueMultiplayerId
         {
             get { return AsDynamic._GetUniqueMultiplayerID(); }
             set { AsDynamic._SetUniqueMultiplayerID(value); }
@@ -281,13 +281,13 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetNewEyeColor(value); }
         }
 
-        public NPC DancePartner
+        public Npc DancePartner
         {
             get
             {
                 var tmp = AsDynamic._GetDancePartner();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetDancePartner(value?.Underlying); }
         }
@@ -969,13 +969,13 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetCharactercollisionTimer(value); }
         }
 
-        public NPC CollisionNPC
+        public Npc CollisionNpc
         {
             get
             {
                 var tmp = AsDynamic._GetCollisionNPC();
                 if (tmp == null) return null;
-                return new NPC(Parent, tmp);
+                return new Npc(Parent, tmp);
             }
             set { AsDynamic._SetCollisionNPC(value?.Underlying); }
         }

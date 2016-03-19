@@ -20,17 +20,17 @@ using Mono.Cecil.Cil;
 
 namespace Storm.Manipulation.Cecil
 {
-    public class CecilInvokerInjector : Injector
+    public class CecilInvokerInjector : IInjector
     {
-        private readonly AssemblyDefinition def;
-        private readonly AssemblyDefinition self;
-        private InvokerParams @params;
+        private readonly AssemblyDefinition _def;
+        private readonly AssemblyDefinition _self;
+        private InvokerParams _params;
 
         public CecilInvokerInjector(AssemblyDefinition self, AssemblyDefinition def, InvokerParams @params)
         {
-            this.self = self;
-            this.def = def;
-            this.@params = @params;
+            _self = self;
+            _def = def;
+            _params = @params;
         }
 
         public void Init()
@@ -39,38 +39,38 @@ namespace Storm.Manipulation.Cecil
 
         public void Inject()
         {
-            var invoking = def.GetMethod(@params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
+            var invoking = _def.GetMethod(_params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
             if (invoking == null)
             {
                 Logging.DebugLogs("[{0}] Could not find invoking!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.InvokerType, @params.InvokerName);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1}", _params.InvokerType, _params.InvokerName);
                 return;
             }
 
             var invokingParent = invoking.DeclaringType;
             var invokerType = invokingParent;
-            if (@params.InvokerType != null)
+            if (_params.InvokerType != null)
             {
-                invokerType = def.GetTypeDef(@params.InvokerType) ?? self.GetTypeDef(@params.InvokerType);
+                invokerType = _def.GetTypeDef(_params.InvokerType) ?? _self.GetTypeDef(_params.InvokerType);
             }
 
             if (invokerType == null)
             {
                 Logging.DebugLogs("[{0}] Could not find invokerType!", GetType().Name);
-                Logging.DebugLogs("\t{0} {1} {2}", @params.OwnerType, @params.OwnerMethodName, @params.OwnerMethodDesc);
-                Logging.DebugLogs("\t{0} {1}", @params.InvokerType, @params.InvokerName);
+                Logging.DebugLogs("\t{0} {1} {2}", _params.OwnerType, _params.OwnerMethodName, _params.OwnerMethodDesc);
+                Logging.DebugLogs("\t{0} {1}", _params.InvokerType, _params.InvokerName);
                 return;
             }
 
-            var invoker = new MethodDefinition(@params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, def.Import(typeof(object)));
+            var invoker = new MethodDefinition(_params.InvokerName, MethodAttributes.Public | MethodAttributes.NewSlot | MethodAttributes.Virtual, _def.Import(typeof(object)));
             for (var i = 0; i < invoking.Parameters.Count; i++)
             {
                 invoker.Parameters.Add(new ParameterDefinition(invoking.Parameters[i].ParameterType));
             }
 
             var processor = invoker.Body.GetILProcessor();
-            if (!@params.IsStatic)
+            if (!_params.IsStatic)
             {
                 processor.Append(processor.Create(OpCodes.Ldarg_0));
             }
@@ -101,7 +101,7 @@ namespace Storm.Manipulation.Cecil
 
         public object GetParams()
         {
-            return @params;
+            return _params;
         }
     }
 }

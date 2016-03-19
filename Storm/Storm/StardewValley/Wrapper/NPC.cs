@@ -21,13 +21,13 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public class NPC : Character
+    public class Npc : Character
     {
-        public NPC(StaticContext parent, object accessor) : base(parent, accessor)
+        public Npc(StaticContext parent, object accessor) : base(parent, accessor)
         {
         }
 
-        public NPC()
+        public Npc()
         {
         }
 

@@ -144,7 +144,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetRunThreshold(value); }
         }
 
-        public KeyboardState OldKBState
+        public KeyboardState OldKbState
         {
             get { return AsDynamic._GetOldKBState(); }
             set { AsDynamic._SetOldKBState(value); }
@@ -350,7 +350,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetAnimations(value); }
         }
 
-        public Texture2D TitleScreenBG
+        public Texture2D TitleScreenBg
         {
             get { return AsDynamic._GetTitleScreenBG(); }
             set { AsDynamic._SetTitleScreenBG(value); }
@@ -680,7 +680,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetIsLightning(value); }
         }
 
-        public bool DisplayHUD
+        public bool DisplayHud
         {
             get { return AsDynamic._GetDisplayHUD(); }
             set { AsDynamic._SetDisplayHUD(value); }
@@ -1136,13 +1136,13 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetScreenGlowColor(value); }
         }
 
-        public NPC CurrentSpeaker
+        public Npc CurrentSpeaker
         {
             get
             {
                 var tmp = AsDynamic._GetCurrentSpeaker();
                 if (tmp == null) return null;
-                return new NPC(this, tmp);
+                return new Npc(this, tmp);
             }
             set { AsDynamic._SetCurrentSpeaker(value.Underlying); }
         }
@@ -1291,7 +1291,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetMultiplayerMode(value); }
         }
 
-        public ulong UniqueIDForThisGame
+        public ulong UniqueIdForThisGame
         {
             get { return AsDynamic._GetUniqueIDForThisGame(); }
             set { AsDynamic._SetUniqueIDForThisGame(value); }
@@ -1537,13 +1537,13 @@ namespace Storm.StardewValley.Wrapper
 
         public IDictionary ObjectInformation => AsDynamic._GetObjectInformation();
 
-        public NPC ObjectDialoguePortraitPerson
+        public Npc ObjectDialoguePortraitPerson
         {
             get
             {
                 var tmp = AsDynamic._GetObjectDialoguePortraitPerson();
                 if (tmp == null) return null;
-                return new NPC(this, tmp);
+                return new Npc(this, tmp);
             }
             set { AsDynamic._SetObjectDialoguePortraitPerson(value.Underlying); }
         }
@@ -1573,7 +1573,7 @@ namespace Storm.StardewValley.Wrapper
             }
         }
 
-        public void AddHUDMessage(HUDMessage value)
+        public void AddHudMessage(HudMessage value)
         {
             AsDynamic._AddHUDMessage(value?.Underlying);
         }

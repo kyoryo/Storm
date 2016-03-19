@@ -32,7 +32,7 @@ namespace Storm
                     first = asm.MainModule.Import(refRef);
                 }
             }
-            else if (typeDefinitions.Count() > 1)
+            else if (typeDefinitions.Count > 1)
             {
                 throw new TypeCollisionException();
             }
@@ -111,9 +111,10 @@ namespace Storm
         {
             return asm.Modules.SelectMany(m => m.Types).SelectMany(t => t.Methods).Where(m => m.HasBody && m != exclude && m.Body.Instructions.FirstOrDefault(i =>
             {
-                if (i.Operand is FieldReference)
+                var operand = i.Operand as FieldReference;
+                if (operand != null)
                 {
-                    return ((FieldReference) i.Operand).Resolve() == fd;
+                    return operand.Resolve() == fd;
                 }
                 return false;
             }) != null);

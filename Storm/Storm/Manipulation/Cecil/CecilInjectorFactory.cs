@@ -24,7 +24,7 @@ namespace Storm.Manipulation.Cecil
 {
     public class CecilInjectorFactory : InjectorFactory
     {
-        private Assembly refAssembly;
+        private Assembly _refAssembly;
 
         public CecilInjectorFactory()
         {
@@ -50,43 +50,43 @@ namespace Storm.Manipulation.Cecil
             GameAssembly = AssemblyDefinition.ReadAssembly(path);
         }
 
-        public override Injector CreateFieldDetourInjector(FieldDetourParams @params)
+        public override IInjector CreateFieldDetourInjector(FieldDetourParams @params)
         {
             CheckSelf();
             return new CecilFieldDetourInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateFieldAccessorInjector(FieldAccessorParams @params)
+        public override IInjector CreateFieldAccessorInjector(FieldAccessorParams @params)
         {
             CheckSelf();
             return new CecilFieldAccessorInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateFieldMutatorInjector(FieldMutatorParams @params)
+        public override IInjector CreateFieldMutatorInjector(FieldMutatorParams @params)
         {
             CheckSelf();
             return new CecilFieldMutatorInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
+        public override IInjector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
         {
             CheckSelf();
             return new CecilFieldAccessorMutatorInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateInvokerInjector(InvokerParams @params)
+        public override IInjector CreateInvokerInjector(InvokerParams @params)
         {
             CheckSelf();
             return new CecilInvokerInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
+        public override IInjector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
         {
             CheckSelf();
             return new CecilAbsoluteCallInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override Injector CreateEventCallbackInjector(EventCallbackParams @params)
+        public override IInjector CreateEventCallbackInjector(EventCallbackParams @params)
         {
             CheckSelf();
             return new CecilEventCallbackInjector(SelfAssembly, GameAssembly, @params);
@@ -94,7 +94,7 @@ namespace Storm.Manipulation.Cecil
 
         public override Assembly ToConcrete()
         {
-            if (refAssembly != null) return refAssembly;
+            if (_refAssembly != null) return _refAssembly;
             using (var strum = new MemoryStream())
             {
                 GameAssembly.Name.Name = "Storm-Hooked-Game";
@@ -106,9 +106,9 @@ namespace Storm.Manipulation.Cecil
 
                 var domain = AppDomain.CreateDomain("Game Domain");
                 domain.UnhandledException += Logging.UnhandledExceptionHandler;
-                refAssembly = domain.Load(strum.GetBuffer());
+                _refAssembly = domain.Load(strum.GetBuffer());
             }
-            return refAssembly;
+            return _refAssembly;
         }
 
         public void WriteModifiedAssembly(Stream @out)

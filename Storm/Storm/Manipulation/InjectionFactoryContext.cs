@@ -25,6 +25,6 @@ namespace Storm.Manipulation
         public delegate Assembly ConcreteCreator();
 
         public ConcreteCreator GetConcreteAssembly { get; set; }
-        public List<Injector> Injectors { get; set; }
+        public List<IInjector> Injectors { get; set; }
     }
 }
