@@ -1,0 +1,39 @@
+{
+  "FieldAccessorMutatorParams": [
+    {
+      "OwnerAccessorType": "@SocialPage",
+      "OwnerFieldName": "descriptionText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "DescriptionText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@SocialPage",
+      "OwnerFieldName": "hoverText",
+      "OwnerFieldType": "System.String",
+      "MethodName": "HoverText",
+      "Type": "System.String"
+    },
+    {
+      "OwnerAccessorType": "@SocialPage",
+      "OwnerFieldName": "friendNames",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "FriendNames",
+      "Type": "System.Collections.IList"
+    },
+    {
+      "OwnerAccessorType": "@SocialPage",
+      "OwnerFieldName": "slotPosition",
+      "OwnerFieldType": "System.Int32",
+      "MethodName": "SlotPosition",
+      "Type": "System.Int32"
+    },
+    {
+      "OwnerAccessorType": "@SocialPage",
+      "OwnerFieldName": "kidsNames",
+      "OwnerFieldType": "System.Collections.Generic.List`1",
+      "MethodName": "KidsNames",
+      "Type": "System.Collections.IList"
+    }
+  ]
+}

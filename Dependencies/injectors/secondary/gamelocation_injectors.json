@@ -376,5 +376,26 @@
       "InvokerReturnType": "System.String",
       "IsStatic": "false"
     },
+  ],
+      "EventCallbackParams": [
+    {
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "mailbox",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "PreMailboxActionCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "false"
+    },
+	{
+      "OwnerAccessorType": "@GameLocation",
+      "OwnerMethodName": "resetForPlayerEntry",
+      "OwnerMethodDesc": "()System.Void",
+      "CallbackType": "Storm.StardewValley.StaticGameContext",
+      "InstanceCallbackName": "OnLoadNewAreaCallback",
+      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
+      "PushParams": "false",
+	  "InsertionType": "BEGINNING"
+    }
   ]
 }
