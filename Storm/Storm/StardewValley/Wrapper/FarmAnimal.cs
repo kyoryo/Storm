@@ -1,14 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Storm.StardewValley.Wrapper
 {
     public class FarmAnimal : Character
-    {    
+    {
         public FarmAnimal(StaticContext parent, object accessor) :
             base(parent, accessor)
         {
@@ -113,11 +108,13 @@ namespace Storm.StardewValley.Wrapper
             get { return AsDynamic._GetHarvestType(); }
             set { AsDynamic._SetHarvestType(value); }
         }
+
         public byte Happiness
         {
             get { return AsDynamic._GetHappiness(); }
             set { AsDynamic._SetHappiness(value); }
         }
+
         public byte Fullness
         {
             get { return AsDynamic._GetFullness(); }
@@ -154,25 +151,25 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetAllowReproduction(value); }
         }
 
-        public String Sound
+        public string Sound
         {
             get { return AsDynamic._GetSound(); }
             set { AsDynamic._SetSound(value); }
         }
 
-        public String Type
+        public string Type
         {
             get { return AsDynamic._GetType(); }
             set { AsDynamic._SetType(value); }
         }
 
-        public String BuildingTypeILiveIn
+        public string BuildingTypeILiveIn
         {
             get { return AsDynamic._GetBuildingTypeILiveIn(); }
             set { AsDynamic._SetBuildingTypeILiveIn(value); }
         }
 
-        public String ToolUsedForHarvest
+        public string ToolUsedForHarvest
         {
             get { return AsDynamic._GetToolUsedForHarvest(); }
             set { AsDynamic._SetToolUsedForHarvest(value); }
@@ -244,7 +241,7 @@ namespace Storm.StardewValley.Wrapper
             set { AsDynamic._SetPauseTimer(value); }
         }
 
-        public Int16 MoodMessage
+        public short MoodMessage
         {
             get { return AsDynamic._GetMoodMessage(); }
             set { AsDynamic._SetMoodMessage(value); }
@@ -255,9 +252,5 @@ namespace Storm.StardewValley.Wrapper
             get { return AsDynamic._GetIsEating(); }
             set { AsDynamic._SetIsEating(value); }
         }
-
-
-
-
     }
 }

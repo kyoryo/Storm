@@ -15,7 +15,6 @@
     along with Storm.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Microsoft.Xna.Framework;
 using Storm.Collections;
 
 namespace Storm.StardewValley.Wrapper
@@ -23,7 +22,7 @@ namespace Storm.StardewValley.Wrapper
     public class CraftingRecipe : StaticContextWrapper
     {
         public CraftingRecipe(StaticContext parent, object accessor) :
-            base(parent)        
+            base(parent)
         {
             Underlying = accessor;
         }
@@ -61,6 +60,7 @@ namespace Storm.StardewValley.Wrapper
                 return tmp == null ? null : new ProxyDictionary<string, string>(tmp);
             }
         }
+
         public ProxyDictionary<int, int> RecipeList
         {
             get
@@ -81,7 +81,7 @@ namespace Storm.StardewValley.Wrapper
 
         public bool BigCraftable
         {
-            get { return AsDynamic._GetBigCraftable();  }
+            get { return AsDynamic._GetBigCraftable(); }
             set { AsDynamic._SetBigCraftable(value); }
         }
 

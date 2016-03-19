@@ -105,7 +105,7 @@ namespace Storm.Manipulation
                 var start = s.IndexOf('@');
                 if (s[start + 1] == '(')
                 {
-                    int end = s.IndexOf(')', start);
+                    var end = s.IndexOf(')', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
                     var key = s.Substring(start + 2, end - start - 3);
@@ -113,7 +113,7 @@ namespace Storm.Manipulation
                 }
                 else
                 {
-                    int end = s.IndexOf(' ', start);
+                    var end = s.IndexOf(' ', start);
                     if (end == -1) end = s.Length;
                     else end += 1;
                     var key = s.Substring(start + 1, end - start - 1);

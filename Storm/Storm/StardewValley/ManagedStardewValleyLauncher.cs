@@ -59,9 +59,9 @@ namespace Storm.StardewValley
         {
             if (!File.Exists(StormApi.GetResource("interface_injectors.json")))
             {
-                MessageBox.Show("Could not find injectors @\n" + 
-                    StormApi.GetResource("interface_injectors.json") + " /\n" + 
-                    StormApi.GetResource("secondary") + "\\", "Error");
+                MessageBox.Show("Could not find injectors @\n" +
+                                StormApi.GetResource("interface_injectors.json") + " /\n" +
+                                StormApi.GetResource("secondary") + "\\", "Error");
 
                 Environment.Exit(1);
             }
