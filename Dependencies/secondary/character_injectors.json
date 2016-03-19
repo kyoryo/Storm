@@ -377,9 +377,6 @@
       "OwnerAccessorType": "@Character",
       "OwnerMethodName": "shouldCollideWithBuildingLayer",
       "OwnerMethodDesc": "(@(GameLocation))System.Boolean",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "ShouldCollideWithBuildingLayerCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.CharacterAccessor,Storm.StardewValley.Accessor.GameLocationAccessor)Storm.Manipulation.DetourEvent",
       "PushParams": "true",
       "InsertionType": "BEGINNING"
     }

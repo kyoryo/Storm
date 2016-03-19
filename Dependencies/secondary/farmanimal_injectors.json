@@ -287,24 +287,5 @@
       "MethodName": "IsEating",
       "Type": "System.Boolean"
     }
-  ],
-    "EventCallbackParams": [
-    {
-      "OwnerAccessorType": "@FarmAnimal",
-      "OwnerMethodName": ".ctor",
-      "OwnerMethodDesc": "(System.String,System.Int64,System.Int64)System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "PostFarmAnimalConstructedCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmAnimalAccessor)Storm.Manipulation.DetourEvent"
-    },
-	{
-      "OwnerAccessorType": "@FarmAnimal",
-      "OwnerMethodName": "dayUpdate",
-      "OwnerMethodDesc": "(@(GameLocation))System.Void",
-      "CallbackType": "Storm.StardewValley.StaticGameContext",
-      "InstanceCallbackName": "PostFarmAnimalDayUpdateCallback",
-      "InstanceCallbackDesc": "(Storm.StardewValley.Accessor.FarmAnimalAccessor)Storm.Manipulation.DetourEvent",
-	  "InsertionType": "LAST"
-    }
   ]
 }
