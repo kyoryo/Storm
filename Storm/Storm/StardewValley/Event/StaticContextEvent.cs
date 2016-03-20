@@ -33,7 +33,7 @@ namespace Storm.StardewValley.Event
 
         public Assembly GameAssembly { get; set; }
         public StaticContext Root { get; set; }
-        public ModEventBus EventBus { get; set; }
+        public EventBus EventBus { get; set; }
         public object[] Params { get; set; }
 
         public Farmer LocalPlayer => Root.Player;

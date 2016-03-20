@@ -75,7 +75,7 @@ namespace Storm.ExternalEvent
             var mod = new LoadedMod(manifest, assemblyMods);
             result.Add(mod);
 
-            Logging.DebugLog(string.Format("Loaded {0} {2} by {1}", mod.Name, mod.Author, mod.Version));
+            Logging.DebugLogs("[{0}] Loaded mod {1} {3} by {2}", GetType().Name, mod.Name, mod.Author, mod.Version);
         }
     }
 }

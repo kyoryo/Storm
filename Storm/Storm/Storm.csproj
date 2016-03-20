@@ -143,7 +143,7 @@
     <Compile Include="Manipulation\Json\JsonMethodInfoParams.cs" />
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
     <Compile Include="Manipulation\MethodInfoParams.cs" />
-    <Compile Include="ExternalEvent\ModEventBus.cs" />
+    <Compile Include="ExternalEvent\EventBus.cs" />
     <Compile Include="ExternalEvent\IModLoader.cs" />
     <Compile Include="ExternalEvent\LoadedMod.cs" />
     <Compile Include="ExternalEvent\LocalModLoader.cs" />

@@ -53,7 +53,7 @@ namespace Storm.StardewValley
         /// </summary>
         public bool Debug { get; set; }
 
-        private ModEventBus EventBus { get; } = new ModEventBus();
+        private EventBus EventBus { get; } = new EventBus();
 
         private InjectionFactoryContext Inject()
         {

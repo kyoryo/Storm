@@ -50,7 +50,6 @@ namespace Storm
 
         public virtual Config GenerateBaseConfig(Config baseConfig)
         {
-            //Must be implemented in sub-class
             return null;
         }
 
@@ -58,8 +57,7 @@ namespace Storm
         {
             if (!File.Exists(baseConfig.ConfigLocation))
             {
-                var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
-                v.WriteConfig();
+                GenerateBaseConfig(baseConfig).WriteConfig();
             }
             else
             {
@@ -82,10 +80,10 @@ namespace Storm
                 {
                     Console.WriteLine("Invalid JSON Renamed: " + p);
                     if (File.Exists(p))
+                    {
                         File.Move(p, Path.Combine(Path.GetDirectoryName(p), Path.GetFileNameWithoutExtension(p) + "." + Guid.NewGuid() + ".json"));
-                    //Get it out of the way for a new one
-                    var v = (Config) baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig});
-                    v.WriteConfig();
+                    }
+                    GenerateBaseConfig(baseConfig).WriteConfig();
                 }
             }
 
@@ -96,40 +94,30 @@ namespace Storm
         {
             try
             {
-                //default config with all standard values
-                var b = JObject.FromObject(baseConfig.GetType().GetMethod("GenerateBaseConfig", BindingFlags.Public | BindingFlags.Instance).Invoke(baseConfig, new object[] {baseConfig}));
-                //user config with their values
+                var b = JObject.FromObject(baseConfig.GenerateBaseConfig(baseConfig));
                 var u = baseConfig.JObject;
-
                 b.Merge(u);
-
                 return (Config) b.ToObject(baseConfig.GetType());
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                Logging.DebugLog(ex.ToString());
             }
             return baseConfig;
         }
 
-        public static string GetBasePath(DiskResource theMod)
+        public void WriteConfig()
         {
-            return theMod.PathOnDisk + "\\config.json";
-        }
-    }
-
-    public static class ConfigExtensions
-    {
-        public static void WriteConfig(this Config baseConfig)
-        {
-            var toWrite = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(baseConfig, baseConfig.GetType(), Formatting.Indented, new JsonSerializerSettings()));
-            if (!File.Exists(baseConfig.ConfigLocation) || !File.ReadAllBytes(baseConfig.ConfigLocation).SequenceEqual(toWrite))
-                File.WriteAllBytes(baseConfig.ConfigLocation, toWrite);
+            var toWrite = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(this, this.GetType(), Formatting.Indented, new JsonSerializerSettings()));
+            if (!File.Exists(ConfigLocation) || !File.ReadAllBytes(ConfigLocation).SequenceEqual(toWrite))
+            {
+                File.WriteAllBytes(ConfigLocation, toWrite);
+            }
         }
 
-        public static Config ReloadConfig(this Config baseConfig)
+        public Config ReloadConfig()
         {
-            return baseConfig.UpdateConfig(baseConfig);
+            return UpdateConfig(this);
         }
     }
 }

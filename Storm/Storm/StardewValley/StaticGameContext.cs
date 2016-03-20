@@ -35,11 +35,11 @@ namespace Storm.StardewValley
 
         private static ProgramWrapper Root { get; set; }
 
-        private static ModEventBus EventBus { get; set; }
+        private static EventBus EventBus { get; set; }
 
         private static StaticContext WrappedGame => Root.GetGame();
 
-        public static void Init(Assembly assembly, ProgramWrapper root, ModEventBus eventBus, List<IInjector> injectors)
+        public static void Init(Assembly assembly, ProgramWrapper root, EventBus eventBus, List<IInjector> injectors)
         {
             Assembly = assembly;
             Root = root;

@@ -22,12 +22,12 @@ using Storm.Manipulation;
 
 namespace Storm.ExternalEvent
 {
-    public class ModEventBus
+    public class EventBus
     {
         private readonly Dictionary<string, List<ReceiverSwitch>> _receivers = new Dictionary<string, List<ReceiverSwitch>>();
         public List<LoadedMod> Mods = new List<LoadedMod>();
 
-        public void AddReceiver(object parent, string eventType, MethodInfo receiver, int priority)
+        public void AddReceiver(string eventType, ReceiverSwitch @switch)
         {
             List<ReceiverSwitch> list;
             if (!_receivers.TryGetValue(eventType, out list))
@@ -39,23 +39,28 @@ namespace Storm.ExternalEvent
             var idx = -1;
             for (var i = 0; i < list.Count; i++)
             {
-                if (priority > list[i].Priority)
+                if (@switch.Priority > list[i].Priority)
                 {
                     idx = i;
                     break;
                 }
             }
 
-            var @switch = new ReceiverSwitch
+            @switch.Enabled = true;
+
+            if (idx == -1) list.Add(@switch);
+            else list.Insert(idx, @switch);
+        }
+
+        public void AddReceiver(object parent, string eventType, MethodInfo receiver, int priority)
+        {
+            AddReceiver(eventType, new ReceiverSwitch()
             {
                 Instance = parent,
                 Info = receiver,
                 Priority = priority,
-                Enabled = true
-            };
-
-            if (idx == -1) list.Add(@switch);
-            else list.Insert(idx, @switch);
+                Enabled = true,
+            });
         }
 
         public void AddReceiver(LoadedMod mod)

@@ -83,6 +83,7 @@ namespace Storm.ExternalEvent
             {
                 Logging.Logs("[{0}] Failed to load mods from assembly {1} due to error {2}", GetType().Name, assembly.FullName, e.ToString());
             }
+
             return result;
         }
     }
