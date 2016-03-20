@@ -66,15 +66,15 @@ namespace Storm.Manipulation.Cecil
                 var instructions = body.Instructions;
                 var processor = body.GetILProcessor();
 
-                foreach (var ins in instructions)
+                for (int i = 0; i < instructions.Count; i++)
                 {
+                    Instruction ins = instructions[i];
                     if (ins.OpCode == OpCodes.Call || ins.OpCode == OpCodes.Callvirt)
                     {
-                        var @ref = (MethodReference) ins.Operand;
+                        var @ref = (MethodReference)ins.Operand;
                         if (@ref.DeclaringType.FullName.Equals(_params.FromClass))
                         {
                             var redirect = to.Resolve().Methods.FirstOrDefault(m => m.Name.Equals(@ref.Name) && @ref.Parameters.Count + 1 == m.Parameters.Count);
-
                             if (redirect != null)
                             {
                                 var call = _def.Import(redirect);

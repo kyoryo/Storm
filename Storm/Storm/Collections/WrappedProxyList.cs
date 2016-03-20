@@ -99,29 +99,26 @@ namespace Storm.Collections
             throw new NotImplementedException();
         }
 
-        private class ProxyEnumerator<TOValue, TEValue> : IEnumerator<TEValue>
+        private class ProxyEnumerator<TEoValue, TEValue> : IEnumerator<TEValue>
         {
             private readonly IList _real;
-            private readonly Wrap<TOValue, TEValue> _wrapper;
+            private readonly Wrap<TEoValue, TEValue> _wrapper;
             private int _curIndex;
-            private TOValue _curValue;
+            private TEoValue _curValue;
 
-            public ProxyEnumerator(IList real, Wrap<TOValue, TEValue> wrapper)
+            public ProxyEnumerator(IList real, Wrap<TEoValue, TEValue> wrapper)
             {
                 _real = real;
                 _wrapper = wrapper;
                 _curIndex = -1;
-                _curValue = default(TOValue);
+                _curValue = default(TEoValue);
             }
 
             public TEValue Current => _wrapper(_curValue);
 
             object IEnumerator.Current => _curValue;
 
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
+            public void Dispose() { }
 
             public bool MoveNext()
             {
@@ -129,7 +126,7 @@ namespace Storm.Collections
                 {
                     return false;
                 }
-                _curValue = (TOValue) _real[_curIndex];
+                _curValue = (TEoValue) _real[_curIndex];
                 return true;
             }
 

@@ -18,6 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Mono.Cecil;
 
 namespace Storm
@@ -122,6 +123,21 @@ namespace Storm
         public static MethodReference Import(this AssemblyDefinition asm, MethodDefinition md)
         {
             return asm.MainModule.Import(md);
+        }
+
+        public static MethodReference Import(this AssemblyDefinition asm, MethodReference @ref)
+        {
+            return asm.MainModule.Import(@ref);
+        }
+
+        public static MethodReference Import(this AssemblyDefinition asm, MethodInfo info)
+        {
+            return asm.MainModule.Import(info);
+        }
+
+        public static MethodReference Import(this AssemblyDefinition asm, ConstructorInfo info)
+        {
+            return asm.MainModule.Import(info);
         }
 
         public static IEnumerable<MethodDefinition> FindRefences(this AssemblyDefinition asm, FieldDefinition fd, MethodDefinition exclude = null)

@@ -123,7 +123,6 @@
     <Compile Include="Manipulation\Cecil\CecilInstanceDetourInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />
-    <Compile Include="Manipulation\Cecil\CecilFieldMutatorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInvokerInjector.cs" />
     <Compile Include="Manipulation\ConstantReplacerParams.cs" />
     <Compile Include="Manipulation\ConstructorReplacerParams.cs" />
@@ -139,7 +138,6 @@
     <Compile Include="Manipulation\Json\JsonEventCallbackParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldAccessorMutatorParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldInfoParams.cs" />
-    <Compile Include="Manipulation\Json\JsonFieldMutatorParams.cs" />
     <Compile Include="Manipulation\Json\JsonInvokerParams.cs" />
     <Compile Include="Manipulation\Json\JsonMethodInfoParams.cs" />
     <Compile Include="Manipulation\MethodInfoInjector.cs" />
@@ -183,13 +181,9 @@
     <Compile Include="CecilUtils.cs" />
     <Compile Include="DataFormat.cs" />
     <Compile Include="Logging.cs" />
-    <Compile Include="Manipulation\AbsoluteCallParams.cs" />
-    <Compile Include="Manipulation\Cecil\CecilAbsoluteCallInjector.cs" />
-    <Compile Include="Manipulation\Cecil\CecilFieldAccessorInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldDetourInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilInjectorFactory.cs" />
     <Compile Include="Manipulation\ClassInfoInjector.cs" />
-    <Compile Include="Manipulation\Cecil\CecilRetCallInjector.cs" />
     <Compile Include="Manipulation\FieldAccessorParams.cs" />
     <Compile Include="Manipulation\FieldDetourParams.cs" />
     <Compile Include="Manipulation\InjectionFactoryContext.cs" />
@@ -198,12 +192,9 @@
     <Compile Include="Manipulation\InjectorFactory.cs" />
     <Compile Include="Manipulation\InjectorFactoryType.cs" />
     <Compile Include="Manipulation\InterfaceParams.cs" />
-    <Compile Include="Manipulation\Json\JsonAbsoluteCallParams.cs" />
-    <Compile Include="Manipulation\Json\JsonFieldAccessorParams.cs" />
     <Compile Include="Manipulation\Json\JsonFieldDetourParams.cs" />
     <Compile Include="Manipulation\Json\JsonParamContainer.cs" />
     <Compile Include="Manipulation\Json\JsonClassInfoParams.cs" />
-    <Compile Include="Manipulation\RetCallParams.cs" />
     <Compile Include="Manipulation\Cecil\CecilRewriteEntryInjector.cs" />
     <Compile Include="Manipulation\RewriteEntryInjectorParams.cs" />
     <Compile Include="Program.cs" />

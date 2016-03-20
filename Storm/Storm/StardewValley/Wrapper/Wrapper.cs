@@ -19,7 +19,7 @@ using System;
 
 namespace Storm.StardewValley.Wrapper
 {
-    public abstract class Wrapper
+    public class Wrapper
     {
         public object Underlying { get; set; }
 

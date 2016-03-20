@@ -43,20 +43,6 @@ namespace Storm.Manipulation
             return new ClassInfoInjector(@params);
         }
 
-        public abstract IInjector CreateFieldDetourInjector(FieldDetourParams @params);
-
-        public abstract IInjector CreateFieldAccessorInjector(FieldAccessorParams @params);
-
-        public abstract IInjector CreateFieldMutatorInjector(FieldMutatorParams @params);
-
-        public abstract IInjector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params);
-
-        public abstract IInjector CreateInvokerInjector(InvokerParams @params);
-
-        public abstract IInjector CreateAbsoluteCallInjector(AbsoluteCallParams @params);
-
-        public abstract IInjector CreateEventCallbackInjector(EventCallbackParams @params);
-
         public virtual IInjector CreateFieldInfoInjector(FieldInfoParams @params)
         {
             return new FieldInfoInjector(@params);
@@ -66,6 +52,14 @@ namespace Storm.Manipulation
         {
             return new MethodInfoInjector(@params);
         }
+
+        public abstract IInjector CreateFieldDetourInjector(FieldDetourParams @params);
+
+        public abstract IInjector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params);
+
+        public abstract IInjector CreateInvokerInjector(InvokerParams @params);
+
+        public abstract IInjector CreateEventCallbackInjector(EventCallbackParams @params);
 
         public abstract Assembly ToConcrete();
 
@@ -78,7 +72,7 @@ namespace Storm.Manipulation
                 case DataFormat.Json:
                     ctx.Injectors = ParseJson(path);
                     break;
-                case DataFormat.XML:
+                case DataFormat.Xml:
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(format), format, null);
@@ -122,23 +116,66 @@ namespace Storm.Manipulation
             }
 
             // FIXME - There has got to be a better way to do everything under this
-            list.AddRange(container.FieldDetourParams.Select(injector => CreateFieldDetourInjector(new FieldDetourParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerFieldName = injector.OwnerFieldName, OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType), DetourType = InjectorMetaData.FilterTags(nameMap, injector.DetourType), DetourMethodName = injector.DetourMethodName, DetourMethodDesc = injector.DetourMethodDesc})));
+            list.AddRange(container.FieldDetourParams.Select(injector => CreateFieldDetourInjector(new FieldDetourParams
+            {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType),
+                DetourType = InjectorMetaData.FilterTags(nameMap, injector.DetourType),
+                DetourMethodName = injector.DetourMethodName,
+                DetourMethodDesc = injector.DetourMethodDesc
+            })));
 
-            list.AddRange(container.FieldAccessorParams.Select(injector => CreateFieldAccessorInjector(new FieldAccessorParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerFieldName = injector.OwnerFieldName, OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType), MethodName = injector.MethodName, IsStatic = injector.IsStatic, OwnerAccessorType = injector.OwnerAccessorType})));
 
-            list.AddRange(container.FieldMutatorParams.Select(injector => CreateFieldMutatorInjector(new FieldMutatorParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerFieldName = injector.OwnerFieldName, OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType), MethodName = injector.MethodName, ParamType = InjectorMetaData.FilterTags(nameMap, injector.ParamType), IsStatic = injector.IsStatic, OwnerAccessorType = injector.OwnerAccessorType})));
+            list.AddRange(container.FieldAccessorMutatorParams.Select(injector => CreateFieldAccessorMutatorInjector(new FieldAccessorMutatorParams
+            {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerFieldName = injector.OwnerFieldName,
+                OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType),
+                MethodName = injector.MethodName,
+                IsStatic = injector.IsStatic,
+                OwnerAccessorType = injector.OwnerAccessorType
+            })));
 
-            list.AddRange(container.FieldAccessorMutatorParams.Select(injector => CreateFieldAccessorMutatorInjector(new FieldAccessorMutatorParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerFieldName = injector.OwnerFieldName, OwnerFieldType = InjectorMetaData.FilterTags(nameMap, injector.OwnerFieldType), MethodName = injector.MethodName, IsStatic = injector.IsStatic, OwnerAccessorType = injector.OwnerAccessorType})));
+            list.AddRange(container.InvokerParams.Select(injector => CreateInvokerInjector(new InvokerParams {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType),
+                OwnerMethodName = injector.OwnerMethodName,
+                OwnerMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.OwnerMethodDesc),
+                InvokerType = injector.InvokerType == null ? null : InjectorMetaData.FilterTags(nameMap, injector.InvokerType),
+                InvokerName = injector.InvokerName, IsStatic = injector.IsStatic
+            })));
 
-            list.AddRange(container.InvokerParams.Select(injector => CreateInvokerInjector(new InvokerParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerMethodName = injector.OwnerMethodName, OwnerMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.OwnerMethodDesc), InvokerType = injector.InvokerType == null ? null : InjectorMetaData.FilterTags(nameMap, injector.InvokerType), InvokerName = injector.InvokerName, IsStatic = injector.IsStatic})));
+            list.AddRange(container.FieldInfoParams.Select(injector => CreateFieldInfoInjector(new FieldInfoParams
+            {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType),
+                FieldName = injector.FieldName,
+                FieldType = InjectorMetaData.FilterTags(nameMap, injector.FieldType),
+                OwnerAccessorType = injector.OwnerAccessorType,
+                RefactoredName = injector.RefactoredName
+            })));
 
-            list.AddRange(container.AbsoluteCallParams.Select(injector => CreateAbsoluteCallInjector(new AbsoluteCallParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerMethodName = injector.OwnerMethodName, OwnerMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.OwnerMethodDesc), DetourType = injector.DetourType, DetourMethodName = injector.DetourMethodName, DetourMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.DetourMethodDesc), InsertionType = injector.InsertionType, InsertionIndex = injector.InsertionIndex})));
+            list.AddRange(container.MethodInfoParams.Select(injector => CreateMethodInfoInjector(new MethodInfoParams
+            {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, 
+                injector.OwnerAccessorType),
+                MethodName = injector.MethodName,
+                MethodDesc = InjectorMetaData.FilterTags(nameMap, injector.MethodDesc),
+                OwnerAccessorType = injector.OwnerAccessorType,
+                RefactoredName = injector.RefactoredName
+            })));
 
-            list.AddRange(container.FieldInfoParams.Select(injector => CreateFieldInfoInjector(new FieldInfoParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), FieldName = injector.FieldName, FieldType = InjectorMetaData.FilterTags(nameMap, injector.FieldType), OwnerAccessorType = injector.OwnerAccessorType, RefactoredName = injector.RefactoredName})));
-
-            list.AddRange(container.MethodInfoParams.Select(injector => CreateMethodInfoInjector(new MethodInfoParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), MethodName = injector.MethodName, MethodDesc = InjectorMetaData.FilterTags(nameMap, injector.MethodDesc), OwnerAccessorType = injector.OwnerAccessorType, RefactoredName = injector.RefactoredName})));
-
-            list.AddRange(container.EventCallbackParams.Select(injector => CreateEventCallbackInjector(new EventCallbackParams {OwnerType = InjectorMetaData.FilterTags(nameMap, injector.OwnerAccessorType), OwnerMethodName = injector.OwnerMethodName, OwnerMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.OwnerMethodDesc), EventId = injector.EventId, InsertionIndex = injector.InsertionIndex, InsertionType = injector.InsertionType, PushParams = injector.PushParams, RedirectBranching = injector.RedirectBranching})));
+            list.AddRange(container.EventCallbackParams.Select(injector => CreateEventCallbackInjector(new EventCallbackParams
+            {
+                OwnerType = InjectorMetaData.FilterTags(nameMap, 
+                injector.OwnerAccessorType),
+                OwnerMethodName = injector.OwnerMethodName,
+                OwnerMethodDesc = InjectorMetaData.FilterTags(nameMap, injector.OwnerMethodDesc),
+                EventId = injector.EventId,
+                InsertionIndex = injector.InsertionIndex,
+                InsertionType = injector.InsertionType,
+                PushParams = injector.PushParams,
+                RedirectBranching = injector.RedirectBranching
+            })));
         }
     }
 }

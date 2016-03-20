@@ -56,18 +56,6 @@ namespace Storm.Manipulation.Cecil
             return new CecilFieldDetourInjector(SelfAssembly, GameAssembly, @params);
         }
 
-        public override IInjector CreateFieldAccessorInjector(FieldAccessorParams @params)
-        {
-            CheckSelf();
-            return new CecilFieldAccessorInjector(SelfAssembly, GameAssembly, @params);
-        }
-
-        public override IInjector CreateFieldMutatorInjector(FieldMutatorParams @params)
-        {
-            CheckSelf();
-            return new CecilFieldMutatorInjector(SelfAssembly, GameAssembly, @params);
-        }
-
         public override IInjector CreateFieldAccessorMutatorInjector(FieldAccessorMutatorParams @params)
         {
             CheckSelf();
@@ -78,12 +66,6 @@ namespace Storm.Manipulation.Cecil
         {
             CheckSelf();
             return new CecilInvokerInjector(SelfAssembly, GameAssembly, @params);
-        }
-
-        public override IInjector CreateAbsoluteCallInjector(AbsoluteCallParams @params)
-        {
-            CheckSelf();
-            return new CecilAbsoluteCallInjector(SelfAssembly, GameAssembly, @params);
         }
 
         public override IInjector CreateEventCallbackInjector(EventCallbackParams @params)

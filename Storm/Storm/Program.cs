@@ -16,8 +16,12 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
+using Storm.Collections;
 using Storm.StardewValley;
+using Storm.StardewValley.Wrapper;
 
 namespace Storm
 {
@@ -25,11 +29,6 @@ namespace Storm
     {
         private static void Main(string[] args)
         {
-            var c = new Color(255, 1, 1, 255);
-            object[] obj = {c};
-            Logging.DebugLog(obj.ToString());
-
-            /* allow window resizing on osx & *nix */
             if (Environment.OSVersion.Platform == PlatformID.Unix || Environment.OSVersion.Platform == PlatformID.MacOSX)
                 Environment.SetEnvironmentVariable("FNA_WORKAROUND_WINDOW_RESIZABLE", "1");
 

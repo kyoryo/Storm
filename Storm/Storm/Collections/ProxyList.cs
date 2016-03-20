@@ -23,52 +23,52 @@ namespace Storm.Collections
 {
     public class ProxyList<TValue> : IList<TValue>
     {
-        private readonly IList real;
+        private readonly IList _real;
 
         public ProxyList(IList real)
         {
-            this.real = real;
+            _real = real;
         }
 
-        public int Count => real.Count;
+        public int Count => _real.Count;
 
         public bool IsReadOnly => false;
 
         public TValue this[int index]
         {
-            get { return (TValue) real[index]; }
+            get { return (TValue) _real[index]; }
 
-            set { real[index] = value; }
+            set { _real[index] = value; }
         }
 
         public int IndexOf(TValue item)
         {
-            return real.IndexOf(item);
+            return _real.IndexOf(item);
         }
 
         public void Insert(int index, TValue item)
         {
-            real.Insert(index, item);
+            _real.Insert(index, item);
         }
 
         public void RemoveAt(int index)
         {
-            real.RemoveAt(index);
+            _real.RemoveAt(index);
         }
 
         public void Add(TValue item)
         {
-            real.Add(item);
+            _real.Add(item);
         }
 
         public void Clear()
         {
-            real.Clear();
+            _real.Clear();
         }
 
         public bool Contains(TValue item)
         {
-            return real.Contains(item);
+            return _real.Contains(item);
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
@@ -79,13 +79,13 @@ namespace Storm.Collections
         public bool Remove(TValue item)
         {
             if (!Contains(item)) return false;
-            real.Remove(item);
+            _real.Remove(item);
             return true;
         }
 
         public IEnumerator<TValue> GetEnumerator()
         {
-            return new ProxyEnumerator<TValue>(real);
+            return new ProxyEnumerator<TValue>(_real);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -93,40 +93,37 @@ namespace Storm.Collections
             throw new NotImplementedException();
         }
 
-        private class ProxyEnumerator<EValue> : IEnumerator<EValue>
+        private class ProxyEnumerator<TEValue> : IEnumerator<TEValue>
         {
-            private readonly IList real;
-            private int curIndex;
+            private readonly IList _real;
+            private int _curIndex;
 
             public ProxyEnumerator(IList real)
             {
-                this.real = real;
-                curIndex = -1;
-                Current = default(EValue);
+                _real = real;
+                _curIndex = -1;
+                Current = default(TEValue);
             }
 
-            public EValue Current { get; private set; }
+            public TEValue Current { get; private set; }
 
             object IEnumerator.Current => Current;
 
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
+            public void Dispose() { }
 
             public bool MoveNext()
             {
-                if (++curIndex >= real.Count)
+                if (++_curIndex >= _real.Count)
                 {
                     return false;
                 }
-                Current = (EValue) real[curIndex];
+                Current = (TEValue) _real[_curIndex];
                 return true;
             }
 
             public void Reset()
             {
-                curIndex = -1;
+                _curIndex = -1;
             }
         }
     }

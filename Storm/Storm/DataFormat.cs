@@ -19,7 +19,7 @@ namespace Storm
 {
     public enum DataFormat
     {
-        XML,
+        Xml,
         Json
     }
 }

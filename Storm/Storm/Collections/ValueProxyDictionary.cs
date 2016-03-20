@@ -177,10 +177,7 @@ namespace Storm.Collections
 
             object IEnumerator.Current => _curValue;
 
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
+            public void Dispose() { }
 
             public bool MoveNext()
             {
