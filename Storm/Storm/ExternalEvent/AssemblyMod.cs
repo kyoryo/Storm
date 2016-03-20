@@ -26,9 +26,9 @@ namespace Storm.ExternalEvent
         public LoadedMod ParentMod;
 
         public object Instance;
-        public Dictionary<string, List<MethodInfo>> CallMap;
+        public Dictionary<string, List<ReceiverSwitch>> CallMap;
 
-        public AssemblyMod(LoadedMod parent, object instance, Dictionary<string, List<MethodInfo>> callMap)
+        public AssemblyMod(LoadedMod parent, object instance, Dictionary<string, List<ReceiverSwitch>> callMap)
         {
             ParentMod = parent;
             Instance = instance;
@@ -50,18 +50,6 @@ namespace Storm.ExternalEvent
                 var resource = Instance as DiskResource;
                 if (resource != null)
                     resource.PathOnDisk = value;
-            }
-        }
-
-        public void Fire<T>(string name, T @event) where T : DetourEvent
-        {
-            List<MethodInfo> handlers;
-            if (CallMap.TryGetValue(name, out handlers))
-            {
-                foreach (var info in handlers)
-                {
-                    info.Invoke(Instance, new object[] {@event});
-                }
             }
         }
     }

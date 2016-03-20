@@ -34,7 +34,19 @@ namespace Storm.ExternalEvent
                 var mods = assembly.Modules.SelectMany(m => m.GetTypes()).Where(t => t.GetCustomAttribute(typeof(Mod)) != null);
                 foreach (var mod in mods)
                 {
-                    var map = new Dictionary<string, List<MethodInfo>>();
+                    var constructor = mod.GetConstructor(Type.EmptyTypes);
+                    if (constructor == null)
+                    {
+                        Logging.DebugLogs("Unable to find empty constructor for mod {0}", mod.FullName);
+                        continue;
+                    }
+
+                    var map = new Dictionary<string, List<ReceiverSwitch>>();
+                    var asmmod = new AssemblyMod
+                    {
+                        Instance = constructor.Invoke(null),
+                        CallMap = map
+                    };
 
                     var handlers = mod.GetMethods().Where(m => m.GetCustomAttribute(typeof(Subscribe)) != null);
                     foreach (var handler in handlers)
@@ -48,26 +60,23 @@ namespace Storm.ExternalEvent
                             continue;
                         }
 
-                        List<MethodInfo> list;
+                        List<ReceiverSwitch> list;
                         if (!map.TryGetValue(attr.Name, out list))
                         {
-                            list = new List<MethodInfo>();
+                            list = new List<ReceiverSwitch>();
                             map.Add(attr.Name, list);
                         }
-                        list.Add(handler);
+
+                        list.Add(new ReceiverSwitch
+                        {
+                            Enabled = true,
+                            Info = handler,
+                            Instance = asmmod.Instance,
+                            Priority = int.MaxValue + attr.CallPriority,
+                        });
                     }
 
-                    var constructor = mod.GetConstructor(Type.EmptyTypes);
-                    if (constructor == null)
-                    {
-                        Logging.DebugLogs("Unable to find empty constructor for mod {0}", mod.FullName);
-                        continue;
-                    }
-
-                    result.Add(new AssemblyMod
-                    {
-                        Instance = constructor.Invoke(null), CallMap = map
-                    });
+                    result.Add(asmmod);
                 }
             }
             catch (Exception e)

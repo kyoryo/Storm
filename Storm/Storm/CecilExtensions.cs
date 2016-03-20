@@ -44,7 +44,6 @@ namespace Storm
                     var refRef = ReflectionUtils.DynamicResolve(type);
                     if (refRef == null)
                     {
-                        Logging.DebugLogs("Eek! can't find {0}", type);
                         return asm.MainModule.Import(typeof(object));
                     }
                     first = asm.MainModule.Import(refRef);
@@ -59,54 +58,53 @@ namespace Storm
                 first = typeDefinitions.First();
             }
 
-            if (arrayDepth > 0)
-            {
-                return new ArrayType(first, arrayDepth);
-            }
-            return first;
+            return arrayDepth > 0 ? new ArrayType(first, arrayDepth) : first;
         }
 
         public static TypeDefinition GetTypeDef(this AssemblyDefinition asm, string type)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (!tds.Any())
+            var typeDefinitions = tds as IList<TypeDefinition> ?? tds.ToList();
+            if (!typeDefinitions.Any())
             {
                 return null;
             }
-            if (tds.Count() > 1)
+            if (typeDefinitions.Count() > 1)
             {
                 throw new TypeCollisionException();
             }
-            return tds.First();
+            return typeDefinitions.First();
         }
 
         public static FieldDefinition GetField(this AssemblyDefinition asm, string type, string name, string fieldType)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (!tds.Any())
+            var typeDefinitions = tds as IList<TypeDefinition> ?? tds.ToList();
+            if (!typeDefinitions.Any())
             {
                 return null;
             }
-            if (tds.Count() > 1)
+            if (typeDefinitions.Count() > 1)
             {
                 throw new TypeCollisionException();
             }
-            var td = tds.First();
+            var td = typeDefinitions.First();
             return td.Fields.FirstOrDefault(f => f.Name.Equals(name) && f.FieldType.Resolve().FullName.Equals(fieldType));
         }
 
         public static MethodDefinition GetMethod(this AssemblyDefinition asm, string type, string name, string desc)
         {
             var tds = asm.Modules.Where(m => m.GetType(type) != null).Select(m => m.GetType(type));
-            if (!tds.Any())
+            var typeDefinitions = tds as IList<TypeDefinition> ?? tds.ToList();
+            if (!typeDefinitions.Any())
             {
                 return null;
             }
-            if (tds.Count() != 1)
+            if (typeDefinitions.Count() != 1)
             {
                 throw new TypeCollisionException();
             }
-            var td = tds.First();
+            var td = typeDefinitions.First();
             return td.Methods.FirstOrDefault(m => m.Name.Equals(name) && CecilUtils.DescriptionOf(m).Equals(desc));
         }
 

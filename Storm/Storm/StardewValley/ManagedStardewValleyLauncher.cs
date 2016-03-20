@@ -127,6 +127,7 @@ namespace Storm.StardewValley
             {
                 Directory.CreateDirectory(StormApi.ModsPath);
             }
+
             var modLoader = new LocalModLoader(StormApi.ModsPath);
             var mods = modLoader.Load();
             foreach (var mod in mods) EventBus.AddReceiver(mod);

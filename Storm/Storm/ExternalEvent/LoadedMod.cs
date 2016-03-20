@@ -42,12 +42,5 @@ namespace Storm.ExternalEvent
         public string Version => Manifest.Version;
 
         public dynamic Properties => Manifest.Properties;
-
-        public void Fire<T>(string name, T @event) where T : DetourEvent
-        {
-            if (!Enabled) return;
-            foreach (var mod in AssemblyMods)
-                mod.Fire(name, @event);
-        }
     }
 }

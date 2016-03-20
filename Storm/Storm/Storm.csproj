@@ -120,6 +120,7 @@
     <Compile Include="ExternalEvent\JsonModManifest.cs" />
     <Compile Include="ExternalEvent\ModAttribute.cs" />
     <Compile Include="Collections\KeyProxyDictionary.cs" />
+    <Compile Include="ExternalEvent\ReceiverSwitch.cs" />
     <Compile Include="Manipulation\Cecil\CecilInstanceDetourInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilEventCallbackInjector.cs" />
     <Compile Include="Manipulation\Cecil\CecilFieldAccessorMutatorInjector.cs" />

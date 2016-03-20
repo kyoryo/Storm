@@ -24,10 +24,10 @@ namespace Storm.ExternalEvent
 {
     public class ModEventBus
     {
-        private readonly Dictionary<Type, List<ReceiverSwitch>> _receivers = new Dictionary<Type, List<ReceiverSwitch>>();
+        private readonly Dictionary<string, List<ReceiverSwitch>> _receivers = new Dictionary<string, List<ReceiverSwitch>>();
         public List<LoadedMod> Mods = new List<LoadedMod>();
 
-        private void AddReceiver(LoadedMod parent, Type eventType, MethodInfo receiver, int priority)
+        public void AddReceiver(object parent, string eventType, MethodInfo receiver, int priority)
         {
             List<ReceiverSwitch> list;
             if (!_receivers.TryGetValue(eventType, out list))
@@ -46,7 +46,13 @@ namespace Storm.ExternalEvent
                 }
             }
 
-            var @switch = new ReceiverSwitch {Mod = parent, Info = receiver, Priority = priority, Enabled = true};
+            var @switch = new ReceiverSwitch
+            {
+                Instance = parent,
+                Info = receiver,
+                Priority = priority,
+                Enabled = true
+            };
 
             if (idx == -1) list.Add(@switch);
             else list.Insert(idx, @switch);
@@ -54,6 +60,16 @@ namespace Storm.ExternalEvent
 
         public void AddReceiver(LoadedMod mod)
         {
+            foreach (var sub in mod.AssemblyMods)
+            {
+                foreach (var entry in sub.CallMap)
+                {
+                    foreach (var @switch in entry.Value)
+                    {
+                        AddReceiver(sub.Instance, entry.Key, @switch.Info, @switch.Priority);
+                    }
+                }
+            }
             Mods.Add(mod);
         }
 
@@ -62,29 +78,41 @@ namespace Storm.ExternalEvent
             Mods.Remove(mod);
         }
 
-        public void Fire<T>(string name, T val) where T : DetourEvent
+        private void DisableSwitches(object instance)
         {
-            for (var i = 0; i < Mods.Count; i++)
+            foreach (var entry in _receivers)
             {
-                var lm = Mods[i];
-                try
+                foreach (var @switch in entry.Value)
                 {
-                    lm.Fire(name, val);
-                }
-                catch (Exception e)
-                {
-                    Logging.DebugLogs("[{0}] Mod {1} threw the error {2} ... unloading mod", GetType().Name, lm.Name, e.ToString());
-                    lm.Enabled = false;
+                    var tmp = @switch;
+                    if (tmp.Instance.Equals(instance))
+                    {
+                        tmp.Enabled = false;
+                    }
                 }
             }
         }
 
-        private struct ReceiverSwitch
+        public void Fire<T>(string name, T val) where T : DetourEvent
         {
-            public LoadedMod Mod;
-            public MethodInfo Info;
-            public int Priority;
-            public bool Enabled;
+            List<ReceiverSwitch> list;
+            if (!_receivers.TryGetValue(name, out list))
+            {
+                return;
+            }
+
+            foreach (var @switch in list)
+            {
+                var tmp = @switch;
+                try
+                {
+                    tmp.Info.Invoke(tmp.Instance, new object[] {val});
+                }
+                catch (Exception e)
+                {
+                    DisableSwitches(tmp.Instance);
+                }
+            }
         }
     }
 }
